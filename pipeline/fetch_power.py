@@ -2,6 +2,8 @@
 and NOAA's latest El Niño outlook -> data/raw/enso_outlook.json.
 Rain, temperature, humidity, wind and sunlight (for FAO-56 Penman-Monteith water demand), 1984-2025:
 sunlight (ALLSKY_SFC_SW_DWN) starts in 1984. All free, no login. Run: python pipeline/fetch_power.py
+Every point of sites.points(): the app's pins and one point per former province (63).
+Only points with no file yet: python pipeline/fetch_power.py missing
 Only refresh NOAA's outlook (monthly, 2nd Thursday): python pipeline/fetch_power.py enso
 """
 import html
@@ -12,7 +14,7 @@ import sys
 import urllib.request
 from datetime import datetime
 
-from sites import SITES
+from sites import points
 
 RAW = pathlib.Path(__file__).resolve().parent.parent / "data" / "raw"
 URL = ("https://power.larc.nasa.gov/api/temporal/daily/point"
@@ -41,12 +43,16 @@ def fetch_enso():
 
 def main():
     RAW.mkdir(parents=True, exist_ok=True)
-    fetch_enso()
-    if sys.argv[1:] == ["enso"]:
-        return
-    with urllib.request.urlopen(ONI_URL, timeout=120) as r:
-        (RAW / "oni.txt").write_bytes(r.read())
-    for s in SITES:
+    only_missing = sys.argv[1:] == ["missing"]
+    if not only_missing:
+        fetch_enso()
+        if sys.argv[1:] == ["enso"]:
+            return
+        with urllib.request.urlopen(ONI_URL, timeout=120) as r:
+            (RAW / "oni.txt").write_bytes(r.read())
+    for s in points():
+        if only_missing and (RAW / f"power_{s['id']}.json").exists():
+            continue
         print("fetching", s["id"])
         with urllib.request.urlopen(URL.format(**s), timeout=120) as r:
             data = json.load(r)
