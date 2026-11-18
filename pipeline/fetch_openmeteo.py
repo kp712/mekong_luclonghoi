@@ -25,20 +25,20 @@ def main():
         if out.exists():
             continue
         print("fetching", s["id"], flush=True)
-        for attempt in range(4):
+        for attempt in range(6):
             try:
                 with urllib.request.urlopen(URL.format(**s), timeout=120) as r:
                     data = json.load(r)
                 out.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
                 break
             except urllib.error.HTTPError as e:
-                if e.code == 429 and attempt < 3:
-                    wait = 10 * (attempt + 1)
+                if e.code == 429 and attempt < 5:
+                    wait = 15 * (attempt + 1)
                     print(f"  429 rate-limited, waiting {wait}s...", flush=True)
                     time.sleep(wait)
                 else:
                     raise
-        time.sleep(3)
+        time.sleep(5)
 
 
 if __name__ == "__main__":
