@@ -786,7 +786,7 @@ def test_provinces_output():
     assert d["sources"][d["region_src"][0]]["title"] == sites.REGION_SRC["title"]
     # its own numbered source list: every source cited, every citation real
     text = build.PROV_OUT.read_text(encoding="utf-8")
-    refs = [i for m in re.finditer(r'"(?:src|cal_src|chart_src|soil_src|region_src|elnino_src|ndvi_src|outline_src)": \[([^\]]*)\]', text) for i in json.loads("[" + m.group(1) + "]")]
+    refs = [i for m in re.finditer(r'"(?:src|cal_src|chart_src|soil_src|region_src|elnino_src|ndvi_src|outline_src|salt_src)": \[([^\]]*)\]', text) for i in json.loads("[" + m.group(1) + "]")]
     assert set(refs) == set(range(len(d["sources"]))) and "url" not in json.dumps(d["provinces"]) + json.dumps(d["places"])
     vi = re.findall(r'"vi": "((?:[^"\\]|\\.)*)"', text)
     assert vi and not [v for v in vi if re.search(r"\d\.\d(?!\d\d(?!\d))", v)], "Vietnamese text must use decimal commas"
@@ -825,6 +825,11 @@ def test_provinces_output():
         for c in flat(x):  # no salinity estimate: low, except the bare Feb-Apr bonus MODIS can give (confidence())
             ok = ("low", "medium") if x["ndvi"] and x["ndvi"]["farmland"] and c["id"] in ("rice_upland", "salt_tolerant") else ("low",)
             assert c["scores"]["salt"] is None and c["confidence"] in ok, (x["id"], c["id"], c["confidence"])
+    # the 5 Sóc Trăng areas drawn inside the Vietnam map: salt is always an estimate, from the same stations as sites.json
+    app = {s["id"]: s for s in json.loads(build.OUT.read_text(encoding="utf-8"))["sites"]}
+    assert [s["id"] for s in d["pins"]] == list(app) and d["salt_src"]
+    for s in d["pins"]:
+        assert s["salt"]["estimate"] is True and s["salt"]["max_ppt"] == app[s["id"]]["salinity"]["max_ppt"] and s["salt"]["level"] == app[s["id"]]["salinity"]["level"]
     assert sum(x["own"] for x in places) == 34 and sum(x["scored"] for x in places) == 12  # Mekong Delta: 2+2+3+3+2 former provinces
 
 

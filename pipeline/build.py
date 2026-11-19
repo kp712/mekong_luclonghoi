@@ -1007,9 +1007,16 @@ def build():
             "elnino_src": cite(ONI_SRC), "ndvi_src": cite(MODIS_SRC), "outline_src": cite(OUTLINE_SRC)}
     provinces = [province(pr, rotations, gpm) for pr in PROVINCES]
     places = [place(f, pr, rotations, gpm) for pr in PROVINCES for f in pr["former"]]
+    # the 5 Sóc Trăng areas, drawn inside the Vietnam map like the main map: salt peak at the nearest station (estimate from
+    # public reports, never satellite) and MODIS crops a year; the full planner lives in sites.json
+    head["salt_src"] = cite(SALINITY["sources"])
+    pins = [dict({k: s[k] for k in ("id", "name", "lat", "lon")},
+                 salt={"level": s["salinity"]["level"], "months": s["salinity"]["months"], "max_ppt": s["salinity"]["max_ppt"],
+                       "elnino_max_ppt": s["elnino"]["salinity"]["max_ppt"], "estimate": True},
+                 crops=s["ndvi"]["crops_per_year"] if s["ndvi"] else None) for s in sites]
     PROV_OUT.write_text(json.dumps({"generated": date.today().isoformat(), "regions": REGIONS, **head,
                                     "sources": [v for _, v in sorted(SOURCES.values(), key=lambda x: x[0])], "provinces": provinces,
-                                    "places": places, "pins": [{k: s[k] for k in ("id", "name", "lat", "lon")} for s in SITES]}, ensure_ascii=False, indent=1), encoding="utf-8")
+                                    "places": places, "pins": pins}, ensure_ascii=False, indent=1), encoding="utf-8")
     print("wrote", PROV_OUT, len(provinces), "provinces,", len(places), "province points")
 
 
