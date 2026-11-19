@@ -179,3 +179,25 @@ body.vn-rainlayer #mapKey { display: none }   /* rain layers: the salt key does 
   body.vn-country .vn-key { bottom: calc(240px + env(safe-area-inset-bottom, 0px)) }   /* above the month slider */
   body.vn-country .vn-key-pop { max-height: calc(100dvh - var(--top-h) - 360px); overflow-y: auto }
 }
+
+/* ---- province hover card (#hoverCard.vn-hc, vn.js cardHTML): the Sóc Trăng year box, plus range, heat and this month ---- */
+#hoverCard.vn-hc { width: 288px }
+#hoverCard.vn-hc .hc-ey { display: flex; align-items: center; gap: 6px }
+#hoverCard.vn-hc .hc-ey .sg-dot { width: 8px; height: 8px; border-radius: 50%; flex: none }
+#hoverCard.vn-hc .hc-name small { display: block; font-size: .75rem; font-weight: 500; color: var(--ink-3) }
+.vn-hc-sub { margin: 2px 0 0; font-size: .75rem; color: var(--ink-3) }
+#hoverCard .vn-hc-bars { height: 72px; gap: 3px; margin-top: .6rem }
+#hoverCard .vn-hc-bars .hb .w { left: 45%; right: 45%; background: color-mix(in srgb, var(--ink) 45%, transparent); border-radius: 1px }
+#hoverCard .vn-hc-bars .hb .r { left: 12%; right: 12%; border-radius: 2px 2px 0 0; transform-origin: bottom; animation: vnGrow .45s var(--ease) both }
+#hoverCard .vn-hc-bars .hb:nth-child(2n) .r { animation-delay: .03s } #hoverCard .vn-hc-bars .hb:nth-child(3n) .r { animation-delay: .06s }
+#hoverCard .vn-hc-bars .hb.now { background: color-mix(in srgb, var(--gold) 14%, transparent); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--gold) 70%, transparent); border-radius: 3px }
+@keyframes vnGrow { from { transform: scaleY(0) } to { transform: none } }
+#hoverCard.vn-hc .hc-m .on { color: var(--ink); font-weight: 700; text-decoration: underline; text-underline-offset: 3px }
+#hoverCard .vn-heat i { background: #E5793A }
+.vn-hc-now { display: flex; flex-wrap: wrap; gap: 4px 8px; margin: .55rem 0 0; padding: 7px 9px; border-radius: 9px; background: color-mix(in srgb, var(--ink) 6%, transparent); font-size: .75rem; color: var(--ink-2) }
+.vn-hc-now b { flex-basis: 100%; font-weight: 600; color: var(--ink) }
+.vn-hc-now .up { color: var(--water); font-weight: 600 } .vn-hc-now .down { color: #E5793A; font-weight: 600 } .vn-hc-now .hot { color: var(--risk) }
+#hoverCard .vn-k-none { background: none; outline: 1px dashed var(--line-2) }
+.vn-k-w { width: 2px !important; height: 10px !important; background: color-mix(in srgb, var(--ink) 45%, transparent) }
+@media (prefers-reduced-motion: reduce) { #hoverCard .vn-hc-bars .hb .r { animation: none } }
+#hoverCard .vn-hc-bars .hb { overflow: hidden }

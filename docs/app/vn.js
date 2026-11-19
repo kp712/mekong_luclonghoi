@@ -345,6 +345,56 @@ ${mode === "salt" ? "" : `<div class="vn-two vn-yrs">${["typical", "elnino"].map
   });
   const sideRender = () => { try { typeof Side !== "undefined" && Side.render && Side.render(); } catch (er) {} };
 
+  /* ---------- hover card (same box as the Sóc Trăng areas' #hoverCard): a year at a glance ----------
+     Bars = rain each month (blue when above the crops' water need, muted when below), gold tick = water need (ET₀),
+     thin whisker = driest to wettest year, outlined column = the slider's month. Under it: field greenness (MODIS,
+     where there is a farmland pixel) and hot days (≥ 35 °C), then this month in words. */
+  const canHover = () => window.matchMedia && matchMedia("(hover: hover) and (pointer: fine)").matches;
+  const HC = {
+    green: ["Greenness of the fields (NASA MODIS)", "Độ xanh của ruộng (NASA MODIS)"], heat: ["Hot days ≥ 35 °C (NASA POWER)", "Ngày nóng ≥ 35 °C (NASA POWER)"],
+    wet: ["Rain above crop water use", "Mưa nhiều hơn cây cần"], dry: ["Drier than crops need", "Khô hơn cây cần"], range: ["Driest–wettest year", "Năm khô nhất–ẩm nhất"],
+    salt: ["Salt", "Mặn"], noSalt: ["no estimate here yet", "chưa có ước tính ở đây"], tip: ["Click for full details", "Bấm để xem đầy đủ"],
+    now: ["{m}: {r} mm rain, crops need {e} mm", "{m}: mưa {r} mm, cây cần {e} mm"], surplus: ["{v} mm to spare", "dư {v} mm"], deficit: ["short by {v} mm", "thiếu {v} mm"],
+    hotN: ["{n} hot days", "{n} ngày nóng"], avgOf: ["Average of {n} former provinces", "Trung bình {n} tỉnh cũ"]
+  };
+  const ht = (k) => HC[k][lang === "vi" ? 1 : 0];
+  function cardHTML(p, o) {
+    const x = o || p, c = climOf(x), m = mon, top = Math.max(...c.rain_mm, ...c.et0_mm, 1) * 1.25;  // the wettest-year whisker may run off the top
+    const pc = (v) => (Math.min(1, v / top) * 100).toFixed(1);
+    const bars = c.rain_mm.map((r, i) => `<span class="hb ${r >= c.et0_mm[i] ? "wet" : "dry"}${i === m ? " now" : ""}"><i class="w" style="bottom:${pc(c.rain_min_mm[i])}%;height:${(pc(c.rain_max_mm[i]) - pc(c.rain_min_mm[i])).toFixed(1)}%"></i><i class="r" style="height:${Math.max(3, pc(r))}%"></i><i class="e" style="bottom:${pc(c.et0_mm[i])}%"></i></span>`).join("");
+    const nd = (o || PL[p.id] || {}).ndvi, hmax = Math.max(...c.hot_days, 1);
+    const green = nd && nd.farmland && nd.monthly ? `<div class="hc-green" aria-hidden="true">${nd.monthly.map((g) => `<i style="opacity:${Math.max(.15, Math.min(1, (g - .2) / .5)).toFixed(2)}"></i>`).join("")}</div><div class="hc-gl">${esc(ht("green"))}</div>` : "";
+    const heat = sum(c.hot_days) >= 1 ? `<div class="hc-green vn-heat" aria-hidden="true">${c.hot_days.map((h) => `<i style="opacity:${h < .5 ? .08 : Math.max(.3, h / hmax).toFixed(2)}"></i>`).join("")}</div><div class="hc-gl">${esc(ht("heat"))}</div>` : "";
+    const r = c.rain_mm[m], e = c.et0_mm[m], d = r - e, hot = c.hot_days[m];
+    const title = o && !o.own ? `${nm(o.name)} <small>${esc(t("former"))} → ${esc(nm(p.name))}</small>` : esc(nm(p.name));
+    return `<div class="hc-ey"><i class="sg-dot vn-dot-${esc(p.region)}"></i>${esc(t(yr))} · ${esc(nm(D.regions[p.region]).split(" và ")[0].split(" and ")[0])}</div>
+<b class="hc-name">${title}</b>
+${!o && p.former.length > 1 ? `<p class="vn-hc-sub">${esc(fill(ht("avgOf"), { n: p.former.length }))}</p>` : ""}
+<div class="hc-bars vn-hc-bars" role="img" aria-label="${esc(c.rain_mm.map((v, i) => `${MONL[lang][i]} ${num(v)} mm`).join(", "))}">${bars}</div>
+<div class="hc-m" aria-hidden="true">${MON[lang].map((x0, i) => `<span${i === m ? ' class="on"' : ""}>${x0}</span>`).join("")}</div>
+${green}${heat}
+<p class="vn-hc-now"><b>${esc(fill(ht("now"), { m: MONL[lang][m], r: num(r), e: num(e) }))}</b><span class="${d >= 0 ? "up" : "down"}">${esc(fill(ht(d >= 0 ? "surplus" : "deficit"), { v: num(Math.abs(d)) }))}</span>${hot >= .5 ? `<span class="hot">${esc(fill(ht("hotN"), { n: num(hot) }))}</span>` : ""}</p>
+<p class="hc-salt"><span class="k-salt vn-k-none"></span>${esc(ht("salt"))}: <b>${esc(ht("noSalt"))}</b></p>
+<p class="hc-key"><span><i class="k-wet"></i>${esc(ht("wet"))}</span><span><i class="k-dry"></i>${esc(ht("dry"))}</span><span><i class="k-e"></i>ET₀ NASA POWER</span><span><i class="vn-k-w"></i>${esc(ht("range"))}</span></p>
+<small class="hc-tip">${esc(ht("tip"))}</small>`;
+  }
+  let hcOn = false;
+  function card2(p, o, ev) {
+    const hc = $("#hoverCard"); if (!hc) return;
+    if (!p || !canHover() || !D || !countryOn) { if (hcOn) { hc.classList.remove("show", "vn-hc"); hc.setAttribute("aria-hidden", "true"); hcOn = false; } return; }
+    hc.innerHTML = cardHTML(p, o); hc.classList.add("show", "vn-hc"); hc.removeAttribute("aria-hidden"); hc.hidden = false; hc.style.margin = "0"; hcOn = true;
+    placeCard(ev);
+  }
+  function placeCard(ev) {
+    const hc = $("#hoverCard"); if (!hcOn || !hc || !ev) return;
+    const bw = hc.offsetWidth || 280, bh = hc.offsetHeight || 300;
+    let x = ev.clientX + 22, y = ev.clientY - bh / 2;
+    const sd = $("#side"), sr = sd && sd.offsetWidth ? sd.getBoundingClientRect().right + 10 : 10;
+    if (x + bw > innerWidth - 10) x = ev.clientX - bw - 22;
+    x = Math.max(sr, Math.min(innerWidth - bw - 10, x)); y = Math.max(70, Math.min(innerHeight - bh - 10, y));
+    hc.style.left = x + "px"; hc.style.top = y + "px";
+  }
+
   /* ---------- outlines and pins ---------- */
   function drawMap() {
     // under the planner's own panes (grad 404, cells 410, labels 610): its Sóc Trăng areas stay on top and keep their taps
@@ -357,8 +407,9 @@ ${mode === "salt" ? "" : `<div class="vn-two vn-yrs">${["typical", "elnino"].map
     G.inner.forEach((i) => L.polyline(G.arcs[i].map(ll), { pane: "vn-inner", renderer: RI, interactive: false, className: "vn-inner", smoothFactor: 0, noClip: true }).addTo(map));
     D.provinces.forEach((p) => {
       const poly = L.polygon(G.province[p.id].map((r) => ringPts(r).map(ll)), { pane: "vn-cells", renderer: R, className: "vn-prov", smoothFactor: 0, noClip: true, bubblingMouseEvents: false, weight: 1.5 }).addTo(map);
-      poly.on("mouseover", () => hover(p.id));
-      poly.on("mouseout", () => hover(null));
+      poly.on("mouseover", (e) => { hover(p.id); card2(p, null, e.originalEvent); });
+      poly.on("mousemove", (e) => placeCard(e.originalEvent));
+      poly.on("mouseout", () => { hover(null); card2(null); });
       poly.on("click", () => choose(p.id, "avg"));
       polys[p.id] = poly;
     });
@@ -369,8 +420,8 @@ ${mode === "salt" ? "" : `<div class="vn-two vn-yrs">${["typical", "elnino"].map
       const lm = L.marker([o.lat, o.lon], { pane: "vn-labels", interactive: false, keyboard: false, icon: L.divIcon({ className: "sg-label-wrap vn-lw", html: '<span class="sg-label sg-hide vn-label-' + kind + '"></span>', iconSize: [0, 0] }) }).addTo(map);
       const btn = m.getElement().querySelector("button"), lab = lm.getElement().querySelector(".sg-label");
       [btn, lab].forEach((x) => { L.DomEvent.disableClickPropagation(x); x.addEventListener("click", (e) => { e.stopPropagation(); onClick(); }); });
-      btn.addEventListener("mouseenter", () => hover(o.province));
-      btn.addEventListener("mouseleave", () => hover(null));
+      btn.addEventListener("mouseenter", (e) => { hover(o.province); card2(P[o.province], o, e); });
+      btn.addEventListener("mouseleave", () => { hover(null); card2(null); });
       pins[o.id + ":" + kind] = { o, kind, btn, lab, m, lm };
     };
     D.places.forEach((x) => add(x, x.own ? "own" : "former", () => choose(x.province, x.id)));
@@ -384,8 +435,9 @@ ${mode === "salt" ? "" : `<div class="vn-two vn-yrs">${["typical", "elnino"].map
     Object.values(pins).forEach((p) => {
       const o = p.o, pr = P[o.province];
       let small = "";
-      if (p.kind === "former") small = `${t("former")} → ${nm(pr.name)}`;
-      else if (p.kind === "own") small = `GPM · ${num(sum(climOf(o).rain_mm))} ${lang === "vi" ? "mm mưa/năm" : "mm rain/yr"}`;
+      // what the satellites saw there, as on the Sóc Trăng plates: MODIS crops a year on farmland, else GPM rain a year
+      if (o.ndvi && o.ndvi.farmland) small = `MODIS · ${num(o.ndvi.crops_per_year, 1)} ${lang === "vi" ? "vụ/năm" : "crops/yr"}`;
+      else small = `GPM · ${num(sum(climOf(o).rain_mm))} ${lang === "vi" ? "mm mưa/năm" : "mm rain/yr"}`;
       const name = nm(o.name);
       p.lab.innerHTML = `<i class="sg-dot vn-dot-${esc(pr.region)}" aria-hidden="true"></i><b>${esc(name)}</b>${small ? `<small>${esc(small)}</small>` : ""}`;
       p.btn.setAttribute("aria-label", name);
@@ -439,6 +491,7 @@ ${mode === "salt" ? "" : `<div class="vn-two vn-yrs">${["typical", "elnino"].map
 
   /* ---------- selection and the side panel ---------- */
   function choose(id, v) {
+    card2(null);
     sel = id || null; view = v || "avg";
     if (sel && keyOpen && isPhone()) { keyOpen = false; drawKey(); }  // room for the province on phones
     if (sel) panelOpen = true;
