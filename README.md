@@ -3,7 +3,7 @@
 
 Rice farmers in coastal Sóc Trăng, in Vietnam's Mekong Delta, grow two or three rice crops a year on land that is running short of fresh water and is reached by sea salt in the dry season. Mekong Rotation Explorer is a phone app that compares a farmer's current rotation with the local alternatives (rice–shrimp, rice plus a dry-season upland crop, salt-tolerant rice with a rest period), ranks them by what the farmer cares about using NASA Earth data for their area, and turns the chosen one into a day-by-day view of their field and a 12-month plan. It works in Vietnamese and English.
 
-**Try it:** **https://kp712.github.io/luclonghoi_jsc/** (no login). Tap **Try a sample field** to see a field already planned, or **Create a field** to pick an area on the map. Methods, formulas and every source: **[Methods and data](#methods-and-data)** below.
+**Try it:** **https://kp712.github.io/mekong_luclonghoi/** (no login). Tap **Try a sample field** to see a field already planned, or **Create a field** to pick an area on the map. Methods, formulas and every source: **[Methods and data](#methods-and-data)** below.
 
 | On a phone (Vietnamese) | On a computer (English) |
 |---|---|
@@ -231,7 +231,7 @@ The rice figures lean on 2023–24, a record-price season in Sóc Trăng; the 20
 - **Confidence comes from the evidence, not from a hand-set label.** Each card starts at High and drops one level for each of: (1) income resting on fallback figures (fewer than 2 qualifying published figures for a crop), on figures that differ by more than 2× between lowest and highest, or on no figure at all (mung bean); (2) no NASA MODIS NDVI loaded for the pin, or a MODIS pixel never greener than 0.5 NDVI (a town or water, not a field; province points only); (3) a salinity station with fewer than 5 recent dry seasons or no reading after 2022; (4) rice–shrimp where brackish water is not normally available; (5) team estimates used by that card (salt-tolerant rice counted as half a rice month, salt left by the shrimp phase, the El Niño crop-loss share where it applies, the 0.5 break credit for pests, the soil-score weights and dry-break months, the pest timing for upland crops, the shrimp disease floor and cold-night rule), together one level. Fields usually bare in February–April raise the upland and salt-tolerant options one level (the field-calendar rule under "How the scores are set"). Drop (1) also caps the card at Medium, so this bonus cannot cancel thin income evidence. The reasons are listed on the card under its risks.
 - **Salinity readings checked two ways.** Our typing of the station table reproduces the paper's own count, minimum, maximum and mean for all 8 stations. The national forecast centre's 10-day bulletins (NCHMF; the 20 found online for 2024–2026 are in `data/raw/salinity_bulletins.json`) are an independent record: their highest 2024 and 2025 readings equal the table's at 9 of 10 station-years. The 10th, Thạnh Phú in 2025, peaked in May, after the last bulletin we found.
 - **El Niño seasons are saltier.** Over the last 10 dry seasons, the average highest reading was higher in El Niño seasons than in other seasons at every pin's station (e.g. Thạnh Phú 6.8‰ vs 11.1‰, Long Phú 16.3‰ vs 19.6‰). Over 2001–2024 the same holds at all 8 stations.
-- **Self-checks.** `python pipeline/test_build.py` runs 33 checks on the calculations and on the data the app reads.
+- **Self-checks.** `python pipeline/test_build.py` runs 38 checks on the calculations and on the data the app reads.
 
 <details><summary>Rain and water-demand cross-check numbers</summary>
 
@@ -314,10 +314,10 @@ No coding experience needed. The first time takes about 10 minutes, and after th
    - If you see **"py is not recognized"**, type `python --version` instead. If that shows a version, use `python` wherever this guide says `py`. If neither works, see **If something goes wrong** below.
 
 #### Step 2: Download the app (one time only)
-1. Open **https://github.com/kp712/luclonghoi_jsc** in your browser.
+1. Open **https://github.com/kp712/mekong_luclonghoi** in your browser.
 2. Click the green **Code** button, then **Download ZIP**.
-3. Open your **Downloads** folder, right-click **luclonghoi_jsc-main.zip** and choose **Extract All…**, then **Extract**.
-4. Open the new **luclonghoi_jsc-main** folder. If it only contains another **luclonghoi_jsc-main** folder, open that one too. You are in the right place when you can see the folders **docs**, **pipeline** and **data**, and the file **README.md**.
+3. Open your **Downloads** folder, right-click **mekong_luclonghoi-main.zip** and choose **Extract All…**, then **Extract**.
+4. Open the new **mekong_luclonghoi-main** folder. If it only contains another **mekong_luclonghoi-main** folder, open that one too. You are in the right place when you can see the folders **docs**, **pipeline** and **data**, and the file **README.md**.
 
 #### Step 3: Start the app (every time you want to use it)
 1. In that folder, click once in the **address bar** at the top of the File Explorer window (where the folder path is shown), type `powershell` and press **Enter**. A PowerShell window opens, already "inside" the app folder. On Windows 11 you can also right-click an empty space in the folder and choose **Open in Terminal**.
@@ -350,7 +350,7 @@ Click on the PowerShell window and press **Ctrl** + **C**, then close the window
 To give everyone a normal web link instead of running it yourself, a person with admin rights to the GitHub project can:
 1. Go to the project on GitHub, then **Settings → Pages**.
 2. Under **Build and deployment**, set **Source** to **Deploy from a branch**, **Branch** to **release**, and the folder to **/docs**, then click **Save**.
-3. After a few minutes the app is at **https://kp712.github.io/luclonghoi_jsc/**. Free GitHub accounts can only do this for public projects.
+3. After a few minutes the app is at **https://kp712.github.io/mekong_luclonghoi/**. Free GitHub accounts can only do this for public projects.
 
 #### For teammates: updating the data
 You don't need this to use the app. The data in the download is already complete. Run these from the project folder in PowerShell (Step 3, point 1), one line at a time:
@@ -360,7 +360,7 @@ py pipeline/appeears.py ndvi    # NASA MODIS greenness via AppEEARS (needs Earth
 py pipeline/fetch_soil.py       # SoilGrids topsoil (slow website: if it stops, run it again to continue)
 py pipeline/fetch_gpm.py        # NASA GPM rain, the rain the app shows (needs Earthdata login, see below)
 py pipeline/build.py            # combines everything into docs/data/sites.json
-py pipeline/test_build.py       # expect 33 ok lines, the unknown-ID fixture warning, a rebuild message and any unverified sources
+py pipeline/test_build.py       # expect 38 ok lines, the unknown-ID fixture warning, a rebuild message and any unverified sources
 ```
 **NASA Earthdata login** (free account at https://urs.earthdata.nasa.gov; for `fetch_gpm.py` also approve **NASA GESDISC DATA ARCHIVE** under Applications → Authorized Apps). Type these two lines in the same PowerShell window before running `appeears.py` or `fetch_gpm.py`, with your own details between the quotes. They only last until you close the window:
 ```
