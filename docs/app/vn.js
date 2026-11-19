@@ -7,7 +7,7 @@
    Globals used: L, VN_GEO, MapView (its Leaflet map), App, Dash, DISTRICTS. Exposes VnMap.country(). */
 const VnMap = (() => {
   const $ = (s) => document.querySelector(s);
-  const store = { get: (k) => { try { return localStorage.getItem(k) } catch (e) { return null } } };
+  const store = { get: (k) => { try { return localStorage.getItem(k) } catch (e) { return null } }, set: (k, v) => { try { localStorage.setItem(k, v) } catch (e) {} } };
   const appLang = () => (window.App && App.lang ? App.lang() : store.get("mre-lang") === "en" ? "en" : "vi");
   let lang = appLang();
   const COUNTRY_Z = 9.25;  // the planner's own view starts at zoom 9 (map.js used to stop there)
@@ -75,7 +75,8 @@ const VnMap = (() => {
   const reduced = () => window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   let D = null, P = {}, PL = {}, map = null, polys = {}, pins = {}, gradLayer = null;
-  let sel = null, view = "avg", yr = "typical", mode = "salt", keyOpen = !isPhone(), hov = null, panelOpen = true;
+  // mode: the map colour this phone chose last time (salt the first time)
+  let sel = null, view = "avg", yr = "typical", mode = ["salt", "rain", "bal"].includes(store.get("vn-mode")) ? store.get("vn-mode") : "salt", keyOpen = !isPhone(), hov = null, panelOpen = true;
   const curMon = () => (typeof D5 !== "undefined" && D5.mon ? D5.mon() : new Date().getMonth());  // the month slider (extra.js) drives every mode
   let mon = curMon();
   const desktop = () => !isPhone();
@@ -215,7 +216,7 @@ ${mode === "salt" ? "" : `<div class="vn-two vn-yrs">${["typical", "elnino"].map
   }
   function onLayer(e) {
     const b = e.target.closest("button"); if (!b) return;
-    if (b.dataset.mode && b.dataset.mode !== mode) { mode = b.dataset.mode; paint(); drawKey(); slider(); }
+    if (b.dataset.mode && b.dataset.mode !== mode) { mode = b.dataset.mode; store.set("vn-mode", mode); paint(); drawKey(); slider(); }
     else if (b.dataset.yr && b.dataset.yr !== yr) { yr = b.dataset.yr; paint(); drawKey(); render(); labels(); slider(); }
   }
   const slider = () => { try { typeof D5 !== "undefined" && D5.month && D5.month(curMon()); } catch (er) {} };
