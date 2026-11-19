@@ -1,4 +1,5 @@
-"""Download Open-Meteo ERA5-Land historical daily weather for every pin -> data/raw/openmeteo_<id>.json.
+"""Download Open-Meteo ERA5-Land historical daily weather for every point of sites.points() -> data/raw/openmeteo_<id>.json.
+Not NASA data and not read by build.py: kept as an outside cross-check of NASA POWER.
 Free, no login, ~9 km resolution. Skips pins already saved.
 """
 import json
@@ -6,7 +7,7 @@ import pathlib
 import time
 import urllib.request
 
-from sites import SITES
+from sites import points
 
 RAW = pathlib.Path(__file__).resolve().parent.parent / "data" / "raw"
 URL = (
@@ -20,7 +21,7 @@ URL = (
 
 def main():
     RAW.mkdir(parents=True, exist_ok=True)
-    for s in SITES:
+    for s in points():
         out = RAW / f"openmeteo_{s['id']}.json"
         if out.exists():
             continue

@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-16",
+ "generated": "2026-11-19",
  "soil_help": [
   {
    "title": {
@@ -90,8 +90,8 @@
  "outlook": {
   "elnino": true,
   "text": {
-   "en": "NOAA forecast (8 Oct 2026): over 83% chance of a strong-to-very strong El Niño through Jan–Mar 2027.",
-   "vi": "Dự báo của NOAA (8/10/2026): khả năng có El Niño mạnh đến rất mạnh kéo dài đến tháng 1–3/2027 là trên 83%."
+   "en": "NOAA forecast (12 Nov 2026): over 79% chance of a strong-to-very strong El Niño through Jan–Mar 2027.",
+   "vi": "Dự báo của NOAA (12/11/2026): khả năng có El Niño mạnh đến rất mạnh kéo dài đến tháng 1–3/2027 là trên 79%."
   },
   "src": [
    14
@@ -466,7 +466,7 @@
    "verified": true
   },
   {
-   "title": "NOAA CPC ENSO Diagnostic Discussion, 8 Oct 2026: El Niño Advisory",
+   "title": "NOAA CPC ENSO Diagnostic Discussion, 12 Nov 2026: El Niño Advisory",
    "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml",
    "verified": true
   },
@@ -2481,6 +2481,7 @@
      "sow_by": 9,
      "harvest_by": 12,
      "water_mm": 538,
+     "hot_days": 0.0,
      "ok": true
     },
     "watermelon": null,
@@ -4140,6 +4141,7 @@
       "sow_by": 9,
       "harvest_by": 12,
       "water_mm": 449,
+      "hot_days": 0.0,
       "ok": true
      },
      "watermelon": null,
@@ -5744,6 +5746,7 @@
      "sow_by": 10,
      "harvest_by": 1,
      "water_mm": 768,
+     "hot_days": 0.0,
      "ok": true
     },
     "watermelon": null,
@@ -7335,6 +7338,7 @@
       "sow_by": 10,
       "harvest_by": 1,
       "water_mm": 714,
+      "hot_days": 0.0,
       "ok": true
      },
      "watermelon": null,
@@ -8922,6 +8926,7 @@
      "sow_by": 10,
      "harvest_by": 1,
      "water_mm": 705,
+     "hot_days": 0.0,
      "ok": true
     },
     "watermelon": null,
@@ -10499,6 +10504,7 @@
       "sow_by": 10,
       "harvest_by": 1,
       "water_mm": 630,
+      "hot_days": 0.2,
       "ok": true
      },
      "watermelon": null,
@@ -12096,6 +12102,7 @@
      "sow_by": 10,
      "harvest_by": 1,
      "water_mm": 775,
+     "hot_days": 0.0,
      "ok": true
     },
     "watermelon": null,
@@ -13683,6 +13690,7 @@
       "sow_by": 10,
       "harvest_by": 1,
       "water_mm": 733,
+      "hot_days": 0.0,
       "ok": true
      },
      "watermelon": null,
@@ -15202,6 +15210,7 @@
      "sow_by": 11,
      "harvest_by": 2,
      "water_mm": 894,
+     "hot_days": 0.9,
      "ok": true
     },
     "watermelon": null,
@@ -16713,6 +16722,7 @@
       "sow_by": 11,
       "harvest_by": 2,
       "water_mm": 936,
+      "hot_days": 6.0,
       "ok": true
      },
      "watermelon": null,

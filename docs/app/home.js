@@ -35,6 +35,7 @@ const Home = (() => {
     cont: { vi: "Tiếp tục", en: "Continue" },
     add: { vi: "Thêm ruộng", en: "Add a field" },
     sources: { vi: "Nguồn dữ liệu NASA", en: "NASA data sources" },
+    vn: { vi: "Bản đồ 34 tỉnh", en: "Map of the 34 provinces" },
     brand: { vi: "Mekong · Lịch luân canh", en: "Mekong Rotation Explorer" },
     langL: { vi: "Ngôn ngữ", en: "Language" },
     /* this month on the coast */
@@ -244,6 +245,7 @@ const Home = (() => {
     const prep = $("#hmPrep"); if (prep) prep.innerHTML = prepCard();
     const dat = $("#hmData"); if (dat) dat.innerHTML = dataCard();
     $("#hmSources").innerHTML = `${ICO.book}<span>${esc(L("sources"))}</span>`;
+    const vn = $("#hmVn"); if (vn) vn.innerHTML = `${ICO.pin}<span>${esc(L("vn"))}</span>`;
   }
 
   /* everything that is not the home page, the dialog or the toast */

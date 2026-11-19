@@ -1,4 +1,4 @@
-"""Download NASA GPM IMERG monthly rain (Final run, v07, 0.1° ≈ 10 km) for every pin -> data/raw/gpm.json.
+"""Download NASA GPM IMERG monthly rain (Final run, v07, 0.1° ≈ 10 km) for every point of sites.points() -> data/raw/gpm.json.
 The app's rain (chart, water need, scores) for Dec 2000 - Nov 2024; NASA POWER rain is the cross-check.
 Needs EARTHDATA_USERNAME / EARTHDATA_PASSWORD, and "NASA GESDISC DATA ARCHIVE" approved under
 Applications -> Authorized Apps in the Earthdata profile.
@@ -13,7 +13,7 @@ import sys
 import time
 import urllib.request
 
-from sites import SITES
+from sites import points
 
 RAW = pathlib.Path(__file__).resolve().parent.parent / "data" / "raw"
 OUT = RAW / "gpm.json"
@@ -49,7 +49,7 @@ def opener():
 
 def main():
     out = json.loads(OUT.read_text(encoding="utf-8")) if OUT.exists() else {}
-    cells = {s["id"]: cell(s["lon"], s["lat"]) for s in SITES}
+    cells = {s["id"]: cell(s["lon"], s["lat"]) for s in points()}
     lo0, lo1 = min(c[0] for c in cells.values()), max(c[0] for c in cells.values())
     la0, la1 = min(c[1] for c in cells.values()), max(c[1] for c in cells.values())
     op = opener()
