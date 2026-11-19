@@ -148,7 +148,7 @@ const VnMap = (() => {
   /* salt: only the 5 Sóc Trăng areas have an estimate (map.js colours them); every province stays blank.
      rain / rain minus need: every province and the 5 areas, one colour scale for the year. */
   function paint() {
-    if (!map || !G) return;
+    if (!map || !G || !D) return;  // the month slider can fire before drawMap has made the panes
     const gp = map.getPane("grad"); if (gp) gp.style.display = mode === "salt" ? "" : "none";
     map.getPane("vn-grad").style.display = mode === "salt" ? "none" : "";
     document.body.classList.toggle("vn-rainlayer", mode !== "salt");
@@ -444,12 +444,33 @@ ${green}${heat}
     });
     placeLabels();
   }
+  /* what covers the map, in map pixels: the page's bars and boxes, and the Sóc Trăng plates (map.js places them first) */
+  const seen = (e) => { const s = getComputedStyle(e); return s.visibility !== "hidden" && +s.opacity > 0.05; };
+  function covers() {
+    const mr = map.getContainer().getBoundingClientRect();
+    const els = [...document.querySelectorAll("#topbar, #dvBack, #side, #d5Month, #vnKey > *, .leaflet-control")]
+      .concat([...map.getContainer().querySelectorAll(".sg-label:not(.sg-hide)")].filter((e) => !e.closest(".leaflet-vn-labels-pane")));
+    return els.filter(seen).map((e) => e.getBoundingClientRect()).filter((r) => r.width && r.height)
+      .map((r) => ({ x0: r.left - mr.left - 4, x1: r.right - mr.left + 4, y0: r.top - mr.top - 4, y1: r.bottom - mr.top + 4 }));
+  }
+  /* the free part of the screen for fitting a view: under the top bars, above the phone's month box, right of the left panel */
+  function freePad() {
+    // the month box may still be fading in when this runs, so only the side panel (hidden by visibility) is checked for it
+    const r = (s, chk) => { const e = $(s); return e && (!chk || seen(e)) ? e.getBoundingClientRect() : null; };
+    const bars = [r("#topbar"), r("#dvBack")].filter((x) => x && x.height), side = r("#side", true), mb = r("#d5Month");
+    return {
+      top: Math.max(64, ...bars.map((x) => x.bottom)),
+      left: !isPhone() && side && side.width ? side.right : 0,
+      // phones: the month box (extra.js) and the map credits above it; the box may not be built yet on the first view (about 190 px)
+      bottom: !isPhone() ? 0 : (mb && mb.height ? innerHeight - mb.top : 190) + 36
+    };
+  }
   /* name plates: right of the pin, else left; hidden when both sides are taken (shown on hover/selection).
      Zoomed out, only the provinces' own pins get plates; former provinces from zoom 7.5. */
   function placeLabels() {
     if (!map) return;
-    const z = map.getZoom(), taken = [], size = map.getSize();
     if (!countryOn) return;
+    const z = map.getZoom(), taken = covers(), size = map.getSize();
     const show = (k) => k === "own" || (k === "former" && z >= 7.5);
     const list = Object.values(pins);
     list.forEach((p) => { const c = map.latLngToContainerPoint([p.o.lat, p.o.lon]); p.c = c; taken.push({ x0: c.x - 8, x1: c.x + 8, y0: c.y - 8, y1: c.y + 8 }); });
@@ -503,7 +524,7 @@ ${green}${heat}
     country();
     placeLabels();
     if (sel && map) {
-      const top = ($("#topbar") || { offsetHeight: 64 }).offsetHeight, b = polys[sel].getBounds(),
+      const top = freePad().top, b = polys[sel].getBounds(),
         pad = isPhone() ? { tl: [16, top + 16], br: [16, Math.round(innerHeight * 0.58) + 12] } : { tl: [380, top + 20], br: [panelOpen ? 480 : 40, 40] };
       const o = view !== "avg" ? PL[view] : null;
       if (o) map.fitBounds(L.latLngBounds([[o.lat - 0.25, o.lon - 0.25], [o.lat + 0.25, o.lon + 0.25]]).extend(b.getCenter()).pad(0.1), { paddingTopLeft: pad.tl, paddingBottomRight: pad.br, maxZoom: 9, animate: !reduced() });
@@ -591,8 +612,8 @@ ${(p.areas || []).length ? `<button type="button" class="vn-golink" data-home>${
     if (!map || !D) { want = true; return; }  // before the data: once it is drawn
     try { if (typeof Dash !== "undefined" && Dash.showMap) Dash.showMap(); } catch (e) {}
     try { if (window.App && App.closePanel) App.closePanel(); } catch (e) {}
-    const top = ($("#topbar") || { offsetHeight: 64 }).offsetHeight;
-    setTimeout(() => map.fitBounds([[MAIN.s, MAIN.w], [MAIN.n, MAIN.e]], { paddingTopLeft: [20, top + 10], paddingBottomRight: [20, isPhone() ? 90 : 30], animate: !reduced() }), 80);
+    // measured after the dashboard has stepped aside, so the whole country sits clear of the bars and the month box
+    setTimeout(() => { const f = freePad(); map.fitBounds([[MAIN.s, MAIN.w], [MAIN.n, MAIN.e]], { paddingTopLeft: [f.left + 20, f.top + 10], paddingBottomRight: [20, (f.bottom || 18) + 12], animate: !reduced() }); }, 80);
   }
   let want = location.hash === "#vietnam";
 

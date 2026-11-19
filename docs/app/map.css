@@ -80,7 +80,7 @@
 body.drawer-open .sg-map .leaflet-bottom.leaflet-right { right: 460px; }
 @media (max-width: 760px) {
   body.drawer-open .sg-map .leaflet-bottom { display: none; }
-  .sg-map .leaflet-bottom { bottom: var(--sg-ticker-h, 64px); }
+  .sg-map .leaflet-bottom { bottom: max(var(--sg-ticker-h, 64px), calc(var(--d5-h, 0px) + 8px)); }  /* above the month box (extra.js) */
 }
 .sg-map .leaflet-control-zoom {
   border: 1px solid var(--line-2, color-mix(in srgb, var(--ink) 16%, transparent)); border-radius: var(--r, 4px);
@@ -104,6 +104,7 @@ body.drawer-open .sg-map .leaflet-bottom.leaflet-right { right: 460px; }
 }
 .sg-map .leaflet-control-attribution a { color: var(--ink-2, #A39E94); text-decoration: none; }
 .sg-map .leaflet-control-attribution a:hover { color: var(--gold, #E3B866); }
+@media (max-width: 760px) { .sg-map .leaflet-control-attribution { font-size: 11px; line-height: 13px; } }  /* the credits must show, but not cover the map */
 
 @media (prefers-reduced-motion: reduce) {
   .sg-p-pulse { animation: none; opacity: 0; }

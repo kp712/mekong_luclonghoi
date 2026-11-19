@@ -392,6 +392,12 @@ const MapView = typeof L === "undefined" ? {} : (() => {
     const P = {};
     sites.forEach((s) => { P[s.id] = map.latLngToContainerPoint([s.lat, s.lon]); });
     const taken = sites.map((s) => ({ x0: P[s.id].x - PIN, x1: P[s.id].x + PIN, y0: P[s.id].y - PIN, y1: P[s.id].y + PIN }));
+    // no plate under the page's own bars and boxes (top bar, back bar, left panel, month box, the country key) or the selected province's plate (vn.js)
+    const mr = el.getBoundingClientRect();
+    document.querySelectorAll("#topbar, #dvBack, #side, #d5Month, #vnKey > *, .leaflet-control-attribution, .leaflet-vn-labels-pane .sg-label.is-sel:not(.sg-hide)").forEach((c) => {
+      const r = c.getBoundingClientRect(), cs = getComputedStyle(c);
+      if (r.width && r.height && cs.visibility !== "hidden" && +cs.opacity > 0.05) taken.push({ x0: r.left - mr.left, x1: r.right - mr.left, y0: r.top - mr.top, y1: r.bottom - mr.top });
+    });
     const clear = (b) => !taken.some((q) => b.x0 < q.x1 && b.x1 > q.x0 && b.y0 < q.y1 && b.y1 > q.y0);
     const inView = (b) => b.x0 >= 4 && b.x1 <= W - 4;
     const order = sites.slice().sort((a, b) => (b.id === selId) - (a.id === selId) || P[b.id].x - P[a.id].x);
