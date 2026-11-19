@@ -121,3 +121,61 @@ body.vn-country #mapKey { display: none; }  /* zoomed out: the country key repla
 .vn-two button { flex: 1; min-height: 38px; padding: 0 12px; border-radius: 9px; font-weight: 600; font-size: 14px; color: var(--ink-2); }
 .vn-two button[aria-pressed="true"] { background: var(--gold); color: #1B1406; }
 .vn-two button:focus-visible, .vn-pickrow select:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+/* ---- one box (desktop: the left panel #side; phones: the key pop-up): find, map colour, month ---- */
+@media (min-width: 761px) { #vnKey { display: none !important } }
+body.vn-rainlayer #mapKey { display: none }   /* rain layers: the salt key does not apply */
+.vn-lay { display: grid; gap: 10px }
+.vn-lay-h { margin: 0; font-size: .8125rem; font-weight: 700; color: var(--ink-2) }
+.vn-three, .vn-two { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; padding: 4px; border-radius: 12px; border: 1px solid var(--line-2); background: color-mix(in srgb, var(--panel-solid) 60%, transparent) }
+.vn-two { grid-template-columns: 1fr 1fr }
+.vn-three button, .vn-two button { min-height: 40px; padding: 4px 6px; border-radius: 9px; font: 600 .8125rem/1.2 var(--font); color: var(--ink-2); text-wrap: balance }
+.vn-three button:hover, .vn-two button:hover { color: var(--ink); background: var(--gold-soft) }
+.vn-three button[aria-pressed="true"], .vn-two button[aria-pressed="true"] { background: var(--gold); color: #1d1a12 }
+.vn-yrs button { min-height: 34px }
+.vn-lay .vn-note { margin: 0; font-size: .75rem; color: var(--ink-3) }
+.vn-lay button:focus-visible, .vn-find input:focus-visible, .vn-loc:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px }
+
+/* find your area */
+.vn-find { position: relative; display: grid; gap: 6px }
+.vn-find-l { font-size: .8125rem; font-weight: 700; color: var(--ink-2) }
+.vn-find-in { position: relative; display: flex; align-items: center }
+.vn-find-in > svg { position: absolute; left: 12px; width: 18px; height: 18px; fill: none; stroke: var(--ink-3); stroke-width: 2; stroke-linecap: round; pointer-events: none }
+.vn-find input { width: 100%; min-height: 46px; padding: 0 48px 0 40px; border-radius: 12px; border: 1px solid var(--line-2); background: var(--panel-solid); color: var(--ink); font: 500 .9375rem var(--font) }
+.vn-find input::placeholder { color: var(--ink-3) }
+.vn-find input:focus { border-color: var(--gold) }
+.vn-find input::-webkit-search-cancel-button { display: none }
+.vn-loc { position: absolute; right: 4px; width: 38px; height: 38px; border-radius: 9px; display: grid; place-items: center; color: var(--ink-2) }
+.vn-loc:hover { background: var(--gold-soft); color: var(--ink) }
+.vn-loc svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round }
+.vn-find-list { position: absolute; z-index: 5; top: calc(100% + 4px); left: 0; right: 0; max-height: min(360px, 55vh); overflow-y: auto; overscroll-behavior: contain; margin: 0; padding: 6px; list-style: none; border-radius: 12px; background: var(--panel-solid); box-shadow: 0 0 0 1px var(--line-2), 0 14px 36px rgba(0,0,0,.35) }
+.vn-find:has(.vn-find-msg:not(:empty)) .vn-find-list { top: calc(100% - 18px) }
+.vn-fh { padding: 10px 8px 4px; font-size: .6875rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--ink-3) }
+.vn-fo { display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 6px 8px; border-radius: 8px; cursor: pointer }
+.vn-fo:hover, .vn-fo[aria-selected="true"] { background: var(--gold-soft) }
+.vn-fo .sg-dot { flex: none; width: 9px; height: 9px; border-radius: 50% }
+.vn-fo span { flex: 1; min-width: 0; display: grid }
+.vn-fo b { font-size: .875rem; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap }
+.vn-fo small { font-size: .75rem; color: var(--ink-3); overflow: hidden; text-overflow: ellipsis; white-space: nowrap }
+.vn-fo em { flex: none; font-style: normal; font-size: .75rem; color: var(--water); font-variant-numeric: tabular-nums }
+.vn-fo-geo svg { flex: none; width: 16px; height: 16px; fill: none; stroke: var(--gold); stroke-width: 2 }
+.vn-fo-geo b { color: var(--gold) }
+.vn-find-msg { margin: 0; font-size: .8125rem; line-height: 1.4; color: var(--ink-2) }
+.vn-find-msg:empty { display: none }
+
+/* the selected-province card (same look as the area card) */
+.vn-chip { gap: 6px; max-width: 55%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap }
+.vn-chip .sg-dot { width: 8px; height: 8px; border-radius: 50%; flex: none }
+.vn-nodata b { color: var(--ink-3) }
+
+/* the month slider in a rain layer: wet months in blue, the thumb in water colour */
+#d5Month.is-rain #d5Range { accent-color: var(--water) }
+#d5Month.is-rain .ticks .w { color: var(--water) }
+
+/* phones: the key pop-up holds the search and the layer switch */
+.vn-kf, .vn-kl { display: grid }
+.vn-key-pop[hidden] { display: none }
+@media (max-width: 760px) {
+  body.vn-country .vn-key { bottom: calc(240px + env(safe-area-inset-bottom, 0px)) }   /* above the month slider */
+  body.vn-country .vn-key-pop { max-height: calc(100dvh - var(--top-h) - 360px); overflow-y: auto }
+}

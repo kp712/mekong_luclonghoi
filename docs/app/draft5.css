@@ -78,7 +78,7 @@ body.has-site #d5Month { right: auto; left: calc(var(--rail-w) + 20px) }
   #d5Theme { display: none }
   #d5Month, body.has-site #d5Month { left: 16px; right: 16px; width: auto; bottom: calc(var(--tk-h) + 64px + env(safe-area-inset-bottom, 0px)); background: var(--panel-solid) }  /* above the phone area row (#areaDock) */
   body.drawer-open #d5Month { opacity: 0; visibility: hidden; pointer-events: none }
-  body:not(.has-site) #d5Month { display: none }
+  body:not(.has-site):not(.vn-country) #d5Month { display: none }
 }
 
 /* ---- what you grow: one box per season ---- */

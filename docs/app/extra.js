@@ -75,14 +75,18 @@ const D5 = (() => {
   function setMonth(m) { mon = m; paintSlider(); paintWheels(); typeof Side !== "undefined" && Side.render && Side.render(); }
   function paintSlider() {
     const ids = sites().filter((s) => s.salt.includes(mon + 1)).map((s) => s.id), n = ids.length, t = sites().length;
+    /* the rain layers (vn.js) write their own line and mark the wet months; salt keeps its own */
+    const rain = typeof VnMap !== "undefined" && VnMap.sliderInfo ? VnMap.sliderInfo(mon) : null;
+    $("#d5Month").classList.toggle("is-rain", !!rain);
     $("#d5MName").textContent = C.monthsLong()[mon];
-    $("#d5MCount").textContent = n ? L(T.count)(n, t) : L(T.none);
+    $("#d5MCount").textContent = rain ? rain.count : n ? L(T.count)(n, t) : L(T.none);
     $("#d5Range").value = mon; $("#d5Range").setAttribute("aria-label", L(T.month) + ": " + C.monthsLong()[mon]);
-    $("#d5Ticks").innerHTML = C.months().map((x, i) => `<span class="${anySalt(i) ? "s" : ""}${i === mon ? " on" : ""}">${C.lang === "en" ? x.charAt(0) : x.replace(/^Th/, "")}</span>`).join("");
-    $("#d5Note").textContent = L(T.est);
+    $("#d5Ticks").innerHTML = C.months().map((x, i) => `<span class="${rain ? (rain.wet[i] ? "w" : "") : anySalt(i) ? "s" : ""}${i === mon ? " on" : ""}">${C.lang === "en" ? x.charAt(0) : x.replace(/^Th/, "")}</span>`).join("");
+    $("#d5Note").textContent = rain ? rain.note : L(T.est);
     const p = $("#d5Play"); p.textContent = timer ? L(T.stop) : L(T.play); p.setAttribute("aria-pressed", !!timer);
     typeof MapView !== "undefined" && MapView.month && MapView.month(ids);
     typeof MapView !== "undefined" && MapView.setMonth && MapView.setMonth(mon);
+    document.dispatchEvent(new CustomEvent("mre:month", { detail: mon }));
   }
 
   /* ---------- season wheel (concept A) ---------- */

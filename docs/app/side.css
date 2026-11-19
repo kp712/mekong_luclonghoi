@@ -85,7 +85,6 @@
 }
 #side #d5Month .play { min-height: 44px; padding: 0 14px }
 #side #d5Month .ticks span:not(.s):not(.on) { color: var(--ink-2) }
-#side:not(.is-area) #d5Note { display: none }   /* the legend below says it */
 #side.is-area #d5Month .note { color: var(--ink-2) }
 
 /* selected area summary */
@@ -135,16 +134,14 @@ body.calm #side, body.calm .sd-row { transition: none }
 /* ---------- area HUD: small data-only box; click opens the full box ---------- */
 .sd-hudh { display: flex; align-items: center; justify-content: space-between; gap: 8px }
 .sd-hudbtn { font-size: .75rem; font-weight: 600; color: var(--gold); padding: 4px 0; min-height: 28px }
-#side.is-hud { width: min(300px, calc(100vw - 40px)); padding: 12px 14px; cursor: pointer }
-#side.is-hud:hover { border-color: var(--gold) }
-#side.is-hud > * + * { margin-top: 0 }
-#side.is-hud .sd-mon, #side.is-hud .sd-say, #side.is-hud .sd-bars, #side.is-hud .sd-src, #side.is-hud #sdFoot, #side.is-hud #sdMonthHost { display: none }
-#side.is-hud .sd-h { font-size: 1.0625rem }
+#side.is-hud #sdTop { cursor: pointer }
+#side.is-hud .sd-mon, #side.is-hud .sd-say, #side.is-hud .sd-bars, #side.is-hud .sd-src, #side.is-hud #sdFoot { display: none }
+#side:is(.is-hud, .is-prov) .sd-h { font-size: 1.0625rem }
 #side.is-hud .sd-title { margin-top: 2px }
-#side.is-hud .sd-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin-top: 8px }
-#side.is-hud .sd-stat { padding: 7px 8px; border-radius: 10px }
-#side.is-hud .sd-stat dt { font-size: .6875rem; line-height: 1.25 }
-#side.is-hud .sd-stat dd b { font-size: 1rem }
+#side:is(.is-hud, .is-prov) .sd-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin-top: 8px }
+#side:is(.is-hud, .is-prov) .sd-stat { padding: 7px 8px; border-radius: 10px }
+#side:is(.is-hud, .is-prov) .sd-stat dt { font-size: .6875rem; line-height: 1.25 }
+#side:is(.is-hud, .is-prov) .sd-stat dd b { font-size: 1rem }
 #side.is-hud .sd-stat dd span { display: none }
 /* "← Ruộng của tôi" sits above the box, so they never overlap */
 body.dv-off #side { top: calc(var(--top-h) + 72px); max-height: calc(100dvh - var(--top-h) - 160px) }
@@ -208,7 +205,7 @@ body:has(#gearBtn[aria-expanded="true"]) :is(#d5Month, #dvBack, #mapKey, #side) 
   #setPanel { z-index: 70; max-height: calc(100dvh - var(--top-h) - 16px - env(safe-area-inset-bottom, 0px)) }
 }
 /* map flow, no area picked yet: the map's salt colours already show every area, so the list box is not shown */
-body.dv-off #side:not(.is-area) { display: none }
+/* map flow: the panel is always there (search, layer switch, month slider; vn.js fills #sdFind / #sdLayer) */
 /* the month slider: a wide track the finger can drag anywhere on */
 #d5Month .trk { position: relative; touch-action: none; cursor: grab; padding: 4px 0 }
 #d5Month .trk:active { cursor: grabbing }
@@ -226,3 +223,7 @@ body.drawer-full .dv-modebar { max-width: 520px }
 body.dv-simple #areaHead .nasa8 { display: none }
 /* planner in Simple: only the inputs and the answer; the extra numbers, sliders and notes show in Advanced */
 body.dv-simple :is(#areaMore, #howText, #wDef, #sliders, #ppRev, #congNote, .sz-why, #fChecks, .wf-pen, .wf-sub, .pz-how, .pz-conf) { display: none !important }
+#side :is(#sdFind, #sdLayer, #sdFoot):empty { display: none }
+/* the parts of the one box sit on hairlines: card, map colour, month */
+#side #sdLayer, #side #sdMonthHost { border-top: 1px solid var(--line); padding-top: 14px }
+#side .sd-hint { font-size: .8125rem; color: var(--ink-2); margin: 0 }

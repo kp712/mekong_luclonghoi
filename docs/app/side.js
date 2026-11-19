@@ -43,6 +43,7 @@ const Side = (() => {
     open: { vi: "Xem kế hoạch cho khu vực này", en: "Open the plan for this area" },
     more: { vi: "Bấm để xem đầy đủ", en: "Tap for full details" }, less: { vi: "Thu gọn", en: "Collapse" },
     other: { vi: "Đổi khu vực", en: "Change area" },
+    hint: { vi: "Chạm vào một tỉnh hoặc khu vực trên bản đồ, hoặc gõ tên ở ô tìm kiếm.", en: "Tap a province or area on the map, or type its name in the search box." },
     full: { vi: "Mở toàn màn hình", en: "Full screen" },
     unfull: { vi: "Thu nhỏ", en: "Exit full screen" }
   };
@@ -63,12 +64,12 @@ const Side = (() => {
     if (side || !document.body) return side;
     side = document.createElement("aside");
     side.id = "side"; side.className = "sd";
-    side.innerHTML = '<div id="sdTop"></div><div id="sdMonthHost"></div><div id="sdFoot"></div>';
+    side.innerHTML = '<div id="sdFind"></div><div id="sdTop"></div><div id="sdLayer"></div><div id="sdMonthHost"></div><div id="sdFoot"></div>';   /* #sdFind, #sdLayer: vn.js */
     document.body.appendChild(side);
     document.body.classList.add("has-side");
     side.addEventListener("click", (e) => {
       const x = e.target.closest && e.target.closest("[data-sd]");
-      if (!x) { if (side.classList.contains("is-hud") && !(e.target.closest && e.target.closest("[data-site],button,input,a"))) { hudOpen = true; render() } return }   /* rows carry data-site: app.js's page click handler picks the area */
+      if (!x) { if (side.classList.contains("is-hud") && e.target.closest && e.target.closest("#sdTop") && !e.target.closest("[data-site],button,input,a")) { hudOpen = true; render() } return }   /* rows carry data-site: app.js's page click handler picks the area */
       if (x.dataset.sd === "hud") { hudOpen = !hudOpen; render(); return }
       if (x.dataset.sd === "open" && window.App && App.openPanel) App.openPanel(1);
       if (x.dataset.sd === "ex") { const b = $("#ex3Btn"); b && b.click(); }
@@ -130,11 +131,16 @@ const Side = (() => {
     /* keep keyboard focus across re-renders (the slider re-renders this on every month) */
     const a = document.activeElement, key = a && side.contains(a) && !$("#d5Month", side)?.contains(a)
       ? (a.dataset.site ? `[data-site="${a.dataset.site}"]` : a.dataset.sd ? `[data-sd="${a.dataset.sd}"]` : null) : null;
-    const m = mon(), sites = c.sites(), s = window.App && App.site ? App.site() : null;
-    side.classList.toggle("is-area", !!s);
+    const m = mon(), sites = c.sites(), vn = typeof VnMap !== "undefined" && VnMap.card ? VnMap.card() : "";
+    const s = !vn && window.App && App.site ? App.site() : null;   /* a province picked on the country map comes first */
+    side.classList.toggle("is-area", !!s || !!vn);
+    side.classList.toggle("is-prov", !!vn);
     if (s && s.id !== hudId) { hudId = s.id; hudOpen = false }
     side.classList.toggle("is-hud", !!s && !hudOpen);
-    if (!s) {
+    if (vn) { $("#sdTop").innerHTML = vn; $("#sdFoot").innerHTML = ""; }
+    else if (!s && $("#sdFind") && $("#sdFind").children.length) {   /* nothing picked: the search above and the layer box say it all */
+      $("#sdTop").innerHTML = `<p class="sd-lead sd-hint">${esc(L(T.hint))}</p>`; $("#sdFoot").innerHTML = "";
+    } else if (!s) {
       const ex = $("#ex3Btn"), exT = ex ? ex.textContent.trim() : "";
       $("#sdTop").innerHTML = `<p class="sd-eyebrow">${esc(L(T.eyebrow))}</p><h2 class="sd-h">${esc(L(T.pickH))}</h2>
         <p class="sd-lead">${esc(L(T.pickP))}</p>${rowsHTML(sites, m)}${exT ? `<button type="button" class="sd-ex" data-sd="ex">${ICO.arrow}<span>${esc(exT)}</span></button>` : ""}`;
@@ -147,6 +153,7 @@ const Side = (() => {
           `<button type="button" data-site="${esc(x.id)}"><i class="sd-dot lv-${lvOf(x)}" aria-hidden="true"></i>${esc(c.short(x))}</button>`).join("")}</div></div>`;
     }
     placeSlider();
+    typeof VnMap !== "undefined" && VnMap.mount && !($("#sdFind") || {}).children?.length && VnMap.mount();
     if (key) { const n = side.querySelector(key); n && n.focus({ preventScroll: true }); }
     paintFull();
   }

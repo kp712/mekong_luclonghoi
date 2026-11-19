@@ -44,7 +44,24 @@ const VnMap = (() => {
     why: ["Why these scores", "Vì sao có điểm này"], risks: ["Risks", "Rủi ro"], gaps: ["Check first", "Cần kiểm tra"],
     open: ["Zoom to the 5 Sóc Trăng areas to plan a field", "Phóng to 5 khu vực Sóc Trăng để lập kế hoạch ruộng"],
     sources: ["Sources", "Nguồn"],
-    region: ["Region", "Vùng"]
+    region: ["Region", "Vùng"],
+    saltM: ["Salt", "Độ mặn"], saltH: ["Salt in the water (‰), 5 Sóc Trăng areas only", "Độ mặn của nước (‰), chỉ 5 khu vực Sóc Trăng"],
+    fresh: ["fresh", "ngọt"], shrimp: ["shrimp water", "nước nuôi tôm"],
+    saltNote: ["Blank = no salt estimate yet. Estimate from station reports, not satellite.", "Để trống = chưa có ước tính độ mặn. Ước tính từ báo cáo trạm đo, không phải vệ tinh."],
+    rainNote: ["One scale all year. Colour between data points is an estimate, not a measurement.", "Một thang màu cả năm. Màu giữa các điểm số liệu là ước tính, không phải số đo."],
+    find: ["Find your area", "Tìm khu vực của bạn"], findPh: ["Province, district or town", "Tỉnh, huyện hoặc thị trấn"],
+    loc: ["Use my location", "Dùng vị trí của tôi"], kProv: ["Province", "Tỉnh"], kFormer: ["former province", "tỉnh cũ"], kArea: ["Sóc Trăng area", "Khu vực Sóc Trăng"],
+    search: ["Search the map for “{q}”", "Tìm “{q}” trên bản đồ"], searching: ["Searching…", "Đang tìm…"],
+    notFound: ["No place found. Try a province or district name.", "Không tìm thấy. Thử tên tỉnh hoặc huyện."],
+    near: ["Nearest data: {n}, {k} km from {q}.", "Số liệu gần nhất: {n}, cách {q} {k} km."], inArea: ["{q} is in the {n} area.", "{q} nằm trong khu vực {n}."],
+    you: ["your location", "vị trí của bạn"], locFail: ["Could not get your location.", "Không lấy được vị trí của bạn."],
+    osm: ["Place search: OpenStreetMap Nominatim", "Tìm địa điểm: OpenStreetMap Nominatim"],
+    chosen: ["Selected area", "Khu vực đã chọn"], details: ["Full details", "Xem đầy đủ"], hideD: ["Hide details", "Ẩn chi tiết"],
+    rainM: ["Rain this month", "Mưa trong tháng"], saltMon: ["Salt this month", "Mặn tháng này"], noData: ["No data", "Chưa có"],
+    cropsY: ["Crops a year", "Số vụ mỗi năm"], pts: ["{n} points", "{n} điểm"],
+    sAvg: ["Average {a} mm · wettest {n} {m} mm", "Trung bình {a} mm · mưa nhiều nhất {n} {m} mm"],
+    sBal: ["{n} of {t} points get more rain than crops need", "{n}/{t} điểm có mưa nhiều hơn cây cần"],
+    srcRain: ["Rain: NASA GPM IMERG", "Mưa: NASA GPM IMERG"], srcBal: ["Rain: NASA GPM IMERG · water need: NASA POWER (FAO-56)", "Mưa: NASA GPM IMERG · nhu cầu nước: NASA POWER (FAO-56)"]
   };
   const t = (k, sub) => { let s = (sub ? T[k][sub] : T[k])[lang === "vi" ? 1 : 0]; return s; };
   const fill = (s, o) => s.replace(/\{(\w)\}/g, (_, k) => o[k]);
@@ -58,7 +75,10 @@ const VnMap = (() => {
   const reduced = () => window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   let D = null, P = {}, PL = {}, map = null, polys = {}, pins = {}, gradLayer = null;
-  let sel = null, view = "avg", yr = "typical", mode = "rain", mon = -1, keyOpen = !isPhone(), hov = null;
+  let sel = null, view = "avg", yr = "typical", mode = "salt", keyOpen = !isPhone(), hov = null, panelOpen = true;
+  const curMon = () => (typeof D5 !== "undefined" && D5.mon ? D5.mon() : new Date().getMonth());  // the month slider (extra.js) drives every mode
+  let mon = curMon();
+  const desktop = () => !isPhone();
 
   /* ---------- geometry: arcs -> rings ---------- */
   let G = typeof VN_GEO !== "undefined" ? VN_GEO : null;
@@ -71,7 +91,21 @@ const VnMap = (() => {
   const climOf = (o) => (yr === "elnino" ? o.elnino.climate : o.climate);
   function value(o, m) {
     const c = climOf(o), r = m < 0 ? sum(c.rain_mm) : c.rain_mm[m];
-    return mode === "rain" ? r : r - (m < 0 ? sum(c.et0_mm) : c.et0_mm[m]);
+    return mode === "bal" ? r - (m < 0 ? sum(c.et0_mm) : c.et0_mm[m]) : r;
+  }
+  /* the data points of the rain layers: the 63 province points, plus the 5 Sóc Trăng areas in a typical year */
+  const stSites = () => (typeof RX !== "undefined" && RX.Core && RX.Core.sites ? RX.Core.sites() : []);
+  function points() {
+    const pts = D.places.map((x) => ({ lat: x.lat, lon: x.lon, name: nm(x.name), rain: climOf(x).rain_mm, et0: climOf(x).et0_mm }));
+    if (yr === "typical") stSites().forEach((s) => { if (s.rain && s.et0) pts.push({ lat: s.lat, lon: s.lon, name: RX.Core.short(s), rain: s.rain, et0: s.et0 }); });
+    return pts;
+  }
+  const pv = (p, m) => (mode === "bal" ? p.rain[m] - p.et0[m] : p.rain[m]);
+  /* one scale for the whole year (per mode and year type), so playing the 12 months shows the seasons */
+  function yearRange() {
+    const pts = points(), all = pts.flatMap((p) => p.rain.map((_, m) => pv(p, m)));
+    if (mode === "rain") return [0, Math.max(...all)];
+    const a = Math.max(...all.map(Math.abs)); return [-a, a];
   }
 
   /* ---------- colour layer: blended between the 63 points, clipped to the outlines (as map.js paintCells) ---------- */
@@ -111,50 +145,205 @@ const VnMap = (() => {
   }
   const idw = (pts, lat, lon) => { let w = 0, v = 0; for (const p of pts) { const d2 = (p.lat - lat) ** 2 + ((p.lon - lon) * 0.96) ** 2; if (d2 < 1e-10) return p.v; const q = 1 / (d2 * d2); w += q; v += q * p.v; } return v / w; };
   let range = [0, 1];
+  /* salt: only the 5 Sóc Trăng areas have an estimate (map.js colours them); every province stays blank.
+     rain / rain minus need: every province and the 5 areas, one colour scale for the year. */
   function paint() {
     if (!map || !G) return;
-    const pts = D.places.map((x) => ({ lat: x.lat, lon: x.lon, v: value(x, mon) }));
-    const vs = pts.map((p) => p.v);
-    if (mode === "rain") range = [Math.min(...vs), Math.max(...vs)];
-    else { const a = Math.max(...vs.map(Math.abs)); range = [-a, a]; }
-    const holes = typeof DISTRICTS !== "undefined" ? Object.values(DISTRICTS) : [];  // the 5 areas keep the planner's salt colour
-    const rings = Object.values(G.province).flatMap((rs) => rs.map(ringPts)).concat(holes);
-    const url = clipImage(MAIN, rings, 110, 112, (lat, lon) => ramp(mode === "rain" ? BLUE : DIV, (idw(pts, lat, lon) - range[0]) / Math.max(1e-6, range[1] - range[0])));
-    if (gradLayer) gradLayer.setUrl(url); else gradLayer = L.imageOverlay(url, [[MAIN.s, MAIN.w], [MAIN.n, MAIN.e]], { pane: "vn-grad", interactive: false }).addTo(map);
-    drawKey();
+    const gp = map.getPane("grad"); if (gp) gp.style.display = mode === "salt" ? "" : "none";
+    map.getPane("vn-grad").style.display = mode === "salt" ? "none" : "";
+    document.body.classList.toggle("vn-rainlayer", mode !== "salt");
+    if (mode !== "salt") {
+      const pts = points().map((p) => ({ lat: p.lat, lon: p.lon, v: pv(p, mon) }));
+      range = yearRange();
+      const rings = Object.values(G.province).flatMap((rs) => rs.map(ringPts));
+      const url = clipImage(MAIN, rings, 110, 150, (lat, lon) => ramp(mode === "rain" ? BLUE : DIV, (idw(pts, lat, lon) - range[0]) / Math.max(1e-6, range[1] - range[0])));
+      if (gradLayer) gradLayer.setUrl(url); else gradLayer = L.imageOverlay(url, [[MAIN.s, MAIN.w], [MAIN.n, MAIN.e]], { pane: "vn-grad", interactive: false }).addTo(map);
+    }
+  }
+  /* the month slider asks what to write under the month in the rain layers (null in salt: it keeps its own text) */
+  function sliderInfo(m) {
+    if (!D || mode === "salt") return null;
+    const pts = points(), vs = pts.map((p) => pv(p, m));
+    let count;
+    if (mode === "rain") { const i = vs.indexOf(Math.max(...vs)); count = fill(t("sAvg"), { a: num(sum(vs) / vs.length), n: pts[i].name, m: num(vs[i]) }); }
+    else count = fill(t("sBal"), { n: vs.filter((v) => v >= 0).length, t: vs.length });
+    const wet = Array.from({ length: 12 }, (_, k) => { const r = sum(pts.map((p) => p.rain[k])), e = sum(pts.map((p) => p.et0[k])); return r >= e; });
+    return { count, note: t(mode === "rain" ? "srcRain" : "srcBal"), wet };
   }
 
-
-  const pick = () => `<label class="vn-pickrow"><span>${esc(t("pick"))}</span><select id="vnPick"><option value="">—</option>${Object.keys(D.regions).map((r) =>
-    `<optgroup label="${esc(nm(D.regions[r]))}">${D.provinces.filter((p) => p.region === r).map((p) => `<option value="${p.id}"${p.id === sel ? " selected" : ""}>${esc(nm(p.name))}</option>`).join("")}</optgroup>`).join("")}</select></label>`;
-  /* ---------- key (bottom left, like the Sóc Trăng map key) ---------- */
-  function drawKey() {
-    const el = $("#vnKey");
-    const grad = (mode === "rain" ? BLUE : DIV).map(([f, c]) => `rgb(${c}) ${Math.round(f * 100)}%`).join(",");
-    const ends = mode === "rain" ? [t("less"), t("more")] : [t("dry"), t("wet")];
-    const months = `<select id="vnMon" aria-label="${esc(t("year"))}"><option value="-1">${esc(t("year"))}</option>${MONL[lang].map((m, i) => `<option value="${i}"${i === mon ? " selected" : ""}>${esc(m)}</option>`).join("")}</select>`;
-    el.innerHTML = (keyOpen ? `<div class="vn-key-pop" role="group" aria-label="${esc(t("keyPill"))}">
-<div class="vn-key-top"><b>${esc(t("show"))}</b><button type="button" class="vn-x" data-key="close" aria-label="${esc(t("close"))}">✕</button></div>
-<div class="vn-two">${["rain", "bal"].map((m) => `<button type="button" data-mode="${m}" aria-pressed="${mode === m}">${esc(t(m))}</button>`).join("")}</div>
-<div class="vn-two">${["typical", "elnino"].map((m) => `<button type="button" data-yr="${m}" aria-pressed="${yr === m}">${esc(t(m))}</button>`).join("")}</div>
-${months}
-<b class="vn-key-h">${esc(t(mode === "rain" ? "rainH" : "balH"))}</b>
+  /* ---------- the layer box: in the left panel (#sdLayer, side.js) on desktop, in the key pop-up on phones ---------- */
+  const SALT = [[0, [47, 127, 208]], [0.1, [47, 163, 107]], [0.2, [226, 179, 58]], [0.47, [229, 121, 58]], [1, [200, 55, 45]]];  // map.js salt colours, 0.5–15 ‰
+  function layerHTML() {
+    const stops = mode === "salt" ? SALT : mode === "rain" ? BLUE : DIV;
+    const grad = stops.map(([f, c]) => `rgb(${c}) ${Math.round(f * 100)}%`).join(",");
+    const ends = mode === "salt" ? [`< 1‰ · ${t("fresh")}`, `${t("shrimp")} · 10‰ +`] : mode === "rain" ? [`${num(range[0])} · ${t("less")}`, `${t("more")} · ${num(range[1])} mm`] : [`${num(range[0])} · ${t("dry")}`, `${t("wet")} · ${num(range[1])}`];
+    return `<p class="vn-lay-h">${esc(t("show"))}</p>
+<div class="vn-three" role="group" aria-label="${esc(t("show"))}">${["salt", "rain", "bal"].map((m) => `<button type="button" data-mode="${m}" aria-pressed="${mode === m}">${esc(t(m === "salt" ? "saltM" : m))}</button>`).join("")}</div>
+${mode === "salt" ? "" : `<div class="vn-two vn-yrs">${["typical", "elnino"].map((m) => `<button type="button" data-yr="${m}" aria-pressed="${yr === m}">${esc(t(m))}</button>`).join("")}</div>`}
+<b class="vn-key-h">${esc(t(mode === "salt" ? "saltH" : mode === "rain" ? "rainH" : "balH"))}</b>
 <i class="vn-ramp" style="background:linear-gradient(90deg,${grad})"></i>
-<div class="vn-ends"><span>${num(range[0])} · ${esc(ends[0])}</span><span>${esc(ends[1])} · ${num(range[1])}</span></div>
-<p class="vn-note">${esc(t("keyNote"))}</p>${pick()}</div>` : "") +
-      `<button type="button" class="vn-pill" data-key="toggle" aria-expanded="${keyOpen}"><i class="vn-ramp vn-ramp-s" style="background:linear-gradient(90deg,${grad})"></i><span>${esc(t(mode === "rain" ? "rain" : "bal"))}</span><em>${esc(keyOpen ? t("hide") : t("keyPill"))}</em></button>`;
-    const ms = $("#vnMon"); if (ms) ms.value = String(mon);
+<div class="vn-ends"><span>${esc(ends[0])}</span><span>${esc(ends[1])}</span></div>
+<p class="vn-note">${esc(t(mode === "salt" ? "saltNote" : "rainNote"))}</p>`;
   }
-  $("#vnKey").addEventListener("click", (e) => {
+  function findHTML() {
+    return `<div class="vn-find"><label class="vn-find-l" for="vnFind">${esc(t("find"))}</label>
+<div class="vn-find-in"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+<input id="vnFind" type="search" autocomplete="off" spellcheck="false" placeholder="${esc(t("findPh"))}" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="vnFindList">
+<button type="button" class="vn-loc" id="vnLoc" aria-label="${esc(t("loc"))}" title="${esc(t("loc"))}"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.5"/><circle cx="12" cy="12" r="7.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22"/></svg></button></div>
+<ul class="vn-find-list" id="vnFindList" role="listbox" hidden></ul><p class="vn-find-msg" id="vnFindMsg" aria-live="polite"></p></div>`;
+  }
+  /* one copy of each part, placed where it belongs; the search field is built once so typing is never interrupted */
+  let findEl = null, layEl = null;
+  function drawKey() {
+    if (!D) return;
+    if (!findEl) { findEl = document.createElement("div"); findEl.className = "vn-findwrap"; findEl.innerHTML = findHTML(); wireFind(); }
+    if (!layEl) { layEl = document.createElement("div"); layEl.className = "vn-lay"; layEl.addEventListener("click", onLayer); }
+    layEl.innerHTML = layerHTML();
+    const el = $("#vnKey"), sf = $("#sdFind"), sl = $("#sdLayer");
+    if (desktop() && sf && sl) {
+      if (findEl.parentNode !== sf) sf.appendChild(findEl);
+      if (layEl.parentNode !== sl) sl.appendChild(layEl);
+      el.innerHTML = "";
+      return;
+    }
+    const stops = mode === "salt" ? SALT : mode === "rain" ? BLUE : DIV, grad = stops.map(([f, c]) => `rgb(${c}) ${Math.round(f * 100)}%`).join(",");
+    if (!el.querySelector(".vn-pill")) el.innerHTML = `<div class="vn-key-pop" role="group"><div class="vn-key-top"><b>${esc(t("keyPill"))}</b><button type="button" class="vn-x" data-key="close" aria-label="${esc(t("close"))}">✕</button></div><div class="vn-kf"></div><div class="vn-kl"></div></div><button type="button" class="vn-pill" data-key="toggle"></button>`;
+    const pop = el.querySelector(".vn-key-pop"); pop.hidden = !keyOpen;
+    el.querySelector(".vn-kf").appendChild(findEl); el.querySelector(".vn-kl").appendChild(layEl);
+    const pill = el.querySelector(".vn-pill"); pill.setAttribute("aria-expanded", keyOpen);
+    pill.innerHTML = `<i class="vn-ramp vn-ramp-s" style="background:linear-gradient(90deg,${grad})"></i><span>${esc(t(mode === "salt" ? "saltM" : mode))}</span><em>${esc(keyOpen ? t("hide") : t("keyPill"))}</em>`;
+  }
+  function onLayer(e) {
     const b = e.target.closest("button"); if (!b) return;
-    if (b.dataset.mode) { mode = b.dataset.mode; paint(); }
-    else if (b.dataset.yr) { yr = b.dataset.yr; paint(); render(); labels(); }
-    else if (b.dataset.key) { keyOpen = b.dataset.key === "toggle" ? !keyOpen : false; drawKey(); }
+    if (b.dataset.mode && b.dataset.mode !== mode) { mode = b.dataset.mode; paint(); drawKey(); slider(); }
+    else if (b.dataset.yr && b.dataset.yr !== yr) { yr = b.dataset.yr; paint(); drawKey(); render(); labels(); slider(); }
+  }
+  const slider = () => { try { typeof D5 !== "undefined" && D5.month && D5.month(curMon()); } catch (er) {} };
+  $("#vnKey").addEventListener("click", (e) => {
+    const b = e.target.closest("[data-key]"); if (!b) return;
+    keyOpen = b.dataset.key === "toggle" ? !keyOpen : false; drawKey();
   });
-  $("#vnKey").addEventListener("change", (e) => {
-    if (e.target.id === "vnMon") { mon = +e.target.value; paint(); }
-    else if (e.target.id === "vnPick") choose(e.target.value || null);
+  document.addEventListener("mre:month", (e) => { mon = e.detail; paint(); if (sel) render(); });
+
+  /* ---------- "find your area": provinces, former provinces, the 5 Sóc Trăng areas; else a place search, then the nearest data ---------- */
+  const fold = (s) => String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/đ/g, "d").replace(/Đ/g, "d").toLowerCase().replace(/^(tinh|thanh pho|tp\.?|huyen|thi xa|quan|province|city)\s+/, "").trim();
+  let opts = [], act = -1, here = null;
+  function entries() {
+    const out = [];
+    D.provinces.forEach((p) => out.push({ k: "prov", id: p.id, name: nm(p.name), sub: t("kProv") + " · " + nm(D.regions[p.region]), region: p.region, keys: [p.name.en, p.name.vi] }));
+    D.places.filter((x) => !x.own).forEach((x) => out.push({ k: "place", id: x.id, prov: x.province, name: nm(x.name), sub: t("kFormer") + " → " + nm(P[x.province].name), region: x.region, keys: [x.name.en, x.name.vi] }));
+    stSites().forEach((s) => out.push({ k: "site", id: s.id, name: RX.Core.short(s), sub: t("kArea"), region: "mekong_delta", keys: [s.name && s.name.en, s.name && s.name.vi, RX.Core.short(s)] }));
+    return out;
+  }
+  function listFor(q) {
+    const f = fold(q), all = entries();
+    if (!f) return Object.keys(D.regions).flatMap((r) => [{ k: "head", name: nm(D.regions[r]) }].concat(all.filter((o) => o.k === "prov" && o.region === r)));
+    const score = (o) => { const ks = o.keys.filter(Boolean).map(fold); return ks.some((k) => k === f) ? 0 : ks.some((k) => k.startsWith(f)) ? 1 : ks.some((k) => k.split(/\s+/).some((w) => w.startsWith(f))) ? 2 : ks.some((k) => k.includes(f)) ? 3 : 9; };
+    const hits = all.map((o) => [score(o), o]).filter(([s]) => s < 9).sort((a, b) => a[0] - b[0] || (a[1].k === "prov" ? -1 : 1)).slice(0, 8).map(([, o]) => o);
+    if (f.length >= 3) hits.push({ k: "geo", name: fill(t("search"), { q: q.trim() }), q: q.trim() });
+    return hits;
+  }
+  function showList(q) {
+    const ul = $("#vnFindList"), inp = $("#vnFind");
+    opts = listFor(q); act = -1;
+    ul.innerHTML = opts.map((o, i) => o.k === "head" ? `<li class="vn-fh" role="presentation">${esc(o.name)}</li>`
+      : `<li role="option" id="vnOpt${i}" data-i="${i}" aria-selected="false" class="vn-fo vn-fo-${o.k}">${o.k === "geo" ? '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>' : `<i class="sg-dot vn-dot-${esc(o.region)}" aria-hidden="true"></i>`}<span><b>${esc(o.name)}</b>${o.sub ? `<small>${esc(o.sub)}</small>` : ""}</span>${o.k === "prov" || o.k === "place" || o.k === "site" ? `<em>${num(railOf(o))} mm</em>` : ""}</li>`).join("");
+    ul.hidden = !opts.length; inp.setAttribute("aria-expanded", !ul.hidden);
+  }
+  function railOf(o) {   // this month's rain, shown on the right of each row
+    if (o.k === "site") { const s = stSites().find((x) => x.id === o.id); return s && s.rain ? s.rain[mon] : null; }
+    const x = o.k === "prov" ? P[o.id] : PL[o.id]; return x ? climOf(x).rain_mm[mon] : null;
+  }
+  function hideList() { const ul = $("#vnFindList"); if (ul) { ul.hidden = true; $("#vnFind").setAttribute("aria-expanded", "false"); } }
+  function move(d) {
+    const idx = opts.map((o, i) => (o.k === "head" ? -1 : i)).filter((i) => i >= 0); if (!idx.length) return;
+    const p = idx.indexOf(act); act = idx[(p + d + idx.length) % idx.length];
+    $("#vnFindList").querySelectorAll("[role=option]").forEach((li) => li.setAttribute("aria-selected", +li.dataset.i === act));
+    const li = $("#vnOpt" + act); li && li.scrollIntoView({ block: "nearest" });
+    $("#vnFind").setAttribute("aria-activedescendant", "vnOpt" + act);
+  }
+  const msg = (s) => { const m = $("#vnFindMsg"); if (m) m.textContent = s || ""; };
+  function pickOpt(o) {
+    if (!o || o.k === "head") return;
+    hideList(); msg("");
+    const inp = $("#vnFind");
+    if (o.k === "geo") { geocode(o.q); return; }
+    inp.value = o.name; mark(null);
+    goTo(o);
+  }
+  function goTo(o) {
+    if (o.k === "prov") choose(o.id, "avg");
+    else if (o.k === "place") choose(o.prov, o.id);
+    else if (o.k === "site") {   // the planner's own area: app.js picks it from any [data-site] click
+      choose(null);
+      const b = document.createElement("button"); b.type = "button"; b.dataset.site = o.id; b.hidden = true; document.body.appendChild(b); b.click(); b.remove();
+      try { MapView.focus(o.id); } catch (er) {}
+    }
+  }
+  const kmBetween = (a, b, c, d) => { const r = Math.PI / 180, x = Math.sin((c - a) * r / 2) ** 2 + Math.cos(a * r) * Math.cos(c * r) * Math.sin((d - b) * r / 2) ** 2; return 12742 * Math.asin(Math.sqrt(x)); };
+  const inRing = (x, y, ring) => { let c = false; for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) { const [xi, yi] = ring[i], [xj, yj] = ring[j]; if ((yi > y) !== (yj > y) && x < (xj - xi) * (y - yi) / (yj - yi) + xi) c = !c; } return c; };
+  /* a place (searched or the phone's location) -> its Sóc Trăng area, else the nearest data point */
+  function nearestTo(lat, lon, label) {
+    mark([lat, lon]);
+    const Dd = typeof DISTRICTS !== "undefined" ? DISTRICTS : {};
+    const sid = Object.keys(Dd).find((id) => inRing(lon, lat, Dd[id]));
+    if (sid) { const s = stSites().find((x) => x.id === sid); msg(fill(t("inArea"), { q: label, n: s ? RX.Core.short(s) : sid })); goTo({ k: "site", id: sid }); return; }
+    const cand = D.places.map((x) => ({ o: { k: x.own ? "prov" : "place", id: x.own ? x.province : x.id, prov: x.province }, n: nm(x.name), km: kmBetween(lat, lon, x.lat, x.lon) }))
+      .concat(stSites().map((s) => ({ o: { k: "site", id: s.id }, n: RX.Core.short(s), km: kmBetween(lat, lon, s.lat, s.lon) })));
+    const best = cand.sort((a, b) => a.km - b.km)[0];
+    msg(fill(t("near"), { n: best.n, k: num(best.km), q: label }));
+    goTo(best.o);
+  }
+  function mark(ll0) {
+    if (here) { here.remove(); here = null; }
+    if (ll0 && map) here = L.circleMarker(ll0, { radius: 7, weight: 3, color: "#fff", fillColor: "#E2B33A", fillOpacity: 1, pane: "markerPane", interactive: false }).addTo(map);
+  }
+  function geocode(q) {
+    msg(t("searching"));
+    fetch("https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=vn&accept-language=" + lang + "&q=" + encodeURIComponent(q))
+      .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+      .then((a) => { if (!a.length) { msg(t("notFound")); return; } nearestTo(+a[0].lat, +a[0].lon, a[0].display_name.split(",")[0]); const m = $("#vnFindMsg"); if (m) m.textContent += " " + t("osm") + "."; })
+      .catch(() => msg(t("notFound")));
+  }
+  function wireFind() {
+    const inp = findEl.querySelector("#vnFind"), ul = findEl.querySelector("#vnFindList");
+    inp.addEventListener("focus", () => showList(inp.value));
+    inp.addEventListener("input", () => { msg(""); showList(inp.value); });
+    inp.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowDown" || e.key === "ArrowUp") { e.preventDefault(); if (ul.hidden) showList(inp.value); move(e.key === "ArrowDown" ? 1 : -1); }
+      else if (e.key === "Enter") { e.preventDefault(); const first = opts.find((o) => o.k !== "head"); pickOpt(act >= 0 ? opts[act] : inp.value.trim() ? first : null); }
+      else if (e.key === "Escape") { if (!ul.hidden) { e.stopPropagation(); hideList(); } }
+    });
+    ul.addEventListener("pointerdown", (e) => e.preventDefault());   // keep focus in the field while picking
+    ul.addEventListener("click", (e) => { const li = e.target.closest("[data-i]"); if (li) pickOpt(opts[+li.dataset.i]); });
+    inp.addEventListener("blur", () => setTimeout(hideList, 120));
+    findEl.querySelector("#vnLoc").addEventListener("click", () => {
+      if (!navigator.geolocation) { msg(t("locFail")); return; }
+      msg(t("searching"));
+      navigator.geolocation.getCurrentPosition((p) => nearestTo(p.coords.latitude, p.coords.longitude, t("you")), () => msg(t("locFail")), { timeout: 10000, maximumAge: 600000 });
+    });
+  }
+
+  /* ---------- the selected-province card at the top of the left panel (side.js shows it in place of the area card) ---------- */
+  function card() {
+    if (!sel || !D) return "";
+    const p = P[sel], fm = p.former.length > 1, avg = view === "avg" && fm, o = avg ? p : PL[view === "avg" ? p.id : view];
+    const rain = climOf(o).rain_mm[mon];
+    let crops = null;
+    if (avg) { const v = p.former.map((f) => PL[f.id] && PL[f.id].ndvi).filter((n) => n && n.farmland).map((n) => n.crops_per_year); if (v.length) crops = sum(v) / v.length; }
+    else if (o.ndvi && o.ndvi.farmland) crops = o.ndvi.crops_per_year;
+    return `<div class="sd-hudh"><p class="sd-eyebrow">${esc(t("chosen"))}</p><button type="button" class="sd-hudbtn" data-vncard="toggle" aria-expanded="${panelOpen}">${esc(t(panelOpen ? "hideD" : "details"))}</button></div>
+<div class="sd-title"><h2 class="sd-h">${esc(nm(view !== "avg" && view !== p.id ? PL[view].name : p.name))}</h2><span class="sd-chip vn-chip"><i class="sg-dot vn-dot-${esc(p.region)}" aria-hidden="true"></i>${esc(nm(D.regions[p.region]).split(" và ")[0].split(" and ")[0])}</span></div>
+<dl class="sd-stats vn-cstats">
+<div class="sd-stat"><dt>${esc(t("rainM"))}</dt><dd><b>${num(rain)} mm</b></dd></div>
+<div class="sd-stat"><dt>${esc(t("saltMon"))}</dt><dd class="vn-nodata"><b>${esc(t("noData"))}</b></dd></div>
+<div class="sd-stat"><dt>${esc(t("cropsY"))}</dt><dd><b>${crops == null ? "–" : num(crops, 1)}</b></dd></div></dl>`;
+  }
+  document.addEventListener("click", (e) => {
+    const b = e.target.closest && e.target.closest("[data-vncard]"); if (!b) return;
+    panelOpen = !panelOpen; render(); sideRender();
   });
+  const sideRender = () => { try { typeof Side !== "undefined" && Side.render && Side.render(); } catch (er) {} };
 
   /* ---------- outlines and pins ---------- */
   function drawMap() {
@@ -235,11 +424,11 @@ ${months}
   let countryOn = null;
   function country() {
     const on = map.getZoom() < COUNTRY_Z || !!sel;
+    $("#vnKey").hidden = !on || desktop();
     if (on === countryOn) return;
     countryOn = on;
-    ["vn-grad", "vn-labels"].forEach((n) => { map.getPane(n).style.display = on ? "" : "none"; });
+    map.getPane("vn-labels").style.display = on ? "" : "none";  // the colour layer follows the mode (paint), at every zoom
     Object.values(pins).forEach((p) => { p.m.getElement().style.display = on ? "" : "none"; });
-    $("#vnKey").hidden = !on;
     document.body.classList.toggle("vn-country", on);
     if (on) placeLabels();
   }
@@ -251,7 +440,8 @@ ${months}
   /* ---------- selection and the side panel ---------- */
   function choose(id, v) {
     sel = id || null; view = v || "avg";
-    if (sel && keyOpen && window.innerWidth < 1200) { keyOpen = false; drawKey(); }  // room for the province on smaller screens
+    if (sel && keyOpen && isPhone()) { keyOpen = false; drawKey(); }  // room for the province on phones
+    if (sel) panelOpen = true;
     Object.entries(polys).forEach(([k, p]) => { const e = p.getElement(); if (e) e.classList.toggle("is-sel", k === sel); });
     const ps = $("#vnPick"); if (ps) ps.value = sel || "";
     document.body.classList.toggle("vn-open", !!sel);
@@ -261,7 +451,7 @@ ${months}
     placeLabels();
     if (sel && map) {
       const top = ($("#topbar") || { offsetHeight: 64 }).offsetHeight, b = polys[sel].getBounds(),
-        pad = isPhone() ? { tl: [16, top + 16], br: [16, Math.round(innerHeight * 0.58) + 12] } : { tl: [keyOpen ? 380 : 40, top + 20], br: [480, 40] };
+        pad = isPhone() ? { tl: [16, top + 16], br: [16, Math.round(innerHeight * 0.58) + 12] } : { tl: [380, top + 20], br: [panelOpen ? 480 : 40, 40] };
       const o = view !== "avg" ? PL[view] : null;
       if (o) map.fitBounds(L.latLngBounds([[o.lat - 0.25, o.lon - 0.25], [o.lat + 0.25, o.lon + 0.25]]).extend(b.getCenter()).pad(0.1), { paddingTopLeft: pad.tl, paddingBottomRight: pad.br, maxZoom: 9, animate: !reduced() });
       else map.fitBounds(b, { paddingTopLeft: pad.tl, paddingBottomRight: pad.br, maxZoom: 9, animate: !reduced() });
@@ -281,7 +471,8 @@ ${months}
   }
   function render() {
     const el = $("#vnPanel");
-    if (!sel) { el.hidden = true; el.innerHTML = ""; return; }
+    sideRender();
+    if (!sel || !panelOpen) { el.hidden = true; el.innerHTML = ""; return; }
     cited = [];
     const p = P[sel], fm = p.former.length > 1;
     const avg = view === "avg" && fm;  // an unmerged province is its one point: show the point (soil distance, MODIS)
@@ -326,7 +517,7 @@ ${(p.areas || []).length ? `<button type="button" class="vn-golink" data-home>${
   }
   $("#vnPanel").addEventListener("click", (e) => {
     const b = e.target.closest("button"); if (!b) return;
-    if (b.hasAttribute("data-close")) choose(null);
+    if (b.hasAttribute("data-close")) { panelOpen = false; render(); }
     else if (b.hasAttribute("data-home")) { choose(null); try { MapView.home(); } catch (er) {} }
     else if (b.dataset.view) choose(sel, b.dataset.view === sel && P[sel].former.length === 1 ? "avg" : b.dataset.view);
     else if (b.dataset.yr) { yr = b.dataset.yr; render(); paint(); labels(); }
@@ -334,7 +525,7 @@ ${(p.areas || []).length ? `<button type="button" class="vn-golink" data-home>${
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && sel) { e.preventDefault(); choose(null); } });
 
   /* ---------- language follows the app; the planner's drawer and this panel never show together ---------- */
-  function applyLang() { if (D) { labels(); drawKey(); render(); } }
+  function applyLang() { if (D) { if (findEl) { findEl.innerHTML = findHTML(); wireFind(); } labels(); drawKey(); render(); slider(); } }
   function sync() {
     const l = appLang(); if (l !== lang) { lang = l; applyLang(); }
     if (sel && document.body.classList.contains("drawer-open")) choose(null);
@@ -370,6 +561,9 @@ ${(p.areas || []).length ? `<button type="button" class="vn-golink" data-home>${
       map.attributionControl.addAttribution('<a href="https://www.geoboundaries.org" target="_blank" rel="noopener">Outlines: geoBoundaries / OCHA, CC BY 3.0 IGO</a>');
       drawMap();
       paint();
+      drawKey();
+      slider();
+      addEventListener("resize", () => { drawKey(); country(); });
       // the address index.html#vietnam: after the planner's own first view (home/dashboard may re-centre on Sóc Trăng once)
       if (want) {
         want = false; showCountry();
@@ -384,5 +578,5 @@ ${(p.areas || []).length ? `<button type="button" class="vn-golink" data-home>${
     }).catch((e) => console.warn("vn.js", e));
   }
   if (typeof MapView !== "undefined" && MapView.leaflet) start(); else document.addEventListener("mapview:ready", start, { once: true });
-  return { country: showCountry };
+  return { country: showCountry, card, sliderInfo, mount: drawKey, selected: () => sel };
 })();
