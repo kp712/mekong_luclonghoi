@@ -1,12 +1,17 @@
-/* vn.js: the Vietnam map (vietnam.html). Same look as the Sóc Trăng map (map.js / map.css): satellite imagery,
-   white dashed outlines, a see-through colour layer blended between data points and clipped to the outlines, gold pins
-   with name plates. Data: data/provinces.json (pipeline/build.py), outlines: VN_GEO (app/vn_geo.js, make_outlines.py).
-   34 provinces since 1 July 2025, each joined from its former provinces; 63 province points with their own model and
-   the 5 Sóc Trăng area pins (those open the main app). Globals used: L (Leaflet 1.9.4), VN_GEO. */
-(() => {
+/* vn.js: the whole of Vietnam on the planner's own map (map.js), so there is one map: zoom out from the 5 Sóc Trăng
+   areas to the 34 provinces. Same look as the areas: white dashed outlines (the 34 provinces, their former provinces
+   dotted inside), a see-through colour layer blended between the 63 province points and clipped to the outlines (rain,
+   or rain minus crop water need), gold pins with name plates, and a province panel. The colour, pins and key show when
+   zoomed out past COUNTRY_Z (or with a province open); zoomed in, the planner looks as before.
+   Data: data/provinces.json (pipeline/build.py), loaded after the app; outlines: VN_GEO (app/vn_geo.js, make_outlines.py).
+   Globals used: L, VN_GEO, MapView (its Leaflet map), App, Dash, DISTRICTS. Exposes VnMap.country(). */
+const VnMap = (() => {
   const $ = (s) => document.querySelector(s);
-  const store = { get: (k) => { try { return localStorage.getItem(k) } catch (e) { return null } }, set: (k, v) => { try { localStorage.setItem(k, v) } catch (e) {} } };
-  let lang = store.get("mre-lang") === "en" ? "en" : "vi";
+  const store = { get: (k) => { try { return localStorage.getItem(k) } catch (e) { return null } } };
+  const appLang = () => (window.App && App.lang ? App.lang() : store.get("mre-lang") === "en" ? "en" : "vi");
+  let lang = appLang();
+  const COUNTRY_Z = 9.25;  // the planner's own view starts at zoom 9 (map.js used to stop there)
+  document.body.insertAdjacentHTML("beforeend", '<div class="vn-key vn-app" id="vnKey" hidden></div><aside class="vn-panel vn-app" id="vnPanel" hidden aria-live="polite"></aside>');
   const T = {
     title: ["Vietnam map", "Bản đồ Việt Nam"], pick: ["Choose a province", "Chọn tỉnh"], back: ["Sóc Trăng areas", "5 khu vực Sóc Trăng"],
     load: ["Loading…", "Đang tải…"], fail: ["Could not load the data. Check your connection and reload.", "Không tải được dữ liệu. Kiểm tra kết nối rồi tải lại trang."],
@@ -37,12 +42,9 @@
     conf: { low: ["Low confidence", "Độ tin cậy thấp"], medium: ["Medium confidence", "Độ tin cậy vừa"], high: ["High confidence", "Độ tin cậy cao"] },
     order: ["Listed in the project's fixed order, not ranked. Scores 1–5, higher is better; — = not scored.", "Xếp theo thứ tự cố định của dự án, không xếp hạng. Điểm 1–5, cao hơn là tốt hơn; — = chưa chấm."],
     why: ["Why these scores", "Vì sao có điểm này"], risks: ["Risks", "Rủi ro"], gaps: ["Check first", "Cần kiểm tra"],
-    open: ["Open the 5 Sóc Trăng areas in the planner", "Mở 5 khu vực Sóc Trăng trong công cụ lập kế hoạch"],
-    area: ["Sóc Trăng area: open in the planner", "Khu vực Sóc Trăng: mở trong công cụ"],
+    open: ["Zoom to the 5 Sóc Trăng areas to plan a field", "Phóng to 5 khu vực Sóc Trăng để lập kế hoạch ruộng"],
     sources: ["Sources", "Nguồn"],
-    socH: ["Sóc Trăng areas: usual dry-season salt peak (river water)", "5 khu vực Sóc Trăng: đỉnh mặn mùa khô thường gặp (nước sông)"],
-    fresh: ["fresh", "ngọt"], salty: ["salty", "mặn"],
-    socNote: ["At the nearest station (KTTV, SIWRR public reports): an estimate, never measured by satellite. Tap an area to plan it.", "Tại trạm đo gần nhất (KTTV, Viện Thủy lợi miền Nam, báo cáo công khai): ước tính, không đo bằng vệ tinh. Chạm vào khu vực để lập kế hoạch."], region: ["Region", "Vùng"], estimate: ["estimate", "ước tính"]
+    region: ["Region", "Vùng"]
   };
   const t = (k, sub) => { let s = (sub ? T[k][sub] : T[k])[lang === "vi" ? 1 : 0]; return s; };
   const fill = (s, o) => s.replace(/\{(\w)\}/g, (_, k) => o[k]);
@@ -59,7 +61,7 @@
   let sel = null, view = "avg", yr = "typical", mode = "rain", mon = -1, keyOpen = !isPhone(), hov = null;
 
   /* ---------- geometry: arcs -> rings ---------- */
-  const G = typeof VN_GEO !== "undefined" ? VN_GEO : null;
+  let G = typeof VN_GEO !== "undefined" ? VN_GEO : null;
   const arcPts = (i) => (i >= 0 ? G.arcs[i] : G.arcs[~i].slice().reverse());
   const ringPts = (r) => { const out = []; r.forEach((i) => { const a = arcPts(i); out.push(...(out.length ? a.slice(1) : a)) }); return out };
   const ll = (p) => [p[1], p[0]];
@@ -115,63 +117,16 @@
     const vs = pts.map((p) => p.v);
     if (mode === "rain") range = [Math.min(...vs), Math.max(...vs)];
     else { const a = Math.max(...vs.map(Math.abs)); range = [-a, a]; }
-    const rings = Object.values(G.province).flatMap((rs) => rs.map(ringPts));
+    const holes = typeof DISTRICTS !== "undefined" ? Object.values(DISTRICTS) : [];  // the 5 areas keep the planner's salt colour
+    const rings = Object.values(G.province).flatMap((rs) => rs.map(ringPts)).concat(holes);
     const url = clipImage(MAIN, rings, 110, 112, (lat, lon) => ramp(mode === "rain" ? BLUE : DIV, (idw(pts, lat, lon) - range[0]) / Math.max(1e-6, range[1] - range[0])));
-    if (gradLayer) gradLayer.setUrl(url); else gradLayer = L.imageOverlay(url, [[MAIN.s, MAIN.w], [MAIN.n, MAIN.e]], { pane: "grad", interactive: false }).addTo(map);
-    paintSoc();
+    if (gradLayer) gradLayer.setUrl(url); else gradLayer = L.imageOverlay(url, [[MAIN.s, MAIN.w], [MAIN.n, MAIN.e]], { pane: "vn-grad", interactive: false }).addTo(map);
     drawKey();
   }
 
-  /* ---------- the Sóc Trăng map inside the Vietnam map ----------
-     The 5 areas of the main planner, drawn as in map.js: their real district outlines (DISTRICTS, districts.js), a salt
-     colour blended between the 5 stations and clipped to them, and name plates with MODIS crops a year. The colour is the
-     usual dry-season salt peak in river water at the nearest station (estimate from public reports, never satellite).
-     Shown from zoom SOC_Z, over the province colour; a tap opens that area in the planner. */
-  const SOC_Z = 8.5;
-  const DIST = () => (typeof DISTRICTS !== "undefined" ? DISTRICTS : {});
-  const SALT_STOPS = [[0.5, [47, 127, 208]], [1.5, [47, 163, 107]], [3, [226, 179, 58]], [7, [229, 121, 58]], [15, [200, 55, 45]]];  // map.js
-  function saltCol(g) {
-    if (g <= SALT_STOPS[0][0]) return SALT_STOPS[0][1];
-    for (let i = 1; i < SALT_STOPS.length; i++) if (g <= SALT_STOPS[i][0]) {
-      const [a0, c0] = SALT_STOPS[i - 1], [a1, c1] = SALT_STOPS[i], f = (g - a0) / (a1 - a0);
-      return c0.map((v, k) => Math.round(v + (c1[k] - v) * f));
-    }
-    return SALT_STOPS[SALT_STOPS.length - 1][1];
-  }
-  const saltOf = (s) => (yr === "elnino" ? s.salt.elnino_max_ppt : s.salt.max_ppt);
-  let socLayer = null, socPolys = {}, socBox = null;
-  function paintSoc() {
-    const Dd = DIST(), rings = D.pins.map((s) => Dd[s.id]).filter(Boolean);
-    if (!map || !rings.length) return;
-    if (!socBox) { const a = rings.flat(); socBox = { w: Math.min(...a.map((q) => q[0])), e: Math.max(...a.map((q) => q[0])), s: Math.min(...a.map((q) => q[1])), n: Math.max(...a.map((q) => q[1])) }; }
-    const pts = D.pins.map((s) => ({ lat: s.lat, lon: s.lon, v: saltOf(s) }));
-    const url = clipImage(socBox, rings, 120, 140, (lat, lon) => saltCol(idw(pts, lat, lon)), 900);
-    if (socLayer) socLayer.setUrl(url); else socLayer = L.imageOverlay(url, [[socBox.s, socBox.w], [socBox.n, socBox.e]], { pane: "socgrad", interactive: false }).addTo(map);
-  }
-  function drawSoc() {
-    map.createPane("socgrad").style.zIndex = 407; map.getPane("socgrad").style.pointerEvents = "none";
-    map.createPane("soc").style.zIndex = 412;
-    const R = L.svg({ pane: "soc", padding: 0.6 }), Dd = DIST();
-    D.pins.forEach((s) => {
-      if (!Dd[s.id]) return;
-      const poly = L.polygon(Dd[s.id].map(ll), { pane: "soc", renderer: R, className: "sg-cell sg-area vn-soc", smoothFactor: 0, noClip: true, bubblingMouseEvents: false, weight: 1.5 }).addTo(map);
-      poly.on("mouseover", () => { const e = poly.getElement(); if (e) e.classList.add("is-hover"); });
-      poly.on("mouseout", () => { const e = poly.getElement(); if (e) e.classList.remove("is-hover"); });
-      poly.on("click", () => goArea(s.id));
-      socPolys[s.id] = poly;
-    });
-    const show = () => { const on = map.getZoom() >= SOC_Z; ["soc", "socgrad"].forEach((n) => { map.getPane(n).style.display = on ? "" : "none"; }); if (on !== socOn) { socOn = on; drawKey(); } };
-    map.on("zoomend", show);
-    show();
-  }
-  let socOn = false;
-  /* open a Sóc Trăng area in the planner: inside the app (embed) the app does it, on its own page we go to the app */
-  function goArea(id) {
-    if (EMBED) parent.postMessage({ type: "vn-area", id }, location.origin);
-    else location.href = "index.html";
-  }
 
-  const cite0 = (src) => (src || []).filter((i) => D.sources[i]).map((i) => ` <a class="vn-cite" href="${esc(D.sources[i].url || "#")}" target="_blank" rel="noopener" title="${esc(D.sources[i].title)}">↗</a>`).slice(0, 1).join("");
+  const pick = () => `<label class="vn-pickrow"><span>${esc(t("pick"))}</span><select id="vnPick"><option value="">—</option>${Object.keys(D.regions).map((r) =>
+    `<optgroup label="${esc(nm(D.regions[r]))}">${D.provinces.filter((p) => p.region === r).map((p) => `<option value="${p.id}"${p.id === sel ? " selected" : ""}>${esc(nm(p.name))}</option>`).join("")}</optgroup>`).join("")}</select></label>`;
   /* ---------- key (bottom left, like the Sóc Trăng map key) ---------- */
   function drawKey() {
     const el = $("#vnKey");
@@ -186,9 +141,7 @@ ${months}
 <b class="vn-key-h">${esc(t(mode === "rain" ? "rainH" : "balH"))}</b>
 <i class="vn-ramp" style="background:linear-gradient(90deg,${grad})"></i>
 <div class="vn-ends"><span>${num(range[0])} · ${esc(ends[0])}</span><span>${esc(ends[1])} · ${num(range[1])}</span></div>
-<p class="vn-note">${esc(t("keyNote"))}</p>${socOn ? `<b class="vn-key-h">${esc(t("socH"))}</b>
-<i class="vn-ramp" style="background:linear-gradient(90deg,${SALT_STOPS.map(([g, c], i) => `rgb(${c}) ${[0, 20, 45, 70, 100][i]}%`).join(",")})"></i>
-<div class="vn-ends"><span>${esc(t("fresh"))}</span><span>${esc(t("salty"))} · 15‰</span></div><p class="vn-note">${esc(t("socNote"))}${cite0(D.salt_src)}</p>` : ""}</div>` : "") +
+<p class="vn-note">${esc(t("keyNote"))}</p>${pick()}</div>` : "") +
       `<button type="button" class="vn-pill" data-key="toggle" aria-expanded="${keyOpen}"><i class="vn-ramp vn-ramp-s" style="background:linear-gradient(90deg,${grad})"></i><span>${esc(t(mode === "rain" ? "rain" : "bal"))}</span><em>${esc(keyOpen ? t("hide") : t("keyPill"))}</em></button>`;
     const ms = $("#vnMon"); if (ms) ms.value = String(mon);
   }
@@ -198,19 +151,23 @@ ${months}
     else if (b.dataset.yr) { yr = b.dataset.yr; paint(); render(); labels(); }
     else if (b.dataset.key) { keyOpen = b.dataset.key === "toggle" ? !keyOpen : false; drawKey(); }
   });
-  $("#vnKey").addEventListener("change", (e) => { if (e.target.id === "vnMon") { mon = +e.target.value; paint(); } });
+  $("#vnKey").addEventListener("change", (e) => {
+    if (e.target.id === "vnMon") { mon = +e.target.value; paint(); }
+    else if (e.target.id === "vnPick") choose(e.target.value || null);
+  });
 
   /* ---------- outlines and pins ---------- */
   function drawMap() {
-    map.createPane("grad").style.zIndex = 404; map.getPane("grad").style.pointerEvents = "none";
-    map.createPane("inner").style.zIndex = 406; map.getPane("inner").style.pointerEvents = "none";
-    map.createPane("cells").style.zIndex = 410;
-    map.createPane("labels").style.zIndex = 610;
-    const R = L.svg({ pane: "cells", padding: 0.6 }), RI = L.svg({ pane: "inner", padding: 0.6 });
+    // under the planner's own panes (grad 404, cells 410, labels 610): its Sóc Trăng areas stay on top and keep their taps
+    map.createPane("vn-grad").style.zIndex = 401; map.getPane("vn-grad").style.pointerEvents = "none";
+    map.createPane("vn-inner").style.zIndex = 402; map.getPane("vn-inner").style.pointerEvents = "none";
+    map.createPane("vn-cells").style.zIndex = 403;
+    map.createPane("vn-labels").style.zIndex = 605;
+    const R = L.svg({ pane: "vn-cells", padding: 0.6 }), RI = L.svg({ pane: "vn-inner", padding: 0.6 });
     // borders between former provinces inside one new province: thin dotted lines
-    G.inner.forEach((i) => L.polyline(G.arcs[i].map(ll), { pane: "inner", renderer: RI, interactive: false, className: "vn-inner", smoothFactor: 0, noClip: true }).addTo(map));
+    G.inner.forEach((i) => L.polyline(G.arcs[i].map(ll), { pane: "vn-inner", renderer: RI, interactive: false, className: "vn-inner", smoothFactor: 0, noClip: true }).addTo(map));
     D.provinces.forEach((p) => {
-      const poly = L.polygon(G.province[p.id].map((r) => ringPts(r).map(ll)), { pane: "cells", renderer: R, className: "sg-cell sg-area", smoothFactor: 0, noClip: true, bubblingMouseEvents: false, weight: 1.5 }).addTo(map);
+      const poly = L.polygon(G.province[p.id].map((r) => ringPts(r).map(ll)), { pane: "vn-cells", renderer: R, className: "vn-prov", smoothFactor: 0, noClip: true, bubblingMouseEvents: false, weight: 1.5 }).addTo(map);
       poly.on("mouseover", () => hover(p.id));
       poly.on("mouseout", () => hover(null));
       poly.on("click", () => choose(p.id, "avg"));
@@ -220,19 +177,19 @@ ${months}
       const size = kind === "own" ? 44 : kind === "former" ? 32 : 24;
       const label = nm(o.name);
       const m = L.marker([o.lat, o.lon], { icon: L.divIcon({ className: "sg-pin vn-pin-" + kind, html: `<button type="button" class="sg-pin-btn" aria-label="${esc(label)}"><i class="sg-p-pulse"></i><i class="sg-p-ring"></i><i class="sg-p-core"></i><i class="sg-p-tick sg-t-n"></i><i class="sg-p-tick sg-t-e"></i><i class="sg-p-tick sg-t-s"></i><i class="sg-p-tick sg-t-w"></i></button>`, iconSize: [size, size], iconAnchor: [size / 2, size / 2] }), keyboard: false, zIndexOffset: kind === "own" ? 300 : kind === "former" ? 200 : 100 }).addTo(map);
-      const lm = L.marker([o.lat, o.lon], { pane: "labels", interactive: false, keyboard: false, icon: L.divIcon({ className: "sg-label-wrap", html: '<span class="sg-label sg-hide vn-label-' + kind + '"></span>', iconSize: [0, 0] }) }).addTo(map);
+      const lm = L.marker([o.lat, o.lon], { pane: "vn-labels", interactive: false, keyboard: false, icon: L.divIcon({ className: "sg-label-wrap vn-lw", html: '<span class="sg-label sg-hide vn-label-' + kind + '"></span>', iconSize: [0, 0] }) }).addTo(map);
       const btn = m.getElement().querySelector("button"), lab = lm.getElement().querySelector(".sg-label");
       [btn, lab].forEach((x) => { L.DomEvent.disableClickPropagation(x); x.addEventListener("click", (e) => { e.stopPropagation(); onClick(); }); });
-      btn.addEventListener("mouseenter", () => hover(o.province || "can_tho"));
+      btn.addEventListener("mouseenter", () => hover(o.province));
       btn.addEventListener("mouseleave", () => hover(null));
       pins[o.id + ":" + kind] = { o, kind, btn, lab, m, lm };
     };
     D.places.forEach((x) => add(x, x.own ? "own" : "former", () => choose(x.province, x.id)));
-    D.pins.forEach((s) => add(s, "area", () => goArea(s.id)));
-    drawSoc();
     labels();
+    map.on("zoomend", country);
     map.on("zoomend moveend", placeLabels);
     map.on("click", () => { if (sel) choose(null); });
+    country();
   }
   function labels() {
     Object.values(pins).forEach((p) => {
@@ -240,26 +197,23 @@ ${months}
       let small = "";
       if (p.kind === "former") small = `${t("former")} → ${nm(pr.name)}`;
       else if (p.kind === "own") small = `GPM · ${num(sum(climOf(o).rain_mm))} ${lang === "vi" ? "mm mưa/năm" : "mm rain/yr"}`;
-      else if (p.kind === "area") small = lang === "vi" ? "Sóc Trăng cũ" : "former Sóc Trăng";
-      const name = p.kind === "area" ? nm(o.name).split(" (")[0].replace(/^(Former |Khu vực )/, "").replace(/( area| cũ)$/, "") : nm(o.name);
-      if (p.kind === "area" && typeof o.crops === "number") small = `MODIS · ${num(o.crops, 1)} ${lang === "vi" ? "vụ/năm" : "crops/yr"}`;
-      const dot = p.kind === "area" ? `sg-dot sg-lv-${esc(o.salt.level)}` : `sg-dot vn-dot-${esc(P[o.province || "can_tho"].region)}`;
-      p.lab.innerHTML = `<i class="${dot}" aria-hidden="true"></i><b>${esc(name)}</b>${small ? `<small>${esc(small)}</small>` : ""}`;
-      p.btn.setAttribute("aria-label", p.kind === "area" ? `${name}: ${t("area")}` : name);
+      const name = nm(o.name);
+      p.lab.innerHTML = `<i class="sg-dot vn-dot-${esc(pr.region)}" aria-hidden="true"></i><b>${esc(name)}</b>${small ? `<small>${esc(small)}</small>` : ""}`;
+      p.btn.setAttribute("aria-label", name);
     });
     placeLabels();
   }
   /* name plates: right of the pin, else left; hidden when both sides are taken (shown on hover/selection).
-     Zoomed out, only the provinces' own pins get plates; former provinces from zoom 7.5, the Sóc Trăng areas from SOC_Z. */
+     Zoomed out, only the provinces' own pins get plates; former provinces from zoom 7.5. */
   function placeLabels() {
     if (!map) return;
     const z = map.getZoom(), taken = [], size = map.getSize();
-    const show = (k) => k === "own" || (k === "former" && z >= 7.5) || (k === "area" && z >= SOC_Z);
+    if (!countryOn) return;
+    const show = (k) => k === "own" || (k === "former" && z >= 7.5);
     const list = Object.values(pins);
-    list.forEach((p) => { const vis = show(p.kind) || p.kind === "own"; p.m.getElement().style.display = (p.kind === "area" && z < SOC_Z) ? "none" : ""; p.vis = vis; });
     list.forEach((p) => { const c = map.latLngToContainerPoint([p.o.lat, p.o.lon]); p.c = c; taken.push({ x0: c.x - 8, x1: c.x + 8, y0: c.y - 8, y1: c.y + 8 }); });
     const isSel = (p) => sel && (p.o.id === view || (view === "avg" && p.kind === "own" && p.o.province === sel));
-    const rank = z >= SOC_Z ? { area: 0, own: 1, former: 2 } : { own: 0, former: 1, area: 2 };
+    const rank = { own: 0, former: 1 };
     const order = list.slice().sort((a, b) => isSel(b) - isSel(a) || rank[a.kind] - rank[b.kind]);
     order.forEach((p) => {
       const lab = p.lab, on = isSel(p);
@@ -277,6 +231,18 @@ ${months}
       if (spot) taken.push(spot);
     });
   }
+  /* zoomed out (or a province open): colour, pins, plates and key; zoomed in on the planner: only the outlines */
+  let countryOn = null;
+  function country() {
+    const on = map.getZoom() < COUNTRY_Z || !!sel;
+    if (on === countryOn) return;
+    countryOn = on;
+    ["vn-grad", "vn-labels"].forEach((n) => { map.getPane(n).style.display = on ? "" : "none"; });
+    Object.values(pins).forEach((p) => { p.m.getElement().style.display = on ? "" : "none"; });
+    $("#vnKey").hidden = !on;
+    document.body.classList.toggle("vn-country", on);
+    if (on) placeLabels();
+  }
   function hover(id) {
     hov = id;
     Object.entries(polys).forEach(([k, p]) => { const e = p.getElement(); if (e) e.classList.toggle("is-hover", k === id); });
@@ -287,14 +253,15 @@ ${months}
     sel = id || null; view = v || "avg";
     if (sel && keyOpen && window.innerWidth < 1200) { keyOpen = false; drawKey(); }  // room for the province on smaller screens
     Object.entries(polys).forEach(([k, p]) => { const e = p.getElement(); if (e) e.classList.toggle("is-sel", k === sel); });
-    $("#vnMap").classList.toggle("sg-has-sel", !!sel);
-    $("#vnPick").value = sel || "";
+    const ps = $("#vnPick"); if (ps) ps.value = sel || "";
     document.body.classList.toggle("vn-open", !!sel);
+    if (sel && window.App && App.closePanel) try { App.closePanel(); } catch (e) {}  // one panel on the right at a time
     render();
+    country();
     placeLabels();
     if (sel && map) {
-      const b = polys[sel].getBounds(), mainH = $(".vn-main").clientHeight,
-        pad = isPhone() ? { tl: [16, 16], br: [16, Math.round(mainH * 0.58) + 12] } : { tl: [keyOpen ? 380 : 40, 40], br: [480, 40] };
+      const top = ($("#topbar") || { offsetHeight: 64 }).offsetHeight, b = polys[sel].getBounds(),
+        pad = isPhone() ? { tl: [16, top + 16], br: [16, Math.round(innerHeight * 0.58) + 12] } : { tl: [keyOpen ? 380 : 40, top + 20], br: [480, 40] };
       const o = view !== "avg" ? PL[view] : null;
       if (o) map.fitBounds(L.latLngBounds([[o.lat - 0.25, o.lon - 0.25], [o.lat + 0.25, o.lon + 0.25]]).extend(b.getCenter()).pad(0.1), { paddingTopLeft: pad.tl, paddingBottomRight: pad.br, maxZoom: 9, animate: !reduced() });
       else map.fitBounds(b, { paddingTopLeft: pad.tl, paddingBottomRight: pad.br, maxZoom: 9, animate: !reduced() });
@@ -353,76 +320,69 @@ ${chart(c)}
 ${chk && chk.gpm_mm_yr ? `<p class="vn-note">${esc(fill(t("check"), { p: num(chk.power_mm_yr), g: num(chk.gpm_mm_yr), d: (chk.diff_pct > 0 ? "+" : "") + num(chk.diff_pct), r: num(chk.monthly_r, 2) }))} (${esc(t("pt"))}: ${esc(nm(PL[chkAt].name))})${cite(D.chart_src.slice(0, 2))}</p>` : ""}
 <h3>${esc(t("summary"))}</h3><ul class="vn-lines">${sm.filter((x) => !x.salt).map(lineHTML).join("")}</ul>
 ${o.scored ? `<h3>${esc(t("cards"))}</h3><p class="vn-note">${esc(t("order"))}</p><ul class="vn-cards">${cards.map(cardHTML).join("")}</ul>` : `<p class="vn-notscored">${esc(nm(o.not_scored))}</p>`}
-${(p.areas || []).length ? `<a class="vn-golink" href="index.html">${esc(t("open"))} →</a>` : ""}
+${(p.areas || []).length ? `<button type="button" class="vn-golink" data-home>${esc(t("open"))} →</button>` : ""}
 <h3>${esc(t("sources"))}</h3><ol class="vn-src">${cited.map((i) => { const s = D.sources[i]; return `<li id="vn-src-${i}">${s.url ? `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>` : esc(s.title)}</li>`; }).join("")}</ol>`;
     el.hidden = false;
   }
   $("#vnPanel").addEventListener("click", (e) => {
     const b = e.target.closest("button"); if (!b) return;
     if (b.hasAttribute("data-close")) choose(null);
+    else if (b.hasAttribute("data-home")) { choose(null); try { MapView.home(); } catch (er) {} }
     else if (b.dataset.view) choose(sel, b.dataset.view === sel && P[sel].former.length === 1 ? "avg" : b.dataset.view);
     else if (b.dataset.yr) { yr = b.dataset.yr; render(); paint(); labels(); }
   });
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && sel) { e.preventDefault(); choose(null); } });
 
-  /* ---------- top bar ---------- */
-  function fillPick() {
-    const s = $("#vnPick");
-    s.innerHTML = `<option value="">${esc(t("pick"))}</option>` + Object.keys(D.regions).map((r) =>
-      `<optgroup label="${esc(nm(D.regions[r]))}">${D.provinces.filter((p) => p.region === r).map((p) => `<option value="${p.id}">${esc(nm(p.name))}</option>`).join("")}</optgroup>`).join("");
-    s.value = sel || "";
+  /* ---------- language follows the app; the planner's drawer and this panel never show together ---------- */
+  function applyLang() { if (D) { labels(); drawKey(); render(); } }
+  function sync() {
+    const l = appLang(); if (l !== lang) { lang = l; applyLang(); }
+    if (sel && document.body.classList.contains("drawer-open")) choose(null);
   }
-  $("#vnPick").addEventListener("change", (e) => choose(e.target.value || null));
-  function applyLang() {
-    document.documentElement.lang = lang;
-    $("#vnTitle").textContent = t("title");
-    $("#vnBack span").textContent = t("back");
-    $("#vnPickL").textContent = t("pick");
-    document.querySelectorAll("[data-lang]").forEach((b) => b.setAttribute("aria-pressed", b.dataset.lang === lang));
-    if (D) { fillPick(); labels(); drawKey(); render(); }
-  }
-  document.querySelectorAll("[data-lang]").forEach((b) => b.addEventListener("click", () => {
-    lang = b.dataset.lang; store.set("mre-lang", lang); applyLang();
-    if (EMBED) parent.postMessage({ type: "vn-lang", lang }, location.origin);
-  }));
+  new MutationObserver(sync).observe(document.body, { attributes: true, attributeFilter: ["class"] });
+  if (window.RX && RX.Core && RX.Core.onLang) RX.Core.onLang(() => setTimeout(sync, 0));
 
-  /* ---------- inside the main app (index.html, vnview.js): back = close, language follows the app ---------- */
-  const EMBED = new URLSearchParams(location.search).get("embed") === "1";
-  if (EMBED) {
-    document.body.classList.add("vn-embed");
-    $("#vnBack").addEventListener("click", (e) => { e.preventDefault(); parent.postMessage({ type: "vn-close" }, location.origin); });
-    document.addEventListener("click", (e) => { const a = e.target.closest && e.target.closest(".vn-golink"); if (a) { e.preventDefault(); parent.postMessage({ type: "vn-close" }, location.origin); } });
-    addEventListener("message", (e) => {
-      if (e.origin !== location.origin || e.source !== parent || !e.data) return;
-      if (e.data.type === "vn-lang" && (e.data.lang === "en" || e.data.lang === "vi") && e.data.lang !== lang) { lang = e.data.lang; applyLang(); }
-    });
-    addEventListener("keydown", (e) => { if (e.key === "Escape" && !e.defaultPrevented) parent.postMessage({ type: "vn-close" }, location.origin); });
+  /* the whole country on this map; from the dashboard, step out to the map first */
+  function showCountry() {
+    if (!map || !D) { want = true; return; }  // before the data: once it is drawn
+    try { if (typeof Dash !== "undefined" && Dash.showMap) Dash.showMap(); } catch (e) {}
+    try { if (window.App && App.closePanel) App.closePanel(); } catch (e) {}
+    const top = ($("#topbar") || { offsetHeight: 64 }).offsetHeight;
+    setTimeout(() => map.fitBounds([[MAIN.s, MAIN.w], [MAIN.n, MAIN.e]], { paddingTopLeft: [20, top + 10], paddingBottomRight: [20, isPhone() ? 90 : 30], animate: !reduced() }), 80);
   }
+  let want = location.hash === "#vietnam";
 
-  /* ---------- start ---------- */
-  applyLang();
-  $("#vnLoad").textContent = t("load");
-  fetch("data/provinces.json").then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); }).then((d) => {
-    D = d;
-    d.provinces.forEach((p) => { P[p.id] = p; });
-    d.places.forEach((x) => { PL[x.id] = x; });
-    $("#vnLoad").hidden = true;
-    fillPick();
-    if (typeof L === "undefined" || !G) { $("#vnLoad").hidden = false; $("#vnLoad").textContent = t("nomap"); return; }
-    map = L.map("vnMap", { zoomControl: false, zoomSnap: 0.25, zoomDelta: 0.5, wheelPxPerZoomLevel: 120, minZoom: 4.5, maxZoom: 13,
-      maxBounds: [[MAIN.s - 4, MAIN.w - 6], [MAIN.n + 3, 118]], maxBoundsViscosity: 0.9, zoomAnimation: !reduced(), fadeAnimation: !reduced() });
-    map.attributionControl.setPrefix('<a href="https://leafletjs.com" target="_blank" rel="noopener">Leaflet</a>');
-    L.control.zoom({ position: "bottomright" }).addTo(map);
-    map.fitBounds([[MAIN.s, MAIN.w], [MAIN.n, MAIN.e]], { padding: [20, 20], animate: false });
-    // the offline tiles (tiles.js) only cover Sóc Trăng, so the whole country uses the same Esri imagery online
-    L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", {
-      maxZoom: 13, maxNativeZoom: 13, className: "sg-tiles sg-tiles-sat",
-      attribution: 'Imagery © Esri, Maxar, Earthstar Geographics · <a href="https://www.geoboundaries.org" target="_blank" rel="noopener">Outlines: geoBoundaries / OCHA, CC BY 3.0 IGO</a>'
-    }).addTo(map);
-    drawMap();
-    paint();
-    const q = new URLSearchParams(location.search).get("p");
-    if (q && P[q]) choose(q);
-    addEventListener("resize", () => { map.invalidateSize(); placeLabels(); });
-  }).catch((e) => { console.warn(e); $("#vnLoad").hidden = false; $("#vnLoad").textContent = t("fail"); });
+  /* ---------- start, once the planner map exists ---------- */
+  function start() {
+    map = typeof MapView !== "undefined" && MapView.leaflet;
+    if (!map || D) return;
+    if (!G) {  // vn_geo.js (~90 KB gzipped) loads after the planner is up
+      const s = document.createElement("script");
+      s.src = "app/vn_geo.js";
+      s.onload = () => { G = typeof VN_GEO !== "undefined" ? VN_GEO : null; if (G) start(); };
+      document.head.appendChild(s);
+      return;
+    }
+    fetch("data/provinces.json").then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); }).then((d) => {
+      D = d;
+      d.provinces.forEach((p) => { P[p.id] = p; });
+      d.places.forEach((x) => { PL[x.id] = x; });
+      map.attributionControl.addAttribution('<a href="https://www.geoboundaries.org" target="_blank" rel="noopener">Outlines: geoBoundaries / OCHA, CC BY 3.0 IGO</a>');
+      drawMap();
+      paint();
+      // the address index.html#vietnam: after the planner's own first view (home/dashboard may re-centre on Sóc Trăng once)
+      if (want) {
+        want = false; showCountry();
+        // the app's start-up may re-centre on Sóc Trăng once more: for a few seconds, until the user touches the map, keep the country view
+        let touched = false; const until = Date.now() + 5000;
+        const mark = () => { touched = true; };
+        map.getContainer().addEventListener("pointerdown", mark, { once: true }); map.getContainer().addEventListener("wheel", mark, { once: true });
+        const keep = () => { if (touched || Date.now() > until) { map.off("moveend", keep); return; } if (map.getZoom() >= COUNTRY_Z) showCountry(); };
+        map.on("moveend", keep);
+      }
+      addEventListener("resize", placeLabels);
+    }).catch((e) => console.warn("vn.js", e));
+  }
+  if (typeof MapView !== "undefined" && MapView.leaflet) start(); else document.addEventListener("mapview:ready", start, { once: true });
+  return { country: showCountry };
 })();

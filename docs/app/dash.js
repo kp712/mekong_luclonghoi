@@ -1537,12 +1537,8 @@ footer{margin-top:12px;font-size:10.5px;color:#444;border-top:1px solid #999;pad
   }
   new MutationObserver(syncInert).observe(document.body, { attributes: true, attributeFilter: ["class"] });
   syncInert();
-  /* open one area on the planner map from outside (the Vietnam map, vnview.js): leave the dashboard like "add", then pick it */
-  function pickArea(siteId) {
-    if (on) toMap(null);
-    const i = sites().findIndex((s) => s.id === siteId), p = $$("path.sg-area")[i];
-    if (p) setTimeout(() => p.dispatchEvent(new MouseEvent("click", { bubbles: true })), 260);
-  }
-  return { init, render, unlink, syncField, nowBlock, pickArea, flowNow: () => flowNow, get state() { return st } };
+  /* step out of the dashboard to the map, like "add" (the Việt Nam button, vnbtn.js / vn.js) */
+  function showMap() { if (on) toMap(null); }
+  return { init, render, unlink, syncField, nowBlock, showMap, flowNow: () => flowNow, get state() { return st } };
 })();
 if (document.readyState === "loading" || AppReady.waiting()) AppReady.on(() => setTimeout(Dash.init, 0)); else setTimeout(Dash.init, 0);

@@ -176,9 +176,17 @@ const MapView = typeof L === "undefined" ? {} : (() => {
   /* ---------- tiles ---------- */
   /* tiles are image files listed in tiles.js; a Set per layer answers "do we have this tile?" */
   const HAVE = {};
+  /* Outside the saved Sóc Trăng tiles (the whole-country view, vn.js) the same layers come from their servers:
+     Esri World Imagery (the saved tiles' source) and NASA GIBS VIIRS Black Marble 2016 (night, to zoom 8). */
+  const ONLINE = {
+    sat: (z, x, y) => `https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/${z}/${y}/${x}`,
+    night: (z, x, y) => z <= 8 ? `https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/VIIRS_Black_Marble/default/2016-01-01/GoogleMapsCompatible_Level8/${z}/${y}/${x}.png` : null
+  };
   const tileUrl = (name, key) => {
     const set = HAVE[name] || (HAVE[name] = new Set(TILES[name] || []));
-    return set.has(key) ? TILES.path + "/" + name + "/" + key + "." + TILES.ext[name] : null;
+    if (set.has(key)) return TILES.path + "/" + name + "/" + key + "." + TILES.ext[name];
+    const [z, x, y] = key.split("/").map(Number);
+    return ONLINE[name] ? ONLINE[name](z, x, y) : null;
   };
   const TileLayer = L.GridLayer.extend({
     initialize(name, options) {
@@ -207,7 +215,7 @@ const MapView = typeof L === "undefined" ? {} : (() => {
   function makeLayer(name) {
     const z = TILES[name + "Zoom"] || LAYER_ZOOM[name];
     return new TileLayer(name, {
-      tileSize: 256, minNativeZoom: z[0], maxNativeZoom: z[1], minZoom: 0, maxZoom: 14,
+      tileSize: 256, minNativeZoom: 0, maxNativeZoom: z[1], minZoom: 0, maxZoom: 14,  // below the saved zooms: online tiles
       keepBuffer: 4, updateWhenZooming: false, updateWhenIdle: false, className: "sg-tiles sg-tiles-" + name
     });
   }
@@ -463,9 +471,10 @@ const MapView = typeof L === "undefined" ? {} : (() => {
     buildCells();
     if (typeof NITROGEN !== "undefined") setNitrogen(NITROGEN.points);
 
-    const maxB = L.latLngBounds([BBOX.s - PAD, BBOX.w - PAD], [BBOX.n + PAD, BBOX.e + PAD]);
+    /* one map for the whole country: zoom out from the Sóc Trăng areas to Vietnam's 34 provinces (vn.js) */
+    const maxB = L.latLngBounds([4, 97], [26, 118]);
     map = L.map(el, {
-      zoomControl: false, attributionControl: true, minZoom: 9, maxZoom: 13.5,
+      zoomControl: false, attributionControl: true, minZoom: 4.5, maxZoom: 13.5,
       /* smooth zoom: fine snapping for pinch and wheel, a slower wheel, and no zooming far past the sharpest tiles (z12) */
       zoomSnap: 0.25, zoomDelta: 0.5, wheelPxPerZoomLevel: 120, wheelDebounceTime: 20,
       bounceAtZoomLimits: false, inertiaDeceleration: 2600, easeLinearity: 0.25,
@@ -497,6 +506,7 @@ const MapView = typeof L === "undefined" ? {} : (() => {
     updateCoords();
     updateLabelVisibility();
     labels(lang);
+    document.dispatchEvent(new CustomEvent("mapview:ready"));  // vn.js adds the whole-country layer to this map
   }
 
   function select(id) {
@@ -572,5 +582,6 @@ const MapView = typeof L === "undefined" ? {} : (() => {
     if (map) updateLabelVisibility();
   }
 
-  return { init, select, setLayer, home, focus, resize, labels, month, hover, setMonth, setMode, setNitrogen, get mode() { return mode; } };
+  return { init, select, setLayer, home, focus, resize, labels, month, hover, setMonth, setMode, setNitrogen, get mode() { return mode; },
+    get leaflet() { return map; }, drawerPad };
 })();
