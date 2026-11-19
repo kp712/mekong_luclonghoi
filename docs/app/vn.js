@@ -87,12 +87,16 @@
     const vs = pts.map((p) => p.v);
     if (mode === "rain") range = [Math.min(...vs), Math.max(...vs)];
     else { const a = Math.max(...vs.map(Math.abs)); range = [-a, a]; }
-    const B = MAIN, W = Math.round(700 * Math.min(2, window.devicePixelRatio || 1)), H = Math.round(W * (B.n - B.s) / ((B.e - B.w) * Math.cos(16 * Math.PI / 180)));
+    /* the image is stretched by Leaflet in Web Mercator, so its rows follow Mercator y, not latitude: over 15° of latitude a
+       plain lat/lon image drifts ~20 km off the outlines (unnoticeable over Sóc Trăng's small box in map.js) */
+    const merc = (lat) => Math.log(Math.tan(Math.PI / 4 + lat * Math.PI / 360)), unmerc = (y) => (Math.atan(Math.exp(y)) - Math.PI / 4) * 360 / Math.PI;
+    const B = MAIN, yN = merc(B.n), yS = merc(B.s), xr = (B.e - B.w) * Math.PI / 180;
+    const W = Math.round(700 * Math.min(2, window.devicePixelRatio || 1)), H = Math.round(W * (yN - yS) / xr);
     const gw = 110, gh = Math.round(gw * H / W);
     const small = document.createElement("canvas"); small.width = gw; small.height = gh;
     const sx = small.getContext("2d"), img = sx.createImageData(gw, gh);
     for (let j = 0; j < gh; j++) for (let i = 0; i < gw; i++) {
-      const lon = B.w + (i + 0.5) / gw * (B.e - B.w), lat = B.n - (j + 0.5) / gh * (B.n - B.s);
+      const lon = B.w + (i + 0.5) / gw * (B.e - B.w), lat = unmerc(yN - (j + 0.5) / gh * (yN - yS));
       let w = 0, v = 0;
       for (const p of pts) { const d2 = (p.lat - lat) ** 2 + ((p.lon - lon) * 0.96) ** 2, q = 1 / (d2 * d2 + 1e-12); w += q; v += q * p.v; }
       const f = (v / w - range[0]) / Math.max(1e-6, range[1] - range[0]);
@@ -104,7 +108,7 @@
     const bx = big.getContext("2d");
     bx.beginPath();
     Object.values(G.province).forEach((rs) => rs.forEach((r) => ringPts(r).forEach(([lon, lat], q) => {
-      const x = (lon - B.w) / (B.e - B.w) * W, y = (B.n - lat) / (B.n - B.s) * H; q ? bx.lineTo(x, y) : bx.moveTo(x, y);
+      const x = (lon - B.w) / (B.e - B.w) * W, y = (yN - merc(lat)) / (yN - yS) * H; q ? bx.lineTo(x, y) : bx.moveTo(x, y);
     })));
     bx.clip("evenodd");
     bx.imageSmoothingEnabled = true; bx.imageSmoothingQuality = "high";
