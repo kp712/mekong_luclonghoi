@@ -176,6 +176,7 @@ body.home-on > :not(#home):not(#modal):not(#hub):not(#hubBtn):not(#toast):not(sc
 .hm-data small { display: block; font-size: .875rem; line-height: 1.35; color: var(--ink-2) }
 
 .hm-foot { margin-top: auto; padding-top: 4px; border-top: 1px solid var(--line) }
+.hm-foot #hmVn { margin-right: 20px }
 #home :focus-visible { outline: 2px solid var(--water); outline-offset: 2px }
 @media (max-width: 359px) { .hm-data { grid-template-columns: 1fr } .hm-st { white-space: normal } }
 @media (min-width: 600px) { .hm-art { height: 168px } }

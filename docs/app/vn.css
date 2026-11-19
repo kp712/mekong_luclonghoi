@@ -1,0 +1,141 @@
+/* vn.css: the Vietnam map page (vietnam.html). Uses style.css tokens and map.css's pin, plate and outline look. */
+body.vn { display: flex; flex-direction: column; height: 100%; overflow: hidden; }
+.vn-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---- top bar ---- */
+.vn-top {
+  position: relative; z-index: 1000; display: flex; align-items: center; gap: 12px; padding: 10px 16px;
+  min-height: var(--top-h); background: var(--panel); border-bottom: 1px solid var(--line); backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur);
+}
+.vn-back { display: inline-flex; align-items: center; gap: 4px; min-height: 44px; padding: 0 10px 0 4px; border-radius: 10px; color: var(--ink-2); text-decoration: none; font-weight: 500; font-size: 14px; }
+.vn-back svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.vn-back:hover { color: var(--gold); background: var(--gold-soft); }
+.vn-title { display: flex; align-items: baseline; gap: 10px; font-size: 16px; font-weight: 600; margin-right: auto; white-space: nowrap; }
+.vn-title b { font-weight: 800; letter-spacing: .02em; }
+.vn-title span { color: var(--ink-2); font-weight: 500; }
+.vn-pick select {
+  min-height: 44px; max-width: 46vw; padding: 0 34px 0 12px; border-radius: 10px; border: 1px solid var(--line-2); background: var(--panel-solid);
+  font-weight: 500; font-size: 15px; appearance: none; -webkit-appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--ink-2) 50%), linear-gradient(135deg, var(--ink-2) 50%, transparent 50%);
+  background-position: calc(100% - 17px) 50%, calc(100% - 12px) 50%; background-size: 5px 5px; background-repeat: no-repeat;
+}
+.vn-seg, .vn-two { display: flex; padding: 3px; gap: 3px; border-radius: 12px; background: var(--bg-2); border: 1px solid var(--line); }
+.vn-seg button, .vn-two button { flex: 1; min-height: 38px; padding: 0 12px; border-radius: 9px; font-weight: 600; font-size: 14px; color: var(--ink-2); }
+.vn-seg button[aria-pressed="true"], .vn-two button[aria-pressed="true"] { background: var(--gold); color: #1B1406; }
+.vn-seg button:focus-visible, .vn-two button:focus-visible, .vn-pick select:focus-visible, .vn-back:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+@media (max-width: 760px) {
+  .vn-top { display: grid; grid-template-columns: auto 1fr auto; grid-template-areas: "title title lang" "back pick pick"; gap: 8px; padding: 8px 16px; }
+  .vn-title { grid-area: title; } .vn-seg { grid-area: lang; } .vn-back { grid-area: back; } .vn-pick { grid-area: pick; }
+  .vn-back span { display: none; }
+  .vn-pick select { max-width: none; width: 100%; }
+  #vnMap .leaflet-control-attribution { font-size: 11px; line-height: 13px; }
+}
+
+/* ---- map ---- */
+.vn-main { position: relative; flex: 1; min-height: 0; }
+#vnMap { position: absolute; inset: 0; z-index: 0; }  /* own stacking context: Leaflet controls (z 1000) stay under the panel and key */
+#vnMap .leaflet-bottom { bottom: 0; }
+.vn-load { position: absolute; left: 50%; top: 40%; transform: translateX(-50%); padding: 10px 16px; border-radius: 12px; background: var(--panel-solid); box-shadow: 0 0 0 1px var(--line-2); z-index: 900; max-width: calc(100% - 32px); }
+/* borders between former provinces inside one province (map.css draws the provinces like the Sóc Trăng areas) */
+.sg-map path.vn-inner { fill: none; stroke: #fff; stroke-opacity: .7; stroke-width: 1.2px; stroke-dasharray: 2 4; stroke-linecap: round; pointer-events: none; }
+/* pins: the province's own point full size, former provinces smaller, the Sóc Trăng areas smallest */
+.vn-pin-former .sg-pin-btn { width: 32px; height: 32px; }
+.vn-pin-former .sg-p-core { width: 8px; height: 8px; margin: -4px 0 0 -4px; }
+.vn-pin-former .sg-p-ring, .vn-pin-former .sg-p-pulse { width: 16px; height: 16px; margin: -8px 0 0 -8px; }
+.vn-pin-former .sg-p-pulse, .vn-pin-area .sg-p-pulse { display: none; }
+.vn-pin-area .sg-pin-btn { width: 24px; height: 24px; }
+.vn-pin-area .sg-p-core { width: 6px; height: 6px; margin: -3px 0 0 -3px; background: #fff; }
+.vn-pin-area .sg-p-ring { width: 12px; height: 12px; margin: -6px 0 0 -6px; border-color: #fff; }
+.vn-pin-former .sg-t-n, .vn-pin-former .sg-t-s { height: 5px; } .vn-pin-former .sg-t-e, .vn-pin-former .sg-t-w { width: 5px; }
+.vn-pin-former .sg-t-n { margin-top: -15px; } .vn-pin-former .sg-t-s { margin-top: 10px; }
+.vn-pin-former .sg-t-w { margin-left: -15px; } .vn-pin-former .sg-t-e { margin-left: 10px; }
+.sg-label.vn-label-former { font-size: 13px; padding: 4px 10px 4px 8px; }
+.sg-label.vn-label-former small, .sg-label.vn-label-area small { font-size: 12px; line-height: 14px; }
+.sg-label.vn-label-area { font-size: 13px; padding: 4px 10px 4px 8px; }
+.vn-label-former .sg-dot, .vn-label-area .sg-dot { width: 9px; height: 9px; }
+/* the plate dot is the region (6 regions, Resolution 306/NQ-CP) */
+.vn-dot-northern_midlands { background: #6FA86A; } .vn-dot-red_river_delta { background: #D9A441; }
+.vn-dot-north_central { background: #C9784A; } .vn-dot-south_central_highlands { background: #9B7BC4; }
+.vn-dot-southeast { background: #4D9BC4; } .vn-dot-mekong_delta { background: #E3B866; }
+.sg-label { cursor: pointer; }
+
+/* ---- key ---- */
+.vn-key { position: absolute; left: 16px; bottom: 16px; z-index: 800; display: grid; gap: 8px; justify-items: start; max-width: min(340px, calc(100% - 32px)); }
+.vn-key-pop { display: grid; gap: 10px; width: 100%; padding: 14px; border-radius: var(--r); background: var(--panel); backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur); box-shadow: 0 0 0 1px var(--line-2), 0 10px 30px rgba(0,0,0,.25); }
+.vn-key-top { display: flex; align-items: center; justify-content: space-between; }
+.vn-key-h { font-size: 14px; font-weight: 600; line-height: 1.3; }
+.vn-key select { min-height: 40px; border-radius: 10px; border: 1px solid var(--line-2); background: var(--panel-solid); padding: 0 10px; font-weight: 500; }
+.vn-ramp { display: block; height: 10px; border-radius: 5px; opacity: .9; }
+.vn-ramp-s { width: 34px; height: 8px; }
+.vn-ends { display: flex; justify-content: space-between; font-size: 13px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.vn-note { font-size: 13px; line-height: 1.45; color: var(--ink-2); }
+.vn-pill { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 14px; border-radius: 22px; background: var(--panel-solid); box-shadow: 0 0 0 1px var(--line-2), 0 6px 18px rgba(0,0,0,.22); font-weight: 600; font-size: 14px; }
+.vn-pill em { font-style: normal; font-weight: 500; color: var(--ink-2); }
+.vn-x { width: 40px; height: 40px; border-radius: 10px; color: var(--ink-2); font-size: 16px; }
+.vn-x:hover { background: var(--gold-soft); color: var(--ink); }
+.vn-pill:focus-visible, .vn-x:focus-visible, .vn-key select:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+body.vn-open .vn-key { display: none; }
+@media (min-width: 761px) { body.vn-open .vn-key { display: grid; } }
+
+/* ---- side panel (bottom sheet on phones) ---- */
+.vn-panel {
+  position: absolute; z-index: 900; top: 16px; right: 16px; bottom: 16px; width: 440px; overflow-y: auto; overscroll-behavior: contain;
+  padding: 18px 20px 24px; border-radius: var(--r); background: var(--panel); backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur);
+  box-shadow: 0 0 0 1px var(--line-2), 0 18px 50px rgba(0,0,0,.3);
+}
+.vn-grab { display: none; }
+@media (max-width: 760px) {
+  .vn-panel { top: auto; left: 0; right: 0; bottom: 0; width: auto; max-height: 58%; border-radius: 18px 18px 0 0; padding: 8px 16px calc(24px + env(safe-area-inset-bottom)); }
+  .vn-grab { display: block; width: 40px; height: 4px; margin: 2px auto 8px; border-radius: 2px; background: var(--line-2); }
+}
+.vn-panel h2 { font-size: 26px; line-height: 1.15; font-weight: 700; padding-right: 44px; margin-top: 2px; }
+.vn-panel h3 { font-size: 16px; font-weight: 700; margin: 22px 0 8px; }
+.vn-panel h4 { font-size: 13px; font-weight: 600; margin: 10px 0 4px; color: var(--ink-2); }
+.vn-ph { position: relative; }
+.vn-ph .vn-x { position: absolute; top: -4px; right: -8px; }
+.vn-eye { font-size: 13px; font-weight: 600; color: var(--gold); }
+.vn-sub { margin-top: 6px; font-size: 14px; color: var(--ink-2); }
+.vn-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0 10px; }
+.vn-tabs button { min-height: 38px; padding: 0 12px; border-radius: 19px; border: 1px solid var(--line-2); font-weight: 500; font-size: 14px; }
+.vn-tabs button small { color: var(--ink-3); font-size: 12px; }
+.vn-tabs button[aria-pressed="true"] { background: var(--ink); color: var(--panel-solid); border-color: var(--ink); }
+.vn-tabs button[aria-pressed="true"] small { color: inherit; opacity: .75; }
+.vn-tabs button:focus-visible, .vn-panel summary:focus-visible, .vn-golink:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.vn-yr { margin-bottom: 8px; }
+.vn-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; }
+.vn-tile { display: grid; gap: 2px; padding: 10px 12px; border-radius: 12px; background: var(--panel-solid); box-shadow: 0 0 0 1px var(--line); }
+.vn-tile span { font-size: 13px; color: var(--ink-2); line-height: 1.3; }
+.vn-tile b { font-size: 20px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.vn-tile small { font-size: 12px; color: var(--ink-3); line-height: 1.35; }
+.vn-chart { margin: 16px 0 0; }
+.vn-chart figcaption { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+.vn-chart svg { width: 100%; height: auto; display: block; }
+.vn-chart text { font-size: 11px; fill: var(--ink-3); font-family: var(--font); }
+.vn-bar { fill: var(--water); opacity: .75; }
+.vn-et0 { fill: none; stroke: var(--gold); stroke-width: 2; stroke-linejoin: round; }
+.vn-lg { display: flex; gap: 16px; font-size: 13px; color: var(--ink-2); }
+.vn-lg i { display: inline-block; width: 12px; height: 8px; margin-right: 6px; border-radius: 2px; vertical-align: middle; }
+.vn-sw-rain { background: var(--water); opacity: .75; } .vn-sw-et0 { background: var(--gold); height: 2px !important; }
+.vn-salt { margin-top: 14px; padding: 10px 12px; border-radius: 12px; background: var(--gold-soft); font-size: 14px; line-height: 1.45; }
+.vn-lines { display: grid; gap: 8px; font-size: 14px; line-height: 1.5; }
+.vn-lines li { padding-left: 14px; position: relative; }
+.vn-lines li::before { content: ""; position: absolute; left: 0; top: .65em; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); }
+.vn-cite { display: inline-block; margin-left: 2px; font-size: 11px; font-weight: 600; vertical-align: super; line-height: 0; text-decoration: none; color: var(--gold); }
+.vn-cite + .vn-cite::before { content: ","; color: var(--ink-3); }
+.vn-notscored { margin-top: 18px; padding: 10px 12px; border-radius: 12px; box-shadow: inset 0 0 0 1px var(--line-2); font-size: 14px; line-height: 1.45; color: var(--ink-2); }
+.vn-cards { display: grid; gap: 10px; }
+.vn-card { padding: 12px; border-radius: 12px; background: var(--panel-solid); box-shadow: 0 0 0 1px var(--line); }
+.vn-card-h { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.vn-card-h b { font-size: 15px; }
+.vn-conf { font-size: 12px; font-weight: 600; color: var(--ink-2); white-space: nowrap; }
+.vn-conf-medium { color: var(--gold); } .vn-conf-high { color: var(--ok); }
+.vn-scores { display: grid; gap: 4px; margin: 8px 0 4px; }
+.vn-scores li { display: grid; grid-template-columns: 9.5em 1fr 2.4em; align-items: center; gap: 8px; font-size: 13px; color: var(--ink-2); }
+.vn-scores i { height: 6px; border-radius: 3px; background: linear-gradient(90deg, var(--gold) calc(var(--v) * 100%), var(--bg-2) 0); }
+.vn-scores b { text-align: right; font-variant-numeric: tabular-nums; color: var(--ink); }
+.vn-card summary { min-height: 36px; display: flex; align-items: center; font-size: 13px; font-weight: 600; color: var(--gold); cursor: pointer; }
+.vn-card details ul { display: grid; gap: 6px; font-size: 13px; line-height: 1.45; padding-left: 16px; list-style: disc; }
+.vn-golink { display: inline-flex; align-items: center; min-height: 44px; margin-top: 16px; padding: 0 16px; border-radius: 22px; background: var(--gold); color: #1B1406; font-weight: 600; text-decoration: none; }
+.vn-src { display: grid; gap: 6px; padding-left: 20px; list-style: decimal; font-size: 13px; line-height: 1.4; color: var(--ink-2); }
+.vn-src a { color: var(--ink-2); }
+.vn-src a:hover { color: var(--gold); }

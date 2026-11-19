@@ -413,7 +413,7 @@ def test_sites_json_contract():
                 dur = build.RESOURCES[k].get("duration_days")
                 assert (v is None) == (dur is None), (s["id"], k)
                 if v is not None:
-                    assert set(v) == {"sow_from", "sow_by", "harvest_by", "water_mm", "ok"}
+                    assert set(v) == {"sow_from", "sow_by", "harvest_by", "water_mm", "hot_days", "ok"}
                     if v["ok"]:
                         assert all(1 <= v[m] <= 12 for m in ("sow_from", "sow_by", "harvest_by")) and v["water_mm"] >= 0
                     else:
@@ -507,7 +507,9 @@ def flat(s):
 
 
 def test_seed_check():
-    clim = {"rain_mm": [0] * 12, "et0_mm": [100] * 12}
+    clim = {"rain_mm": [0] * 12, "et0_mm": [100] * 12, "hot_days": [2] * 12}
+    # hot days are summed over the months of the chosen sowing window (Jan-Feb here: 2 + 2)
+    assert build.seed_check_one("mungbean", [55, 59], clim, {"months": [3]})["hot_days"] == 4.0
     # missing duration_days -> None
     assert build.seed_check_one("watermelon", None, clim, {"months": [3]}) is None
     # March-salt boundary: from Jan (s = 1), 59 days (31 + 28) stays in Jan-Feb [1, 2]; 60 days reaches March [1, 2, 3]
@@ -521,7 +523,7 @@ def test_seed_check():
     assert build.seed_window(9, 105) == [9, 10, 11, 12] and 1 in build.seed_window(10, 105)
     r_vc = build.seed_check_one("rice", [95, 105], clim, vc)
     assert r_vc == {"sow_from": 6, "sow_by": 9, "harvest_by": 12,
-                    "water_mm": sum(build.water_need(["-"] * 8 + ["R1"] * 4, clim)), "ok": True}
+                    "water_mm": sum(build.water_need(["-"] * 8 + ["R1"] * 4, clim)), "hot_days": 8.0, "ok": True}  # Sep-Dec: 4 x 2
     # no safe window -> ok = False and all other fields None
     none_ok = build.seed_check_one("rice", [90, 100], clim, {"months": list(range(1, 11))})
     assert none_ok == {"sow_from": None, "sow_by": None, "harvest_by": None, "water_mm": None, "ok": False}
@@ -717,6 +719,134 @@ def test_climate_pest_inputs():
     assert c["tmean_c"][6] == 27.0                      # July: (30 + 24) / 2
     assert c["cold_days"][0] == 1.0                     # 15 Jan only; the -999 day and its neighbour are not compared
     assert c["cold_days"][11] == 0.0                    # first record day has no previous day
+
+
+def test_provinces_table():
+    import sites
+    # 34 provinces since 1 Jul 2025, covering each of the 63 former provinces exactly once, in Resolution 306/NQ-CP's 6 regions
+    ids = [p["id"] for p in sites.PROVINCES]
+    former = [f["id"] for p in sites.PROVINCES for f in p["former"]]
+    assert len(ids) == len(set(ids)) == 34 and len(former) == len(set(former)) == 63, (len(ids), len(former))
+    count = {r: sum(p["region"] == r for p in sites.PROVINCES) for r in sites.REGIONS}
+    assert count == {"northern_midlands": 9, "red_river_delta": 6, "north_central": 5, "south_central_highlands": 6, "southeast": 3, "mekong_delta": 5}, count
+    for p in sites.PROVINCES:
+        own = [f for f in p["former"] if f["id"] == p["id"]]
+        assert len(own) == 1 and (own[0]["lat"], own[0]["lon"]) == (p["lat"], p["lon"]), p["id"]  # the pin is its own former point
+        assert p["name"]["en"] and p["name"]["vi"] and all(f["name"]["en"] and f["name"]["vi"] for f in p["former"])
+        assert 8 < p["lat"] < 24 and 102 < p["lon"] < 110 and all(8 < f["lat"] < 24 and 102 < f["lon"] < 110 for f in p["former"]), p["id"]
+    assert next(p for p in sites.PROVINCES if p["id"] == "can_tho")["areas"] == [s["id"] for s in sites.SITES]  # former Sóc Trăng
+    pts = [x["id"] for x in sites.points()]
+    assert len(pts) == len(set(pts)) == 5 + 63 and set(former) <= set(pts)
+
+
+def test_province_helpers():
+    # averages month by month; rain/ET0 stay whole mm, the rest one decimal
+    a = {"rain_mm": [10] * 12, "et0_mm": [100] * 12, "tmax_c": [30.0] * 12}
+    b = {"rain_mm": [11] * 12, "et0_mm": [103] * 12, "tmax_c": [31.5] * 12}
+    m = build.mean_climate([a, b])
+    assert m["rain_mm"][0] == 10 and m["et0_mm"][0] == 102 and m["tmax_c"][0] == 30.8 and isinstance(m["et0_mm"][0], int), m
+    # every point needs its own GPM rain: a missing one stops the build instead of borrowing a neighbour's
+    assert build.point_rain({"x": {"2001-01": 10}}, "x") == {"2001-01": 10}
+    try:
+        build.point_rain({}, "z")
+        raise AssertionError("missing GPM must raise")
+    except ValueError:
+        pass
+    # soil re-sampled near a town pin says how far away it is; soil at the pin itself has no distance
+    import sites
+    for pt in sites.points():
+        f = build.RAW / f"soil_{pt['id']}.json"
+        raw = json.loads(f.read_text(encoding="utf-8"))
+        v = build.point_soil(pt["id"])
+        if raw.get("sample"):
+            assert v and v["km"] == raw["sample"]["km"] and 0 < v["km"] <= 15, pt["id"]
+        elif v:
+            assert "km" not in v
+
+
+def test_unknown_salinity():
+    sal = build.unknown_salinity()
+    assert sal["level"] == build.UNKNOWN and sal["months"] == [] and sal["estimate"] is True
+    clim = {"rain_mm": [100] * 12, "et0_mm": [120] * 12, "hot_days": [3] * 12}
+    rice3 = next(r for r in build.ROTATIONS if r["id"] == "rice3")
+    score, w = build.score_weather_salt(rice3, clim, sal)
+    assert score is None and w["parts"]["salt"] is None and w["parts"]["canal"] is None  # never a salt-free 5.0
+    assert w["hot_days"] == 33 and w["parts"]["heat"] == 1.0  # 11 crop months x 3 = 33 hot days >= HEAT_REF 30 -> heat part 1.0
+    sm = build.summary(dict(clim, rain_min_mm=[0] * 12, rain_max_mm=[0] * 12), None, sal)
+    assert sm[1]["salt"] and "no estimate" in sm[1]["en"] and "chưa có ước tính" in sm[1]["vi"] and "satellite" in sm[1]["en"]
+    level, why = build.confidence(rice3, None, sal, False)
+    assert any("No salinity estimate" in x["en"] for x in why) and level == "low", (level, why)
+
+
+def test_provinces_output():
+    import sites
+    assert "provinces" not in json.loads(build.OUT.read_text(encoding="utf-8"))  # the app's file stays as it was
+    d = json.loads(build.PROV_OUT.read_text(encoding="utf-8"))  # written by test_sites_json_contract
+    assert [p["id"] for p in d["provinces"]] == [p["id"] for p in sites.PROVINCES] and set(d["regions"]) == set(sites.REGIONS)
+    assert d["sources"][d["region_src"][0]]["title"] == sites.REGION_SRC["title"]
+    # its own numbered source list: every source cited, every citation real
+    text = build.PROV_OUT.read_text(encoding="utf-8")
+    refs = [i for m in re.finditer(r'"(?:src|cal_src|chart_src|soil_src|region_src|elnino_src|ndvi_src|outline_src)": \[([^\]]*)\]', text) for i in json.loads("[" + m.group(1) + "]")]
+    assert set(refs) == set(range(len(d["sources"]))) and "url" not in json.dumps(d["provinces"]) + json.dumps(d["places"])
+    vi = re.findall(r'"vi": "((?:[^"\\]|\\.)*)"', text)
+    assert vi and not [v for v in vi if re.search(r"\d\.\d(?!\d\d(?!\d))", v)], "Vietnamese text must use decimal commas"
+    for p in d["provinces"]:
+        assert len(p["climate"]["rain_mm"]) == 12 and len(p["elnino"]["climate"]["rain_mm"]) == 12
+        assert p["points"]["power"] == p["points"]["gpm"] == [f["id"] for f in p["former"]] and set(p["points"]["soil"]) <= set(p["points"]["power"])
+        assert p["salinity"]["level"] == "unknown" and p["salinity"]["estimate"] is True
+        assert (p["soil"] is None) == (not p["points"]["soil"])
+        assert p["scored"] == (p["region"] == "mekong_delta") and bool(p["cards"]) == p["scored"] and bool(p["elnino"]["cards"]) == p["scored"]
+        assert (p["not_scored"] is None) == p["scored"]
+        for sm in (p["summary"], p["elnino"]["summary"]):
+            salt = sm[1] if p["scored"] else sm[0]  # outside the Delta the winter-spring (Delta calendar) line is left out
+            assert [x for x in sm if x.get("salt")] == [salt] and "no estimate" in salt["en"]
+        for c in flat(p):
+            assert c["scores"]["salt"] is None and c["confidence"] == "low", (p["id"], c["id"])
+            assert all(1 <= v <= 5 for v in c["scores"].values() if v is not None)
+            assert any(x["en"].startswith("Weather & salt not scored") for x in c["why"]), (p["id"], c["id"])
+            if c.get("needs_brackish"):
+                assert any("before stocking shrimp" in r["en"] for r in c["risks"]) and not c["not_here"]
+    assert sum(p["scored"] for p in d["provinces"]) == 5
+    # every one of the 63 province points has its own model
+    places = d["places"]
+    assert [x["id"] for x in places] == [f["id"] for p in sites.PROVINCES for f in p["former"]] and len(places) == 63
+    region = {p["id"]: p["region"] for p in sites.PROVINCES}
+    for x in places:
+        assert x["region"] == region[x["province"]] and x["own"] == (x["id"] == x["province"]), x["id"]
+        assert len(x["climate"]["rain_mm"]) == 12 and len(x["elnino"]["climate"]["rain_mm"]) == 12 and x["gpm_check"]
+        assert (x["ndvi"] is not None) == (build.RAW / f"ndvi_{x['id']}.json").exists(), x["id"]
+        if x["ndvi"]:  # a town or water pixel is kept for display but never feeds the summary or the cards
+            assert x["ndvi"]["farmland"] == (max(x["ndvi"]["monthly"]) >= build.FARM_NDVI)
+            assert any("MODIS" in s["en"] for s in x["summary"]) == x["ndvi"]["farmland"], x["id"]
+        # outside the Delta no line uses the Delta's rice calendar
+        assert x["scored"] or not any("Winter–spring" in s["en"] for s in x["summary"] + x["elnino"]["summary"]), x["id"]
+        assert x["salinity"]["level"] == "unknown" and x["scored"] == (x["region"] == "mekong_delta")
+        assert bool(x["cards"]) == x["scored"] == bool(x["elnino"]["cards"])
+        for c in flat(x):  # no salinity estimate: low, except the bare Feb-Apr bonus MODIS can give (confidence())
+            ok = ("low", "medium") if x["ndvi"] and x["ndvi"]["farmland"] and c["id"] in ("rice_upland", "salt_tolerant") else ("low",)
+            assert c["scores"]["salt"] is None and c["confidence"] in ok, (x["id"], c["id"], c["confidence"])
+    assert sum(x["own"] for x in places) == 34 and sum(x["scored"] for x in places) == 12  # Mekong Delta: 2+2+3+3+2 former provinces
+
+
+def test_outlines():
+    """docs/app/vn_geo.js: 63 former + 34 joined provinces, and every pin inside its own outline."""
+    import make_outlines as mo
+    import sites
+    text = (build.ROOT / "docs" / "app" / "vn_geo.js").read_text(encoding="utf-8")
+    g = json.loads(text[text.index("{"):text.rindex("}") + 1])
+    rings = lambda rs: [mo.ring_pts(g["arcs"], r) for r in rs]
+    assert set(g["province"]) == {p["id"] for p in sites.PROVINCES}
+    assert set(g["former"]) == {f["id"] for p in sites.PROVINCES for f in p["former"]} and len(g["former"]) == 63
+    for p in sites.PROVINCES:
+        for f in p["former"]:
+            assert mo.inside(f["lon"], f["lat"], rings(g["former"][f["id"]])), f["id"]
+            assert mo.inside(f["lon"], f["lat"], rings(g["province"][p["id"]])), (p["id"], f["id"])
+    for s in sites.SITES:
+        assert mo.inside(s["lon"], s["lat"], rings(g["former"]["soc_trang"])), s["id"]
+    # a border inside a joined province is never part of its outline
+    used = {i if i >= 0 else ~i for rs in g["province"].values() for r in rs for i in r}
+    assert g["inner"] and not used & set(g["inner"])
+    assert mo.dp([(0, 0), (1, 0.0001), (2, 0)], 0.01) == [(0, 0), (2, 0)] and len(mo.dp([(0, 0), (1, 1), (2, 0)], 0.01)) == 3
 
 
 if __name__ == "__main__":
