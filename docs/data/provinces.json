@@ -3107,7 +3107,8 @@
     ],
     "soil": [
      "phu_tho",
-     "vinh_phuc"
+     "vinh_phuc",
+     "hoa_binh"
     ]
    },
    "climate": {
@@ -3225,9 +3226,9 @@
     ]
    },
    "soil": {
-    "clay_pct": 30.4,
-    "soc_g_kg": 20.6,
-    "ph": 6.2
+    "clay_pct": 31.2,
+    "soc_g_kg": 22.8,
+    "ph": 6.0
    },
    "salinity": {
     "months": [],
@@ -3443,7 +3444,9 @@
     "gpm": [
      "ha_noi"
     ],
-    "soil": []
+    "soil": [
+     "ha_noi"
+    ]
    },
    "climate": {
     "rain_mm": [
@@ -3559,7 +3562,11 @@
      1.1
     ]
    },
-   "soil": null,
+   "soil": {
+    "clay_pct": 26.4,
+    "soc_g_kg": 19.5,
+    "ph": 6.1
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -3785,7 +3792,10 @@
      "hai_phong",
      "hai_duong"
     ],
-    "soil": []
+    "soil": [
+     "hai_phong",
+     "hai_duong"
+    ]
    },
    "climate": {
     "rain_mm": [
@@ -3901,7 +3911,11 @@
      1.2
     ]
    },
-   "soil": null,
+   "soil": {
+    "clay_pct": 32.8,
+    "soc_g_kg": 22.6,
+    "ph": 6.2
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -4127,7 +4141,10 @@
      "bac_ninh",
      "bac_giang"
     ],
-    "soil": []
+    "soil": [
+     "bac_ninh",
+     "bac_giang"
+    ]
    },
    "climate": {
     "rain_mm": [
@@ -4243,7 +4260,11 @@
      1.2
     ]
    },
-   "soil": null,
+   "soil": {
+    "clay_pct": 29.7,
+    "soc_g_kg": 24.6,
+    "ph": 6.2
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -4458,7 +4479,9 @@
     "gpm": [
      "quang_ninh"
     ],
-    "soil": []
+    "soil": [
+     "quang_ninh"
+    ]
    },
    "climate": {
     "rain_mm": [
@@ -4574,7 +4597,11 @@
      0.9
     ]
    },
-   "soil": null,
+   "soil": {
+    "clay_pct": 32.5,
+    "soc_g_kg": 34.5,
+    "ph": 6.1
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -4800,7 +4827,10 @@
      "hung_yen",
      "thai_binh"
     ],
-    "soil": []
+    "soil": [
+     "hung_yen",
+     "thai_binh"
+    ]
    },
    "climate": {
     "rain_mm": [
@@ -4916,7 +4946,11 @@
      1.1
     ]
    },
-   "soil": null,
+   "soil": {
+    "clay_pct": 33.8,
+    "soc_g_kg": 23.0,
+    "ph": 6.0
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -5153,7 +5187,11 @@
      "ha_nam",
      "nam_dinh"
     ],
-    "soil": []
+    "soil": [
+     "ninh_binh",
+     "ha_nam",
+     "nam_dinh"
+    ]
    },
    "climate": {
     "rain_mm": [
@@ -5269,7 +5307,11 @@
      1.2
     ]
    },
-   "soil": null,
+   "soil": {
+    "clay_pct": 35.6,
+    "soc_g_kg": 23.7,
+    "ph": 6.1
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -5484,7 +5526,9 @@
     "gpm": [
      "thanh_hoa"
     ],
-    "soil": []
+    "soil": [
+     "thanh_hoa"
+    ]
    },
    "climate": {
     "rain_mm": [
@@ -5600,7 +5644,11 @@
      1.3
     ]
    },
-   "soil": null,
+   "soil": {
+    "clay_pct": 34.0,
+    "soc_g_kg": 27.9,
+    "ph": 6.2
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -5815,7 +5863,9 @@
     "gpm": [
      "nghe_an"
     ],
-    "soil": []
+    "soil": [
+     "nghe_an"
+    ]
    },
    "climate": {
     "rain_mm": [
@@ -5931,7 +5981,11 @@
      0.7
     ]
    },
-   "soil": null,
+   "soil": {
+    "clay_pct": 33.4,
+    "soc_g_kg": 32.5,
+    "ph": 5.8
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -6495,6 +6549,7 @@
      "quang_binh"
     ],
     "soil": [
+     "quang_tri",
      "quang_binh"
     ]
    },
@@ -6613,8 +6668,8 @@
     ]
    },
    "soil": {
-    "clay_pct": 31.5,
-    "soc_g_kg": 40.2,
+    "clay_pct": 31.9,
+    "soc_g_kg": 46.7,
     "ph": 5.8
    },
    "salinity": {
@@ -6831,7 +6886,9 @@
     "gpm": [
      "hue"
     ],
-    "soil": []
+    "soil": [
+     "hue"
+    ]
    },
    "climate": {
     "rain_mm": [
@@ -6947,7 +7004,11 @@
      0.1
     ]
    },
-   "soil": null,
+   "soil": {
+    "clay_pct": 32.7,
+    "soc_g_kg": 48.2,
+    "ph": 5.8
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -7173,7 +7234,10 @@
      "da_nang",
      "quang_nam"
     ],
-    "soil": []
+    "soil": [
+     "da_nang",
+     "quang_nam"
+    ]
    },
    "climate": {
     "rain_mm": [
@@ -7289,7 +7353,11 @@
      0.1
     ]
    },
-   "soil": null,
+   "soil": {
+    "clay_pct": 31.5,
+    "soc_g_kg": 38.2,
+    "ph": 6.2
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -7515,7 +7583,10 @@
      "quang_ngai",
      "kon_tum"
     ],
-    "soil": []
+    "soil": [
+     "quang_ngai",
+     "kon_tum"
+    ]
    },
    "climate": {
     "rain_mm": [
@@ -7631,7 +7702,11 @@
      0.1
     ]
    },
-   "soil": null,
+   "soil": {
+    "clay_pct": 34.2,
+    "soc_g_kg": 33.1,
+    "ph": 6.0
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -8555,7 +8630,10 @@
      "khanh_hoa",
      "ninh_thuan"
     ],
-    "soil": []
+    "soil": [
+     "khanh_hoa",
+     "ninh_thuan"
+    ]
    },
    "climate": {
     "rain_mm": [
@@ -8671,7 +8749,11 @@
      0.0
     ]
    },
-   "soil": null,
+   "soil": {
+    "clay_pct": 33.2,
+    "soc_g_kg": 25.8,
+    "ph": 6.3
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -8908,7 +8990,11 @@
      "dak_nong",
      "binh_thuan"
     ],
-    "soil": []
+    "soil": [
+     "lam_dong",
+     "dak_nong",
+     "binh_thuan"
+    ]
    },
    "climate": {
     "rain_mm": [
@@ -9024,7 +9110,11 @@
      0.0
     ]
    },
-   "soil": null,
+   "soil": {
+    "clay_pct": 36.5,
+    "soc_g_kg": 27.4,
+    "ph": 5.9
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -9250,7 +9340,10 @@
      "dong_nai",
      "binh_phuoc"
     ],
-    "soil": []
+    "soil": [
+     "dong_nai",
+     "binh_phuoc"
+    ]
    },
    "climate": {
     "rain_mm": [
@@ -9366,7 +9459,11 @@
      0.0
     ]
    },
-   "soil": null,
+   "soil": {
+    "clay_pct": 37.0,
+    "soc_g_kg": 26.0,
+    "ph": 5.4
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -9592,7 +9689,10 @@
      "tay_ninh",
      "long_an"
     ],
-    "soil": []
+    "soil": [
+     "tay_ninh",
+     "long_an"
+    ]
    },
    "climate": {
     "rain_mm": [
@@ -9708,7 +9808,11 @@
      0.1
     ]
    },
-   "soil": null,
+   "soil": {
+    "clay_pct": 33.5,
+    "soc_g_kg": 21.1,
+    "ph": 5.8
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -9945,7 +10049,11 @@
      "binh_duong",
      "ba_ria_vung_tau"
     ],
-    "soil": []
+    "soil": [
+     "tp_hcm",
+     "binh_duong",
+     "ba_ria_vung_tau"
+    ]
    },
    "climate": {
     "rain_mm": [
@@ -10061,7 +10169,11 @@
      0.0
     ]
    },
-   "soil": null,
+   "soil": {
+    "clay_pct": 39.5,
+    "soc_g_kg": 21.1,
+    "ph": 6.1
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -10287,7 +10399,10 @@
      "dong_thap",
      "tien_giang"
     ],
-    "soil": []
+    "soil": [
+     "dong_thap",
+     "tien_giang"
+    ]
    },
    "climate": {
     "rain_mm": [
@@ -10403,7 +10518,11 @@
      0.0
     ]
    },
-   "soil": null,
+   "soil": {
+    "clay_pct": 38.0,
+    "soc_g_kg": 26.1,
+    "ph": 5.8
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -11010,8 +11129,11 @@
        ],
        "gaps": [
         {
-         "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-         "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+         "en": "Topsoil here is ≈ 38.0% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt ở đây có ≈ 38,0% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "src": [
+          4
+         ]
         },
         {
          "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -11200,8 +11322,11 @@
        ],
        "gaps": [
         {
-         "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-         "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+         "en": "Topsoil here is ≈ 38.0% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt ở đây có ≈ 38,0% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "src": [
+          4
+         ]
         },
         {
          "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -11394,8 +11519,11 @@
        ],
        "gaps": [
         {
-         "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-         "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+         "en": "Topsoil here is ≈ 38.0% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt ở đây có ≈ 38,0% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "src": [
+          4
+         ]
         }
        ],
        "crops_per_year": null,
@@ -12406,8 +12534,11 @@
         ],
         "gaps": [
          {
-          "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-          "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+          "en": "Topsoil here is ≈ 38.0% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt ở đây có ≈ 38,0% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "src": [
+           4
+          ]
          },
          {
           "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -12596,8 +12727,11 @@
         ],
         "gaps": [
          {
-          "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-          "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+          "en": "Topsoil here is ≈ 38.0% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt ở đây có ≈ 38,0% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "src": [
+           4
+          ]
          },
          {
           "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -12790,8 +12924,11 @@
         ],
         "gaps": [
          {
-          "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-          "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+          "en": "Topsoil here is ≈ 38.0% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt ở đây có ≈ 38,0% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "src": [
+           4
+          ]
          }
         ],
         "crops_per_year": null,
@@ -13120,7 +13257,10 @@
      "an_giang",
      "kien_giang"
     ],
-    "soil": []
+    "soil": [
+     "an_giang",
+     "kien_giang"
+    ]
    },
    "climate": {
     "rain_mm": [
@@ -13236,7 +13376,11 @@
      0.0
     ]
    },
-   "soil": null,
+   "soil": {
+    "clay_pct": 36.3,
+    "soc_g_kg": 24.0,
+    "ph": 5.7
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -13843,8 +13987,11 @@
        ],
        "gaps": [
         {
-         "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-         "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+         "en": "Topsoil here is ≈ 36.3% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt ở đây có ≈ 36,3% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "src": [
+          4
+         ]
         },
         {
          "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -14033,8 +14180,11 @@
        ],
        "gaps": [
         {
-         "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-         "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+         "en": "Topsoil here is ≈ 36.3% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt ở đây có ≈ 36,3% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "src": [
+          4
+         ]
         },
         {
          "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -14227,8 +14377,11 @@
        ],
        "gaps": [
         {
-         "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-         "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+         "en": "Topsoil here is ≈ 36.3% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt ở đây có ≈ 36,3% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "src": [
+          4
+         ]
         }
        ],
        "crops_per_year": null,
@@ -15239,8 +15392,11 @@
         ],
         "gaps": [
          {
-          "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-          "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+          "en": "Topsoil here is ≈ 36.3% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt ở đây có ≈ 36,3% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "src": [
+           4
+          ]
          },
          {
           "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -15429,8 +15585,11 @@
         ],
         "gaps": [
          {
-          "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-          "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+          "en": "Topsoil here is ≈ 36.3% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt ở đây có ≈ 36,3% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "src": [
+           4
+          ]
          },
          {
           "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -15623,8 +15782,11 @@
         ],
         "gaps": [
          {
-          "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-          "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+          "en": "Topsoil here is ≈ 36.3% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt ở đây có ≈ 36,3% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "src": [
+           4
+          ]
          }
         ],
         "crops_per_year": null,
@@ -15964,7 +16126,11 @@
      "ben_tre",
      "tra_vinh"
     ],
-    "soil": []
+    "soil": [
+     "vinh_long",
+     "ben_tre",
+     "tra_vinh"
+    ]
    },
    "climate": {
     "rain_mm": [
@@ -16080,7 +16246,11 @@
      0.0
     ]
    },
-   "soil": null,
+   "soil": {
+    "clay_pct": 37.7,
+    "soc_g_kg": 25.5,
+    "ph": 6.3
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -16687,8 +16857,11 @@
        ],
        "gaps": [
         {
-         "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-         "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+         "en": "Topsoil here is ≈ 37.7% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt ở đây có ≈ 37,7% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "src": [
+          4
+         ]
         },
         {
          "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -16877,8 +17050,11 @@
        ],
        "gaps": [
         {
-         "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-         "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+         "en": "Topsoil here is ≈ 37.7% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt ở đây có ≈ 37,7% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "src": [
+          4
+         ]
         },
         {
          "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -17071,8 +17247,11 @@
        ],
        "gaps": [
         {
-         "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-         "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+         "en": "Topsoil here is ≈ 37.7% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt ở đây có ≈ 37,7% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "src": [
+          4
+         ]
         }
        ],
        "crops_per_year": null,
@@ -18083,8 +18262,11 @@
         ],
         "gaps": [
          {
-          "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-          "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+          "en": "Topsoil here is ≈ 37.7% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt ở đây có ≈ 37,7% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "src": [
+           4
+          ]
          },
          {
           "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -18273,8 +18455,11 @@
         ],
         "gaps": [
          {
-          "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-          "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+          "en": "Topsoil here is ≈ 37.7% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt ở đây có ≈ 37,7% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "src": [
+           4
+          ]
          },
          {
           "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -18467,8 +18652,11 @@
         ],
         "gaps": [
          {
-          "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-          "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+          "en": "Topsoil here is ≈ 37.7% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt ở đây có ≈ 37,7% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "src": [
+           4
+          ]
          }
         ],
         "crops_per_year": null,
@@ -18815,7 +19003,9 @@
      "hau_giang"
     ],
     "soil": [
-     "can_tho"
+     "can_tho",
+     "soc_trang",
+     "hau_giang"
     ]
    },
    "climate": {
@@ -18933,9 +19123,9 @@
     ]
    },
    "soil": {
-    "clay_pct": 37.2,
-    "soc_g_kg": 36.0,
-    "ph": 5.9
+    "clay_pct": 36.3,
+    "soc_g_kg": 40.6,
+    "ph": 5.8
    },
    "salinity": {
     "months": [],
@@ -19543,8 +19733,8 @@
        ],
        "gaps": [
         {
-         "en": "Topsoil here is ≈ 37.2% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
-         "vi": "Tầng đất mặt ở đây có ≈ 37,2% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "en": "Topsoil here is ≈ 36.3% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt ở đây có ≈ 36,3% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
          "src": [
           4
          ]
@@ -19736,8 +19926,8 @@
        ],
        "gaps": [
         {
-         "en": "Topsoil here is ≈ 37.2% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
-         "vi": "Tầng đất mặt ở đây có ≈ 37,2% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "en": "Topsoil here is ≈ 36.3% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt ở đây có ≈ 36,3% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
          "src": [
           4
          ]
@@ -19933,8 +20123,8 @@
        ],
        "gaps": [
         {
-         "en": "Topsoil here is ≈ 37.2% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
-         "vi": "Tầng đất mặt ở đây có ≈ 37,2% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "en": "Topsoil here is ≈ 36.3% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt ở đây có ≈ 36,3% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
          "src": [
           4
          ]
@@ -20948,8 +21138,8 @@
         ],
         "gaps": [
          {
-          "en": "Topsoil here is ≈ 37.2% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
-          "vi": "Tầng đất mặt ở đây có ≈ 37,2% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "en": "Topsoil here is ≈ 36.3% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt ở đây có ≈ 36,3% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
           "src": [
            4
           ]
@@ -21141,8 +21331,8 @@
         ],
         "gaps": [
          {
-          "en": "Topsoil here is ≈ 37.2% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
-          "vi": "Tầng đất mặt ở đây có ≈ 37,2% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "en": "Topsoil here is ≈ 36.3% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt ở đây có ≈ 36,3% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
           "src": [
            4
           ]
@@ -21338,8 +21528,8 @@
         ],
         "gaps": [
          {
-          "en": "Topsoil here is ≈ 37.2% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
-          "vi": "Tầng đất mặt ở đây có ≈ 37,2% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "en": "Topsoil here is ≈ 36.3% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt ở đây có ≈ 36,3% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
           "src": [
            4
           ]
@@ -21671,7 +21861,10 @@
      "ca_mau",
      "bac_lieu"
     ],
-    "soil": []
+    "soil": [
+     "ca_mau",
+     "bac_lieu"
+    ]
    },
    "climate": {
     "rain_mm": [
@@ -21787,7 +21980,11 @@
      0.0
     ]
    },
-   "soil": null,
+   "soil": {
+    "clay_pct": 40.4,
+    "soc_g_kg": 31.6,
+    "ph": 5.5
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -22394,8 +22591,11 @@
        ],
        "gaps": [
         {
-         "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-         "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+         "en": "Topsoil here is ≈ 40.4% clay (SoilGrids model, not your field): clay soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt ở đây có ≈ 40,4% sét (mô hình SoilGrids, không phải ruộng của bạn): đất sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "src": [
+          4
+         ]
         },
         {
          "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -22584,8 +22784,11 @@
        ],
        "gaps": [
         {
-         "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-         "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+         "en": "Topsoil here is ≈ 40.4% clay (SoilGrids model, not your field): clay soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt ở đây có ≈ 40,4% sét (mô hình SoilGrids, không phải ruộng của bạn): đất sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "src": [
+          4
+         ]
         },
         {
          "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -22778,8 +22981,11 @@
        ],
        "gaps": [
         {
-         "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-         "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+         "en": "Topsoil here is ≈ 40.4% clay (SoilGrids model, not your field): clay soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt ở đây có ≈ 40,4% sét (mô hình SoilGrids, không phải ruộng của bạn): đất sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "src": [
+          4
+         ]
         }
        ],
        "crops_per_year": null,
@@ -23790,8 +23996,11 @@
         ],
         "gaps": [
          {
-          "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-          "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+          "en": "Topsoil here is ≈ 40.4% clay (SoilGrids model, not your field): clay soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt ở đây có ≈ 40,4% sét (mô hình SoilGrids, không phải ruộng của bạn): đất sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "src": [
+           4
+          ]
          },
          {
           "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -23980,8 +24189,11 @@
         ],
         "gaps": [
          {
-          "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-          "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+          "en": "Topsoil here is ≈ 40.4% clay (SoilGrids model, not your field): clay soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt ở đây có ≈ 40,4% sét (mô hình SoilGrids, không phải ruộng của bạn): đất sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "src": [
+           4
+          ]
          },
          {
           "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -24174,8 +24386,11 @@
         ],
         "gaps": [
          {
-          "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-          "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+          "en": "Topsoil here is ≈ 40.4% clay (SoilGrids model, not your field): clay soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt ở đây có ≈ 40,4% sét (mô hình SoilGrids, không phải ruộng của bạn): đất sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "src": [
+           4
+          ]
          }
         ],
         "crops_per_year": null,
@@ -28972,7 +29187,12 @@
     ]
    },
    "ndvi": null,
-   "soil": null,
+   "soil": {
+    "clay_pct": 32.8,
+    "soc_g_kg": 27.0,
+    "ph": 5.6,
+    "km": 3
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -29319,7 +29539,12 @@
     "crops_per_year": 0.0,
     "farmland": false
    },
-   "soil": null,
+   "soil": {
+    "clay_pct": 26.4,
+    "soc_g_kg": 19.5,
+    "ph": 6.1,
+    "km": 7
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -29673,7 +29898,12 @@
     "crops_per_year": 0.0,
     "farmland": false
    },
-   "soil": null,
+   "soil": {
+    "clay_pct": 31.7,
+    "soc_g_kg": 23.6,
+    "ph": 6.3,
+    "km": 5
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -29968,7 +30198,12 @@
     ]
    },
    "ndvi": null,
-   "soil": null,
+   "soil": {
+    "clay_pct": 33.8,
+    "soc_g_kg": 21.6,
+    "ph": 6.2,
+    "km": 3
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -30312,7 +30547,12 @@
     "crops_per_year": 0.0,
     "farmland": false
    },
-   "soil": null,
+   "soil": {
+    "clay_pct": 29.8,
+    "soc_g_kg": 19.3,
+    "ph": 6.1,
+    "km": 3
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -30607,7 +30847,12 @@
     ]
    },
    "ndvi": null,
-   "soil": null,
+   "soil": {
+    "clay_pct": 29.6,
+    "soc_g_kg": 29.9,
+    "ph": 6.2,
+    "km": 3
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -30960,7 +31205,12 @@
     "crops_per_year": 0.0,
     "farmland": false
    },
-   "soil": null,
+   "soil": {
+    "clay_pct": 32.5,
+    "soc_g_kg": 34.5,
+    "ph": 6.1,
+    "km": 3
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -31304,7 +31554,12 @@
     "crops_per_year": 0.0,
     "farmland": false
    },
-   "soil": null,
+   "soil": {
+    "clay_pct": 32.5,
+    "soc_g_kg": 23.4,
+    "ph": 6.1,
+    "km": 3
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -31599,7 +31854,12 @@
     ]
    },
    "ndvi": null,
-   "soil": null,
+   "soil": {
+    "clay_pct": 35.1,
+    "soc_g_kg": 22.7,
+    "ph": 6.0,
+    "km": 3
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -31947,7 +32207,12 @@
     "crops_per_year": 0.0,
     "farmland": false
    },
-   "soil": null,
+   "soil": {
+    "clay_pct": 35.9,
+    "soc_g_kg": 23.6,
+    "ph": 6.0,
+    "km": 3
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -32242,7 +32507,12 @@
     ]
    },
    "ndvi": null,
-   "soil": null,
+   "soil": {
+    "clay_pct": 35.8,
+    "soc_g_kg": 24.6,
+    "ph": 6.2,
+    "km": 3
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -32537,7 +32807,12 @@
     ]
    },
    "ndvi": null,
-   "soil": null,
+   "soil": {
+    "clay_pct": 35.1,
+    "soc_g_kg": 22.9,
+    "ph": 6.0,
+    "km": 3
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -32878,7 +33153,12 @@
     "crops_per_year": 0.7,
     "farmland": false
    },
-   "soil": null,
+   "soil": {
+    "clay_pct": 34.0,
+    "soc_g_kg": 27.9,
+    "ph": 6.2,
+    "km": 3
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -33222,7 +33502,12 @@
     "crops_per_year": 0.0,
     "farmland": false
    },
-   "soil": null,
+   "soil": {
+    "clay_pct": 33.4,
+    "soc_g_kg": 32.5,
+    "ph": 5.8,
+    "km": 3
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -33934,7 +34219,12 @@
     "crops_per_year": 0.0,
     "farmland": false
    },
-   "soil": null,
+   "soil": {
+    "clay_pct": 32.2,
+    "soc_g_kg": 53.1,
+    "ph": 5.7,
+    "km": 3
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -34580,7 +34870,12 @@
     "crops_per_year": 0.0,
     "farmland": false
    },
-   "soil": null,
+   "soil": {
+    "clay_pct": 32.7,
+    "soc_g_kg": 48.2,
+    "ph": 5.8,
+    "km": 3
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -34934,7 +35229,12 @@
     "crops_per_year": 0.0,
     "farmland": false
    },
-   "soil": null,
+   "soil": {
+    "clay_pct": 29.6,
+    "soc_g_kg": 35.0,
+    "ph": 6.3,
+    "km": 3
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -35229,7 +35529,12 @@
     ]
    },
    "ndvi": null,
-   "soil": null,
+   "soil": {
+    "clay_pct": 33.4,
+    "soc_g_kg": 41.5,
+    "ph": 6.1,
+    "km": 3
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -35578,7 +35883,12 @@
     "crops_per_year": 0.0,
     "farmland": false
    },
-   "soil": null,
+   "soil": {
+    "clay_pct": 33.2,
+    "soc_g_kg": 45.5,
+    "ph": 6.2,
+    "km": 3
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -35873,7 +36183,12 @@
     ]
    },
    "ndvi": null,
-   "soil": null,
+   "soil": {
+    "clay_pct": 35.1,
+    "soc_g_kg": 20.8,
+    "ph": 5.8,
+    "km": 3
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -37539,7 +37854,12 @@
     "crops_per_year": 0.0,
     "farmland": false
    },
-   "soil": null,
+   "soil": {
+    "clay_pct": 30.6,
+    "soc_g_kg": 30.8,
+    "ph": 6.3,
+    "km": 3
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -37834,7 +38154,12 @@
     ]
    },
    "ndvi": null,
-   "soil": null,
+   "soil": {
+    "clay_pct": 35.9,
+    "soc_g_kg": 20.8,
+    "ph": 6.4,
+    "km": 3
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -38175,7 +38500,12 @@
     "crops_per_year": 0.3,
     "farmland": false
    },
-   "soil": null,
+   "soil": {
+    "clay_pct": 34.1,
+    "soc_g_kg": 29.9,
+    "ph": 5.8,
+    "km": 3
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -38470,7 +38800,12 @@
     ]
    },
    "ndvi": null,
-   "soil": null,
+   "soil": {
+    "clay_pct": 35.2,
+    "soc_g_kg": 26.8,
+    "ph": 5.4,
+    "km": 3
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -38765,7 +39100,12 @@
     ]
    },
    "ndvi": null,
-   "soil": null,
+   "soil": {
+    "clay_pct": 40.3,
+    "soc_g_kg": 25.5,
+    "ph": 6.5,
+    "km": 3
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -39119,7 +39459,12 @@
     "crops_per_year": 0.0,
     "farmland": false
    },
-   "soil": null,
+   "soil": {
+    "clay_pct": 43.0,
+    "soc_g_kg": 32.6,
+    "ph": 5.5,
+    "km": 3
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -39414,7 +39759,12 @@
     ]
    },
    "ndvi": null,
-   "soil": null,
+   "soil": {
+    "clay_pct": 31.1,
+    "soc_g_kg": 19.4,
+    "ph": 5.3,
+    "km": 3
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -39755,7 +40105,12 @@
     "crops_per_year": 0.1,
     "farmland": false
    },
-   "soil": null,
+   "soil": {
+    "clay_pct": 28.8,
+    "soc_g_kg": 20.4,
+    "ph": 5.4,
+    "km": 3
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -40050,7 +40405,12 @@
     ]
    },
    "ndvi": null,
-   "soil": null,
+   "soil": {
+    "clay_pct": 38.3,
+    "soc_g_kg": 21.8,
+    "ph": 6.3,
+    "km": 3
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -40404,7 +40764,12 @@
     "crops_per_year": 0.0,
     "farmland": false
    },
-   "soil": null,
+   "soil": {
+    "clay_pct": 42.4,
+    "soc_g_kg": 20.2,
+    "ph": 6.1,
+    "km": 3
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -40699,7 +41064,12 @@
     ]
    },
    "ndvi": null,
-   "soil": null,
+   "soil": {
+    "clay_pct": 38.1,
+    "soc_g_kg": 21.2,
+    "ph": 5.9,
+    "km": 3
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -40994,7 +41364,12 @@
     ]
    },
    "ndvi": null,
-   "soil": null,
+   "soil": {
+    "clay_pct": 38.1,
+    "soc_g_kg": 21.9,
+    "ph": 6.2,
+    "km": 3
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -41348,7 +41723,12 @@
     "crops_per_year": 0.0,
     "farmland": false
    },
-   "soil": null,
+   "soil": {
+    "clay_pct": 38.3,
+    "soc_g_kg": 20.9,
+    "ph": 5.6,
+    "km": 3
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -41955,8 +42335,11 @@
        ],
        "gaps": [
         {
-         "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-         "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+         "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 38.3% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 38,3% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "src": [
+          4
+         ]
         },
         {
          "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -42145,8 +42528,11 @@
        ],
        "gaps": [
         {
-         "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-         "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+         "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 38.3% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 38,3% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "src": [
+          4
+         ]
         },
         {
          "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -42339,8 +42725,11 @@
        ],
        "gaps": [
         {
-         "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-         "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+         "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 38.3% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 38,3% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "src": [
+          4
+         ]
         }
        ],
        "crops_per_year": null,
@@ -43337,8 +43726,11 @@
         ],
         "gaps": [
          {
-          "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-          "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+          "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 38.3% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 38,3% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "src": [
+           4
+          ]
          },
          {
           "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -43527,8 +43919,11 @@
         ],
         "gaps": [
          {
-          "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-          "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+          "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 38.3% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 38,3% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "src": [
+           4
+          ]
          },
          {
           "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -43721,8 +44116,11 @@
         ],
         "gaps": [
          {
-          "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-          "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+          "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 38.3% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 38,3% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "src": [
+           4
+          ]
          }
         ],
         "crops_per_year": null,
@@ -44134,7 +44532,12 @@
     ]
    },
    "ndvi": null,
-   "soil": null,
+   "soil": {
+    "clay_pct": 37.7,
+    "soc_g_kg": 31.3,
+    "ph": 6.1,
+    "km": 3
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -44741,8 +45144,11 @@
        ],
        "gaps": [
         {
-         "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-         "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+         "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 37.7% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 37,7% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "src": [
+          4
+         ]
         },
         {
          "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -44931,8 +45337,11 @@
        ],
        "gaps": [
         {
-         "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-         "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+         "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 37.7% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 37,7% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "src": [
+          4
+         ]
         },
         {
          "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -45125,8 +45534,11 @@
        ],
        "gaps": [
         {
-         "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-         "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+         "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 37.7% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 37,7% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "src": [
+          4
+         ]
         }
        ],
        "crops_per_year": null,
@@ -46123,8 +46535,11 @@
         ],
         "gaps": [
          {
-          "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-          "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+          "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 37.7% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 37,7% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "src": [
+           4
+          ]
          },
          {
           "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -46313,8 +46728,11 @@
         ],
         "gaps": [
          {
-          "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-          "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+          "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 37.7% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 37,7% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "src": [
+           4
+          ]
          },
          {
           "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -46507,8 +46925,11 @@
         ],
         "gaps": [
          {
-          "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-          "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+          "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 37.7% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 37,7% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "src": [
+           4
+          ]
          }
         ],
         "crops_per_year": null,
@@ -46979,7 +47400,12 @@
     "crops_per_year": 0.0,
     "farmland": false
    },
-   "soil": null,
+   "soil": {
+    "clay_pct": 36.9,
+    "soc_g_kg": 21.8,
+    "ph": 5.9,
+    "km": 3
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -47586,8 +48012,11 @@
        ],
        "gaps": [
         {
-         "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-         "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+         "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 36.9% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 36,9% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "src": [
+          4
+         ]
         },
         {
          "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -47776,8 +48205,11 @@
        ],
        "gaps": [
         {
-         "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-         "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+         "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 36.9% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 36,9% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "src": [
+          4
+         ]
         },
         {
          "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -47970,8 +48402,11 @@
        ],
        "gaps": [
         {
-         "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-         "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+         "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 36.9% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 36,9% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "src": [
+          4
+         ]
         }
        ],
        "crops_per_year": null,
@@ -48968,8 +49403,11 @@
         ],
         "gaps": [
          {
-          "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-          "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+          "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 36.9% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 36,9% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "src": [
+           4
+          ]
          },
          {
           "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -49158,8 +49596,11 @@
         ],
         "gaps": [
          {
-          "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-          "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+          "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 36.9% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 36,9% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "src": [
+           4
+          ]
          },
          {
           "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -49352,8 +49793,11 @@
         ],
         "gaps": [
          {
-          "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-          "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+          "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 36.9% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 36,9% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "src": [
+           4
+          ]
          }
         ],
         "crops_per_year": null,
@@ -49765,7 +50209,12 @@
     ]
    },
    "ndvi": null,
-   "soil": null,
+   "soil": {
+    "clay_pct": 35.8,
+    "soc_g_kg": 26.2,
+    "ph": 5.5,
+    "km": 3
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -50372,8 +50821,11 @@
        ],
        "gaps": [
         {
-         "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-         "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+         "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 35.8% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 35,8% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "src": [
+          4
+         ]
         },
         {
          "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -50562,8 +51014,11 @@
        ],
        "gaps": [
         {
-         "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-         "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+         "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 35.8% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 35,8% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "src": [
+          4
+         ]
         },
         {
          "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -50756,8 +51211,11 @@
        ],
        "gaps": [
         {
-         "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-         "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+         "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 35.8% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 35,8% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "src": [
+          4
+         ]
         }
        ],
        "crops_per_year": null,
@@ -51754,8 +52212,11 @@
         ],
         "gaps": [
          {
-          "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-          "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+          "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 35.8% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 35,8% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "src": [
+           4
+          ]
          },
          {
           "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -51944,8 +52405,11 @@
         ],
         "gaps": [
          {
-          "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-          "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+          "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 35.8% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 35,8% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "src": [
+           4
+          ]
          },
          {
           "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -52138,8 +52602,11 @@
         ],
         "gaps": [
          {
-          "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-          "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+          "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 35.8% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 35,8% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "src": [
+           4
+          ]
          }
         ],
         "crops_per_year": null,
@@ -52610,7 +53077,12 @@
     "crops_per_year": 0.0,
     "farmland": false
    },
-   "soil": null,
+   "soil": {
+    "clay_pct": 42.9,
+    "soc_g_kg": 21.5,
+    "ph": 6.3,
+    "km": 3
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -53217,8 +53689,11 @@
        ],
        "gaps": [
         {
-         "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-         "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+         "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 42.9% clay (SoilGrids model, not your field): clay soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 42,9% sét (mô hình SoilGrids, không phải ruộng của bạn): đất sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "src": [
+          4
+         ]
         },
         {
          "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -53407,8 +53882,11 @@
        ],
        "gaps": [
         {
-         "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-         "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+         "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 42.9% clay (SoilGrids model, not your field): clay soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 42,9% sét (mô hình SoilGrids, không phải ruộng của bạn): đất sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "src": [
+          4
+         ]
         },
         {
          "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -53601,8 +54079,11 @@
        ],
        "gaps": [
         {
-         "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-         "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+         "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 42.9% clay (SoilGrids model, not your field): clay soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 42,9% sét (mô hình SoilGrids, không phải ruộng của bạn): đất sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "src": [
+          4
+         ]
         }
        ],
        "crops_per_year": null,
@@ -54599,8 +55080,11 @@
         ],
         "gaps": [
          {
-          "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-          "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+          "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 42.9% clay (SoilGrids model, not your field): clay soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 42,9% sét (mô hình SoilGrids, không phải ruộng của bạn): đất sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "src": [
+           4
+          ]
          },
          {
           "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -54789,8 +55273,11 @@
         ],
         "gaps": [
          {
-          "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-          "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+          "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 42.9% clay (SoilGrids model, not your field): clay soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 42,9% sét (mô hình SoilGrids, không phải ruộng của bạn): đất sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "src": [
+           4
+          ]
          },
          {
           "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -54983,8 +55470,11 @@
         ],
         "gaps": [
          {
-          "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-          "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+          "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 42.9% clay (SoilGrids model, not your field): clay soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 42,9% sét (mô hình SoilGrids, không phải ruộng của bạn): đất sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "src": [
+           4
+          ]
          }
         ],
         "crops_per_year": null,
@@ -55396,7 +55886,12 @@
     ]
    },
    "ndvi": null,
-   "soil": null,
+   "soil": {
+    "clay_pct": 33.8,
+    "soc_g_kg": 26.5,
+    "ph": 6.2,
+    "km": 3
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -56003,8 +56498,11 @@
        ],
        "gaps": [
         {
-         "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-         "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+         "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 33.8% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 33,8% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "src": [
+          4
+         ]
         },
         {
          "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -56193,8 +56691,11 @@
        ],
        "gaps": [
         {
-         "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-         "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+         "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 33.8% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 33,8% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "src": [
+          4
+         ]
         },
         {
          "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -56387,8 +56888,11 @@
        ],
        "gaps": [
         {
-         "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-         "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+         "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 33.8% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 33,8% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "src": [
+          4
+         ]
         }
        ],
        "crops_per_year": null,
@@ -57385,8 +57889,11 @@
         ],
         "gaps": [
          {
-          "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-          "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+          "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 33.8% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 33,8% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "src": [
+           4
+          ]
          },
          {
           "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -57575,8 +58082,11 @@
         ],
         "gaps": [
          {
-          "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-          "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+          "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 33.8% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 33,8% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "src": [
+           4
+          ]
          },
          {
           "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -57769,8 +58279,11 @@
         ],
         "gaps": [
          {
-          "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-          "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+          "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 33.8% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 33,8% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "src": [
+           4
+          ]
          }
         ],
         "crops_per_year": null,
@@ -58182,7 +58695,12 @@
     ]
    },
    "ndvi": null,
-   "soil": null,
+   "soil": {
+    "clay_pct": 36.4,
+    "soc_g_kg": 28.5,
+    "ph": 6.3,
+    "km": 3
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -58789,8 +59307,11 @@
        ],
        "gaps": [
         {
-         "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-         "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+         "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 36.4% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 36,4% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "src": [
+          4
+         ]
         },
         {
          "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -58979,8 +59500,11 @@
        ],
        "gaps": [
         {
-         "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-         "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+         "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 36.4% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 36,4% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "src": [
+          4
+         ]
         },
         {
          "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -59173,8 +59697,11 @@
        ],
        "gaps": [
         {
-         "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-         "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+         "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 36.4% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 36,4% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "src": [
+          4
+         ]
         }
        ],
        "crops_per_year": null,
@@ -60171,8 +60698,11 @@
         ],
         "gaps": [
          {
-          "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-          "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+          "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 36.4% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 36,4% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "src": [
+           4
+          ]
          },
          {
           "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -60361,8 +60891,11 @@
         ],
         "gaps": [
          {
-          "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-          "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+          "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 36.4% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 36,4% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "src": [
+           4
+          ]
          },
          {
           "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -60555,8 +61088,11 @@
         ],
         "gaps": [
          {
-          "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-          "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+          "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 36.4% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 36,4% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "src": [
+           4
+          ]
          }
         ],
         "crops_per_year": null,
@@ -63788,7 +64324,12 @@
     ]
    },
    "ndvi": null,
-   "soil": null,
+   "soil": {
+    "clay_pct": 34.5,
+    "soc_g_kg": 51.8,
+    "ph": 5.6,
+    "km": 3
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -64395,8 +64936,11 @@
        ],
        "gaps": [
         {
-         "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-         "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+         "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 34.5% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 34,5% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "src": [
+          4
+         ]
         },
         {
          "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -64585,8 +65129,11 @@
        ],
        "gaps": [
         {
-         "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-         "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+         "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 34.5% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 34,5% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "src": [
+          4
+         ]
         },
         {
          "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -64779,8 +65326,11 @@
        ],
        "gaps": [
         {
-         "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-         "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+         "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 34.5% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 34,5% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "src": [
+          4
+         ]
         }
        ],
        "crops_per_year": null,
@@ -65777,8 +66327,11 @@
         ],
         "gaps": [
          {
-          "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-          "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+          "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 34.5% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 34,5% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "src": [
+           4
+          ]
          },
          {
           "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -65967,8 +66520,11 @@
         ],
         "gaps": [
          {
-          "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-          "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+          "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 34.5% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 34,5% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "src": [
+           4
+          ]
          },
          {
           "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -66161,8 +66717,11 @@
         ],
         "gaps": [
          {
-          "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-          "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+          "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 34.5% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 34,5% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "src": [
+           4
+          ]
          }
         ],
         "crops_per_year": null,
@@ -66574,7 +67133,12 @@
     ]
    },
    "ndvi": null,
-   "soil": null,
+   "soil": {
+    "clay_pct": 37.2,
+    "soc_g_kg": 34.0,
+    "ph": 5.9,
+    "km": 3
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -67181,8 +67745,11 @@
        ],
        "gaps": [
         {
-         "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-         "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+         "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 37.2% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 37,2% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "src": [
+          4
+         ]
         },
         {
          "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -67371,8 +67938,11 @@
        ],
        "gaps": [
         {
-         "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-         "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+         "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 37.2% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 37,2% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "src": [
+          4
+         ]
         },
         {
          "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -67565,8 +68135,11 @@
        ],
        "gaps": [
         {
-         "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-         "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+         "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 37.2% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 37,2% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "src": [
+          4
+         ]
         }
        ],
        "crops_per_year": null,
@@ -68563,8 +69136,11 @@
         ],
         "gaps": [
          {
-          "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-          "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+          "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 37.2% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 37,2% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "src": [
+           4
+          ]
          },
          {
           "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -68753,8 +69329,11 @@
         ],
         "gaps": [
          {
-          "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-          "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+          "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 37.2% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 37,2% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "src": [
+           4
+          ]
          },
          {
           "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -68947,8 +69526,11 @@
         ],
         "gaps": [
          {
-          "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-          "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+          "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 37.2% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 37,2% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "src": [
+           4
+          ]
          }
         ],
         "crops_per_year": null,
@@ -69419,7 +70001,12 @@
     "crops_per_year": 0.0,
     "farmland": false
    },
-   "soil": null,
+   "soil": {
+    "clay_pct": 38.5,
+    "soc_g_kg": 32.4,
+    "ph": 5.4,
+    "km": 3
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -70026,8 +70613,11 @@
        ],
        "gaps": [
         {
-         "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-         "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+         "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 38.5% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 38,5% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "src": [
+          4
+         ]
         },
         {
          "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -70216,8 +70806,11 @@
        ],
        "gaps": [
         {
-         "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-         "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+         "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 38.5% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 38,5% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "src": [
+          4
+         ]
         },
         {
          "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -70410,8 +71003,11 @@
        ],
        "gaps": [
         {
-         "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-         "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+         "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 38.5% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 38,5% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "src": [
+          4
+         ]
         }
        ],
        "crops_per_year": null,
@@ -71408,8 +72004,11 @@
         ],
         "gaps": [
          {
-          "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-          "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+          "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 38.5% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 38,5% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "src": [
+           4
+          ]
          },
          {
           "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -71598,8 +72197,11 @@
         ],
         "gaps": [
          {
-          "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-          "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+          "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 38.5% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 38,5% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "src": [
+           4
+          ]
          },
          {
           "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -71792,8 +72394,11 @@
         ],
         "gaps": [
          {
-          "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-          "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+          "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 38.5% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 38,5% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "src": [
+           4
+          ]
          }
         ],
         "crops_per_year": null,
@@ -72205,7 +72810,12 @@
     ]
    },
    "ndvi": null,
-   "soil": null,
+   "soil": {
+    "clay_pct": 42.3,
+    "soc_g_kg": 30.8,
+    "ph": 5.5,
+    "km": 3
+   },
    "salinity": {
     "months": [],
     "note": {
@@ -72812,8 +73422,11 @@
        ],
        "gaps": [
         {
-         "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-         "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+         "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 42.3% clay (SoilGrids model, not your field): clay soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 42,3% sét (mô hình SoilGrids, không phải ruộng của bạn): đất sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "src": [
+          4
+         ]
         },
         {
          "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -73002,8 +73615,11 @@
        ],
        "gaps": [
         {
-         "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-         "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+         "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 42.3% clay (SoilGrids model, not your field): clay soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 42,3% sét (mô hình SoilGrids, không phải ruộng của bạn): đất sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "src": [
+          4
+         ]
         },
         {
          "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -73196,8 +73812,11 @@
        ],
        "gaps": [
         {
-         "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-         "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+         "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 42.3% clay (SoilGrids model, not your field): clay soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 42,3% sét (mô hình SoilGrids, không phải ruộng của bạn): đất sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "src": [
+          4
+         ]
         }
        ],
        "crops_per_year": null,
@@ -74194,8 +74813,11 @@
         ],
         "gaps": [
          {
-          "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-          "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+          "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 42.3% clay (SoilGrids model, not your field): clay soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 42,3% sét (mô hình SoilGrids, không phải ruộng của bạn): đất sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "src": [
+           4
+          ]
          },
          {
           "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -74384,8 +75006,11 @@
         ],
         "gaps": [
          {
-          "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-          "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+          "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 42.3% clay (SoilGrids model, not your field): clay soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 42,3% sét (mô hình SoilGrids, không phải ruộng của bạn): đất sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "src": [
+           4
+          ]
          },
          {
           "en": "Profit figures for this crop come partly from fresher provinces nearer big markets (Tiền Giang, Long An) and from a few Sóc Trăng farmers; a salty coastal field or a bad price year can earn far less.",
@@ -74578,8 +75203,11 @@
         ],
         "gaps": [
          {
-          "en": "Soil drainage on your field is unknown; heavy wet clay may not suit upland crops.",
-          "vi": "Chưa rõ khả năng thoát nước trên ruộng của bạn; chân đất sét nặng, giữ nước có thể không hợp trồng màu."
+          "en": "Topsoil at the nearest farmland 3 km from the pin is ≈ 42.3% clay (SoilGrids model, not your field): clay soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt tại vùng đất nông nghiệp gần nhất, cách điểm ghim 3 km có ≈ 42,3% sét (mô hình SoilGrids, không phải ruộng của bạn): đất sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "src": [
+           4
+          ]
          }
         ],
         "crops_per_year": null,

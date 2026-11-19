@@ -64,7 +64,6 @@
 
   /* ---------- the data a view shows ---------- */
   const climOf = (o) => (yr === "elnino" ? o.elnino.climate : o.climate);
-  const cur = () => { if (!sel) return null; const p = P[sel]; return view === "avg" ? p : PL[view] };
   function value(o, m) {
     const c = climOf(o), r = m < 0 ? sum(c.rain_mm) : c.rain_mm[m];
     return mode === "rain" ? r : r - (m < 0 ? sum(c.et0_mm) : c.et0_mm[m]);
@@ -253,9 +252,10 @@ ${months}
     const el = $("#vnPanel");
     if (!sel) { el.hidden = true; el.innerHTML = ""; return; }
     cited = [];
-    const p = P[sel], o = cur(), c = climOf(o), avg = view === "avg";
-    const fm = p.former.length > 1;
-    const tabs = `<div class="vn-tabs" role="group">${fm ? `<button type="button" data-view="avg" aria-pressed="${avg}">${esc(t("avg"))}</button>` : ""}${p.former.map((f) => `<button type="button" data-view="${esc(f.id)}" aria-pressed="${view === f.id || (!fm && avg)}">${esc(nm(f.name))}${f.id !== p.id ? ` <small>${esc(t("former"))}</small>` : ""}</button>`).join("")}</div>`;
+    const p = P[sel], fm = p.former.length > 1;
+    const avg = view === "avg" && fm;  // an unmerged province is its one point: show the point (soil distance, MODIS)
+    const o = avg ? p : PL[view === "avg" ? p.id : view], c = climOf(o);
+    const tabs = `<div class="vn-tabs" role="group">${fm ? `<button type="button" data-view="avg" aria-pressed="${avg}">${esc(t("avg"))}</button>` : ""}${p.former.map((f) => `<button type="button" data-view="${esc(f.id)}" aria-pressed="${view === f.id || (!fm && view === "avg")}">${esc(nm(f.name))}${f.id !== p.id ? ` <small>${esc(t("former"))}</small>` : ""}</button>`).join("")}</div>`;
     const soil = o.soil;
     const soilSub = !soil ? "" : avg ? fill(t("soilAvg"), { n: p.points.soil.length, m: p.former.length }) : soil.km ? fill(t("soilKm"), { k: num(soil.km) }) : "";
     const tiles = [
@@ -267,7 +267,7 @@ ${months}
     ].filter(Boolean).map(([k, v, s, src]) => `<div class="vn-tile"><span>${esc(k)}</span><b>${esc(v)}</b><small>${esc(s)}${cite(src)}</small></div>`).join("");
     const sm = (yr === "elnino" ? o.elnino.summary : o.summary) || [];
     const cards = (yr === "elnino" ? o.elnino.cards : o.cards) || [];
-    const chkAt = avg ? p.id : view, chk = PL[chkAt].gpm_check;
+    const chkAt = view === "avg" ? p.id : view, chk = PL[chkAt].gpm_check;
     const cardHTML = (c0) => {
       const cd = c0.variants ? c0.variants[c0.crop_default] || Object.values(c0.variants)[0] : c0;  // upland: the default crop, as the main app shows
       const s = cd.scores;
