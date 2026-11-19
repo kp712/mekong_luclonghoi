@@ -11,7 +11,7 @@
 }
 body.home-off #home { display: none }
 /* while home shows, the map app underneath is hidden and cannot take focus (the dialog and toast stay usable) */
-body.home-on > :not(#home):not(#modal):not(#hub):not(#hubBtn):not(#toast):not(script) { visibility: hidden !important }
+body.home-on > :not(#home):not(#modal):not(#hub):not(#hubBtn):not(#toast):not(#vnView):not(script) { visibility: hidden !important }
 
 .hm-wrap {
   width: 100%; max-width: 560px; margin: 0 auto; min-height: 100%;

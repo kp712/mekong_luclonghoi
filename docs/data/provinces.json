@@ -47,6 +47,16 @@
  "outline_src": [
   8
  ],
+ "salt_src": [
+  54,
+  55,
+  56,
+  57,
+  58,
+  59,
+  60,
+  61
+ ],
  "sources": [
   {
    "title": "NASA POWER daily API (MERRA-2 based)",
@@ -315,6 +325,46 @@
   {
    "title": "ST rice varieties (e.g. ST24, ST25) bred in Sóc Trăng by engineer Hồ Quang Cua's team",
    "url": "https://www.upov.int/en/w/stories/st25-the-rice-variety-that-turned-saline-fields-into-opportunity-in-viet-nam-s-mekong-delta",
+   "verified": true
+  },
+  {
+   "title": "Southern Institute of Water Resources Research (SIWRR) salinity bulletins",
+   "url": "https://vawr.org.vn/Upload/DUBAO-CANHBAO/%C4%90BSCL/NGU%E1%BB%92N%20N%C6%AF%E1%BB%9AC/vkhtlmn_bantintuan13-dubaonguonnuoc_24022022_v1a.pdf",
+   "verified": true
+  },
+  {
+   "title": "National Center for Hydro-Meteorological Forecasting (KTTV): salinity intrusion forecasts for the Southern region (Tin dự báo xâm nhập mặn khu vực Nam Bộ)",
+   "url": "https://kttv.gov.vn/kttv/vi-VN/1/xam-nhap-man-20-18.html",
+   "verified": true
+  },
+  {
+   "title": "2015–2016 and 2019–2020 Mekong Delta drought and saltwater intrusion reports",
+   "url": "https://www.acaps.org/sites/acaps/files/products/files/20200211_acaps_start_fund_anticipatory_note_drought_and_saltwater_intrusion_vietnam.pdf",
+   "verified": true
+  },
+  {
+   "title": "Báo CAND (23 Feb 2016), Sóc Trăng căng mình chống hạn mặn",
+   "url": "https://cand.vn/doi-song/Soc-Trang-cang-minh-chong-han-man-i381514/",
+   "verified": true
+  },
+  {
+   "title": "Khuyến nông VN (12 Feb 2020), Minister surveys drought and salinity in Sóc Trăng",
+   "url": "https://khuyennongvn.gov.vn/thien-tai-dich-hai/bo-truong-nguyen-xuan-cuong-khao-sat-tinh-hinh-han-xam-nhap-man-tai-soc-trang-19731.html",
+   "verified": true
+  },
+  {
+   "title": "Báo Thanh tra (9 Feb 2020), Sóc Trăng: Hạn hán, xâm nhập mặn diễn ra gay gắt",
+   "url": "https://thanhtra.com.vn/kinh-te/lao-dong-viec-lam/Soc-Trang-Han-han-xam-nhap-man-dien-ra-gay-gat-160024.html",
+   "verified": true
+  },
+  {
+   "title": "SGGP (5 May 2026), Vĩnh Long cảnh báo xâm nhập mặn gia tăng",
+   "url": "https://www.sggp.org.vn/vinh-long-canh-bao-xam-nhap-man-gia-tang-de-doa-san-xuat-nong-nghiep-post851137.html",
+   "verified": true
+  },
+  {
+   "title": "Nguyễn Trọng Khanh et al. (2025), Phân tích xu thế xâm nhập mặn trên hệ thống sông, kênh Tỉnh Sóc Trăng (cũ), Tạp chí Khoa học Biến đổi khí hậu 36, Table 4",
+   "url": "https://vjol.info.vn/TCKHBDKH/article/view/121694",
    "verified": true
   }
  ],
@@ -75502,7 +75552,21 @@
     "vi": "Khu vực Vĩnh Châu cũ (ven biển)"
    },
    "lat": 9.365,
-   "lon": 105.96
+   "lon": 105.96,
+   "salt": {
+    "level": "high",
+    "months": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "max_ppt": 15.8,
+    "elnino_max_ppt": 17.6,
+    "estimate": true
+   },
+   "crops": 3.0
   },
   {
    "id": "tran_de",
@@ -75511,7 +75575,20 @@
     "vi": "Khu vực Trần Đề cũ (cửa sông)"
    },
    "lat": 9.5,
-   "lon": 106.1
+   "lon": 106.1,
+   "salt": {
+    "level": "high",
+    "months": [
+     2,
+     3,
+     4,
+     5
+    ],
+    "max_ppt": 20.5,
+    "elnino_max_ppt": 23.2,
+    "estimate": true
+   },
+   "crops": 1.9
   },
   {
    "id": "my_xuyen",
@@ -75520,7 +75597,20 @@
     "vi": "Khu vực Mỹ Xuyên cũ"
    },
    "lat": 9.5,
-   "lon": 105.9
+   "lon": 105.9,
+   "salt": {
+    "level": "medium",
+    "months": [
+     2,
+     3,
+     4,
+     5
+    ],
+    "max_ppt": 6.8,
+    "elnino_max_ppt": 11.1,
+    "estimate": true
+   },
+   "crops": 1.9
   },
   {
    "id": "long_phu",
@@ -75529,7 +75619,19 @@
     "vi": "Khu vực Long Phú cũ (sông Hậu)"
    },
    "lat": 9.61,
-   "lon": 106.1
+   "lon": 106.1,
+   "salt": {
+    "level": "high",
+    "months": [
+     2,
+     3,
+     4
+    ],
+    "max_ppt": 16.3,
+    "elnino_max_ppt": 19.6,
+    "estimate": true
+   },
+   "crops": 2.4
   },
   {
    "id": "nga_nam",
@@ -75538,7 +75640,19 @@
     "vi": "Khu vực Ngã Năm cũ (nội đồng)"
    },
    "lat": 9.56,
-   "lon": 105.6
+   "lon": 105.6,
+   "salt": {
+    "level": "low",
+    "months": [
+     3,
+     4,
+     5
+    ],
+    "max_ppt": null,
+    "elnino_max_ppt": null,
+    "estimate": true
+   },
+   "crops": 2.9
   }
  ]
 }

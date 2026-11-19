@@ -39,7 +39,10 @@
     why: ["Why these scores", "Vì sao có điểm này"], risks: ["Risks", "Rủi ro"], gaps: ["Check first", "Cần kiểm tra"],
     open: ["Open the 5 Sóc Trăng areas in the planner", "Mở 5 khu vực Sóc Trăng trong công cụ lập kế hoạch"],
     area: ["Sóc Trăng area: open in the planner", "Khu vực Sóc Trăng: mở trong công cụ"],
-    sources: ["Sources", "Nguồn"], region: ["Region", "Vùng"], estimate: ["estimate", "ước tính"]
+    sources: ["Sources", "Nguồn"],
+    socH: ["Sóc Trăng areas: usual dry-season salt peak (river water)", "5 khu vực Sóc Trăng: đỉnh mặn mùa khô thường gặp (nước sông)"],
+    fresh: ["fresh", "ngọt"], salty: ["salty", "mặn"],
+    socNote: ["At the nearest station (KTTV, SIWRR public reports): an estimate, never measured by satellite. Tap an area to plan it.", "Tại trạm đo gần nhất (KTTV, Viện Thủy lợi miền Nam, báo cáo công khai): ước tính, không đo bằng vệ tinh. Chạm vào khu vực để lập kế hoạch."], region: ["Region", "Vùng"], estimate: ["estimate", "ước tính"]
   };
   const t = (k, sub) => { let s = (sub ? T[k][sub] : T[k])[lang === "vi" ? 1 : 0]; return s; };
   const fill = (s, o) => s.replace(/\{(\w)\}/g, (_, k) => o[k]);
@@ -80,6 +83,31 @@
     }
     return stops[stops.length - 1][1];
   }
+  /* An image overlay is stretched by Leaflet in Web Mercator, so its rows follow Mercator y, not latitude: over 15° of
+     latitude a plain lat/lon image drifts ~20 km off the outlines (unnoticeable over Sóc Trăng's small box in map.js). */
+  const merc = (lat) => Math.log(Math.tan(Math.PI / 4 + lat * Math.PI / 360)), unmerc = (y) => (Math.atan(Math.exp(y)) - Math.PI / 4) * 360 / Math.PI;
+  /* a see-through colour image over box B: colour(lat, lon) -> [r, g, b] sampled on a gw-wide grid, smoothed, clipped to rings */
+  function clipImage(B, rings, gw, alpha, colour, base = 700) {
+    const yN = merc(B.n), yS = merc(B.s), xr = (B.e - B.w) * Math.PI / 180;
+    const W = Math.round(base * Math.min(2, window.devicePixelRatio || 1)), H = Math.round(W * (yN - yS) / xr);
+    const gh = Math.max(2, Math.round(gw * H / W));
+    const small = document.createElement("canvas"); small.width = gw; small.height = gh;
+    const sx = small.getContext("2d"), img = sx.createImageData(gw, gh);
+    for (let j = 0; j < gh; j++) for (let i = 0; i < gw; i++) {
+      const rgb = colour(unmerc(yN - (j + 0.5) / gh * (yN - yS)), B.w + (i + 0.5) / gw * (B.e - B.w)), k = (j * gw + i) * 4;
+      img.data[k] = rgb[0]; img.data[k + 1] = rgb[1]; img.data[k + 2] = rgb[2]; img.data[k + 3] = alpha;
+    }
+    sx.putImageData(img, 0, 0);
+    const big = document.createElement("canvas"); big.width = W; big.height = H;
+    const bx = big.getContext("2d");
+    bx.beginPath();
+    rings.forEach((r) => r.forEach(([lon, lat], q) => { const x = (lon - B.w) / (B.e - B.w) * W, y = (yN - merc(lat)) / (yN - yS) * H; q ? bx.lineTo(x, y) : bx.moveTo(x, y); }));
+    bx.clip("evenodd");
+    bx.imageSmoothingEnabled = true; bx.imageSmoothingQuality = "high";
+    bx.drawImage(small, 0, 0, W, H);
+    return big.toDataURL("image/png");
+  }
+  const idw = (pts, lat, lon) => { let w = 0, v = 0; for (const p of pts) { const d2 = (p.lat - lat) ** 2 + ((p.lon - lon) * 0.96) ** 2; if (d2 < 1e-10) return p.v; const q = 1 / (d2 * d2); w += q; v += q * p.v; } return v / w; };
   let range = [0, 1];
   function paint() {
     if (!map || !G) return;
@@ -87,37 +115,63 @@
     const vs = pts.map((p) => p.v);
     if (mode === "rain") range = [Math.min(...vs), Math.max(...vs)];
     else { const a = Math.max(...vs.map(Math.abs)); range = [-a, a]; }
-    /* the image is stretched by Leaflet in Web Mercator, so its rows follow Mercator y, not latitude: over 15° of latitude a
-       plain lat/lon image drifts ~20 km off the outlines (unnoticeable over Sóc Trăng's small box in map.js) */
-    const merc = (lat) => Math.log(Math.tan(Math.PI / 4 + lat * Math.PI / 360)), unmerc = (y) => (Math.atan(Math.exp(y)) - Math.PI / 4) * 360 / Math.PI;
-    const B = MAIN, yN = merc(B.n), yS = merc(B.s), xr = (B.e - B.w) * Math.PI / 180;
-    const W = Math.round(700 * Math.min(2, window.devicePixelRatio || 1)), H = Math.round(W * (yN - yS) / xr);
-    const gw = 110, gh = Math.round(gw * H / W);
-    const small = document.createElement("canvas"); small.width = gw; small.height = gh;
-    const sx = small.getContext("2d"), img = sx.createImageData(gw, gh);
-    for (let j = 0; j < gh; j++) for (let i = 0; i < gw; i++) {
-      const lon = B.w + (i + 0.5) / gw * (B.e - B.w), lat = unmerc(yN - (j + 0.5) / gh * (yN - yS));
-      let w = 0, v = 0;
-      for (const p of pts) { const d2 = (p.lat - lat) ** 2 + ((p.lon - lon) * 0.96) ** 2, q = 1 / (d2 * d2 + 1e-12); w += q; v += q * p.v; }
-      const f = (v / w - range[0]) / Math.max(1e-6, range[1] - range[0]);
-      const rgb = ramp(mode === "rain" ? BLUE : DIV, f), k = (j * gw + i) * 4;
-      img.data[k] = rgb[0]; img.data[k + 1] = rgb[1]; img.data[k + 2] = rgb[2]; img.data[k + 3] = 112;
-    }
-    sx.putImageData(img, 0, 0);
-    const big = document.createElement("canvas"); big.width = W; big.height = H;
-    const bx = big.getContext("2d");
-    bx.beginPath();
-    Object.values(G.province).forEach((rs) => rs.forEach((r) => ringPts(r).forEach(([lon, lat], q) => {
-      const x = (lon - B.w) / (B.e - B.w) * W, y = (yN - merc(lat)) / (yN - yS) * H; q ? bx.lineTo(x, y) : bx.moveTo(x, y);
-    })));
-    bx.clip("evenodd");
-    bx.imageSmoothingEnabled = true; bx.imageSmoothingQuality = "high";
-    bx.drawImage(small, 0, 0, W, H);
-    const url = big.toDataURL("image/png");
-    if (gradLayer) gradLayer.setUrl(url); else gradLayer = L.imageOverlay(url, [[B.s, B.w], [B.n, B.e]], { pane: "grad", interactive: false }).addTo(map);
+    const rings = Object.values(G.province).flatMap((rs) => rs.map(ringPts));
+    const url = clipImage(MAIN, rings, 110, 112, (lat, lon) => ramp(mode === "rain" ? BLUE : DIV, (idw(pts, lat, lon) - range[0]) / Math.max(1e-6, range[1] - range[0])));
+    if (gradLayer) gradLayer.setUrl(url); else gradLayer = L.imageOverlay(url, [[MAIN.s, MAIN.w], [MAIN.n, MAIN.e]], { pane: "grad", interactive: false }).addTo(map);
+    paintSoc();
     drawKey();
   }
 
+  /* ---------- the Sóc Trăng map inside the Vietnam map ----------
+     The 5 areas of the main planner, drawn as in map.js: their real district outlines (DISTRICTS, districts.js), a salt
+     colour blended between the 5 stations and clipped to them, and name plates with MODIS crops a year. The colour is the
+     usual dry-season salt peak in river water at the nearest station (estimate from public reports, never satellite).
+     Shown from zoom SOC_Z, over the province colour; a tap opens that area in the planner. */
+  const SOC_Z = 8.5;
+  const DIST = () => (typeof DISTRICTS !== "undefined" ? DISTRICTS : {});
+  const SALT_STOPS = [[0.5, [47, 127, 208]], [1.5, [47, 163, 107]], [3, [226, 179, 58]], [7, [229, 121, 58]], [15, [200, 55, 45]]];  // map.js
+  function saltCol(g) {
+    if (g <= SALT_STOPS[0][0]) return SALT_STOPS[0][1];
+    for (let i = 1; i < SALT_STOPS.length; i++) if (g <= SALT_STOPS[i][0]) {
+      const [a0, c0] = SALT_STOPS[i - 1], [a1, c1] = SALT_STOPS[i], f = (g - a0) / (a1 - a0);
+      return c0.map((v, k) => Math.round(v + (c1[k] - v) * f));
+    }
+    return SALT_STOPS[SALT_STOPS.length - 1][1];
+  }
+  const saltOf = (s) => (yr === "elnino" ? s.salt.elnino_max_ppt : s.salt.max_ppt);
+  let socLayer = null, socPolys = {}, socBox = null;
+  function paintSoc() {
+    const Dd = DIST(), rings = D.pins.map((s) => Dd[s.id]).filter(Boolean);
+    if (!map || !rings.length) return;
+    if (!socBox) { const a = rings.flat(); socBox = { w: Math.min(...a.map((q) => q[0])), e: Math.max(...a.map((q) => q[0])), s: Math.min(...a.map((q) => q[1])), n: Math.max(...a.map((q) => q[1])) }; }
+    const pts = D.pins.map((s) => ({ lat: s.lat, lon: s.lon, v: saltOf(s) }));
+    const url = clipImage(socBox, rings, 120, 140, (lat, lon) => saltCol(idw(pts, lat, lon)), 900);
+    if (socLayer) socLayer.setUrl(url); else socLayer = L.imageOverlay(url, [[socBox.s, socBox.w], [socBox.n, socBox.e]], { pane: "socgrad", interactive: false }).addTo(map);
+  }
+  function drawSoc() {
+    map.createPane("socgrad").style.zIndex = 407; map.getPane("socgrad").style.pointerEvents = "none";
+    map.createPane("soc").style.zIndex = 412;
+    const R = L.svg({ pane: "soc", padding: 0.6 }), Dd = DIST();
+    D.pins.forEach((s) => {
+      if (!Dd[s.id]) return;
+      const poly = L.polygon(Dd[s.id].map(ll), { pane: "soc", renderer: R, className: "sg-cell sg-area vn-soc", smoothFactor: 0, noClip: true, bubblingMouseEvents: false, weight: 1.5 }).addTo(map);
+      poly.on("mouseover", () => { const e = poly.getElement(); if (e) e.classList.add("is-hover"); });
+      poly.on("mouseout", () => { const e = poly.getElement(); if (e) e.classList.remove("is-hover"); });
+      poly.on("click", () => goArea(s.id));
+      socPolys[s.id] = poly;
+    });
+    const show = () => { const on = map.getZoom() >= SOC_Z; ["soc", "socgrad"].forEach((n) => { map.getPane(n).style.display = on ? "" : "none"; }); if (on !== socOn) { socOn = on; drawKey(); } };
+    map.on("zoomend", show);
+    show();
+  }
+  let socOn = false;
+  /* open a Sóc Trăng area in the planner: inside the app (embed) the app does it, on its own page we go to the app */
+  function goArea(id) {
+    if (EMBED) parent.postMessage({ type: "vn-area", id }, location.origin);
+    else location.href = "index.html";
+  }
+
+  const cite0 = (src) => (src || []).filter((i) => D.sources[i]).map((i) => ` <a class="vn-cite" href="${esc(D.sources[i].url || "#")}" target="_blank" rel="noopener" title="${esc(D.sources[i].title)}">↗</a>`).slice(0, 1).join("");
   /* ---------- key (bottom left, like the Sóc Trăng map key) ---------- */
   function drawKey() {
     const el = $("#vnKey");
@@ -132,7 +186,9 @@ ${months}
 <b class="vn-key-h">${esc(t(mode === "rain" ? "rainH" : "balH"))}</b>
 <i class="vn-ramp" style="background:linear-gradient(90deg,${grad})"></i>
 <div class="vn-ends"><span>${num(range[0])} · ${esc(ends[0])}</span><span>${esc(ends[1])} · ${num(range[1])}</span></div>
-<p class="vn-note">${esc(t("keyNote"))}</p></div>` : "") +
+<p class="vn-note">${esc(t("keyNote"))}</p>${socOn ? `<b class="vn-key-h">${esc(t("socH"))}</b>
+<i class="vn-ramp" style="background:linear-gradient(90deg,${SALT_STOPS.map(([g, c], i) => `rgb(${c}) ${[0, 20, 45, 70, 100][i]}%`).join(",")})"></i>
+<div class="vn-ends"><span>${esc(t("fresh"))}</span><span>${esc(t("salty"))} · 15‰</span></div><p class="vn-note">${esc(t("socNote"))}${cite0(D.salt_src)}</p>` : ""}</div>` : "") +
       `<button type="button" class="vn-pill" data-key="toggle" aria-expanded="${keyOpen}"><i class="vn-ramp vn-ramp-s" style="background:linear-gradient(90deg,${grad})"></i><span>${esc(t(mode === "rain" ? "rain" : "bal"))}</span><em>${esc(keyOpen ? t("hide") : t("keyPill"))}</em></button>`;
     const ms = $("#vnMon"); if (ms) ms.value = String(mon);
   }
@@ -172,7 +228,8 @@ ${months}
       pins[o.id + ":" + kind] = { o, kind, btn, lab, m, lm };
     };
     D.places.forEach((x) => add(x, x.own ? "own" : "former", () => choose(x.province, x.id)));
-    D.pins.forEach((s) => add(s, "area", () => { location.href = "index.html"; }));
+    D.pins.forEach((s) => add(s, "area", () => goArea(s.id)));
+    drawSoc();
     labels();
     map.on("zoomend moveend", placeLabels);
     map.on("click", () => { if (sel) choose(null); });
@@ -185,22 +242,25 @@ ${months}
       else if (p.kind === "own") small = `GPM · ${num(sum(climOf(o).rain_mm))} ${lang === "vi" ? "mm mưa/năm" : "mm rain/yr"}`;
       else if (p.kind === "area") small = lang === "vi" ? "Sóc Trăng cũ" : "former Sóc Trăng";
       const name = p.kind === "area" ? nm(o.name).split(" (")[0].replace(/^(Former |Khu vực )/, "").replace(/( area| cũ)$/, "") : nm(o.name);
-      p.lab.innerHTML = `<i class="sg-dot vn-dot-${esc(P[o.province || "can_tho"].region)}" aria-hidden="true"></i><b>${esc(name)}</b>${small ? `<small>${esc(small)}</small>` : ""}`;
+      if (p.kind === "area" && typeof o.crops === "number") small = `MODIS · ${num(o.crops, 1)} ${lang === "vi" ? "vụ/năm" : "crops/yr"}`;
+      const dot = p.kind === "area" ? `sg-dot sg-lv-${esc(o.salt.level)}` : `sg-dot vn-dot-${esc(P[o.province || "can_tho"].region)}`;
+      p.lab.innerHTML = `<i class="${dot}" aria-hidden="true"></i><b>${esc(name)}</b>${small ? `<small>${esc(small)}</small>` : ""}`;
       p.btn.setAttribute("aria-label", p.kind === "area" ? `${name}: ${t("area")}` : name);
     });
     placeLabels();
   }
   /* name plates: right of the pin, else left; hidden when both sides are taken (shown on hover/selection).
-     Zoomed out, only the provinces' own pins get plates; former provinces from zoom 7.5, the Sóc Trăng areas from 9.5. */
+     Zoomed out, only the provinces' own pins get plates; former provinces from zoom 7.5, the Sóc Trăng areas from SOC_Z. */
   function placeLabels() {
     if (!map) return;
     const z = map.getZoom(), taken = [], size = map.getSize();
-    const show = (k) => k === "own" || (k === "former" && z >= 7.5) || (k === "area" && z >= 9.5);
+    const show = (k) => k === "own" || (k === "former" && z >= 7.5) || (k === "area" && z >= SOC_Z);
     const list = Object.values(pins);
-    list.forEach((p) => { const vis = show(p.kind) || p.kind === "own"; p.m.getElement().style.display = (p.kind === "area" && z < 8.5) ? "none" : ""; p.vis = vis; });
+    list.forEach((p) => { const vis = show(p.kind) || p.kind === "own"; p.m.getElement().style.display = (p.kind === "area" && z < SOC_Z) ? "none" : ""; p.vis = vis; });
     list.forEach((p) => { const c = map.latLngToContainerPoint([p.o.lat, p.o.lon]); p.c = c; taken.push({ x0: c.x - 8, x1: c.x + 8, y0: c.y - 8, y1: c.y + 8 }); });
     const isSel = (p) => sel && (p.o.id === view || (view === "avg" && p.kind === "own" && p.o.province === sel));
-    const order = list.slice().sort((a, b) => isSel(b) - isSel(a) || ({ own: 0, former: 1, area: 2 })[a.kind] - ({ own: 0, former: 1, area: 2 })[b.kind]);
+    const rank = z >= SOC_Z ? { area: 0, own: 1, former: 2 } : { own: 0, former: 1, area: 2 };
+    const order = list.slice().sort((a, b) => isSel(b) - isSel(a) || rank[a.kind] - rank[b.kind]);
     order.forEach((p) => {
       const lab = p.lab, on = isSel(p);
       lab.classList.toggle("is-sel", !!on); p.btn.classList.toggle("is-sel", !!on);
@@ -303,7 +363,7 @@ ${(p.areas || []).length ? `<a class="vn-golink" href="index.html">${esc(t("open
     else if (b.dataset.view) choose(sel, b.dataset.view === sel && P[sel].former.length === 1 ? "avg" : b.dataset.view);
     else if (b.dataset.yr) { yr = b.dataset.yr; render(); paint(); labels(); }
   });
-  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && sel) choose(null); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && sel) { e.preventDefault(); choose(null); } });
 
   /* ---------- top bar ---------- */
   function fillPick() {
@@ -321,7 +381,23 @@ ${(p.areas || []).length ? `<a class="vn-golink" href="index.html">${esc(t("open
     document.querySelectorAll("[data-lang]").forEach((b) => b.setAttribute("aria-pressed", b.dataset.lang === lang));
     if (D) { fillPick(); labels(); drawKey(); render(); }
   }
-  document.querySelectorAll("[data-lang]").forEach((b) => b.addEventListener("click", () => { lang = b.dataset.lang; store.set("mre-lang", lang); applyLang(); }));
+  document.querySelectorAll("[data-lang]").forEach((b) => b.addEventListener("click", () => {
+    lang = b.dataset.lang; store.set("mre-lang", lang); applyLang();
+    if (EMBED) parent.postMessage({ type: "vn-lang", lang }, location.origin);
+  }));
+
+  /* ---------- inside the main app (index.html, vnview.js): back = close, language follows the app ---------- */
+  const EMBED = new URLSearchParams(location.search).get("embed") === "1";
+  if (EMBED) {
+    document.body.classList.add("vn-embed");
+    $("#vnBack").addEventListener("click", (e) => { e.preventDefault(); parent.postMessage({ type: "vn-close" }, location.origin); });
+    document.addEventListener("click", (e) => { const a = e.target.closest && e.target.closest(".vn-golink"); if (a) { e.preventDefault(); parent.postMessage({ type: "vn-close" }, location.origin); } });
+    addEventListener("message", (e) => {
+      if (e.origin !== location.origin || e.source !== parent || !e.data) return;
+      if (e.data.type === "vn-lang" && (e.data.lang === "en" || e.data.lang === "vi") && e.data.lang !== lang) { lang = e.data.lang; applyLang(); }
+    });
+    addEventListener("keydown", (e) => { if (e.key === "Escape" && !e.defaultPrevented) parent.postMessage({ type: "vn-close" }, location.origin); });
+  }
 
   /* ---------- start ---------- */
   applyLang();
