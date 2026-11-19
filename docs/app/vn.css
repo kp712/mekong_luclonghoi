@@ -105,7 +105,7 @@
 .vn-app.vn-key { position: fixed; left: 16px; bottom: calc(var(--sg-ticker-h, 64px) + 16px); z-index: 700; }
 .vn-app.vn-key[hidden] { display: none !important; }
 .vn-app.vn-panel { position: fixed; top: calc(var(--top-h, 64px) + 12px); right: 16px; bottom: 16px; z-index: 800; }
-@media (max-width: 760px) { .vn-app.vn-panel { top: auto; left: 0; right: 0; bottom: 0; } }
+@media (max-width: 760px) { .vn-app.vn-panel { top: auto; left: 0; right: 0; bottom: 0; background: var(--panel-solid); } }  /* solid: the month box must not show through the sheet */
 .sg-map path.vn-prov { fill: #fff; fill-opacity: 0; stroke: #fff; stroke-opacity: .7; stroke-width: 1.5px; stroke-dasharray: 6 4; cursor: pointer; transition: fill-opacity .2s, stroke-opacity .2s; }
 .sg-map path.vn-prov.is-hover { fill-opacity: .08; stroke-opacity: 1; stroke-dasharray: none; }
 .sg-map path.vn-prov.is-sel { fill-opacity: .05; stroke: var(--gold, #E3B866); stroke-opacity: 1; stroke-width: 3px; stroke-dasharray: none; }
@@ -176,8 +176,10 @@ body.vn-rainlayer #mapKey { display: none }   /* rain layers: the salt key does 
 .vn-kf, .vn-kl { display: grid }
 .vn-key-pop[hidden] { display: none }
 @media (max-width: 760px) {
-  body.vn-country .vn-key { bottom: calc(240px + env(safe-area-inset-bottom, 0px)) }   /* above the month slider */
-  body.vn-country .vn-key-pop { max-height: calc(100dvh - var(--top-h) - 360px); overflow-y: auto }
+  /* top right, under the back bar (dash.css .dv-backmap, 60px), over China and the sea: the Delta and the credits stay clear; the pop-up opens below */
+  body.vn-country .vn-key { top: calc(var(--top-h) + 72px); bottom: auto; left: auto; right: 16px; justify-items: end }
+  body.vn-country .vn-pill { order: -1 }
+  body.vn-country .vn-key-pop { max-height: calc(100dvh - var(--top-h) - 72px - 56px - var(--d5-h, 200px) - 48px); overflow-y: auto }  /* ends above the map credits */
 }
 
 /* ---- province hover card (#hoverCard.vn-hc, vn.js cardHTML): the Sóc Trăng year box, plus range, heat and this month ---- */

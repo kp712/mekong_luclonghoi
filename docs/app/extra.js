@@ -60,6 +60,8 @@ const D5 = (() => {
     el.innerHTML = `<div class="row"><button type="button" class="play" id="d5Play"></button><div><b id="d5MName"></b><span id="d5MCount"></span></div></div>
       <div class="trk" id="d5Trk"><input type="range" id="d5Range" min="0" max="11" step="1"><div class="ticks" id="d5Ticks" aria-hidden="true"></div></div><p class="note" id="d5Note"></p>`;
     document.body.appendChild(el);
+    /* --d5-h: how much of the screen's bottom the box takes (0 when hidden), so the map's credits and key sit above it */
+    if (window.ResizeObserver) new ResizeObserver(() => document.documentElement.style.setProperty("--d5-h", (el.offsetHeight ? Math.round(innerHeight - el.getBoundingClientRect().top) : 0) + "px")).observe(el);
     $("#d5Range").addEventListener("input", (e) => { setMonth(+e.target.value); });
     /* drag with a finger or mouse anywhere on the track (and the month letters): the month follows the finger */
     const trk = $("#d5Trk"), at = (x) => { const r = $("#d5Range").getBoundingClientRect(); return Math.max(0, Math.min(11, Math.round((x - r.left) / r.width * 11))) };
