@@ -422,7 +422,9 @@ def test_sites_json_contract():
         assert not s["ndvi"] or len(s["elnino"]["ndvi"]["monthly"]) == 12
         h = s["hls_check"]  # None until data/raw/hls_<id>.json exists (python pipeline/appeears.py hls)
         if h is not None:
-            assert set(h) == {"bare_months", "unknown_months", "modis_bare_months", "clear_dates_per_month", "years_covered_per_month"}
+            assert set(h) == {"bare_months", "unknown_months", "modis_bare_months", "clear_dates_per_month", "years_covered_per_month",
+                              "peak", "rice_like"}
+            assert h["rice_like"], f"{s['id']} is not rice at 30 m (HLS peak {h['peak']}); run appeears.py find-hls {s['id']}"
             assert all(1 <= m <= 12 for m in h["bare_months"] + h["unknown_months"]) and not set(h["bare_months"]) & set(h["unknown_months"])
             assert len(h["years_covered_per_month"]) == 12 and all(0 <= n <= 10 for n in h["years_covered_per_month"])
             assert h["modis_bare_months"] == (s["ndvi"]["bare_months"] if s["ndvi"] else [])
@@ -600,6 +602,12 @@ def test_merge_csv_joins_products():
     rows = list(csv.DictReader(io.StringIO(appeears.merge_csv([a, b]))))
     assert rows == [{"ID": "vP0", "Date": "2020-01-01", "HLSL30_020_Fmask": "0", "HLSL30_VI_020_NDVI": "5000"},
                     {"ID": "vP0", "Date": "2020-01-02", "HLSL30_020_Fmask": "2", "HLSL30_VI_020_NDVI": ""}]
+
+
+def test_hls_rice_stats():
+    rice = [(0.2, 1)] + [(0.3, 0)] * 4 + [(0.85, 0)] * 5   # dips and one flooded date, peaks 0.85
+    pond = [(0.1, 1)] * 6 + [(0.5, 0)] * 4                  # Vinh Chau-like: low peak, mostly water
+    assert hls.rice_stats(rice) == (0.85, 0.1) and hls.rice_stats(pond) == (0.5, 0.6) and hls.rice_stats([]) == (0.0, 1.0)
 
 
 def test_hls_median_precision():
