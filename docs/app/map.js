@@ -476,10 +476,10 @@ const MapView = typeof L === "undefined" ? {} : (() => {
     buildCells();
     if (typeof NITROGEN !== "undefined") setNitrogen(NITROGEN.points);
 
-    /* one map for the whole country: zoom out from the Sóc Trăng areas to Vietnam's 34 provinces (vn.js) */
-    const maxB = L.latLngBounds([4, 97], [26, 118]);
+    /* one map for the area: zoom out from the Sóc Trăng areas to the Mekong Delta + Tây Ninh (vn.js) */
+    const maxB = L.latLngBounds([6, 100], [14.5, 110]);
     map = L.map(el, {
-      zoomControl: false, attributionControl: true, minZoom: 4.5, maxZoom: 13.5,
+      zoomControl: false, attributionControl: true, minZoom: 6, maxZoom: 13.5,
       /* smooth zoom: fine snapping for pinch and wheel, a slower wheel, and no zooming far past the sharpest tiles (z12) */
       zoomSnap: 0.25, zoomDelta: 0.5, wheelPxPerZoomLevel: 120, wheelDebounceTime: 20,
       bounceAtZoomLimits: false, inertiaDeceleration: 2600, easeLinearity: 0.25,

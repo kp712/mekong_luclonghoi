@@ -1,6 +1,6 @@
-/* vn.js: the whole of Vietnam on the planner's own map (map.js), so there is one map: zoom out from the 5 Sóc Trăng
-   areas to the 34 provinces. Same look as the areas: white dashed outlines (the 34 provinces, their former provinces
-   dotted inside), a see-through colour layer blended between the 63 province points and clipped to the outlines (rain,
+/* vn.js: the Mekong Delta + Tây Ninh on the planner's own map (map.js), so there is one map: zoom out from the 5 Sóc Trăng
+   areas to the provinces in sites.PROVINCES. Same look as the areas: white dashed outlines (the provinces, their former
+   provinces dotted inside), a see-through colour layer blended between the province points and clipped to the outlines (rain,
    or rain minus crop water need), gold pins with name plates, and a province panel. The colour, pins and key show when
    zoomed out past COUNTRY_Z (or with a province open); zoomed in, the planner looks as before.
    Data: data/provinces.json (pipeline/build.py), loaded after the app; outlines: VN_GEO (app/vn_geo.js, make_outlines.py).
@@ -13,7 +13,7 @@ const VnMap = (() => {
   const COUNTRY_Z = 9.25;  // the planner's own view starts at zoom 9 (map.js used to stop there)
   document.body.insertAdjacentHTML("beforeend", '<div class="vn-key vn-app" id="vnKey" hidden></div><aside class="vn-panel vn-app" id="vnPanel" hidden aria-live="polite"></aside>');
   const T = {
-    title: ["Vietnam map", "Bản đồ Việt Nam"], pick: ["Choose a province", "Chọn tỉnh"], back: ["Sóc Trăng areas", "5 khu vực Sóc Trăng"],
+    title: ["Mekong Delta map", "Bản đồ Đồng bằng sông Cửu Long"], pick: ["Choose a province", "Chọn tỉnh"], back: ["Sóc Trăng areas", "5 khu vực Sóc Trăng"],
     load: ["Loading…", "Đang tải…"], fail: ["Could not load the data. Check your connection and reload.", "Không tải được dữ liệu. Kiểm tra kết nối rồi tải lại trang."],
     nomap: ["The map library did not load, so only the province list works.", "Không tải được thư viện bản đồ, chỉ dùng được danh sách tỉnh."],
     show: ["Map colour shows:", "Màu trên bản đồ là:"], rain: ["Rain", "Mưa"], bal: ["Rain minus water need", "Mưa trừ nhu cầu nước"],
@@ -21,7 +21,6 @@ const VnMap = (() => {
     rainH: ["Rain, NASA GPM IMERG (mm)", "Lượng mưa, NASA GPM IMERG (mm)"],
     balH: ["Rain minus crop water need (ET₀, NASA POWER + FAO-56), mm", "Mưa trừ nhu cầu nước của cây (ET₀, NASA POWER + FAO-56), mm"],
     dry: ["drier", "khô hơn"], wet: ["wetter", "ẩm hơn"], less: ["less", "ít"], more: ["more", "nhiều"],
-    keyNote: ["One value per province point (63 points), blended between points: an estimate between them, not a measurement.", "Mỗi điểm tỉnh một giá trị (63 điểm), màu chuyển dần giữa các điểm là nội suy, không phải số đo."],
     keyPill: ["Map key", "Chú thích"], hide: ["Hide", "Thu gọn"], close: ["Close", "Đóng"],
     formed: ["Since 1 July 2025, joined from", "Từ 1/7/2025, sáp nhập từ"], kept: ["Since 1 July 2025: unchanged", "Từ 1/7/2025: giữ nguyên"],
     avg: ["Province average", "Trung bình tỉnh"], pt: ["Point", "Điểm"], former: ["former", "cũ"],
@@ -89,7 +88,7 @@ const VnMap = (() => {
   const arcPts = (i) => (i >= 0 ? G.arcs[i] : G.arcs[~i].slice().reverse());
   const ringPts = (r) => { const out = []; r.forEach((i) => { const a = arcPts(i); out.push(...(out.length ? a.slice(1) : a)) }); return out };
   const ll = (p) => [p[1], p[0]];
-  const MAIN = { w: 102.1, e: 109.6, s: 8.3, n: 23.45 };  // mainland + near islands: the colour layer and the home view
+  const MAIN = { w: 103.0, e: 107.0, s: 8.3, n: 11.9 };  // the outlines plus ~0.1° (test_map_box): the colour layer and the home view
 
   /* ---------- the data a view shows ---------- */
   const climOf = (o) => (yr === "elnino" ? o.elnino.climate : o.climate);
@@ -105,7 +104,7 @@ const VnMap = (() => {
     const c = climOf(o), r = m < 0 ? sum(c.rain_mm) : c.rain_mm[m];
     return mode === "bal" ? r - (m < 0 ? sum(c.et0_mm) : c.et0_mm[m]) : r;
   }
-  /* the data points of the rain layers: the 63 province points, plus the 5 Sóc Trăng areas in a typical year */
+  /* the data points of the rain layers: the province points, plus the 5 Sóc Trăng areas in a typical year */
   const stSites = () => (typeof RX !== "undefined" && RX.Core && RX.Core.sites ? RX.Core.sites() : []);
   function points() {
     const pts = D.places.map((x) => ({ lat: x.lat, lon: x.lon, name: nm(x.name), rain: climOf(x).rain_mm, et0: climOf(x).et0_mm }));
@@ -120,7 +119,7 @@ const VnMap = (() => {
     const a = Math.max(...all.map(Math.abs)); return [-a, a];
   }
 
-  /* ---------- colour layer: blended between the 63 points, clipped to the outlines (as map.js paintCells) ---------- */
+  /* ---------- colour layer: blended between the points, clipped to the outlines (as map.js paintCells) ---------- */
   const BLUE = [[0, [233, 241, 230]], [0.35, [143, 196, 214]], [0.7, [52, 131, 196]], [1, [23, 63, 140]]];
   const DIV = [[0, [196, 92, 38]], [0.35, [232, 170, 94]], [0.5, [240, 232, 205]], [0.65, [128, 190, 214]], [1, [30, 90, 170]]];
   function ramp(stops, f) {
@@ -628,12 +627,12 @@ ${(p.areas || []).length ? `<button type="button" class="vn-golink" data-home>${
   new MutationObserver(sync).observe(document.body, { attributes: true, attributeFilter: ["class"] });
   if (window.RX && RX.Core && RX.Core.onLang) RX.Core.onLang(() => setTimeout(sync, 0));
 
-  /* the whole country on this map; from the dashboard, step out to the map first */
+  /* the whole area on this map; from the dashboard, step out to the map first */
   function showCountry() {
     if (!map || !D) { want = true; return; }  // before the data: once it is drawn
     try { if (typeof Dash !== "undefined" && Dash.showMap) Dash.showMap(); } catch (e) {}
     try { if (window.App && App.closePanel) App.closePanel(); } catch (e) {}
-    // measured after the dashboard has stepped aside, so the whole country sits clear of the bars and the month box
+    // measured after the dashboard has stepped aside, so the whole area sits clear of the bars and the month box
     setTimeout(() => { const f = freePad(); map.fitBounds([[MAIN.s, MAIN.w], [MAIN.n, MAIN.e]], { paddingTopLeft: [f.left + 20, f.top + 10], paddingBottomRight: [20, (f.bottom || 18) + 12], animate: !reduced() }); }, 80);
   }
   let want = location.hash === "#vietnam";

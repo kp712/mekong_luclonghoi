@@ -2,7 +2,7 @@
 
 Source: geoBoundaries gbHumanitarian VNM ADM1 (simplified), OCHA ROAP + Government of Viet Nam 2020, CC BY 3.0 IGO:
 the 63 provinces before the July 2025 merger, same source and year as the Sóc Trăng district outlines (districts.js).
-The 34 provinces since 1 July 2025 (Resolution 202/2025/QH15) are drawn by joining their former provinces (sites.PROVINCES).
+Only the provinces in sites.PROVINCES are kept; each new province (Resolution 202/2025/QH15) is drawn by joining its former ones.
 Saved once to data/raw/adm1_vnm_2020.geojson (downloaded if missing). Pure Python, no GIS library.
 
 Shared borders are cut into arcs at the points where three or more outlines meet, each arc is simplified once
@@ -189,7 +189,8 @@ def chain(arcs, edges):
 def main():
     geo = load()
     former_ids = {f["id"] for p in PROVINCES for f in p["former"]}
-    assert set(geo) == former_ids, ("names do not match", set(geo) ^ former_ids)
+    assert former_ids <= set(geo), ("names do not match", former_ids - set(geo))
+    geo = {k: v for k, v in geo.items() if k in former_ids}  # only the provinces the app covers
     # every data point must sit inside its own former province (and the 5 area pins inside Sóc Trăng)
     bad = [(f["id"], p["id"]) for p in PROVINCES for f in p["former"] if not inside(f["lon"], f["lat"], geo[f["id"]])]
     bad += [(s["id"], "soc_trang") for s in SITES if not inside(s["lon"], s["lat"], geo["soc_trang"])]

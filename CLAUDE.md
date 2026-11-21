@@ -14,8 +14,8 @@ A static PWA for Mekong Delta rice farmers and extension officers (started at NA
 - `docs/index.html` is the app. `vietnam.html` only redirects to it (old links).
 - `docs/app/`:
   - `map.js`: the Sóc Trăng planner map.
-  - `vn.js`: the country map (salt layer, station blend, year buttons).
-  - `vn_geo.js`: province outlines, written by `pipeline/make_outlines.py`.
+  - `vn.js`: the Mekong Delta + Tây Ninh map (salt layer, station blend, year buttons; `MAIN` is its box).
+  - `vn_geo.js`: province outlines of `sites.PROVINCES`, written by `pipeline/make_outlines.py`.
   - `rx.js`: the salt model, `RX.Model.profile`.
   - `dash.js`: the dashboard cards.
   - `app.js`: the planner.
@@ -36,7 +36,8 @@ A static PWA for Mekong Delta rice farmers and extension officers (started at NA
 - Salinity at a point comes from the nearest KTTV station within 25 km. Beyond that there is no estimate, and the text names the station and its distance (past 100 km: "outside the area covered by KTTV").
 - The seasons used are 2017–2026. A season counts as El Niño when its Dec–Feb ONI is at least 0.5. A season is partial when it has no February or no March reading.
 - Salt months are months that reached 4‰ or more in at least 2 seasons. If there are none, use any season's contiguous range. Months outside them show "< 4‰", never 0‰.
-- The 34 new-province averages are always "unknown": they tell the user to pick a former province.
+- The app covers 6 provinces: the Mekong Delta's 5 and Tây Ninh (14 former provinces). To add more, extend `sites.PROVINCES`, run the fetchers and `make_outlines.py`, and update the counts in `test_build.py`.
+- The 6 new-province averages are always "unknown": they tell the user to pick a former province. Former Long An is scored (`sites.SCORED_PLACES`); former Tây Ninh is weather only.
 - A reading taken while salt is still rising (Khánh Hòa, April 2026) goes in `lower_bound`. It counts toward the typical value but never raises confidence.
 - Kiên Giang has no estimate. Soil maps were checked and rejected; see `research/soil-salinity-maps.md`.
 - Never show model or map values to farmers as measured readings. Say where every number comes from.
