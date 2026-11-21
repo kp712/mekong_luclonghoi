@@ -37,6 +37,23 @@ def points(site):
             for k, (i, j) in enumerate(offsets)]
 
 
+RICE_PEAK, RICE_LOW, RICE_WATER = 0.7, 0.35, 0.1  # shortcut: tuned on the Soc Trang pins (rice peaks ~0.85 and dips to ~0.2)
+
+
+def rice_stats(readings):
+    """readings: [(ndvi, water flag 0/1)] of one point's clear dates -> (peak, low, share flagged water); peak and low are
+    the 90th and 10th percentile NDVI. Rice at 30 m peaks near 0.85, dips to ~0.2 between crops and is rarely flagged
+    water. Shrimp ponds peak low and are often water; trees on dikes stay green all year (Vinh Chau, 2026)."""
+    if not readings:
+        return 0.0, 0.0, 1.0
+    v = sorted(x for x, _ in readings)
+    return v[int(0.9 * (len(v) - 1))], v[int(0.1 * (len(v) - 1))], sum(w for _, w in readings) / len(readings)
+
+
+def is_rice(peak, low, water=0.0):
+    return peak >= RICE_PEAK and low < RICE_LOW and water <= RICE_WATER
+
+
 def scaled_ndvi(raw, encoding="raw"):
     """One NDVI cell -> value in -1..1, or None for no data. encoding "raw": int16 with scale 0.0001 (1 means 0.0001);
     "scaled": already NDVI (1 means 1.0). The fill codes are checked in the file's own encoding before anything is scaled."""

@@ -3,13 +3,17 @@ The app's rain (chart, water need, scores) for Dec 2000 - Nov 2024; NASA POWER r
 Needs EARTHDATA_USERNAME / EARTHDATA_PASSWORD, and "NASA GESDISC DATA ARCHIVE" approved under
 Applications -> Authorized Apps in the Earthdata profile.
 Run: python pipeline/fetch_gpm.py   (months already saved are skipped, so run it again to resume)
+Each month asks only for the cells still missing and retries on its own (NASA's cloud copy first, then GES DISC, same
+product), 4 months at a time, because connections from some networks drop often.
 """
 import calendar
+import concurrent.futures
 import http.cookiejar
 import json
 import os
 import pathlib
 import sys
+import threading
 import time
 import urllib.request
 
@@ -20,6 +24,10 @@ OUT = RAW / "gpm.json"
 URL = ("https://gpm1.gesdisc.eosdis.nasa.gov/opendap/GPM_L3/GPM_3IMERGM.07/{y}/"
        "3B-MO.MS.MRG.3IMERG.{y}{m:02d}01-S000000-E235959.{m:02d}.V07B.HDF5.ascii"
        "?precipitation%5B0%5D%5B{lo0}:{lo1}%5D%5B{la0}:{la1}%5D")
+# the same granules in NASA Earthdata Cloud (OPeNDAP/DAP4); it returns nothing for a 1-cell range, so main() asks >= 2 x 2
+CLOUD_URL = ("https://opendap.earthdata.nasa.gov/collections/C2723754851-GES_DISC/granules/GPM_3IMERGM.07%3A"
+             "3B-MO.MS.MRG.3IMERG.{y}{m:02d}01-S000000-E235959.{m:02d}.V07B.HDF5.dap.csv"
+             "?dap4.ce=/Grid/precipitation%5B0:0%5D%5B{lo0}:{lo1}%5D%5B{la0}:{la1}%5D")
 YEARS = range(2000, 2026)
 
 
@@ -33,45 +41,41 @@ def mm_per_month(mm_per_hr, y, m):
 
 
 def parse(text):
-    """OPeNDAP ASCII rows 'precipitation[0][i], v, v, ...' -> list of rows (lon offset) of values (lat offset)."""
-    return [[float(v) for v in ln.split(",")[1:]] for ln in text.splitlines() if ln.startswith("precipitation[0][")]
+    """OPeNDAP ASCII rows 'precipitation[0][i], v, v, ...' (cloud: '/Grid/precipitation[0][i], ...') -> list of rows
+    (lon offset) of values (lat offset)."""
+    return [[float(v) for v in ln.split(",")[1:]] for ln in text.splitlines()
+            if ln.removeprefix("/Grid/").startswith("precipitation[0][")]
 
 
 def opener():
     user, pw = os.environ.get("EARTHDATA_USERNAME"), os.environ.get("EARTHDATA_PASSWORD")
     if not user or not pw:
         sys.exit("Set EARTHDATA_USERNAME and EARTHDATA_PASSWORD first (see README, 'For teammates: updating the data').")
-    pm = urllib.request.HTTPPasswordMgrWithDefaultRealm()
-    pm.add_password(None, "https://urs.earthdata.nasa.gov", user, pw)
+    pm = urllib.request.HTTPPasswordMgrWithPriorAuth()  # send the login up front: Earthdata resets requests that wait for a 401
+    pm.add_password(None, "https://urs.earthdata.nasa.gov", user, pw, is_authenticated=True)
     return urllib.request.build_opener(urllib.request.HTTPBasicAuthHandler(pm),
                                        urllib.request.HTTPCookieProcessor(http.cookiejar.CookieJar()))
 
 
 def main():
     out = json.loads(OUT.read_text(encoding="utf-8")) if OUT.exists() else {}
-    cells = {s["id"]: cell(s["lon"], s["lat"]) for s in points()}
-    lo0, lo1 = min(c[0] for c in cells.values()), max(c[0] for c in cells.values())
-    la0, la1 = min(c[1] for c in cells.values()), max(c[1] for c in cells.values())
-    op = opener()
+    cells_all = {s["id"]: cell(s["lon"], s["lat"]) for s in points()}
+    todo = []
     for y in YEARS:
         for m in range(1, 13):
+            cells = {sid: c for sid, c in cells_all.items() if f"{y}-{m:02d}" not in out.get(sid, {})}  # only what is missing
+            if cells:
+                todo.append((y, m, cells))
+    opener()  # stop early if the login variables are missing
+    failed = []
+    with concurrent.futures.ThreadPoolExecutor(4) as pool:  # the time goes on dropped connections, not bandwidth
+        for y, m, cells, lo0, la0, text in pool.map(fetch_month, todo):
             key = f"{y}-{m:02d}"
-            if all(key in out.get(sid, {}) for sid in cells):
-                continue
-            text = None
-            for attempt in range(3):  # GES DISC sometimes resets the connection; a short wait usually fixes it
-                try:
-                    with op.open(URL.format(y=y, m=m, lo0=lo0, lo1=lo1, la0=la0, la1=la1), timeout=120) as r:
-                        text = r.read().decode("utf-8", errors="replace")
-                    break
-                except OSError as e:  # timeouts and HTTP errors
-                    if getattr(e, "code", None) == 404:  # Final-run months appear a few months late
-                        print(key, "not published yet, skipped", flush=True)
-                        break
-                    if attempt == 2:
-                        sys.exit(f"{key}: GES DISC did not answer ({e}). Saved months are kept; run again to continue.")
-                    time.sleep(10 * (attempt + 1))
             if text is None:
+                failed.append(key)
+                continue
+            if text == "404":
+                print(key, "not published yet, skipped", flush=True)
                 continue
             if not text.startswith("Dataset:"):
                 sys.exit("Earthdata login failed: check the username/password and that 'NASA GESDISC DATA ARCHIVE' "
@@ -82,9 +86,33 @@ def main():
                 if v >= 0:  # negative = fill value (no data)
                     out.setdefault(sid, {})[key] = mm_per_month(v, y, m)
             OUT.write_text(json.dumps(out, indent=1), encoding="utf-8")  # save every month so a stop loses nothing
-        print(y, "done", flush=True)
+            if m == 12:
+                print(y, "done", flush=True)
+    if failed:
+        sys.exit(f"No answer for {len(failed)} months ({', '.join(failed[:6])}...). Saved months are kept; run again.")
     print("saved", OUT)
 
+
+_local = threading.local()
+
+
+def fetch_month(job):
+    """One month for the given cells -> (y, m, cells, lo0, la0, text); text is "404" (not published) or None (no answer)."""
+    y, m, cells = job
+    if not hasattr(_local, "op"):
+        _local.op = opener()  # one login session per worker thread
+    lo0, la0 = min(c[0] for c in cells.values()), min(c[1] for c in cells.values())
+    lo1, la1 = max(c[0] for c in cells.values()) + 1, max(c[1] for c in cells.values()) + 1  # >= 2 x 2 (CLOUD_URL)
+    for attempt in range(10):  # dropped connections are common: the cloud copy 8 times, then GES DISC twice
+        url = (CLOUD_URL if attempt < 8 else URL).format(y=y, m=m, lo0=lo0, lo1=lo1, la0=la0, la1=la1)
+        try:
+            with _local.op.open(url, timeout=120) as r:
+                return y, m, cells, lo0, la0, r.read().decode("utf-8", errors="replace")
+        except OSError as e:  # timeouts and HTTP errors
+            if getattr(e, "code", None) == 404:  # Final-run months appear a few months late
+                return y, m, cells, lo0, la0, "404"
+            time.sleep(3)
+    return y, m, cells, lo0, la0, None
 
 if __name__ == "__main__":
     sys.stdout.reconfigure(encoding="utf-8")

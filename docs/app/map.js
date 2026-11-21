@@ -21,7 +21,7 @@ const MapView = typeof L === "undefined" ? {} : (() => {
 
   const ll = (p) => [p[1], p[0]];                       // [lon,lat] -> Leaflet [lat,lon]
   const isPhone = () => window.innerWidth <= 760;
-  /* "Former Vĩnh Châu area (coast)" -> "Vĩnh Châu"; "Khu vực Vĩnh Châu cũ (ven biển)" -> "Vĩnh Châu" */
+  /* "Former Vĩnh Châu area (rice, inland)" -> "Vĩnh Châu"; "Khu vực Vĩnh Châu cũ (lúa, nội đồng)" -> "Vĩnh Châu" */
   const shortName = (s) => (s.name[lang] || s.name.en || s.id).split(" (")[0]
     .replace(/^(Former |Khu vực )/, "").replace(/( area| cũ)$/, "");
   const fullName = (s) => s.name[lang] || s.name.en || s.id;

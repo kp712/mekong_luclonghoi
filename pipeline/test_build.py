@@ -348,10 +348,11 @@ def test_salinity_station_data():
 
 
 def test_gpm_cross_check():
-    assert fetch_gpm.cell(105.96, 9.365) == (2859, 993)        # Vĩnh Châu pin -> cell centred 105.95 E, 9.35 N
+    assert fetch_gpm.cell(105.96, 9.365) == (2859, 993)        # old Vĩnh Châu pin -> cell centred 105.95 E, 9.35 N
     assert fetch_gpm.mm_per_month(0.01, 2016, 1) == 7.4        # 0.01 mm/hr x 744 hours
     text = "Dataset: x\nprecipitation[0][0], 0.5, 0.25\nprecipitation[0][1], 0, -9999.9\nlat, 9.25, 9.35"
     assert fetch_gpm.parse(text) == [[0.5, 0.25], [0.0, -9999.9]]
+    assert fetch_gpm.parse(text.replace("precipitation[", "/Grid/precipitation[")) == [[0.5, 0.25], [0.0, -9999.9]]  # cloud DAP4 CSV
     days = {f"2020{m:02d}{d:02d}": float(m) for m in range(1, 13) for d in (1, 2)} | \
            {f"2021{m:02d}{d:02d}": float(13 - m) for m in range(1, 13) for d in (1, 2)}
     power = {"parameter": {"PRECTOTCORR": days}}
@@ -422,7 +423,9 @@ def test_sites_json_contract():
         assert not s["ndvi"] or len(s["elnino"]["ndvi"]["monthly"]) == 12
         h = s["hls_check"]  # None until data/raw/hls_<id>.json exists (python pipeline/appeears.py hls)
         if h is not None:
-            assert set(h) == {"bare_months", "unknown_months", "modis_bare_months", "clear_dates_per_month", "years_covered_per_month"}
+            assert set(h) == {"bare_months", "unknown_months", "modis_bare_months", "clear_dates_per_month", "years_covered_per_month",
+                              "peak", "low", "rice_like"}
+            assert h["rice_like"], f"{s['id']} is not rice at 30 m (HLS peak {h['peak']}, low {h['low']}); run appeears.py find-hls {s['id']}"
             assert all(1 <= m <= 12 for m in h["bare_months"] + h["unknown_months"]) and not set(h["bare_months"]) & set(h["unknown_months"])
             assert len(h["years_covered_per_month"]) == 12 and all(0 <= n <= 10 for n in h["years_covered_per_month"])
             assert h["modis_bare_months"] == (s["ndvi"]["bare_months"] if s["ndvi"] else [])
@@ -600,6 +603,14 @@ def test_merge_csv_joins_products():
     rows = list(csv.DictReader(io.StringIO(appeears.merge_csv([a, b]))))
     assert rows == [{"ID": "vP0", "Date": "2020-01-01", "HLSL30_020_Fmask": "0", "HLSL30_VI_020_NDVI": "5000"},
                     {"ID": "vP0", "Date": "2020-01-02", "HLSL30_020_Fmask": "2", "HLSL30_VI_020_NDVI": ""}]
+
+
+def test_hls_rice_stats():
+    rice = [(0.2, 1)] + [(0.3, 0)] * 4 + [(0.85, 0)] * 5   # dips and one flooded date, peaks 0.85
+    pond = [(0.1, 1)] * 6 + [(0.5, 0)] * 4                  # Vinh Chau-like: low peak, mostly water
+    trees = [(0.6, 0)] * 2 + [(0.8, 0)] * 8                  # dike trees: green all year, never dips
+    assert hls.rice_stats(rice) == (0.85, 0.2, 0.1) and hls.rice_stats(pond) == (0.5, 0.1, 0.6) and hls.rice_stats([]) == (0.0, 0.0, 1.0)
+    assert hls.is_rice(*hls.rice_stats(rice)) and not hls.is_rice(*hls.rice_stats(pond)) and not hls.is_rice(*hls.rice_stats(trees))
 
 
 def test_hls_median_precision():

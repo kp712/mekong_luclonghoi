@@ -78697,11 +78697,11 @@
   {
    "id": "vinh_chau",
    "name": {
-    "en": "Former Vĩnh Châu area (coast)",
-    "vi": "Khu vực Vĩnh Châu cũ (ven biển)"
+    "en": "Former Vĩnh Châu area (rice, inland)",
+    "vi": "Khu vực Vĩnh Châu cũ (lúa, nội đồng)"
    },
-   "lat": 9.365,
-   "lon": 105.96,
+   "lat": 9.435,
+   "lon": 105.98,
    "salt": {
     "level": "high",
     "months": [
@@ -78715,7 +78715,7 @@
     "elnino_max_ppt": 17.7,
     "estimate": true
    },
-   "crops": 3.0
+   "crops": 1.9
   },
   {
    "id": "tran_de",
@@ -78788,7 +78788,7 @@
     "en": "Former Ngã Năm area (inland)",
     "vi": "Khu vực Ngã Năm cũ (nội đồng)"
    },
-   "lat": 9.56,
+   "lat": 9.548,
    "lon": 105.6,
    "salt": {
     "level": "low",
@@ -78801,7 +78801,7 @@
     "elnino_max_ppt": null,
     "estimate": true
    },
-   "crops": 2.9
+   "crops": 2.1
   }
  ],
  "stations": [

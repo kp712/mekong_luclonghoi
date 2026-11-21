@@ -10,6 +10,7 @@ import statistics
 from collections import defaultdict
 from datetime import date, timedelta
 
+import hls
 import ndvi
 from make_outlines import SRC as OUTLINE_SRC
 from sites import PROVINCES, REGION_SRC, REGIONS, SCORED_REGIONS, SITES
@@ -281,8 +282,10 @@ def hls_check(series, modis_bare=()):
             unknown.append(m)
         elif 2 * sum(v < ndvi.BARE for v in means) > len(means):
             bare.append(m)
+    peak, low, _ = hls.rice_stats([(v, 0) for v in series.values()])  # does the pin's 30 m spot look like rice?
     return {"bare_months": bare, "unknown_months": unknown, "modis_bare_months": sorted(modis_bare),
-            "clear_dates_per_month": dates, "years_covered_per_month": covered}
+            "clear_dates_per_month": dates, "years_covered_per_month": covered,
+            "peak": round(peak, 3), "low": round(low, 3), "rice_like": hls.is_rice(peak, low)}
 
 
 def gpm_check(power, gpm_months):
@@ -1259,6 +1262,8 @@ def build():
             nd_e = chart(in_elnino)
         hls_file = RAW / f"hls_{s['id']}.json"
         hls_result = hls_check(json.loads(hls_file.read_text(encoding="utf-8")), nd["bare_months"] if nd else ()) if hls_file.exists() else None
+        if hls_result and not hls_result["rice_like"]:
+            print(f"WARNING: {s['id']} does not look like rice at 30 m (HLS peak {hls_result['peak']}, low {hls_result['low']}); try appeears.py find-hls {s['id']}")
         soil_file = RAW / f"soil_{s['id']}.json"
         soil = topsoil(json.loads(soil_file.read_text(encoding="utf-8"))) if soil_file.exists() else None
         sal, sal_e = site_salinity(salinity["sites"][s["id"]])

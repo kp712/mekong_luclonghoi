@@ -3,6 +3,7 @@ Needs environment variables EARTHDATA_USERNAME and EARTHDATA_PASSWORD (free acco
 
   python pipeline/appeears.py ndvi                             # NDVI for every pin -> data/raw/ndvi_<id>.json
   python pipeline/appeears.py hls                              # NASA HLS 30 m greenness for every pin -> data/raw/hls_<id>.json (cross-check only)
+  python pipeline/appeears.py find-hls <pin_id> [half] [--apply]  # 30 m HLS check of a grid (half=5: 11x11, ~6 km) around a pin; moves it to the nearest rice
   python pipeline/appeears.py find vinh_chau my_xuyen          # search ~5 km around pins for rice-like pixels
   python pipeline/appeears.py find vinh_chau my_xuyen --apply  # ...and move each pin to the best one
 
@@ -176,6 +177,40 @@ def find(ids, apply):
         print("\nNext: python pipeline/ndvi_from_appeears.py  (refresh the upload file), then build.py and test_build.py")
 
 
+def find_hls(sid, apply, half=5):
+    """Check a (2*half+1)^2 grid (~1.1 km apart; half=5 is 11 x 11) around a pin with NASA HLS 30 m over the last 3 seasons, and list the points
+    that look like rice (hls.rice_stats), nearest first. MODIS's 250 m pixel can call a pond area rice (Vinh Chau, 2026)."""
+    s = next((x for x in SITES if x["id"] == sid), None)
+    assert s, f"unknown pin {sid}; known: {[x['id'] for x in SITES]}"
+    base = sid.replace("_", "")
+    pts = [{"id": f"{base}g{i + half}x{j + half}", "category": "grid", "latitude": round(s["lat"] + i * 0.01, 4),
+            "longitude": round(s["lon"] + j * 0.01, 4)} for i in range(-half, half + 1) for j in range(-half, half + 1)]
+    layers = [{"product": p, "layer": l} for p, l in hls.LAYERS]
+    with open(run_task(f"findhls{half}-{sid}" if half != 5 else "findhls-" + sid, pts, layers, "12-01-2021", HLS_END), encoding="utf-8", newline="") as f:
+        rows = list(csv.DictReader(f))
+    cols = hls._columns(rows[0].keys() if rows else [])
+    enc = hls.detect_encoding(r[c] for r in rows for k, c in cols.items() if k[1] == "NDVI")
+    got = {}
+    for r in rows:
+        for sensor in "LS":
+            v, fm = hls.scaled_ndvi(r[cols[(sensor, "NDVI")]], enc), r[cols[(sensor, "Fmask")]]
+            if v is not None and hls.clear(fm):
+                got.setdefault(r["ID"].lower(), []).append((v, int(float(fm)) >> 5 & 1))
+    res = []
+    for p in pts:
+        peak, low, water = hls.rice_stats(got.get(p["id"].lower(), []))
+        res.append((not hls.is_rice(peak, low, water), km(s["lat"], s["lon"], p["latitude"], p["longitude"]), p, peak, low, water))
+    res.sort(key=lambda r: (r[0], r[1]))
+    print(f"{sid}: {sum(not r[0] for r in res)} of {len(res)} points look like rice at 30 m")
+    for bad, dist, p, peak, low, water in res[:10]:
+        print(f"  {'RICE ' if not bad else 'no   '} {p['latitude']}, {p['longitude']}  {dist:.1f} km  peak {peak:.2f}  low {low:.2f}  water {water:.0%}")
+    if apply and not res[0][0]:
+        p = res[0][2]
+        SITES_PY.write_text(move_pin_text(SITES_PY.read_text(encoding="utf-8"), sid, p["latitude"], p["longitude"]),
+                            encoding="utf-8")
+        print(f"  -> moved {sid} to {p['latitude']}, {p['longitude']}. Next: appeears.py ndvi, appeears.py hls, build.py")
+
+
 def main(args):
     if args[:1] == ["ndvi"]:
         pts = [{"id": s["id"].replace("_", ""), "category": "pin", "latitude": s["lat"], "longitude": s["lon"]} for s in SITES]
@@ -191,6 +226,9 @@ def main(args):
             sys.exit(f"ERROR: {e}. Existing data/raw/hls_*.json left untouched.")
         for sid, s in series.items():
             print(sid, len(s), "clear HLS dates" + ("  (WARNING: zero coverage, every month unknown)" if not s else ""))
+    elif args[:1] == ["find-hls"] and len(args) > 1:
+        wide = [a for a in args[2:] if a.isdigit()]
+        find_hls(args[1], "--apply" in args, int(wide[0]) if wide else 5)
     elif args[:1] == ["find"] and len(args) > 1:
         find([a for a in args[1:] if a != "--apply"], "--apply" in args)
     else:
