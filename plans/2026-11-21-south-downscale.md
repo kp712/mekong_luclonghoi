@@ -32,7 +32,7 @@
 1. **Old link `index.html#vietnam`:** must open the new map, centred on the new area, with no page error. Checked by Task 4 step 4.
 2. **Searching for a removed province** (for example "Hà Nội" in the map's search box): must show no results, with no error and no stray marker. Checked by Task 4 step 4.
 3. **Phones holding the old app:** after the update, the map must not mix old outlines with new data. The `CACHE` bump in Task 4 makes `sw.js` fetch everything again.
-4. **Country salt count on the dashboard** ("{n} of {t} points with an estimate reach 4‰"): must count the 14 points, not 63. Checked by Task 4 step 4.
+4. **Country salt count on the dashboard** ("{n}/{t} points with an estimate reach 4‰"): must count only in-scope points. Done: it reads "2/6": t is the points with an estimate (6 of the 14), not all 14.
 5. **Former Long An's salinity:** must come from its own nearest station (Tân An, within 25 km), never from Cát Lái. Checked by the test in Task 2.
 
 ---
@@ -51,7 +51,7 @@
   - `sites.SCORED_PLACES = ("long_an",)`.
   - `build.py`: a former-province point is scored when `pr["region"] in SCORED_REGIONS or f["id"] in SCORED_PLACES`. The province average keeps `pr["region"] in SCORED_REGIONS`, so new Tây Ninh's average stays unscored.
 
-- [ ] **Step 1: Update the tests**
+- [x] **Step 1: Update the tests**
 
   Change the count assertions:
   - `len(ids) == 6` and `len(former) == 14` (line 753).
@@ -68,25 +68,25 @@
   assert long_an["scored"] and long_an["cards"] and not tay_ninh["scored"] and not tay_ninh["cards"]
   ```
 
-- [ ] **Step 2: Run the tests and confirm they fail**
+- [x] **Step 2: Run the tests and confirm they fail**
 
   Run `python3 pipeline/test_build.py`. Expected: an AssertionError on the 34/63 counts.
 
-- [ ] **Step 3: Trim `PROVINCES`, `REGIONS` and the name table in `sites.py`, add `SCORED_PLACES`, and change the scoring line in `build.py`**
+- [x] **Step 3: Trim `PROVINCES`, `REGIONS` and the name table in `sites.py`, add `SCORED_PLACES`, and change the scoring line in `build.py`**
 
   Fix any docstring in `sites.py`, `make_outlines.py` or `build.py` that says "34" or "63".
 
-- [ ] **Step 4: Rebuild**
+- [x] **Step 4: Rebuild**
 
   Run `python3 pipeline/build.py`. Expected: "wrote … 6 provinces, 14 province points".
 
   `make_outlines.py` will still fail at this point; Task 3 fixes it. The outline test stays red until Task 3, so run only the other tests in Step 5.
 
-- [ ] **Step 5: Run the tests**
+- [x] **Step 5: Run the tests**
 
   Expected: all pass except the outline test (`test_outlines` or its equivalent near line 868).
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
   Commit `sites.py`, `build.py`, `test_build.py` and `docs/data/` with the message "Scope: Mekong Delta + Tây Ninh; score former Long An".
 
@@ -101,7 +101,7 @@
 - Consumes: `sites.PROVINCES` from Task 1.
 - Produces: `sites.OUT_OF_SCOPE_STATIONS = ("Cát Lái",)`. `kttv_stations()` and `kttv_salinity()` skip these names. `data/raw/kttv_stations.json` and the bulletin file stay unchanged, so the fetchers are untouched.
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
   ```python
   def test_out_of_scope_station():
       prov = json.loads((build.HERE.parent / "docs" / "data" / "provinces.json").read_text(encoding="utf-8"))
@@ -111,15 +111,15 @@
   ```
   Match the field names to `provinces.json` (`stations[].name` and the salinity station field). The rule is fixed: no Cát Lái anywhere, and Long An uses Tân An.
 
-- [ ] **Step 2: Run the test and confirm it fails**
+- [x] **Step 2: Run the test and confirm it fails**
 
   Expected: an AssertionError, because Cát Lái is still in `stations`.
 
-- [ ] **Step 3: Implement the skip, rebuild, and run all tests**
+- [x] **Step 3: Implement the skip, rebuild, and run all tests**
 
   Expected: everything passes except the outline test.
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
   Message: "Drop Cát Lái station (outside the new area)".
 
@@ -134,19 +134,19 @@
 - Consumes: `sites.PROVINCES`.
 - Produces: `vn_geo.js` holding only the 14 former and 6 joined outlines.
 
-- [ ] **Step 1: Change the equality assert into a filter**
+- [x] **Step 1: Change the equality assert into a filter**
 
   Keep only the in-scope geometry: `geo = {k: v for k, v in geo.items() if k in former_ids}`, then `assert set(geo) == former_ids`. This keeps the existing name check for in-scope provinces.
 
-- [ ] **Step 2: Regenerate the outlines**
+- [x] **Step 2: Regenerate the outlines**
 
   Run `python3 pipeline/make_outlines.py`. Expected: the printed size is much smaller than today's 294 KB.
 
-- [ ] **Step 3: Run all tests**
+- [x] **Step 3: Run all tests**
 
   Expected: all pass.
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
   Message: "Outlines: Mekong Delta + Tây Ninh only".
 
@@ -166,7 +166,7 @@
 - Consumes: `vn_geo.js` from Task 3 and `provinces.json` from Task 1.
 - Produces: `MAIN` is the new area's bounding box, plus a 0.1° margin, rounded outward to 0.1°. Use the outline extent printed by the test below (expected roughly w 103.8, e 107.1, s 8.4, n 11.9).
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 
   Add `test_map_box`. It reads `vn.js`, takes `MAIN = { w: …, e: …, s: …, n: … }` with a regex, and takes every coordinate pair from `vn_geo.js` the same way the outline test does. Then assert:
   - every outline point lies inside `MAIN`;
@@ -174,11 +174,11 @@
 
   Print the extent, so the step 3 values come from the data.
 
-- [ ] **Step 2: Run the test and confirm it fails**
+- [x] **Step 2: Run the test and confirm it fails**
 
   Expected: it fails on the "at most 0.3° wider" check, because `MAIN` is still the whole country.
 
-- [ ] **Step 3: Implement the map changes**
+- [x] **Step 3: Implement the map changes**
   - Set `MAIN` from the printed extent.
   - Title: `["Mekong Delta map", "Bản đồ Đồng bằng sông Cửu Long"]`.
   - `keyNote`: read the point count from the data (`D.places.length`) instead of the hard-coded 63, in both EN and VI.
@@ -187,14 +187,14 @@
   - Fix the stale comments.
   - Leave the `#vietnam` handling at line 639 as it is.
 
-- [ ] **Step 4: Verify in the browser**
+- [x] **Step 4: Verify in the browser**
   - Run `node tools/shot.js` (the default page is `index.html#vietnam`). Expected: exit 0, and both screenshots show only the six provinces, filling the view.
   - Run a short Playwright check, written to the scratchpad and modelled on `tools/shot.js`. It types "Hà Nội" into the map search box, then reads the country salt line. Expected:
     - no page errors;
     - the search shows no results;
     - the salt line reads "… of 14 points …" / "… trên 14 điểm …".
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
   Message: "Map: Mekong Delta + Tây Ninh view and wording".
 
@@ -209,26 +209,26 @@
 **Interfaces:**
 - Consumes: `sites.points()` (Task 1) and `MAIN` (Task 4).
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 
   Add `test_no_orphans`:
   - every `data/raw/{power,soil,ndvi,hls}_<id>.*` file has an id in `{p["id"] for p in sites.points()}`;
   - `set(json.load(gpm.json)) == that id set`;
   - the `sat` list in `tiles.js` equals the tile files on disk, and every listed tile's box intersects `MAIN`.
 
-- [ ] **Step 2: Run the test and confirm it fails**
+- [x] **Step 2: Run the test and confirm it fails**
 
   Expected: it lists the orphan ids.
 
-- [ ] **Step 3: Delete the orphans and the tiles outside `MAIN`, and rewrite the `sat` list**
+- [x] **Step 3: Delete the orphans and the tiles outside `MAIN`, and rewrite the `sat` list**
 
   Use a scratchpad script that prints what it deletes; check the list before running it with deletion on.
 
-- [ ] **Step 4: Rebuild and run all tests**
+- [x] **Step 4: Rebuild and run all tests**
 
   Run `python3 pipeline/build.py` then the tests. Expected: everything passes, and `git status` shows no change in `docs/data/`.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
   Message: "Remove data and offline tiles outside the new area".
 
@@ -240,15 +240,15 @@
 - Modify: `CLAUDE.md`: the data rule "The 34 new-province averages…" becomes 6, the description line says "Mekong Delta + Tây Ninh", and `make_outlines.py` is described as in scope only.
 - Modify: `plans/2026-11-21-refinement.md`: no change. The new plan file gets its boxes ticked.
 
-- [ ] **Step 1: Find every remaining scope claim**
+- [x] **Step 1: Find every remaining scope claim**
 
   Run `grep -rn "34 \|63 \|cả nước\|whole country\|all of Vietnam\|nationwide" README.md SOURCES.md CLAUDE.md docs/app/*.js docs/index.html` (skip `vn_geo.js`), and fix each hit that is about scope.
 
-- [ ] **Step 2: Run all tests and `node tools/shot.js` once more**
+- [x] **Step 2: Run all tests and `node tools/shot.js` once more**
 
   Expected: all pass and exit 0.
 
-- [ ] **Step 3: Commit, then open the PR**
+- [x] **Step 3: Commit, then open the PR**
 
   Message: "Docs: Mekong Delta + Tây Ninh scope".
 
