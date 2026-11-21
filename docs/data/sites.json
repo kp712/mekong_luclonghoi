@@ -2537,6 +2537,7 @@
      9
     ],
     "peak": 0.444,
+    "low": 0.165,
     "rice_like": false
    },
    "elnino": {
@@ -5845,6 +5846,7 @@
      8
     ],
     "peak": 0.882,
+    "low": 0.199,
     "rice_like": true
    },
    "elnino": {
@@ -9069,6 +9071,7 @@
      9
     ],
     "peak": 0.831,
+    "low": 0.213,
     "rice_like": true
    },
    "elnino": {
@@ -12284,6 +12287,7 @@
      7
     ],
     "peak": 0.841,
+    "low": 0.238,
     "rice_like": true
    },
    "elnino": {
@@ -15428,7 +15432,8 @@
      5
     ],
     "peak": 0.75,
-    "rice_like": true
+    "low": 0.514,
+    "rice_like": false
    },
    "elnino": {
     "climate": {
