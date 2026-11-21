@@ -825,54 +825,54 @@
  "sites": [
   {
    "id": "vinh_chau",
-   "lat": 9.365,
-   "lon": 105.96,
+   "lat": 9.435,
+   "lon": 105.98,
    "name": {
-    "en": "Former Vĩnh Châu area (coast)",
-    "vi": "Khu vực Vĩnh Châu cũ (ven biển)"
+    "en": "Former Vĩnh Châu area (rice, inland)",
+    "vi": "Khu vực Vĩnh Châu cũ (lúa, nội đồng)"
    },
    "climate": {
     "rain_mm": [
-     27,
+     25,
      13,
-     34,
+     36,
      74,
-     221,
-     246,
-     345,
+     244,
      255,
-     325,
-     248,
-     157,
-     61
+     344,
+     257,
+     342,
+     264,
+     161,
+     59
     ],
     "rain_min_mm": [
      1,
-     2,
      1,
-     7,
-     107,
-     130,
-     188,
-     145,
-     217,
-     132,
-     28,
-     9
+     1,
+     8,
+     128,
+     144,
+     184,
+     136,
+     222,
+     161,
+     27,
+     8
     ],
     "rain_max_mm": [
-     101,
-     40,
-     132,
-     156,
-     375,
-     423,
-     630,
-     368,
+     91,
+     37,
+     144,
+     140,
+     421,
+     422,
+     597,
+     353,
      488,
-     391,
-     240,
-     146
+     414,
+     243,
+     150
     ],
     "et0_mm": [
      122,
@@ -947,49 +947,55 @@
    },
    "ndvi": {
     "monthly_min": [
-     0.38,
-     0.337,
-     0.3,
-     0.261,
-     0.202,
-     0.302,
-     0.221,
-     0.327,
-     0.346,
-     0.239,
-     0.384,
-     0.396
+     0.336,
+     0.218,
+     0.203,
+     0.2,
+     0.175,
+     0.09,
+     0.281,
+     0.496,
+     0.21,
+     0.065,
+     0.168,
+     0.535
     ],
     "monthly_max": [
-     0.607,
-     0.544,
-     0.584,
-     0.616,
-     0.601,
-     0.686,
-     0.744,
-     0.679,
-     0.659,
-     0.673,
-     0.667,
-     0.611
+     0.819,
+     0.622,
+     0.324,
+     0.345,
+     0.331,
+     0.519,
+     0.745,
+     0.821,
+     0.704,
+     0.577,
+     0.556,
+     0.858
     ],
     "monthly": [
-     0.49,
-     0.454,
-     0.423,
-     0.399,
-     0.467,
-     0.546,
-     0.54,
-     0.509,
-     0.505,
-     0.499,
-     0.534,
-     0.51
+     0.667,
+     0.352,
+     0.258,
+     0.242,
+     0.233,
+     0.264,
+     0.547,
+     0.653,
+     0.435,
+     0.252,
+     0.375,
+     0.705
     ],
-    "bare_months": [],
-    "crops_per_year": 3.0
+    "bare_months": [
+     3,
+     4,
+     5,
+     6,
+     10
+    ],
+    "crops_per_year": 1.9
    },
    "salinity": {
     "months": [
@@ -1011,8 +1017,8 @@
     "max_ppt": 15.4
    },
    "soil": {
-    "clay_pct": 40.6,
-    "soc_g_kg": 36.2,
+    "clay_pct": 38.6,
+    "soc_g_kg": 30.6,
     "ph": 5.7
    },
    "cards": [
@@ -1094,7 +1100,7 @@
       }
      ],
      "crops_per_year": 3,
-     "water_mm": 1925,
+     "water_mm": 1868,
      "water_saved": 0.0,
      "profit_range": {
       "lo": 79.9,
@@ -1111,8 +1117,8 @@
      },
      "why": [
       {
-       "en": "Water 1.0: ≈ 1925 mm of canal water a year, the most of all options here; the others are compared with it (NASA POWER + GPM, FAO method).",
-       "vi": "Nước 1,0: ≈ 1925 mm nước tưới từ kênh mỗi năm, nhiều nhất trong các phương án; các phương án khác được so với mức này (NASA POWER + GPM, phương pháp FAO).",
+       "en": "Water 1.0: ≈ 1868 mm of canal water a year, the most of all options here; the others are compared with it (NASA POWER + GPM, FAO method).",
+       "vi": "Nước 1,0: ≈ 1868 mm nước tưới từ kênh mỗi năm, nhiều nhất trong các phương án; các phương án khác được so với mức này (NASA POWER + GPM, phương pháp FAO).",
        "src": [
         0,
         1,
@@ -1121,8 +1127,8 @@
        ]
       },
       {
-       "en": "Weather & salt 2.3: crops in the field in 4 of 5 salt months (station average peak 15.4‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 1152 mm of canal water needed in salty months (NASA POWER + GPM).",
-       "vi": "Thời tiết & mặn 2,3: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 15,4‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 1152 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
+       "en": "Weather & salt 2.3: crops in the field in 4 of 5 salt months (station average peak 15.4‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 1132 mm of canal water needed in salty months (NASA POWER + GPM).",
+       "vi": "Thời tiết & mặn 2,3: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 15,4‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 1132 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
        "src": [
         4,
         5,
@@ -1279,8 +1285,8 @@
       }
      ],
      "crops_per_year": 2,
-     "water_mm": 1733,
-     "water_saved": 0.1,
+     "water_mm": 1692,
+     "water_saved": 0.094,
      "profit_range": {
       "lo": 52,
       "mid": 65.4,
@@ -1296,8 +1302,8 @@
      },
      "why": [
       {
-       "en": "Water 1.4: ≈ 1733 mm of canal water a year, 10% less than 3 rice crops (NASA POWER + GPM, FAO method).",
-       "vi": "Nước 1,4: ≈ 1733 mm nước tưới từ kênh mỗi năm, ít hơn 10% so với 3 vụ lúa (NASA POWER + GPM, phương pháp FAO).",
+       "en": "Water 1.4: ≈ 1692 mm of canal water a year, 9% less than 3 rice crops (NASA POWER + GPM, FAO method).",
+       "vi": "Nước 1,4: ≈ 1692 mm nước tưới từ kênh mỗi năm, ít hơn 9% so với 3 vụ lúa (NASA POWER + GPM, phương pháp FAO).",
        "src": [
         0,
         1,
@@ -1306,8 +1312,8 @@
        ]
       },
       {
-       "en": "Weather & salt 2.3: crops in the field in 4 of 5 salt months (station average peak 15.4‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 1152 mm of canal water needed in salty months (NASA POWER + GPM).",
-       "vi": "Thời tiết & mặn 2,3: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 15,4‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 1152 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
+       "en": "Weather & salt 2.3: crops in the field in 4 of 5 salt months (station average peak 15.4‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 1132 mm of canal water needed in salty months (NASA POWER + GPM).",
+       "vi": "Thời tiết & mặn 2,3: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 15,4‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 1132 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
        "src": [
         4,
         5,
@@ -1471,8 +1477,8 @@
       }
      ],
      "crops_per_year": null,
-     "water_mm": 372,
-     "water_saved": 0.807,
+     "water_mm": 340,
+     "water_saved": 0.818,
      "profit_range": {
       "lo": 61.6,
       "mid": 89.1,
@@ -1480,7 +1486,7 @@
       "n": 4
      },
      "scores": {
-      "water": 4.2,
+      "water": 4.3,
       "salt": 5.0,
       "soil": 1.4,
       "pests": 3.3,
@@ -1492,8 +1498,8 @@
        "vi": "Biến nước mặn mùa khô thành nguồn lợi thay vì mối đe dọa."
       },
       {
-       "en": "Water 4.2: ≈ 372 mm of canal water a year, 81% less than 3 rice crops (NASA POWER + GPM, FAO method).",
-       "vi": "Nước 4,2: ≈ 372 mm nước tưới từ kênh mỗi năm, ít hơn 81% so với 3 vụ lúa (NASA POWER + GPM, phương pháp FAO).",
+       "en": "Water 4.3: ≈ 340 mm of canal water a year, 82% less than 3 rice crops (NASA POWER + GPM, FAO method).",
+       "vi": "Nước 4,3: ≈ 340 mm nước tưới từ kênh mỗi năm, ít hơn 82% so với 3 vụ lúa (NASA POWER + GPM, phương pháp FAO).",
        "src": [
         0,
         1,
@@ -1679,8 +1685,8 @@
        ],
        "gaps": [
         {
-         "en": "Topsoil here is ≈ 40.6% clay (SoilGrids model, not your field): clay soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
-         "vi": "Tầng đất mặt ở đây có ≈ 40,6% sét (mô hình SoilGrids, không phải ruộng của bạn): đất sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "en": "Topsoil here is ≈ 38.6% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt ở đây có ≈ 38,6% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
          "src": [
           13
          ]
@@ -1698,8 +1704,8 @@
         }
        ],
        "crops_per_year": null,
-       "water_mm": 1218,
-       "water_saved": 0.367,
+       "water_mm": 1164,
+       "water_saved": 0.377,
        "profit_range": {
         "lo": 119.9,
         "mid": 155.4,
@@ -1719,8 +1725,8 @@
          "vi": "Cây màu như đậu xanh hay dưa hấu cần ít nước tưới hơn nhiều so với ruộng lúa ngập nước trong những tháng khô hạn nhất."
         },
         {
-         "en": "Water 2.5: ≈ 1218 mm of canal water a year, 37% less than 3 rice crops (NASA POWER + GPM, FAO method).",
-         "vi": "Nước 2,5: ≈ 1218 mm nước tưới từ kênh mỗi năm, ít hơn 37% so với 3 vụ lúa (NASA POWER + GPM, phương pháp FAO).",
+         "en": "Water 2.5: ≈ 1164 mm of canal water a year, 38% less than 3 rice crops (NASA POWER + GPM, FAO method).",
+         "vi": "Nước 2,5: ≈ 1164 mm nước tưới từ kênh mỗi năm, ít hơn 38% so với 3 vụ lúa (NASA POWER + GPM, phương pháp FAO).",
          "src": [
           0,
           1,
@@ -1729,8 +1735,8 @@
          ]
         },
         {
-         "en": "Weather & salt 2.5: crops in the field in 4 of 5 salt months (station average peak 15.4‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 891 mm of canal water needed in salty months (NASA POWER + GPM).",
-         "vi": "Thời tiết & mặn 2,5: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 15,4‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 891 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
+         "en": "Weather & salt 2.5: crops in the field in 4 of 5 salt months (station average peak 15.4‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 871 mm of canal water needed in salty months (NASA POWER + GPM).",
+         "vi": "Thời tiết & mặn 2,5: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 15,4‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 871 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
          "src": [
           4,
           5,
@@ -1773,6 +1779,13 @@
           54,
           55,
           56
+         ]
+        },
+        {
+         "en": "NASA MODIS NDVI: fields are usually bare in Mar–Jun, Oct, a window that fits this option.",
+         "vi": "NASA MODIS NDVI: ruộng thường để trống vào T3–T6, T10, phù hợp với phương án này.",
+         "src": [
+          12
          ]
         }
        ],
@@ -1906,8 +1919,8 @@
        ],
        "gaps": [
         {
-         "en": "Topsoil here is ≈ 40.6% clay (SoilGrids model, not your field): clay soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
-         "vi": "Tầng đất mặt ở đây có ≈ 40,6% sét (mô hình SoilGrids, không phải ruộng của bạn): đất sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "en": "Topsoil here is ≈ 38.6% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt ở đây có ≈ 38,6% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
          "src": [
           13
          ]
@@ -1925,8 +1938,8 @@
         }
        ],
        "crops_per_year": null,
-       "water_mm": 1195,
-       "water_saved": 0.379,
+       "water_mm": 1141,
+       "water_saved": 0.389,
        "profit_range": {
         "lo": 144.9,
         "mid": 155.4,
@@ -1934,7 +1947,7 @@
         "n": 8
        },
        "scores": {
-        "water": 2.5,
+        "water": 2.6,
         "salt": 2.5,
         "soil": 2.1,
         "pests": 2.8,
@@ -1946,8 +1959,8 @@
          "vi": "Cây màu như đậu xanh hay dưa hấu cần ít nước tưới hơn nhiều so với ruộng lúa ngập nước trong những tháng khô hạn nhất."
         },
         {
-         "en": "Water 2.5: ≈ 1195 mm of canal water a year, 38% less than 3 rice crops (NASA POWER + GPM, FAO method).",
-         "vi": "Nước 2,5: ≈ 1195 mm nước tưới từ kênh mỗi năm, ít hơn 38% so với 3 vụ lúa (NASA POWER + GPM, phương pháp FAO).",
+         "en": "Water 2.6: ≈ 1141 mm of canal water a year, 39% less than 3 rice crops (NASA POWER + GPM, FAO method).",
+         "vi": "Nước 2,6: ≈ 1141 mm nước tưới từ kênh mỗi năm, ít hơn 39% so với 3 vụ lúa (NASA POWER + GPM, phương pháp FAO).",
          "src": [
           0,
           1,
@@ -1956,8 +1969,8 @@
          ]
         },
         {
-         "en": "Weather & salt 2.5: crops in the field in 4 of 5 salt months (station average peak 15.4‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 879 mm of canal water needed in salty months (NASA POWER + GPM).",
-         "vi": "Thời tiết & mặn 2,5: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 15,4‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 879 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
+         "en": "Weather & salt 2.5: crops in the field in 4 of 5 salt months (station average peak 15.4‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 859 mm of canal water needed in salty months (NASA POWER + GPM).",
+         "vi": "Thời tiết & mặn 2,5: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 15,4‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 859 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
          "src": [
           4,
           5,
@@ -1996,6 +2009,13 @@
           28,
           29,
           52
+         ]
+        },
+        {
+         "en": "NASA MODIS NDVI: fields are usually bare in Mar–Jun, Oct, a window that fits this option.",
+         "vi": "NASA MODIS NDVI: ruộng thường để trống vào T3–T6, T10, phù hợp với phương án này.",
+         "src": [
+          12
          ]
         }
        ],
@@ -2137,8 +2157,8 @@
        ],
        "gaps": [
         {
-         "en": "Topsoil here is ≈ 40.6% clay (SoilGrids model, not your field): clay soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
-         "vi": "Tầng đất mặt ở đây có ≈ 40,6% sét (mô hình SoilGrids, không phải ruộng của bạn): đất sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "en": "Topsoil here is ≈ 38.6% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt ở đây có ≈ 38,6% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
          "src": [
           13
          ]
@@ -2152,10 +2172,10 @@
         }
        ],
        "crops_per_year": null,
-       "water_mm": 1188,
-       "water_saved": 0.383,
+       "water_mm": 1134,
+       "water_saved": 0.393,
        "scores": {
-        "water": 2.5,
+        "water": 2.6,
         "salt": 2.5,
         "soil": 3.9,
         "pests": 2.8,
@@ -2167,8 +2187,8 @@
          "vi": "Cây màu như đậu xanh hay dưa hấu cần ít nước tưới hơn nhiều so với ruộng lúa ngập nước trong những tháng khô hạn nhất."
         },
         {
-         "en": "Water 2.5: ≈ 1188 mm of canal water a year, 38% less than 3 rice crops (NASA POWER + GPM, FAO method).",
-         "vi": "Nước 2,5: ≈ 1188 mm nước tưới từ kênh mỗi năm, ít hơn 38% so với 3 vụ lúa (NASA POWER + GPM, phương pháp FAO).",
+         "en": "Water 2.6: ≈ 1134 mm of canal water a year, 39% less than 3 rice crops (NASA POWER + GPM, FAO method).",
+         "vi": "Nước 2,6: ≈ 1134 mm nước tưới từ kênh mỗi năm, ít hơn 39% so với 3 vụ lúa (NASA POWER + GPM, phương pháp FAO).",
          "src": [
           0,
           1,
@@ -2177,8 +2197,8 @@
          ]
         },
         {
-         "en": "Weather & salt 2.5: crops in the field in 4 of 5 salt months (station average peak 15.4‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 861 mm of canal water needed in salty months (NASA POWER + GPM).",
-         "vi": "Thời tiết & mặn 2,5: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 15,4‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 861 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
+         "en": "Weather & salt 2.5: crops in the field in 4 of 5 salt months (station average peak 15.4‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 841 mm of canal water needed in salty months (NASA POWER + GPM).",
+         "vi": "Thời tiết & mặn 2,5: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 15,4‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 841 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
          "src": [
           4,
           5,
@@ -2203,6 +2223,13 @@
          "src": [
           0,
           17
+         ]
+        },
+        {
+         "en": "NASA MODIS NDVI: fields are usually bare in Mar–Jun, Oct, a window that fits this option.",
+         "vi": "NASA MODIS NDVI: ruộng thường để trống vào T3–T6, T10, phù hợp với phương án này.",
+         "src": [
+          12
          ]
         }
        ],
@@ -2324,7 +2351,7 @@
       }
      ],
      "crops_per_year": null,
-     "water_mm": 1274,
+     "water_mm": 1236,
      "water_saved": 0.338,
      "profit_range": {
       "lo": 89,
@@ -2345,8 +2372,8 @@
        "vi": "Vẫn trồng lúa, nhưng giảm rủi ro mặn và cho đất nghỉ."
       },
       {
-       "en": "Water 2.4: ≈ 1274 mm of canal water a year, 34% less than 3 rice crops (NASA POWER + GPM, FAO method).",
-       "vi": "Nước 2,4: ≈ 1274 mm nước tưới từ kênh mỗi năm, ít hơn 34% so với 3 vụ lúa (NASA POWER + GPM, phương pháp FAO).",
+       "en": "Water 2.4: ≈ 1236 mm of canal water a year, 34% less than 3 rice crops (NASA POWER + GPM, FAO method).",
+       "vi": "Nước 2,4: ≈ 1236 mm nước tưới từ kênh mỗi năm, ít hơn 34% so với 3 vụ lúa (NASA POWER + GPM, phương pháp FAO).",
        "src": [
         0,
         1,
@@ -2355,8 +2382,8 @@
        ]
       },
       {
-       "en": "Weather & salt 4.1: crops in the field in 2 of 5 salt months (station average peak 15.4‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 591 mm of canal water needed in salty months (NASA POWER + GPM).",
-       "vi": "Thời tiết & mặn 4,1: có cây trồng trên ruộng trong 2/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 15,4‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 591 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
+       "en": "Weather & salt 4.1: crops in the field in 2 of 5 salt months (station average peak 15.4‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 574 mm of canal water needed in salty months (NASA POWER + GPM).",
+       "vi": "Thời tiết & mặn 4,1: có cây trồng trên ruộng trong 2/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 15,4‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 574 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
        "src": [
         4,
         5,
@@ -2393,10 +2420,17 @@
         20,
         61
        ]
+      },
+      {
+       "en": "NASA MODIS NDVI: fields are usually bare in Mar–Jun, Oct, a window that fits this option.",
+       "vi": "NASA MODIS NDVI: ruộng thường để trống vào T3–T6, T10, phù hợp với phương án này.",
+       "src": [
+        12
+       ]
       }
      ],
      "crop": null,
-     "confidence": "low",
+     "confidence": "medium",
      "not_here": false,
      "plan": {
       "R1": {
@@ -2465,14 +2499,14 @@
      }
     },
     {
-     "en": "Satellite sees ≈ 3.0 crops a year (NASA MODIS).",
-     "vi": "Vệ tinh ghi nhận ≈ 3,0 vụ/năm (NASA MODIS).",
+     "en": "Satellite sees ≈ 1.9 crops a year and bare fields in Mar–Jun, Oct (NASA MODIS).",
+     "vi": "Vệ tinh ghi nhận ≈ 1,9 vụ/năm và ruộng trống vào T3–T6, T10 (NASA MODIS).",
      "src": [
       12
      ],
      "plain": {
-      "en": "Satellite sees ≈ 3.0 crops a year.",
-      "vi": "Vệ tinh ghi nhận ≈ 3,0 vụ/năm."
+      "en": "Satellite sees ≈ 1.9 crops a year and bare fields in Mar–Jun, Oct.",
+      "vi": "Vệ tinh ghi nhận ≈ 1,9 vụ/năm và ruộng trống vào T3–T6, T10."
      }
     }
    ],
@@ -2481,7 +2515,7 @@
      "sow_from": 6,
      "sow_by": 9,
      "harvest_by": 12,
-     "water_mm": 538,
+     "water_mm": 508,
      "hot_days": 0.0,
      "ok": true
     },
@@ -2491,54 +2525,58 @@
    },
    "gpm_check": {
     "power_mm_yr": 1746,
-    "gpm_mm_yr": 1993,
-    "diff_pct": 14,
+    "gpm_mm_yr": 2068,
+    "diff_pct": 18,
     "monthly_r": 0.93,
     "months": 288
    },
    "hls_check": {
     "bare_months": [
-     1,
-     2,
      3,
      4,
-     5
+     5,
+     6,
+     10
     ],
-    "unknown_months": [
-     7
+    "unknown_months": [],
+    "modis_bare_months": [
+     3,
+     4,
+     5,
+     6,
+     10
     ],
-    "modis_bare_months": [],
     "clear_dates_per_month": [
      2.3,
-     2.2,
-     2.6,
-     3.0,
-     1.5,
-     1.5,
-     0.9,
+     2.1,
+     3.1,
+     3.1,
+     1.8,
      1.4,
-     1.0,
-     0.8,
-     1.0,
-     2.2
+     1.1,
+     1.6,
+     1.4,
+     1.4,
+     1.6,
+     2.1
     ],
     "years_covered_per_month": [
-     10,
-     9,
      9,
      10,
-     7,
      8,
-     4,
+     9,
+     9,
      8,
-     7,
-     5,
-     7,
-     9
+     6,
+     8,
+     8,
+     9,
+     8,
+     8
     ],
-    "peak": 0.444,
-    "low": 0.165,
-    "rice_like": false
+    "peak": 0.852,
+    "low": 0.177,
+    "rice_like": true
    },
    "elnino": {
     "climate": {
@@ -2546,43 +2584,43 @@
       26,
       3,
       12,
-      15,
-      172,
-      265,
-      309,
-      251,
-      348,
-      366,
-      172,
+      16,
+      190,
+      288,
+      313,
+      253,
+      359,
+      385,
+      175,
       36
      ],
      "rain_min_mm": [
       2,
       1,
-      1,
       0,
-      50,
-      184,
-      147,
-      132,
-      221,
-      151,
-      106,
+      0,
+      62,
+      197,
+      158,
+      142,
+      230,
+      164,
+      127,
       6
      ],
      "rain_max_mm": [
-      116,
-      7,
-      51,
-      55,
-      278,
-      486,
-      553,
-      482,
-      430,
-      603,
-      353,
-      78
+      113,
+      5,
+      47,
+      53,
+      290,
+      500,
+      502,
+      512,
+      438,
+      602,
+      335,
+      97
      ],
      "et0_mm": [
       139,
@@ -2657,46 +2695,46 @@
     },
     "ndvi": {
      "monthly_min": [
-      0.378,
-      0.333,
-      0.273,
-      0.207,
-      0.318,
-      0.337,
-      0.287,
-      0.398,
-      0.388,
-      0.274,
-      0.333,
-      0.39
+      0.266,
+      0.186,
+      0.161,
+      0.169,
+      0.184,
+      0.154,
+      0.241,
+      0.435,
+      0.33,
+      0.087,
+      0.225,
+      0.451
      ],
      "monthly_max": [
-      0.608,
-      0.524,
-      0.5,
-      0.486,
-      0.549,
-      0.697,
-      0.665,
-      0.653,
-      0.666,
-      0.682,
-      0.62,
-      0.623
+      0.859,
+      0.507,
+      0.307,
+      0.265,
+      0.25,
+      0.332,
+      0.565,
+      0.817,
+      0.738,
+      0.426,
+      0.72,
+      0.884
      ],
      "monthly": [
-      0.495,
-      0.436,
-      0.398,
-      0.398,
-      0.43,
-      0.497,
-      0.51,
-      0.531,
-      0.531,
-      0.517,
-      0.478,
-      0.526
+      0.668,
+      0.343,
+      0.258,
+      0.219,
+      0.21,
+      0.214,
+      0.409,
+      0.631,
+      0.515,
+      0.277,
+      0.439,
+      0.73
      ]
     },
     "salinity": {
@@ -2797,7 +2835,7 @@
        }
       ],
       "crops_per_year": 3,
-      "water_mm": 2045,
+      "water_mm": 2006,
       "water_saved": 0.0,
       "profit_range": {
        "lo": 74.7,
@@ -2814,8 +2852,8 @@
       },
       "why": [
        {
-        "en": "Water 1.0: ≈ 2045 mm of canal water a year, the most of all options here; the others are compared with it (NASA POWER + GPM, El Niño average, FAO method).",
-        "vi": "Nước 1,0: ≈ 2045 mm nước tưới từ kênh mỗi năm, nhiều nhất trong các phương án; các phương án khác được so với mức này (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
+        "en": "Water 1.0: ≈ 2006 mm of canal water a year, the most of all options here; the others are compared with it (NASA POWER + GPM, El Niño average, FAO method).",
+        "vi": "Nước 1,0: ≈ 2006 mm nước tưới từ kênh mỗi năm, nhiều nhất trong các phương án; các phương án khác được so với mức này (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
         "src": [
          0,
          1,
@@ -2824,8 +2862,8 @@
         ]
        },
        {
-        "en": "Weather & salt 2.2: crops in the field in 4 of 5 salt months (station average peak 17.7‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1310 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 2,2: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,7‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1310 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 2.2: crops in the field in 4 of 5 salt months (station average peak 17.7‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1295 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 2,2: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,7‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1295 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -2982,7 +3020,7 @@
        }
       ],
       "crops_per_year": 2,
-      "water_mm": 1874,
+      "water_mm": 1837,
       "water_saved": 0.084,
       "profit_range": {
        "lo": 46.8,
@@ -2999,8 +3037,8 @@
       },
       "why": [
        {
-        "en": "Water 1.3: ≈ 1874 mm of canal water a year, 8% less than 3 rice crops (NASA POWER + GPM, El Niño average, FAO method).",
-        "vi": "Nước 1,3: ≈ 1874 mm nước tưới từ kênh mỗi năm, ít hơn 8% so với 3 vụ lúa (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
+        "en": "Water 1.3: ≈ 1837 mm of canal water a year, 8% less than 3 rice crops (NASA POWER + GPM, El Niño average, FAO method).",
+        "vi": "Nước 1,3: ≈ 1837 mm nước tưới từ kênh mỗi năm, ít hơn 8% so với 3 vụ lúa (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
         "src": [
          0,
          1,
@@ -3009,8 +3047,8 @@
         ]
        },
        {
-        "en": "Weather & salt 2.2: crops in the field in 4 of 5 salt months (station average peak 17.7‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1310 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 2,2: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,7‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1310 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 2.2: crops in the field in 4 of 5 salt months (station average peak 17.7‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1295 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 2,2: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,7‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1295 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -3174,7 +3212,7 @@
        }
       ],
       "crops_per_year": null,
-      "water_mm": 261,
+      "water_mm": 257,
       "water_saved": 0.872,
       "profit_range": {
        "lo": 61.6,
@@ -3195,8 +3233,8 @@
         "vi": "Biến nước mặn mùa khô thành nguồn lợi thay vì mối đe dọa."
        },
        {
-        "en": "Water 4.5: ≈ 261 mm of canal water a year, 87% less than 3 rice crops (NASA POWER + GPM, El Niño average, FAO method).",
-        "vi": "Nước 4,5: ≈ 261 mm nước tưới từ kênh mỗi năm, ít hơn 87% so với 3 vụ lúa (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
+        "en": "Water 4.5: ≈ 257 mm of canal water a year, 87% less than 3 rice crops (NASA POWER + GPM, El Niño average, FAO method).",
+        "vi": "Nước 4,5: ≈ 257 mm nước tưới từ kênh mỗi năm, ít hơn 87% so với 3 vụ lúa (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
         "src": [
          0,
          1,
@@ -3382,8 +3420,8 @@
         ],
         "gaps": [
          {
-          "en": "Topsoil here is ≈ 40.6% clay (SoilGrids model, not your field): clay soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
-          "vi": "Tầng đất mặt ở đây có ≈ 40,6% sét (mô hình SoilGrids, không phải ruộng của bạn): đất sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "en": "Topsoil here is ≈ 38.6% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt ở đây có ≈ 38,6% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
           "src": [
            13
           ]
@@ -3401,8 +3439,8 @@
          }
         ],
         "crops_per_year": null,
-        "water_mm": 1335,
-        "water_saved": 0.347,
+        "water_mm": 1299,
+        "water_saved": 0.352,
         "profit_range": {
          "lo": 110.7,
          "mid": 142.9,
@@ -3422,8 +3460,8 @@
           "vi": "Cây màu như đậu xanh hay dưa hấu cần ít nước tưới hơn nhiều so với ruộng lúa ngập nước trong những tháng khô hạn nhất."
          },
          {
-          "en": "Water 2.4: ≈ 1335 mm of canal water a year, 35% less than 3 rice crops (NASA POWER + GPM, El Niño average, FAO method).",
-          "vi": "Nước 2,4: ≈ 1335 mm nước tưới từ kênh mỗi năm, ít hơn 35% so với 3 vụ lúa (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
+          "en": "Water 2.4: ≈ 1299 mm of canal water a year, 35% less than 3 rice crops (NASA POWER + GPM, El Niño average, FAO method).",
+          "vi": "Nước 2,4: ≈ 1299 mm nước tưới từ kênh mỗi năm, ít hơn 35% so với 3 vụ lúa (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
           "src": [
            0,
            1,
@@ -3432,8 +3470,8 @@
           ]
          },
          {
-          "en": "Weather & salt 2.4: crops in the field in 4 of 5 salt months (station average peak 17.7‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1045 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 2,4: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,7‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1045 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 2.4: crops in the field in 4 of 5 salt months (station average peak 17.7‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1030 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+          "vi": "Thời tiết & mặn 2,4: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,7‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1030 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -3476,6 +3514,13 @@
            54,
            55,
            56
+          ]
+         },
+         {
+          "en": "NASA MODIS NDVI: fields are usually bare in Mar–Jun, Oct, a window that fits this option.",
+          "vi": "NASA MODIS NDVI: ruộng thường để trống vào T3–T6, T10, phù hợp với phương án này.",
+          "src": [
+           12
           ]
          }
         ],
@@ -3609,8 +3654,8 @@
         ],
         "gaps": [
          {
-          "en": "Topsoil here is ≈ 40.6% clay (SoilGrids model, not your field): clay soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
-          "vi": "Tầng đất mặt ở đây có ≈ 40,6% sét (mô hình SoilGrids, không phải ruộng của bạn): đất sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "en": "Topsoil here is ≈ 38.6% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt ở đây có ≈ 38,6% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
           "src": [
            13
           ]
@@ -3628,8 +3673,8 @@
          }
         ],
         "crops_per_year": null,
-        "water_mm": 1310,
-        "water_saved": 0.359,
+        "water_mm": 1274,
+        "water_saved": 0.365,
         "profit_range": {
          "lo": 133.2,
          "mid": 142.9,
@@ -3637,7 +3682,7 @@
          "n": 8
         },
         "scores": {
-         "water": 2.4,
+         "water": 2.5,
          "salt": 2.4,
          "soil": 2.1,
          "pests": 2.8,
@@ -3649,8 +3694,8 @@
           "vi": "Cây màu như đậu xanh hay dưa hấu cần ít nước tưới hơn nhiều so với ruộng lúa ngập nước trong những tháng khô hạn nhất."
          },
          {
-          "en": "Water 2.4: ≈ 1310 mm of canal water a year, 36% less than 3 rice crops (NASA POWER + GPM, El Niño average, FAO method).",
-          "vi": "Nước 2,4: ≈ 1310 mm nước tưới từ kênh mỗi năm, ít hơn 36% so với 3 vụ lúa (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
+          "en": "Water 2.5: ≈ 1274 mm of canal water a year, 36% less than 3 rice crops (NASA POWER + GPM, El Niño average, FAO method).",
+          "vi": "Nước 2,5: ≈ 1274 mm nước tưới từ kênh mỗi năm, ít hơn 36% so với 3 vụ lúa (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
           "src": [
            0,
            1,
@@ -3659,8 +3704,8 @@
           ]
          },
          {
-          "en": "Weather & salt 2.4: crops in the field in 4 of 5 salt months (station average peak 17.7‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1033 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 2,4: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,7‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1033 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 2.4: crops in the field in 4 of 5 salt months (station average peak 17.7‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1018 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+          "vi": "Thời tiết & mặn 2,4: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,7‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1018 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -3699,6 +3744,13 @@
            28,
            29,
            52
+          ]
+         },
+         {
+          "en": "NASA MODIS NDVI: fields are usually bare in Mar–Jun, Oct, a window that fits this option.",
+          "vi": "NASA MODIS NDVI: ruộng thường để trống vào T3–T6, T10, phù hợp với phương án này.",
+          "src": [
+           12
           ]
          }
         ],
@@ -3840,8 +3892,8 @@
         ],
         "gaps": [
          {
-          "en": "Topsoil here is ≈ 40.6% clay (SoilGrids model, not your field): clay soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
-          "vi": "Tầng đất mặt ở đây có ≈ 40,6% sét (mô hình SoilGrids, không phải ruộng của bạn): đất sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "en": "Topsoil here is ≈ 38.6% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt ở đây có ≈ 38,6% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
           "src": [
            13
           ]
@@ -3855,8 +3907,8 @@
          }
         ],
         "crops_per_year": null,
-        "water_mm": 1302,
-        "water_saved": 0.363,
+        "water_mm": 1266,
+        "water_saved": 0.369,
         "scores": {
          "water": 2.5,
          "salt": 2.4,
@@ -3870,8 +3922,8 @@
           "vi": "Cây màu như đậu xanh hay dưa hấu cần ít nước tưới hơn nhiều so với ruộng lúa ngập nước trong những tháng khô hạn nhất."
          },
          {
-          "en": "Water 2.5: ≈ 1302 mm of canal water a year, 36% less than 3 rice crops (NASA POWER + GPM, El Niño average, FAO method).",
-          "vi": "Nước 2,5: ≈ 1302 mm nước tưới từ kênh mỗi năm, ít hơn 36% so với 3 vụ lúa (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
+          "en": "Water 2.5: ≈ 1266 mm of canal water a year, 37% less than 3 rice crops (NASA POWER + GPM, El Niño average, FAO method).",
+          "vi": "Nước 2,5: ≈ 1266 mm nước tưới từ kênh mỗi năm, ít hơn 37% so với 3 vụ lúa (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
           "src": [
            0,
            1,
@@ -3880,8 +3932,8 @@
           ]
          },
          {
-          "en": "Weather & salt 2.4: crops in the field in 4 of 5 salt months (station average peak 17.7‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1012 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 2,4: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,7‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1012 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 2.4: crops in the field in 4 of 5 salt months (station average peak 17.7‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 997 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+          "vi": "Thời tiết & mặn 2,4: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,7‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 997 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -3906,6 +3958,13 @@
           "src": [
            0,
            17
+          ]
+         },
+         {
+          "en": "NASA MODIS NDVI: fields are usually bare in Mar–Jun, Oct, a window that fits this option.",
+          "vi": "NASA MODIS NDVI: ruộng thường để trống vào T3–T6, T10, phù hợp với phương án này.",
+          "src": [
+           12
           ]
          }
         ],
@@ -4027,8 +4086,8 @@
        }
       ],
       "crops_per_year": null,
-      "water_mm": 1321,
-      "water_saved": 0.354,
+      "water_mm": 1265,
+      "water_saved": 0.369,
       "profit_range": {
        "lo": 84.5,
        "mid": 89.8,
@@ -4036,7 +4095,7 @@
        "n": 5
       },
       "scores": {
-       "water": 2.4,
+       "water": 2.5,
        "salt": 4.1,
        "soil": 2.8,
        "pests": 3.0,
@@ -4048,8 +4107,8 @@
         "vi": "Vẫn trồng lúa, nhưng giảm rủi ro mặn và cho đất nghỉ."
        },
        {
-        "en": "Water 2.4: ≈ 1321 mm of canal water a year, 35% less than 3 rice crops (NASA POWER + GPM, El Niño average, FAO method).",
-        "vi": "Nước 2,4: ≈ 1321 mm nước tưới từ kênh mỗi năm, ít hơn 35% so với 3 vụ lúa (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
+        "en": "Water 2.5: ≈ 1265 mm of canal water a year, 37% less than 3 rice crops (NASA POWER + GPM, El Niño average, FAO method).",
+        "vi": "Nước 2,5: ≈ 1265 mm nước tưới từ kênh mỗi năm, ít hơn 37% so với 3 vụ lúa (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
         "src": [
          0,
          1,
@@ -4058,8 +4117,8 @@
         ]
        },
        {
-        "en": "Weather & salt 4.1: crops in the field in 2 of 5 salt months (station average peak 17.7‰, estimate from station reports); 0.4 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 693 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 4,1: có cây trồng trên ruộng trong 2/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,7‰, ước tính từ báo cáo trạm); 0,4 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 693 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 4.1: crops in the field in 2 of 5 salt months (station average peak 17.7‰, estimate from station reports); 0.4 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 679 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 4,1: có cây trồng trên ruộng trong 2/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,7‰, ước tính từ báo cáo trạm); 0,4 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 679 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -4096,10 +4155,17 @@
          20,
          61
         ]
+       },
+       {
+        "en": "NASA MODIS NDVI: fields are usually bare in Mar–Jun, Oct, a window that fits this option.",
+        "vi": "NASA MODIS NDVI: ruộng thường để trống vào T3–T6, T10, phù hợp với phương án này.",
+        "src": [
+         12
+        ]
        }
       ],
       "crop": null,
-      "confidence": "low",
+      "confidence": "medium",
       "not_here": false,
       "plan": {
        "R1": {
@@ -4135,8 +4201,8 @@
     ],
     "summary": [
      {
-      "en": "Winter–spring rice (Nov–Feb) needs ≈ 991 mm of canal water, field losses included (NASA POWER + GPM, El Niño average; FAO method).",
-      "vi": "Lúa Đông Xuân (T11–T2) cần ≈ 991 mm nước tưới từ kênh, kể cả thất thoát trên ruộng (NASA POWER + GPM, trung bình El Niño; phương pháp FAO).",
+      "en": "Winter–spring rice (Nov–Feb) needs ≈ 988 mm of canal water, field losses included (NASA POWER + GPM, El Niño average; FAO method).",
+      "vi": "Lúa Đông Xuân (T11–T2) cần ≈ 988 mm nước tưới từ kênh, kể cả thất thoát trên ruộng (NASA POWER + GPM, trung bình El Niño; phương pháp FAO).",
       "src": [
        0,
        1,
@@ -4144,8 +4210,8 @@
        3
       ],
       "plain": {
-       "en": "Winter–spring rice (Nov–Feb) needs ≈ 991 mm of canal water, field losses included.",
-       "vi": "Lúa Đông Xuân (T11–T2) cần ≈ 991 mm nước tưới từ kênh, kể cả thất thoát trên ruộng."
+       "en": "Winter–spring rice (Nov–Feb) needs ≈ 988 mm of canal water, field losses included.",
+       "vi": "Lúa Đông Xuân (T11–T2) cần ≈ 988 mm nước tưới từ kênh, kể cả thất thoát trên ruộng."
       }
      },
      {
@@ -4168,14 +4234,14 @@
       }
      },
      {
-      "en": "Satellite sees ≈ 3.0 crops a year (NASA MODIS).",
-      "vi": "Vệ tinh ghi nhận ≈ 3,0 vụ/năm (NASA MODIS).",
+      "en": "Satellite sees ≈ 1.9 crops a year and bare fields in Mar–Jun, Oct (NASA MODIS).",
+      "vi": "Vệ tinh ghi nhận ≈ 1,9 vụ/năm và ruộng trống vào T3–T6, T10 (NASA MODIS).",
       "src": [
        12
       ],
       "plain": {
-       "en": "Satellite sees ≈ 3.0 crops a year.",
-       "vi": "Vệ tinh ghi nhận ≈ 3,0 vụ/năm."
+       "en": "Satellite sees ≈ 1.9 crops a year and bare fields in Mar–Jun, Oct.",
+       "vi": "Vệ tinh ghi nhận ≈ 1,9 vụ/năm và ruộng trống vào T3–T6, T10."
       }
      }
     ],
@@ -4184,7 +4250,7 @@
       "sow_from": 6,
       "sow_by": 9,
       "harvest_by": 12,
-      "water_mm": 449,
+      "water_mm": 437,
       "hot_days": 0.0,
       "ok": true
      },
@@ -13874,7 +13940,7 @@
   },
   {
    "id": "nga_nam",
-   "lat": 9.56,
+   "lat": 9.548,
    "lon": 105.6,
    "name": {
     "en": "Former Ngã Năm area (inland)",
@@ -13996,49 +14062,53 @@
    },
    "ndvi": {
     "monthly_min": [
-     0.537,
-     0.515,
-     0.41,
-     0.348,
-     0.418,
-     0.464,
-     0.515,
-     0.329,
-     0.287,
-     0.148,
-     0.234,
-     0.283
+     0.514,
+     0.503,
+     0.302,
+     0.203,
+     0.396,
+     0.273,
+     0.284,
+     0.171,
+     0.118,
+     0.072,
+     0.073,
+     0.172
     ],
     "monthly_max": [
-     0.821,
-     0.802,
-     0.614,
-     0.581,
-     0.779,
-     0.768,
-     0.738,
-     0.638,
-     0.641,
+     0.92,
+     0.86,
+     0.63,
+     0.714,
+     0.837,
+     0.891,
+     0.732,
+     0.696,
      0.525,
-     0.557,
-     0.652
+     0.226,
+     0.402,
+     0.804
     ],
     "monthly": [
-     0.67,
-     0.655,
-     0.488,
-     0.467,
-     0.618,
-     0.616,
-     0.574,
-     0.504,
-     0.429,
-     0.383,
-     0.448,
-     0.52
+     0.764,
+     0.725,
+     0.417,
+     0.415,
+     0.645,
+     0.69,
+     0.509,
+     0.358,
+     0.227,
+     0.153,
+     0.201,
+     0.484
     ],
-    "bare_months": [],
-    "crops_per_year": 2.9
+    "bare_months": [
+     9,
+     10,
+     11
+    ],
+    "crops_per_year": 2.1
    },
    "salinity": {
     "months": [
@@ -14047,8 +14117,8 @@
      5
     ],
     "note": {
-     "en": "Rated low although the Ngã Năm canal station reads higher: salt-control sluices around Ngã Năm and Mỹ Tú keep salt out of the fields, and NASA MODIS sees nearly 3 rice crops a year here, a freshwater pattern. Highest reading of each dry season there: 9.4‰ on average in typical years, 6.5‰ in El Niño years (2017–2025).",
-     "vi": "Xếp mức thấp dù trạm kênh Ngã Năm đo cao hơn: các cống ngăn mặn quanh Ngã Năm và Mỹ Tú chặn mặn vào ruộng, và NASA MODIS ghi nhận gần 3 vụ lúa/năm ở đây, dấu hiệu vùng nước ngọt. Độ mặn cao nhất mỗi mùa khô tại trạm: trung bình 9,4‰ trong năm thường, 6,5‰ trong năm El Niño (2017–2025)."
+     "en": "Rated low although the Ngã Năm canal station reads higher: salt-control sluices around Ngã Năm and Mỹ Tú keep salt out of the fields, and NASA MODIS sees rice here through the dry season (fields bare only in September–November), a freshwater pattern. Highest reading of each dry season there: 9.4‰ on average in typical years, 6.5‰ in El Niño years (2017–2025).",
+     "vi": "Xếp mức thấp dù trạm kênh Ngã Năm đo cao hơn: các cống ngăn mặn quanh Ngã Năm và Mỹ Tú chặn mặn vào ruộng, và NASA MODIS ghi nhận lúa ở đây vẫn trồng suốt mùa khô (ruộng chỉ để trống tháng 9–11), dấu hiệu vùng nước ngọt. Độ mặn cao nhất mỗi mùa khô tại trạm: trung bình 9,4‰ trong năm thường, 6,5‰ trong năm El Niño (2017–2025)."
     },
     "station_ppt": 9.4,
     "estimate": true,
@@ -14058,9 +14128,9 @@
     "max_ppt": null
    },
    "soil": {
-    "clay_pct": 38.9,
-    "soc_g_kg": 32.5,
-    "ph": 6.0
+    "clay_pct": 39.0,
+    "soc_g_kg": 41.0,
+    "ph": 5.8
    },
    "cards": [
     {
@@ -14646,8 +14716,8 @@
        ],
        "gaps": [
         {
-         "en": "Topsoil here is ≈ 38.9% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
-         "vi": "Tầng đất mặt ở đây có ≈ 38,9% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "en": "Topsoil here is ≈ 39.0% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt ở đây có ≈ 39,0% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
          "src": [
           13
          ]
@@ -14740,6 +14810,13 @@
           54,
           55,
           56
+         ]
+        },
+        {
+         "en": "NASA MODIS NDVI: fields are usually bare in Sep–Nov, a window that fits this option.",
+         "vi": "NASA MODIS NDVI: ruộng thường để trống vào T9–T11, phù hợp với phương án này.",
+         "src": [
+          12
          ]
         }
        ],
@@ -14847,8 +14924,8 @@
        ],
        "gaps": [
         {
-         "en": "Topsoil here is ≈ 38.9% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
-         "vi": "Tầng đất mặt ở đây có ≈ 38,9% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "en": "Topsoil here is ≈ 39.0% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt ở đây có ≈ 39,0% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
          "src": [
           13
          ]
@@ -14937,6 +15014,13 @@
           28,
           29,
           52
+         ]
+        },
+        {
+         "en": "NASA MODIS NDVI: fields are usually bare in Sep–Nov, a window that fits this option.",
+         "vi": "NASA MODIS NDVI: ruộng thường để trống vào T9–T11, phù hợp với phương án này.",
+         "src": [
+          12
          ]
         }
        ],
@@ -15052,8 +15136,8 @@
        ],
        "gaps": [
         {
-         "en": "Topsoil here is ≈ 38.9% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
-         "vi": "Tầng đất mặt ở đây có ≈ 38,9% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+         "en": "Topsoil here is ≈ 39.0% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+         "vi": "Tầng đất mặt ở đây có ≈ 39,0% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
          "src": [
           13
          ]
@@ -15118,6 +15202,13 @@
          "src": [
           0,
           17
+         ]
+        },
+        {
+         "en": "NASA MODIS NDVI: fields are usually bare in Sep–Nov, a window that fits this option.",
+         "vi": "NASA MODIS NDVI: ruộng thường để trống vào T9–T11, phù hợp với phương án này.",
+         "src": [
+          12
          ]
         }
        ],
@@ -15294,6 +15385,13 @@
         20,
         61
        ]
+      },
+      {
+       "en": "NASA MODIS NDVI: fields are usually bare in Sep–Nov, a window that fits this option.",
+       "vi": "NASA MODIS NDVI: ruộng thường để trống vào T9–T11, phù hợp với phương án này.",
+       "src": [
+        12
+       ]
       }
      ],
      "crop": null,
@@ -15366,14 +15464,14 @@
      }
     },
     {
-     "en": "Satellite sees ≈ 2.9 crops a year (NASA MODIS).",
-     "vi": "Vệ tinh ghi nhận ≈ 2,9 vụ/năm (NASA MODIS).",
+     "en": "Satellite sees ≈ 2.1 crops a year and bare fields in Sep–Nov (NASA MODIS).",
+     "vi": "Vệ tinh ghi nhận ≈ 2,1 vụ/năm và ruộng trống vào T9–T11 (NASA MODIS).",
      "src": [
       12
      ],
      "plain": {
-      "en": "Satellite sees ≈ 2.9 crops a year.",
-      "vi": "Vệ tinh ghi nhận ≈ 2,9 vụ/năm."
+      "en": "Satellite sees ≈ 2.1 crops a year and bare fields in Sep–Nov.",
+      "vi": "Vệ tinh ghi nhận ≈ 2,1 vụ/năm và ruộng trống vào T9–T11."
      }
     }
    ],
@@ -15398,42 +15496,49 @@
     "months": 288
    },
    "hls_check": {
-    "bare_months": [],
-    "unknown_months": [
-     10
+    "bare_months": [
+     4,
+     9,
+     10,
+     11
     ],
-    "modis_bare_months": [],
+    "unknown_months": [],
+    "modis_bare_months": [
+     9,
+     10,
+     11
+    ],
     "clear_dates_per_month": [
-     1.5,
      1.7,
-     1.3,
-     2.5,
      1.9,
-     1.4,
-     1.1,
-     0.7,
-     0.7,
-     1.0,
+     1.9,
+     2.3,
      1.8,
-     1.1
+     1.5,
+     1.2,
+     0.7,
+     0.8,
+     1.4,
+     2.2,
+     1.2
     ],
     "years_covered_per_month": [
      7,
-     10,
+     9,
      9,
      10,
+     9,
      8,
-     7,
-     9,
+     8,
      5,
-     6,
-     4,
      7,
+     8,
+     8,
      5
     ],
-    "peak": 0.75,
-    "low": 0.514,
-    "rice_like": false
+    "peak": 0.859,
+    "low": 0.054,
+    "rice_like": true
    },
    "elnino": {
     "climate": {
@@ -15552,46 +15657,46 @@
     },
     "ndvi": {
      "monthly_min": [
-      0.61,
-      0.48,
-      0.368,
-      0.302,
-      0.476,
-      0.588,
-      0.368,
-      0.289,
-      0.255,
-      0.19,
-      0.257,
-      0.418
+      0.749,
+      0.432,
+      0.259,
+      0.272,
+      0.34,
+      0.621,
+      0.282,
+      0.21,
+      0.16,
+      0.055,
+      0.042,
+      0.384
      ],
      "monthly_max": [
-      0.814,
-      0.7,
-      0.556,
-      0.547,
-      0.706,
-      0.775,
-      0.783,
-      0.61,
-      0.554,
-      0.546,
+      0.903,
+      0.796,
+      0.461,
+      0.567,
+      0.807,
+      0.815,
+      0.686,
       0.562,
-      0.746
+      0.385,
+      0.334,
+      0.274,
+      0.737
      ],
      "monthly": [
-      0.704,
-      0.605,
-      0.454,
-      0.472,
-      0.599,
-      0.661,
-      0.527,
-      0.461,
-      0.397,
-      0.401,
-      0.435,
-      0.59
+      0.839,
+      0.656,
+      0.355,
+      0.384,
+      0.608,
+      0.711,
+      0.536,
+      0.394,
+      0.244,
+      0.151,
+      0.184,
+      0.58
      ]
     },
     "salinity": {
@@ -15601,8 +15706,8 @@
       5
      ],
      "note": {
-      "en": "Rated low although the Ngã Năm canal station reads higher: salt-control sluices around Ngã Năm and Mỹ Tú keep salt out of the fields, and NASA MODIS sees nearly 3 rice crops a year here, a freshwater pattern. Highest reading of each dry season there: 9.4‰ on average in typical years, 6.5‰ in El Niño years (2017–2025).",
-      "vi": "Xếp mức thấp dù trạm kênh Ngã Năm đo cao hơn: các cống ngăn mặn quanh Ngã Năm và Mỹ Tú chặn mặn vào ruộng, và NASA MODIS ghi nhận gần 3 vụ lúa/năm ở đây, dấu hiệu vùng nước ngọt. Độ mặn cao nhất mỗi mùa khô tại trạm: trung bình 9,4‰ trong năm thường, 6,5‰ trong năm El Niño (2017–2025)."
+      "en": "Rated low although the Ngã Năm canal station reads higher: salt-control sluices around Ngã Năm and Mỹ Tú keep salt out of the fields, and NASA MODIS sees rice here through the dry season (fields bare only in September–November), a freshwater pattern. Highest reading of each dry season there: 9.4‰ on average in typical years, 6.5‰ in El Niño years (2017–2025).",
+      "vi": "Xếp mức thấp dù trạm kênh Ngã Năm đo cao hơn: các cống ngăn mặn quanh Ngã Năm và Mỹ Tú chặn mặn vào ruộng, và NASA MODIS ghi nhận lúa ở đây vẫn trồng suốt mùa khô (ruộng chỉ để trống tháng 9–11), dấu hiệu vùng nước ngọt. Độ mặn cao nhất mỗi mùa khô tại trạm: trung bình 9,4‰ trong năm thường, 6,5‰ trong năm El Niño (2017–2025)."
      },
      "station_ppt": 6.5,
      "estimate": true,
@@ -16195,8 +16300,8 @@
         ],
         "gaps": [
          {
-          "en": "Topsoil here is ≈ 38.9% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
-          "vi": "Tầng đất mặt ở đây có ≈ 38,9% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "en": "Topsoil here is ≈ 39.0% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt ở đây có ≈ 39,0% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
           "src": [
            13
           ]
@@ -16289,6 +16394,13 @@
            54,
            55,
            56
+          ]
+         },
+         {
+          "en": "NASA MODIS NDVI: fields are usually bare in Sep–Nov, a window that fits this option.",
+          "vi": "NASA MODIS NDVI: ruộng thường để trống vào T9–T11, phù hợp với phương án này.",
+          "src": [
+           12
           ]
          }
         ],
@@ -16396,8 +16508,8 @@
         ],
         "gaps": [
          {
-          "en": "Topsoil here is ≈ 38.9% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
-          "vi": "Tầng đất mặt ở đây có ≈ 38,9% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "en": "Topsoil here is ≈ 39.0% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt ở đây có ≈ 39,0% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
           "src": [
            13
           ]
@@ -16486,6 +16598,13 @@
            28,
            29,
            52
+          ]
+         },
+         {
+          "en": "NASA MODIS NDVI: fields are usually bare in Sep–Nov, a window that fits this option.",
+          "vi": "NASA MODIS NDVI: ruộng thường để trống vào T9–T11, phù hợp với phương án này.",
+          "src": [
+           12
           ]
          }
         ],
@@ -16601,8 +16720,8 @@
         ],
         "gaps": [
          {
-          "en": "Topsoil here is ≈ 38.9% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
-          "vi": "Tầng đất mặt ở đây có ≈ 38,9% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
+          "en": "Topsoil here is ≈ 39.0% clay (SoilGrids model, not your field): clay-rich soil drains slowly, so upland crops usually need raised beds and drains. Check how your own field drains.",
+          "vi": "Tầng đất mặt ở đây có ≈ 39,0% sét (mô hình SoilGrids, không phải ruộng của bạn): đất nhiều sét thoát nước chậm, nên cây màu thường cần lên liếp và đào rãnh thoát nước. Hãy kiểm tra ruộng của bạn thoát nước thế nào.",
           "src": [
            13
           ]
@@ -16667,6 +16786,13 @@
           "src": [
            0,
            17
+          ]
+         },
+         {
+          "en": "NASA MODIS NDVI: fields are usually bare in Sep–Nov, a window that fits this option.",
+          "vi": "NASA MODIS NDVI: ruộng thường để trống vào T9–T11, phù hợp với phương án này.",
+          "src": [
+           12
           ]
          }
         ],
@@ -16843,6 +16969,13 @@
          20,
          61
         ]
+       },
+       {
+        "en": "NASA MODIS NDVI: fields are usually bare in Sep–Nov, a window that fits this option.",
+        "vi": "NASA MODIS NDVI: ruộng thường để trống vào T9–T11, phù hợp với phương án này.",
+        "src": [
+         12
+        ]
        }
       ],
       "crop": null,
@@ -16915,14 +17048,14 @@
       }
      },
      {
-      "en": "Satellite sees ≈ 2.9 crops a year (NASA MODIS).",
-      "vi": "Vệ tinh ghi nhận ≈ 2,9 vụ/năm (NASA MODIS).",
+      "en": "Satellite sees ≈ 2.1 crops a year and bare fields in Sep–Nov (NASA MODIS).",
+      "vi": "Vệ tinh ghi nhận ≈ 2,1 vụ/năm và ruộng trống vào T9–T11 (NASA MODIS).",
       "src": [
        12
       ],
       "plain": {
-       "en": "Satellite sees ≈ 2.9 crops a year.",
-       "vi": "Vệ tinh ghi nhận ≈ 2,9 vụ/năm."
+       "en": "Satellite sees ≈ 2.1 crops a year and bare fields in Sep–Nov.",
+       "vi": "Vệ tinh ghi nhận ≈ 2,1 vụ/năm và ruộng trống vào T9–T11."
       }
      }
     ],

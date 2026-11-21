@@ -62,7 +62,7 @@ Each rotation gets five scores from 1.0 to 5.0 (higher is better), computed for 
 The match is the average of the five, weighted by the farmer's priorities. Every card states **High, Medium or Low confidence**, worked out from the evidence behind it: thin profit figures, a salinity station with few recent readings, or a team estimate each lower it, and the reasons are listed on the card. Formulas, constants and the published profit table: [SOURCES.md](SOURCES.md#how-the-scores-are-set).
 
 ### How we know it holds up
-- **Pins sit on rice.** Each area's pin was moved onto a rice-like MODIS pixel and checked on the last 10 seasons (1.9–3.0 crops a year).
+- **Pins sit on rice.** Each area's pin must look like rice in NASA MODIS (250 m) and NASA HLS (30 m) greenness. The 30 m check moved the Vĩnh Châu pin off shrimp ponds and the Ngã Năm pin off garden land in November 2026. The pins show 1.9–2.4 crops a year over the last 10 seasons.
 - **NASA data finds the known droughts.** Ranked by dry-season water shortfall, 4 of the 5 driest seasons since 2000 at Trần Đề are El Niño seasons, including 2015–16 and 2019–20, the worst droughts in Vietnamese reports.
 - **Two NASA rain sources agree.** GPM and POWER rain correlate at 0.93 month to month at every pin.
 - **Methods reproduce their references.** Water demand matches FAO-56's worked example (3.88 vs 3.9 mm/day); canal water reproduces FAO Manual 3's rice example.
