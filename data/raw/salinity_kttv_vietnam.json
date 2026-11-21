@@ -6,5134 +6,745 @@
  "bulletins": {
   "2024-03-20": {
    "url": "https://kttv.gov.vn/upload/thuyvan2/2024/3/20/dbqg_xman_20240320_1500.pdf",
-   "stations": [
-    {
-     "station": "Cát Lái",
-     "river": "Sài Gòn",
-     "province": "Hồ Chí Minh",
-     "province_id": "ho_chi_minh",
-     "distance_km": 58.0,
-     "smax_gl": 10.4
-    },
-    {
-     "station": "Bến Lức",
-     "river": "Vàm Cỏ Đông",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 67.0,
-     "smax_gl": 5.9
-    },
-    {
-     "station": "Xuân Khánh",
-     "river": "Vàm Cỏ Đông",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 95.0,
-     "smax_gl": 1.3
-    },
-    {
-     "station": "Tân An",
-     "river": "Vàm Cỏ Tây",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 80.0,
-     "smax_gl": 4.7
-    },
-    {
-     "station": "Tuyên Nhơn",
-     "river": "Vàm Cỏ Tây",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 120.0,
-     "smax_gl": 0.5
-    },
-    {
-     "station": "Vàm Kênh",
-     "river": "Cửa Tiểu",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 2.0,
-     "smax_gl": 26.0
-    },
-    {
-     "station": "Hòa Bình",
-     "river": "Cửa Tiểu",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 18.0,
-     "smax_gl": 16.2
-    },
-    {
-     "station": "An Định",
-     "river": "Tiền",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 48.0,
-     "smax_gl": 8.8
-    },
-    {
-     "station": "Bình Đại",
-     "river": "Cửa Đại",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 4.0,
-     "smax_gl": 25.3
-    },
-    {
-     "station": "Lộc Thuận",
-     "river": "Cửa Đại",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 18.0,
-     "smax_gl": 18.6
-    },
-    {
-     "station": "An Thuận",
-     "river": "Hàm Luông",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 10.0,
-     "smax_gl": 27.9
-    },
-    {
-     "station": "Sơn Đốc",
-     "river": "Hàm Luông",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 20.0,
-     "smax_gl": 19.6
-    },
-    {
-     "station": "Bến Trại",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 10.0,
-     "smax_gl": 29.0
-    },
-    {
-     "station": "Hương Mỹ",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 25.0,
-     "smax_gl": 10.7
-    },
-    {
-     "station": "Hưng Mỹ",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 17.0,
-     "smax_gl": 17.2
-    },
-    {
-     "station": "Cầu Quan",
-     "river": "Hậu (cửa Định An)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 32.0,
-     "smax_gl": 10.2
-    },
-    {
-     "station": "Trà Vinh",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 28.0,
-     "smax_gl": 10.7
-    },
-    {
-     "station": "Trà Kha",
-     "river": "Hậu (cửa Định An)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 7.0,
-     "smax_gl": 16.5
-    },
-    {
-     "station": "Long Phú",
-     "river": "Hậu (cửa Trần Đề)",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 15.0,
-     "smax_gl": 19.9
-    },
-    {
-     "station": "Đại Ngãi",
-     "river": "Hậu (cửa Tranh Đề)",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 35.0,
-     "smax_gl": 8.9
-    },
-    {
-     "station": "Trần Đề",
-     "river": "Hậu",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 10.0,
-     "smax_gl": 23.7
-    },
-    {
-     "station": "Thạnh Phú",
-     "river": "K. Như Gia",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 58.0,
-     "smax_gl": 1.1
-    },
-    {
-     "station": "Sóc Trăng",
-     "river": "K. Maspero",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 59.0,
-     "smax_gl": 3.3
-    },
-    {
-     "station": "Gành Hào",
-     "river": "Gành Hào",
-     "province": "Bạc Liêu",
-     "province_id": "bac_lieu",
-     "distance_km": 2.0,
-     "smax_gl": 26.9
-    },
-    {
-     "station": "Sông Đốc",
-     "river": "Sông Đốc",
-     "province": "Cà Mau",
-     "province_id": "ca_mau",
-     "distance_km": 1.5,
-     "smax_gl": 31.6
-    },
-    {
-     "station": "Rạch Giá",
-     "river": "Kiên",
-     "province": "Kiên Giang",
-     "province_id": "kien_giang",
-     "distance_km": 7.0,
-     "smax_gl": 0.5
-    },
-    {
-     "station": "Gò Quao",
-     "river": "Cái Lớn",
-     "province": "Kiên Giang",
-     "province_id": "kien_giang",
-     "distance_km": 35.0,
-     "smax_gl": 7.8
-    },
-    {
-     "station": "An Ninh",
-     "river": "Cái Bé",
-     "province": "Kiên Giang",
-     "province_id": "kien_giang",
-     "distance_km": 8.0,
-     "smax_gl": 10.0
-    }
-   ]
+   "readings": {
+    "Cát Lái": 10.4,
+    "Bến Lức": 5.9,
+    "Xuân Khánh": 1.3,
+    "Tân An": 4.7,
+    "Tuyên Nhơn": 0.5,
+    "Vàm Kênh": 26.0,
+    "Hòa Bình": 16.2,
+    "An Định": 8.8,
+    "Bình Đại": 25.3,
+    "Lộc Thuận": 18.6,
+    "An Thuận": 27.9,
+    "Sơn Đốc": 19.6,
+    "Bến Trại": 29.0,
+    "Hương Mỹ": 10.7,
+    "Hưng Mỹ": 17.2,
+    "Cầu Quan": 10.2,
+    "Trà Vinh": 10.7,
+    "Trà Kha": 16.5,
+    "Long Phú": 19.9,
+    "Đại Ngãi": 8.9,
+    "Trần Đề": 23.7,
+    "Thạnh Phú": 1.1,
+    "Sóc Trăng": 3.3,
+    "Gành Hào": 26.9,
+    "Sông Đốc": 31.6,
+    "Rạch Giá": 0.5,
+    "Gò Quao": 7.8,
+    "An Ninh": 10.0
+   }
   },
   "2024-03-31": {
    "url": "https://kttv.gov.vn/upload/thuyvan2/2024/3/31/dbqg_xman_20240331_1500.pdf",
-   "stations": [
-    {
-     "station": "Cát Lái",
-     "river": "Sài Gòn",
-     "province": "Hồ Chí Minh",
-     "province_id": "ho_chi_minh",
-     "distance_km": 58.0,
-     "smax_gl": 9.9
-    },
-    {
-     "station": "Bến Lức",
-     "river": "Vàm Cỏ Đông",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 67.0,
-     "smax_gl": 4.3
-    },
-    {
-     "station": "Xuân Khánh",
-     "river": "Vàm Cỏ Đông",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 95.0,
-     "smax_gl": 0.8
-    },
-    {
-     "station": "Tân An",
-     "river": "Vàm Cỏ Tây",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 80.0,
-     "smax_gl": 3.9
-    },
-    {
-     "station": "Tuyên Nhơn",
-     "river": "Vàm Cỏ Tây",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 120.0,
-     "smax_gl": 0.6
-    },
-    {
-     "station": "Vàm Kênh",
-     "river": "Cửa Tiểu",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 2.0,
-     "smax_gl": 26.3
-    },
-    {
-     "station": "Hòa Bình",
-     "river": "Cửa Tiểu",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 18.0,
-     "smax_gl": 15.7
-    },
-    {
-     "station": "An Định",
-     "river": "Tiền",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 48.0,
-     "smax_gl": 6.4
-    },
-    {
-     "station": "Bình Đại",
-     "river": "Cửa Đại",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 4.0,
-     "smax_gl": 24.9
-    },
-    {
-     "station": "Lộc Thuận",
-     "river": "Cửa Đại",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 18.0,
-     "smax_gl": 16.7
-    },
-    {
-     "station": "An Thuận",
-     "river": "Hàm Luông",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 10.0,
-     "smax_gl": 26.3
-    },
-    {
-     "station": "Sơn Đốc",
-     "river": "Hàm Luông",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 20.0,
-     "smax_gl": 17.9
-    },
-    {
-     "station": "Bến Trại",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 10.0,
-     "smax_gl": 22.9
-    },
-    {
-     "station": "Hương Mỹ",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 25.0,
-     "smax_gl": 8.4
-    },
-    {
-     "station": "Hưng Mỹ",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 17.0,
-     "smax_gl": 13.1
-    },
-    {
-     "station": "Cầu Quan",
-     "river": "Hậu (cửa Định An)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 32.0,
-     "smax_gl": 7.8
-    },
-    {
-     "station": "Trà Vinh",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 28.0,
-     "smax_gl": 7.3
-    },
-    {
-     "station": "Trà Kha",
-     "river": "Hậu (cửa Định An)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 7.0,
-     "smax_gl": 15.8
-    },
-    {
-     "station": "Long Phú",
-     "river": "Hậu (cửa Trần Đề)",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 15.0,
-     "smax_gl": 15.1
-    },
-    {
-     "station": "Đại Ngãi",
-     "river": "Hậu (cửa Tranh Đề)",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 35.0,
-     "smax_gl": 6.3
-    },
-    {
-     "station": "Trần Đề",
-     "river": "Hậu",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 10.0,
-     "smax_gl": 18.9
-    },
-    {
-     "station": "Thạnh Phú",
-     "river": "K. Như Gia",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 58.0,
-     "smax_gl": 0.9
-    },
-    {
-     "station": "Sóc Trăng",
-     "river": "K. Maspero",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 59.0,
-     "smax_gl": 2.9
-    },
-    {
-     "station": "Gành Hào",
-     "river": "Gành Hào",
-     "province": "Bạc Liêu",
-     "province_id": "bac_lieu",
-     "distance_km": 2.0,
-     "smax_gl": 27.9
-    },
-    {
-     "station": "Sông Đốc",
-     "river": "Sông Đốc",
-     "province": "Cà Mau",
-     "province_id": "ca_mau",
-     "distance_km": 1.5,
-     "smax_gl": 32.3
-    },
-    {
-     "station": "Rạch Giá",
-     "river": "Kiên",
-     "province": "Kiên Giang",
-     "province_id": "kien_giang",
-     "distance_km": 7.0,
-     "smax_gl": 0.7
-    },
-    {
-     "station": "Gò Quao",
-     "river": "Cái Lớn",
-     "province": "Kiên Giang",
-     "province_id": "kien_giang",
-     "distance_km": 35.0,
-     "smax_gl": 12.7
-    },
-    {
-     "station": "An Ninh",
-     "river": "Cái Bé",
-     "province": "Kiên Giang",
-     "province_id": "kien_giang",
-     "distance_km": 8.0,
-     "smax_gl": 10.1
-    }
-   ]
+   "readings": {
+    "Cát Lái": 9.9,
+    "Bến Lức": 4.3,
+    "Xuân Khánh": 0.8,
+    "Tân An": 3.9,
+    "Tuyên Nhơn": 0.6,
+    "Vàm Kênh": 26.3,
+    "Hòa Bình": 15.7,
+    "An Định": 6.4,
+    "Bình Đại": 24.9,
+    "Lộc Thuận": 16.7,
+    "An Thuận": 26.3,
+    "Sơn Đốc": 17.9,
+    "Bến Trại": 22.9,
+    "Hương Mỹ": 8.4,
+    "Hưng Mỹ": 13.1,
+    "Cầu Quan": 7.8,
+    "Trà Vinh": 7.3,
+    "Trà Kha": 15.8,
+    "Long Phú": 15.1,
+    "Đại Ngãi": 6.3,
+    "Trần Đề": 18.9,
+    "Thạnh Phú": 0.9,
+    "Sóc Trăng": 2.9,
+    "Gành Hào": 27.9,
+    "Sông Đốc": 32.3,
+    "Rạch Giá": 0.7,
+    "Gò Quao": 12.7,
+    "An Ninh": 10.1
+   }
   },
   "2024-04-10": {
    "url": "https://kttv.gov.vn/upload/thuyvan2/2024/4/10/dbqg_xman_20240410_1500.pdf",
-   "stations": [
-    {
-     "station": "Cát Lái",
-     "river": "Sài Gòn",
-     "province": "Hồ Chí Minh",
-     "province_id": "ho_chi_minh",
-     "distance_km": 58.0,
-     "smax_gl": 7.7
-    },
-    {
-     "station": "Bến Lức",
-     "river": "Vàm Cỏ Đông",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 67.0,
-     "smax_gl": 7.5
-    },
-    {
-     "station": "Xuân Khánh",
-     "river": "Vàm Cỏ Đông",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 95.0,
-     "smax_gl": 1.9
-    },
-    {
-     "station": "Tân An",
-     "river": "Vàm Cỏ Tây",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 80.0,
-     "smax_gl": 6.8
-    },
-    {
-     "station": "Tuyên Nhơn",
-     "river": "Vàm Cỏ Tây",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 120.0,
-     "smax_gl": 1.8
-    },
-    {
-     "station": "Vàm Kênh",
-     "river": "Cửa Tiểu",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 2.0,
-     "smax_gl": 26.0
-    },
-    {
-     "station": "Hòa Bình",
-     "river": "Cửa Tiểu",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 18.0,
-     "smax_gl": 11.5
-    },
-    {
-     "station": "An Định",
-     "river": "Tiền",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 48.0,
-     "smax_gl": 5.7
-    },
-    {
-     "station": "Bình Đại",
-     "river": "Cửa Đại",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 4.0,
-     "smax_gl": 23.9
-    },
-    {
-     "station": "Lộc Thuận",
-     "river": "Cửa Đại",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 18.0,
-     "smax_gl": 18.1
-    },
-    {
-     "station": "An Thuận",
-     "river": "Hàm Luông",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 10.0,
-     "smax_gl": 23.6
-    },
-    {
-     "station": "Sơn Đốc",
-     "river": "Hàm Luông",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 20.0,
-     "smax_gl": 17.6
-    },
-    {
-     "station": "Bến Trại",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 10.0,
-     "smax_gl": 26.1
-    },
-    {
-     "station": "Hương Mỹ",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 25.0,
-     "smax_gl": 7.1
-    },
-    {
-     "station": "Hưng Mỹ",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 17.0,
-     "smax_gl": 13.6
-    },
-    {
-     "station": "Cầu Quan",
-     "river": "Hậu (cửa Định An)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 32.0,
-     "smax_gl": 6.0
-    },
-    {
-     "station": "Trà Vinh",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 28.0,
-     "smax_gl": 6.0
-    },
-    {
-     "station": "Trà Kha",
-     "river": "Hậu (cửa Định An)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 7.0,
-     "smax_gl": 12.4
-    },
-    {
-     "station": "Long Phú",
-     "river": "Hậu (cửa Trần Đề)",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 15.0,
-     "smax_gl": 15.0
-    },
-    {
-     "station": "Đại Ngãi",
-     "river": "Hậu (cửa Tranh Đề)",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 35.0,
-     "smax_gl": 4.9
-    },
-    {
-     "station": "Trần Đề",
-     "river": "Hậu",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 10.0,
-     "smax_gl": 19.2
-    },
-    {
-     "station": "Thạnh Phú",
-     "river": "K. Như Gia",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 58.0,
-     "smax_gl": 1.9
-    },
-    {
-     "station": "Sóc Trăng",
-     "river": "K. Maspero",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 59.0,
-     "smax_gl": 2.7
-    },
-    {
-     "station": "Gành Hào",
-     "river": "Gành Hào",
-     "province": "Bạc Liêu",
-     "province_id": "bac_lieu",
-     "distance_km": 2.0,
-     "smax_gl": 30.8
-    },
-    {
-     "station": "Sông Đốc",
-     "river": "Sông Đốc",
-     "province": "Cà Mau",
-     "province_id": "ca_mau",
-     "distance_km": 1.5,
-     "smax_gl": 35.5
-    },
-    {
-     "station": "Rạch Giá",
-     "river": "Kiên",
-     "province": "Kiên Giang",
-     "province_id": "kien_giang",
-     "distance_km": 7.0,
-     "smax_gl": 1.0
-    },
-    {
-     "station": "Gò Quao",
-     "river": "Cái Lớn",
-     "province": "Kiên Giang",
-     "province_id": "kien_giang",
-     "distance_km": 35.0,
-     "smax_gl": 11.4
-    },
-    {
-     "station": "An Ninh",
-     "river": "Cái Bé",
-     "province": "Kiên Giang",
-     "province_id": "kien_giang",
-     "distance_km": 8.0,
-     "smax_gl": 17.0
-    }
-   ]
+   "readings": {
+    "Cát Lái": 7.7,
+    "Bến Lức": 7.5,
+    "Xuân Khánh": 1.9,
+    "Tân An": 6.8,
+    "Tuyên Nhơn": 1.8,
+    "Vàm Kênh": 26.0,
+    "Hòa Bình": 11.5,
+    "An Định": 5.7,
+    "Bình Đại": 23.9,
+    "Lộc Thuận": 18.1,
+    "An Thuận": 23.6,
+    "Sơn Đốc": 17.6,
+    "Bến Trại": 26.1,
+    "Hương Mỹ": 7.1,
+    "Hưng Mỹ": 13.6,
+    "Cầu Quan": 6.0,
+    "Trà Vinh": 6.0,
+    "Trà Kha": 12.4,
+    "Long Phú": 15.0,
+    "Đại Ngãi": 4.9,
+    "Trần Đề": 19.2,
+    "Thạnh Phú": 1.9,
+    "Sóc Trăng": 2.7,
+    "Gành Hào": 30.8,
+    "Sông Đốc": 35.5,
+    "Rạch Giá": 1.0,
+    "Gò Quao": 11.4,
+    "An Ninh": 17.0
+   }
   },
   "2024-04-20": {
    "url": "https://kttv.gov.vn/upload/thuyvan2/2024/4/20/dbqg_xman_20240420_1500.pdf",
-   "stations": [
-    {
-     "station": "Cát Lái",
-     "river": "Sài Gòn",
-     "province": "Hồ Chí Minh",
-     "province_id": "ho_chi_minh",
-     "distance_km": 58.0,
-     "smax_gl": 9.2
-    },
-    {
-     "station": "Bến Lức",
-     "river": "Vàm Cỏ Đông",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 67.0,
-     "smax_gl": 10.9
-    },
-    {
-     "station": "Xuân Khánh",
-     "river": "Vàm Cỏ Đông",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 95.0,
-     "smax_gl": 4.5
-    },
-    {
-     "station": "Tân An",
-     "river": "Vàm Cỏ Tây",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 80.0,
-     "smax_gl": 9.8
-    },
-    {
-     "station": "Tuyên Nhơn",
-     "river": "Vàm Cỏ Tây",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 120.0,
-     "smax_gl": 3.9
-    },
-    {
-     "station": "Vàm Kênh",
-     "river": "Cửa Tiểu",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 2.0,
-     "smax_gl": 25.4
-    },
-    {
-     "station": "Hòa Bình",
-     "river": "Cửa Tiểu",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 18.0,
-     "smax_gl": 14.4
-    },
-    {
-     "station": "An Định",
-     "river": "Tiền",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 45.0,
-     "smax_gl": 8.6
-    },
-    {
-     "station": "Bình Đại",
-     "river": "Cửa Đại",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 4.0,
-     "smax_gl": 23.6
-    },
-    {
-     "station": "Lộc Thuận",
-     "river": "Cửa Đại",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 18.0,
-     "smax_gl": 16.9
-    },
-    {
-     "station": "An Thuận",
-     "river": "Hàm Luông",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 10.0,
-     "smax_gl": 23.8
-    },
-    {
-     "station": "Sơn Đốc",
-     "river": "Hàm Luông",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 20.0,
-     "smax_gl": 17.8
-    },
-    {
-     "station": "Bến Trại",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 10.0,
-     "smax_gl": 20.6
-    },
-    {
-     "station": "Hương Mỹ",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 25.0,
-     "smax_gl": 4.8
-    },
-    {
-     "station": "Hưng Mỹ",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 17.0,
-     "smax_gl": 13.8
-    },
-    {
-     "station": "Cầu Quan",
-     "river": "Hậu (cửa Định An)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 32.0,
-     "smax_gl": 7.3
-    },
-    {
-     "station": "Trà Vinh",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 28.0,
-     "smax_gl": 6.1
-    },
-    {
-     "station": "Trà Kha",
-     "river": "Hậu (cửa Định An)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 7.0,
-     "smax_gl": 15.6
-    },
-    {
-     "station": "Long Phú",
-     "river": "Hậu (cửa Trần Đề)",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 15.0,
-     "smax_gl": 12.8
-    },
-    {
-     "station": "Đại Ngãi",
-     "river": "Hậu (cửa Tranh Đề)",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 35.0,
-     "smax_gl": 4.2
-    },
-    {
-     "station": "Trần Đề",
-     "river": "Hậu",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 10.0,
-     "smax_gl": 16.7
-    },
-    {
-     "station": "Thạnh Phú",
-     "river": "K. Như Gia",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 58.0,
-     "smax_gl": 5.1
-    },
-    {
-     "station": "Sóc Trăng",
-     "river": "K. Maspero",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 59.0,
-     "smax_gl": 2.3
-    },
-    {
-     "station": "Gành Hào",
-     "river": "Gành Hào",
-     "province": "Bạc Liêu",
-     "province_id": "bac_lieu",
-     "distance_km": 2.0,
-     "smax_gl": 28.1
-    },
-    {
-     "station": "Sông Đốc",
-     "river": "Sông Đốc",
-     "province": "Cà Mau",
-     "province_id": "ca_mau",
-     "distance_km": 1.5,
-     "smax_gl": 35.8
-    },
-    {
-     "station": "Rạch Giá",
-     "river": "Kiên",
-     "province": "Kiên Giang",
-     "province_id": "kien_giang",
-     "distance_km": 7.0,
-     "smax_gl": 1.6
-    },
-    {
-     "station": "Gò Quao",
-     "river": "Cái Lớn",
-     "province": "Kiên Giang",
-     "province_id": "kien_giang",
-     "distance_km": 35.0,
-     "smax_gl": 13.6
-    },
-    {
-     "station": "An Ninh",
-     "river": "Cái Bé",
-     "province": "Kiên Giang",
-     "province_id": "kien_giang",
-     "distance_km": 8.0,
-     "smax_gl": 19.8
-    }
-   ]
+   "readings": {
+    "Cát Lái": 9.2,
+    "Bến Lức": 10.9,
+    "Xuân Khánh": 4.5,
+    "Tân An": 9.8,
+    "Tuyên Nhơn": 3.9,
+    "Vàm Kênh": 25.4,
+    "Hòa Bình": 14.4,
+    "An Định": 8.6,
+    "Bình Đại": 23.6,
+    "Lộc Thuận": 16.9,
+    "An Thuận": 23.8,
+    "Sơn Đốc": 17.8,
+    "Bến Trại": 20.6,
+    "Hương Mỹ": 4.8,
+    "Hưng Mỹ": 13.8,
+    "Cầu Quan": 7.3,
+    "Trà Vinh": 6.1,
+    "Trà Kha": 15.6,
+    "Long Phú": 12.8,
+    "Đại Ngãi": 4.2,
+    "Trần Đề": 16.7,
+    "Thạnh Phú": 5.1,
+    "Sóc Trăng": 2.3,
+    "Gành Hào": 28.1,
+    "Sông Đốc": 35.8,
+    "Rạch Giá": 1.6,
+    "Gò Quao": 13.6,
+    "An Ninh": 19.8
+   }
   },
   "2024-04-30": {
    "url": "https://kttv.gov.vn/upload/thuyvan2/2024/4/30/dbqg_xman_20240430_1500.pdf",
-   "stations": [
-    {
-     "station": "Cát Lái",
-     "river": "Sài Gòn",
-     "province": "Hồ Chí Minh",
-     "province_id": "ho_chi_minh",
-     "distance_km": 58.0,
-     "smax_gl": 8.0
-    },
-    {
-     "station": "Bến Lức",
-     "river": "Vàm Cỏ Đông",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 67.0,
-     "smax_gl": 10.7
-    },
-    {
-     "station": "Xuân Khánh",
-     "river": "Vàm Cỏ Đông",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 95.0,
-     "smax_gl": 3.6
-    },
-    {
-     "station": "Tân An",
-     "river": "Vàm Cỏ Tây",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 80.0,
-     "smax_gl": 11.1
-    },
-    {
-     "station": "Tuyên Nhơn",
-     "river": "Vàm Cỏ Tây",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 120.0,
-     "smax_gl": 4.3
-    },
-    {
-     "station": "Vàm Kênh",
-     "river": "Cửa Tiểu",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 2.0,
-     "smax_gl": 23.3
-    },
-    {
-     "station": "Hòa Bình",
-     "river": "Cửa Tiểu",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 18.0,
-     "smax_gl": 9.4
-    },
-    {
-     "station": "An Định",
-     "river": "Tiền",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 45.0,
-     "smax_gl": 4.9
-    },
-    {
-     "station": "Bình Đại",
-     "river": "Cửa Đại",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 4.0,
-     "smax_gl": 22.6
-    },
-    {
-     "station": "Lộc Thuận",
-     "river": "Cửa Đại",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 18.0,
-     "smax_gl": 16.5
-    },
-    {
-     "station": "An Thuận",
-     "river": "Hàm Luông",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 10.0,
-     "smax_gl": 21.1
-    },
-    {
-     "station": "Sơn Đốc",
-     "river": "Hàm Luông",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 20.0,
-     "smax_gl": 15.6
-    },
-    {
-     "station": "Bến Trại",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 10.0,
-     "smax_gl": 18.4
-    },
-    {
-     "station": "Hương Mỹ",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 25.0,
-     "smax_gl": 5.5
-    },
-    {
-     "station": "Hưng Mỹ",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 17.0,
-     "smax_gl": 10.4
-    },
-    {
-     "station": "Cầu Quan",
-     "river": "Hậu (cửa Định An)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 32.0,
-     "smax_gl": 5.5
-    },
-    {
-     "station": "Trà Vinh",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 28.0,
-     "smax_gl": 5.5
-    },
-    {
-     "station": "Trà Kha",
-     "river": "Hậu (cửa Định An)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 7.0,
-     "smax_gl": 11.5
-    },
-    {
-     "station": "Long Phú",
-     "river": "Hậu (cửa Trần Đề)",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 15.0,
-     "smax_gl": 15.1
-    },
-    {
-     "station": "Đại Ngãi",
-     "river": "Hậu (cửa Tranh Đề)",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 35.0,
-     "smax_gl": 5.2
-    },
-    {
-     "station": "Trần Đề",
-     "river": "Hậu",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 10.0,
-     "smax_gl": 20.4
-    },
-    {
-     "station": "Thạnh Phú",
-     "river": "K. Như Gia",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 58.0,
-     "smax_gl": 5.2
-    },
-    {
-     "station": "Sóc Trăng",
-     "river": "K. Maspero",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 59.0,
-     "smax_gl": 2.8
-    },
-    {
-     "station": "Gành Hào",
-     "river": "Gành Hào",
-     "province": "Bạc Liêu",
-     "province_id": "bac_lieu",
-     "distance_km": 2.0,
-     "smax_gl": 31.7
-    },
-    {
-     "station": "Sông Đốc",
-     "river": "Sông Đốc",
-     "province": "Cà Mau",
-     "province_id": "ca_mau",
-     "distance_km": 1.5,
-     "smax_gl": 37.6
-    },
-    {
-     "station": "Rạch Giá",
-     "river": "Kiên",
-     "province": "Kiên Giang",
-     "province_id": "kien_giang",
-     "distance_km": 7.0,
-     "smax_gl": 5.8
-    },
-    {
-     "station": "Gò Quao",
-     "river": "Cái Lớn",
-     "province": "Kiên Giang",
-     "province_id": "kien_giang",
-     "distance_km": 35.0,
-     "smax_gl": 11.0
-    },
-    {
-     "station": "An Ninh",
-     "river": "Cái Bé",
-     "province": "Kiên Giang",
-     "province_id": "kien_giang",
-     "distance_km": 8.0,
-     "smax_gl": 12.5
-    }
-   ]
+   "readings": {
+    "Cát Lái": 8.0,
+    "Bến Lức": 10.7,
+    "Xuân Khánh": 3.6,
+    "Tân An": 11.1,
+    "Tuyên Nhơn": 4.3,
+    "Vàm Kênh": 23.3,
+    "Hòa Bình": 9.4,
+    "An Định": 4.9,
+    "Bình Đại": 22.6,
+    "Lộc Thuận": 16.5,
+    "An Thuận": 21.1,
+    "Sơn Đốc": 15.6,
+    "Bến Trại": 18.4,
+    "Hương Mỹ": 5.5,
+    "Hưng Mỹ": 10.4,
+    "Cầu Quan": 5.5,
+    "Trà Vinh": 5.5,
+    "Trà Kha": 11.5,
+    "Long Phú": 15.1,
+    "Đại Ngãi": 5.2,
+    "Trần Đề": 20.4,
+    "Thạnh Phú": 5.2,
+    "Sóc Trăng": 2.8,
+    "Gành Hào": 31.7,
+    "Sông Đốc": 37.6,
+    "Rạch Giá": 5.8,
+    "Gò Quao": 11.0,
+    "An Ninh": 12.5
+   }
   },
   "2024-05-10": {
    "url": "https://kttv.gov.vn/upload/thuyvan2/2024/5/10/dbqg_xman_20240510_1500.pdf",
-   "stations": [
-    {
-     "station": "Cát Lái",
-     "river": "Sài Gòn",
-     "province": "Hồ Chí Minh",
-     "province_id": "ho_chi_minh",
-     "distance_km": 58.0,
-     "smax_gl": 6.0
-    },
-    {
-     "station": "Bến Lức",
-     "river": "Vàm Cỏ Đông",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 67.0,
-     "smax_gl": 10.8
-    },
-    {
-     "station": "Xuân Khánh",
-     "river": "Vàm Cỏ Đông",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 95.0,
-     "smax_gl": 4.7
-    },
-    {
-     "station": "Tân An",
-     "river": "Vàm Cỏ Tây",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 80.0,
-     "smax_gl": 10.9
-    },
-    {
-     "station": "Tuyên Nhơn",
-     "river": "Vàm Cỏ Tây",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 120.0,
-     "smax_gl": 5.7
-    },
-    {
-     "station": "Vàm Kênh",
-     "river": "Cửa Tiểu",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 2.0,
-     "smax_gl": 21.7
-    },
-    {
-     "station": "Hòa Bình",
-     "river": "Cửa Tiểu",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 18.0,
-     "smax_gl": 9.8
-    },
-    {
-     "station": "An Định",
-     "river": "Tiền",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 45.0,
-     "smax_gl": 3.9
-    },
-    {
-     "station": "Bình Đại",
-     "river": "Cửa Đại",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 4.0,
-     "smax_gl": 22.4
-    },
-    {
-     "station": "Lộc Thuận",
-     "river": "Cửa Đại",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 18.0,
-     "smax_gl": 14.4
-    },
-    {
-     "station": "An Thuận",
-     "river": "Hàm Luông",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 10.0,
-     "smax_gl": 22.9
-    },
-    {
-     "station": "Sơn Đốc",
-     "river": "Hàm Luông",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 20.0,
-     "smax_gl": 13.9
-    },
-    {
-     "station": "Bến Trại",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 10.0,
-     "smax_gl": 22.2
-    },
-    {
-     "station": "Hương Mỹ",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 25.0,
-     "smax_gl": 6.1
-    },
-    {
-     "station": "Hưng Mỹ",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 17.0,
-     "smax_gl": 11.3
-    },
-    {
-     "station": "Cầu Quan",
-     "river": "Hậu (cửa Định An)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 32.0,
-     "smax_gl": 4.0
-    },
-    {
-     "station": "Trà Vinh",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 28.0,
-     "smax_gl": 5.0
-    },
-    {
-     "station": "Trà Kha",
-     "river": "Hậu (cửa Định An)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 7.0,
-     "smax_gl": 11.2
-    },
-    {
-     "station": "Long Phú",
-     "river": "Hậu (cửa Trần Đề)",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 15.0,
-     "smax_gl": 16.2
-    },
-    {
-     "station": "Đại Ngãi",
-     "river": "Hậu (cửa Tranh Đề)",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 35.0,
-     "smax_gl": 5.3
-    },
-    {
-     "station": "Trần Đề",
-     "river": "Hậu",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 10.0,
-     "smax_gl": 19.9
-    },
-    {
-     "station": "Thạnh Phú",
-     "river": "K. Như Gia",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 58.0,
-     "smax_gl": 8.0
-    },
-    {
-     "station": "Sóc Trăng",
-     "river": "K. Maspero",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 59.0,
-     "smax_gl": 4.4
-    },
-    {
-     "station": "Gành Hào",
-     "river": "Gành Hào",
-     "province": "Bạc Liêu",
-     "province_id": "bac_lieu",
-     "distance_km": 2.0,
-     "smax_gl": 32.5
-    },
-    {
-     "station": "Sông Đốc",
-     "river": "Sông Đốc",
-     "province": "Cà Mau",
-     "province_id": "ca_mau",
-     "distance_km": 1.5,
-     "smax_gl": 39.3
-    },
-    {
-     "station": "Rạch Giá",
-     "river": "Kiên",
-     "province": "Kiên Giang",
-     "province_id": "kien_giang",
-     "distance_km": 7.0,
-     "smax_gl": 0.9
-    },
-    {
-     "station": "Gò Quao",
-     "river": "Cái Lớn",
-     "province": "Kiên Giang",
-     "province_id": "kien_giang",
-     "distance_km": 35.0,
-     "smax_gl": 13.3
-    },
-    {
-     "station": "An Ninh",
-     "river": "Cái Bé",
-     "province": "Kiên Giang",
-     "province_id": "kien_giang",
-     "distance_km": 8.0,
-     "smax_gl": 9.7
-    }
-   ]
+   "readings": {
+    "Cát Lái": 6.0,
+    "Bến Lức": 10.8,
+    "Xuân Khánh": 4.7,
+    "Tân An": 10.9,
+    "Tuyên Nhơn": 5.7,
+    "Vàm Kênh": 21.7,
+    "Hòa Bình": 9.8,
+    "An Định": 3.9,
+    "Bình Đại": 22.4,
+    "Lộc Thuận": 14.4,
+    "An Thuận": 22.9,
+    "Sơn Đốc": 13.9,
+    "Bến Trại": 22.2,
+    "Hương Mỹ": 6.1,
+    "Hưng Mỹ": 11.3,
+    "Cầu Quan": 4.0,
+    "Trà Vinh": 5.0,
+    "Trà Kha": 11.2,
+    "Long Phú": 16.2,
+    "Đại Ngãi": 5.3,
+    "Trần Đề": 19.9,
+    "Thạnh Phú": 8.0,
+    "Sóc Trăng": 4.4,
+    "Gành Hào": 32.5,
+    "Sông Đốc": 39.3,
+    "Rạch Giá": 0.9,
+    "Gò Quao": 13.3,
+    "An Ninh": 9.7
+   }
   },
   "2024-05-20": {
    "url": "https://kttv.gov.vn/upload/thuyvan2/2024/5/20/dbqg_xman_20240520_1500.pdf",
-   "stations": [
-    {
-     "station": "Cát Lái",
-     "river": "Sài Gòn",
-     "province": "Hồ Chí Minh",
-     "province_id": "ho_chi_minh",
-     "distance_km": 58.0,
-     "smax_gl": 3.7
-    },
-    {
-     "station": "Bến Lức",
-     "river": "Vàm Cỏ Đông",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 67.0,
-     "smax_gl": 8.3
-    },
-    {
-     "station": "Xuân Khánh",
-     "river": "Vàm Cỏ Đông",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 95.0,
-     "smax_gl": 3.7
-    },
-    {
-     "station": "Tân An",
-     "river": "Vàm Cỏ Tây",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 80.0,
-     "smax_gl": 10.1
-    },
-    {
-     "station": "Tuyên Nhơn",
-     "river": "Vàm Cỏ Tây",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 120.0,
-     "smax_gl": 5.9
-    },
-    {
-     "station": "Vàm Kênh",
-     "river": "Cửa Tiểu",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 2.0,
-     "smax_gl": 22.0
-    },
-    {
-     "station": "Hòa Bình",
-     "river": "Cửa Tiểu",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 18.0,
-     "smax_gl": 10.6
-    },
-    {
-     "station": "An Định",
-     "river": "Tiền",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 45.0,
-     "smax_gl": 3.8
-    },
-    {
-     "station": "Bình Đại",
-     "river": "Cửa Đại",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 4.0,
-     "smax_gl": 18.9
-    },
-    {
-     "station": "Lộc Thuận",
-     "river": "Cửa Đại",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 18.0,
-     "smax_gl": 11.2
-    },
-    {
-     "station": "An Thuận",
-     "river": "Hàm Luông",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 10.0,
-     "smax_gl": 16.8
-    },
-    {
-     "station": "Sơn Đốc",
-     "river": "Hàm Luông",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 20.0,
-     "smax_gl": 9.6
-    },
-    {
-     "station": "Bến Trại",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 10.0,
-     "smax_gl": 18.7
-    },
-    {
-     "station": "Hương Mỹ",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 25.0,
-     "smax_gl": 3.2
-    },
-    {
-     "station": "Hưng Mỹ",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 17.0,
-     "smax_gl": 10.4
-    },
-    {
-     "station": "Cầu Quan",
-     "river": "Hậu (cửa Định An)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 32.0,
-     "smax_gl": 4.2
-    },
-    {
-     "station": "Trà Vinh",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 28.0,
-     "smax_gl": 4.2
-    },
-    {
-     "station": "Trà Kha",
-     "river": "Hậu (cửa Định An)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 7.0,
-     "smax_gl": 13.2
-    },
-    {
-     "station": "Long Phú",
-     "river": "Hậu (cửa Trần Đề)",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 15.0,
-     "smax_gl": 7.9
-    },
-    {
-     "station": "Đại Ngãi",
-     "river": "Hậu (cửa Tranh Đề)",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 35.0,
-     "smax_gl": 1.8
-    },
-    {
-     "station": "Trần Đề",
-     "river": "Hậu",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 10.0,
-     "smax_gl": 11.8
-    },
-    {
-     "station": "Thạnh Phú",
-     "river": "K. Như Gia",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 58.0,
-     "smax_gl": 2.4
-    },
-    {
-     "station": "Sóc Trăng",
-     "river": "K. Maspero",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 59.0,
-     "smax_gl": 2.1
-    },
-    {
-     "station": "Gành Hào",
-     "river": "Gành Hào",
-     "province": "Bạc Liêu",
-     "province_id": "bac_lieu",
-     "distance_km": 2.0,
-     "smax_gl": 30.8
-    },
-    {
-     "station": "Sông Đốc",
-     "river": "Sông Đốc",
-     "province": "Cà Mau",
-     "province_id": "ca_mau",
-     "distance_km": 1.5,
-     "smax_gl": 37.3
-    },
-    {
-     "station": "Rạch Giá",
-     "river": "Kiên",
-     "province": "Kiên Giang",
-     "province_id": "kien_giang",
-     "distance_km": 7.0,
-     "smax_gl": 0.6
-    },
-    {
-     "station": "Gò Quao",
-     "river": "Cái Lớn",
-     "province": "Kiên Giang",
-     "province_id": "kien_giang",
-     "distance_km": 35.0,
-     "smax_gl": 10.0
-    },
-    {
-     "station": "An Ninh",
-     "river": "Cái Bé",
-     "province": "Kiên Giang",
-     "province_id": "kien_giang",
-     "distance_km": 8.0,
-     "smax_gl": 8.8
-    }
-   ]
+   "readings": {
+    "Cát Lái": 3.7,
+    "Bến Lức": 8.3,
+    "Xuân Khánh": 3.7,
+    "Tân An": 10.1,
+    "Tuyên Nhơn": 5.9,
+    "Vàm Kênh": 22.0,
+    "Hòa Bình": 10.6,
+    "An Định": 3.8,
+    "Bình Đại": 18.9,
+    "Lộc Thuận": 11.2,
+    "An Thuận": 16.8,
+    "Sơn Đốc": 9.6,
+    "Bến Trại": 18.7,
+    "Hương Mỹ": 3.2,
+    "Hưng Mỹ": 10.4,
+    "Cầu Quan": 4.2,
+    "Trà Vinh": 4.2,
+    "Trà Kha": 13.2,
+    "Long Phú": 7.9,
+    "Đại Ngãi": 1.8,
+    "Trần Đề": 11.8,
+    "Thạnh Phú": 2.4,
+    "Sóc Trăng": 2.1,
+    "Gành Hào": 30.8,
+    "Sông Đốc": 37.3,
+    "Rạch Giá": 0.6,
+    "Gò Quao": 10.0,
+    "An Ninh": 8.8
+   }
   },
   "2025-01-20": {
    "url": "https://kttv.gov.vn/upload/thuyvan2/2025/1/20/dbqg_xman_20250120_1500.pdf",
-   "stations": [
-    {
-     "station": "Cát Lái",
-     "river": "Sài Gòn",
-     "province": "Hồ Chí Minh",
-     "province_id": "ho_chi_minh",
-     "distance_km": 58.0,
-     "smax_gl": 6.1
-    },
-    {
-     "station": "Bến Lức",
-     "river": "Vàm Cỏ Đông",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 67.0,
-     "smax_gl": 1.6
-    },
-    {
-     "station": "Xuân Khánh",
-     "river": "Vàm Cỏ Đông",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 95.0,
-     "smax_gl": 0.2
-    },
-    {
-     "station": "Tân An",
-     "river": "Vàm Cỏ Tây",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 80.0,
-     "smax_gl": 0.3
-    },
-    {
-     "station": "Tuyên Nhơn",
-     "river": "Vàm Cỏ Tây",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 120.0,
-     "smax_gl": 0.1
-    },
-    {
-     "station": "Vàm Kênh",
-     "river": "Cửa Tiểu",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 2.0,
-     "smax_gl": 21.4
-    },
-    {
-     "station": "Hòa Bình",
-     "river": "Cửa Tiểu",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 18.0,
-     "smax_gl": 7.7
-    },
-    {
-     "station": "An Định",
-     "river": "Tiền",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 48.0,
-     "smax_gl": 0.5
-    },
-    {
-     "station": "Bình Đại",
-     "river": "Cửa Đại",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 4.0,
-     "smax_gl": 18.9
-    },
-    {
-     "station": "Lộc Thuận",
-     "river": "Cửa Đại",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 18.0,
-     "smax_gl": 8.9
-    },
-    {
-     "station": "An Thuận",
-     "river": "Hàm Luông",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 10.0,
-     "smax_gl": 22.6
-    },
-    {
-     "station": "Sơn Đốc",
-     "river": "Hàm Luông",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 20.0,
-     "smax_gl": 9.1
-    },
-    {
-     "station": "Bến Trại",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 10.0,
-     "smax_gl": 21.3
-    },
-    {
-     "station": "Hương Mỹ",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 25.0,
-     "smax_gl": 5.3
-    },
-    {
-     "station": "Hưng Mỹ",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 17.0,
-     "smax_gl": 9.9
-    },
-    {
-     "station": "Cầu Quan",
-     "river": "Hậu (cửa Định An)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 32.0,
-     "smax_gl": 6.7
-    },
-    {
-     "station": "Trà Vinh",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 28.0,
-     "smax_gl": 5.5
-    },
-    {
-     "station": "Trà Kha",
-     "river": "Hậu (cửa Định An)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 7.0,
-     "smax_gl": 14.5
-    },
-    {
-     "station": "Long Phú",
-     "river": "Hậu (cửa Trần Đề)",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 15.0,
-     "smax_gl": 9.4
-    },
-    {
-     "station": "Đại Ngãi",
-     "river": "Hậu (cửa Tranh Đề)",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 35.0,
-     "smax_gl": 3.7
-    },
-    {
-     "station": "Trần Đề",
-     "river": "Hậu",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 10.0,
-     "smax_gl": 12.3
-    },
-    {
-     "station": "Thạnh Phú",
-     "river": "K. Như Gia",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 58.0,
-     "smax_gl": 0.7
-    },
-    {
-     "station": "Sóc Trăng",
-     "river": "K. Maspero",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 59.0,
-     "smax_gl": 0.8
-    },
-    {
-     "station": "Gành Hào",
-     "river": "Gành Hào",
-     "province": "Bạc Liêu",
-     "province_id": "bac_lieu",
-     "distance_km": 2.0,
-     "smax_gl": 26.4
-    },
-    {
-     "station": "Sông Đốc",
-     "river": "Sông Đốc",
-     "province": "Cà Mau",
-     "province_id": "ca_mau",
-     "distance_km": 1.5,
-     "smax_gl": 30.7
-    },
-    {
-     "station": "Gò Quao",
-     "river": "Cái Lớn",
-     "province": "Kiên Giang",
-     "province_id": "kien_giang",
-     "distance_km": 35.0,
-     "smax_gl": 1.4
-    },
-    {
-     "station": "An Ninh",
-     "river": "Cái Bé",
-     "province": "Kiên Giang",
-     "province_id": "kien_giang",
-     "distance_km": 8.0,
-     "smax_gl": 10.1
-    }
-   ]
+   "readings": {
+    "Cát Lái": 6.1,
+    "Bến Lức": 1.6,
+    "Xuân Khánh": 0.2,
+    "Tân An": 0.3,
+    "Tuyên Nhơn": 0.1,
+    "Vàm Kênh": 21.4,
+    "Hòa Bình": 7.7,
+    "An Định": 0.5,
+    "Bình Đại": 18.9,
+    "Lộc Thuận": 8.9,
+    "An Thuận": 22.6,
+    "Sơn Đốc": 9.1,
+    "Bến Trại": 21.3,
+    "Hương Mỹ": 5.3,
+    "Hưng Mỹ": 9.9,
+    "Cầu Quan": 6.7,
+    "Trà Vinh": 5.5,
+    "Trà Kha": 14.5,
+    "Long Phú": 9.4,
+    "Đại Ngãi": 3.7,
+    "Trần Đề": 12.3,
+    "Thạnh Phú": 0.7,
+    "Sóc Trăng": 0.8,
+    "Gành Hào": 26.4,
+    "Sông Đốc": 30.7,
+    "Gò Quao": 1.4,
+    "An Ninh": 10.1
+   }
   },
   "2025-02-10": {
    "url": "https://kttv.gov.vn/upload/thuyvan2/2025/2/10/dbqg_xman_20250210_1500.pdf",
-   "stations": [
-    {
-     "station": "Bến Lức",
-     "river": "Vàm Cỏ Đông",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 67.0,
-     "smax_gl": 2.2
-    },
-    {
-     "station": "Xuân Khánh",
-     "river": "Vàm Cỏ Đông",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 95.0,
-     "smax_gl": 0.4
-    },
-    {
-     "station": "Tân An",
-     "river": "Vàm Cỏ Tây",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 80.0,
-     "smax_gl": 1.2
-    },
-    {
-     "station": "Tuyên Nhơn",
-     "river": "Vàm Cỏ Tây",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 120.0,
-     "smax_gl": 0.1
-    },
-    {
-     "station": "Vàm Kênh",
-     "river": "Cửa Tiểu",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 2.0,
-     "smax_gl": 22.0
-    },
-    {
-     "station": "Hòa Bình",
-     "river": "Cửa Tiểu",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 18.0,
-     "smax_gl": 8.9
-    },
-    {
-     "station": "An Định",
-     "river": "Tiền",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 48.0,
-     "smax_gl": 1.1
-    },
-    {
-     "station": "Bình Đại",
-     "river": "Cửa Đại",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 4.0,
-     "smax_gl": 20.2
-    },
-    {
-     "station": "Lộc Thuận",
-     "river": "Cửa Đại",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 18.0,
-     "smax_gl": 7.0
-    },
-    {
-     "station": "An Thuận",
-     "river": "Hàm Luông",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 10.0,
-     "smax_gl": 25.0
-    },
-    {
-     "station": "Sơn Đốc",
-     "river": "Hàm Luông",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 20.0,
-     "smax_gl": 10.6
-    },
-    {
-     "station": "Bến Trại",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 10.0,
-     "smax_gl": 20.8
-    },
-    {
-     "station": "Hương Mỹ",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 25.0,
-     "smax_gl": 7.6
-    },
-    {
-     "station": "Hưng Mỹ",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 17.0,
-     "smax_gl": 12.6
-    },
-    {
-     "station": "Cầu Quan",
-     "river": "Hậu (cửa Định An)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 32.0,
-     "smax_gl": 8.3
-    },
-    {
-     "station": "Trà Vinh",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 28.0,
-     "smax_gl": 7.8
-    },
-    {
-     "station": "Trà Kha",
-     "river": "Hậu (cửa Định An)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 7.0,
-     "smax_gl": 16.2
-    },
-    {
-     "station": "Long Phú",
-     "river": "Hậu (cửa Trần Đề)",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 15.0,
-     "smax_gl": 14.6
-    },
-    {
-     "station": "Đại Ngãi",
-     "river": "Hậu (cửa Tranh Đề)",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 35.0,
-     "smax_gl": 6.4
-    },
-    {
-     "station": "Trần Đề",
-     "river": "Hậu",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 10.0,
-     "smax_gl": 19.1
-    },
-    {
-     "station": "Thạnh Phú",
-     "river": "K. Như Gia",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 58.0,
-     "smax_gl": 0.6
-    },
-    {
-     "station": "Sóc Trăng",
-     "river": "K. Maspero",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 59.0,
-     "smax_gl": 2.9
-    },
-    {
-     "station": "Gành Hào",
-     "river": "Gành Hào",
-     "province": "Bạc Liêu",
-     "province_id": "bac_lieu",
-     "distance_km": 2.0,
-     "smax_gl": 26.9
-    },
-    {
-     "station": "Sông Đốc",
-     "river": "Sông Đốc",
-     "province": "Cà Mau",
-     "province_id": "ca_mau",
-     "distance_km": 1.5,
-     "smax_gl": 31.6
-    },
-    {
-     "station": "Gò Quao",
-     "river": "Cái Lớn",
-     "province": "Kiên Giang",
-     "province_id": "kien_giang",
-     "distance_km": 35.0,
-     "smax_gl": 4.9
-    },
-    {
-     "station": "An Ninh",
-     "river": "Cái Bé",
-     "province": "Kiên Giang",
-     "province_id": "kien_giang",
-     "distance_km": 8.0,
-     "smax_gl": 13.5
-    }
-   ]
+   "readings": {
+    "Bến Lức": 2.2,
+    "Xuân Khánh": 0.4,
+    "Tân An": 1.2,
+    "Tuyên Nhơn": 0.1,
+    "Vàm Kênh": 22.0,
+    "Hòa Bình": 8.9,
+    "An Định": 1.1,
+    "Bình Đại": 20.2,
+    "Lộc Thuận": 7.0,
+    "An Thuận": 25.0,
+    "Sơn Đốc": 10.6,
+    "Bến Trại": 20.8,
+    "Hương Mỹ": 7.6,
+    "Hưng Mỹ": 12.6,
+    "Cầu Quan": 8.3,
+    "Trà Vinh": 7.8,
+    "Trà Kha": 16.2,
+    "Long Phú": 14.6,
+    "Đại Ngãi": 6.4,
+    "Trần Đề": 19.1,
+    "Thạnh Phú": 0.6,
+    "Sóc Trăng": 2.9,
+    "Gành Hào": 26.9,
+    "Sông Đốc": 31.6,
+    "Gò Quao": 4.9,
+    "An Ninh": 13.5
+   }
   },
   "2025-02-28": {
    "url": "https://kttv.gov.vn/upload/thuyvan2/2025/2/28/dbqg_xman_20250228_1500.pdf",
-   "stations": [
-    {
-     "station": "Cát Lái",
-     "river": "Sài Gòn",
-     "province": "Hồ Chí Minh",
-     "province_id": "ho_chi_minh",
-     "distance_km": 58.0,
-     "smax_gl": 6.8
-    },
-    {
-     "station": "Bến Lức",
-     "river": "Vàm Cỏ Đông",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 67.0,
-     "smax_gl": 2.9
-    },
-    {
-     "station": "Xuân Khánh",
-     "river": "Vàm Cỏ Đông",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 95.0,
-     "smax_gl": 0.8
-    },
-    {
-     "station": "Tân An",
-     "river": "Vàm Cỏ Tây",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 80.0,
-     "smax_gl": 1.4
-    },
-    {
-     "station": "Tuyên Nhơn",
-     "river": "Vàm Cỏ Tây",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 120.0,
-     "smax_gl": 0.3
-    },
-    {
-     "station": "Vàm Kênh",
-     "river": "Cửa Tiểu",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 2.0,
-     "smax_gl": 21.8
-    },
-    {
-     "station": "Hòa Bình",
-     "river": "Cửa Tiểu",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 18.0,
-     "smax_gl": 9.7
-    },
-    {
-     "station": "An Định",
-     "river": "Tiền",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 48.0,
-     "smax_gl": 2.5
-    },
-    {
-     "station": "Bình Đại",
-     "river": "Cửa Đại",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 4.0,
-     "smax_gl": 23.9
-    },
-    {
-     "station": "Lộc Thuận",
-     "river": "Cửa Đại",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 18.0,
-     "smax_gl": 12.9
-    },
-    {
-     "station": "An Thuận",
-     "river": "Hàm Luông",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 10.0,
-     "smax_gl": 29.3
-    },
-    {
-     "station": "Sơn Đốc",
-     "river": "Hàm Luông",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 20.0,
-     "smax_gl": 16.4
-    },
-    {
-     "station": "Bến Trại",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 10.0,
-     "smax_gl": 25.7
-    },
-    {
-     "station": "Hương Mỹ",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 25.0,
-     "smax_gl": 9.7
-    },
-    {
-     "station": "Hưng Mỹ",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 17.0,
-     "smax_gl": 14.7
-    },
-    {
-     "station": "Cầu Quan",
-     "river": "Hậu (cửa Định An)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 32.0,
-     "smax_gl": 13.3
-    },
-    {
-     "station": "Trà Vinh",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 28.0,
-     "smax_gl": 9.2
-    },
-    {
-     "station": "Trà Kha",
-     "river": "Hậu (cửa Định An)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 7.0,
-     "smax_gl": 20.6
-    },
-    {
-     "station": "Long Phú",
-     "river": "Hậu (cửa Trần Đề)",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 15.0,
-     "smax_gl": 17.8
-    },
-    {
-     "station": "Đại Ngãi",
-     "river": "Hậu (cửa Tranh Đề)",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 35.0,
-     "smax_gl": 8.9
-    },
-    {
-     "station": "Trần Đề",
-     "river": "Hậu",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 10.0,
-     "smax_gl": 21.9
-    },
-    {
-     "station": "Thạnh Phú",
-     "river": "K. Như Gia",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 58.0,
-     "smax_gl": 0.6
-    },
-    {
-     "station": "Sóc Trăng",
-     "river": "K. Maspero",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 59.0,
-     "smax_gl": 1.6
-    },
-    {
-     "station": "Gành Hào",
-     "river": "Gành Hào",
-     "province": "Bạc Liêu",
-     "province_id": "bac_lieu",
-     "distance_km": 2.0,
-     "smax_gl": 22.7
-    },
-    {
-     "station": "Sông Đốc",
-     "river": "Sông Đốc",
-     "province": "Cà Mau",
-     "province_id": "ca_mau",
-     "distance_km": 1.5,
-     "smax_gl": 30.9
-    },
-    {
-     "station": "Gò Quao",
-     "river": "Cái Lớn",
-     "province": "Kiên Giang",
-     "province_id": "kien_giang",
-     "distance_km": 35.0,
-     "smax_gl": 2.5
-    },
-    {
-     "station": "An Ninh",
-     "river": "Cái Bé",
-     "province": "Kiên Giang",
-     "province_id": "kien_giang",
-     "distance_km": 8.0,
-     "smax_gl": 4.2
-    }
-   ]
+   "readings": {
+    "Cát Lái": 6.8,
+    "Bến Lức": 2.9,
+    "Xuân Khánh": 0.8,
+    "Tân An": 1.4,
+    "Tuyên Nhơn": 0.3,
+    "Vàm Kênh": 21.8,
+    "Hòa Bình": 9.7,
+    "An Định": 2.5,
+    "Bình Đại": 23.9,
+    "Lộc Thuận": 12.9,
+    "An Thuận": 29.3,
+    "Sơn Đốc": 16.4,
+    "Bến Trại": 25.7,
+    "Hương Mỹ": 9.7,
+    "Hưng Mỹ": 14.7,
+    "Cầu Quan": 13.3,
+    "Trà Vinh": 9.2,
+    "Trà Kha": 20.6,
+    "Long Phú": 17.8,
+    "Đại Ngãi": 8.9,
+    "Trần Đề": 21.9,
+    "Thạnh Phú": 0.6,
+    "Sóc Trăng": 1.6,
+    "Gành Hào": 22.7,
+    "Sông Đốc": 30.9,
+    "Gò Quao": 2.5,
+    "An Ninh": 4.2
+   }
   },
   "2025-03-10": {
    "url": "https://kttv.gov.vn/upload/thuyvan2/2025/3/10/dbqg_xman_20250310_1500.pdf",
-   "stations": [
-    {
-     "station": "Cát Lái",
-     "river": "Sài Gòn",
-     "province": "Hồ Chí Minh",
-     "province_id": "ho_chi_minh",
-     "distance_km": 58.0,
-     "smax_gl": 6.9
-    },
-    {
-     "station": "Bến Lức",
-     "river": "Vàm Cỏ Đông",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 67.0,
-     "smax_gl": 3.6
-    },
-    {
-     "station": "Xuân Khánh",
-     "river": "Vàm Cỏ Đông",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 95.0,
-     "smax_gl": 1.0
-    },
-    {
-     "station": "Tân An",
-     "river": "Vàm Cỏ Tây",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 80.0,
-     "smax_gl": 1.5
-    },
-    {
-     "station": "Tuyên Nhơn",
-     "river": "Vàm Cỏ Tây",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 120.0,
-     "smax_gl": 0.4
-    },
-    {
-     "station": "Vàm Kênh",
-     "river": "Cửa Tiểu",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 2.0,
-     "smax_gl": 22.1
-    },
-    {
-     "station": "Hòa Bình",
-     "river": "Cửa Tiểu",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 18.0,
-     "smax_gl": 9.8
-    },
-    {
-     "station": "An Định",
-     "river": "Tiền",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 48.0,
-     "smax_gl": 3.0
-    },
-    {
-     "station": "Bình Đại",
-     "river": "Cửa Đại",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 4.0,
-     "smax_gl": 22.8
-    },
-    {
-     "station": "Lộc Thuận",
-     "river": "Cửa Đại",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 18.0,
-     "smax_gl": 12.6
-    },
-    {
-     "station": "An Thuận",
-     "river": "Hàm Luông",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 10.0,
-     "smax_gl": 29.9
-    },
-    {
-     "station": "Sơn Đốc",
-     "river": "Hàm Luông",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 20.0,
-     "smax_gl": 16.2
-    },
-    {
-     "station": "Bến Trại",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 10.0,
-     "smax_gl": 23.6
-    },
-    {
-     "station": "Hương Mỹ",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 25.0,
-     "smax_gl": 7.3
-    },
-    {
-     "station": "Hưng Mỹ",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 17.0,
-     "smax_gl": 13.4
-    },
-    {
-     "station": "Cầu Quan",
-     "river": "Hậu (cửa Định An)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 32.0,
-     "smax_gl": 11.0
-    },
-    {
-     "station": "Trà Vinh",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 28.0,
-     "smax_gl": 8.2
-    },
-    {
-     "station": "Trà Kha",
-     "river": "Hậu (cửa Định An)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 7.0,
-     "smax_gl": 18.6
-    },
-    {
-     "station": "Long Phú",
-     "river": "Hậu (cửa Trần Đề)",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 15.0,
-     "smax_gl": 19.6
-    },
-    {
-     "station": "Đại Ngãi",
-     "river": "Hậu (cửa Tranh Đề)",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 35.0,
-     "smax_gl": 10.5
-    },
-    {
-     "station": "Trần Đề",
-     "river": "Hậu",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 10.0,
-     "smax_gl": 23.1
-    },
-    {
-     "station": "Thạnh Phú",
-     "river": "K. Như Gia",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 58.0,
-     "smax_gl": 0.8
-    },
-    {
-     "station": "Sóc Trăng",
-     "river": "K. Maspero",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 59.0,
-     "smax_gl": 2.5
-    },
-    {
-     "station": "Gành Hào",
-     "river": "Gành Hào",
-     "province": "Bạc Liêu",
-     "province_id": "bac_lieu",
-     "distance_km": 2.0,
-     "smax_gl": 28.9
-    },
-    {
-     "station": "Sông Đốc",
-     "river": "Sông Đốc",
-     "province": "Cà Mau",
-     "province_id": "ca_mau",
-     "distance_km": 1.5,
-     "smax_gl": 33.5
-    },
-    {
-     "station": "Gò Quao",
-     "river": "Cái Lớn",
-     "province": "Kiên Giang",
-     "province_id": "kien_giang",
-     "distance_km": 35.0,
-     "smax_gl": 1.4
-    },
-    {
-     "station": "An Ninh",
-     "river": "Cái Bé",
-     "province": "Kiên Giang",
-     "province_id": "kien_giang",
-     "distance_km": 8.0,
-     "smax_gl": 4.6
-    }
-   ]
+   "readings": {
+    "Cát Lái": 6.9,
+    "Bến Lức": 3.6,
+    "Xuân Khánh": 1.0,
+    "Tân An": 1.5,
+    "Tuyên Nhơn": 0.4,
+    "Vàm Kênh": 22.1,
+    "Hòa Bình": 9.8,
+    "An Định": 3.0,
+    "Bình Đại": 22.8,
+    "Lộc Thuận": 12.6,
+    "An Thuận": 29.9,
+    "Sơn Đốc": 16.2,
+    "Bến Trại": 23.6,
+    "Hương Mỹ": 7.3,
+    "Hưng Mỹ": 13.4,
+    "Cầu Quan": 11.0,
+    "Trà Vinh": 8.2,
+    "Trà Kha": 18.6,
+    "Long Phú": 19.6,
+    "Đại Ngãi": 10.5,
+    "Trần Đề": 23.1,
+    "Thạnh Phú": 0.8,
+    "Sóc Trăng": 2.5,
+    "Gành Hào": 28.9,
+    "Sông Đốc": 33.5,
+    "Gò Quao": 1.4,
+    "An Ninh": 4.6
+   }
   },
   "2025-03-20": {
    "url": "https://kttv.gov.vn/upload/thuyvan2/2025/3/20/dbqg_xman_20250320_1500.pdf",
-   "stations": [
-    {
-     "station": "Cát Lái",
-     "river": "Sài Gòn",
-     "province": "Hồ Chí Minh",
-     "province_id": "ho_chi_minh",
-     "distance_km": 58.0,
-     "smax_gl": 7.4
-    },
-    {
-     "station": "Bến Lức",
-     "river": "Vàm Cỏ Đông",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 67.0,
-     "smax_gl": 2.5
-    },
-    {
-     "station": "Xuân Khánh",
-     "river": "Vàm Cỏ Đông",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 95.0,
-     "smax_gl": 0.8
-    },
-    {
-     "station": "Tân An",
-     "river": "Vàm Cỏ Tây",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 80.0,
-     "smax_gl": 1.1
-    },
-    {
-     "station": "Tuyên Nhơn",
-     "river": "Vàm Cỏ Tây",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 120.0,
-     "smax_gl": 0.4
-    },
-    {
-     "station": "Vàm Kênh",
-     "river": "Cửa Tiểu",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 2.0,
-     "smax_gl": 22.8
-    },
-    {
-     "station": "Hòa Bình",
-     "river": "Cửa Tiểu",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 18.0,
-     "smax_gl": 10.9
-    },
-    {
-     "station": "An Định",
-     "river": "Tiền",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 48.0,
-     "smax_gl": 2.7
-    },
-    {
-     "station": "Bình Đại",
-     "river": "Cửa Đại",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 4.0,
-     "smax_gl": 23.0
-    },
-    {
-     "station": "Lộc Thuận",
-     "river": "Cửa Đại",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 18.0,
-     "smax_gl": 12.9
-    },
-    {
-     "station": "An Thuận",
-     "river": "Hàm Luông",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 10.0,
-     "smax_gl": 29.4
-    },
-    {
-     "station": "Sơn Đốc",
-     "river": "Hàm Luông",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 20.0,
-     "smax_gl": 16.3
-    },
-    {
-     "station": "Bến Trại",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 10.0,
-     "smax_gl": 23.9
-    },
-    {
-     "station": "Hương Mỹ",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 25.0,
-     "smax_gl": 5.9
-    },
-    {
-     "station": "Hưng Mỹ",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 17.0,
-     "smax_gl": 12.2
-    },
-    {
-     "station": "Cầu Quan",
-     "river": "Hậu (cửa Định An)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 32.0,
-     "smax_gl": 8.8
-    },
-    {
-     "station": "Trà Vinh",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 28.0,
-     "smax_gl": 6.8
-    },
-    {
-     "station": "Trà Kha",
-     "river": "Hậu (cửa Định An)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 7.0,
-     "smax_gl": 16.9
-    },
-    {
-     "station": "Long Phú",
-     "river": "Hậu (cửa Trần Đề)",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 15.0,
-     "smax_gl": 16.7
-    },
-    {
-     "station": "Đại Ngãi",
-     "river": "Hậu (cửa Tranh Đề)",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 35.0,
-     "smax_gl": 5.6
-    },
-    {
-     "station": "Trần Đề",
-     "river": "Hậu",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 10.0,
-     "smax_gl": 20.9
-    },
-    {
-     "station": "Thạnh Phú",
-     "river": "K. Như Gia",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 58.0,
-     "smax_gl": 1.0
-    },
-    {
-     "station": "Sóc Trăng",
-     "river": "K. Maspero",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 59.0,
-     "smax_gl": 1.3
-    },
-    {
-     "station": "Gành Hào",
-     "river": "Gành Hào",
-     "province": "Bạc Liêu",
-     "province_id": "bac_lieu",
-     "distance_km": 2.0,
-     "smax_gl": 25.5
-    },
-    {
-     "station": "Sông Đốc",
-     "river": "Sông Đốc",
-     "province": "Cà Mau",
-     "province_id": "ca_mau",
-     "distance_km": 1.5,
-     "smax_gl": 33.1
-    },
-    {
-     "station": "Gò Quao",
-     "river": "Cái Lớn",
-     "province": "Kiên Giang",
-     "province_id": "kien_giang",
-     "distance_km": 35.0,
-     "smax_gl": 1.8
-    },
-    {
-     "station": "An Ninh",
-     "river": "Cái Bé",
-     "province": "Kiên Giang",
-     "province_id": "kien_giang",
-     "distance_km": 8.0,
-     "smax_gl": 4.4
-    }
-   ]
+   "readings": {
+    "Cát Lái": 7.4,
+    "Bến Lức": 2.5,
+    "Xuân Khánh": 0.8,
+    "Tân An": 1.1,
+    "Tuyên Nhơn": 0.4,
+    "Vàm Kênh": 22.8,
+    "Hòa Bình": 10.9,
+    "An Định": 2.7,
+    "Bình Đại": 23.0,
+    "Lộc Thuận": 12.9,
+    "An Thuận": 29.4,
+    "Sơn Đốc": 16.3,
+    "Bến Trại": 23.9,
+    "Hương Mỹ": 5.9,
+    "Hưng Mỹ": 12.2,
+    "Cầu Quan": 8.8,
+    "Trà Vinh": 6.8,
+    "Trà Kha": 16.9,
+    "Long Phú": 16.7,
+    "Đại Ngãi": 5.6,
+    "Trần Đề": 20.9,
+    "Thạnh Phú": 1.0,
+    "Sóc Trăng": 1.3,
+    "Gành Hào": 25.5,
+    "Sông Đốc": 33.1,
+    "Gò Quao": 1.8,
+    "An Ninh": 4.4
+   }
   },
   "2025-03-31": {
    "url": "https://kttv.gov.vn/upload/thuyvan2/2025/3/31/dbqg_xman_20250331_1500.pdf",
-   "stations": [
-    {
-     "station": "Cát Lái",
-     "river": "Sài Gòn",
-     "province": "Hồ Chí Minh",
-     "province_id": "ho_chi_minh",
-     "distance_km": 58.0,
-     "smax_gl": 6.8
-    },
-    {
-     "station": "Bến Lức",
-     "river": "Vàm Cỏ Đông",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 67.0,
-     "smax_gl": 2.3
-    },
-    {
-     "station": "Xuân Khánh",
-     "river": "Vàm Cỏ Đông",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 95.0,
-     "smax_gl": 0.4
-    },
-    {
-     "station": "Tân An",
-     "river": "Vàm Cỏ Tây",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 80.0,
-     "smax_gl": 1.3
-    },
-    {
-     "station": "Tuyên Nhơn",
-     "river": "Vàm Cỏ Tây",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 120.0,
-     "smax_gl": 0.3
-    },
-    {
-     "station": "Vàm Kênh",
-     "river": "Cửa Tiểu",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 2.0,
-     "smax_gl": 20.6
-    },
-    {
-     "station": "Hòa Bình",
-     "river": "Cửa Tiểu",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 18.0,
-     "smax_gl": 9.1
-    },
-    {
-     "station": "An Định",
-     "river": "Tiền",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 48.0,
-     "smax_gl": 4.1
-    },
-    {
-     "station": "Bình Đại",
-     "river": "Cửa Đại",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 4.0,
-     "smax_gl": 23.0
-    },
-    {
-     "station": "Lộc Thuận",
-     "river": "Cửa Đại",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 18.0,
-     "smax_gl": 12.0
-    },
-    {
-     "station": "An Thuận",
-     "river": "Hàm Luông",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 10.0,
-     "smax_gl": 27.7
-    },
-    {
-     "station": "Sơn Đốc",
-     "river": "Hàm Luông",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 20.0,
-     "smax_gl": 16.7
-    },
-    {
-     "station": "Bến Trại",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 10.0,
-     "smax_gl": 22.8
-    },
-    {
-     "station": "Hương Mỹ",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 25.0,
-     "smax_gl": 11.3
-    },
-    {
-     "station": "Hưng Mỹ",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 17.0,
-     "smax_gl": 14.8
-    },
-    {
-     "station": "Cầu Quan",
-     "river": "Hậu (cửa Định An)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 32.0,
-     "smax_gl": 10.1
-    },
-    {
-     "station": "Trà Vinh",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 28.0,
-     "smax_gl": 11.2
-    },
-    {
-     "station": "Trà Kha",
-     "river": "Hậu (cửa Định An)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 7.0,
-     "smax_gl": 14.9
-    },
-    {
-     "station": "Long Phú",
-     "river": "Hậu (cửa Trần Đề)",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 15.0,
-     "smax_gl": 13.6
-    },
-    {
-     "station": "Đại Ngãi",
-     "river": "Hậu (cửa Tranh Đề)",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 35.0,
-     "smax_gl": 7.2
-    },
-    {
-     "station": "Trần Đề",
-     "river": "Hậu",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 10.0,
-     "smax_gl": 17.4
-    },
-    {
-     "station": "Thạnh Phú",
-     "river": "K. Như Gia",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 58.0,
-     "smax_gl": 1.6
-    },
-    {
-     "station": "Sóc Trăng",
-     "river": "K. Maspero",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 59.0,
-     "smax_gl": 2.2
-    },
-    {
-     "station": "Gành Hào",
-     "river": "Gành Hào",
-     "province": "Bạc Liêu",
-     "province_id": "bac_lieu",
-     "distance_km": 2.0,
-     "smax_gl": 23.6
-    },
-    {
-     "station": "Sông Đốc",
-     "river": "Sông Đốc",
-     "province": "Cà Mau",
-     "province_id": "ca_mau",
-     "distance_km": 1.5,
-     "smax_gl": 34.4
-    },
-    {
-     "station": "Gò Quao",
-     "river": "Cái Lớn",
-     "province": "Kiên Giang",
-     "province_id": "kien_giang",
-     "distance_km": 35.0,
-     "smax_gl": 7.1
-    },
-    {
-     "station": "An Ninh",
-     "river": "Cái Bé",
-     "province": "Kiên Giang",
-     "province_id": "kien_giang",
-     "distance_km": 8.0,
-     "smax_gl": 16.5
-    }
-   ]
+   "readings": {
+    "Cát Lái": 6.8,
+    "Bến Lức": 2.3,
+    "Xuân Khánh": 0.4,
+    "Tân An": 1.3,
+    "Tuyên Nhơn": 0.3,
+    "Vàm Kênh": 20.6,
+    "Hòa Bình": 9.1,
+    "An Định": 4.1,
+    "Bình Đại": 23.0,
+    "Lộc Thuận": 12.0,
+    "An Thuận": 27.7,
+    "Sơn Đốc": 16.7,
+    "Bến Trại": 22.8,
+    "Hương Mỹ": 11.3,
+    "Hưng Mỹ": 14.8,
+    "Cầu Quan": 10.1,
+    "Trà Vinh": 11.2,
+    "Trà Kha": 14.9,
+    "Long Phú": 13.6,
+    "Đại Ngãi": 7.2,
+    "Trần Đề": 17.4,
+    "Thạnh Phú": 1.6,
+    "Sóc Trăng": 2.2,
+    "Gành Hào": 23.6,
+    "Sông Đốc": 34.4,
+    "Gò Quao": 7.1,
+    "An Ninh": 16.5
+   }
   },
   "2025-04-20": {
    "url": "https://kttv.gov.vn/upload/thuyvan2/2025/4/20/dbqg_xman_20250420_1500.pdf",
-   "stations": [
-    {
-     "station": "Cát Lái",
-     "river": "Sài Gòn",
-     "province": "Hồ Chí Minh",
-     "province_id": "ho_chi_minh",
-     "distance_km": 58.0,
-     "smax_gl": 5.7
-    },
-    {
-     "station": "Bến Lức",
-     "river": "Vàm Cỏ Đông",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 67.0,
-     "smax_gl": 2.2
-    },
-    {
-     "station": "Xuân Khánh",
-     "river": "Vàm Cỏ Đông",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 95.0,
-     "smax_gl": 0.3
-    },
-    {
-     "station": "Tân An",
-     "river": "Vàm Cỏ Tây",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 80.0,
-     "smax_gl": 1.0
-    },
-    {
-     "station": "Tuyên Nhơn",
-     "river": "Vàm Cỏ Tây",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 120.0,
-     "smax_gl": 0.2
-    },
-    {
-     "station": "Vàm Kênh",
-     "river": "Cửa Tiểu",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 2.0,
-     "smax_gl": 20.6
-    },
-    {
-     "station": "Hòa Bình",
-     "river": "Cửa Tiểu",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 18.0,
-     "smax_gl": 9.2
-    },
-    {
-     "station": "An Định",
-     "river": "Tiền",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 48.0,
-     "smax_gl": 1.0
-    },
-    {
-     "station": "Bình Đại",
-     "river": "Cửa Đại",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 4.0,
-     "smax_gl": 21.8
-    },
-    {
-     "station": "Lộc Thuận",
-     "river": "Cửa Đại",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 18.0,
-     "smax_gl": 10.7
-    },
-    {
-     "station": "An Thuận",
-     "river": "Hàm Luông",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 10.0,
-     "smax_gl": 22.7
-    },
-    {
-     "station": "Sơn Đốc",
-     "river": "Hàm Luông",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 20.0,
-     "smax_gl": 10.1
-    },
-    {
-     "station": "Bến Trại",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 10.0,
-     "smax_gl": 18.3
-    },
-    {
-     "station": "Hương Mỹ",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 25.0,
-     "smax_gl": 5.4
-    },
-    {
-     "station": "Hưng Mỹ",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 17.0,
-     "smax_gl": 9.7
-    },
-    {
-     "station": "Cầu Quan",
-     "river": "Hậu (cửa Định An)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 32.0,
-     "smax_gl": 4.4
-    },
-    {
-     "station": "Trà Vinh",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 28.0,
-     "smax_gl": 5.5
-    },
-    {
-     "station": "Trà Kha",
-     "river": "Hậu (cửa Định An)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 7.0,
-     "smax_gl": 11.2
-    },
-    {
-     "station": "Long Phú",
-     "river": "Hậu (cửa Trần Đề)",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 15.0,
-     "smax_gl": 10.7
-    },
-    {
-     "station": "Đại Ngãi",
-     "river": "Hậu (cửa Tranh Đề)",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 35.0,
-     "smax_gl": 3.7
-    },
-    {
-     "station": "Trần Đề",
-     "river": "Hậu",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 10.0,
-     "smax_gl": 13.6
-    },
-    {
-     "station": "Thạnh Phú",
-     "river": "K. Như Gia",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 58.0,
-     "smax_gl": 1.6
-    },
-    {
-     "station": "Sóc Trăng",
-     "river": "K. Maspero",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 59.0,
-     "smax_gl": 1.2
-    },
-    {
-     "station": "Gành Hào",
-     "river": "Gành Hào",
-     "province": "Bạc Liêu",
-     "province_id": "bac_lieu",
-     "distance_km": 2.0,
-     "smax_gl": 25.8
-    },
-    {
-     "station": "Sông Đốc",
-     "river": "Sông Đốc",
-     "province": "Cà Mau",
-     "province_id": "ca_mau",
-     "distance_km": 1.5,
-     "smax_gl": 34.1
-    },
-    {
-     "station": "Gò Quao",
-     "river": "Cái Lớn",
-     "province": "Kiên Giang",
-     "province_id": "kien_giang",
-     "distance_km": 35.0,
-     "smax_gl": 6.0
-    },
-    {
-     "station": "An Ninh",
-     "river": "Cái Bé",
-     "province": "Kiên Giang",
-     "province_id": "kien_giang",
-     "distance_km": 8.0,
-     "smax_gl": 8.3
-    }
-   ]
+   "readings": {
+    "Cát Lái": 5.7,
+    "Bến Lức": 2.2,
+    "Xuân Khánh": 0.3,
+    "Tân An": 1.0,
+    "Tuyên Nhơn": 0.2,
+    "Vàm Kênh": 20.6,
+    "Hòa Bình": 9.2,
+    "An Định": 1.0,
+    "Bình Đại": 21.8,
+    "Lộc Thuận": 10.7,
+    "An Thuận": 22.7,
+    "Sơn Đốc": 10.1,
+    "Bến Trại": 18.3,
+    "Hương Mỹ": 5.4,
+    "Hưng Mỹ": 9.7,
+    "Cầu Quan": 4.4,
+    "Trà Vinh": 5.5,
+    "Trà Kha": 11.2,
+    "Long Phú": 10.7,
+    "Đại Ngãi": 3.7,
+    "Trần Đề": 13.6,
+    "Thạnh Phú": 1.6,
+    "Sóc Trăng": 1.2,
+    "Gành Hào": 25.8,
+    "Sông Đốc": 34.1,
+    "Gò Quao": 6.0,
+    "An Ninh": 8.3
+   }
   },
   "2025-04-30": {
    "url": "https://kttv.gov.vn/upload/thuyvan2/2025/4/30/dbqg_xman_20250430_1500.pdf",
-   "stations": [
-    {
-     "station": "Cát Lái",
-     "river": "Sài Gòn",
-     "province": "Hồ Chí Minh",
-     "province_id": "ho_chi_minh",
-     "distance_km": 58.0,
-     "smax_gl": 3.3
-    },
-    {
-     "station": "Bến Lức",
-     "river": "Vàm Cỏ Đông",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 67.0,
-     "smax_gl": 1.6
-    },
-    {
-     "station": "Xuân Khánh",
-     "river": "Vàm Cỏ Đông",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 95.0,
-     "smax_gl": 0.3
-    },
-    {
-     "station": "Tân An",
-     "river": "Vàm Cỏ Tây",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 80.0,
-     "smax_gl": 1.0
-    },
-    {
-     "station": "Tuyên Nhơn",
-     "river": "Vàm Cỏ Tây",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 120.0,
-     "smax_gl": 0.2
-    },
-    {
-     "station": "Vàm Kênh",
-     "river": "Cửa Tiểu",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 2.0,
-     "smax_gl": 18.1
-    },
-    {
-     "station": "Hòa Bình",
-     "river": "Cửa Tiểu",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 18.0,
-     "smax_gl": 6.6
-    },
-    {
-     "station": "An Định",
-     "river": "Tiền",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 48.0,
-     "smax_gl": 1.4
-    },
-    {
-     "station": "Bình Đại",
-     "river": "Cửa Đại",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 4.0,
-     "smax_gl": 22.1
-    },
-    {
-     "station": "Lộc Thuận",
-     "river": "Cửa Đại",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 18.0,
-     "smax_gl": 10.2
-    },
-    {
-     "station": "An Thuận",
-     "river": "Hàm Luông",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 10.0,
-     "smax_gl": 24.5
-    },
-    {
-     "station": "Sơn Đốc",
-     "river": "Hàm Luông",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 20.0,
-     "smax_gl": 8.4
-    },
-    {
-     "station": "Bến Trại",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 10.0,
-     "smax_gl": 22.9
-    },
-    {
-     "station": "Hương Mỹ",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 25.0,
-     "smax_gl": 5.2
-    },
-    {
-     "station": "Hưng Mỹ",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 17.0,
-     "smax_gl": 8.8
-    },
-    {
-     "station": "Cầu Quan",
-     "river": "Hậu (cửa Định An)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 32.0,
-     "smax_gl": 3.3
-    },
-    {
-     "station": "Trà Vinh",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 28.0,
-     "smax_gl": 4.5
-    },
-    {
-     "station": "Trà Kha",
-     "river": "Hậu (cửa Định An)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 7.0,
-     "smax_gl": 12.6
-    },
-    {
-     "station": "Long Phú",
-     "river": "Hậu (cửa Trần Đề)",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 15.0,
-     "smax_gl": 10.3
-    },
-    {
-     "station": "Đại Ngãi",
-     "river": "Hậu (cửa Tranh Đề)",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 35.0,
-     "smax_gl": 2.5
-    },
-    {
-     "station": "Trần Đề",
-     "river": "Hậu",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 10.0,
-     "smax_gl": 15.8
-    },
-    {
-     "station": "Thạnh Phú",
-     "river": "K. Như Gia",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 58.0,
-     "smax_gl": 3.0
-    },
-    {
-     "station": "Sóc Trăng",
-     "river": "K. Maspero",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 59.0,
-     "smax_gl": 1.0
-    },
-    {
-     "station": "Gành Hào",
-     "river": "Gành Hào",
-     "province": "Bạc Liêu",
-     "province_id": "bac_lieu",
-     "distance_km": 2.0,
-     "smax_gl": 27.8
-    },
-    {
-     "station": "Sông Đốc",
-     "river": "Sông Đốc",
-     "province": "Cà Mau",
-     "province_id": "ca_mau",
-     "distance_km": 1.5,
-     "smax_gl": 34.3
-    },
-    {
-     "station": "Gò Quao",
-     "river": "Cái Lớn",
-     "province": "Kiên Giang",
-     "province_id": "kien_giang",
-     "distance_km": 35.0,
-     "smax_gl": 2.4
-    },
-    {
-     "station": "An Ninh",
-     "river": "Cái Bé",
-     "province": "Kiên Giang",
-     "province_id": "kien_giang",
-     "distance_km": 8.0,
-     "smax_gl": 4.6
-    }
-   ]
+   "readings": {
+    "Cát Lái": 3.3,
+    "Bến Lức": 1.6,
+    "Xuân Khánh": 0.3,
+    "Tân An": 1.0,
+    "Tuyên Nhơn": 0.2,
+    "Vàm Kênh": 18.1,
+    "Hòa Bình": 6.6,
+    "An Định": 1.4,
+    "Bình Đại": 22.1,
+    "Lộc Thuận": 10.2,
+    "An Thuận": 24.5,
+    "Sơn Đốc": 8.4,
+    "Bến Trại": 22.9,
+    "Hương Mỹ": 5.2,
+    "Hưng Mỹ": 8.8,
+    "Cầu Quan": 3.3,
+    "Trà Vinh": 4.5,
+    "Trà Kha": 12.6,
+    "Long Phú": 10.3,
+    "Đại Ngãi": 2.5,
+    "Trần Đề": 15.8,
+    "Thạnh Phú": 3.0,
+    "Sóc Trăng": 1.0,
+    "Gành Hào": 27.8,
+    "Sông Đốc": 34.3,
+    "Gò Quao": 2.4,
+    "An Ninh": 4.6
+   }
   },
   "2026-03-20": {
    "url": "https://kttv.gov.vn/upload/thuyvan2/2026/3/20/dbqg_xman_20260320_1500.pdf",
-   "stations": [
-    {
-     "station": "Cát Lái",
-     "river": "Sài Gòn",
-     "province": "Hồ Chí Minh",
-     "province_id": "ho_chi_minh",
-     "distance_km": 58.0,
-     "smax_gl": 6.2
-    },
-    {
-     "station": "Bến Lức",
-     "river": "Vàm Cỏ Đông",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 67.0,
-     "smax_gl": 1.5
-    },
-    {
-     "station": "Xuân Khánh",
-     "river": "Vàm Cỏ Đông",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 95.0,
-     "smax_gl": 0.2
-    },
-    {
-     "station": "Tân An",
-     "river": "Vàm Cỏ Tây",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 80.0,
-     "smax_gl": 0.4
-    },
-    {
-     "station": "Tuyên Nhơn",
-     "river": "Vàm Cỏ Tây",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 120.0,
-     "smax_gl": 0.1
-    },
-    {
-     "station": "Vàm Kênh",
-     "river": "Cửa Tiểu",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 2.0,
-     "smax_gl": 18.4
-    },
-    {
-     "station": "Hòa Bình",
-     "river": "Cửa Tiểu",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 18.0,
-     "smax_gl": 7.3
-    },
-    {
-     "station": "An Định",
-     "river": "Tiền",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 48.0,
-     "smax_gl": 1.4
-    },
-    {
-     "station": "Bình Đại",
-     "river": "Cửa Đại",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 4.0,
-     "smax_gl": 18.3
-    },
-    {
-     "station": "Lộc Thuận",
-     "river": "Cửa Đại",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 18.0,
-     "smax_gl": 14.1
-    },
-    {
-     "station": "An Thuận",
-     "river": "Hàm Luông",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 10.0,
-     "smax_gl": 23.2
-    },
-    {
-     "station": "Sơn Đốc",
-     "river": "Hàm Luông",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 20.0,
-     "smax_gl": 9.0
-    },
-    {
-     "station": "Bến Trại",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 10.0,
-     "smax_gl": 8.7
-    },
-    {
-     "station": "Hương Mỹ",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 25.0,
-     "smax_gl": 7.4
-    },
-    {
-     "station": "Hưng Mỹ",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 17.0,
-     "smax_gl": 11.4
-    },
-    {
-     "station": "Cầu Quan",
-     "river": "Hậu (cửa Định An)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 32.0,
-     "smax_gl": 7.1
-    },
-    {
-     "station": "Trà Vinh",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 28.0,
-     "smax_gl": 7.6
-    },
-    {
-     "station": "Trà Kha",
-     "river": "Hậu (cửa Định An)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 7.0,
-     "smax_gl": 15.5
-    },
-    {
-     "station": "Long Phú",
-     "river": "Hậu (cửa Trần Đề)",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 15.0,
-     "smax_gl": 7.3
-    },
-    {
-     "station": "Đại Ngãi",
-     "river": "Hậu (cửa Tranh Đề)",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 35.0,
-     "smax_gl": 4.0
-    },
-    {
-     "station": "Trần Đề",
-     "river": "Hậu",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 10.0,
-     "smax_gl": 8.5
-    },
-    {
-     "station": "Thạnh Phú",
-     "river": "K. Như Gia",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 58.0,
-     "smax_gl": 0.4
-    },
-    {
-     "station": "Sóc Trăng",
-     "river": "K. Maspero",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 59.0,
-     "smax_gl": 0.8
-    },
-    {
-     "station": "Gành Hào",
-     "river": "Gành Hào",
-     "province": "Bạc Liêu",
-     "province_id": "bac_lieu",
-     "distance_km": 2.0,
-     "smax_gl": 25.4
-    },
-    {
-     "station": "Sông Đốc",
-     "river": "Sông Đốc",
-     "province": "Cà Mau",
-     "province_id": "ca_mau",
-     "distance_km": 1.5,
-     "smax_gl": 29.8
-    },
-    {
-     "station": "Gò Quao",
-     "river": "Cái Lớn",
-     "province": "Kiên Giang",
-     "province_id": "kien_giang",
-     "distance_km": 35.0,
-     "smax_gl": 0.9
-    },
-    {
-     "station": "An Ninh",
-     "river": "Cái Bé",
-     "province": "Kiên Giang",
-     "province_id": "kien_giang",
-     "distance_km": 8.0,
-     "smax_gl": 4.6
-    }
-   ]
+   "readings": {
+    "Cát Lái": 6.2,
+    "Bến Lức": 1.5,
+    "Xuân Khánh": 0.2,
+    "Tân An": 0.4,
+    "Tuyên Nhơn": 0.1,
+    "Vàm Kênh": 18.4,
+    "Hòa Bình": 7.3,
+    "An Định": 1.4,
+    "Bình Đại": 18.3,
+    "Lộc Thuận": 14.1,
+    "An Thuận": 23.2,
+    "Sơn Đốc": 9.0,
+    "Bến Trại": 8.7,
+    "Hương Mỹ": 7.4,
+    "Hưng Mỹ": 11.4,
+    "Cầu Quan": 7.1,
+    "Trà Vinh": 7.6,
+    "Trà Kha": 15.5,
+    "Long Phú": 7.3,
+    "Đại Ngãi": 4.0,
+    "Trần Đề": 8.5,
+    "Thạnh Phú": 0.4,
+    "Sóc Trăng": 0.8,
+    "Gành Hào": 25.4,
+    "Sông Đốc": 29.8,
+    "Gò Quao": 0.9,
+    "An Ninh": 4.6
+   }
   },
   "2026-03-31": {
    "url": "https://kttv.gov.vn/upload/thuyvan2/2026/3/31/dbqg_xman_20260331_1500.pdf",
-   "stations": [
-    {
-     "station": "Cát Lái",
-     "river": "Sài Gòn",
-     "province": "Hồ Chí Minh",
-     "province_id": "ho_chi_minh",
-     "distance_km": 58.0,
-     "smax_gl": 5.4
-    },
-    {
-     "station": "Bến Lức",
-     "river": "Vàm Cỏ Đông",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 67.0,
-     "smax_gl": 1.6
-    },
-    {
-     "station": "Xuân Khánh",
-     "river": "Vàm Cỏ Đông",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 95.0,
-     "smax_gl": 0.2
-    },
-    {
-     "station": "Tân An",
-     "river": "Vàm Cỏ Tây",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 80.0,
-     "smax_gl": 0.3
-    },
-    {
-     "station": "Tuyên Nhơn",
-     "river": "Vàm Cỏ Tây",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 120.0,
-     "smax_gl": 0.1
-    },
-    {
-     "station": "Vàm Kênh",
-     "river": "Cửa Tiểu",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 2.0,
-     "smax_gl": 21.4
-    },
-    {
-     "station": "Hòa Bình",
-     "river": "Cửa Tiểu",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 18.0,
-     "smax_gl": 9.4
-    },
-    {
-     "station": "An Định",
-     "river": "Tiền",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 48.0,
-     "smax_gl": 1.1
-    },
-    {
-     "station": "Bình Đại",
-     "river": "Cửa Đại",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 4.0,
-     "smax_gl": 22.4
-    },
-    {
-     "station": "Lộc Thuận",
-     "river": "Cửa Đại",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 18.0,
-     "smax_gl": 9.9
-    },
-    {
-     "station": "An Thuận",
-     "river": "Hàm Luông",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 10.0,
-     "smax_gl": 23.7
-    },
-    {
-     "station": "Sơn Đốc",
-     "river": "Hàm Luông",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 20.0,
-     "smax_gl": 11.5
-    },
-    {
-     "station": "Bến Trại",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 10.0,
-     "smax_gl": 19.7
-    },
-    {
-     "station": "Hương Mỹ",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 25.0,
-     "smax_gl": 5.3
-    },
-    {
-     "station": "Hưng Mỹ",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 17.0,
-     "smax_gl": 9.4
-    },
-    {
-     "station": "Cầu Quan",
-     "river": "Hậu (cửa Định An)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 32.0,
-     "smax_gl": 3.8
-    },
-    {
-     "station": "Trà Vinh",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 28.0,
-     "smax_gl": 5.0
-    },
-    {
-     "station": "Trà Kha",
-     "river": "Hậu (cửa Định An)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 7.0,
-     "smax_gl": 10.5
-    },
-    {
-     "station": "Long Phú",
-     "river": "Hậu (cửa Trần Đề)",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 15.0,
-     "smax_gl": 12.1
-    },
-    {
-     "station": "Đại Ngãi",
-     "river": "Hậu (cửa Tranh Đề)",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 35.0,
-     "smax_gl": 3.6
-    },
-    {
-     "station": "Trần Đề",
-     "river": "Hậu",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 10.0,
-     "smax_gl": 15.7
-    },
-    {
-     "station": "Thạnh Phú",
-     "river": "K. Như Gia",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 58.0,
-     "smax_gl": 0.5
-    },
-    {
-     "station": "Sóc Trăng",
-     "river": "K. Maspero",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 59.0,
-     "smax_gl": 1.0
-    },
-    {
-     "station": "Gành Hào",
-     "river": "Gành Hào",
-     "province": "Bạc Liêu",
-     "province_id": "bac_lieu",
-     "distance_km": 2.0,
-     "smax_gl": 29.2
-    },
-    {
-     "station": "Sông Đốc",
-     "river": "Sông Đốc",
-     "province": "Cà Mau",
-     "province_id": "ca_mau",
-     "distance_km": 1.5,
-     "smax_gl": 29.6
-    },
-    {
-     "station": "Gò Quao",
-     "river": "Cái Lớn",
-     "province": "Kiên Giang",
-     "province_id": "kien_giang",
-     "distance_km": 35.0,
-     "smax_gl": 1.0
-    },
-    {
-     "station": "An Ninh",
-     "river": "Cái Bé",
-     "province": "Kiên Giang",
-     "province_id": "kien_giang",
-     "distance_km": 8.0,
-     "smax_gl": 4.6
-    }
-   ]
+   "readings": {
+    "Cát Lái": 5.4,
+    "Bến Lức": 1.6,
+    "Xuân Khánh": 0.2,
+    "Tân An": 0.3,
+    "Tuyên Nhơn": 0.1,
+    "Vàm Kênh": 21.4,
+    "Hòa Bình": 9.4,
+    "An Định": 1.1,
+    "Bình Đại": 22.4,
+    "Lộc Thuận": 9.9,
+    "An Thuận": 23.7,
+    "Sơn Đốc": 11.5,
+    "Bến Trại": 19.7,
+    "Hương Mỹ": 5.3,
+    "Hưng Mỹ": 9.4,
+    "Cầu Quan": 3.8,
+    "Trà Vinh": 5.0,
+    "Trà Kha": 10.5,
+    "Long Phú": 12.1,
+    "Đại Ngãi": 3.6,
+    "Trần Đề": 15.7,
+    "Thạnh Phú": 0.5,
+    "Sóc Trăng": 1.0,
+    "Gành Hào": 29.2,
+    "Sông Đốc": 29.6,
+    "Gò Quao": 1.0,
+    "An Ninh": 4.6
+   }
   },
   "2026-04-10": {
    "url": "https://kttv.gov.vn/upload/thuyvan2/2026/4/10/dbqg_xman_20260410_1500.pdf",
-   "stations": [
-    {
-     "station": "Cát Lái",
-     "river": "Sài Gòn",
-     "province": "Hồ Chí Minh",
-     "province_id": "ho_chi_minh",
-     "distance_km": 58.0,
-     "smax_gl": 2.9
-    },
-    {
-     "station": "Bến Lức",
-     "river": "Vàm Cỏ Đông",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 67.0,
-     "smax_gl": 1.7
-    },
-    {
-     "station": "Xuân Khánh",
-     "river": "Vàm Cỏ Đông",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 95.0,
-     "smax_gl": 0.2
-    },
-    {
-     "station": "Tân An",
-     "river": "Vàm Cỏ Tây",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 80.0,
-     "smax_gl": 0.4
-    },
-    {
-     "station": "Tuyên Nhơn",
-     "river": "Vàm Cỏ Tây",
-     "province": "Long An",
-     "province_id": "long_an",
-     "distance_km": 120.0,
-     "smax_gl": 0.1
-    },
-    {
-     "station": "Vàm Kênh",
-     "river": "Cửa Tiểu",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 2.0,
-     "smax_gl": 18.8
-    },
-    {
-     "station": "Hòa Bình",
-     "river": "Cửa Tiểu",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 18.0,
-     "smax_gl": 4.3
-    },
-    {
-     "station": "An Định",
-     "river": "Tiền",
-     "province": "Tiền Giang",
-     "province_id": "tien_giang",
-     "distance_km": 48.0,
-     "smax_gl": 0.9
-    },
-    {
-     "station": "Bình Đại",
-     "river": "Cửa Đại",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 4.0,
-     "smax_gl": 18.8
-    },
-    {
-     "station": "Lộc Thuận",
-     "river": "Cửa Đại",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 18.0,
-     "smax_gl": 10.5
-    },
-    {
-     "station": "An Thuận",
-     "river": "Hàm Luông",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 10.0,
-     "smax_gl": 16.2
-    },
-    {
-     "station": "Sơn Đốc",
-     "river": "Hàm Luông",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 20.0,
-     "smax_gl": 5.1
-    },
-    {
-     "station": "Bến Trại",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 10.0,
-     "smax_gl": 11.0
-    },
-    {
-     "station": "Hương Mỹ",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Bến Tre",
-     "province_id": "ben_tre",
-     "distance_km": 25.0,
-     "smax_gl": 3.7
-    },
-    {
-     "station": "Hưng Mỹ",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 17.0,
-     "smax_gl": 6.0
-    },
-    {
-     "station": "Cầu Quan",
-     "river": "Hậu (cửa Định An)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 32.0,
-     "smax_gl": 1.4
-    },
-    {
-     "station": "Trà Vinh",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 28.0,
-     "smax_gl": 2.9
-    },
-    {
-     "station": "Trà Kha",
-     "river": "Hậu (cửa Định An)",
-     "province": "Trà Vinh",
-     "province_id": "tra_vinh",
-     "distance_km": 7.0,
-     "smax_gl": 7.7
-    },
-    {
-     "station": "Long Phú",
-     "river": "Hậu (cửa Trần Đề)",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 15.0,
-     "smax_gl": 3.1
-    },
-    {
-     "station": "Đại Ngãi",
-     "river": "Hậu (cửa Tranh Đề)",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 35.0,
-     "smax_gl": 0.5
-    },
-    {
-     "station": "Trần Đề",
-     "river": "Hậu",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 10.0,
-     "smax_gl": 5.7
-    },
-    {
-     "station": "Thạnh Phú",
-     "river": "K. Như Gia",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 58.0,
-     "smax_gl": 0.6
-    },
-    {
-     "station": "Sóc Trăng",
-     "river": "K. Maspero",
-     "province": "Sóc Trăng",
-     "province_id": "soc_trang",
-     "distance_km": 59.0,
-     "smax_gl": 0.5
-    },
-    {
-     "station": "Gành Hào",
-     "river": "Gành Hào",
-     "province": "Bạc Liêu",
-     "province_id": "bac_lieu",
-     "distance_km": 2.0,
-     "smax_gl": 28.4
-    },
-    {
-     "station": "Sông Đốc",
-     "river": "Sông Đốc",
-     "province": "Cà Mau",
-     "province_id": "ca_mau",
-     "distance_km": 1.5,
-     "smax_gl": 29.1
-    },
-    {
-     "station": "Gò Quao",
-     "river": "Cái Lớn",
-     "province": "Kiên Giang",
-     "province_id": "kien_giang",
-     "distance_km": 35.0,
-     "smax_gl": 2.9
-    },
-    {
-     "station": "An Ninh",
-     "river": "Cái Bé",
-     "province": "Kiên Giang",
-     "province_id": "kien_giang",
-     "distance_km": 8.0,
-     "smax_gl": 9.2
-    }
-   ]
+   "readings": {
+    "Cát Lái": 2.9,
+    "Bến Lức": 1.7,
+    "Xuân Khánh": 0.2,
+    "Tân An": 0.4,
+    "Tuyên Nhơn": 0.1,
+    "Vàm Kênh": 18.8,
+    "Hòa Bình": 4.3,
+    "An Định": 0.9,
+    "Bình Đại": 18.8,
+    "Lộc Thuận": 10.5,
+    "An Thuận": 16.2,
+    "Sơn Đốc": 5.1,
+    "Bến Trại": 11.0,
+    "Hương Mỹ": 3.7,
+    "Hưng Mỹ": 6.0,
+    "Cầu Quan": 1.4,
+    "Trà Vinh": 2.9,
+    "Trà Kha": 7.7,
+    "Long Phú": 3.1,
+    "Đại Ngãi": 0.5,
+    "Trần Đề": 5.7,
+    "Thạnh Phú": 0.6,
+    "Sóc Trăng": 0.5,
+    "Gành Hào": 28.4,
+    "Sông Đốc": 29.1,
+    "Gò Quao": 2.9,
+    "An Ninh": 9.2
+   }
   },
   "2026-04-20": {
    "url": "https://kttv.gov.vn/upload/thuyvan1/2026/4/20/dbqg_xman_20260420_1500.pdf",
-   "stations": [
-    {
-     "station": "Cát Lái",
-     "river": "Sài Gòn",
-     "province": "Hồ Chí Minh",
-     "province_id": "ho_chi_minh",
-     "distance_km": 58.0,
-     "smax_gl": 4.7
-    },
-    {
-     "station": "Bến Lức",
-     "river": "Vàm Cỏ Đông",
-     "province": "Tây Ninh",
-     "province_id": "tay_ninh",
-     "distance_km": 67.0,
-     "smax_gl": 1.9
-    },
-    {
-     "station": "Xuân Khánh",
-     "river": "Vàm Cỏ Đông",
-     "province": "Tây Ninh",
-     "province_id": "tay_ninh",
-     "distance_km": 95.0,
-     "smax_gl": 0.2
-    },
-    {
-     "station": "Tân An",
-     "river": "Vàm Cỏ Tây",
-     "province": "Tây Ninh",
-     "province_id": "tay_ninh",
-     "distance_km": 80.0,
-     "smax_gl": 0.4
-    },
-    {
-     "station": "Tuyên Nhơn",
-     "river": "Vàm Cỏ Tây",
-     "province": "Tây Ninh",
-     "province_id": "tay_ninh",
-     "distance_km": 120.0,
-     "smax_gl": 0.1
-    },
-    {
-     "station": "Vàm Kênh",
-     "river": "Cửa Tiểu",
-     "province": "Đồng Tháp",
-     "province_id": "dong_thap",
-     "distance_km": 2.0,
-     "smax_gl": 17.5
-    },
-    {
-     "station": "Hòa Bình",
-     "river": "Cửa Tiểu",
-     "province": "Đồng Tháp",
-     "province_id": "dong_thap",
-     "distance_km": 18.0,
-     "smax_gl": 8.7
-    },
-    {
-     "station": "An Định",
-     "river": "Tiền",
-     "province": "Đồng Tháp",
-     "province_id": "dong_thap",
-     "distance_km": 48.0,
-     "smax_gl": 2.0
-    },
-    {
-     "station": "Bình Đại",
-     "river": "Cửa Đại",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 4.0,
-     "smax_gl": 23.1
-    },
-    {
-     "station": "Lộc Thuận",
-     "river": "Cửa Đại",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 18.0,
-     "smax_gl": 13.5
-    },
-    {
-     "station": "An Thuận",
-     "river": "Hàm Luông",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 10.0,
-     "smax_gl": 21.5
-    },
-    {
-     "station": "Sơn Đốc",
-     "river": "Hàm Luông",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 20.0,
-     "smax_gl": 11.5
-    },
-    {
-     "station": "Bến Trại",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 10.0,
-     "smax_gl": 19.5
-    },
-    {
-     "station": "Hương Mỹ",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 25.0,
-     "smax_gl": 6.0
-    },
-    {
-     "station": "Hưng Mỹ",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 17.0,
-     "smax_gl": 10.0
-    },
-    {
-     "station": "Cầu Quan",
-     "river": "Hậu (cửa Định An)",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 32.0,
-     "smax_gl": 3.2
-    },
-    {
-     "station": "Trà Vinh",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 28.0,
-     "smax_gl": 6.1
-    },
-    {
-     "station": "Trà Kha",
-     "river": "Hậu (cửa Định An)",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 7.0,
-     "smax_gl": 8.2
-    },
-    {
-     "station": "Long Phú",
-     "river": "Hậu (cửa Trần Đề)",
-     "province": "Cần Thơ",
-     "province_id": "can_tho",
-     "distance_km": 15.0,
-     "smax_gl": 14.7
-    },
-    {
-     "station": "Đại Ngãi",
-     "river": "Hậu (cửa Tranh Đề)",
-     "province": "Cần Thơ",
-     "province_id": "can_tho",
-     "distance_km": 35.0,
-     "smax_gl": 5.0
-    },
-    {
-     "station": "Trần Đề",
-     "river": "Hậu",
-     "province": "Cần Thơ",
-     "province_id": "can_tho",
-     "distance_km": 10.0,
-     "smax_gl": 18.2
-    },
-    {
-     "station": "Thạnh Phú",
-     "river": "K. Như Gia",
-     "province": "Cần Thơ",
-     "province_id": "can_tho",
-     "distance_km": 58.0,
-     "smax_gl": 1.0
-    },
-    {
-     "station": "Sóc Trăng",
-     "river": "K. Maspero",
-     "province": "Cần Thơ",
-     "province_id": "can_tho",
-     "distance_km": 59.0,
-     "smax_gl": 1.4
-    },
-    {
-     "station": "Gành Hào",
-     "river": "Gành Hào",
-     "province": "Cà Mau",
-     "province_id": "ca_mau",
-     "distance_km": 2.0,
-     "smax_gl": 28.4
-    },
-    {
-     "station": "Sông Đốc",
-     "river": "Sông Đốc",
-     "province": "Cà Mau",
-     "province_id": "ca_mau",
-     "distance_km": 1.5,
-     "smax_gl": 29.8
-    },
-    {
-     "station": "Gò Quao",
-     "river": "Cái Lớn",
-     "province": "An Giang",
-     "province_id": "an_giang",
-     "distance_km": 35.0,
-     "smax_gl": 13.6
-    },
-    {
-     "station": "An Ninh",
-     "river": "Cái Bé",
-     "province": "An Giang",
-     "province_id": "an_giang",
-     "distance_km": 8.0,
-     "smax_gl": 17.7
-    }
-   ]
+   "readings": {
+    "Cát Lái": 4.7,
+    "Bến Lức": 1.9,
+    "Xuân Khánh": 0.2,
+    "Tân An": 0.4,
+    "Tuyên Nhơn": 0.1,
+    "Vàm Kênh": 17.5,
+    "Hòa Bình": 8.7,
+    "An Định": 2.0,
+    "Bình Đại": 23.1,
+    "Lộc Thuận": 13.5,
+    "An Thuận": 21.5,
+    "Sơn Đốc": 11.5,
+    "Bến Trại": 19.5,
+    "Hương Mỹ": 6.0,
+    "Hưng Mỹ": 10.0,
+    "Cầu Quan": 3.2,
+    "Trà Vinh": 6.1,
+    "Trà Kha": 8.2,
+    "Long Phú": 14.7,
+    "Đại Ngãi": 5.0,
+    "Trần Đề": 18.2,
+    "Thạnh Phú": 1.0,
+    "Sóc Trăng": 1.4,
+    "Gành Hào": 28.4,
+    "Sông Đốc": 29.8,
+    "Gò Quao": 13.6,
+    "An Ninh": 17.7
+   }
   },
   "2026-04-30": {
    "url": "https://kttv.gov.vn/upload/thuyvan1/2026/4/30/dbqg_xman_20260430_1500.pdf",
-   "stations": [
-    {
-     "station": "Cát Lái",
-     "river": "Sài Gòn",
-     "province": "Hồ Chí Minh",
-     "province_id": "ho_chi_minh",
-     "distance_km": 58.0,
-     "smax_gl": 3.8
-    },
-    {
-     "station": "Bến Lức",
-     "river": "Vàm Cỏ Đông",
-     "province": "Tây Ninh",
-     "province_id": "tay_ninh",
-     "distance_km": 67.0,
-     "smax_gl": 2.2
-    },
-    {
-     "station": "Xuân Khánh",
-     "river": "Vàm Cỏ Đông",
-     "province": "Tây Ninh",
-     "province_id": "tay_ninh",
-     "distance_km": 95.0,
-     "smax_gl": 0.3
-    },
-    {
-     "station": "Tân An",
-     "river": "Vàm Cỏ Tây",
-     "province": "Tây Ninh",
-     "province_id": "tay_ninh",
-     "distance_km": 80.0,
-     "smax_gl": 1.1
-    },
-    {
-     "station": "Tuyên Nhơn",
-     "river": "Vàm Cỏ Tây",
-     "province": "Tây Ninh",
-     "province_id": "tay_ninh",
-     "distance_km": 120.0,
-     "smax_gl": 0.2
-    },
-    {
-     "station": "Vàm Kênh",
-     "river": "Cửa Tiểu",
-     "province": "Đồng Tháp",
-     "province_id": "dong_thap",
-     "distance_km": 2.0,
-     "smax_gl": 20.1
-    },
-    {
-     "station": "Hòa Bình",
-     "river": "Cửa Tiểu",
-     "province": "Đồng Tháp",
-     "province_id": "dong_thap",
-     "distance_km": 18.0,
-     "smax_gl": 8.0
-    },
-    {
-     "station": "An Định",
-     "river": "Tiền",
-     "province": "Đồng Tháp",
-     "province_id": "dong_thap",
-     "distance_km": 48.0,
-     "smax_gl": 1.9
-    },
-    {
-     "station": "Bình Đại",
-     "river": "Cửa Đại",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 4.0,
-     "smax_gl": 22.0
-    },
-    {
-     "station": "Lộc Thuận",
-     "river": "Cửa Đại",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 18.0,
-     "smax_gl": 13.0
-    },
-    {
-     "station": "An Thuận",
-     "river": "Hàm Luông",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 10.0,
-     "smax_gl": 19.4
-    },
-    {
-     "station": "Sơn Đốc",
-     "river": "Hàm Luông",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 20.0,
-     "smax_gl": 9.3
-    },
-    {
-     "station": "Bến Trại",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 10.0,
-     "smax_gl": 23.7
-    },
-    {
-     "station": "Hương Mỹ",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 25.0,
-     "smax_gl": 4.6
-    },
-    {
-     "station": "Hưng Mỹ",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 17.0,
-     "smax_gl": 8.6
-    },
-    {
-     "station": "Cầu Quan",
-     "river": "Hậu (cửa Định An)",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 32.0,
-     "smax_gl": 4.2
-    },
-    {
-     "station": "Trà Vinh",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 28.0,
-     "smax_gl": 4.3
-    },
-    {
-     "station": "Trà Kha",
-     "river": "Hậu (cửa Định An)",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 7.0,
-     "smax_gl": 12.7
-    },
-    {
-     "station": "Long Phú",
-     "river": "Hậu (cửa Trần Đề)",
-     "province": "Cần Thơ",
-     "province_id": "can_tho",
-     "distance_km": 15.0,
-     "smax_gl": 9.6
-    },
-    {
-     "station": "Đại Ngãi",
-     "river": "Hậu (cửa Tranh Đề)",
-     "province": "Cần Thơ",
-     "province_id": "can_tho",
-     "distance_km": 35.0,
-     "smax_gl": 3.5
-    },
-    {
-     "station": "Trần Đề",
-     "river": "Hậu",
-     "province": "Cần Thơ",
-     "province_id": "can_tho",
-     "distance_km": 10.0,
-     "smax_gl": 13.3
-    },
-    {
-     "station": "Thạnh Phú",
-     "river": "K. Như Gia",
-     "province": "Cần Thơ",
-     "province_id": "can_tho",
-     "distance_km": 58.0,
-     "smax_gl": 1.4
-    },
-    {
-     "station": "Sóc Trăng",
-     "river": "K. Maspero",
-     "province": "Cần Thơ",
-     "province_id": "can_tho",
-     "distance_km": 59.0,
-     "smax_gl": 1.3
-    },
-    {
-     "station": "Gành Hào",
-     "river": "Gành Hào",
-     "province": "Cà Mau",
-     "province_id": "ca_mau",
-     "distance_km": 2.0,
-     "smax_gl": 31.0
-    },
-    {
-     "station": "Sông Đốc",
-     "river": "Sông Đốc",
-     "province": "Cà Mau",
-     "province_id": "ca_mau",
-     "distance_km": 1.5,
-     "smax_gl": 31.3
-    },
-    {
-     "station": "Gò Quao",
-     "river": "Cái Lớn",
-     "province": "An Giang",
-     "province_id": "an_giang",
-     "distance_km": 35.0,
-     "smax_gl": 14.7
-    },
-    {
-     "station": "An Ninh",
-     "river": "Cái Bé",
-     "province": "An Giang",
-     "province_id": "an_giang",
-     "distance_km": 8.0,
-     "smax_gl": 11.2
-    }
-   ]
+   "readings": {
+    "Cát Lái": 3.8,
+    "Bến Lức": 2.2,
+    "Xuân Khánh": 0.3,
+    "Tân An": 1.1,
+    "Tuyên Nhơn": 0.2,
+    "Vàm Kênh": 20.1,
+    "Hòa Bình": 8.0,
+    "An Định": 1.9,
+    "Bình Đại": 22.0,
+    "Lộc Thuận": 13.0,
+    "An Thuận": 19.4,
+    "Sơn Đốc": 9.3,
+    "Bến Trại": 23.7,
+    "Hương Mỹ": 4.6,
+    "Hưng Mỹ": 8.6,
+    "Cầu Quan": 4.2,
+    "Trà Vinh": 4.3,
+    "Trà Kha": 12.7,
+    "Long Phú": 9.6,
+    "Đại Ngãi": 3.5,
+    "Trần Đề": 13.3,
+    "Thạnh Phú": 1.4,
+    "Sóc Trăng": 1.3,
+    "Gành Hào": 31.0,
+    "Sông Đốc": 31.3,
+    "Gò Quao": 14.7,
+    "An Ninh": 11.2
+   }
   },
   "2026-05-10": {
    "url": "https://kttv.gov.vn/upload/thuyvan1/2026/5/10/dbqg_xman_20260510_1500.pdf",
-   "stations": [
-    {
-     "station": "Cát Lái",
-     "river": "Sài Gòn",
-     "province": "Hồ Chí Minh",
-     "province_id": "ho_chi_minh",
-     "distance_km": 58.0,
-     "smax_gl": 3.6
-    },
-    {
-     "station": "Bến Lức",
-     "river": "Vàm Cỏ Đông",
-     "province": "Tây Ninh",
-     "province_id": "tay_ninh",
-     "distance_km": 67.0,
-     "smax_gl": 5.5
-    },
-    {
-     "station": "Xuân Khánh",
-     "river": "Vàm Cỏ Đông",
-     "province": "Tây Ninh",
-     "province_id": "tay_ninh",
-     "distance_km": 95.0,
-     "smax_gl": 0.9
-    },
-    {
-     "station": "Tân An",
-     "river": "Vàm Cỏ Tây",
-     "province": "Tây Ninh",
-     "province_id": "tay_ninh",
-     "distance_km": 80.0,
-     "smax_gl": 3.2
-    },
-    {
-     "station": "Tuyên Nhơn",
-     "river": "Vàm Cỏ Tây",
-     "province": "Tây Ninh",
-     "province_id": "tay_ninh",
-     "distance_km": 120.0,
-     "smax_gl": 0.5
-    },
-    {
-     "station": "Vàm Kênh",
-     "river": "Cửa Tiểu",
-     "province": "Đồng Tháp",
-     "province_id": "dong_thap",
-     "distance_km": 2.0,
-     "smax_gl": 19.9
-    },
-    {
-     "station": "Hòa Bình",
-     "river": "Cửa Tiểu",
-     "province": "Đồng Tháp",
-     "province_id": "dong_thap",
-     "distance_km": 18.0,
-     "smax_gl": 9.8
-    },
-    {
-     "station": "An Định",
-     "river": "Tiền",
-     "province": "Đồng Tháp",
-     "province_id": "dong_thap",
-     "distance_km": 48.0,
-     "smax_gl": 1.5
-    },
-    {
-     "station": "Bình Đại",
-     "river": "Cửa Đại",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 4.0,
-     "smax_gl": 22.8
-    },
-    {
-     "station": "Lộc Thuận",
-     "river": "Cửa Đại",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 18.0,
-     "smax_gl": 12.2
-    },
-    {
-     "station": "An Thuận",
-     "river": "Hàm Luông",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 10.0,
-     "smax_gl": 21.5
-    },
-    {
-     "station": "Sơn Đốc",
-     "river": "Hàm Luông",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 20.0,
-     "smax_gl": 9.5
-    },
-    {
-     "station": "Bến Trại",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 10.0,
-     "smax_gl": 18.2
-    },
-    {
-     "station": "Hương Mỹ",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 25.0,
-     "smax_gl": 4.8
-    },
-    {
-     "station": "Hưng Mỹ",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 17.0,
-     "smax_gl": 7.9
-    },
-    {
-     "station": "Cầu Quan",
-     "river": "Hậu (cửa Định An)",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 32.0,
-     "smax_gl": 4.1
-    },
-    {
-     "station": "Trà Vinh",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 28.0,
-     "smax_gl": 4.5
-    },
-    {
-     "station": "Trà Kha",
-     "river": "Hậu (cửa Định An)",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 7.0,
-     "smax_gl": 11.5
-    },
-    {
-     "station": "Long Phú",
-     "river": "Hậu (cửa Trần Đề)",
-     "province": "Cần Thơ",
-     "province_id": "can_tho",
-     "distance_km": 15.0,
-     "smax_gl": 9.3
-    },
-    {
-     "station": "Đại Ngãi",
-     "river": "Hậu (cửa Tranh Đề)",
-     "province": "Cần Thơ",
-     "province_id": "can_tho",
-     "distance_km": 35.0,
-     "smax_gl": 3.0
-    },
-    {
-     "station": "Trần Đề",
-     "river": "Hậu",
-     "province": "Cần Thơ",
-     "province_id": "can_tho",
-     "distance_km": 10.0,
-     "smax_gl": 13.0
-    },
-    {
-     "station": "Thạnh Phú",
-     "river": "K. Như Gia",
-     "province": "Cần Thơ",
-     "province_id": "can_tho",
-     "distance_km": 58.0,
-     "smax_gl": 1.6
-    },
-    {
-     "station": "Sóc Trăng",
-     "river": "K. Maspero",
-     "province": "Cần Thơ",
-     "province_id": "can_tho",
-     "distance_km": 59.0,
-     "smax_gl": 1.5
-    },
-    {
-     "station": "Gành Hào",
-     "river": "Gành Hào",
-     "province": "Cà Mau",
-     "province_id": "ca_mau",
-     "distance_km": 2.0,
-     "smax_gl": 25.6
-    },
-    {
-     "station": "Sông Đốc",
-     "river": "Sông Đốc",
-     "province": "Cà Mau",
-     "province_id": "ca_mau",
-     "distance_km": 1.5,
-     "smax_gl": 31.8
-    },
-    {
-     "station": "Gò Quao",
-     "river": "Cái Lớn",
-     "province": "An Giang",
-     "province_id": "an_giang",
-     "distance_km": 35.0,
-     "smax_gl": 15.5
-    },
-    {
-     "station": "An Ninh",
-     "river": "Cái Bé",
-     "province": "An Giang",
-     "province_id": "an_giang",
-     "distance_km": 8.0,
-     "smax_gl": 6.9
-    }
-   ]
+   "readings": {
+    "Cát Lái": 3.6,
+    "Bến Lức": 5.5,
+    "Xuân Khánh": 0.9,
+    "Tân An": 3.2,
+    "Tuyên Nhơn": 0.5,
+    "Vàm Kênh": 19.9,
+    "Hòa Bình": 9.8,
+    "An Định": 1.5,
+    "Bình Đại": 22.8,
+    "Lộc Thuận": 12.2,
+    "An Thuận": 21.5,
+    "Sơn Đốc": 9.5,
+    "Bến Trại": 18.2,
+    "Hương Mỹ": 4.8,
+    "Hưng Mỹ": 7.9,
+    "Cầu Quan": 4.1,
+    "Trà Vinh": 4.5,
+    "Trà Kha": 11.5,
+    "Long Phú": 9.3,
+    "Đại Ngãi": 3.0,
+    "Trần Đề": 13.0,
+    "Thạnh Phú": 1.6,
+    "Sóc Trăng": 1.5,
+    "Gành Hào": 25.6,
+    "Sông Đốc": 31.8,
+    "Gò Quao": 15.5,
+    "An Ninh": 6.9
+   }
   },
   "2026-05-20": {
    "url": "https://kttv.gov.vn/upload/thuyvan2/2026/5/20/dbqg_xman_20260520_1500.pdf",
-   "stations": [
-    {
-     "station": "Cát Lái",
-     "river": "Sài Gòn",
-     "province": "Hồ Chí Minh",
-     "province_id": "ho_chi_minh",
-     "distance_km": 58.0,
-     "smax_gl": 3.4
-    },
-    {
-     "station": "Bến Lức",
-     "river": "Vàm Cỏ Đông",
-     "province": "Tây Ninh",
-     "province_id": "tay_ninh",
-     "distance_km": 67.0,
-     "smax_gl": 4.9
-    },
-    {
-     "station": "Xuân Khánh",
-     "river": "Vàm Cỏ Đông",
-     "province": "Tây Ninh",
-     "province_id": "tay_ninh",
-     "distance_km": 95.0,
-     "smax_gl": 0.8
-    },
-    {
-     "station": "Tân An",
-     "river": "Vàm Cỏ Tây",
-     "province": "Tây Ninh",
-     "province_id": "tay_ninh",
-     "distance_km": 80.0,
-     "smax_gl": 3.0
-    },
-    {
-     "station": "Tuyên Nhơn",
-     "river": "Vàm Cỏ Tây",
-     "province": "Tây Ninh",
-     "province_id": "tay_ninh",
-     "distance_km": 120.0,
-     "smax_gl": 0.5
-    },
-    {
-     "station": "Vàm Kênh",
-     "river": "Cửa Tiểu",
-     "province": "Đồng Tháp",
-     "province_id": "dong_thap",
-     "distance_km": 2.0,
-     "smax_gl": 20.8
-    },
-    {
-     "station": "Hòa Bình",
-     "river": "Cửa Tiểu",
-     "province": "Đồng Tháp",
-     "province_id": "dong_thap",
-     "distance_km": 18.0,
-     "smax_gl": 8.9
-    },
-    {
-     "station": "An Định",
-     "river": "Tiền",
-     "province": "Đồng Tháp",
-     "province_id": "dong_thap",
-     "distance_km": 48.0,
-     "smax_gl": 0.9
-    },
-    {
-     "station": "Bình Đại",
-     "river": "Cửa Đại",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 4.0,
-     "smax_gl": 24.1
-    },
-    {
-     "station": "Lộc Thuận",
-     "river": "Cửa Đại",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 18.0,
-     "smax_gl": 11.9
-    },
-    {
-     "station": "An Thuận",
-     "river": "Hàm Luông",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 10.0,
-     "smax_gl": 19.8
-    },
-    {
-     "station": "Sơn Đốc",
-     "river": "Hàm Luông",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 20.0,
-     "smax_gl": 9.4
-    },
-    {
-     "station": "Bến Trại",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 10.0,
-     "smax_gl": 16.0
-    },
-    {
-     "station": "Hương Mỹ",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 25.0,
-     "smax_gl": 5.7
-    },
-    {
-     "station": "Hưng Mỹ",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 17.0,
-     "smax_gl": 9.2
-    },
-    {
-     "station": "Cầu Quan",
-     "river": "Hậu (cửa Định An)",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 32.0,
-     "smax_gl": 3.8
-    },
-    {
-     "station": "Trà Vinh",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 28.0,
-     "smax_gl": 5.2
-    },
-    {
-     "station": "Trà Kha",
-     "river": "Hậu (cửa Định An)",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 7.0,
-     "smax_gl": 10.0
-    },
-    {
-     "station": "Long Phú",
-     "river": "Hậu (cửa Trần Đề)",
-     "province": "Cần Thơ",
-     "province_id": "can_tho",
-     "distance_km": 15.0,
-     "smax_gl": 7.6
-    },
-    {
-     "station": "Đại Ngãi",
-     "river": "Hậu (cửa Tranh Đề)",
-     "province": "Cần Thơ",
-     "province_id": "can_tho",
-     "distance_km": 35.0,
-     "smax_gl": 3.6
-    },
-    {
-     "station": "Trần Đề",
-     "river": "Hậu",
-     "province": "Cần Thơ",
-     "province_id": "can_tho",
-     "distance_km": 10.0,
-     "smax_gl": 11.3
-    },
-    {
-     "station": "Thạnh Phú",
-     "river": "K. Như Gia",
-     "province": "Cần Thơ",
-     "province_id": "can_tho",
-     "distance_km": 58.0,
-     "smax_gl": 0.6
-    },
-    {
-     "station": "Sóc Trăng",
-     "river": "K. Maspero",
-     "province": "Cần Thơ",
-     "province_id": "can_tho",
-     "distance_km": 59.0,
-     "smax_gl": 1.1
-    },
-    {
-     "station": "Gành Hào",
-     "river": "Gành Hào",
-     "province": "Cà Mau",
-     "province_id": "ca_mau",
-     "distance_km": 2.0,
-     "smax_gl": 28.4
-    },
-    {
-     "station": "Sông Đốc",
-     "river": "Sông Đốc",
-     "province": "Cà Mau",
-     "province_id": "ca_mau",
-     "distance_km": 1.5,
-     "smax_gl": 31.6
-    },
-    {
-     "station": "Gò Quao",
-     "river": "Cái Lớn",
-     "province": "An Giang",
-     "province_id": "an_giang",
-     "distance_km": 35.0,
-     "smax_gl": 8.6
-    },
-    {
-     "station": "An Ninh",
-     "river": "Cái Bé",
-     "province": "An Giang",
-     "province_id": "an_giang",
-     "distance_km": 8.0,
-     "smax_gl": 13.6
-    }
-   ]
+   "readings": {
+    "Cát Lái": 3.4,
+    "Bến Lức": 4.9,
+    "Xuân Khánh": 0.8,
+    "Tân An": 3.0,
+    "Tuyên Nhơn": 0.5,
+    "Vàm Kênh": 20.8,
+    "Hòa Bình": 8.9,
+    "An Định": 0.9,
+    "Bình Đại": 24.1,
+    "Lộc Thuận": 11.9,
+    "An Thuận": 19.8,
+    "Sơn Đốc": 9.4,
+    "Bến Trại": 16.0,
+    "Hương Mỹ": 5.7,
+    "Hưng Mỹ": 9.2,
+    "Cầu Quan": 3.8,
+    "Trà Vinh": 5.2,
+    "Trà Kha": 10.0,
+    "Long Phú": 7.6,
+    "Đại Ngãi": 3.6,
+    "Trần Đề": 11.3,
+    "Thạnh Phú": 0.6,
+    "Sóc Trăng": 1.1,
+    "Gành Hào": 28.4,
+    "Sông Đốc": 31.6,
+    "Gò Quao": 8.6,
+    "An Ninh": 13.6
+   }
   },
   "2026-05-31": {
    "url": "https://kttv.gov.vn/upload/thuyvan1/2026/5/31/dbqg_xman_20260531_1500.pdf",
-   "stations": [
-    {
-     "station": "Cát Lái",
-     "river": "Sài Gòn",
-     "province": "Hồ Chí Minh",
-     "province_id": "ho_chi_minh",
-     "distance_km": 58.0,
-     "smax_gl": 1.5
-    },
-    {
-     "station": "Bến Lức",
-     "river": "Vàm Cỏ Đông",
-     "province": "Tây Ninh",
-     "province_id": "tay_ninh",
-     "distance_km": 67.0,
-     "smax_gl": 2.8
-    },
-    {
-     "station": "Xuân Khánh",
-     "river": "Vàm Cỏ Đông",
-     "province": "Tây Ninh",
-     "province_id": "tay_ninh",
-     "distance_km": 95.0,
-     "smax_gl": 0.4
-    },
-    {
-     "station": "Tân An",
-     "river": "Vàm Cỏ Tây",
-     "province": "Tây Ninh",
-     "province_id": "tay_ninh",
-     "distance_km": 80.0,
-     "smax_gl": 1.5
-    },
-    {
-     "station": "Tuyên Nhơn",
-     "river": "Vàm Cỏ Tây",
-     "province": "Tây Ninh",
-     "province_id": "tay_ninh",
-     "distance_km": 120.0,
-     "smax_gl": 0.4
-    },
-    {
-     "station": "Vàm Kênh",
-     "river": "Cửa Tiểu",
-     "province": "Đồng Tháp",
-     "province_id": "dong_thap",
-     "distance_km": 2.0,
-     "smax_gl": 19.0
-    },
-    {
-     "station": "Hòa Bình",
-     "river": "Cửa Tiểu",
-     "province": "Đồng Tháp",
-     "province_id": "dong_thap",
-     "distance_km": 18.0,
-     "smax_gl": 4.6
-    },
-    {
-     "station": "An Định",
-     "river": "Tiền",
-     "province": "Đồng Tháp",
-     "province_id": "dong_thap",
-     "distance_km": 48.0,
-     "smax_gl": 0.8
-    },
-    {
-     "station": "Bình Đại",
-     "river": "Cửa Đại",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 4.0,
-     "smax_gl": 19.7
-    },
-    {
-     "station": "Lộc Thuận",
-     "river": "Cửa Đại",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 18.0,
-     "smax_gl": 8.8
-    },
-    {
-     "station": "An Thuận",
-     "river": "Hàm Luông",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 10.0,
-     "smax_gl": 18.6
-    },
-    {
-     "station": "Sơn Đốc",
-     "river": "Hàm Luông",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 20.0,
-     "smax_gl": 7.3
-    },
-    {
-     "station": "Bến Trại",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 10.0,
-     "smax_gl": 9.0
-    },
-    {
-     "station": "Hương Mỹ",
-     "river": "Cổ Chiên (cửa Cổ Chiên)",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 25.0,
-     "smax_gl": 3.1
-    },
-    {
-     "station": "Hưng Mỹ",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 17.0,
-     "smax_gl": 6.0
-    },
-    {
-     "station": "Cầu Quan",
-     "river": "Hậu (cửa Định An)",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 32.0,
-     "smax_gl": 0.5
-    },
-    {
-     "station": "Trà Vinh",
-     "river": "Cổ Chiên (cửa Cung Hầu)",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 28.0,
-     "smax_gl": 3.3
-    },
-    {
-     "station": "Trà Kha",
-     "river": "Hậu (cửa Định An)",
-     "province": "Vĩnh Long",
-     "province_id": "vinh_long",
-     "distance_km": 7.0,
-     "smax_gl": 6.2
-    },
-    {
-     "station": "Long Phú",
-     "river": "Hậu (cửa Trần Đề)",
-     "province": "Cần Thơ",
-     "province_id": "can_tho",
-     "distance_km": 15.0,
-     "smax_gl": 3.4
-    },
-    {
-     "station": "Đại Ngãi",
-     "river": "Hậu (cửa Tranh Đề)",
-     "province": "Cần Thơ",
-     "province_id": "can_tho",
-     "distance_km": 35.0,
-     "smax_gl": 0.5
-    },
-    {
-     "station": "Trần Đề",
-     "river": "Hậu",
-     "province": "Cần Thơ",
-     "province_id": "can_tho",
-     "distance_km": 10.0,
-     "smax_gl": 6.4
-    },
-    {
-     "station": "Thạnh Phú",
-     "river": "K. Như Gia",
-     "province": "Cần Thơ",
-     "province_id": "can_tho",
-     "distance_km": 58.0,
-     "smax_gl": 0.6
-    },
-    {
-     "station": "Sóc Trăng",
-     "river": "K. Maspero",
-     "province": "Cần Thơ",
-     "province_id": "can_tho",
-     "distance_km": 59.0,
-     "smax_gl": 0.6
-    },
-    {
-     "station": "Gành Hào",
-     "river": "Gành Hào",
-     "province": "Cà Mau",
-     "province_id": "ca_mau",
-     "distance_km": 2.0,
-     "smax_gl": 27.7
-    },
-    {
-     "station": "Sông Đốc",
-     "river": "Sông Đốc",
-     "province": "Cà Mau",
-     "province_id": "ca_mau",
-     "distance_km": 1.5,
-     "smax_gl": 29.2
-    },
-    {
-     "station": "Gò Quao",
-     "river": "Cái Lớn",
-     "province": "An Giang",
-     "province_id": "an_giang",
-     "distance_km": 35.0,
-     "smax_gl": 1.4
-    },
-    {
-     "station": "An Ninh",
-     "river": "Cái Bé",
-     "province": "An Giang",
-     "province_id": "an_giang",
-     "distance_km": 8.0,
-     "smax_gl": 0.8
-    }
-   ]
+   "readings": {
+    "Cát Lái": 1.5,
+    "Bến Lức": 2.8,
+    "Xuân Khánh": 0.4,
+    "Tân An": 1.5,
+    "Tuyên Nhơn": 0.4,
+    "Vàm Kênh": 19.0,
+    "Hòa Bình": 4.6,
+    "An Định": 0.8,
+    "Bình Đại": 19.7,
+    "Lộc Thuận": 8.8,
+    "An Thuận": 18.6,
+    "Sơn Đốc": 7.3,
+    "Bến Trại": 9.0,
+    "Hương Mỹ": 3.1,
+    "Hưng Mỹ": 6.0,
+    "Cầu Quan": 0.5,
+    "Trà Vinh": 3.3,
+    "Trà Kha": 6.2,
+    "Long Phú": 3.4,
+    "Đại Ngãi": 0.5,
+    "Trần Đề": 6.4,
+    "Thạnh Phú": 0.6,
+    "Sóc Trăng": 0.6,
+    "Gành Hào": 27.7,
+    "Sông Đốc": 29.2,
+    "Gò Quao": 1.4,
+    "An Ninh": 0.8
+   }
   }
  }
 }

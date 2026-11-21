@@ -11,6 +11,7 @@ import appeears
 import build
 import fetch_gpm
 import fetch_power
+import fetch_salinity_vietnam
 import hls
 import ndvi
 import ndvi_from_appeears
@@ -852,6 +853,18 @@ def test_outlines():
     used = {i if i >= 0 else ~i for rs in g["province"].values() for r in rs for i in r}
     assert g["inner"] and not used & set(g["inner"])
     assert mo.dp([(0, 0), (1, 0.0001), (2, 0)], 0.01) == [(0, 0), (2, 0)] and len(mo.dp([(0, 0), (1, 1), (2, 0)], 0.01)) == 3
+
+
+def test_kttv_bulletins_by_station():
+    b = json.loads((pathlib.Path(__file__).resolve().parent.parent / "data/raw/salinity_kttv_vietnam.json").read_text(encoding="utf-8"))["bulletins"]
+    assert len(b) >= 23, len(b)
+    assert all(isinstance(v["readings"], dict) and "province" not in v for v in b.values())
+    assert {d[:4] for d, v in b.items() if "Gò Quao" in v["readings"]} >= {"2024", "2026"}
+
+
+def test_kttv_parse_blank():
+    p = fetch_salinity_vietnam.parse_float
+    assert p("") is None and p("-") is None and p("—") is None and p("10,4") == 10.4
 
 
 if __name__ == "__main__":
