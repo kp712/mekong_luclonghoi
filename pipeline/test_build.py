@@ -870,6 +870,17 @@ def test_kttv_parse_blank():
     assert p("") is None and p("-") is None and p("—") is None and p("10,4") == 10.4
 
 
+def test_kttv_station_coords():
+    root = pathlib.Path(__file__).resolve().parent.parent / "data/raw"
+    st = json.loads((root / "kttv_stations.json").read_text(encoding="utf-8"))["stations"]
+    b = json.loads((root / "salinity_kttv_vietnam.json").read_text(encoding="utf-8"))["bulletins"]
+    names = {n for v in b.values() for n in v["readings"]}
+    assert names <= set(st), names - set(st)
+    for n, s in st.items():
+        assert 8.3 <= s["lat"] <= 11.2 and 104.4 <= s["lon"] <= 107.1, n
+        assert s["source"]["url"] and type(s["approximate"]) is bool and s["river"], n
+
+
 if __name__ == "__main__":
     import sys
     # Windows uses cp1252 when output is redirected; Vietnamese text would crash print().

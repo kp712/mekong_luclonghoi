@@ -1,0 +1,285 @@
+{
+ "_readme": "Coordinates of the 28 KTTV salinity stations in data/raw/salinity_kttv_vietnam.json. No published coordinates were found (KTTV/NCHMF bulletins and station lists give names and rivers only), so every entry is approximate: the point is where OpenStreetMap Nominatim places the station's town, commune or (where OSM maps it) the hydrological station, not a surveyed location. Stations whose commune is not in OSM use a nearby substitute (An Thuận, Bến Trại, Hòa Bình); error can be 10 km or more. river is the river named in the bulletin.",
+ "stations": {
+  "An Ninh": {
+   "lat": 9.8623653,
+   "lon": 105.1305773,
+   "river": "Cái Bé",
+   "approximate": true,
+   "source": {
+    "title": "OpenStreetMap Nominatim, place 'An Ninh Cái Bé'",
+    "url": "https://nominatim.openstreetmap.org/search?format=json&countrycodes=vn&q=An+Ninh+C%C3%A1i+B%C3%A9"
+   }
+  },
+  "An Thuận": {
+   "lat": 9.9488084,
+   "lon": 106.5174262,
+   "river": "Hàm Luông",
+   "approximate": true,
+   "source": {
+    "title": "OpenStreetMap Nominatim, place 'Thạnh Phú, Tỉnh Vĩnh Long'",
+    "url": "https://nominatim.openstreetmap.org/search?format=json&countrycodes=vn&q=Th%E1%BA%A1nh+Ph%C3%BA%2C+T%E1%BB%89nh+V%C4%A9nh+Long"
+   }
+  },
+  "An Định": {
+   "lat": 10.06418,
+   "lon": 106.4059938,
+   "river": "Tiền",
+   "approximate": true,
+   "source": {
+    "title": "OpenStreetMap Nominatim, place 'xã An Định'",
+    "url": "https://nominatim.openstreetmap.org/search?format=json&countrycodes=vn&q=x%C3%A3+An+%C4%90%E1%BB%8Bnh"
+   }
+  },
+  "Bình Đại": {
+   "lat": 10.1868061,
+   "lon": 106.6936108,
+   "river": "Cửa Đại",
+   "approximate": true,
+   "source": {
+    "title": "OpenStreetMap Nominatim, place 'Xã Bình Đại'",
+    "url": "https://nominatim.openstreetmap.org/search?format=json&countrycodes=vn&q=X%C3%A3+B%C3%ACnh+%C4%90%E1%BA%A1i"
+   }
+  },
+  "Bến Lức": {
+   "lat": 10.6429978,
+   "lon": 106.4824879,
+   "river": "Vàm Cỏ Đông",
+   "approximate": true,
+   "source": {
+    "title": "OpenStreetMap Nominatim, place 'Bến Lức, Long An'",
+    "url": "https://nominatim.openstreetmap.org/search?format=json&countrycodes=vn&q=B%E1%BA%BFn+L%E1%BB%A9c%2C+Long+An"
+   }
+  },
+  "Bến Trại": {
+   "lat": 9.8499839,
+   "lon": 106.6141159,
+   "river": "Cổ Chiên (cửa Cổ Chiên)",
+   "approximate": true,
+   "source": {
+    "title": "OpenStreetMap Nominatim, place 'Xã Thạnh Phong, Vĩnh Long'",
+    "url": "https://nominatim.openstreetmap.org/search?format=json&countrycodes=vn&q=X%C3%A3+Th%E1%BA%A1nh+Phong%2C+V%C4%A9nh+Long"
+   }
+  },
+  "Cát Lái": {
+   "lat": 10.7698786,
+   "lon": 106.7746914,
+   "river": "Sài Gòn",
+   "approximate": true,
+   "source": {
+    "title": "OpenStreetMap Nominatim, place 'Cát Lái, Thành phố Hồ Chí Minh'",
+    "url": "https://nominatim.openstreetmap.org/search?format=json&countrycodes=vn&q=C%C3%A1t+L%C3%A1i%2C+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh"
+   }
+  },
+  "Cầu Quan": {
+   "lat": 9.7677999,
+   "lon": 106.1279465,
+   "river": "Hậu (cửa Định An)",
+   "approximate": true,
+   "source": {
+    "title": "OpenStreetMap Nominatim, place 'Cầu Quan Trà Vinh'",
+    "url": "https://nominatim.openstreetmap.org/search?format=json&countrycodes=vn&q=C%E1%BA%A7u+Quan+Tr%C3%A0+Vinh"
+   }
+  },
+  "Gành Hào": {
+   "lat": 9.0314557,
+   "lon": 105.4196446,
+   "river": "Gành Hào",
+   "approximate": true,
+   "source": {
+    "title": "OpenStreetMap Nominatim, place 'Trạm thủy văn Gành Hào'",
+    "url": "https://nominatim.openstreetmap.org/search?format=json&countrycodes=vn&q=Tr%E1%BA%A1m+th%E1%BB%A7y+v%C4%83n+G%C3%A0nh+H%C3%A0o"
+   }
+  },
+  "Gò Quao": {
+   "lat": 9.7280636,
+   "lon": 105.2766391,
+   "river": "Cái Lớn",
+   "approximate": true,
+   "source": {
+    "title": "OpenStreetMap Nominatim, place 'Gò Quao'",
+    "url": "https://nominatim.openstreetmap.org/search?format=json&countrycodes=vn&q=G%C3%B2+Quao"
+   }
+  },
+  "Hòa Bình": {
+   "lat": 10.2874851,
+   "lon": 106.6037671,
+   "river": "Cửa Tiểu",
+   "approximate": true,
+   "source": {
+    "title": "OpenStreetMap Nominatim, place 'Hoà Bình Cửa Tiểu'",
+    "url": "https://nominatim.openstreetmap.org/search?format=json&countrycodes=vn&q=Ho%C3%A0+B%C3%ACnh+C%E1%BB%ADa+Ti%E1%BB%83u"
+   }
+  },
+  "Hưng Mỹ": {
+   "lat": 9.9134849,
+   "lon": 106.3880231,
+   "river": "Cổ Chiên (cửa Cung Hầu)",
+   "approximate": true,
+   "source": {
+    "title": "OpenStreetMap Nominatim, place 'Hưng Mỹ'",
+    "url": "https://nominatim.openstreetmap.org/search?format=json&countrycodes=vn&q=H%C6%B0ng+M%E1%BB%B9&viewbox=106.1%2C10.0%2C106.5%2C9.6&bounded=1"
+   }
+  },
+  "Hương Mỹ": {
+   "lat": 10.0163285,
+   "lon": 106.3998739,
+   "river": "Cổ Chiên (cửa Cổ Chiên)",
+   "approximate": true,
+   "source": {
+    "title": "OpenStreetMap Nominatim, place 'Hương Mỹ'",
+    "url": "https://nominatim.openstreetmap.org/search?format=json&countrycodes=vn&q=H%C6%B0%C6%A1ng+M%E1%BB%B9"
+   }
+  },
+  "Long Phú": {
+   "lat": 9.6086221,
+   "lon": 106.1256345,
+   "river": "Hậu (cửa Trần Đề)",
+   "approximate": true,
+   "source": {
+    "title": "OpenStreetMap Nominatim, place 'Long Phú Cần Thơ'",
+    "url": "https://nominatim.openstreetmap.org/search?format=json&countrycodes=vn&q=Long+Ph%C3%BA+C%E1%BA%A7n+Th%C6%A1"
+   }
+  },
+  "Lộc Thuận": {
+   "lat": 10.2196558,
+   "lon": 106.5855899,
+   "river": "Cửa Đại",
+   "approximate": true,
+   "source": {
+    "title": "OpenStreetMap Nominatim, place 'Lộc Thuận'",
+    "url": "https://nominatim.openstreetmap.org/search?format=json&countrycodes=vn&q=L%E1%BB%99c+Thu%E1%BA%ADn"
+   }
+  },
+  "Rạch Giá": {
+   "lat": 10.0107104,
+   "lon": 105.0832623,
+   "river": "Kiên",
+   "approximate": true,
+   "source": {
+    "title": "OpenStreetMap Nominatim, place 'Rạch Giá'",
+    "url": "https://nominatim.openstreetmap.org/search?format=json&countrycodes=vn&q=R%E1%BA%A1ch+Gi%C3%A1"
+   }
+  },
+  "Sóc Trăng": {
+   "lat": 9.6065754,
+   "lon": 105.9914705,
+   "river": "K. Maspero",
+   "approximate": true,
+   "source": {
+    "title": "OpenStreetMap Nominatim, place 'Maspero'",
+    "url": "https://nominatim.openstreetmap.org/search?format=json&countrycodes=vn&q=Maspero&viewbox=105.8%2C9.7%2C106.1%2C9.5&bounded=1"
+   }
+  },
+  "Sông Đốc": {
+   "lat": 9.0413405,
+   "lon": 104.8331442,
+   "river": "Sông Đốc",
+   "approximate": true,
+   "source": {
+    "title": "OpenStreetMap Nominatim, place 'Trạm thủy văn Sông Đốc'",
+    "url": "https://nominatim.openstreetmap.org/search?format=json&countrycodes=vn&q=Tr%E1%BA%A1m+th%E1%BB%A7y+v%C4%83n+S%C3%B4ng+%C4%90%E1%BB%91c"
+   }
+  },
+  "Sơn Đốc": {
+   "lat": 10.0861225,
+   "lon": 106.4869374,
+   "river": "Hàm Luông",
+   "approximate": true,
+   "source": {
+    "title": "OpenStreetMap Nominatim, place 'Sơn Đốc'",
+    "url": "https://nominatim.openstreetmap.org/search?format=json&countrycodes=vn&q=S%C6%A1n+%C4%90%E1%BB%91c"
+   }
+  },
+  "Thạnh Phú": {
+   "lat": 9.5023433,
+   "lon": 105.8509572,
+   "river": "K. Như Gia",
+   "approximate": true,
+   "source": {
+    "title": "OpenStreetMap Nominatim, place 'Thạnh Phú'",
+    "url": "https://nominatim.openstreetmap.org/search?format=json&countrycodes=vn&q=Th%E1%BA%A1nh+Ph%C3%BA&viewbox=105.8%2C9.7%2C106.2%2C9.4&bounded=1"
+   }
+  },
+  "Trà Kha": {
+   "lat": 9.6308801,
+   "lon": 106.2551146,
+   "river": "Hậu (cửa Định An)",
+   "approximate": true,
+   "source": {
+    "title": "OpenStreetMap Nominatim, place 'Trà Kha'",
+    "url": "https://nominatim.openstreetmap.org/search?format=json&countrycodes=vn&q=Tr%C3%A0+Kha&viewbox=105.9%2C9.9%2C106.6%2C9.3&bounded=1"
+   }
+  },
+  "Trà Vinh": {
+   "lat": 9.9357041,
+   "lon": 106.3416458,
+   "river": "Cổ Chiên (cửa Cung Hầu)",
+   "approximate": true,
+   "source": {
+    "title": "OpenStreetMap Nominatim, place 'Trà Vinh'",
+    "url": "https://nominatim.openstreetmap.org/search?format=json&countrycodes=vn&q=Tr%C3%A0+Vinh"
+   }
+  },
+  "Trần Đề": {
+   "lat": 9.523897,
+   "lon": 106.2027891,
+   "river": "Hậu",
+   "approximate": true,
+   "source": {
+    "title": "OpenStreetMap Nominatim, place 'Trạm thủy văn Trần Đề'",
+    "url": "https://nominatim.openstreetmap.org/search?format=json&countrycodes=vn&q=Tr%E1%BA%A1m+th%E1%BB%A7y+v%C4%83n+Tr%E1%BA%A7n+%C4%90%E1%BB%81"
+   }
+  },
+  "Tuyên Nhơn": {
+   "lat": 10.6591583,
+   "lon": 106.1907254,
+   "river": "Vàm Cỏ Tây",
+   "approximate": true,
+   "source": {
+    "title": "OpenStreetMap Nominatim, place 'Tuyên Nhơn'",
+    "url": "https://nominatim.openstreetmap.org/search?format=json&countrycodes=vn&q=Tuy%C3%AAn+Nh%C6%A1n"
+   }
+  },
+  "Tân An": {
+   "lat": 10.5509385,
+   "lon": 106.3746422,
+   "river": "Vàm Cỏ Tây",
+   "approximate": true,
+   "source": {
+    "title": "OpenStreetMap Nominatim, place 'Trạm thủy văn Tân An'",
+    "url": "https://nominatim.openstreetmap.org/search?format=json&countrycodes=vn&q=Tr%E1%BA%A1m+th%E1%BB%A7y+v%C4%83n+T%C3%A2n+An"
+   }
+  },
+  "Vàm Kênh": {
+   "lat": 10.2752937,
+   "lon": 106.7377656,
+   "river": "Cửa Tiểu",
+   "approximate": true,
+   "source": {
+    "title": "OpenStreetMap Nominatim, place 'Vàm Kênh Đồng Tháp'",
+    "url": "https://nominatim.openstreetmap.org/search?format=json&countrycodes=vn&q=V%C3%A0m+K%C3%AAnh+%C4%90%E1%BB%93ng+Th%C3%A1p"
+   }
+  },
+  "Xuân Khánh": {
+   "lat": 10.8306466,
+   "lon": 106.3929143,
+   "river": "Vàm Cỏ Đông",
+   "approximate": true,
+   "source": {
+    "title": "OpenStreetMap Nominatim, place 'Xuân Khánh'",
+    "url": "https://nominatim.openstreetmap.org/search?format=json&countrycodes=vn&q=Xu%C3%A2n+Kh%C3%A1nh"
+   }
+  },
+  "Đại Ngãi": {
+   "lat": 9.7344716,
+   "lon": 106.073944,
+   "river": "Hậu (cửa Tranh Đề)",
+   "approximate": true,
+   "source": {
+    "title": "OpenStreetMap Nominatim, place 'Trạm thủy văn Đại Ngãi'",
+    "url": "https://nominatim.openstreetmap.org/search?format=json&countrycodes=vn&q=Tr%E1%BA%A1m+th%E1%BB%A7y+v%C4%83n+%C4%90%E1%BA%A1i+Ng%C3%A3i"
+   }
+  }
+ }
+}
