@@ -873,6 +873,19 @@ def test_out_of_scope_station():
     assert long_an["salinity"]["station"] == "Tân An"   # its own nearest station, never Cát Lái
 
 
+def test_map_box():
+    """vn.js MAIN (the map's home view and colour layer) fits the outlines: all inside, at most 0.3° to spare per side."""
+    import make_outlines as mo
+    js = (build.ROOT / "docs" / "app" / "vn.js").read_text(encoding="utf-8")
+    box = {k: float(v) for k, v in re.findall(r"\b([wesn]): ([\d.]+)", re.search(r"const MAIN = \{[^}]*\}", js).group(0))}
+    text = (build.ROOT / "docs" / "app" / "vn_geo.js").read_text(encoding="utf-8")
+    g = json.loads(text[text.index("{"):text.rindex("}") + 1])
+    pts = [pt for rs in g["province"].values() for r in rs for pt in mo.ring_pts(g["arcs"], r)]
+    ext = {"w": min(x for x, _ in pts), "e": max(x for x, _ in pts), "s": min(y for _, y in pts), "n": max(y for _, y in pts)}
+    assert box["w"] <= ext["w"] and box["s"] <= ext["s"] and box["e"] >= ext["e"] and box["n"] >= ext["n"], (box, ext)
+    assert all(abs(box[k] - ext[k]) <= 0.3 for k in box), (box, ext)
+
+
 def test_outlines():
     """docs/app/vn_geo.js: 14 former + 6 joined provinces, and every pin inside its own outline."""
     import make_outlines as mo
