@@ -1054,6 +1054,14 @@ def test_kttv_stations_export():
                 assert {f: sal[f] for f in ("level", "max_ppt", "months", "monthly")} == st[sal["station"]][k], (x["id"], k)
 
 
+def test_salt_lower_bound():
+    # Khánh Hòa 2026: one reading (14‰, mid-April) counted as 'at least', not a peak; the paper's own Table 2 check is untouched
+    typ, _ = build.site_salinity(json.loads((build.HERE / "salinity.json").read_text(encoding="utf-8"))["sites"]["vinh_chau"])
+    assert build.table_rows("khanh_hoa")["2026"] == [14.0, 4] and "2026" not in json.loads((build.RAW / "salinity_stations.json").read_text(encoding="utf-8"))["stations"]["khanh_hoa"]["yearly_max"]
+    assert typ["last_year"] == 2022  # a lower bound is not a published peak: the 'no reading after 2022' confidence drop stays
+    assert "at least 14.0‰" in typ["note"]["en"] and "ít nhất 14,0‰" in typ["note"]["vi"] and "baocantho" not in typ["note"]["en"]
+
+
 def test_builder_salt_sync():
     """docs/app/builder.js BUILDER.sites (plan builder, lab.js) carries each pin's salinity as in sites.json."""
     text = (build.ROOT / "docs" / "app" / "builder.js").read_text(encoding="utf-8")

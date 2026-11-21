@@ -1,5 +1,5 @@
 {
- "_readme": "Highest salinity of each dry season (‰) and the month it happened, measured at river and canal stations in former Sóc Trăng province (now Cần Thơ city), 1999-2025. Typed from Table 4 of the source below; data from the Sóc Trăng (now Cần Thơ) provincial hydro-meteorological station. Salinity at a river or canal station, not in fields. test_build.py checks the typing against the paper's own Table 2 (count, min, max, mean per station). 2026 rows: added by hand only when a station's 2026 KTTV bulletins (data/raw/salinity_kttv_vietnam.json) include a February and a March reading, so the season's peak is not missed. Checked Nov 2026 for Trần Đề, Long Phú, Đại Ngãi, Thạnh Phú and Sóc Trăng: the 2026 bulletins start on 2026-03-10, so no 2026 row was added.",
+ "_readme": "Highest salinity of each dry season (‰) and the month it happened, measured at river and canal stations in former Sóc Trăng province (now Cần Thơ city), 1999-2025. Typed from Table 4 of the source below; data from the Sóc Trăng (now Cần Thơ) provincial hydro-meteorological station. Salinity at a river or canal station, not in fields. test_build.py checks the typing against the paper's own Table 2 (count, min, max, mean per station). 2026 rows: added by hand only when a station's 2026 KTTV bulletins (data/raw/salinity_kttv_vietnam.json) include a February and a March reading, so the season's peak is not missed. Checked Nov 2026 for Trần Đề, Long Phú, Đại Ngãi, Thạnh Phú and Sóc Trăng: the 2026 bulletins start on 2026-03-10, so no 2026 row was added. lower_bound: a season with no published peak but a measured reading, entered as 'at least' that reading and counted like a peak (so it can only understate the season). Khánh Hòa 2026: 14‰ measured about 15-16 Apr 2026 while salt was still rising (Cần Thơ city hydro-meteorological station, via Báo Cần Thơ).",
  "source": {
   "title": "Nguyễn Trọng Khanh et al. (2025), Phân tích xu thế xâm nhập mặn trên hệ thống sông, kênh Tỉnh Sóc Trăng (cũ) bằng phương pháp kiểm nghiệm phi tham số, Tạp chí Khoa học Biến đổi khí hậu 36, Table 4",
   "url": "https://vjol.info.vn/TCKHBDKH/article/view/121694"
@@ -669,6 +669,19 @@
      17.4,
      2
     ]
+   },
+   "lower_bound": {
+    "2026": {
+     "ppt": 14.0,
+     "month": 4,
+     "date": "about 15-16 Apr 2026",
+     "quote_vi": "Trên sông Mỹ Thanh tại Khánh Hòa 14‰, Thạnh Phú 0,6‰, Sóc Trăng 0,7‰.",
+     "gloss_en": "On the Mỹ Thanh river at Khánh Hòa, 14‰ (the highest salinity currently measured), as salt rose ahead of the mid-April spring tide; not the season's peak.",
+     "source": {
+      "title": "Báo Cần Thơ (16 Apr 2026), citing the Cần Thơ city hydro-meteorological station: 'Độ mặn lên cao sớm hơn 2 ngày so với kỳ triều cường đầu tháng 3 âm lịch'",
+      "url": "https://baocantho.com.vn/do-man-len-cao-som-hon-2-ngay-so-voi-ky-trieu-cuong-dau-thang-3-am-lich-a202241.html"
+     }
+    }
    }
   },
   "nga_nam": {
