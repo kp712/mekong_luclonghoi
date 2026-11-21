@@ -477,7 +477,7 @@ const MapView = typeof L === "undefined" ? {} : (() => {
     if (typeof NITROGEN !== "undefined") setNitrogen(NITROGEN.points);
 
     /* one map for the area: zoom out from the Sóc Trăng areas to the Mekong Delta + Tây Ninh (vn.js) */
-    const maxB = L.latLngBounds([6, 100], [14.5, 110]);
+    const A = SITES_JSON.bounds, maxB = L.latLngBounds([A.s - 2.5, A.w - 2.5], [A.n + 2.5, A.e + 2.5]);  // room to centre an area beside the panels
     map = L.map(el, {
       zoomControl: false, attributionControl: true, minZoom: 6, maxZoom: 13.5,
       /* smooth zoom: fine snapping for pinch and wheel, a slower wheel, and no zooming far past the sharpest tiles (z12) */

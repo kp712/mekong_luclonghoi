@@ -4,7 +4,7 @@
 (() => {
   const $ = (s) => document.querySelector(s);
   const T = { btn: { vi: "ĐBSCL", en: "Mekong Delta" }, link: { vi: "Bản đồ ĐBSCL", en: "Mekong Delta map" },
-    title: { vi: "Xem Đồng bằng sông Cửu Long và Tây Ninh: 6 tỉnh trên cùng bản đồ", en: "See the Mekong Delta and Tây Ninh: 6 provinces on the same map" } };
+    title: { vi: "Xem Đồng bằng sông Cửu Long và Tây Ninh trên cùng bản đồ", en: "See the Mekong Delta and Tây Ninh on the same map" } };
   const lang = () => (window.App && App.lang ? App.lang() : "vi");
   const L = (o) => o[lang()] || o.vi;
   const ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 3.5 6v14L9 18l6 2 5.5-2V4L15 6 9 4z"/><path d="M9 4v14M15 6v14"/></svg>';

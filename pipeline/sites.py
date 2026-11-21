@@ -68,7 +68,6 @@ for _pr in PROVINCES:
 
 # Rotation cards are scored only where the rotations and profit figures come from (all published in the Mekong Delta).
 SCORED_REGIONS = ("mekong_delta",)
-OUT_OF_SCOPE_STATIONS = ("Cát Lái",)  # KTTV bulletin stations outside the 6 provinces (TP. Hồ Chí Minh)
 SCORED_PLACES = ("long_an",)  # former Long An (now in Tây Ninh, Southeast) is Mekong Delta rice land with salt data
 
 

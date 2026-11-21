@@ -747,7 +747,7 @@ def test_climate_pest_inputs():
 
 def test_provinces_table():
     import sites
-    # the 6 southern provinces the app covers (of 34 since 1 Jul 2025), each former province exactly once (14)
+    # THE scope check (edit here when the area changes): the 6 southern provinces of 34 since 1 Jul 2025, 14 former provinces once each
     ids = [p["id"] for p in sites.PROVINCES]
     former = [f["id"] for p in sites.PROVINCES for f in p["former"]]
     assert len(ids) == len(set(ids)) == 6 and len(former) == len(set(former)) == 14, (len(ids), len(former))
@@ -760,7 +760,7 @@ def test_provinces_table():
         assert 8 < p["lat"] < 24 and 102 < p["lon"] < 110 and all(8 < f["lat"] < 24 and 102 < f["lon"] < 110 for f in p["former"]), p["id"]
     assert next(p for p in sites.PROVINCES if p["id"] == "can_tho")["areas"] == [s["id"] for s in sites.SITES]  # former Sóc Trăng
     pts = [x["id"] for x in sites.points()]
-    assert len(pts) == len(set(pts)) == 5 + 14 and set(former) <= set(pts)
+    assert len(pts) == len(set(pts)) == len(sites.SITES) + len(former) and set(former) <= set(pts)
 
 
 def test_province_helpers():
@@ -833,7 +833,7 @@ def test_provinces_output():
     assert sum(p["scored"] for p in d["provinces"]) == 5
     # every one of the 14 province points has its own model
     places = d["places"]
-    assert [x["id"] for x in places] == [f["id"] for p in sites.PROVINCES for f in p["former"]] and len(places) == 14
+    assert [x["id"] for x in places] == [f["id"] for p in sites.PROVINCES for f in p["former"]]
     region = {p["id"]: p["region"] for p in sites.PROVINCES}
     for x in places:
         assert x["region"] == region[x["province"]] and x["own"] == (x["id"] == x["province"]), x["id"]
@@ -861,33 +861,31 @@ def test_provinces_output():
     assert [s["id"] for s in d["pins"]] == list(app) and d["salt_src"]
     for s in d["pins"]:
         assert s["salt"]["estimate"] is True and s["salt"]["max_ppt"] == app[s["id"]]["salinity"]["max_ppt"] and s["salt"]["level"] == app[s["id"]]["salinity"]["level"]
-    assert sum(x["own"] for x in places) == 6 and sum(x["scored"] for x in places) == 13  # Mekong Delta 2+2+3+3+2, plus Long An
+    assert sum(x["own"] for x in places) == len(sites.PROVINCES)
     long_an, tay_ninh = (next(x for x in places if x["id"] == i) for i in ("long_an", "tay_ninh"))
     assert long_an["scored"] and long_an["cards"] and not tay_ninh["scored"] and not tay_ninh["cards"]
 
 
-def test_out_of_scope_station():
+def test_long_an_station():
     d = json.loads(build.PROV_OUT.read_text(encoding="utf-8"))
-    assert "Cát Lái" not in {s["name"] for s in d["stations"]}
     long_an = next(x for x in d["places"] if x["id"] == "long_an")
-    assert long_an["salinity"]["station"] == "Tân An"   # its own nearest station, never Cát Lái
+    assert long_an["salinity"]["station"] == "Tân An"   # its own nearest station, never Cát Lái (outside the area)
 
 
-def test_map_box():
-    """vn.js MAIN (the map's home view and colour layer) fits the outlines: all inside, at most 0.3° to spare per side."""
-    import make_outlines as mo
-    js = (build.ROOT / "docs" / "app" / "vn.js").read_text(encoding="utf-8")
-    box = {k: float(v) for k, v in re.findall(r"\b([wesn]): ([\d.]+)", re.search(r"const MAIN = \{[^}]*\}", js).group(0))}
-    text = (build.ROOT / "docs" / "app" / "vn_geo.js").read_text(encoding="utf-8")
-    g = json.loads(text[text.index("{"):text.rindex("}") + 1])
-    pts = [pt for rs in g["province"].values() for r in rs for pt in mo.ring_pts(g["arcs"], r)]
-    ext = {"w": min(x for x, _ in pts), "e": max(x for x, _ in pts), "s": min(y for _, y in pts), "n": max(y for _, y in pts)}
+def test_area():
+    """The app's area comes from sites.PROVINCES alone: sites.json bounds fit the outlines (at most 0.3° to spare per side),
+    and the salinity stations are the bulletin stations inside the outlines (Cát Lái, TP. Hồ Chí Minh, is not)."""
+    rings = build.area_rings()
+    box = json.loads(build.OUT.read_text(encoding="utf-8"))["bounds"]
+    ext = {"w": min(x for r in rings for x, _ in r), "e": max(x for r in rings for x, _ in r),
+           "s": min(y for r in rings for _, y in r), "n": max(y for r in rings for _, y in r)}
     assert box["w"] <= ext["w"] and box["s"] <= ext["s"] and box["e"] >= ext["e"] and box["n"] >= ext["n"], (box, ext)
     assert all(abs(box[k] - ext[k]) <= 0.3 for k in box), (box, ext)
+    assert "Cát Lái" not in build.bulletin_stations() and "Tân An" in build.bulletin_stations()
 
 
 def test_no_orphans():
-    """data/raw and the offline tiles hold only what the app's area needs (sites.points(), vn.js MAIN)."""
+    """data/raw and the offline tiles hold only what the app's area needs (sites.points(), sites.json bounds)."""
     import math
     import sites
     ids = {p["id"] for p in sites.points()}
@@ -899,8 +897,7 @@ def test_no_orphans():
     base = build.ROOT / "docs" / tiles["path"] / "sat"
     on_disk = {str(f.relative_to(base).with_suffix("")) for f in base.rglob("*.jpg")}
     assert set(tiles["sat"]) == on_disk
-    box = {k: float(v) for k, v in re.findall(r"\b([wesn]): ([\d.]+)", re.search(r"const MAIN = \{[^}]*\}",
-           (build.ROOT / "docs" / "app" / "vn.js").read_text(encoding="utf-8")).group(0))}
+    box = json.loads(build.OUT.read_text(encoding="utf-8"))["bounds"]
     lat = lambda y, n: math.degrees(math.atan(math.sinh(math.pi * (1 - 2 * y / n))))
     for t in tiles["sat"]:
         z, x, y = map(int, t.split("/")); n = 2 ** z
@@ -908,14 +905,14 @@ def test_no_orphans():
 
 
 def test_outlines():
-    """docs/app/vn_geo.js: 14 former + 6 joined provinces, and every pin inside its own outline."""
+    """docs/app/vn_geo.js: the former and joined provinces of sites.PROVINCES, and every pin inside its own outline."""
     import make_outlines as mo
     import sites
     text = (build.ROOT / "docs" / "app" / "vn_geo.js").read_text(encoding="utf-8")
     g = json.loads(text[text.index("{"):text.rindex("}") + 1])
     rings = lambda rs: [mo.ring_pts(g["arcs"], r) for r in rs]
     assert set(g["province"]) == {p["id"] for p in sites.PROVINCES}
-    assert set(g["former"]) == {f["id"] for p in sites.PROVINCES for f in p["former"]} and len(g["former"]) == 14
+    assert set(g["former"]) == {f["id"] for p in sites.PROVINCES for f in p["former"]}
     for p in sites.PROVINCES:
         for f in p["former"]:
             assert mo.inside(f["lon"], f["lat"], rings(g["former"][f["id"]])), f["id"]
@@ -1104,7 +1101,7 @@ def test_kttv_stations_export():
     """provinces.json stations: every bulletin station, each view it has a season for, by the same rules as the points."""
     d = json.loads(build.PROV_OUT.read_text(encoding="utf-8"))
     st = {s["name"]: s for s in d["stations"]}
-    assert set(st) == {n for b in kttv_raw().values() for n in b["readings"]} - set(build.OUT_OF_SCOPE_STATIONS)
+    assert set(st) == set(build.bulletin_stations())
     assert sum("typical" in s for s in st.values()) >= 20 and sum("elnino" in s for s in st.values()) >= 20
     for n, s in st.items():
         assert set(s) <= {"name", "lat", "lon", "typical", "elnino"} and ("typical" in s or "elnino" in s), n
