@@ -19,6 +19,10 @@
 - **Góp ý, báo lỗi, hỏi đáp:** [github.com/kp712/mekong_luclonghoi/issues](https://github.com/kp712/mekong_luclonghoi/issues).
 - **Được dùng và chia sẻ tự do,** kể cả làm tài liệu tập huấn: mã nguồn MIT, nội dung CC BY 4.0, chỉ cần ghi nguồn ([chi tiết](LICENSE-CONTENT.md)).
 
+**Cách mở ứng dụng**
+1. **Trên web (dễ nhất):** mở **https://kp712.github.io/mekong_luclonghoi/** bằng trình duyệt trên điện thoại hoặc máy tính. Không cần cài đặt hay đăng nhập.
+2. **Trên máy tính của mình** (khi muốn có bản riêng): cài Python 3.10 trở lên từ python.org, tải mã nguồn (nút **Code → Download ZIP** trên trang GitHub) rồi giải nén. Mở PowerShell trong thư mục vừa giải nén, gõ `py -m http.server 8000 -d docs`, rồi mở **http://localhost:8000**. Hướng dẫn từng bước (tiếng Anh): [How to open the app](#how-to-open-the-app).
+
 <a id="english"></a>
 ## English
 
@@ -78,27 +82,22 @@ Details and numbers: [SOURCES.md](SOURCES.md#how-we-checked-it).
 
 Full list: [SOURCES.md](SOURCES.md#limitations-in-full).
 
-### Run it yourself
-The app is a static site with no build step. With Python 3.10 or newer, from the project folder:
+### How to open the app
+**1. On the web (easiest).** Open **https://kp712.github.io/mekong_luclonghoi/** in any browser, on a phone or a computer. Nothing to install, no login.
+
+**2. On your own computer.** Use this to keep your own copy or try changes. The app is a static site with no build step. With Python 3.10 or newer, from the project folder:
 ```
 python -m http.server 8000 -d docs
 ```
-then open http://localhost:8000. Step-by-step Windows instructions, and how to refresh the NASA data: [below](#run-the-app-on-your-windows-computer).
+then open http://localhost:8000.
 
-### Origin
-The app started as the team Lục Long Hội's entry to the NASA Space Apps Challenge 2026. The data pipeline (`pipeline/`) is Python and writes `docs/data/sites.json`, the one file the app reads.
-
-### Methods and data
-The full working behind the sections above (where every number comes from, how each score is computed, the published figures, how we checked it, how to add an area, and the limitations in full) is in [SOURCES.md](SOURCES.md).
-
-## Run the app on your Windows computer
-<details><summary>Show the step-by-step guide and how teammates update the data</summary>
+<details><summary>Show the step-by-step guide for Windows</summary>
 
 No coding experience needed. The first time takes about 10 minutes, and after that about 1 minute. You need a Windows computer that is **connected to the internet** (the map and the chart load from the internet), plus the free program Python.
 
 > **Why not just double-click `index.html`?** The app reads its data from a file, and web browsers block that when a page is opened straight from your disk. You'll get an empty page. Step 3 starts a tiny "web server" on your own computer, built into Python, so the browser is allowed to read the file. Nothing is sent anywhere.
 
-### Step 1: Install Python (one time only)
+#### Step 1: Install Python (one time only)
 1. Go to **https://www.python.org/downloads/** and click the yellow **Download Python** button.
 2. Open the file you downloaded (it is in your **Downloads** folder).
 3. If the first screen shows a box called **Add python.exe to PATH**, tick it. Then click **Install Now** and wait until it says the setup was successful.
@@ -111,13 +110,13 @@ No coding experience needed. The first time takes about 10 minutes, and after th
    - You should see something like `Python 3.13.1`. Use Python 3.10 or newer to run both the app server and the data checks.
    - If you see **"py is not recognized"**, type `python --version` instead. If that shows a version, use `python` wherever this guide says `py`. If neither works, see **If something goes wrong** below.
 
-### Step 2: Download the app (one time only)
+#### Step 2: Download the app (one time only)
 1. Open **https://github.com/kp712/mekong_luclonghoi** in your browser.
 2. Click the green **Code** button, then **Download ZIP**.
 3. Open your **Downloads** folder, right-click **mekong_luclonghoi-main.zip** and choose **Extract All…**, then **Extract**.
 4. Open the new **mekong_luclonghoi-main** folder. If it only contains another **mekong_luclonghoi-main** folder, open that one too. You are in the right place when you can see the folders **docs**, **pipeline** and **data**, and the file **README.md**.
 
-### Step 3: Start the app (every time you want to use it)
+#### Step 3: Start the app (every time you want to use it)
 1. In that folder, click once in the **address bar** at the top of the File Explorer window (where the folder path is shown), type `powershell` and press **Enter**. A PowerShell window opens, already "inside" the app folder. On Windows 11 you can also right-click an empty space in the folder and choose **Open in Terminal**.
 2. Type this line exactly and press **Enter**:
    ```
@@ -127,13 +126,13 @@ No coding experience needed. The first time takes about 10 minutes, and after th
    - If Windows asks whether to allow Python through the firewall, you can click **Cancel**. The app still works on this computer.
 4. Open your web browser (Edge or Chrome) and go to **http://localhost:8000**.
 
-### Step 4: Use it
+#### Step 4: Use it
 Click **Try a sample field**, or **Create a field** to pick your area on the map and plan your own. **What it does** (above) explains each part. The **EN / VI** switch at the top right changes the whole app's language.
 
-### Step 5: Stop the app
+#### Step 5: Stop the app
 Click on the PowerShell window and press **Ctrl** + **C**, then close the window. Next time, start again from **Step 3**. You don't need to repeat Steps 1 and 2.
 
-### If something goes wrong
+#### If something goes wrong
 
 | What you see | What to do |
 |---|---|
@@ -144,14 +143,12 @@ Click on the PowerShell window and press **Ctrl** + **C**, then close the window
 | The page is empty, or shows no map or chart | Check the internet connection, then press **Ctrl** + **F5** to reload. Make sure the address starts with **http://localhost**, not `file://`. |
 | You downloaded a newer version but still see the old one | Press **Ctrl** + **F5** in the browser to reload without the old saved copy. |
 
-### Put it online (GitHub Pages)
-To give everyone a normal web link instead of running it yourself, a person with admin rights to the GitHub project can:
-1. Go to the project on GitHub, then **Settings → Pages**.
-2. Under **Build and deployment**, set **Source** to **Deploy from a branch**, **Branch** to **main**, and the folder to **/docs**, then click **Save**.
-3. After a few minutes the app is at **https://kp712.github.io/mekong_luclonghoi/**. Free GitHub accounts can only do this for public projects.
+</details>
 
-### For teammates: updating the data
-You don't need this to use the app. The data in the download is already complete. Run these from the project folder in PowerShell (Step 3, point 1), one line at a time:
+### Updating the data
+<details><summary>Show the commands (for the project team; not needed to use the app)</summary>
+
+You don't need this to use the app. The data in the download is already complete. Run these from the project folder in PowerShell (see Step 3, point 1 of the Windows guide), one line at a time:
 ```
 py pipeline/fetch_power.py      # NASA POWER rain + temperature, NOAA El Niño index + forecast -> data/raw/ (no login)
 py pipeline/appeears.py ndvi    # NASA MODIS greenness via AppEEARS (needs Earthdata login, see below; can take hours)
@@ -159,7 +156,7 @@ py pipeline/fetch_soil.py       # SoilGrids topsoil (slow website: if it stops, 
 py pipeline/fetch_gpm.py        # NASA GPM rain, the rain the app shows (needs Earthdata login, see below)
 py pipeline/fetch_salinity_vietnam.py  # KTTV 10-day salinity bulletins -> data/raw/salinity_kttv_vietnam.json (no login; writes nothing if any fetch fails or a bulletin on file would be lost)
 py pipeline/build.py            # combines everything into docs/data/ and docs/app/builder.js
-py pipeline/test_build.py       # expect 59 ok lines, the unknown-ID fixture warning, a rebuild message and any unverified sources
+py pipeline/test_build.py       # expect 60 ok lines, the unknown-ID fixture warning, a rebuild message and any unverified sources
 ```
 `build.py` also writes the Plan Lab's `docs/app/builder.js`; never edit it by hand. The tests and `build.py` need only Python's standard library. `fetch_salinity_vietnam.py` also needs `pdfplumber` to read the bulletin PDFs: run `py -m pip install pdfplumber` once, before the tests (they load that script).
 **NASA Earthdata login** (free account at https://urs.earthdata.nasa.gov; for `fetch_gpm.py` also approve **NASA GESDISC DATA ARCHIVE** under Applications → Authorized Apps). Type these two lines in the same PowerShell window before running `appeears.py` or `fetch_gpm.py`, with your own details between the quotes. They only last until you close the window:
@@ -184,4 +181,8 @@ NOAA publishes a new El Niño forecast on the 2nd Thursday of each month. To ref
 
 </details>
 
----
+### Origin
+The app started as the team Lục Long Hội's entry to the NASA Space Apps Challenge 2026. The data pipeline (`pipeline/`) is Python and writes `docs/data/sites.json`, the one file the app reads.
+
+### Methods and data
+The full working behind the sections above (where every number comes from, how each score is computed, the published figures, how we checked it, how to add an area, and the limitations in full) is in [SOURCES.md](SOURCES.md).
