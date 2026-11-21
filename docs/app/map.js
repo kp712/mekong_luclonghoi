@@ -1,5 +1,5 @@
 /* map.js: Leaflet map for the Sigma draft. Globals used: L (Leaflet 1.9.4), TILES (tiles.js).
-   Exposes: const MapView = { init, select, setLayer, home, focus, resize, labels, month, hover }. */
+   Exposes: const MapView = { init, select, home, focus, resize, labels, month, hover }. */
 /* Leaflet missing (CDN blocked or down): an empty MapView, so `typeof MapView` and the callers' feature checks
    keep working and the cards and plan still show without the map. A throwing initializer would leave the const uninitialised. */
 const MapView = typeof L === "undefined" ? {} : (() => {
@@ -9,10 +9,10 @@ const MapView = typeof L === "undefined" ? {} : (() => {
 
   const BBOX = { w: 105.40, e: 106.40, s: 9.12, n: 9.91 };
   const PAD = 0.6;   // bbox padding for maxBounds (0.25 was too tight to centre an area clear of the drawer / bottom sheet)
-  const LAYER_ZOOM = { sat: [9, 12], night: [6, 8] };
+  const LAYER_ZOOM = { sat: [9, 12] };
 
   let map, el, coordsEl, cb = {};
-  let sites = [], lang = "en", layerName = "sat", tileLayer = null, swapTimer = 0;
+  let sites = [], lang = "en", tileLayer = null;
   let cells = {};            // id -> { ring: [[lon,lat]...], poly, bounds }
   let pins = {};             // id -> { btn, label, marker, labelMarker }
   let selId = null, cellOver = null, pinOver = null, lastEmit = null;
@@ -177,10 +177,9 @@ const MapView = typeof L === "undefined" ? {} : (() => {
   /* tiles are image files listed in tiles.js; a Set per layer answers "do we have this tile?" */
   const HAVE = {};
   /* Outside the saved Sóc Trăng tiles (the whole-country view, vn.js) the same layers come from their servers:
-     Esri World Imagery (the saved tiles' source) and NASA GIBS VIIRS Black Marble 2016 (night, to zoom 8). */
+     Esri World Imagery, the saved tiles' source. */
   const ONLINE = {
-    sat: (z, x, y) => `https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/${z}/${y}/${x}`,
-    night: (z, x, y) => z <= 8 ? `https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/VIIRS_Black_Marble/default/2016-01-01/GoogleMapsCompatible_Level8/${z}/${y}/${x}.png` : null
+    sat: (z, x, y) => `https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/${z}/${y}/${x}`
   };
   const tileUrl = (name, key) => {
     const set = HAVE[name] || (HAVE[name] = new Set(TILES[name] || []));
@@ -221,7 +220,6 @@ const MapView = typeof L === "undefined" ? {} : (() => {
   }
   function setAttribution(name) {
     if (!map || !map.attributionControl) return;
-    ["sat", "night"].forEach((k) => map.attributionControl.removeAttribution(TILES.attribution[k]));
     map.attributionControl.addAttribution(TILES.attribution[name]);
   }
 
@@ -538,22 +536,7 @@ const MapView = typeof L === "undefined" ? {} : (() => {
   /* Light up an area from outside the map (e.g. a row in the side panel), without the hover card. */
   function hover(id) { if (map) paintHover(id || null); }
 
-  function setLayer(name) {
-    if (!map || (name !== "sat" && name !== "night") || name === layerName) return;
-    layerName = name;
-    const swap = () => {
-      if (tileLayer) map.removeLayer(tileLayer);
-      tileLayer = makeLayer(name).addTo(map);
-      tileLayer.bringToBack();
-      el.classList.remove("layer-sat", "layer-night");
-      el.classList.add("layer-" + name);
-      setAttribution(name);
-      el.classList.remove("sg-swap");
-    };
-    clearTimeout(swapTimer);
-    if (reduced()) swap();
-    else { el.classList.add("sg-swap"); swapTimer = setTimeout(swap, 200); }
-  }
+
 
   function home() {
     if (!map) return;
@@ -589,6 +572,6 @@ const MapView = typeof L === "undefined" ? {} : (() => {
     if (map) updateLabelVisibility();
   }
 
-  return { init, select, setLayer, home, focus, resize, labels, month, hover, setMonth, setMode, setNitrogen, get mode() { return mode; },
+  return { init, select, home, focus, resize, labels, month, hover, setMonth, setMode, setNitrogen, get mode() { return mode; },
     get leaflet() { return map; }, drawerPad };
 })();

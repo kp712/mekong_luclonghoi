@@ -45,7 +45,7 @@ def test_year_to_year_ranges():
     assert ndvi.bare_months(series) == [] and ndvi.bare_months(dict(series, **{"2022-01-01": 0.2, "2022-01-17": 0.2})) == [1]
     # rain: driest <= average <= wettest, every month, real NASA POWER file
     site = build.SITES[0]
-    c = build.climate(json.loads((build.RAW / f"power_{site['id']}.json").read_text(encoding="utf-8")), site["lat"])
+    c = build.climate(build.read_power(site["id"]), site["lat"])
     assert all(a <= m <= b for a, m, b in zip(c["rain_min_mm"], c["rain_mm"], c["rain_max_mm"])), c
 
 
@@ -56,12 +56,10 @@ def test_month_names():
 
 def test_elnino_year():
     site = next(s for s in build.SITES if s["id"] == "tran_de")
-    power = json.loads((build.RAW / "power_tran_de.json").read_text(encoding="utf-8"))
+    power = build.read_power("tran_de")
     assert build.ELNINO == [2002, 2004, 2006, 2009, 2014, 2015, 2018, 2019, 2023], build.ELNINO  # from NOAA's Dec-Feb index >= 0.5
     assert build.in_elnino(date(2015, 12, 1)) and build.in_elnino(date(2016, 11, 30)) and not build.in_elnino(date(2016, 12, 1))
     assert build.typical_year(date(2017, 6, 1)) and not build.typical_year(date(2016, 3, 1)) and not build.typical_year(date(2025, 3, 1))
-    i18n = (build.ROOT / "docs" / "i18n.js").read_text(encoding="utf-8")
-    assert i18n.count(build.SEASONS) == 2, "El Niño seasons in docs/i18n.js (EN + VI) must match build.ELNINO"
     gpm = json.loads((build.RAW / "gpm.json").read_text(encoding="utf-8"))["tran_de"]
     typ, eln = (build.climate(power, site["lat"], keep, gpm) for keep in (build.typical_year, build.in_elnino))
     assert typ["rain_mm"] != build.climate(power, site["lat"], build.typical_year)["rain_mm"]  # rain comes from GPM, not POWER
@@ -539,9 +537,9 @@ def test_seed_check():
 
 
 def test_score_labels():
-    i18n = (build.ROOT / "docs" / "i18n.js").read_text(encoding="utf-8")
-    assert 'salt: "Weather & salt safety"' in i18n and 'salt: "An toàn thời tiết & mặn"' in i18n
-    assert 'w_salt: "Lower weather & salt risk"' in i18n and 'w_salt: "Giảm rủi ro thời tiết & mặn"' in i18n
+    strs = (build.ROOT / "docs" / "app" / "strings.js").read_text(encoding="utf-8")
+    assert 'salt: "Weather & salt"' in strs and 'salt: "Thời tiết & mặn"' in strs
+    assert 'w_salt: "Lower weather & salt risk"' in strs and 'w_salt: "Giảm rủi ro thời tiết & mặn"' in strs
     for p in build.HERE.glob("*.py"):
         t = p.read_text(encoding="utf-8")
         assert 'if __name__ == "__main__":' not in t or 'reconfigure(encoding="utf-8")' in t, p.name

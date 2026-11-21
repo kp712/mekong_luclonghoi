@@ -23,7 +23,6 @@
 <link rel="stylesheet" href="app/lab.css">
 <link rel="stylesheet" href="app/draft5.css">
 <link rel="stylesheet" href="app/side.css">
-<link rel="stylesheet" href="app/home.css">
 <link rel="stylesheet" href="app/onboard.css">
 <link rel="stylesheet" href="app/cost.css">
 <link rel="stylesheet" href="app/mentor.css">
@@ -31,38 +30,7 @@
 <link rel="stylesheet" href="app/today.css">
 <link rel="stylesheet" href="app/vn.css">
 </head>
-<body class="dv-on"><!-- dv-on from the first paint: the dashboard (dash.js) is the start screen, so the old landing page never flashes -->
-<!-- ============ Home page (home.js fills it; shown on every load before the map) ============ -->
-<section id="home" aria-labelledby="hmTitle">
-  <div class="hm-hero">
-    <div class="hm-scene" id="hmArt" aria-hidden="true"></div>
-    <div class="hm-hero-in">
-      <header class="hm-top">
-        <p class="hm-brand">Mekong Rotation Explorer</p>
-        <div class="hm-lang" role="group" aria-label="Language">
-          <button type="button" data-hlang="vi" lang="vi" aria-pressed="true">VI</button>
-          <button type="button" data-hlang="en" lang="en" aria-pressed="false">EN</button>
-        </div>
-      </header>
-      <div class="hm-hero-text">
-        <p class="hm-hello" id="hmHello"></p>
-        <h1 id="hmTitle">Lịch luân canh cho ruộng của bạn</h1>
-        <p class="hm-lead" id="hmLead"></p>
-        <button type="button" class="hm-start" id="hmStart">Bắt đầu</button>
-        <div class="hm-fields" id="hmFields" hidden></div>
-      </div>
-    </div>
-    <svg class="hm-wave" viewBox="0 0 1600 60" preserveAspectRatio="none" aria-hidden="true"><path class="w1" d="M0 30 C200 10 400 50 600 30 S1000 10 1200 30 S1500 50 1600 26 V60 H0z"/><path class="w2" d="M0 42 C240 26 460 58 700 42 S1140 26 1360 42 S1540 54 1600 40 V60 H0z"/></svg>
-  </div>
-  <div class="hm-wrap">
-    <div class="hm-how">
-      <h2 class="hm-h" id="hmHow">Cách dùng</h2>
-      <ol class="hm-steps" id="hmSteps"></ol>
-    </div>
-    <div class="hm-cols">
-      <div class="hm-main">
-        <div class="hm-alert" id="hmAlert" role="note"></div>
-        <section class="hm-card" id="hmPrep" aria-labelledby="hmPrepH"></section>
+<body class="dv-on"><!-- dv-on from the first paint: the dashboard (dash.js) is the start screen -->
       </div>
       <div class="hm-side">
         <section class="hm-card" id="hmNow" aria-labelledby="hmNowH"></section>
@@ -92,10 +60,6 @@
 
 
   <div class="tools">
-    <div class="seg" id="layerSeg" role="group" aria-label="Map layer">
-      <button type="button" data-layer="sat" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.6 2.4 3.8 5.2 3.8 8.5s-1.2 6.1-3.8 8.5c-2.6-2.4-3.8-5.2-3.8-8.5S9.4 5.9 12 3.5z"/></svg><span class="lbl" data-t="layerSat">Satellite</span></button>
-      <button type="button" data-layer="night" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 14.5A8 8 0 0 1 9.5 4.5a8 8 0 1 0 10 10z"/></svg><span class="lbl" data-t="layerNight">Night (NASA)</span></button>
-    </div>
     <div class="seg" id="langSeg" role="group" aria-label="Language">
       <button type="button" id="lEn" aria-pressed="false" lang="en">EN</button>
       <button type="button" id="lVi" aria-pressed="true" lang="vi">VI</button>
@@ -122,7 +86,7 @@
   <p id="heroP" data-t="heroP">Rice, shrimp or upland crops, ranked for your area and your priorities, with NASA rain, heat and field-greenness data.</p>
   <div class="hero-act">
     <button type="button" id="heroCta" class="btn gold"><span data-t="heroCta">Choose your area on the map</span><svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-    <a id="judgeLink" href="#about" data-t="aboutLink">For judges: what this is and which NASA data it uses</a>
+    <a id="aboutLink" href="#about" data-t="aboutLink">About this app and the NASA data it uses</a>
   </div>
   <div class="hero-index">
     <span id="uiPickL" class="eyebrow" data-t="uiPickL">How much detail do you want?</span>
@@ -223,7 +187,7 @@
     <p class="ph">Plan popup with score</p>
   </div>
   <section id="aboutBox" class="m-part" aria-labelledby="aboutH" hidden>
-    <h2 id="aboutH" data-t="aboutH">About this project (for judges)</h2>
+    <h2 id="aboutH" data-t="aboutH">About this app</h2>
     <div id="aboutBody" class="about-grid"></div>
   </section>
   <section id="sourcesBox" class="m-part" aria-labelledby="sourcesH" hidden>
@@ -260,8 +224,6 @@
 <script type="text/x-after-data" data-src="app/side.js"></script>
 <script type="text/x-after-data" data-src="app/cost.js"></script>
 <script type="text/x-after-data" data-src="app/srcextra.js"></script>
-<script type="text/x-after-data" data-src="app/scene.js"></script>
-<script type="text/x-after-data" data-src="app/home.js"></script>
 <script type="text/x-after-data" data-src="app/onboard.js"></script>
 <script type="text/x-after-data" data-src="app/learn.js"></script>
 <script type="text/x-after-data" data-src="app/vn.js"></script>

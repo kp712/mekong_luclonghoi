@@ -16,7 +16,7 @@ server.listen(0, async () => {
   const b = await chromium.launch(); let bad = 0;
   for (const [name, opts] of [['desktop', { viewport: { width: 1440, height: 900 } }], ['phone', devices['iPhone 13']]]) {
     const ctx = await b.newContext({ ...opts, serviceWorkers: 'block' }); // block the SW so every run sees the files on disk
-    await ctx.addInitScript(() => { localStorage.setItem('d5-onb1', '1'); localStorage.setItem('d5-onb2', '1'); }); // skip onboarding
+    await ctx.addInitScript(() => { localStorage.setItem('mre-onb1', '1'); localStorage.setItem('mre-onb2', '1'); }); // skip onboarding
     const p = await ctx.newPage(), errs = [];
     p.on('pageerror', e => errs.push(e.message)); p.on('console', m => m.type() === 'error' && errs.push(m.text()));
     await p.goto(`http://localhost:${server.address().port}/${page}`); await p.waitForTimeout(4000);

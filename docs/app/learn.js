@@ -8,7 +8,7 @@
    Everything runs in the browser and is stored in localStorage; reports can be exported and merged by copy/paste
    so a team can pool them and refit (there is no server). Loss values are fractions 0..1 in the maths. */
 const Learn = (() => {
-  const KEY = "d7-reports";
+  const KEY = "mre-reports";
   const PRIOR_N = 4, MIN_N = 5, SD0 = 0.15, LAM_AREA = 6;
   const LOSS = { none: 0, little: 0.1, some: 0.3, most: 0.6 };   /* answers -> reported loss; a typed % overrides */
   const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));

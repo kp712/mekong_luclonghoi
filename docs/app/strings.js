@@ -48,7 +48,7 @@ bestNow: "Best match for you now", and: "and", bestWhy: x => `It scores well on 
 recSalt: n => `Your area usually has salt about ${n} months a year (an estimate, not satellite). If salt has hurt your crops before, move "Lower weather & salt risk" up.`,
 recTalk: "This is different from what you grow now. Talk it over with your local agricultural extension officer before you change.", seeAll: "See all options",
 looking: "Looking", chosenArea: "Your chosen area", tipChoose: "Click to choose this area", closeBig: "Close",
-aboutH: "About this project (for judges)", aboutLink: "For judges: what this is and which NASA data it uses",
+aboutH: "About this app", aboutLink: "About this app and the NASA data it uses",
 greetM: "Good morning", greetA: "Good afternoon", greetE: "Good evening",
 welcomeH: "Welcome, Mekong Delta farmers", welcomeP: "Add your fields, see what each month brings, compare crops and get a 12-month plan.",
 fieldsH: "My fields", addField: "Add a field", fName: "Field name", fArea: "Area", fNow: "Growing now", fSize: "Size in ha",
@@ -113,7 +113,7 @@ bestNow: "Hợp nhất với bạn lúc này", and: "và", bestWhy: x => `Lựa 
 recSalt: n => `Khu vực của bạn thường bị mặn khoảng ${n} tháng mỗi năm (ước tính, không phải từ vệ tinh). Nếu mặn từng làm hại cây trồng của bạn, hãy kéo "Giảm rủi ro thời tiết & mặn" lên cao hơn.`,
 recTalk: "Lựa chọn này khác với cách bạn đang làm. Hãy trao đổi với cán bộ khuyến nông địa phương trước khi thay đổi.", seeAll: "Xem tất cả lựa chọn",
 looking: "Đang xem", chosenArea: "Khu vực bạn đã chọn", tipChoose: "Bấm để chọn khu vực này", closeBig: "Đóng",
-aboutH: "Giới thiệu dự án (dành cho ban giám khảo)", aboutLink: "Dành cho ban giám khảo: dự án là gì và dùng dữ liệu NASA nào",
+aboutH: "Giới thiệu ứng dụng", aboutLink: "Giới thiệu ứng dụng và dữ liệu NASA được dùng",
 greetM: "Chào buổi sáng", greetA: "Chào buổi chiều", greetE: "Chào buổi tối",
 welcomeH: "Chào mừng bà con nông dân miền Tây", welcomeP: "Thêm ruộng của bạn, xem từng tháng ra sao, so sánh cây trồng và nhận kế hoạch 12 tháng.",
 fieldsH: "Ruộng của tôi", addField: "Thêm ruộng", fName: "Tên ruộng", fArea: "Khu vực", fNow: "Đang canh tác", fSize: "Diện tích, ha",
@@ -209,28 +209,26 @@ h_text: "Phóng to (A+) hoặc thu nhỏ (A−) chữ và các khung.", h_theme:
 /* ---------- Draft 4 shell text ---------- */
 Object.assign(STR.en, {
   navArea: "Area", navPri: "Priorities", navCards: "Rotations", navPlan: "12-month plan", navLab: "Plan Lab",
-  layerSat: "Satellite", layerNight: "Night (NASA)",
-  heroEyebrow: "Sóc Trăng coast · NASA Earth data",
+    heroEyebrow: "Sóc Trăng coast · NASA Earth data",
   heroH: "Plan your next 12 months.",
   heroP: "Rice, shrimp or upland crops, ranked for your area and your priorities, with NASA rain, heat and field-greenness data.",
   heroCta: "Choose your area on the map",
   drawerNext: "Next", drawerPrev: "Back", drawerClose: "Close",
   tkOutlook: "El Niño outlook", tkFields: "Your fields", tkArea: "Selected area", openPlan: "Open plan",
-  coordsL: "Cursor", sources: "Sources", about: "For judges",
+  coordsL: "Cursor", sources: "Sources", about: "About this app",
   /* draft5: fields in step 2 */
   myFieldH: "Your field", myFieldWhy: "Add its size to see your own water and profit numbers.",
   mfEmpty: "No field saved yet."
 });
 Object.assign(STR.vi, {
   navArea: "Khu vực", navPri: "Điều bạn cần", navCards: "Luân canh", navPlan: "Kế hoạch 12 tháng", navLab: "Tự lập kế hoạch",
-  layerSat: "Vệ tinh", layerNight: "Ban đêm (NASA)",
-  heroEyebrow: "Ven biển Sóc Trăng · Dữ liệu Trái Đất của NASA",
+    heroEyebrow: "Ven biển Sóc Trăng · Dữ liệu Trái Đất của NASA",
   heroH: "Lên kế hoạch cho 12 tháng tới.",
   heroP: "Lúa, tôm hay cây màu, xếp hạng theo khu vực và điều bạn cần, dựa trên dữ liệu mưa, nhiệt độ và độ xanh đồng ruộng của NASA.",
   heroCta: "Chọn khu vực của bạn trên bản đồ",
   drawerNext: "Tiếp", drawerPrev: "Quay lại", drawerClose: "Đóng",
   tkOutlook: "Dự báo El Niño", tkFields: "Ruộng của bạn", tkArea: "Khu vực đã chọn", openPlan: "Mở kế hoạch",
-  coordsL: "Con trỏ", sources: "Nguồn", about: "Cho giám khảo",
+  coordsL: "Con trỏ", sources: "Nguồn", about: "Giới thiệu",
   /* draft5: ruộng ở bước 2 */
   myFieldH: "Ruộng của bạn", myFieldWhy: "Thêm diện tích để xem nước và lợi nhuận của riêng bạn.",
   mfEmpty: "Chưa lưu ruộng nào."

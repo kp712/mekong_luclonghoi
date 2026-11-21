@@ -1,6 +1,7 @@
 """Merge NASA data + local estimates + rotation rules -> docs/data/sites.json (what the website reads).
 Run: python pipeline/build.py
 """
+import gzip
 import json
 import math
 import pathlib
@@ -91,7 +92,6 @@ SALT_ELNINO = {int(r[1]) for r in (ln.split() for ln in (RAW / "oni.txt").read_t
                if r[:1] == ["DJF"] and float(r[3]) >= 0.5}
 ONI = elnino_seasons()
 ELNINO = sorted(ONI)  # each number is the year the season starts in December
-SEASONS = ", ".join(f"{y}–{(y + 1) % 100:02d}" for y in ELNINO)
 ONI_SRC = {"title": f"NOAA CPC Oceanic Niño Index (ONI): {len(ELNINO)} El Niño winters, Dec 2000 – Nov 2024",
            "url": "https://www.cpc.ncep.noaa.gov/data/indices/oni.ascii.txt",
            "note": "Dec–Feb ONI 0.5 or more: " + ", ".join(f"{y}–{(y + 1) % 100:02d} ({v})" for y, v in ONI.items())
@@ -170,9 +170,9 @@ def et0_penman(day, lat, tmax, tmin, rh, u2, rs, z=2):
     return (0.408 * delta * rn + gamma * 900 / (t + 273) * u2 * (es - ea)) / (delta + gamma * (1 + 0.34 * u2))
 
 
-def et0_hargreaves(day, lat, tmax, tmin):
-    """FAO-56 Hargreaves eq. 52 (temperature only). Kept as a cross-check: it reads low here because coastal days and nights differ little."""
-    return 0.0023 * ((tmax + tmin) / 2 + 17.8) * math.sqrt(max(tmax - tmin, 0)) * 0.408 * ra(day, lat)
+def read_power(pid):
+    """data/raw/power_<id>.json.gz (fetch_power.py): NASA POWER daily values over PERIOD."""
+    return json.loads(gzip.decompress((RAW / f"power_{pid}.json.gz").read_bytes()))
 
 
 def in_period(day):
@@ -1125,7 +1125,7 @@ def province(pr, rotations, gpm):
     points with soil. No salinity estimate (UNKNOWN: salt is shown per former province), no MODIS. Rotation cards only in SCORED_REGIONS."""
     ids = [f["id"] for f in pr["former"]]
     rain_ids = [i for i in ids if point_rain(gpm, i)]
-    powers = {i: json.loads((RAW / f"power_{i}.json").read_text(encoding="utf-8")) for i in ids}
+    powers = {i: read_power(i) for i in ids}
     clim = mean_climate([climate(powers[f["id"]], f["lat"], typical_year, gpm[f["id"]]) for f in pr["former"]])
     clim_e = mean_climate([climate(powers[f["id"]], f["lat"], in_elnino, gpm[f["id"]]) for f in pr["former"]])
     soil, soil_ids = mean_soil(ids)
@@ -1152,7 +1152,7 @@ def place(f, pr, rotations, gpm):
     Sóc Trăng pin with its own NASA POWER weather, NASA GPM rain and SoilGrids topsoil, MODIS greenness where
     data/raw/ndvi_<id>.json exists (39 points for now) and the pixel looks like farmland (farmland()), and salinity from
     the nearest KTTV station within SALT_KM (kttv_salinity), else none (UNKNOWN). Cards only in SCORED_REGIONS."""
-    power = json.loads((RAW / f"power_{f['id']}.json").read_text(encoding="utf-8"))
+    power = read_power(f["id"])
     rain = point_rain(gpm, f["id"])
     clim, clim_e = climate(power, f["lat"], typical_year, rain), climate(power, f["lat"], in_elnino, rain)
     nd = None
@@ -1245,7 +1245,7 @@ def build():
     for s in SITES:
         if s["id"] not in gpm:
             raise ValueError(f"missing GPM data for {s['id']} (run pipeline/fetch_gpm.py)")
-        power = json.loads((RAW / f"power_{s['id']}.json").read_text(encoding="utf-8"))
+        power = read_power(s["id"])
         rain = gpm[s["id"]]
         clim, clim_e = climate(power, s["lat"], typical_year, rain), climate(power, s["lat"], in_elnino, rain)
         ndvi_file = RAW / f"ndvi_{s['id']}.json"

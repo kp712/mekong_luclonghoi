@@ -5,7 +5,7 @@
    - Map tiles (the saved Sóc Trăng tiles and the online imagery) are kept as the farmer views them, up to TILE_MAX.
    - Anything else (place search, live weather) goes to the network as before.
    pipeline/test_build.py checks that PRECACHE lists every local file index.html loads, and that each one exists. */
-const CACHE = "mre-app-2", TILES = "mre-tiles-1", TILE_MAX = 1500;
+const CACHE = "mre-app-3", TILES = "mre-tiles-1", TILE_MAX = 1500;
 const LEAFLET = "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js";
 const PRECACHE = [
   "./",
@@ -20,8 +20,6 @@ const PRECACHE = [
   "app/districts.js",
   "app/draft5.css",
   "app/extra.js",
-  "app/home.css",
-  "app/home.js",
   "app/icons/icon-180.png",
   "app/icons/icon-192.png",
   "app/icons/icon-512.png",
@@ -39,7 +37,6 @@ const PRECACHE = [
   "app/onboard.js",
   "app/research.json",
   "app/rx.js",
-  "app/scene.js",
   "app/season.js",
   "app/side.css",
   "app/side.js",
@@ -63,7 +60,7 @@ self.addEventListener("install", (e) => e.waitUntil(caches.open(CACHE).then((c) 
 self.addEventListener("activate", (e) => e.waitUntil(
   caches.keys().then((ks) => Promise.all(ks.filter((k) => k !== CACHE && k !== TILES).map((k) => caches.delete(k)))).then(() => self.clients.claim())));
 
-const isTile = (u) => u.pathname.includes("/app/tiles/") || /arcgisonline\.com$|gibs\.earthdata\.nasa\.gov$/.test(u.hostname);
+const isTile = (u) => u.pathname.includes("/app/tiles/") || /arcgisonline\.com$/.test(u.hostname);
 const isApp = (u) => u.origin === self.location.origin || u.hostname === "cdnjs.cloudflare.com" || /fonts\.(googleapis|gstatic)\.com$/.test(u.hostname);
 
 self.addEventListener("fetch", (e) => {
