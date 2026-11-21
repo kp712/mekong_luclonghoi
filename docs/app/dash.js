@@ -922,16 +922,14 @@ const Dash = (() => {
         ${g != null ? tl("rice", T("tGreen"), nf(g, 2), "", T("tNd"), "NASA MODIS NDVI", "tc-green", meter(g, "m-green")) : ""}</div>
       <p class="t-note">${esc(T("tAvg")(nino))}</p></section>`;
   }
-  /* pests: the same rule as build.py pest_pressure (pest_rule in sites.json, NASA POWER monthly climate), month by month on the plan window */
+  /* pests: Score.monthPest (score.js, checked against build.py), on the plan window, plus the numbers its text names */
   function pestAt(f, k, m) {
-    const J = typeof SITES_JSON !== "undefined" ? SITES_JSON : null, R = J && J.pest_rule, raw = J && J.sites.find((y) => y.id === f.site);
-    if (!R || !raw) return null;
-    const cl = (isNino(f) && raw.elnino && raw.elnino.climate) || raw.climate, t = cl.tmean_c[m], pts = R.rice_points;
-    if (k === "R" || k === "T") { let p = 0; if (pts[0][0] <= t && t <= pts[pts.length - 1][0]) for (let i = 1; i < pts.length; i++) if (t <= pts[i][0]) { const [t0, p0] = pts[i - 1], [t1, p1] = pts[i]; p = p0 + (p1 - p0) * (t - t0) / (t1 - t0); break }
-      return { p, t, k: "R" } }
-    if (k === "S") { const h = cl.hot_days[m] || 0, c = cl.cold_days[m] || 0; return { p: R.shrimp_floor + (1 - R.shrimp_floor) * Math.min((h + c) / new Date(2001, m + 1, 0).getDate(), 1), h, c, k: "S" } }
-    if (k === "U") return { p: R.upland_pressure, k: "U" };
-    return { p: 0, k: "-" };
+    const J = typeof SITES_JSON !== "undefined" ? SITES_JSON : null, raw = J && J.pest_rule && J.sites.find((y) => y.id === f.site);
+    if (!raw) return null;
+    const cl = (isNino(f) && raw.elnino && raw.elnino.climate) || raw.climate, p = Score.monthPest(k, cl, m);
+    if (k === "R" || k === "T") return { p, t: cl.tmean_c[m], k: "R" };
+    if (k === "S") return { p, h: cl.hot_days[m] || 0, c: cl.cold_days[m] || 0, k: "S" };
+    return { p, k: k === "U" ? "U" : "-" };
   }
   const pestLv = (p) => (p >= 0.67 ? "hi" : p >= 0.34 ? "mid" : "lo");
   function pestCard(f, x) {

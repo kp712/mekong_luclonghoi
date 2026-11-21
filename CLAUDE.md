@@ -20,6 +20,7 @@ A static PWA for Mekong Delta rice farmers and extension officers (started at NA
   - `dash.js`: the dashboard cards.
   - `app.js`: the planner.
   - `builder.js`: Plan Lab constants, written by `build.py` (`write_builder`); never edit by hand.
+  - `score.js`: the card scores in JS (`Score.evaluate`, `ofCard`, `monthPest`) for the Plan Lab and the dashboard's pest card. `test_score_parity` checks it against `sites.json`: change a scoring rule in `build.py` and here together.
   - `strings.js`: EN/VI text.
   - `extra.js`: layout glue.
   - `load.js`: loads data, registers `sw.js`, and holds `Farm`, the one saved field list shared by `app.js` and `dash.js`.
@@ -27,7 +28,7 @@ A static PWA for Mekong Delta rice farmers and extension officers (started at NA
 - `pipeline/build.py` merges everything. The salinity rules are in `station_*`, `kttv_*`, `site_salinity`, `table_rows`, `full_last_year`.
 - `data/raw/` holds the fetched inputs. NASA POWER is `power_<id>.json.gz` (Dec 2000 – Nov 2024 only); read it with `build.read_power(id)`. `salinity_stations.json` is the Sóc Trăng paper table plus `lower_bound` seasons. `kttv_stations.json` has the approximate OpenStreetMap coordinates of the stations.
 - `research/` holds findings that did not become data (sources, values, dead ends). Read the relevant note before searching the web.
-- `plans/` holds plan files. `SOURCES.md` has the full methods and data detail.
+- `plans/` holds plan files. `SOURCES.md` has the full methods and data detail. `CONTEXT.md` is the domain glossary: use its words.
 
 ## Reading big files
 `README.md` (21 KB), `SOURCES.md` (52 KB), `build.py`, `test_build.py`, `dash.js`, `app.js` and `vn_geo.js` are large. Find what you need with grep, then read only those lines. Never read `vn_geo.js`.
