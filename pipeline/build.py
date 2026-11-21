@@ -1,6 +1,7 @@
 """Merge NASA data + local estimates + rotation rules -> docs/data/sites.json (what the website reads).
 Run: python pipeline/build.py
 """
+import functools
 import gzip
 import json
 import math
@@ -13,7 +14,8 @@ from datetime import date, timedelta
 import hls
 import ndvi
 from make_outlines import SRC as OUTLINE_SRC
-from sites import OUT_OF_SCOPE_STATIONS, PROVINCES, REGION_SRC, REGIONS, SCORED_PLACES, SCORED_REGIONS, SITES
+import make_outlines
+from sites import PROVINCES, REGION_SRC, REGIONS, SCORED_PLACES, SCORED_REGIONS, SITES
 
 HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parent
@@ -732,9 +734,26 @@ def station_views(name):
     return tuple({y: r for y, r in rec.items() if salt_elnino(y) == e} for e in (False, True))
 
 
+@functools.cache
+def area_rings():
+    """The app's area: every province outline ring in docs/app/vn_geo.js (make_outlines.py, from sites.PROVINCES)."""
+    text = make_outlines.OUT.read_text(encoding="utf-8")
+    g = json.loads(text[text.index("{"):text.rindex("}") + 1])
+    return [make_outlines.ring_pts(g["arcs"], r) for rs in g["province"].values() for r in rs]
+
+
+def area_bounds(rings):
+    """{w, e, s, n}: the outlines' box plus 0.1°, rounded outward to 0.1°. The map's home view, colour layer and pan limit."""
+    xs, ys = [x for r in rings for x, _ in r], [y for r in rings for _, y in r]
+    return {"w": math.floor((min(xs) - 0.1) * 10) / 10, "e": math.ceil((max(xs) + 0.1) * 10) / 10,
+            "s": math.floor((min(ys) - 0.1) * 10) / 10, "n": math.ceil((max(ys) + 0.1) * 10) / 10}
+
+
 def bulletin_stations():
     """Names of the KTTV bulletin stations inside the app's area (sorted)."""
-    return sorted({n for b in KTTV.values() for n in b["readings"]} - set(OUT_OF_SCOPE_STATIONS))
+    rings = area_rings()
+    return sorted(n for n in {n for b in KTTV.values() for n in b["readings"]}
+                  if n not in KTTV_STATIONS or make_outlines.inside(KTTV_STATIONS[n]["lon"], KTTV_STATIONS[n]["lat"], rings))
 
 
 def kttv_stations():
@@ -1289,7 +1308,7 @@ def build():
     soil_help = [dict({k: v for k, v in h.items() if k != "sources"}, src=cite(h["sources"])) for h in rot_file["soil_help"]]
     resources = {k: dict({a: b for a, b in r.items() if a != "sources"}, src=cite(r["sources"])) for k, r in RESOURCES.items()}
     OUT.parent.mkdir(parents=True, exist_ok=True)
-    write_dated(OUT, {"soil_help": soil_help,
+    write_dated(OUT, {"bounds": area_bounds(area_rings()), "soil_help": soil_help,
                       "outlook": dict({k: OUTLOOK[k] for k in ("elnino", "pct", "text")}, src=outlook_src), "resources": resources, "pest_rule": pest_rule,
                       **area, "sources": [v for _, v in sorted(SOURCES.values(), key=lambda x: x[0])], "sites": sites})
     print("wrote", OUT, len(sites), "sites")

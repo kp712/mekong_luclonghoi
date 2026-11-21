@@ -88,7 +88,7 @@ const VnMap = (() => {
   const arcPts = (i) => (i >= 0 ? G.arcs[i] : G.arcs[~i].slice().reverse());
   const ringPts = (r) => { const out = []; r.forEach((i) => { const a = arcPts(i); out.push(...(out.length ? a.slice(1) : a)) }); return out };
   const ll = (p) => [p[1], p[0]];
-  const MAIN = { w: 103.0, e: 107.0, s: 8.3, n: 11.9 };  // the outlines plus ~0.1° (test_map_box): the colour layer and the home view
+  const MAIN = SITES_JSON.bounds;  // the area's box (build.py area_bounds): the colour layer and the home view
 
   /* ---------- the data a view shows ---------- */
   const climOf = (o) => (yr === "elnino" ? o.elnino.climate : o.climate);
