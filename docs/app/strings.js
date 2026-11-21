@@ -166,7 +166,7 @@ setNote: "Changes are saved on this device.",
 cap_fm: "How you use it", cap_sun: "Sunlight",
 h_fm: "At home, in the field with wet hands, or with one hand.", h_sun: "Stronger contrast for reading outdoors.",
 h_detail: "Simple shows fewer numbers; Advanced shows every score and source.", h_lang: "Switch all text between English and Vietnamese.",
-h_text: "Make text and boxes bigger (A+) or smaller (A−).", h_theme: "Light or dark colours.", h_motion: "Turn animations down to save battery on older phones."
+h_text: "Make text and boxes bigger (A+) or smaller (A−).", h_theme: "Auto follows your phone's light or dark setting.", h_motion: "Turn animations down to save battery on older phones."
 });
 Object.assign(STR.vi, {
 modeLatest: "12 tháng gần nhất", modeElnino: "El Niño (xấu nhất)",
@@ -204,7 +204,7 @@ setNote: "Thay đổi được lưu trên thiết bị này.",
 cap_fm: "Cách bạn dùng", cap_sun: "Nắng",
 h_fm: "Ở nhà, ngoài ruộng khi tay ướt, hoặc dùng một tay.", h_sun: "Tăng độ tương phản để đọc ngoài trời.",
 h_detail: "Đơn giản hiện ít số hơn; Nâng cao hiện mọi điểm số và nguồn.", h_lang: "Chuyển toàn bộ chữ giữa tiếng Anh và tiếng Việt.",
-h_text: "Phóng to (A+) hoặc thu nhỏ (A−) chữ và các khung.", h_theme: "Màu sáng hoặc tối.", h_motion: "Giảm hiệu ứng động để tiết kiệm pin trên điện thoại cũ."
+h_text: "Phóng to (A+) hoặc thu nhỏ (A−) chữ và các khung.", h_theme: "Tự động: theo nền sáng hoặc tối của điện thoại.", h_motion: "Giảm hiệu ứng động để tiết kiệm pin trên điện thoại cũ."
 });
 /* ---------- Draft 4 shell text ---------- */
 Object.assign(STR.en, {

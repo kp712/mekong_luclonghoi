@@ -78,7 +78,7 @@ const STRINGS = {
       "<b>NDVI (greenness)</b>: a satellite index from 0 (bare soil or water) to about 0.8 (dense green crop), from NASA MODIS at 250 m. Peaks show crops; low months show bare or flooded fields.",
       "<b>Salinity</b> can't be seen by satellite in rice fields. Our levels are estimates from the nearest river or canal station: its highest reading of each dry season, averaged over 2015–2024 (typical and El Niño years separately). High = 15‰ or more, medium = 4–15‰, low = under 4‰.",
       "<b>Scores</b> are simple rules our team wrote from the listed sources: a starting point for discussion, not a forecast.",
-      "Full method, data checks and code: <a href=\"https://github.com/kp712/luclonghoi\" target=\"_blank\" rel=\"noopener\">github.com/kp712/luclonghoi</a>"
+      "Full method, data checks and code: <a href=\"https://github.com/kp712/mekong_luclonghoi\" target=\"_blank\" rel=\"noopener\">github.com/kp712/mekong_luclonghoi</a>"
     ]
   },
   vi: {
@@ -159,7 +159,7 @@ const STRINGS = {
       "<b>NDVI (độ xanh)</b>: chỉ số vệ tinh từ 0 (đất trống hoặc nước) đến khoảng 0,8 (lúa xanh tốt), từ NASA MODIS ở độ phân giải 250 m. Đỉnh cho thấy vụ lúa; tháng thấp cho thấy ruộng trống hoặc ngập nước.",
       "<b>Độ mặn</b> không đo được bằng vệ tinh trên ruộng lúa. Mức mặn của chúng tôi là ước tính từ trạm sông, kênh gần nhất: độ mặn cao nhất mỗi mùa khô, lấy trung bình 2015–2024 (năm thường và năm El Niño tính riêng). Cao = từ 15‰ trở lên, trung bình = 4–15‰, thấp = dưới 4‰.",
       "<b>Điểm số</b> là các quy tắc đơn giản do nhóm xây dựng từ các nguồn đã liệt kê: là điểm khởi đầu để thảo luận, không phải dự báo.",
-      "Phương pháp đầy đủ, kiểm tra dữ liệu và mã nguồn: <a href=\"https://github.com/kp712/luclonghoi\" target=\"_blank\" rel=\"noopener\">github.com/kp712/luclonghoi</a>"
+      "Phương pháp đầy đủ, kiểm tra dữ liệu và mã nguồn: <a href=\"https://github.com/kp712/mekong_luclonghoi\" target=\"_blank\" rel=\"noopener\">github.com/kp712/mekong_luclonghoi</a>"
     ]
   }
 };

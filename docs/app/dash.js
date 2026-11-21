@@ -4,7 +4,6 @@
 const Dash = (() => {
   const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const esc = (x) => String(x == null ? "" : x).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
-  const KEY = "mre-farm";
   const get = (k, d) => { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d } catch (e) { return d } };
   const put = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)) } catch (e) {} };
   const lang = () => (window.App && App.lang && App.lang()) || "vi";
@@ -41,7 +40,7 @@ const Dash = (() => {
       lv: { ngot: "Ngọt", lo: "Hơi mặn", man: "Mặn" }, lvL: { ngot: "ngọt", lo: "hơi mặn", man: "mặn" },
       lvD: { ngot: "dưới 1‰: lúa an toàn", lo: "1–2‰: lúa bắt đầu yếu", man: "trên 2‰: lúa giảm năng suất (FAO)" },
       clash: (xs) => `Chú ý: lúa gặp nước mặn ở ${xs.join(", ")}. Đo độ mặn trước khi sạ, nước còn mặn thì chờ mưa.`, noClash: "Tốt: lịch này tránh được tháng nước mặn",
-      ninoNote: "Năm nay nhiều khả năng là năm hạn mặn (El Niño, NOAA dự báo trên 83%). Mặn có thể đến sớm hơn và mặn hơn.", thisYr: "Năm nay", years: { typical: "Năm thường", elnino: "Năm El Niño" },
+      ninoNote: "Năm nay nhiều khả năng là năm hạn mặn (El Niño, theo dự báo của NOAA). Mặn có thể đến sớm hơn và mặn hơn.", thisYr: "Năm nay", years: { typical: "Năm thường", elnino: "Năm El Niño" },
       moneyYr: "Năm nay, có thể hạn mặn.", moneyTyp: (a) => `Năm bình thường: ${a} triệu/công.`, moneySrcS: "Lấy số giữa của các số liệu lợi nhuận đã công bố · 1 công = 1.000 m²",
       rbKey: "Số = tháng · Thanh màu = nước trong kênh", rbNow: "Tháng này", rbKeyA: "T1–T12 = tháng 1–12 · Thanh màu = nước trong kênh", usedT: (n) => `Đã đổi sang: ${n}`, editField: "Sửa ruộng", langH: "Ngôn ngữ · Language",
       moneyH: "Tiền lời ước tính", money: (a, b) => `Năm nay khoảng <b>${b}</b> triệu/công. Năm bình thường: ${a} triệu/công.`, money1: (a) => `Khoảng <b>${a}</b> triệu/công mỗi năm.`,
@@ -96,7 +95,7 @@ const Dash = (() => {
       lv: { ngot: "Fresh", lo: "Brackish", man: "Salty" }, lvL: { ngot: "fresh", lo: "brackish", man: "salty" },
       lvD: { ngot: "under 1‰: rice is safe", lo: "1–2‰: rice starts to suffer", man: "over 2‰: rice loses yield (FAO)" },
       clash: (xs) => `Careful: crops meet salty water in ${xs.join(", ")}. Measure salt before sowing; wait for rain if it is still salty.`, noClash: "Good: this plan avoids the salty months",
-      ninoNote: "This is likely a drought-and-salt year (El Niño, NOAA: over 83%). Salt may come earlier and stronger.", thisYr: "This year", years: { typical: "Typical year", elnino: "El Niño year" },
+      ninoNote: "This is likely a drought-and-salt year (El Niño, per NOAA's forecast). Salt may come earlier and stronger.", thisYr: "This year", years: { typical: "Typical year", elnino: "El Niño year" },
       moneyYr: "This year, a possible drought-and-salt year.", moneyTyp: (a) => `Typical year: ${a} M₫/công.`, moneySrcS: "Middle value of the published profit figures · 1 công = 1,000 m²",
       rbKey: "Coloured bar = canal water", rbNow: "This month", rbKeyA: "Coloured bar = canal water", usedT: (n) => `Changed to: ${n}`, editField: "Edit field", langH: "Language · Ngôn ngữ",
       moneyH: "Estimated profit", money: (a, b) => `This year about <b>${b}</b> M₫/công. Typical year: ${a} M₫/công.`, money1: (a) => `About <b>${a}</b> M₫/công a year.`,
@@ -163,7 +162,8 @@ const Dash = (() => {
   const SEAS_OF = { rice3: ["R", "R", "R"], rice2: ["R", "R", "-"], rice_shrimp: ["S", "S", "R"], rice_upland: ["U", "R", "R"] };
   const resolve = (c, crop) => { if (!c.variants) return c; const ks = Object.keys(c.variants); return { ...(c.variants[ks.includes(crop) ? crop : c.crop_default] || c.variants[ks[0]]), id: c.id } };
   const cardsFor = (s, year, crop) => ((year === "elnino" && s.el && s.el.cards) ? s.el.cards : s.cards).map((c) => resolve(c, crop));
-  const isNino = (f) => (Season.yearOf() >= 1 ? false : f.year ? f.year === "elnino" : true);   /* default: this season, NOAA >83% El Niño; plan years 2–3 of the preview use the typical year (the outlook covers one season) */
+  const isNino = (f) => (Season.yearOf() >= 1 ? false : f.year ? f.year === "elnino" : !!(DATA.outlook && DATA.outlook.elnino));   /* default: El Niño this season only when NOAA's outlook says so; plan years 2–3 use the typical year (the outlook covers one season) */
+  const ninoPct = () => (DATA.outlook && DATA.outlook.pct ? `<p class="a-num">&gt;${DATA.outlook.pct}<small>%</small></p>` : "");
   const yr = (f) => (isNino(f) ? "elnino" : "typical");
   const cardOf = (f, year) => { const cs = cardsFor(siteOf(f.site), year || yr(f), f.crop); return cs.find((c) => c.id === f.rot) || cs[0] };
   /* the field's 12-month plan from this month: today's crop first, then the rotation (season.js) */
@@ -207,8 +207,8 @@ const Dash = (() => {
   const cong = (m) => nf(m / 10, 1);
 
   /* ---------------- state ---------------- */
-  const st = get(KEY, null) || { fields: [], sel: null, ui: "simple" };
-  const save = () => put(KEY, st);
+  const st = Farm.st;   /* the one saved field list, shared with the planner (load.js) */
+  const save = Farm.save;
   const fieldSel = () => st.fields.find((f) => f.id === st.sel) || st.fields[0] || null;
   const adv = () => st.ui === "advanced";
   let view = "dash", tab = "salt", editing = null, on = false, sizeErr = "";
@@ -361,7 +361,7 @@ const Dash = (() => {
           <div><dt>${esc(T("rainY"))}</dt><dd>${nf(Math.round(rain), 0)}<small> mm</small><small class="a-kn">${esc(T("needY"))}: ${nf(Math.round(et0), 0)} mm</small></dd></div></dl>`, "")}
         ${tile("rank", "a-g8", esc(T("rankH")), `<ol class="a-rank">${d.r.slice(0, 5).map(({ c: y, s: sc, no }) => `<li class="${y.id === f.rot ? "cur" : ""}${no ? " no" : ""}"><span>${esc(L(y.name))}${no ? `<small class="a-no">${esc(T("notHere"))}</small>` : ""}</span><i><b style="width:${((sc - 1) / 4 * 100).toFixed(0)}%"></b></i><em>${nf(sc, 1)}</em></li>`).join("")}</ol>${best && best.c.id !== f.rot && (!cur || nf(best.s, 1) !== nf(cur.s, 1)) ? `<p class="a-mut">${esc(T("bestFor")(L(best.c.name)))}</p>` : ""}`, T("rankSrc"))}
         ${tile("rib", "a-g9", `${ic("cal", 14)}${esc(T("ribbonH"))}`, `<div class="a-rib">${ribbon(f, c, true)}</div>`, T("est"))}
-        ${nino ? tile("nino", "a-g10 hot", esc(T("ninoH")), `<p class="a-num">&gt;83<small>%</small></p><p class="a-mut">${esc(T("ninoNote"))}</p>`, "NOAA CPC") : ""}
+        ${nino ? tile("nino", "a-g10 hot", esc(T("ninoH")), `${ninoPct()}<p class="a-mut">${esc(T("ninoNote"))}</p>`, "NOAA CPC") : ""}
       </div>
       ${remindCard(f)}
       <div class="a-duo">${progressCard(f)}${suggestions(f)}</div>
@@ -455,7 +455,7 @@ const Dash = (() => {
         ${y.id === f.rot ? `<span class="sd-chip lv-low">${esc(T("current"))}</span>` : `<button type="button" class="btn gold" data-use="${y.id}">${esc(T("use"))}</button>`}</div>`).join("")}</div><p class="a-src">${esc(T("rankSrc"))}</p>`;
       case "rib": return `${ribbon(f, c)}<p class="sd-note">${esc(T("tapMonth"))}</p>${planTable(f, c)}<p class="a-src">${esc(T("est"))}</p>`;
       case "nino": { const ty = d.t, tr = s.rain || [], er = (s.el && s.el.rain) || [], mr = Math.max(1, ...tr, ...er);
-        return `<p class="a-num">&gt;83<small>%</small></p><p class="a-mut">${esc(L(DATA.outlook && DATA.outlook.text))}</p>
+        return `${ninoPct()}<p class="a-mut">${esc(L(DATA.outlook && DATA.outlook.text))}</p>
         ${ty && ty.nino ? `<dl class="a-kpi z-kpi"><div><dt>${esc(T("peakH"))} · ${esc(T("years").typical)}</dt><dd>${nf(ty.peak, 1)}<small>‰</small></dd></div><div><dt>${esc(T("peakH"))} · El Niño</dt><dd>${nf(ty.nino.peak, 1)}<small>‰</small></dd></div>
           <div><dt>${esc(T("saltMs"))} · ${esc(T("years").typical)}</dt><dd class="sm">${(ty.salt || []).map((x) => "T" + x).join(", ") || "–"}</dd></div><div><dt>${esc(T("saltMs"))} · El Niño</dt><dd class="sm">${(ty.nino.salt || []).map((x) => "T" + x).join(", ") || "–"}</dd></div></dl>` : ""}
         <h5 class="z-h">${esc(T("rainCmp"))}</h5><div class="z-cmp">${MS().map((t, i) => `<div><i class="a" style="height:${((tr[i] || 0) / mr * 100).toFixed(0)}%"></i><i class="b" style="height:${((er[i] || 0) / mr * 100).toFixed(0)}%"></i><span>${t}</span></div>`).join("")}</div>
@@ -1265,13 +1265,8 @@ footer{margin-top:12px;font-size:10.5px;color:#444;border-top:1px solid #999;pad
       <label class="o-g"><span>${esc(T("name"))}</span><input type="text" data-opt="name" maxlength="30" value="${esc(f.name)}"></label>
       ${top && top.c.id !== f.rot && !top.no ? `<div class="dv-better"><p>${esc(T("better")(L(top.c.name)))}</p><button type="button" class="btn gold" data-use="${top.c.id}">${esc(T("use"))}</button></div>` : ""}</div>`);
   }
-  /* the planner (app.js, "mre-fields", ha) keeps its own copy of the size, read by cost.js: keep the two equal */
-  /* the planner's copy of a field: by the saved link, or (older fields) by area and name */
-  const appFieldOf = (f, fs) => fs.find((x) => x.id === f.appId) || (!f.appId && fs.find((x) => x.site === f.site && x.name === f.name)) || null;
-  function syncSize(f) {
-    try { const fs = window.App && App.fields ? App.fields() : [], af = appFieldOf(f, fs);
-      if (!af) return; af.ha = f.size || null; localStorage.setItem("mre-fields", JSON.stringify(fs)); if (typeof Cost !== "undefined") Cost.refresh() } catch (e) {}
-  }
+  /* the cost tables (cost.js) read the field's size: redraw them */
+  function syncSize() { save(); try { if (typeof Cost !== "undefined") Cost.refresh() } catch (e) {} }
   function setOpt(k, v) {
     const f = fieldSel(); if (!f) return;
     if (k.startsWith("sz")) { f.seasons = f.seasons || ["R", "R", "R"]; f.seasons[+k.slice(2)] = v }
@@ -1311,10 +1306,8 @@ footer{margin-top:12px;font-size:10.5px;color:#444;border-top:1px solid #999;pad
     const A = window.App; if (!A || !A.site || !A.site()) return;
     const s = A.site(), cur = A.cur ? A.cur() : "rice3", w = A.weights ? A.weights() : null, m = A.mode ? A.mode() : "typical";
     let wf = { p: 1, m: 0 }; try { wf = JSON.parse(localStorage.getItem("mre-wf2") || "null") || wf } catch (e) {}
-    const base = editing && st.fields.find((f) => f.id === editing);
+    const base = (editing && st.fields.find((f) => f.id === editing)) || (A.fieldId && st.fields.find((f) => f.id === A.fieldId())) || null;   /* the field open in the planner, if any */
     const f = base || { id: "f" + Date.now(), name: T("fieldN")(st.fields.length + 1), size: null };
-    /* the name and size the farmer typed in the planner's field form (app.js) */
-    try { const af = A.fields && A.fieldId && A.fields().find((x) => x.id === A.fieldId()); if (af) { f.appId = af.id; f.name = af.name || f.name; if (af.ha > 0) f.size = af.ha } } catch (e) {}
     Object.assign(f, { site: s.id, rot: A.planId ? A.planId() : null, weights: w, goal: null, year: m === "elnino" ? "elnino" : null, crop: A.upCrop ? A.upCrop() : null, seasons: SEAS_OF[cur] || ["R", "R", "R"], wfP: wf.p, wfM: wf.m, savedAt: Date.now() });
     if (!f.startAt) f.startAt = Date.now();
     if (flowNow && flowNow.k) f.now = { k: flowNow.k, weeks: flowNow.k === "-" ? 0 : flowNow.weeks, choice: flowNow.choice || "keep", at: Date.now() };
@@ -1388,6 +1381,7 @@ footer{margin-top:12px;font-size:10.5px;color:#444;border-top:1px solid #999;pad
   }
   function render() {
     if (!$("#dv")) return;
+    importPlanner();   /* a field from the planner's form gets its plan before anything draws it */
     const p = $("#dvPanel"), y = p.scrollTop;
     const f = fieldSel();
     if (!f && view !== "fields") view = "dash";
@@ -1445,7 +1439,7 @@ footer{margin-top:12px;font-size:10.5px;color:#444;border-top:1px solid #999;pad
       case "delask": { const f = fieldSel(); if (!f) return; sheet(`<div class="dv-delq"><span class="dv-delico">${ic("trash", 30)}</span><h2>${esc(T("delH")(f.name))}</h2><p class="sd-note">${esc(T("delP"))}</p>
         <div class="dv-acts"><button type="button" class="btn dv-delyes" data-dv="del">${ic("trash", 16)}<span>${esc(T("delYes"))}</span></button><button type="button" class="btn gold" data-dv="close"><span>${esc(T("cancel"))}</span></button></div></div>`); return }
       case "del": { const f = fieldSel(); if (f) { st.fields = st.fields.filter((x) => x.id !== f.id);
-        try { const af = window.App && App.fields && appFieldOf(f, App.fields()); if (af && App.removeField) App.removeField(af.id, true) } catch (e) {}   /* the planner list too */ st.sel = st.fields[0] ? st.fields[0].id : null; selM = null; save(); closeSheet(); try { zoomClose() } catch (e) {} render(); refocus("#dvH"); try { window.App && App.toast && App.toast(T("deleted")) } catch (e) {} } return }
+        try { window.App && App.removeField && App.removeField(f.id, true) } catch (e) {}   /* the planner forgets it too */ st.sel = st.fields[0] ? st.fields[0].id : null; selM = null; save(); closeSheet(); try { zoomClose() } catch (e) {} render(); refocus("#dvH"); try { window.App && App.toast && App.toast(T("deleted")) } catch (e) {} } return }
     }
   });
   const multiOf = (f) => { const Y = yearsOf(f); f.multi = { n: Y.n, yrs: Y.yrs }; return f.multi };
@@ -1502,30 +1496,23 @@ footer{margin-top:12px;font-size:10.5px;color:#444;border-top:1px solid #999;pad
     const ck = $("#dvClock"), setH = () => document.documentElement.style.setProperty("--ck-h", `${ck && !document.body.classList.contains("dv-noclock") ? ck.offsetHeight : 0}px`);
     try { new ResizeObserver(setH).observe(ck) } catch (e) {} setH(); new MutationObserver(setH).observe(document.body, { attributes: true, attributeFilter: ["class"] });
   }
-  /* fields saved only in the planner list (app.js "mre-fields") also appear here, so the dashboard is never empty by mistake;
-     their plan is the rotation they grow now (the planner's season boxes) until the farmer picks another */
+  /* a field saved in the planner's form (app.js) has no plan yet: its plan is the rotation it grows now (the season boxes)
+     until the farmer picks another */
   function importPlanner() {
-    let afs = []; try { afs = (window.App && App.fields && App.fields()) || [] } catch (e) {}
     let n = 0;
-    afs.forEach((a) => {
-      if (!a || !a.site || !sites().some((x) => x.id === a.site) || st.fields.some((f) => f.appId === a.id || (!f.appId && f.site === a.site && f.name === a.name))) return;
-      const f = { id: "f" + a.id, appId: a.id, name: a.name || T("fieldN")(st.fields.length + 1), size: a.ha > 0 ? a.ha : null, site: a.site, seasons: Array.isArray(a.seasons) ? a.seasons : SEAS_OF[a.cur] || ["R", "R", "R"], startAt: Date.now(), savedAt: Date.now() };
-      const cs = cardsFor(siteOf(a.site), "typical", null); f.rot = cs.some((c) => c.id === a.cur) ? a.cur : rank(f)[0].c.id;
-      st.fields.push(f); n++;
+    st.fields.forEach((f) => {
+      if (f.rot || f.demo || !sites().some((x) => x.id === f.site)) return;
+      if (!f.name) f.name = T("fieldN")(st.fields.indexOf(f) + 1);
+      if (!Array.isArray(f.seasons)) f.seasons = SEAS_OF[f.cur] || ["R", "R", "R"];
+      f.startAt = f.startAt || Date.now(); f.savedAt = f.savedAt || Date.now();
+      const cs = cardsFor(siteOf(f.site), "typical", null); f.rot = cs.some((c) => c.id === f.cur) ? f.cur : rank(f)[0].c.id; n++;
     });
-    if (n) { if (!st.fields.some((f) => f.id === st.sel)) st.sel = st.fields[0].id; save() }
+    if (st.fields.length && !st.fields.some((f) => f.id === st.sel)) { st.sel = st.fields[0].id; n++ }
+    if (n) save();
   }
-  /* a field deleted in the planner list leaves the dashboard too */
-  function unlink(id, site, name) {
-    const n = st.fields.length; st.fields = st.fields.filter((f) => !(f.appId === id || (!f.appId && f.site === site && f.name === name)));
-    if (st.fields.length === n) return; if (!st.fields.some((f) => f.id === st.sel)) st.sel = st.fields[0] ? st.fields[0].id : null; selM = null; save(); render();
-  }
-  /* a field edited in the planner form: same name, area and size here */
-  function syncField(af, old) {
-    let ch = false;
-    st.fields.forEach((f) => { if (f.appId === af.id || (!f.appId && f.site === old.site && f.name === old.name)) { f.appId = af.id; f.name = af.name; f.site = af.site; f.size = af.ha || null; ch = true } });
-    if (ch) { save(); render() }
-  }
+  /* the planner deleted or edited a field in the shared list: show the change */
+  function unlink() { if (!st.fields.some((f) => f.id === st.sel)) st.sel = st.fields[0] ? st.fields[0].id : null; selM = null; save(); if (on) render() }
+  function syncField() { importPlanner(); if (on) render() }
   /* the create-plan flow (app.js) asks the same "what is in the field now" question and builds its plan from the answer */
   const nowBlock = () => `<section id="nowCrop" class="nw nw-flow" aria-labelledby="nfH">${nowForm(flowNow, flowCtx(), true)}</section>`;
   /* the map lies under the dashboard: while the dashboard is on, it is inert, so keyboard and screen-reader focus never

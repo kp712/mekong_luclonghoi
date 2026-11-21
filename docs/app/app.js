@@ -134,7 +134,8 @@ ui = "advanced";   /* one mode only: full detail (Simple view removed) */
 const KEYS = ["water", "income", "soil", "salt", "pests"];
 const w = { water: 2, income: 2, soil: 2, salt: 2, pests: 2 };
 let step = 1, cmp = [], exOn = false, exGo = false, curPicked = false, wPicked = false;
-let fields = []; try { fields = JSON.parse(load("mre-fields") || "[]").filter(f => DATA.sites.some(s => s.id === f.site)) } catch (e) { fields = [] }
+/* the farmer's fields: the shared list in load.js (Farm), without the dashboard's demo field */
+const fields = () => Farm.st.fields.filter(f => !f.demo && DATA.sites.some(s => s.id === f.site));
 let fieldId = null, editId = null, month = new Date().getMonth(), planText = [];
 let pv = load("mre-pv") === "list" ? "list" : "cal";
 let fm = "home";   /* one mode only: at home (field mode removed) */
@@ -202,7 +203,7 @@ steps: ["Welcome! Choose Simple for plain words and big buttons, or Advanced for
 "Say what matters most to you. The options re-rank as you change them.",
 "Get your 12-month plan, then print it or share it.",
 "Settings stay on the right edge of the screen, even as you scroll. Each switch has a short note on what it does."],
-settings: "Settings", detail: "Detail", lang: "Language", text: "Text size", motion: "Motion", guide: "Guided tour", anim: "Animated", lite: "Lite" },
+settings: "Settings", detail: "Detail", lang: "Language", text: "Text size", motion: "Motion", guide: "Guided tour", anim: "Animated", lite: "Lite", theme: "Colours", thLight: "Light", thDark: "Dark", thAuto: "Auto" },
 vi: { size: "Cỡ chữ", tour: "Hướng dẫn", next: "Tiếp", back: "Quay lại", done: "Xong", skip: "Bỏ qua",
 steps: ["Chào mừng bà con! Chọn Đơn giản để xem lời ngắn gọn và nút lớn, hoặc Nâng cao để xem số liệu và nguồn. Có thể đổi bất cứ lúc nào.",
 "Cho ứng dụng biết bạn đang dùng thế nào: ở nhà, hoặc ngoài ruộng (nút lớn chỉ cần chạm, cho tay ướt hoặc dính bùn). Nút Nắng giúp màn hình dễ đọc hơn ngoài trời.",
@@ -211,7 +212,7 @@ steps: ["Chào mừng bà con! Chọn Đơn giản để xem lời ngắn gọn 
 "Cho biết điều gì quan trọng nhất với bạn. Các lựa chọn được xếp lại khi bạn thay đổi.",
 "Nhận kế hoạch 12 tháng, rồi in hoặc chia sẻ.",
 "Cài đặt luôn nằm ở mép phải màn hình, kể cả khi bạn cuộn trang. Mỗi nút có một dòng ghi chú cho biết nó làm gì."],
-settings: "Cài đặt", detail: "Mức chi tiết", lang: "Ngôn ngữ", text: "Cỡ chữ", motion: "Chuyển động", guide: "Hướng dẫn từng bước", anim: "Sinh động", lite: "Nhẹ" }
+settings: "Cài đặt", detail: "Mức chi tiết", lang: "Ngôn ngữ", text: "Cỡ chữ", motion: "Chuyển động", theme: "Màu nền", thLight: "Sáng", thDark: "Tối", thAuto: "Tự động", guide: "Hướng dẫn từng bước", anim: "Sinh động", lite: "Nhẹ" }
 };
 const tt = k => TT[lang][k];
 
@@ -277,12 +278,12 @@ steps: [["Dry the platform and clean out the canals.", "Phơi trảng, sên vét
 const ABOUT = {
 en: [["What it is", "A phone-first tool for rice farmers in coastal Sóc Trăng (Mekong Delta). It compares the farmer's current rotation with local alternatives (rice–shrimp, rice with a dry-season upland crop, salt-tolerant rice with a rest), ranks them by what the farmer cares about, and turns the chosen one into a 12-month plan. English and Vietnamese."],
 ["NASA data in the app", "Rain: NASA GPM IMERG monthly (~10 km, Dec 2000 – Nov 2024). Water demand (ET₀): FAO-56 Penman–Monteith from NASA POWER temperature, humidity, wind and sunlight. Field greenness and crops per year: NASA MODIS NDVI (MOD13Q1, 250 m) through NASA AppEEARS. Heat days: NASA POWER. The 7-day strip in the month panel reads NASA POWER daily data live."],
-["Other data", "El Niño seasons and forecast: NOAA's Oceanic Niño Index and CPC outlook. Topsoil: SoilGrids 2.0 (ISRIC, not NASA). Salt: an estimate from provincial river-station records and public reports. Satellites cannot measure salt in rice fields."],
+["Other data", "El Niño seasons and forecast: NOAA's Oceanic Niño Index and CPC outlook. Topsoil: SoilGrids 2.0 (ISRIC, not NASA). Salt: an estimate from provincial river-station records and public reports. Satellites cannot measure salt in rice fields. The 7-day rain forecast on the dashboard: Open-Meteo (not NASA)."],
 ["How the scores work", "Each option gets water, income, soil, pests and weather & salt scores from 1.0 to 5.0, computed at each area from the data above and published profit figures. Pests: rice pest pressure follows NASA POWER mean temperature (brown planthopper, Horgan et al. 2020), upland crop months count in full, shrimp months rise with hot and cold-snap days, and rest months and other crops break the rice pest cycle. The sliders set the weights; the match is the weighted average. Full formulas are in the project README under \"How the scores are set\"."],
 ["Limits", "The data describe the area, not one field, and the past, not a forecast. The plan is a starting point to talk over with a local agricultural extension officer."]],
 vi: [["Dự án là gì", "Công cụ ưu tiên điện thoại cho nông dân trồng lúa ven biển Sóc Trăng (Đồng bằng sông Cửu Long). Công cụ so sánh cách luân canh hiện tại với các lựa chọn tại chỗ (lúa – tôm, lúa luân canh với cây màu mùa khô, lúa chịu mặn có thời gian nghỉ), xếp hạng theo điều nông dân quan tâm và biến lựa chọn thành kế hoạch 12 tháng. Có tiếng Anh và tiếng Việt."],
 ["Dữ liệu NASA trong ứng dụng", "Mưa: NASA GPM IMERG theo tháng (~10 km, 12/2000 – 11/2024). Nhu cầu nước (ET₀): phương pháp Penman–Monteith FAO-56 từ nhiệt độ, độ ẩm, gió và nắng của NASA POWER. Độ xanh của ruộng và số vụ mỗi năm: NASA MODIS NDVI (MOD13Q1, 250 m) qua NASA AppEEARS. Số ngày nắng nóng: NASA POWER. Dải 7 ngày trong phần từng tháng đọc trực tiếp dữ liệu ngày của NASA POWER."],
-["Dữ liệu khác", "Các mùa El Niño và dự báo: chỉ số ONI và bản tin CPC của NOAA. Đất mặt: SoilGrids 2.0 (ISRIC, không phải NASA). Độ mặn: ước tính từ số liệu trạm đo trên sông của tỉnh và báo cáo công khai. Vệ tinh không đo được độ mặn trong ruộng lúa."],
+["Dữ liệu khác", "Các mùa El Niño và dự báo: chỉ số ONI và bản tin CPC của NOAA. Đất mặt: SoilGrids 2.0 (ISRIC, không phải NASA). Độ mặn: ước tính từ số liệu trạm đo trên sông của tỉnh và báo cáo công khai. Vệ tinh không đo được độ mặn trong ruộng lúa. Dự báo mưa 7 ngày trên trang chính: Open-Meteo (không phải NASA)."],
 ["Cách tính điểm", "Mỗi lựa chọn có điểm nước, thu nhập, đất, sâu bệnh và thời tiết & mặn từ 1,0 đến 5,0, tính cho từng khu vực từ dữ liệu trên và số liệu lợi nhuận đã công bố. Sâu bệnh: áp lực sâu hại lúa theo nhiệt độ trung bình của NASA POWER (rầy nâu, Horgan và cộng sự 2020), tháng trồng màu tính đủ, tháng nuôi tôm tăng theo số ngày nắng nóng và ngày lạnh đột ngột, còn tháng nghỉ và cây trồng khác cắt vòng đời sâu hại lúa. Thanh trượt đặt trọng số; mức hợp là trung bình có trọng số. Công thức đầy đủ có trong README của dự án, mục \"How the scores are set\"."],
 ["Giới hạn", "Dữ liệu mô tả cả khu vực, không phải một thửa ruộng, và mô tả quá khứ, không phải dự báo. Kế hoạch là điểm khởi đầu để trao đổi với cán bộ khuyến nông địa phương."]]
 };
@@ -609,7 +610,7 @@ function onSelect(id) { const s = id && siteById(id); if (!s) return; onHover(nu
 
 /* ---------- choosing an area (Draft 3 choose, with the parts that wrapped it) ---------- */
 function choose(s, quiet) {
-if (fieldId && (fields.find(f => f.id === fieldId) || {}).site !== s.id) fieldId = null;
+if (fieldId && (fields().find(f => f.id === fieldId) || {}).site !== s.id) fieldId = null;
 if (!exGo) exOn = false;
 curPicked = false;
 site = s; planId = null; upCrop = null;
@@ -620,12 +621,12 @@ renderAll();
 if (!quiet) { mv("focus", s.id); openPanel(innerWidth > 760 && document.body.classList.contains("has-side") ? 2 : 1) }
 }
 function openField(id, quiet) {
-const f = fields.find(x => x.id === id); if (!f) return;
+const f = fields().find(x => x.id === id); if (!f) return;
 fieldId = id; save("mre-last", id);
 choose(siteById(f.site), quiet);
 fieldId = id; seasons = (f.seasons || SEAS_OF[f.cur] || SEAS_OF.rice3).slice(); cur = curFrom(seasons); planId = null; curPicked = true; renderAll();
 }
-function restoreField() { const id = load("mre-last"); if (id && fields.some(f => f.id === id)) openField(id, true) }
+function restoreField() { const id = load("mre-last"); if (id && fields().some(f => f.id === id)) openField(id, true) }
 
 /* ---------- step 2: priorities (sliders, tap levels, quick goals, limits) ---------- */
 const GOALS = { salt: { salt: 3, water: 2, income: 1, soil: 1, pests: 1 }, profit: { income: 3, salt: 1, water: 1, soil: 1, pests: 1 }, water: { water: 3, salt: 2, income: 1, soil: 1, pests: 1 } };
@@ -711,9 +712,9 @@ return out;
 }
 function fieldLine(c) {
 const wt = waterOf(c); if (!wt) return "";
-const f = fieldId ? fields.find(x => x.id === fieldId && x.site === site.id) : null;
+const f = fieldId ? fields().find(x => x.id === fieldId && x.site === site.id) : null;
 const fmt = x => Math.round(x / 10) * 10 >= 1000 ? (Math.round(x / 100) * 100).toLocaleString(lang === "vi" ? "vi-VN" : "en-US") : String(Math.round(x));
-const dh = f && f.ha ? +f.ha : parseFloat(load("d5-ha") || "");  /* draft5: the size typed above the cards counts too */
+const dh = f && f.size ? +f.size : parseFloat(load("d5-ha") || "");  /* draft5: the size typed above the cards counts too */
 return dh > 0 ? t("fieldHa")(num(dh), fmt(wt[0] * 10 * dh)) : t("fieldPer")(fmt(wt[0] * 10));
 }
 /* part 17: the 12 months as numbered tiles, coloured by crop (both views).
@@ -842,7 +843,7 @@ $("#planFor").textContent = `${t("planFor")}: ${pick(c.name)} · ${pick(site.nam
 { let ok = document.querySelector("#planOk"); if (!ok) { $("#planFor").insertAdjacentHTML("beforebegin", `<div id="planOk" class="plan-ok" role="status"></div>`); ok = document.querySelector("#planOk") }
 const sc = (ranked().find(x => x.c.id === c.id) || {}).s, why = (c.why || [])[0];
 ok.innerHTML = `<p class="po-eye">${ico("check", 16)}<span>${esc(t("poEye"))}</span></p><h3 class="po-name">${esc(pick(c.name))}</h3>
-<p class="po-where">${esc(pick(site.name))}${fieldId && !exOn ? " · " + esc((fields.find(f => f.id === fieldId) || {}).name || "") : ""}</p>
+<p class="po-where">${esc(pick(site.name))}${fieldId && !exOn ? " · " + esc((fields().find(f => f.id === fieldId) || {}).name || "") : ""}</p>
 <p class="po-cal">${esc(pick(c.calendar))}</p>${sc != null ? `<p class="po-fit">${esc(t("poFit"))} <b>${esc(fitWord(sc))}</b> (${num(Math.max(0, sc).toFixed(1))}/5)</p>` : ""}${why ? `<p class="po-why"><b>${esc(t("poWhy"))}</b> ${esc(pick(why))}</p>` : ""}
 <div class="po-act"><button type="button" class="ghost-btn" data-go="3">${esc(t("poOther"))}</button></div>
 <p class="po-next">${esc(t("poNext"))}</p>` }
@@ -1075,7 +1076,7 @@ const sb = fm0.querySelector("[type=submit]"); if (sb) { sb.removeAttribute("dat
 const fn = fm0.querySelector(".f-note"); if (fn) fn.textContent = t("fNote");
 openModal("", "field", h ? h.id : null, "#fieldForm");
 if (preset) $("#fArea").value = preset;
-if (edit) { $("#fName").value = edit.name; $("#fArea").value = edit.site; $("#fSize").value = edit.ha || "" }
+if (edit) { $("#fName").value = edit.name; $("#fArea").value = edit.site; $("#fSize").value = edit.size || "" }
 [0, 1, 2].forEach(i => { const el = document.querySelector("#fS" + i); if (el) el.value = ((edit && (edit.seasons || SEAS_OF[edit.cur])) || seasons)[i] }); formChecks();
 setTimeout(() => $("#fName").focus({ preventScroll: true }), 40);
 return }
@@ -1088,7 +1089,7 @@ openModal(`<form class="f-form" id="fieldForm"><h2 id="fH" tabindex="-1">${esc(t
 <div class="f-actions"><button type="submit" class="go-btn">${t(edit ? "fUpdate" : "fSave")}</button><button type="button" class="ghost-btn" id="fCancel">${t("fCancel")}</button></div>
 <p class="f-note">${t("fNote")}</p></form>`, "field", "fH");
 if (preset) $("#fArea").value = preset;
-if (edit) { $("#fName").value = edit.name; $("#fArea").value = edit.site; $("#fSize").value = edit.ha || "" }
+if (edit) { $("#fName").value = edit.name; $("#fArea").value = edit.site; $("#fSize").value = edit.size || "" }
 [0, 1, 2].forEach(i => { const el = document.querySelector("#fS" + i); if (el) el.value = ((edit && (edit.seasons || SEAS_OF[edit.cur])) || seasons)[i] }); formChecks();
 }
 function submitField() {
@@ -1098,16 +1099,16 @@ if (!nm0) { fErr(t("needName")); $("#fName").setAttribute("aria-invalid", "true"
 if (!(ha > 0)) { fErr(t("needSize")); $("#fSize").setAttribute("aria-invalid", "true"); $("#fSize").focus(); return }
 if (!(ha < MAX_HA)) { fErr(t("needSizeMax")); $("#fSize").setAttribute("aria-invalid", "true"); $("#fSize").focus(); return }
 $("#fName").removeAttribute("aria-invalid"); $("#fSize").removeAttribute("aria-invalid");
-const old = editId && fields.find(x => x.id === editId);
-const f = { id: old ? old.id : Date.now().toString(36), name: String($("#fName").value || "").trim() || (old ? old.name : `${t("fDefault")} ${fields.length + 1}`), site: $("#fArea").value, seasons: [0, 1, 2].map(i => (document.querySelector("#fS" + i) || {}).value || "R"), ha: ha > 0 ? Math.round(ha * 10) / 10 : null };
+const old = editId && fields().find(x => x.id === editId);
+const f = { id: old ? old.id : Date.now().toString(36), name: String($("#fName").value || "").trim() || (old ? old.name : `${t("fDefault")} ${fields().length + 1}`), site: $("#fArea").value, seasons: [0, 1, 2].map(i => (document.querySelector("#fS" + i) || {}).value || "R"), size: ha > 0 ? Math.round(ha * 10) / 10 : null };
 f.cur = curFrom(f.seasons);
-if (old) fields[fields.indexOf(old)] = f; else fields.push(f);
-if (old) { try { typeof Dash !== "undefined" && Dash.syncField && Dash.syncField(f, old) } catch (e) {} }   /* same name, area and size on the dashboard */
+if (old) { if (old.site !== f.site) delete old.rot; Object.assign(old, f) } else Farm.st.fields.push(f);   /* in place: the dashboard's plan for this field stays */
+try { typeof Dash !== "undefined" && Dash.syncField && Dash.syncField() } catch (e) {}
 const goOn = pendingNext;
 saveFields(); closeModal(false); openField(f.id);
 if (goOn) { pendingNext = false; setTimeout(() => { go(2); setTimeout(() => { if (typeof Side !== "undefined" && Side.sub) Side.sub("b") }, 30) }, 80) } else renderNeedField();
 }
-const saveFields = () => save("mre-fields", JSON.stringify(fields));
+const saveFields = () => Farm.save();
 
 /* ---------- ticker: outlook, your fields, selected area ---------- */
 function renderTicker() {
@@ -1124,10 +1125,10 @@ ${top ? `<span class="tk-best">${esc(t("tbBest")(pick(top.c.name), num(Math.max(
 }
 function renderFields() {
 if (!has("#fieldList")) return;
-$("#fieldList").innerHTML = fields.length ? fields.map(f => {
+$("#fieldList").innerHTML = fields().length ? fields().map(f => {
 const s = siteById(f.site), [k] = CUR[f.cur] || CUR.rice3, sz = (f.seasons || SEAS_OF[f.cur] || []).map(x => t("sCropS")[x]).join(" → ");
 return `<li class="field${f.id === fieldId ? " on" : ""}"><button type="button" class="f-open" data-field="${f.id}" aria-pressed="${f.id === fieldId}">
-<b>${esc(f.name)}</b><small>${esc(shortName(s))}${f.ha ? ` · ${num(f.ha)} ha · ${num(Math.round(f.ha * 100) / 10)} công` : ""} · ${esc(sz || t(k))}</small>${monthChip(s, f.cur, new Date().getMonth())}</button>
+<b>${esc(f.name)}</b><small>${esc(shortName(s))}${f.size ? ` · ${num(f.size)} ha · ${num(Math.round(f.size * 100) / 10)} công` : ""} · ${esc(sz || t(k))}</small>${monthChip(s, f.cur, new Date().getMonth())}</button>
 <span class="f-acts"><button type="button" class="f-edit" data-edit="${f.id}" aria-label="${t("fEdit")}: ${esc(f.name)}">${ico("edit", 16)}<span>${t("fEdit")}</span></button><button type="button" class="f-del" data-del="${f.id}" aria-label="${t("fRemove")}: ${esc(f.name)}">${ico("trash", 16)}<span>${t("fRemove")}</span></button></span></li>` }).join("")
 : `<li class="f-empty">${t("mfEmpty")}</li>`;
 }
@@ -1140,6 +1141,7 @@ function drawerOpen() { return document.body.classList.contains("drawer-open") }
 function openPanel(s) { go(s == null ? step : s) }
 function closePanel() {
 if (!drawerOpen()) return;
+if (gi >= 0) guide(-1);  // the Lab guide belongs to the drawer: close it too
 document.body.classList.remove("drawer-open");
 const d = document.querySelector("#drawer"); if (d) d.inert = true;
 setTimeout(() => mv("resize"), 460);
@@ -1149,6 +1151,7 @@ function go(sv, opts = {}) {
 sv = sv === "lab" ? "lab" : Math.max(1, Math.min(4, parseInt(sv, 10) || 1));
 if ((sv === 3 || sv === 4) && site && !hasField()) { sv = 2; setTimeout(askField, 60) }
 const wasOpen = drawerOpen(), changed = sv !== step;
+if (sv !== "lab" && gi >= 0) guide(-1);
 step = sv;
 $$("section.view").forEach(v => { const on = v.id === VIEW[sv]; v.classList.toggle("on", on); v.toggleAttribute("inert", !on) });
 const d = document.querySelector("#drawer"); if (d) { d.inert = false; d.hidden = false }
@@ -1186,8 +1189,8 @@ const dc = document.querySelector("#dClose"); if (dc) { dc.setAttribute("aria-la
 /* a saved field on the chosen area (the example area needs none) */
 function hasField() {
 if (!site || exOn) return true;
-if (fieldId && fields.some(f => f.id === fieldId && f.site === site.id)) return true;
-const f = fields.find(x => x.site === site.id); if (f) { fieldId = f.id; save("mre-last", f.id); return true }
+if (fieldId && fields().some(f => f.id === fieldId && f.site === site.id)) return true;
+const f = fields().find(x => x.site === site.id); if (f) { fieldId = f.id; save("mre-last", f.id); return true }
 return false;
 }
 let pendingNext = false;
@@ -1204,18 +1207,18 @@ let n = fm.querySelector(".f-need"); if (!n) { n = document.createElement("p"); 
 n.textContent = t("needFieldP"); n.hidden = false }
 /* delete a field from the planner list; quiet = the dashboard asked, so don't call it back */
 function removeField(id, quiet) {
-const f = fields.find(x => x.id === id); if (!f) return;
-fields = fields.filter(x => x.id !== id); if (fieldId === id) { fieldId = null; drop("mre-last") } saveFields(); renderAll();
-if (!quiet) { try { typeof Dash !== "undefined" && Dash.unlink && Dash.unlink(id, f.site, f.name) } catch (e) {} }
+const f = fields().find(x => x.id === id); if (!f) return;
+Farm.st.fields = Farm.st.fields.filter(x => x.id !== id); if (fieldId === id) { fieldId = null; drop("mre-last") } saveFields(); renderAll();
+if (!quiet) { try { typeof Dash !== "undefined" && Dash.unlink && Dash.unlink() } catch (e) {} }
 }
 function renderNeedField() {
 const v2 = document.querySelector("#v2"); if (!v2) return;
 let el = document.querySelector("#needField");
 if (!el) { el = document.createElement("div"); el.id = "needField"; el.className = "need-field"; el.setAttribute("role", "note"); v2.insertBefore(el, v2.firstChild) }
-const f = site && fields.find(x => x.id === fieldId);
+const f = site && fields().find(x => x.id === fieldId);
 if (!site || exOn || f) { el.hidden = true; return }   /* a saved field is already shown, with its edit button, in "Your fields" below */
 el.hidden = false; el.classList.toggle("ok", !!f);
-el.innerHTML = f ? `<p><b>${esc(t("fieldReady")(f.name))}${f.ha ? ` · ${num(f.ha)} ha` : ""}</b></p><button type="button" class="ghost-btn" data-edit="${f.id}">${esc(t("fEdit"))}</button>`
+el.innerHTML = f ? `<p><b>${esc(t("fieldReady")(f.name))}${f.size ? ` · ${num(f.size)} ha` : ""}</b></p><button type="button" class="ghost-btn" data-edit="${f.id}">${esc(t("fEdit"))}</button>`
 : `<p><b>${esc(t("needField"))}</b><span>${esc(t("needFieldP"))}</span></p><button type="button" class="btn gold" data-needfield>${esc(t("needFieldB"))}</button>`;
 }
 function nextStep() {
@@ -1246,6 +1249,7 @@ const size = root.classList.contains("big") ? "big" : root.classList.contains("s
 const pe = document.querySelector("#setPanel > .eyebrow"); if (pe) pe.textContent = tt("settings");
 $("#setBody").innerHTML = `<p class="set-note">${esc(t("setNote"))}</p>
 <div class="set-row"><span class="set-cap">${esc(tt("text"))}</span><div class="seg textsize" role="group" aria-label="${esc(tt("size"))}">${[["big", "A+"], ["n", "A"], ["small", "A−"]].map(([v, x]) => `<button type="button" data-size="${v}" aria-label="${x}" aria-pressed="${v === size}">${x}</button>`).join("")}</div><small class="set-hint">${esc(t("h_text"))}</small></div>
+<div class="set-row"><span class="set-cap">${esc(tt("theme"))}</span>${seg("thm", [["light", esc(tt("thLight"))], ["dark", esc(tt("thDark"))], ["auto", esc(tt("thAuto"))]], v => v === (root.dataset.theme || "auto"))}<small class="set-hint">${esc(t("h_theme"))}</small></div>
 <div class="set-row"><span class="set-cap">${esc(tt("motion"))}</span>${seg("motion", [["anim", esc(tt("anim"))], ["lite", esc(tt("lite"))]], v => (v === "lite") === lite)}<small class="set-hint">${esc(t("h_motion"))}</small></div>
 <button type="button" class="set-guide" id="tourBtn">${ico("guide", 20)}<span><b>${esc(t("guideB"))}</b><small>${esc(t("guideS"))}</small></span></button>
 <div class="set-links"><button type="button" class="ghost-btn" data-open="about">${esc(t("about"))}</button><button type="button" class="ghost-btn" data-open="sources">${esc(t("sources"))}</button></div>
@@ -1340,8 +1344,8 @@ function planDocHTML() {
       while (d.firstChild) box.appendChild(d.firstChild); d.replaceWith(box) });
     c.querySelectorAll("button, .po-act, .po-next, input, [data-cost-ha], .cs-ha").forEach(x => x.remove());
     return c.outerHTML; }).join("\n");
-  const f = fieldId && !exOn ? fields.find(x => x.id === fieldId) : null;
-  const sub = [site ? pick(site.name) : "", f ? f.name + (f.ha ? ` · ${num(f.ha)} ha` : "") : "", new Date().toLocaleDateString(lang === "vi" ? "vi-VN" : "en-GB")].filter(Boolean).map(esc).join(" · ");
+  const f = fieldId && !exOn ? fields().find(x => x.id === fieldId) : null;
+  const sub = [site ? pick(site.name) : "", f ? f.name + (f.size ? ` · ${num(f.size)} ha` : "") : "", new Date().toLocaleDateString(lang === "vi" ? "vi-VN" : "en-GB")].filter(Boolean).map(esc).join(" · ");
   const links = [...document.querySelectorAll('link[rel="stylesheet"]')].map(l => `<link rel="stylesheet" href="${esc(l.href)}">`).join("");
   return `<!doctype html><html lang="${lang}" data-theme="light"><head><meta charset="utf-8"><title>${esc(t("step5"))}</title>${links}
 <style>
@@ -1482,6 +1486,7 @@ if ((b = c("[data-ui]"))) { setUi(b.dataset.ui); return }
 if ((b = c("[data-fm]"))) { setFm(b.dataset.fm, true); return }
 if ((b = c("[data-size]"))) { setSize(b.dataset.size); return }
 if ((b = c("[data-motion]"))) { setCalm(b.dataset.motion === "lite", true); return }
+if ((b = c("[data-thm]"))) { const v = b.dataset.thm;   /* not data-theme: <html> carries that one */ if (v === "auto") { delete root.dataset.theme; drop("mre-theme") } else { root.dataset.theme = v; save("mre-theme", v) } renderSettings(); return }
 if (c("#tourBtn")) { toggleSettings(false); tour(0); return }
 if (c("#tourNext")) return tour(ti + 1); if (c("#tourBack")) return tour(ti - 1); if (c("#tourSkip")) return endTour();
 if (c("#saveCopy")) { saveCopy(); return }
@@ -1511,10 +1516,10 @@ if ((b = c("[data-sheetplan]"))) { planId = b.dataset.sheetplan; renderCards(fal
 if ((b = c("[data-wf]"))) { if (b.dataset.wf === "p") wfP = +b.dataset.v; else wfM = +b.dataset.v; save("mre-wf2", JSON.stringify({ p: wfP, m: wfM }));
 if (typeof RX !== "undefined" && RX.Model && RX.Model.set) RX.Model.set("labour", labourPen() >= 0.3 ? "short" : "enough"); renderAll(); renderWorkforce(); return }
 if ((b = c("#growNow [data-szex]"))) { seasons = b.dataset.szex.split(""); cur = curFrom(seasons); curPicked = true; planId = null;
-if (fieldId) { const f = fields.find(x => x.id === fieldId); if (f) { f.seasons = seasons.slice(); f.cur = cur; saveFields() } }
+if (fieldId) { const f = fields().find(x => x.id === fieldId); if (f) { f.seasons = seasons.slice(); f.cur = cur; saveFields() } }
 renderAll(); renderSeasons(); return }
 if ((b = c("#growNow [data-season]"))) { seasons[+b.dataset.season] = b.dataset.sc; cur = curFrom(seasons); curPicked = true; planId = null;
-if (fieldId) { const f = fields.find(x => x.id === fieldId); if (f) { f.seasons = seasons.slice(); f.cur = cur; saveFields() } }
+if (fieldId) { const f = fields().find(x => x.id === fieldId); if (f) { f.seasons = seasons.slice(); f.cur = cur; saveFields() } }
 renderAll(); return }
 if ((b = c("[data-goal15]"))) { wPicked = true; Object.entries(GOALS[b.dataset.goal15]).forEach(([k, v]) => setW(k, v)); $$("[data-goal15]").forEach(x => x.setAttribute("aria-pressed", x === b)); priTexts(); return }
 if ((b = c("[data-tk]"))) { wPicked = true; const k = b.dataset.tk; setW(k, b.dataset.v != null ? +b.dataset.v : Math.round(w[k]) + +b.dataset.d); $$("[data-goal15]").forEach(x => x.setAttribute("aria-pressed", "false")); priTexts(); return }
@@ -1536,9 +1541,9 @@ if (c("#ppRev")) { const a = document.querySelector("#cards .card.isplan"); if (
 /* step 2: your fields */
 if (c("[data-needfield]")) { askField(); return }
 if (c("#addField")) { openFieldForm(site && site.id); return }
-if ((b = c("[data-edit]"))) { openFieldForm(null, fields.find(f => f.id === b.dataset.edit)); return }
+if ((b = c("[data-edit]"))) { openFieldForm(null, fields().find(f => f.id === b.dataset.edit)); return }
 if ((b = c("[data-del]"))) { removeField(b.dataset.del); return }
-if ((b = c("[data-field]"))) { exOn = false; const f = fields.find(x => x.id === b.dataset.field); openField(b.dataset.field); if (f) mv("focus", f.site); return }
+if ((b = c("[data-field]"))) { exOn = false; const f = fields().find(x => x.id === b.dataset.field); openField(b.dataset.field); if (f) mv("focus", f.site); return }
 });
 document.addEventListener("change", e => {
 if (e.target.matches && e.target.matches("#noBrackish")) renderAll();
@@ -1571,10 +1576,10 @@ document.addEventListener("dragstart", e => { if (!editable(e.target) && !(e.tar
 
 /* ---------- start ---------- */
 window.App = { refresh: () => renderAll(), fieldId: () => fieldId, cur: () => cur, ranked, planId: () => planId, V, t, lang: () => lang, site: () => site, go, toast, mode: () => mode, weights: () => ({ ...w }), upCrop: () => upCrop, guide, openPanel, closePanel, ui: () => ui, setUi: u => { if (u !== ui) setUi(u) }, hasField: () => hasField(), example: () => exOn, askField: () => askField(),
-  fields: () => fields.slice(), removeField, planDoc: () => planDocHTML(), openField: id => openField(id), openFieldForm: siteId => openFieldForm(siteId) };
+  fields: () => fields(), removeField, planDoc: () => planDocHTML(), openField: id => openField(id), openFieldForm: siteId => openFieldForm(siteId) };
 function start() {
 ensureSkeleton(); buildExtras();
-document.body.appendChild(offChip);
+(document.querySelector("#brand") || document.body).appendChild(offChip);
 addEventListener("online", netState); addEventListener("offline", netState);
 const m = modal(); if (m) { m.addEventListener("cancel", e => { e.preventDefault(); closeModal() }); if (!m.open && !m.classList.contains("open")) m.hidden = true }
 const d = document.querySelector("#drawer"); if (d && !document.body.classList.contains("drawer-open")) d.inert = true;

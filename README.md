@@ -63,7 +63,7 @@ The match is the average of the five, weighted by the farmer's priorities. Every
 - **Two NASA rain sources agree.** GPM and POWER rain correlate at 0.93 month to month at every pin.
 - **Methods reproduce their references.** Water demand matches FAO-56's worked example (3.88 vs 3.9 mm/day); canal water reproduces FAO Manual 3's rice example.
 - **The ranking survives our guesses.** Moving each team-estimate constant (salt tolerance, heat reference, brackish soil loss, soil and weather weights, pest break) by ±20% never changes the best rotation at any of the 5 areas (`python pipeline/sensitivity.py`; income and water are held at their built values).
-- **Every claim has a link,** and a source is marked checked only after the claim was found in it with a quote. 55 automated checks (`python pipeline/test_build.py`) cover the calculations and the data the app reads.
+- **Every claim has a link,** and a source is marked checked only after the claim was found in it with a quote. 59 automated checks (`python pipeline/test_build.py`) cover the calculations and the data the app reads.
 
 Details and numbers: [below](SOURCES.md#how-we-checked-it).
 
@@ -147,7 +147,7 @@ Click on the PowerShell window and press **Ctrl** + **C**, then close the window
 ### Put it online (GitHub Pages)
 To give everyone a normal web link instead of running it yourself, a person with admin rights to the GitHub project can:
 1. Go to the project on GitHub, then **Settings → Pages**.
-2. Under **Build and deployment**, set **Source** to **Deploy from a branch**, **Branch** to **release**, and the folder to **/docs**, then click **Save**.
+2. Under **Build and deployment**, set **Source** to **Deploy from a branch**, **Branch** to **main**, and the folder to **/docs**, then click **Save**.
 3. After a few minutes the app is at **https://kp712.github.io/mekong_luclonghoi/**. Free GitHub accounts can only do this for public projects.
 
 ### For teammates: updating the data
@@ -158,10 +158,10 @@ py pipeline/appeears.py ndvi    # NASA MODIS greenness via AppEEARS (needs Earth
 py pipeline/fetch_soil.py       # SoilGrids topsoil (slow website: if it stops, run it again to continue)
 py pipeline/fetch_gpm.py        # NASA GPM rain, the rain the app shows (needs Earthdata login, see below)
 py pipeline/fetch_salinity_vietnam.py  # KTTV 10-day salinity bulletins -> data/raw/salinity_kttv_vietnam.json (no login; writes nothing if any fetch fails or a bulletin on file would be lost)
-py pipeline/build.py            # combines everything into docs/data/sites.json
-py pipeline/test_build.py       # expect 55 ok lines, the unknown-ID fixture warning, a rebuild message and any unverified sources
+py pipeline/build.py            # combines everything into docs/data/ and docs/app/builder.js
+py pipeline/test_build.py       # expect 59 ok lines, the unknown-ID fixture warning, a rebuild message and any unverified sources
 ```
-The plan builder's `docs/app/builder.js` is a snapshot whose generator is not in the repo: when a pin's salinity in `sites.json` changes, copy its months, `station_ppt`, `max_ppt` and level into `BUILDER.sites` by hand (`test_builder_salt_sync` fails until they match).
+`build.py` also writes the Plan Lab's `docs/app/builder.js`; never edit it by hand. The tests and `build.py` need only Python's standard library. `fetch_salinity_vietnam.py` also needs `pdfplumber` to read the bulletin PDFs: run `py -m pip install pdfplumber` once, before the tests (they load that script).
 **NASA Earthdata login** (free account at https://urs.earthdata.nasa.gov; for `fetch_gpm.py` also approve **NASA GESDISC DATA ARCHIVE** under Applications → Authorized Apps). Type these two lines in the same PowerShell window before running `appeears.py` or `fetch_gpm.py`, with your own details between the quotes. They only last until you close the window:
 ```
 $env:EARTHDATA_USERNAME = "your-username"

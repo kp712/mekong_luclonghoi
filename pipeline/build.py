@@ -17,6 +17,7 @@ HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parent
 RAW = ROOT / "data" / "raw"
 OUT = ROOT / "docs" / "data" / "sites.json"
+BUILDER_OUT = ROOT / "docs" / "app" / "builder.js"  # the Plan Lab's constants (write_builder)
 PROV_OUT = ROOT / "docs" / "data" / "provinces.json"  # the 34 provinces and the 63 province points (vietnam.html)
 
 # Canal water of a rotation (FAO Manual 3 section 4.4, month by month): crop water use (FAO-56 Table 12 crop factor x ET0),
@@ -34,6 +35,11 @@ SALT_HIGH, SALT_MED = 15, 4  # ‰ cut-offs of the salinity level rule (see sali
 # Weather & salt score (see score_weather_salt). No source gives salt-tolerant (ST) rice's damage threshold next to ordinary
 # rice's, so a tolerant rice month counts as half an ordinary one: a team estimate (ST story: UPOV, on the card).
 TOL, TOL_ESTIMATE = 0.5, True
+SALT_FULL = 15            # station salinity (‰) that takes the salt part's severity to 1.0 (team choice)
+OVERRIDE_SEVERITY = 4 / 15  # severity where a level override has no peak (Ngã Năm: "low" at the 4‰ line)
+LEGUME_UPLAND = ("mungbean",)  # the upland crop that counts as a legume for soil
+RICE_MONTHS = {"min": 3, "max": 4, "days": [90, 100]}  # Plan Lab: a rice crop spans 3-4 calendar months (90-100 days)
+MIN_MONTHS = {"R": 3, "T": 3, "S": 6, "U": 3}  # Plan Lab: shortest run of months a crop needs
 HEAT_REF = 30             # days at or above 35 °C that take the heat part to 1.0: about a month of hot days (team choice)
 BRACKISH_SOIL = 0.5       # soil points lost where the calendar has shrimp months (team estimate: Ngoc et al. 2023 give salinity readings, no score)
 BRACKISH_ESTIMATE = True  # False once a source gives BRACKISH_SOIL as a number
@@ -116,7 +122,8 @@ def outlook(o):
                 "vi": f"Tình trạng El Niño theo NOAA ({when['vi']}): {ENSO_VI.get(o['status'], o['status'])}."}
     src = {"title": f"NOAA CPC ENSO Diagnostic Discussion, {when['en']}: {o['status']}", "url": o["url"],
            "note": f"Synopsis: \"{o['synopsis']}\" Saved by pipeline/fetch_power.py (data/raw/enso_outlook.json).", "verified": True}
-    return {"elnino": o["status"] in ("El Niño Advisory", "El Niño Watch"), "text": text, "source": src}
+    return {"elnino": o["status"] in ("El Niño Advisory", "El Niño Watch"), "pct": int(m[6]) if m and m[2] == "El Niño" else None,
+            "text": text, "source": src}
 
 
 OUTLOOK = outlook(json.loads((RAW / "enso_outlook.json").read_text(encoding="utf-8")))
@@ -439,7 +446,7 @@ def score_weather_salt(rot, clim, sal):
     tol = TOL if rot.get("rice_class") == "tolerant" else 1
     cls = [tol if c[0] == "R" else 1 if c[0] == "U" else 0 for c in rot["months"]]  # shrimp (S) and rest (-) are safe
     salt = [m - 1 for m in sal["months"]]
-    severity = 4 / 15 if sal["max_ppt"] is None else min(sal["station_ppt"] / 15, 1)  # level override (Ngã Năm): "low"
+    severity = OVERRIDE_SEVERITY if sal["max_ppt"] is None else min(sal["station_ppt"] / SALT_FULL, 1)  # level override (Ngã Năm): "low"
     need, base = water_need(rot["months"], clim, rot.get("kc_u")), water_need(BASE, clim)
     canal, base_salty = sum(need[i] for i in salt), sum(base[i] for i in salt)
     risk = (sum(cls[i] for i in salt) / len(salt) * severity if salt else 0, min(hot / HEAT_REF, 1), min(canal / base_salty, 1) if base_salty else 0)
@@ -848,7 +855,7 @@ def card(rot, clim, nd, sal, elnino=False, soil=None, site=None):
         l = sourced(line(here["line"]["en"], here["line"]["vi"]), here["sources"])
         rot = dict(rot, **({"gaps": rot["gaps"] + [l]} if here.get("gap") else {"why": rot["why"] + [l]}))
     only = lambda xs, k: [{a: b for a, b in x.items() if a != "crops"} for x in xs if k in x.get("crops", [k])]  # lines tagged with the crops they fit
-    vs = {k: dict(card_one(dict(rot, crop=k, kc_u=KC_U[k], profit=dict(rot["profit"], U=k), legume_codes=["U"] if k == "mungbean" else [],
+    vs = {k: dict(card_one(dict(rot, crop=k, kc_u=KC_U[k], profit=dict(rot["profit"], U=k), legume_codes=["U"] if k in LEGUME_UPLAND else [],
                                 **{f: only(rot[f], k) for f in ("why", "benefits", "risks", "gaps")}),
                            clim, nd, sal, elnino, soil), offered=k in local) for k in rot["upland_crops"]}
     best = max((k for k in vs if vs[k]["offered"]), key=lambda k: (vs[k]["scores"]["income"] or 0, -rot["upland_crops"].index(k)))
@@ -1183,6 +1190,46 @@ def write_dated(path, data):
     path.write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
 
 
+def write_builder(rot_file, sites, gpm):
+    """docs/app/builder.js: the Plan Lab's model constants (BUILDER) and the latest-12-months rain and canal-water view (EXTRA),
+    all from the pipeline, so the Plan Lab can never drift from sites.json."""
+    rots = rot_file["rotations"]
+    keys = sorted({f["key"] for f in PROFITS["figures"]} | {k for r in rots for k in r["profit"].values()} | set(KC_U))
+    dur = {c["id"]: c.get("duration_days") for c in json.loads((HERE / "resources.json").read_text(encoding="utf-8"))["crops"]}
+    view = lambda c, sal: {"rain": c["rain_mm"], "et0": c["et0_mm"], "hot": c["hot_days"], "salt": sal["months"],
+                           "ppt": sal["station_ppt"], "max_ppt": sal["max_ppt"], "level": sal["level"]}
+    b = {"_readme": "Written by pipeline/build.py (write_builder) from sites.json, profits.json, resources.json and rotations.json. Do not edit.",
+         "const": {"KC": KC, "KC_U": KC_U, "SAT": SAT, "WL": WL, "PERC": PERC, "DAYS": DAYS, "TOL": TOL, "HEAT_REF": HEAT_REF,
+                   "BRACKISH_SOIL": BRACKISH_SOIL, "SOIL_W": SOIL_W, "SOIL_DRY_MONTHS": SOIL_DRY_MONTHS, "WS_W": WS_W,
+                   "SALT_FULL": SALT_FULL, "OVERRIDE_SEVERITY": OVERRIDE_SEVERITY},
+         "base": BASE, "base_profit": BASE_ROT["profit"],
+         "median": {k: median_profit(k) for k in keys}, "figures_n": {k: len(used_figures(k)) for k in keys},
+         "loss": [{k: l[k] for k in ("key", "view", "share", "applies", "estimate")} for l in PROFITS["loss"]], "rot_profit": {r["id"]: {"months": r["months"], "profit": r["profit"]} for r in rots},
+         "tolerant_ids": [r["id"] for r in rots if r.get("rice_class") == "tolerant"],
+         "cover_ids": [r["id"] for r in rots if r.get("cover_optional")], "upland_crops": list(KC_U), "legume": list(LEGUME_UPLAND),
+         "rice_months": RICE_MONTHS, "min_months": MIN_MONTHS,
+         "duration_days": {"rice": dur.get("rice"), "rice_st": dur.get("rice_st"), **{k: dur.get(k) for k in (*KC_U, "shrimp")}},
+         "crop_words": {k: {"en": en, "vi": vi} for k, (en, vi) in CROP_WORDS.items()}, "rubric": rot_file["_rubric"],
+         "sites": {s["id"]: {"typical": view(s["climate"], s["salinity"]), "elnino": view(s["elnino"]["climate"], s["elnino"]["salinity"])}
+                   for s in sites}}
+    water, latest = {}, {}
+    for s in sites:
+        base = sum(water_need(BASE, s["climate"]))
+        w = {}
+        for r in rots:
+            for u, kc in ([(u, KC_U[u]) for u in r["upland_crops"]] if r["id"] == "rice_upland" else [(None, r.get("kc_u"))]):
+                need = sum(water_need(r["months"], s["climate"], kc))
+                w[f"{r['id']}:{u}" if u else r["id"]] = [round(need), round(1 - need / base, 3) if base else 0]
+        water[s["id"]] = w
+        last = sorted(gpm[s["id"]])[-12:]
+        latest[s["id"]] = {"from": last[0], "to": last[-1], "rain": [round(gpm[s["id"]][k]) for k in sorted(last, key=lambda k: int(k[5:]))]}
+    text = ("/* builder.js: the Plan Lab's model constants (BUILDER) and the latest-12-months rain and canal-water view (EXTRA).\n"
+            "   Written by pipeline/build.py (write_builder): do not edit. Everything else is read live from docs/data/sites.json. */\n"
+            f"const BUILDER = {json.dumps(b, ensure_ascii=False, separators=(',', ':'))};\n"
+            f"const EXTRA = {json.dumps({'latest': latest, 'water': water}, ensure_ascii=False, separators=(',', ':'))};\n")
+    BUILDER_OUT.write_text(text, encoding="utf-8")
+
+
 def build():
     rot_file = json.loads((HERE / "rotations.json").read_text(encoding="utf-8"))
     rotations = rot_file["rotations"]
@@ -1227,9 +1274,10 @@ def build():
     resources = {k: dict({a: b for a, b in r.items() if a != "sources"}, src=cite(r["sources"])) for k, r in RESOURCES.items()}
     OUT.parent.mkdir(parents=True, exist_ok=True)
     write_dated(OUT, {"soil_help": soil_help,
-                      "outlook": dict({k: OUTLOOK[k] for k in ("elnino", "text")}, src=outlook_src), "resources": resources, "pest_rule": pest_rule,
+                      "outlook": dict({k: OUTLOOK[k] for k in ("elnino", "pct", "text")}, src=outlook_src), "resources": resources, "pest_rule": pest_rule,
                       **area, "sources": [v for _, v in sorted(SOURCES.values(), key=lambda x: x[0])], "sites": sites})
     print("wrote", OUT, len(sites), "sites")
+    write_builder(rot_file, sites, gpm)
     # The 34 provinces go to their own file with its own numbered source list, so the file every phone downloads stays small
     SOURCES.clear()
     head = {"chart_src": cite(POWER_SRC, GPM_SRC, FAO_SRCS), "soil_src": cite(SOIL_SRC), "region_src": cite(REGION_SRC),

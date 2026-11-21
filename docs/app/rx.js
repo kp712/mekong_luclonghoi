@@ -116,7 +116,8 @@ document.addEventListener("keydown", (e) => {
    ===================================================================== */
 const Model = (() => {
   const C = Core, L = C.L;
-  const P_NINO = 0.83;                       /* NOAA, 8 Oct 2026: over 83% */
+  const OUT = SITES_JSON.outlook || {};
+  const P_NINO = OUT.pct ? OUT.pct / 100 : OUT.elnino ? 0.5 : 0;   /* NOAA's latest El Niño chance (sites.json). shortcut: 0.5 when NOAA gives an El Niño status without a %, until the outlook parser reads more wordings */
   const TOL = { rice: { a: 3.0, b: 12 }, maize: { a: 1.7, b: 12 } };  /* FAO Annex 1 (Maas & Grattan 1999) */
   const ans = { cur: "rice3", brackish: "yes", fresh: "sometimes", money: "yes", labour: "enough" };
   try { Object.assign(ans, JSON.parse(localStorage.getItem("mre-ans") || "{}")); } catch (e) {}
@@ -195,8 +196,8 @@ const Model = (() => {
     lead: { vi: "Nếu tưới bằng nước kênh trong tháng mặn, phần mùa vụ có thể mất:", en: "If the field takes canal water in salt months, the share of the crop that could be lost:" },
     conf: { vi: "Độ tin cậy", en: "Confidence" }, lv: { high: { vi: "Cao", en: "High" }, medium: { vi: "Vừa", en: "Medium" }, low: { vi: "Thấp", en: "Low" } },
     because: { vi: "vì", en: "because" }, no: { vi: "Không làm được", en: "Not possible" },
-    how: { vi: "Cách tính: ngưỡng chịu mặn của FAO (lúa mất 12% cho mỗi dS/m trên 3,0), tháng tệ nhất của mỗi vụ, đỉnh mặn tại trạm gần nhất (ước tính từ báo cáo công khai, không đo bằng vệ tinh). El Niño: NOAA dự báo trên 83%.",
-           en: "How: FAO salt tolerance (rice loses 12% per dS/m above 3.0), each crop's worst month, the nearest station's salt peak (estimate from public reports, not satellite). El Niño: NOAA puts it above 83%." },
+    how: { vi: "Cách tính: ngưỡng chịu mặn của FAO (lúa mất 12% cho mỗi dS/m trên 3,0), tháng tệ nhất của mỗi vụ, đỉnh mặn tại trạm gần nhất (ước tính từ báo cáo công khai, không đo bằng vệ tinh). El Niño: cân theo khả năng trong dự báo mới nhất của NOAA.",
+           en: "How: FAO salt tolerance (rice loses 12% per dS/m above 3.0), each crop's worst month, the nearest station's salt peak (estimate from public reports, not satellite). El Niño: weighted by the chance in NOAA's latest forecast." },
     copy: { vi: "Sao chép để gửi cán bộ khuyến nông (Zalo)", en: "Copy to send your extension officer (Zalo)" }, copied: { vi: "Đã sao chép", en: "Copied" },
     ask: { vi: "Về ruộng của bạn", en: "About your field" },
     q: { brackish: { vi: "Nước lợ vào được ruộng?", en: "Brackish water reaches the field?" }, fresh: { vi: "Mùa khô có nước ngọt từ kênh?", en: "Fresh canal water in the dry season?" },

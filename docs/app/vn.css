@@ -203,3 +203,6 @@ body.vn-rainlayer #mapKey { display: none }   /* rain layers: the salt key does 
 .vn-k-w { width: 2px !important; height: 10px !important; background: color-mix(in srgb, var(--ink) 45%, transparent) }
 @media (prefers-reduced-motion: reduce) { #hoverCard .vn-hc-bars .hb .r { animation: none } }
 #hoverCard .vn-hc-bars .hb { overflow: hidden }
+
+/* zoomed out to the country: the 5 Sóc Trăng area plates (map.js) would float over other provinces */
+body.vn-far .sg-label-wrap { display: none }

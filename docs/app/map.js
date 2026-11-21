@@ -207,7 +207,7 @@ const MapView = typeof L === "undefined" ? {} : (() => {
       img.draggable = false;
       img.decoding = "async";
       img.onload = () => done(null, img);
-      img.onerror = () => done(null, img);
+      img.onerror = () => { img.style.visibility = "hidden"; done(null, img) };   // offline, an unsaved tile stays blank, not a broken-image icon
       img.src = uri;
       return img;
     }
@@ -445,8 +445,9 @@ const MapView = typeof L === "undefined" ? {} : (() => {
       const hero = document.querySelector("#hero"), dock = document.querySelector("#areaDock") || document.querySelector("#ticker");
       const heroOn = hero && !document.body.classList.contains("has-site") && getComputedStyle(hero).visibility !== "hidden";
       const top = heroOn ? Math.round(hero.getBoundingClientRect().bottom) + 24 : 96;
-      const bot = dock ? Math.round(h - dock.getBoundingClientRect().top) + 24 : 150;
-      return { tl: [60, Math.min(top, h - bot - 160)], br: [96, bot] };  // wider right side: room for the pin names
+      const dr = dock && dock.getBoundingClientRect();  // a hidden dock measures 0x0: ignore it
+      const bot = dr && dr.height ? Math.round(h - dr.top) + 24 : 150;
+      return { tl: [60, Math.max(0, Math.min(top, h - bot - 160))], br: [96, bot] };  // wider right side: room for the pin names
     }
     const hero = document.querySelector("#hero");
     const heroOn = hero && !document.body.classList.contains("has-site") && getComputedStyle(hero).display !== "none";
