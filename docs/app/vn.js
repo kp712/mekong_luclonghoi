@@ -48,6 +48,8 @@ const VnMap = (() => {
     saltM: ["Salt", "Độ mặn"], saltH: ["Salt in the water (‰), at river stations", "Độ mặn của nước (‰), tại các trạm trên sông"],
     fresh: ["fresh", "ngọt"], shrimp: ["shrimp water", "nước nuôi tôm"],
     saltNote: ["Colour blends between stations and is an estimate. Only former provinces with a station nearby are coloured; blank = no estimate. From station reports, not satellite.", "Màu hòa giữa các trạm và là ước tính. Chỉ tỉnh cũ có trạm đo gần mới có màu; để trống = chưa có ước tính. Từ báo cáo trạm đo, không phải vệ tinh."],
+    saltNino: ["El Niño year. The 5 Sóc Trăng areas show a typical year.", "Năm El Niño. 5 khu vực Sóc Trăng hiển thị năm thường."],
+    lvlSalt: { low: ["Low salt", "Mặn thấp"], medium: ["Medium salt", "Mặn vừa"], high: ["High salt", "Mặn cao"] },
     rainNote: ["One scale all year. Colour between data points is an estimate, not a measurement.", "Một thang màu cả năm. Màu giữa các điểm số liệu là ước tính, không phải số đo."],
     find: ["Find your area", "Tìm khu vực của bạn"], findPh: ["Province, district or town", "Tỉnh, huyện hoặc thị trấn"],
     loc: ["Use my location", "Dùng vị trí của tôi"], kProv: ["Province", "Tỉnh"], kFormer: ["former province", "tỉnh cũ"], kArea: ["Sóc Trăng area", "Khu vực Sóc Trăng"],
@@ -91,8 +93,11 @@ const VnMap = (() => {
   /* ---------- the data a view shows ---------- */
   const climOf = (o) => (yr === "elnino" ? o.elnino.climate : o.climate);
   const salOf = (o) => (yr === "elnino" ? o.elnino && o.elnino.salinity : o.salinity);
-  /* salt ‰ this month at a point (null = no estimate; 0 = fresh that month) */
+  /* salt ‰ this month at a point (null = no estimate; 0 = not a salt month there: below 4‰) */
   const salMon = (o, m) => { const s = o && salOf(o); return s && s.level !== "unknown" && s.max_ppt != null ? RX.Model.profile(s.months, s.max_ppt, false)[m] : null; };
+  /* a month the profile gives 0 is not a salt month (under 4‰), not fresh water: it reads "< 4‰", never "0,0‰" */
+  const salTxt = (sv) => (sv ? `${num(sv, 1)}‰` : "< 4‰");
+  const kmText = (km) => num(km, km < 10 ? 1 : 0);  // as build.py km_text
   function value(o, m) {
     const c = climOf(o), r = m < 0 ? sum(c.rain_mm) : c.rain_mm[m];
     return mode === "bal" ? r - (m < 0 ? sum(c.et0_mm) : c.et0_mm[m]) : r;
@@ -149,16 +154,17 @@ const VnMap = (() => {
   }
   const idw = (pts, lat, lon) => { let w = 0, v = 0; for (const p of pts) { const d2 = (p.lat - lat) ** 2 + ((p.lon - lon) * 0.96) ** 2; if (d2 < 1e-10) return p.v; const q = 1 / (d2 * d2); w += q; v += q * p.v; } return v / w; };
   let range = [0, 1];
-  /* salt: the points with an estimate, blended between them and clipped to their own former-province outlines (map.js draws the 5 Sóc Trăng areas on top).
+  /* salt: the KTTV stations of this year view, blended between them and clipped to the former provinces whose point has an
+     estimate (map.js draws the 5 Sóc Trăng areas on top).
      rain / rain minus need: every province and the 5 areas, one colour scale for the year. */
   function paint() {
     if (!map || !G || !D) return;  // the month slider can fire before drawMap has made the panes
     const gp = map.getPane("grad"); if (gp) gp.style.display = mode === "salt" ? "" : "none";
     document.body.classList.toggle("vn-rainlayer", mode !== "salt");
     let pts, stops, lo = 0, span = 1, ids = null;
-    if (mode === "salt") {  // only the points with an estimate
-      const es = D.places.filter((x) => salMon(x, mon) != null);
-      pts = es.map((x) => ({ lat: x.lat, lon: x.lon, v: salMon(x, mon) })); ids = new Set(es.map((x) => x.id)); stops = SALT; lo = 0.5; span = 14.5;
+    if (mode === "salt") {
+      pts = (D.stations || []).filter((s) => s[yr]).map((s) => ({ lat: s.lat, lon: s.lon, v: RX.Model.profile(s[yr].months, s[yr].max_ppt, false)[mon] }));
+      ids = new Set(D.places.filter((x) => salMon(x, mon) != null).map((x) => x.id)); stops = SALT; lo = 0.5; span = 14.5;
     } else { pts = points().map((p) => ({ lat: p.lat, lon: p.lon, v: pv(p, mon) })); range = yearRange(); stops = mode === "rain" ? BLUE : DIV; lo = range[0]; span = Math.max(1e-6, range[1] - range[0]); }
     const rings = Object.entries(ids ? G.former : G.province).filter(([id]) => !ids || ids.has(id)).flatMap(([, rs]) => rs.map(ringPts));
     const url = pts.length ? clipImage(MAIN, rings, 110, 150, (lat, lon) => ramp(stops, (idw(pts, lat, lon) - lo) / span)) : "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
@@ -183,11 +189,11 @@ const VnMap = (() => {
     const ends = mode === "salt" ? [`< 1‰ · ${t("fresh")}`, `${t("shrimp")} · 10‰ +`] : mode === "rain" ? [`${num(range[0])} · ${t("less")}`, `${t("more")} · ${num(range[1])} mm`] : [`${num(range[0])} · ${t("dry")}`, `${t("wet")} · ${num(range[1])}`];
     return `<p class="vn-lay-h">${esc(t("show"))}</p>
 <div class="vn-three" role="group" aria-label="${esc(t("show"))}">${["salt", "rain", "bal"].map((m) => `<button type="button" data-mode="${m}" aria-pressed="${mode === m}">${esc(t(m === "salt" ? "saltM" : m))}</button>`).join("")}</div>
-${mode === "salt" ? "" : `<div class="vn-two vn-yrs">${["typical", "elnino"].map((m) => `<button type="button" data-yr="${m}" aria-pressed="${yr === m}">${esc(t(m))}</button>`).join("")}</div>`}
+<div class="vn-two vn-yrs">${["typical", "elnino"].map((m) => `<button type="button" data-yr="${m}" aria-pressed="${yr === m}">${esc(t(m))}</button>`).join("")}</div>
 <b class="vn-key-h">${esc(t(mode === "salt" ? "saltH" : mode === "rain" ? "rainH" : "balH"))}</b>
 <i class="vn-ramp" style="background:linear-gradient(90deg,${grad})"></i>
 <div class="vn-ends"><span>${esc(ends[0])}</span><span>${esc(ends[1])}</span></div>
-<p class="vn-note">${esc(t(mode === "salt" ? "saltNote" : "rainNote"))}</p>`;
+<p class="vn-note">${esc(t(mode === "salt" ? "saltNote" : "rainNote"))}</p>${mode === "salt" && yr === "elnino" ? `<p class="vn-note">${esc(t("saltNino"))}</p>` : ""}`;
   }
   function findHTML() {
     return `<div class="vn-find"><label class="vn-find-l" for="vnFind">${esc(t("find"))}</label>
@@ -340,7 +346,7 @@ ${mode === "salt" ? "" : `<div class="vn-two vn-yrs">${["typical", "elnino"].map
 <div class="sd-title"><h2 class="sd-h">${esc(nm(view !== "avg" && view !== p.id ? PL[view].name : p.name))}</h2><span class="sd-chip vn-chip"><i class="sg-dot vn-dot-${esc(p.region)}" aria-hidden="true"></i>${esc(nm(D.regions[p.region]).split(" và ")[0].split(" and ")[0])}</span></div>
 <dl class="sd-stats vn-cstats">
 <div class="sd-stat"><dt>${esc(t("rainM"))}</dt><dd><b>${num(rain)} mm</b></dd></div>
-<div class="sd-stat"><dt>${esc(t("saltMon"))}</dt>${sv == null ? `<dd class="vn-nodata"><b>${esc(t("noData"))}</b>${avg ? `<small>${esc(t("seeF"))}</small>` : ""}</dd>` : `<dd><b>${num(sv, 1)}‰</b><small>${esc(fill(t("stn"), { n: salOf(o).station, k: num(salOf(o).km, 0) }))}</small></dd>`}</div>
+<div class="sd-stat"><dt>${esc(t("saltMon"))}</dt>${sv == null ? `<dd class="vn-nodata"><b>${esc(t("noData"))}</b>${avg ? `<small>${esc(t("seeF"))}</small>` : ""}</dd>` : `<dd><b>${esc((sv ? "" : t("lvlSalt", salOf(o).level) + " · ") + salTxt(sv))}</b><small>${esc(fill(t("stn"), { n: salOf(o).station, k: kmText(salOf(o).km) }))}</small></dd>`}</div>
 <div class="sd-stat"><dt>${esc(t("cropsY"))}</dt><dd><b>${crops == null ? "–" : num(crops, 1)}</b></dd></div></dl>`;
   }
   document.addEventListener("click", (e) => {
@@ -378,7 +384,7 @@ ${!o && p.former.length > 1 ? `<p class="vn-hc-sub">${esc(fill(ht("avgOf"), { n:
 <div class="hc-m" aria-hidden="true">${MON[lang].map((x0, i) => `<span${i === m ? ' class="on"' : ""}>${x0}</span>`).join("")}</div>
 ${green}${heat}
 <p class="vn-hc-now"><b>${esc(fill(ht("now"), { m: MONL[lang][m], r: num(r), e: num(e) }))}</b><span class="${d >= 0 ? "up" : "down"}">${esc(fill(ht(d >= 0 ? "surplus" : "deficit"), { v: num(Math.abs(d)) }))}</span>${hot >= .5 ? `<span class="hot">${esc(fill(ht("hotN"), { n: num(hot) }))}</span>` : ""}</p>
-<p class="hc-salt"><span class="k-salt vn-k-none"></span>${esc(ht("salt"))}: <b>${sv == null ? esc(ht(!o && p.former.length > 1 ? "seeF" : "noSalt")) : `${esc(HC.lvl[salOf(x).level][lang === "vi" ? 1 : 0])} · ${num(sv, 1)}‰`}</b></p>
+<p class="hc-salt"><span class="k-salt vn-k-none"></span>${esc(ht("salt"))}: <b>${sv == null ? esc(ht(!o && p.former.length > 1 ? "seeF" : "noSalt")) : `${esc(HC.lvl[salOf(x).level][lang === "vi" ? 1 : 0])} · ${esc(salTxt(sv))}`}</b></p>
 <p class="hc-key"><span><i class="k-wet"></i>${esc(ht("wet"))}</span><span><i class="k-dry"></i>${esc(ht("dry"))}</span><span><i class="k-e"></i>ET₀ NASA POWER</span><span><i class="vn-k-w"></i>${esc(ht("range"))}</span></p>
 <small class="hc-tip">${esc(ht("tip"))}</small>`;
   }
