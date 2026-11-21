@@ -1070,7 +1070,7 @@ def test_kttv_stations_export():
     """provinces.json stations: every bulletin station, each view it has a season for, by the same rules as the points."""
     d = json.loads(build.PROV_OUT.read_text(encoding="utf-8"))
     st = {s["name"]: s for s in d["stations"]}
-    assert set(st) == {n for b in kttv_raw().values() for n in b["readings"]}
+    assert set(st) == {n for b in kttv_raw().values() for n in b["readings"]} - set(build.OUT_OF_SCOPE_STATIONS)
     assert sum("typical" in s for s in st.values()) >= 20 and sum("elnino" in s for s in st.values()) >= 20
     for n, s in st.items():
         assert set(s) <= {"name", "lat", "lon", "typical", "elnino"} and ("typical" in s or "elnino" in s), n
@@ -1156,11 +1156,10 @@ def test_kttv_never_shrinks():
 
 def test_km_and_far_points():
     assert build.km_text(9.84) == "9.8" and build.km_text(20.24) == "20" and build.km_text(20.5) == "21" and build.km_text(2.0) == "2.0"
-    d = {x["id"]: x for x in json.loads(build.PROV_OUT.read_text(encoding="utf-8"))["places"]}
-    far = d["ha_noi"]  # hundreds of km from the southern bulletins
-    assert build.nearest_station(far["lat"], far["lon"])[1] > 100
-    salt = [s for s in far["summary"] if s.get("salt")][0]
-    assert "outside the area covered by KTTV" in salt["en"] and "km" not in salt["en"] and "ngoài khu vực" in salt["vi"]
+    far = (21.03, 105.85)  # Hà Nội (outside the app's area now), hundreds of km from the southern bulletins
+    assert build.nearest_station(*far)[1] > 100
+    note = build.no_estimate(*far)["note"]
+    assert "outside the area covered by KTTV" in note["en"] and "km" not in note["en"] and "ngoài khu vực" in note["vi"]
 
 
 def test_kttv_missing_station():
