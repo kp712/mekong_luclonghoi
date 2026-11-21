@@ -1,5 +1,5 @@
 {
- "_readme": "Coordinates of the 28 KTTV salinity stations in data/raw/salinity_kttv_vietnam.json. No published coordinates were found (KTTV/NCHMF bulletins and station lists give names and rivers only), so every entry is approximate: the point is where OpenStreetMap Nominatim places the station's town, commune or (where OSM maps it) the hydrological station, not a surveyed location. Stations whose commune is not in OSM use a nearby substitute (An Thuận, Bến Trại, Hòa Bình); error can be 10 km or more. river is the river named in the bulletin.",
+ "_readme": "Coordinates of the 28 KTTV salinity stations in data/raw/salinity_kttv_vietnam.json. No published coordinates were found (KTTV/NCHMF bulletins give each station's river, province and distance from the river mouth), so every entry is approximate: An Định and Sơn Đốc are placed at their published distance up the river's OpenStreetMap centre line; every other point is where OpenStreetMap Nominatim places the station's town, commune or (where OSM maps it) the hydrological station, not a surveyed location. Stations whose commune is not in OSM use a nearby substitute (An Thuận, Bến Trại, Hòa Bình); error can be 10 km or more. river is the river named in the bulletin.",
  "stations": {
   "An Ninh": {
    "lat": 9.8623653,
@@ -22,13 +22,13 @@
    }
   },
   "An Định": {
-   "lat": 10.06418,
-   "lon": 106.4059938,
+   "lat": 10.34412,
+   "lon": 106.34362,
    "river": "Tiền",
    "approximate": true,
    "source": {
-    "title": "OpenStreetMap Nominatim, place 'xã An Định'",
-    "url": "https://nominatim.openstreetmap.org/search?format=json&countrycodes=vn&q=x%C3%A3+An+%C4%90%E1%BB%8Bnh"
+    "title": "KTTV bulletin table (river Tiền, province Tiền Giang, 48 km from the river mouth), placed 48 km up the Cửa Tiểu and Tiền centre line in OpenStreetMap (relations 9733184, 9733189); the same measure puts Vàm Kênh at its published 2 km. Xã An Định (Bến Tre) is not on the Tiền.",
+    "url": "https://kttv.gov.vn/upload/thuyvan2/2026/3/20/dbqg_xman_20260320_1500.pdf"
    }
   },
   "Bình Đại": {
@@ -182,13 +182,13 @@
    }
   },
   "Sơn Đốc": {
-   "lat": 10.0861225,
-   "lon": 106.4869374,
+   "lat": 10.03588,
+   "lon": 106.47333,
    "river": "Hàm Luông",
    "approximate": true,
    "source": {
-    "title": "OpenStreetMap Nominatim, place 'Sơn Đốc'",
-    "url": "https://nominatim.openstreetmap.org/search?format=json&countrycodes=vn&q=S%C6%A1n+%C4%90%E1%BB%91c"
+    "title": "KTTV bulletin table (river Hàm Luông, province Bến Tre, 20 km from the river mouth), placed 20 km up the Hàm Luông centre line in OpenStreetMap, where Rạch Sơn Đốc meets the river (Nominatim's 'Sơn Đốc' was the creek 5 km inland).",
+    "url": "https://kttv.gov.vn/upload/thuyvan2/2026/3/20/dbqg_xman_20260320_1500.pdf"
    }
   },
   "Thạnh Phú": {
