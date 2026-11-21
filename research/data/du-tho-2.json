@@ -1,0 +1,1452 @@
+{
+ "location": {
+  "name": "Dù Tho (older bulletins: 'Sông Dù Tho tại Tham Đôn' / 'sông Mỹ Thanh tại Tham Đôn')",
+  "river": "Mỹ Thanh system; Dù Tho is an ấp (hamlet) of xã Tham Đôn whose southern boundary is the Nhu Gia river (a Mỹ Thanh branch)",
+  "admin": "ấp Dù Tho, xã Tham Đôn, huyện Mỹ Xuyên, former Sóc Trăng; Tham Đôn merged into new xã Ngọc Tố, Cần Thơ city (2025)",
+  "evidence": [
+   {
+    "quote_vi": "trên sông Mỹ Thanh tại phường Khánh Hòa, thị xã Vĩnh Châu độ mặn 23,2‰; tại Dù Tho, xã Tham Đôn và xã Thạnh Phú, huyện Mỹ Xuyên độ mặn từ 8,2 - 13,1‰",
+    "url": "https://baosoctrang.org.vn/doi-song-xa-hoi/202504/soc-trang-thuc-hien-giai-phap-ung-pho-cac-loai-hinh-thien-tai-95e2b4f/",
+    "published": "2025-04-25"
+   },
+   {
+    "quote_vi": "gồm 14 ấp: Cần Giờ 1, Cần Giờ 2, Sô La 1, Sô La 2, Sông Cái 1, Sông Cái 2, Trà Mẹt, Trà Bết, Giồng Có, Vũng Đùng, Dù Tho, Bưng Chụm, Tắc Gồng và ấp Phônôcampốt ... phía Nam giáp với hai xã Hòa Tú 1 và Ngọc Đông qua con sông Nhu Gia",
+    "url": "https://baosoctrang.org.vn/van-hoa-the-thao/202106/dia-danh-tham-don-7b61f1c/",
+    "published": "2021-06-07"
+   },
+   {
+    "quote_vi": "Độ mặn cao nhất trên Sông Dù Tho tại Tham Đôn là 2,9‰, thấp nhất là 1,2‰. Tại Thạnh Phú (Nhu Gia) cao nhất là 0,2‰",
+    "url": "https://tepbac.com/tin-tuc/full/thong-bao-tinh-hinh-xam-nhap-man-ngay-6-1-2016-15735.html",
+    "published": "2016-01 (bulletin for 6/1/2016)"
+   }
+  ],
+  "coordinates": "station coordinates not published anywhere found. Only the commune centroid of Tham Đôn: 9°31′13″N 105°56′09″E (vi.wikipedia 'Tham Đôn', via search snippet, not fetched) - NOT the gauge location.",
+  "same_station_as_tham_don": "yes, very likely: same Chi cục Thủy lợi bulletin format and station order (Trần Đề, Long Phú, Đại Ngãi, An Lạc Tây/Cái Trâm, [Dù Tho|Tham Đôn], Thạnh Phú (Nhu Gia), Phường 4 TP Sóc Trăng, Ngã Năm); 2016/2018 call it 'Sông Dù Tho tại Tham Đôn', 2024-25 call it 'Dù Tho' and the 2025 article places it in xã Tham Đôn. So the record plausibly runs back to at least 2016 under the name Tham Đôn.",
+  "operator": "Chi cục Thủy lợi Sóc Trăng (daily max/min point measurements, published via Báo Sóc Trăng 'Thông tin nông nghiệp'); weekly outlooks from Đài KTTV Sóc Trăng"
+ },
+ "seasons": {
+  "2017": [],
+  "2018": [
+   {
+    "ppt": 3.4,
+    "month": "2",
+    "date_or_period": "28/2/2018 daily max",
+    "measured": true,
+    "peak_of_season": false,
+    "quote_vi": "Ngày 28/2, độ mặn cao nhất trên Sông Hậu tại Trần Đề là 12,6‰ ... Độ mặn cao nhất trên Sông Dù Tho tại Tham Đôn là 3,4‰, thấp nhất là 1,7‰.",
+    "gloss_en": "28 Feb 2018: Dù Tho river at Tham Đôn max 3.4, min 1.7 per mille (Chi cục Thủy lợi). Station name 'Tham Đôn' = Dù Tho.",
+    "url": "https://tepbac.com/tin-tuc/full/nguoi-dan-tru-nuoc-ngan-xam-nhap-man-24510.html",
+    "published": "2018-03-02 07:00"
+   },
+   {
+    "ppt": 5.0,
+    "month": "2-3",
+    "date_or_period": "forecast 26/2-4/3/2018",
+    "measured": false,
+    "peak_of_season": false,
+    "quote_vi": "Trên sông Mỹ Thanh, tại Tham Đôn ở mức 5,0g/l; tại Thạnh Phú 2,5g/l; tại Tp. Sóc Trăng 2,5g/l.",
+    "gloss_en": "Forecast weekly max at Tham Đôn 5.0 g/l.",
+    "url": "https://tepbac.com/tin-tuc/full/nguoi-dan-tru-nuoc-ngan-xam-nhap-man-24510.html",
+    "published": "2018-03-02"
+   }
+  ],
+  "2019": [],
+  "2020": [],
+  "2021": [],
+  "2022": [],
+  "2023": [],
+  "2024": [
+   {
+    "ppt": 8.2,
+    "month": "3",
+    "date_or_period": "'những ngày gần đây' before 27/3/2024",
+    "measured": true,
+    "peak_of_season": false,
+    "quote_vi": "Tại các điểm đo trên sông Hậu tại Trần Đề trong những ngày gần đây độ mặn cao ở mức 22,4‰, tại Long Phú 18,4‰ ... trên sông Mỹ Thanh tại Dù Tho 8,2‰, tại Thành phố Sóc Trăng 3,1‰",
+    "gloss_en": "Recent days (to 27 Mar 2024): Dù Tho 8.2 per mille. Same article: Mỹ Thanh daily max 0.9-4.2 above same period 2023 (so a 2023 Dù Tho record exists but no value published). Highest 2024 value found; true season peak (Apr-May) not found.",
+    "url": "https://www.vietnamplus.vn/soc-trang-khoang-1000ha-lua-bi-anh-huong-do-han-han-va-xam-nhap-man-post936747.vnp",
+    "published": "2024-03-27 08:42"
+   }
+  ],
+  "2025": [
+   {
+    "ppt": 14.0,
+    "month": "4",
+    "date_or_period": "3/4/2025 daily max (g/l)",
+    "measured": true,
+    "peak_of_season": "secondary peak (2nd highest of 96 measured days)",
+    "quote_vi": "ch Phụng An cao nhất 2,0 g/l - thấp nhất 0,4 g/l, Cái Trâm cao nhất 0,6 g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 14,0 g/l - thấp nhất 3,0 g/l",
+    "gloss_en": "3 Apr 2025: Dù Tho max 14.0, min 3.0 g/l. Season max remains 15.8 on 9/3 (already known), now confirmed against 96 of 118 days 3/2-31/5.",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202504/thong-tin-nong-nghiep-ngay-54-5163ef5/",
+    "published": "23:27,05/04/2025"
+   },
+   {
+    "ppt": 13.9,
+    "month": "4",
+    "date_or_period": "2/4/2025 daily max (g/l)",
+    "measured": true,
+    "peak_of_season": false,
+    "quote_vi": "h Phụng An cao nhất 2,6 g/l - thấp nhất 0,4 g/l, Cái Trâm cao nhất 0,5 g/l - thấp nhất 0,3 g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 13,9 g/l - thấp nhất 4,4 g/l",
+    "gloss_en": "2 Apr 2025: Dù Tho max 13.9 g/l.",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202504/thong-tin-nong-nghiep-ngay-34-683111b/",
+    "published": "22:01,03/04/2025"
+   },
+   {
+    "ppt": 13.0,
+    "month": "5",
+    "date_or_period": "2/5/2025 daily max (g/l)",
+    "measured": true,
+    "peak_of_season": false,
+    "quote_vi": "l, rạch Phụng An cao nhất 0,6g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,6g/l - thấp nhất 0,3g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 13,0g/l - thấp nhất 7,2g/l",
+    "gloss_en": "2 May 2025: Dù Tho max 13.0 g/l (late-season high).",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202505/thong-tin-nong-nghiep-ngay-35-2094b8d/",
+    "published": "22:59,03/05/2025"
+   },
+   {
+    "ppt": 9.8,
+    "month": "3",
+    "date_or_period": "23/3/2025 daily max (g/l)",
+    "measured": true,
+    "peak_of_season": false,
+    "quote_vi": "ch Phụng An cao nhất 3,3 g/l - thấp nhất 2,3 g/l, Cái Trâm cao nhất 1,8 g/l - thấp nhất 0,3 g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 9,8 g/l - thấp nhất 4,7 g/l",
+    "gloss_en": "23 Mar 2025: Dù Tho max 9.8 g/l (highest of the formerly missing 17-31 Mar window).",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202503/thong-tin-nong-nghiep-ngay-253-a3941a4/",
+    "published": "23:53,25/03/2025"
+   },
+   {
+    "ppt": 14.5,
+    "month": "4",
+    "date_or_period": "weekly forecast 7/4-13/4/2025 (repeated 9/4, 11/4; 13/4 bulletin gives 14.5 for 14-20/4)",
+    "measured": false,
+    "peak_of_season": false,
+    "quote_vi": "Dự báo (từ ngày 7/4 - 13/4), độ mặn cao nhất tại Trần Đề ở mức 19,8g/l, tại Long Phú 15,7g/l, tại Đại Ngãi 6,4g/l, tại rạch Phụng An 3,6g/l, tại Cái Trâm 0,9g/l; tại Dù Tho 14,5g/l",
+    "gloss_en": "Highest weekly forecast for Dù Tho in the bulletins; measured that week peaked 11.8 (7/4).",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202504/thong-tin-nong-nghiep-ngay-94-0533877/",
+    "published": "23:09,09/04/2025"
+   },
+   {
+    "ppt": 13.1,
+    "month": "3-5",
+    "date_or_period": "season-end forecast range 8,2-13,1 for Dù Tho+Thạnh Phú, published 25/4/2025",
+    "measured": false,
+    "peak_of_season": false,
+    "quote_vi": "trên sông Mỹ Thanh tại phường Khánh Hòa, thị xã Vĩnh Châu độ mặn 23,2‰; tại Dù Tho, xã Tham Đôn và xã Thạnh Phú, huyện Mỹ Xuyên độ mặn từ 8,2 - 13,1‰",
+    "gloss_en": "Repeat (25 Apr) of the 16 Mar forecast already in file 1; listed because it pairs with Khánh Hòa.",
+    "url": "https://baosoctrang.org.vn/doi-song-xa-hoi/202504/soc-trang-thuc-hien-giai-phap-ung-pho-cac-loai-hinh-thien-tai-95e2b4f/",
+    "published": "2025-04-25 04:54"
+   }
+  ],
+  "2026": []
+ },
+ "season_peaks_best": {
+  "2018": "3.4 (28/2, single day, not peak)",
+  "2024": "8.2 (late Mar, not peak)",
+  "2025": "15.8 on 9/3 measured (previously found; now checked against 96/118 days, gaps listed)"
+ },
+ "daily_2025": {
+  "note": "Full measured Dù Tho daily max/min, g/l, from Báo Sóc Trăng 'Thông tin nông nghiệp' (Chi cục Thủy lợi). new_vs_first_file marks days added in this pass. Still missing: 9-12/2, 15-16/2, 25-26/2, 1-2/3, 11-12/3, 27-29/3, 27-28/4, 15-16/5, 27-29/5 (no Dù Tho in the 13/3 and 3/3 bulletins; 29/3 and 29/4 bulletins not found). Previous file's parser missed bulletins whose numbers had spaces ('5 , 7 g/l').",
+  "rows": [
+   {
+    "date": "3/2/2025",
+    "max_g_per_l": 1.5,
+    "min_g_per_l": 0.5,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "/l, rạch Phụng An cao nhất 4,3g/l - thấp nhất 4,3g/l, Cái Trâm cao nhất 0,4g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 1,5g/l - thấp nhất 0,5g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202502/thong-tin-nong-nghiep-ngay-52-eda1a72/",
+    "published": "23:36,05/02/2025"
+   },
+   {
+    "date": "4/2/2025",
+    "max_g_per_l": 1.5,
+    "min_g_per_l": 0.6,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "/l, rạch Phụng An cao nhất 4,3g/l - thấp nhất 0,3g/l, Cái Trâm cao nhất 0,4g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 1,5g/l - thấp nhất 0,6g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202502/thong-tin-nong-nghiep-ngay-52-eda1a72/",
+    "published": "23:36,05/02/2025"
+   },
+   {
+    "date": "5/2/2025",
+    "max_g_per_l": 1.2,
+    "min_g_per_l": 0.6,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "/l, rạch Phụng An cao nhất 1,0g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,4g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 1,2g/l - thấp nhất 0,6g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202502/thong-tin-nong-nghiep-ngay-72-38e5b9c/",
+    "published": "23:13,07/02/2025"
+   },
+   {
+    "date": "6/2/2025",
+    "max_g_per_l": 1.1,
+    "min_g_per_l": 0.6,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "/l, rạch Phụng An cao nhất 0,8g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,4g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 1,1g/l - thấp nhất 0,6g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202502/thong-tin-nong-nghiep-ngay-72-38e5b9c/",
+    "published": "23:13,07/02/2025"
+   },
+   {
+    "date": "7/2/2025",
+    "max_g_per_l": 1.2,
+    "min_g_per_l": 0.5,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "/l, rạch Phụng An cao nhất 1,0g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,4g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 1,2g/l - thấp nhất 0,5g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202502/thong-tin-nong-nghiep-ngay-92-dc472e2/",
+    "published": "23:18,09/02/2025"
+   },
+   {
+    "date": "8/2/2025",
+    "max_g_per_l": 1.4,
+    "min_g_per_l": 0.5,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "/l, rạch Phụng An cao nhất 2,7g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,6g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 1,4g/l - thấp nhất 0,5g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202502/thong-tin-nong-nghiep-ngay-92-dc472e2/",
+    "published": "23:18,09/02/2025"
+   },
+   {
+    "date": "13/2/2025",
+    "max_g_per_l": 2.2,
+    "min_g_per_l": 0.5,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "/l, rạch Phụng An cao nhất 2,9g/l - thấp nhất 0,3g/l, Cái Trâm cao nhất 0,5g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 2,2g/l - thấp nhất 0,5g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202502/thong-tin-nong-nghiep-ngay-152-20b183a/",
+    "published": "22:34,15/02/2025"
+   },
+   {
+    "date": "14/2/2025",
+    "max_g_per_l": 1.7,
+    "min_g_per_l": 0.6,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "/l, rạch Phụng An cao nhất 2,1g/l - thấp nhất 0,3g/l, Cái Trâm cao nhất 0,5g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 1,7g/l - thấp nhất 0,6g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202502/thong-tin-nong-nghiep-ngay-152-20b183a/",
+    "published": "22:34,15/02/2025"
+   },
+   {
+    "date": "17/2/2025",
+    "max_g_per_l": 2.0,
+    "min_g_per_l": 0.6,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "/l, rạch Phụng An cao nhất 0,8g/l - thấp nhất 0,3g/l, Cái Trâm cao nhất 0,5g/l - thấp nhất 0,3g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 2,0g/l - thấp nhất 0,6g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202502/thong-tin-nong-nghiep-ngay-192-ee077e1/",
+    "published": "22:59,19/02/2025"
+   },
+   {
+    "date": "18/2/2025",
+    "max_g_per_l": 2.0,
+    "min_g_per_l": 0.6,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "/l, rạch Phụng An cao nhất 0,7g/l - thấp nhất 0,3g/l, Cái Trâm cao nhất 0,5g/l - thấp nhất 0,3g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 2,0g/l - thấp nhất 0,6g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202502/thong-tin-nong-nghiep-ngay-192-ee077e1/",
+    "published": "22:59,19/02/2025"
+   },
+   {
+    "date": "19/2/2025",
+    "max_g_per_l": 1.1,
+    "min_g_per_l": 0.0,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "/l, rạch Phụng An cao nhất 0,7g/l - thấp nhất 0,3g/l, Cái Trâm cao nhất 0,5g/l - thấp nhất 0,0g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 1,1g/l - thấp nhất 0,0g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202502/thong-tin-nong-nghiep-ngay-212-d1f51dd/",
+    "published": "23:14,21/02/2025"
+   },
+   {
+    "date": "20/2/2025",
+    "max_g_per_l": 0.5,
+    "min_g_per_l": 0.0,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "/l, rạch Phụng An cao nhất 0,7g/l - thấp nhất 0,3g/l, Cái Trâm cao nhất 0,5g/l - thấp nhất 0,0g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 0,5g/l - thấp nhất 0,0g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202502/thong-tin-nong-nghiep-ngay-212-d1f51dd/",
+    "published": "23:14,21/02/2025"
+   },
+   {
+    "date": "21/2/2025",
+    "max_g_per_l": 0.5,
+    "min_g_per_l": 0.2,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "/l, rạch Phụng An cao nhất 0,8g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,4g/l - thấp nhất 0,0g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 0,5g/l - thấp nhất 0,2g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202502/thong-tin-nong-nghiep-ngay-232-b70652b/",
+    "published": "23:26,23/02/2025"
+   },
+   {
+    "date": "22/2/2025",
+    "max_g_per_l": 0.5,
+    "min_g_per_l": 0.2,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "/l, rạch Phụng An cao nhất 1,1g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 1,1g/l - thấp nhất 0,0g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 0,5g/l - thấp nhất 0,2g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202502/thong-tin-nong-nghiep-ngay-232-b70652b/",
+    "published": "23:26,23/02/2025"
+   },
+   {
+    "date": "23/2/2025",
+    "max_g_per_l": 1.8,
+    "min_g_per_l": 0.5,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "/l, rạch Phụng An cao nhất 2,8g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,9g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 1,8g/l - thấp nhất 0,5g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202502/thong-tin-nong-nghiep-ngay-255-0382aba/",
+    "published": "22:56,25/02/2025"
+   },
+   {
+    "date": "24/2/2025",
+    "max_g_per_l": 2.6,
+    "min_g_per_l": 0.6,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "/l, rạch Phụng An cao nhất 3,8g/l - thấp nhất 0,3g/l, Cái Trâm cao nhất 0,9g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 2,6g/l - thấp nhất 0,6g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202502/thong-tin-nong-nghiep-ngay-255-0382aba/",
+    "published": "22:56,25/02/2025"
+   },
+   {
+    "date": "27/2/2025",
+    "max_g_per_l": 4.5,
+    "min_g_per_l": 0.8,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "/l, rạch Phụng An cao nhất 0,9g/l - thấp nhất 0,7g/l, Cái Trâm cao nhất 0,9g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 4,5g/l - thấp nhất 0,8g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202503/thong-tin-nong-nghiep-ngay-13-d100542/",
+    "published": "23:47,01/03/2025"
+   },
+   {
+    "date": "28/2/2025",
+    "max_g_per_l": 5.2,
+    "min_g_per_l": 0.8,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "/l, rạch Phụng An cao nhất 0,9g/l - thấp nhất 0,7g/l, Cái Trâm cao nhất 0,9g/l - thấp nhất 0,3g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 5,2g/l - thấp nhất 0,8g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202503/thong-tin-nong-nghiep-ngay-13-d100542/",
+    "published": "23:47,01/03/2025"
+   },
+   {
+    "date": "3/3/2025",
+    "max_g_per_l": 4.8,
+    "min_g_per_l": 1.1,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "/l, rạch Phụng An cao nhất 3,0g/l - thấp nhất 0,3g/l, Cái Trâm cao nhất 0,5g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 4,8g/l - thấp nhất 1,1g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202503/thong-tin-nong-nghiep-ngay-53-ca36bab/",
+    "published": "23:03,05/03/2025"
+   },
+   {
+    "date": "4/3/2025",
+    "max_g_per_l": 4.4,
+    "min_g_per_l": 1.1,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "/l, rạch Phụng An cao nhất 2,7g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,5g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 4,4g/l - thấp nhất 1,1g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202503/thong-tin-nong-nghiep-ngay-53-ca36bab/",
+    "published": "23:03,05/03/2025"
+   },
+   {
+    "date": "5/3/2025",
+    "max_g_per_l": 3.9,
+    "min_g_per_l": 1.0,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "/l, rạch Phụng An cao nhất 2,2g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,5g/l - thấp nhất 0,3g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 3,9g/l - thấp nhất 1,0g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202503/thong-tin-nong-nghiep-ngay-73-4a43590/",
+    "published": "23:31,07/03/2025"
+   },
+   {
+    "date": "6/3/2025",
+    "max_g_per_l": 5.0,
+    "min_g_per_l": 0.9,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "/l, rạch Phụng An cao nhất 1,6g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,5g/l - thấp nhất 0,3g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 5,0g/l - thấp nhất 0,9g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202503/thong-tin-nong-nghiep-ngay-73-4a43590/",
+    "published": "23:31,07/03/2025"
+   },
+   {
+    "date": "7/3/2025",
+    "max_g_per_l": 9.6,
+    "min_g_per_l": 0.8,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "/l, rạch Phụng An cao nhất 1,1g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,5g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 9,6g/l - thấp nhất 0,8g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202503/thong-tin-nong-nghiep-ngay-93-a9f748b/",
+    "published": "23:06,09/03/2025"
+   },
+   {
+    "date": "8/3/2025",
+    "max_g_per_l": 12.0,
+    "min_g_per_l": 0.8,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "l, rạch Phụng An cao nhất 1,9g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,6g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 12,0g/l - thấp nhất 0,8g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202503/thong-tin-nong-nghiep-ngay-93-a9f748b/",
+    "published": "23:06,09/03/2025"
+   },
+   {
+    "date": "9/3/2025",
+    "max_g_per_l": 15.8,
+    "min_g_per_l": 1.0,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "l, rạch Phụng An cao nhất 1,7g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,6g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 15,8g/l - thấp nhất 1,0g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202503/thong-tin-nong-nghiep-ngay-113-d7a5c93/",
+    "published": "22:07,11/03/2025"
+   },
+   {
+    "date": "10/3/2025",
+    "max_g_per_l": 13.7,
+    "min_g_per_l": 1.2,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "l, rạch Phụng An cao nhất 1,6g/l - thấp nhất 0,8g/l, Cái Trâm cao nhất 0,5g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 13,7g/l - thấp nhất 1,2g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202503/thong-tin-nong-nghiep-ngay-113-d7a5c93/",
+    "published": "22:07,11/03/2025"
+   },
+   {
+    "date": "13/3/2025",
+    "max_g_per_l": 9.7,
+    "min_g_per_l": 0.3,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "/l, rạch Phụng An cao nhất 1,4g/l - thấp nhất 1,0g/l, Cái Trâm cao nhất 0,5g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 9,7g/l - thấp nhất 0,3g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202503/thong-tin-nong-nghiep-ngay-153-49c7b7b/",
+    "published": "23:43,15/03/2025"
+   },
+   {
+    "date": "14/3/2025",
+    "max_g_per_l": 6.4,
+    "min_g_per_l": 0.3,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "/l, rạch Phụng An cao nhất 1,4g/l - thấp nhất 1,0g/l, Cái Trâm cao nhất 0,5g/l - thấp nhất 0,3g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 6,4g/l - thấp nhất 0,3g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202503/thong-tin-nong-nghiep-ngay-153-49c7b7b/",
+    "published": "23:43,15/03/2025"
+   },
+   {
+    "date": "15/3/2025",
+    "max_g_per_l": 7.0,
+    "min_g_per_l": 1.3,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "/l, rạch Phụng An cao nhất 1,2g/l - thấp nhất 0,9g/l, Cái Trâm cao nhất 0,5g/l - thấp nhất 0,3g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 7,0g/l - thấp nhất 1,3g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202503/thong-tin-nong-nghiep-ngay-173-6fe2453/",
+    "published": "23:24,17/03/2025"
+   },
+   {
+    "date": "16/3/2025",
+    "max_g_per_l": 7.7,
+    "min_g_per_l": 2.0,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "/l, rạch Phụng An cao nhất 1,2g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,5g/l - thấp nhất 0,3g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 7,7g/l - thấp nhất 2,0g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202503/thong-tin-nong-nghiep-ngay-173-6fe2453/",
+    "published": "23:24,17/03/2025"
+   },
+   {
+    "date": "17/3/2025",
+    "max_g_per_l": 5.7,
+    "min_g_per_l": 2.0,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": "rạch Phụng An cao nhất 0,9g/l - thấp nhất 0,4 g/l, Cái Trâm cao nhất 0,5 g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 5,7 g/l - thấp nhất 2,0 g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202503/thong-tin-nong-nghiep-ngay-193-bdd5a53/",
+    "published": "22:43,19/03/2025"
+   },
+   {
+    "date": "18/3/2025",
+    "max_g_per_l": 5.7,
+    "min_g_per_l": 2.7,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": "ch Phụng An cao nhất 0,8 g/l - thấp nhất 0,4 g/l, Cái Trâm cao nhất 0,5 g/l - thấp nhất 0,2 g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 5,7 g/l - thấp nhất 2,7 g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202503/thong-tin-nong-nghiep-ngay-193-bdd5a53/",
+    "published": "22:43,19/03/2025"
+   },
+   {
+    "date": "19/3/2025",
+    "max_g_per_l": 5.7,
+    "min_g_per_l": 3.7,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": "ch Phụng An cao nhất 0,7 g/l - thấp nhất 0,4 g/l, Cái Trâm cao nhất 0,5 g/l - thấp nhất 0,3 g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 5,7 g/l - thấp nhất 3,7 g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202503/thong-tin-nong-nghiep-ngay-213-f18501d/",
+    "published": "23:46,21/03/2025"
+   },
+   {
+    "date": "20/3/2025",
+    "max_g_per_l": 7.7,
+    "min_g_per_l": 4.1,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": "ch Phụng An cao nhất 0,6 g/l - thấp nhất 0,5 g/l, Cái Trâm cao nhất 0,5 g/l - thấp nhất 0,2 g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 7,7 g/l - thấp nhất 4,1 g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202503/thong-tin-nong-nghiep-ngay-213-f18501d/",
+    "published": "23:46,21/03/2025"
+   },
+   {
+    "date": "21/3/2025",
+    "max_g_per_l": 7.0,
+    "min_g_per_l": 3.1,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": "ạch Phụng An cao nhất 0,7 g/l - thấp nhất 0,4 g/l, Cái Trâm cao nhất 0,5 g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 7,0 g/l - thấp nhất 3,1 g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202503/thong-tin-nong-nghiep-ngay-233-09b75b2/",
+    "published": "23:36,23/03/2025"
+   },
+   {
+    "date": "22/3/2025",
+    "max_g_per_l": 7.4,
+    "min_g_per_l": 2.9,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": "ch Phụng An cao nhất 3,2 g/l - thấp nhất 0,4 g/l, Cái Trâm cao nhất 1,1 g/l - thấp nhất 0,3 g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 7,4 g/l - thấp nhất 2,9 g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202503/thong-tin-nong-nghiep-ngay-233-09b75b2/",
+    "published": "23:36,23/03/2025"
+   },
+   {
+    "date": "23/3/2025",
+    "max_g_per_l": 9.8,
+    "min_g_per_l": 4.7,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": "ch Phụng An cao nhất 3,3 g/l - thấp nhất 2,3 g/l, Cái Trâm cao nhất 1,8 g/l - thấp nhất 0,3 g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 9,8 g/l - thấp nhất 4,7 g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202503/thong-tin-nong-nghiep-ngay-253-a3941a4/",
+    "published": "23:53,25/03/2025"
+   },
+   {
+    "date": "24/3/2025",
+    "max_g_per_l": 8.5,
+    "min_g_per_l": 4.1,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": "ch Phụng An cao nhất 2,6 g/l - thấp nhất 0,4 g/l, Cái Trâm cao nhất 2,3 g/l - thấp nhất 0,2 g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 8,5 g/l - thấp nhất 4,1 g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202503/thong-tin-nong-nghiep-ngay-253-a3941a4/",
+    "published": "23:53,25/03/2025"
+   },
+   {
+    "date": "25/3/2025",
+    "max_g_per_l": 7.3,
+    "min_g_per_l": 2.7,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": "ạch Phụng An cao nhất 1,1 g/l - thấp nhất 0,6 g/l, Cái Trâm cao nhất 1,2 g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 7,3 g/l - thấp nhất 2,7 g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202503/thong-tin-nong-nghiep-ngay-273-66e1918/",
+    "published": "23:32,27/03/2025"
+   },
+   {
+    "date": "26/3/2025",
+    "max_g_per_l": 7.0,
+    "min_g_per_l": 1.6,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": "ch Phụng An cao nhất 1,2 g/l - thấp nhất 0,9 g/l, Cái Trâm cao nhất 0,7 g/l - thấp nhất 0,3 g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 7,0 g/l - thấp nhất 1,6 g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202503/thong-tin-nong-nghiep-ngay-273-66e1918/",
+    "published": "23:32,27/03/2025"
+   },
+   {
+    "date": "30/3/2025",
+    "max_g_per_l": 7.7,
+    "min_g_per_l": 2.8,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": "ch Phụng An cao nhất 1,2 g/l - thấp nhất 0,9 g/l, Cái Trâm cao nhất 0,6 g/l - thấp nhất 0,3 g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 7,7 g/l - thấp nhất 2,8 g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202504/thong-tin-nong-nghiep-ngay-1-4-7333cc0/",
+    "published": "23:02,01/04/2025"
+   },
+   {
+    "date": "31/3/2025",
+    "max_g_per_l": 10.0,
+    "min_g_per_l": 3.2,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": "h Phụng An cao nhất 1,2 g/l - thấp nhất 0,8 g/l, Cái Trâm cao nhất 0,5 g/l - thấp nhất 0,2 g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 10,0 g/l - thấp nhất 3,2 g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202504/thong-tin-nong-nghiep-ngay-1-4-7333cc0/",
+    "published": "23:02,01/04/2025"
+   },
+   {
+    "date": "1/4/2025",
+    "max_g_per_l": 12.9,
+    "min_g_per_l": 3.1,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": "ạch Phụng An cao nhất 2,9g/l - thấp nhất 0,8 g/l, Cái Trâm cao nhất 0,6 g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 12,9 g/l - thấp nhất 3,1 g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202504/thong-tin-nong-nghiep-ngay-34-683111b/",
+    "published": "22:01,03/04/2025"
+   },
+   {
+    "date": "2/4/2025",
+    "max_g_per_l": 13.9,
+    "min_g_per_l": 4.4,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": "h Phụng An cao nhất 2,6 g/l - thấp nhất 0,4 g/l, Cái Trâm cao nhất 0,5 g/l - thấp nhất 0,3 g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 13,9 g/l - thấp nhất 4,4 g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202504/thong-tin-nong-nghiep-ngay-34-683111b/",
+    "published": "22:01,03/04/2025"
+   },
+   {
+    "date": "3/4/2025",
+    "max_g_per_l": 14.0,
+    "min_g_per_l": 3.0,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": "ch Phụng An cao nhất 2,0 g/l - thấp nhất 0,4 g/l, Cái Trâm cao nhất 0,6 g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 14,0 g/l - thấp nhất 3,0 g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202504/thong-tin-nong-nghiep-ngay-54-5163ef5/",
+    "published": "23:27,05/04/2025"
+   },
+   {
+    "date": "4/4/2025",
+    "max_g_per_l": 12.8,
+    "min_g_per_l": 2.9,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": "h Phụng An cao nhất 1,2 g/l - thấp nhất 0,4 g/l, Cái Trâm cao nhất 0,5 g/l - thấp nhất 0,3 g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 12,8 g/l - thấp nhất 2,9 g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202504/thong-tin-nong-nghiep-ngay-54-5163ef5/",
+    "published": "23:27,05/04/2025"
+   },
+   {
+    "date": "5/4/2025",
+    "max_g_per_l": 10.3,
+    "min_g_per_l": 3.0,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": "ch Phụng An cao nhất 0,9g/l - thấp nhất 0,4 g/l, Cái Trâm cao nhất 0,6 g/l - thấp nhất 0,3 g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 10,3 g/l - thấp nhất 3,0 g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202504/thong-tin-nong-nghiep-ngay-74-c182686/",
+    "published": "19:55,07/04/2025"
+   },
+   {
+    "date": "6/4/2025",
+    "max_g_per_l": 10.3,
+    "min_g_per_l": 2.2,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": "h Phụng An cao nhất 0,8 g/l - thấp nhất 0,4 g/l, Cái Trâm cao nhất 0,5 g/l - thấp nhất 0,3 g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 10,3 g/l - thấp nhất 2,2 g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202504/thong-tin-nong-nghiep-ngay-74-c182686/",
+    "published": "19:55,07/04/2025"
+   },
+   {
+    "date": "7/4/2025",
+    "max_g_per_l": 11.8,
+    "min_g_per_l": 3.5,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "l, rạch Phụng An cao nhất 0,8g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,5g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 11,8g/l - thấp nhất 3,5g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202504/thong-tin-nong-nghiep-ngay-94-0533877/",
+    "published": "23:09,09/04/2025"
+   },
+   {
+    "date": "8/4/2025",
+    "max_g_per_l": 10.9,
+    "min_g_per_l": 3.4,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "l, rạch Phụng An cao nhất 0,9g/l - thấp nhất 0,3g/l, Cái Trâm cao nhất 0,6g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 10,9g/l - thấp nhất 3,4g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202504/thong-tin-nong-nghiep-ngay-94-0533877/",
+    "published": "23:09,09/04/2025"
+   },
+   {
+    "date": "9/4/2025",
+    "max_g_per_l": 10.0,
+    "min_g_per_l": 3.6,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": "ch Phụng An cao nhất 0,9g/l - thấp nhất 0,4 g/l, Cái Trâm cao nhất 0,5 g/l - thấp nhất 0,3 g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 10,0 g/l - thấp nhất 3,6 g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202504/thong-tin-nong-nghiep-ngay-114-abd5c71/",
+    "published": "23:51,11/04/2025"
+   },
+   {
+    "date": "10/4/2025",
+    "max_g_per_l": 9.3,
+    "min_g_per_l": 2.9,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": "ch Phụng An cao nhất 1,3 g/l - thấp nhất 0,3 g/l, Cái Trâm cao nhất 0,5 g/l - thấp nhất 0,3 g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 9,3 g/l - thấp nhất 2,9 g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202504/thong-tin-nong-nghiep-ngay-114-abd5c71/",
+    "published": "23:51,11/04/2025"
+   },
+   {
+    "date": "11/4/2025",
+    "max_g_per_l": 9.1,
+    "min_g_per_l": 3.4,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": "rạch Phụng An cao nhất 1,4 g/l - thấp nhất 0,3 g/l, Cái Trâm cao nhất 0,5g/l - thấp nhất 0,3g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 9,1 g/l - thấp nhất 3,4 g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202504/thong-tin-nong-nghiep-ngay-134-f765bbd/",
+    "published": "23:46,13/04/2025"
+   },
+   {
+    "date": "12/4/2025",
+    "max_g_per_l": 8.8,
+    "min_g_per_l": 3.6,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": " rạch Phụng An cao nhất 0,8 g/l - thấp nhất 0,3g/l, Cái Trâm cao nhất 0,5g/l - thấp nhất 0,3g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 8,8 g/l - thấp nhất 3,6 g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202504/thong-tin-nong-nghiep-ngay-134-f765bbd/",
+    "published": "23:46,13/04/2025"
+   },
+   {
+    "date": "13/4/2025",
+    "max_g_per_l": 6.8,
+    "min_g_per_l": 3.7,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": "ạch Phụng An cao nhất 0,7 g/l - thấp nhất 0,3 g/l, Cái Trâm cao nhất 0,5g/l - thấp nhất 0,2 g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 6,8 g/l - thấp nhất 3,7 g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202504/thong-tin-nong-nghiep-ngay-154-8c512d6/",
+    "published": "23:36,15/04/2025"
+   },
+   {
+    "date": "14/4/2025",
+    "max_g_per_l": 8.0,
+    "min_g_per_l": 3.6,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": "ạch Phụng An cao nhất 0,6 g/l - thấp nhất 0,4 g/l, Cái Trâm cao nhất 0,5g/l - thấp nhất 0,2 g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 8,0 g/l - thấp nhất 3,6 g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202504/thong-tin-nong-nghiep-ngay-154-8c512d6/",
+    "published": "23:36,15/04/2025"
+   },
+   {
+    "date": "15/4/2025",
+    "max_g_per_l": 9.4,
+    "min_g_per_l": 4.9,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "/l, rạch Phụng An cao nhất 0,7g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,6g/l - thấp nhất 0,3g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 9,4g/l - thấp nhất 4,9g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202504/thong-tin-nong-nghiep-ngay-174-ea963f4/",
+    "published": "22:39,17/04/2025"
+   },
+   {
+    "date": "16/4/2025",
+    "max_g_per_l": 9.2,
+    "min_g_per_l": 4.5,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "/l, rạch Phụng An cao nhất 0,6g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,5g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 9,2g/l - thấp nhất 4,5g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202504/thong-tin-nong-nghiep-ngay-174-ea963f4/",
+    "published": "22:39,17/04/2025"
+   },
+   {
+    "date": "17/4/2025",
+    "max_g_per_l": 9.3,
+    "min_g_per_l": 4.5,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "/l, rạch Phụng An cao nhất 1,0g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,5g/l - thấp nhất 0,3g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 9,3g/l - thấp nhất 4,5g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202504/thong-tin-nong-nghiep-ngay-194-293256b/",
+    "published": "00:02,20/04/2025"
+   },
+   {
+    "date": "18/4/2025",
+    "max_g_per_l": 8.8,
+    "min_g_per_l": 4.8,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "/l, rạch Phụng An cao nhất 0,6g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,5g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 8,8g/l - thấp nhất 4,8g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202504/thong-tin-nong-nghiep-ngay-194-293256b/",
+    "published": "00:02,20/04/2025"
+   },
+   {
+    "date": "19/4/2025",
+    "max_g_per_l": 7.2,
+    "min_g_per_l": 4.6,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "/l, rạch Phụng An cao nhất 0,6g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,5g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 7,2g/l - thấp nhất 4,6g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202504/thong-tin-nong-nghiep-ngay-214-d3c5a8d/",
+    "published": "23:35,21/04/2025"
+   },
+   {
+    "date": "20/4/2025",
+    "max_g_per_l": 8.4,
+    "min_g_per_l": 3.2,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "/l, rạch Phụng An cao nhất 0,6g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,5g/l - thấp nhất 0,3g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 8,4g/l - thấp nhất 3,2g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202504/thong-tin-nong-nghiep-ngay-214-d3c5a8d/",
+    "published": "23:35,21/04/2025"
+   },
+   {
+    "date": "21/4/2025",
+    "max_g_per_l": 7.8,
+    "min_g_per_l": 4.5,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "/l, rạch Phụng An cao nhất 0,6g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,5g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 7,8g/l - thấp nhất 4,5g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202504/thong-tin-nong-nghiep-ngay-234-2af36d5/",
+    "published": "22:38,23/04/2025"
+   },
+   {
+    "date": "22/4/2025",
+    "max_g_per_l": 8.5,
+    "min_g_per_l": 3.8,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "/l, rạch Phụng An cao nhất 0,7g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,6g/l - thấp nhất 0,3g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 8,5g/l - thấp nhất 3,8g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202504/thong-tin-nong-nghiep-ngay-234-2af36d5/",
+    "published": "22:38,23/04/2025"
+   },
+   {
+    "date": "23/4/2025",
+    "max_g_per_l": 6.6,
+    "min_g_per_l": 3.7,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "/l, rạch Phụng An cao nhất 0,6g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,5g/l - thấp nhất 0,3g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 6,6g/l - thấp nhất 3,7g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202504/thong-tin-nong-nghiep-ngay-254-d050964/",
+    "published": "22:55,25/04/2025"
+   },
+   {
+    "date": "24/4/2025",
+    "max_g_per_l": 6.8,
+    "min_g_per_l": 3.5,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "/l, rạch Phụng An cao nhất 0,6g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,6g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 6,8g/l - thấp nhất 3,5g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202504/thong-tin-nong-nghiep-ngay-254-d050964/",
+    "published": "22:55,25/04/2025"
+   },
+   {
+    "date": "25/4/2025",
+    "max_g_per_l": 7.9,
+    "min_g_per_l": 3.7,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "/l, rạch Phụng An cao nhất 0,6g/l - thấp nhất 0,3g/l, Cái Trâm cao nhất 0,5g/l - thấp nhất 0,3g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 7,9g/l - thấp nhất 3,7g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202504/thong-tin-nong-nghiep-ngay-274-cdc2e75/",
+    "published": "22:17,27/04/2025"
+   },
+   {
+    "date": "26/4/2025",
+    "max_g_per_l": 7.9,
+    "min_g_per_l": 4.8,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "/l, rạch Phụng An cao nhất 0,6g/l - thấp nhất 0,3g/l, Cái Trâm cao nhất 0,5g/l - thấp nhất 0,3g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 7,9g/l - thấp nhất 4,8g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202504/thong-tin-nong-nghiep-ngay-274-cdc2e75/",
+    "published": "22:17,27/04/2025"
+   },
+   {
+    "date": "29/4/2025",
+    "max_g_per_l": 10.6,
+    "min_g_per_l": 4.8,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "l, rạch Phụng An cao nhất 0,6g/l - thấp nhất 0,0g/l, Cái Trâm cao nhất 0,5g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 10,6g/l - thấp nhất 4,8g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202505/thong-tin-nong-nghiep-ngay-15-aa63c80/",
+    "published": "23:12,01/05/2025"
+   },
+   {
+    "date": "30/4/2025",
+    "max_g_per_l": 8.7,
+    "min_g_per_l": 6.4,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "/l, rạch Phụng An cao nhất 0,6g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,5g/l - thấp nhất 0,3g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 8,7g/l - thấp nhất 6,4g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202505/thong-tin-nong-nghiep-ngay-15-aa63c80/",
+    "published": "23:12,01/05/2025"
+   },
+   {
+    "date": "1/5/2025",
+    "max_g_per_l": 11.9,
+    "min_g_per_l": 6.8,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "l, rạch Phụng An cao nhất 0,6g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,6g/l - thấp nhất 0,3g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 11,9g/l - thấp nhất 6,8g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202505/thong-tin-nong-nghiep-ngay-35-2094b8d/",
+    "published": "22:59,03/05/2025"
+   },
+   {
+    "date": "2/5/2025",
+    "max_g_per_l": 13.0,
+    "min_g_per_l": 7.2,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "l, rạch Phụng An cao nhất 0,6g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,6g/l - thấp nhất 0,3g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 13,0g/l - thấp nhất 7,2g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202505/thong-tin-nong-nghiep-ngay-35-2094b8d/",
+    "published": "22:59,03/05/2025"
+   },
+   {
+    "date": "3/5/2025",
+    "max_g_per_l": 12.6,
+    "min_g_per_l": 8.1,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "l, rạch Phụng An cao nhất 0,4g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,5g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 12,6g/l - thấp nhất 8,1g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202505/thong-tin-nong-nghiep-ngay-55-b0f70ad/",
+    "published": "23:32,05/05/2025"
+   },
+   {
+    "date": "4/5/2025",
+    "max_g_per_l": 12.0,
+    "min_g_per_l": 8.1,
+    "measured": true,
+    "new_vs_first_file": false,
+    "quote_vi": "l, rạch Phụng An cao nhất 0,6g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,6g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 12,0g/l - thấp nhất 8,1g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202505/thong-tin-nong-nghiep-ngay-55-b0f70ad/",
+    "published": "23:32,05/05/2025"
+   },
+   {
+    "date": "5/5/2025",
+    "max_g_per_l": 9.2,
+    "min_g_per_l": 5.0,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": "/l, rạch Phụng An cao nhất 0,6g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,6g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 9,2g/l - thấp nhất 5,0g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202505/thong-tin-nong-nghiep-ngay-75-c686371/",
+    "published": "22:40,07/05/2025"
+   },
+   {
+    "date": "6/5/2025",
+    "max_g_per_l": 9.1,
+    "min_g_per_l": 3.7,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": "/l, rạch Phụng An cao nhất 0,6g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,6g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 9,1g/l - thấp nhất 3,7g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202505/thong-tin-nong-nghiep-ngay-75-c686371/",
+    "published": "22:40,07/05/2025"
+   },
+   {
+    "date": "7/5/2025",
+    "max_g_per_l": 9.1,
+    "min_g_per_l": 3.9,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": "/l, rạch Phụng An cao nhất 0,6g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,5g/l - thấp nhất 0,3g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 9,1g/l - thấp nhất 3,9g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202505/thong-tin-nong-nghiep-ngay-95-7be2a5e/",
+    "published": "23:50,09/05/2025"
+   },
+   {
+    "date": "8/5/2025",
+    "max_g_per_l": 8.6,
+    "min_g_per_l": 3.8,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": "/l, rạch Phụng An cao nhất 0,6g/l - thấp nhất 0,0g/l, Cái Trâm cao nhất 0,6g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 8,6g/l - thấp nhất 3,8g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202505/thong-tin-nong-nghiep-ngay-95-7be2a5e/",
+    "published": "23:50,09/05/2025"
+   },
+   {
+    "date": "9/5/2025",
+    "max_g_per_l": 8.5,
+    "min_g_per_l": 4.5,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": "/l, rạch Phụng An cao nhất 0,6g/l - thấp nhất 0,0g/l, Cái Trâm cao nhất 0,5g/l - thấp nhất 0,3g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 8,5g/l - thấp nhất 4,5g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202505/thong-tin-nong-nghiep-ngay-115-9af2340/",
+    "published": "22:19,11/05/2025"
+   },
+   {
+    "date": "10/5/2025",
+    "max_g_per_l": 9.0,
+    "min_g_per_l": 5.0,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": "/l, rạch Phụng An cao nhất 0,6g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,5g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 9,0g/l - thấp nhất 5,0g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202505/thong-tin-nong-nghiep-ngay-115-9af2340/",
+    "published": "22:19,11/05/2025"
+   },
+   {
+    "date": "11/5/2025",
+    "max_g_per_l": 9.5,
+    "min_g_per_l": 4.4,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": "/l, rạch Phụng An cao nhất 0,6g/l - thấp nhất 0,3g/l, Cái Trâm cao nhất 0,5g/l - thấp nhất 0,3g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 9,5g/l - thấp nhất 4,4g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202505/thong-tin-nong-nghiep-135-9b72d6f/",
+    "published": "22:56,13/05/2025"
+   },
+   {
+    "date": "12/5/2025",
+    "max_g_per_l": 9.4,
+    "min_g_per_l": 4.9,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": "/l, rạch Phụng An cao nhất 0,6g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,5g/l - thấp nhất 0,3g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 9,4g/l - thấp nhất 4,9g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202505/thong-tin-nong-nghiep-135-9b72d6f/",
+    "published": "22:56,13/05/2025"
+   },
+   {
+    "date": "13/5/2025",
+    "max_g_per_l": 9.8,
+    "min_g_per_l": 4.7,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": "/l, rạch Phụng An cao nhất 0,6g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,6g/l - thấp nhất 0,3g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 9,8g/l - thấp nhất 4,7g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202505/thong-tin-nong-nghiep-ngay-155-1f30047/",
+    "published": "23:57,15/05/2025"
+   },
+   {
+    "date": "14/5/2025",
+    "max_g_per_l": 9.8,
+    "min_g_per_l": 4.5,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": "/l, rạch Phụng An cao nhất 0,6g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,6g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 9,8g/l - thấp nhất 4,5g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202505/thong-tin-nong-nghiep-ngay-155-1f30047/",
+    "published": "23:57,15/05/2025"
+   },
+   {
+    "date": "17/5/2025",
+    "max_g_per_l": 9.6,
+    "min_g_per_l": 5.9,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": "/l, rạch Phụng An cao nhất 0,6g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,6g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 9,6g/l - thấp nhất 5,9g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202505/thong-tin-nong-nghiep-ngay-195-a224f02/",
+    "published": "00:03,20/05/2025"
+   },
+   {
+    "date": "18/5/2025",
+    "max_g_per_l": 9.3,
+    "min_g_per_l": 4.5,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": "/l, rạch Phụng An cao nhất 0,6g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,6g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 9,3g/l - thấp nhất 4,5g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202505/thong-tin-nong-nghiep-ngay-195-a224f02/",
+    "published": "00:03,20/05/2025"
+   },
+   {
+    "date": "19/5/2025",
+    "max_g_per_l": 7.5,
+    "min_g_per_l": 4.1,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": "/l, rạch Phụng An cao nhất 0,7g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,6g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 7,5g/l - thấp nhất 4,1g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202505/thong-tin-nong-nghiep-ngay-215-1a51c2f/",
+    "published": "22:48,21/05/2025"
+   },
+   {
+    "date": "20/5/2025",
+    "max_g_per_l": 6.3,
+    "min_g_per_l": 0.4,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": "/l, rạch Phụng An cao nhất 0,6g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,6g/l - thấp nhất 0,3g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 6,3g/l - thấp nhất 0,4g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202505/thong-tin-nong-nghiep-ngay-215-1a51c2f/",
+    "published": "22:48,21/05/2025"
+   },
+   {
+    "date": "21/5/2025",
+    "max_g_per_l": 4.9,
+    "min_g_per_l": 0.0,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": "/l, rạch Phụng An cao nhất 0,6g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,6g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 4,9g/l - thấp nhất 0,0g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202505/thong-tin-nong-nghiep-ngay-235-8687553/",
+    "published": "23:20,23/05/2025"
+   },
+   {
+    "date": "22/5/2025",
+    "max_g_per_l": 4.5,
+    "min_g_per_l": 1.1,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": "/l, rạch Phụng An cao nhất 0,6g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,6g/l - thấp nhất 0,3g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 4,5g/l - thấp nhất 1,1g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202505/thong-tin-nong-nghiep-ngay-235-8687553/",
+    "published": "23:20,23/05/2025"
+   },
+   {
+    "date": "23/5/2025",
+    "max_g_per_l": 4.1,
+    "min_g_per_l": 1.3,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": "/l, rạch Phụng An cao nhất 0,6g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,6g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 4,1g/l - thấp nhất 1,3g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202505/thong-tin-nong-nghiep-ngay-255-c956c2b/",
+    "published": "22:00,25/05/2025"
+   },
+   {
+    "date": "24/5/2025",
+    "max_g_per_l": 3.9,
+    "min_g_per_l": 1.1,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": "/l, rạch Phụng An cao nhất 0,6g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,5g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 3,9g/l - thấp nhất 1,1g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202505/thong-tin-nong-nghiep-ngay-255-c956c2b/",
+    "published": "22:00,25/05/2025"
+   },
+   {
+    "date": "25/5/2025",
+    "max_g_per_l": 3.9,
+    "min_g_per_l": 1.5,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": "/l, rạch Phụng An cao nhất 0,6g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,5g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 3,9g/l - thấp nhất 1,5g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202505/thong-tin-nong-nghiep-ngay-275-91b2496/",
+    "published": "22:16,27/05/2025"
+   },
+   {
+    "date": "26/5/2025",
+    "max_g_per_l": 4.2,
+    "min_g_per_l": 1.1,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": "/l, rạch Phụng An cao nhất 0,6g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,6g/l - thấp nhất 0,3g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 4,2g/l - thấp nhất 1,1g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202505/thong-tin-nong-nghiep-ngay-275-91b2496/",
+    "published": "22:16,27/05/2025"
+   },
+   {
+    "date": "30/5/2025",
+    "max_g_per_l": 2.8,
+    "min_g_per_l": 1.1,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": "/l, rạch Phụng An cao nhất 0,6g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,5g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 2,8g/l - thấp nhất 1,1g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202506/thong-tin-nong-nghiep-ngay-16-f0767b6/",
+    "published": "22:38,01/06/2025"
+   },
+   {
+    "date": "31/5/2025",
+    "max_g_per_l": 2.3,
+    "min_g_per_l": 0.8,
+    "measured": true,
+    "new_vs_first_file": true,
+    "quote_vi": "/l, rạch Phụng An cao nhất 0,6g/l - thấp nhất 0,4g/l, Cái Trâm cao nhất 0,5g/l - thấp nhất 0,2g/l; trên sông Mỹ Thanh: Dù Tho cao nhất 2,3g/l - thấp nhất 0,8g/l",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202506/thong-tin-nong-nghiep-ngay-16-f0767b6/",
+    "published": "22:38,01/06/2025"
+   }
+  ]
+ },
+ "weekly_forecasts_2025": [
+  {
+   "period": "từ ngày 3/2 - 9/2",
+   "forecast_max_g_per_l": 1.4,
+   "measured": false,
+   "quote_vi": "Dự báo (từ ngày 3/2 - 9/2), độ mặn cao nhất tại Trần Đề ở mức 18,5g/l, tại Long Phú 9,7g/l, tại Đại Ngãi 3,8g/l, tại rạch Phụng An 4,4g/l, tại Cái Trâm 0,4g/l; tại Dù Tho 1,4g/l",
+   "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202502/thong-tin-nong-nghiep-ngay-52-eda1a72/",
+   "published": "23:36,05/02/2025"
+  },
+  {
+   "period": "từ ngày 3/2 - 9/2",
+   "forecast_max_g_per_l": 0.4,
+   "measured": false,
+   "quote_vi": "Dự báo (từ ngày 3/2 - 9/2), độ mặn cao nhất tại Trần Đề ở mức 18,5g/l, tại Long Phú 9,7g/l, tại Đại Ngãi 3,8g/l, tại rạch Phụng An 4,4g/l, tại Cái Trâm 0,4g/l; tại Dù Tho 0,4g/l",
+   "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202502/thong-tin-nong-nghiep-ngay-72-38e5b9c/",
+   "published": "23:13,07/02/2025"
+  },
+  {
+   "period": "từ ngày 10/2 - 16/2",
+   "forecast_max_g_per_l": 8.7,
+   "measured": false,
+   "quote_vi": "Dự báo (từ ngày 10/2 - 16/2), độ mặn cao nhất tại Trần Đề ở mức 23,8g/l, tại Long Phú 18,9g/l, tại Đại Ngãi 8,2g/l, tại rạch Phụng An 6,1g/l, tại Cái Trâm 3,7g/l; tại Dù Tho 8,7g/l",
+   "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202502/thong-tin-nong-nghiep-ngay-152-20b183a/",
+   "published": "22:34,15/02/2025"
+  },
+  {
+   "period": "từ ngày 17/2 - 23/2",
+   "forecast_max_g_per_l": 11.4,
+   "measured": false,
+   "quote_vi": "Dự báo (từ ngày 17/2 - 23/2), độ mặn cao nhất tại Trần Đề ở mức 23,7g/l, tại Long Phú 19,8g/l, tại Đại Ngãi 8,7g/l, tại rạch Phụng An 7,9g/l, tại Cái Trâm 4,9g/l; tại Dù Tho 11,4g/l",
+   "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202502/thong-tin-nong-nghiep-ngay-232-b70652b/",
+   "published": "23:26,23/02/2025"
+  },
+  {
+   "period": "từ ngày 24/2 - 2/3",
+   "forecast_max_g_per_l": 7.1,
+   "measured": false,
+   "quote_vi": "Dự báo (từ ngày 24/2 - 2/3), độ mặn cao nhất tại Trần Đề ở mức 19,4g/l, tại Long Phú 15,8g/l, tại Đại Ngãi 8,7g/l, tại rạch Phụng An 6,8g/l, tại Cái Trâm 3,7g/l; tại Dù Tho 7,1g/l",
+   "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202502/thong-tin-nong-nghiep-ngay-255-0382aba/",
+   "published": "22:56,25/02/2025"
+  },
+  {
+   "period": "từ ngày 3/3 - 9/3",
+   "forecast_max_g_per_l": 5.1,
+   "measured": false,
+   "quote_vi": "Dự báo (từ ngày 3/3 - 9/3), độ mặn cao nhất tại Trần Đề ở mức 20,7g/l, tại Long Phú 16,9g/l, tại Đại Ngãi 8,5g/l, tại rạch Phụng An 5,2g/l, tại Cái Trâm 1,1g/l; tại Dù Tho 5,1g/l",
+   "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202503/thong-tin-nong-nghiep-ngay-53-ca36bab/",
+   "published": "23:03,05/03/2025"
+  },
+  {
+   "period": "từ ngày 10/3 - 16/3",
+   "forecast_max_g_per_l": 9.5,
+   "measured": false,
+   "quote_vi": "Dự báo (từ ngày 10/3 - 16/3), độ mặn cao nhất tại Trần Đề ở mức 22,9g/l, tại Long Phú 19,1g/l, tại Đại Ngãi 7,8g/l, tại rạch Phụng An 2,2g/l, tại Cái Trâm 1,8g/l; tại Dù Tho 9,5g/l",
+   "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202503/thong-tin-nong-nghiep-ngay-153-49c7b7b/",
+   "published": "23:43,15/03/2025"
+  },
+  {
+   "period": "từ ngày 17/3 - 23/3",
+   "forecast_max_g_per_l": 9.7,
+   "measured": false,
+   "quote_vi": "Dự báo (từ ngày 17/3 - 23/3), độ mặn cao nhất tại Trần Đề ở mức 19,8g/l, tại Long Phú 13,8g/l, tại Đại Ngãi 4,6g/l, tại rạch Phụng An 1,7g/l, tại Cái Trâm 0,6g/l; tại Dù Tho 9,7g/l",
+   "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202503/thong-tin-nong-nghiep-ngay-173-6fe2453/",
+   "published": "23:24,17/03/2025"
+  },
+  {
+   "period": "từ ngày 17/3  - 23/3",
+   "forecast_max_g_per_l": 9.7,
+   "measured": false,
+   "quote_vi": "Dự báo (từ ngày 17/3  - 23/3), độ mặn cao nhất tại Trần Đề ở mức 18,9 g/l, tại Long Phú 13,8g/l, tại Đại Ngãi 4,6 g/l, tại rạch Phụng An 1,7 g/l, tại Cái Trâm 0,6 g/l; tại Dù Tho 9,7 g/l",
+   "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202503/thong-tin-nong-nghiep-ngay-213-f18501d/",
+   "published": "23:46,21/03/2025"
+  },
+  {
+   "period": "từ ngày 24/3  - 30/3",
+   "forecast_max_g_per_l": 9.7,
+   "measured": false,
+   "quote_vi": "Dự báo (từ ngày 24/3  - 30/3), độ mặn cao nhất tại Trần Đề ở mức 18,9 g/l, tại Long Phú 13,8g/l, tại Đại Ngãi 4,6 g/l, tại rạch Phụng An 1,7 g/l, tại Cái Trâm 0,6 g/l; tại Dù Tho 9,7 g/l",
+   "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202503/thong-tin-nong-nghiep-ngay-233-09b75b2/",
+   "published": "23:36,23/03/2025"
+  },
+  {
+   "period": "từ ngày 24/3  - 30/3",
+   "forecast_max_g_per_l": 10.0,
+   "measured": false,
+   "quote_vi": "Dự báo (từ ngày 24/3  - 30/3), độ mặn cao nhất tại Trần Đề ở mức 18,9 g/l, tại Long Phú 14,1 g/l, tại Đại Ngãi 7,6 g/l, tại rạch Phụng An 3,5 g/l, tại Cái Trâm 1,8 g/l; tại Dù Tho 10,0 g/l",
+   "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202503/thong-tin-nong-nghiep-ngay-253-a3941a4/",
+   "published": "23:53,25/03/2025"
+  },
+  {
+   "period": "từ ngày 24/3  - 30/3",
+   "forecast_max_g_per_l": 10.4,
+   "measured": false,
+   "quote_vi": "Dự báo (từ ngày 24/3  - 30/3), độ mặn cao nhất tại Trần Đề ở mức 18,9 g/l, tại Long Phú 14,1 g/l, tại Đại Ngãi 7,6 g/l, tại rạch Phụng An 3,5 g/l, tại Cái Trâm 1,8 g/l; tại Dù Tho 10,4 g/l",
+   "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202503/thong-tin-nong-nghiep-ngay-273-66e1918/",
+   "published": "23:32,27/03/2025"
+  },
+  {
+   "period": "từ ngày 31/3  - 6/4",
+   "forecast_max_g_per_l": 10.8,
+   "measured": false,
+   "quote_vi": "Dự báo (từ ngày 31/3  - 6/4 ), độ mặn cao nhất tại Trần Đề ở mức 18,0 g/l, tại Long Phú 14,3 g/l, tại Đại Ngãi 7,2 g/l, tại rạch Phụng An 1,8 g/l, tại Cái Trâm 0,8 g/l; tại Dù Tho 10,8 g/l",
+   "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202504/thong-tin-nong-nghiep-ngay-1-4-7333cc0/",
+   "published": "23:02,01/04/2025"
+  },
+  {
+   "period": "từ ngày 31/3  - 6/4",
+   "forecast_max_g_per_l": 13.8,
+   "measured": false,
+   "quote_vi": "Dự báo (từ ngày 31/3  - 6/4 ), độ mặn cao nhất tại Trần Đề ở mức 20,4 g/l, tại Long Phú 15,9 g/l, tại Đại Ngãi 8,2 g/l, tại rạch Phụng An 3,3 g/l, tại Cái Trâm 0,9 g/l; tại Dù Tho 13,8 g/l",
+   "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202504/thong-tin-nong-nghiep-ngay-54-5163ef5/",
+   "published": "23:27,05/04/2025"
+  },
+  {
+   "period": "từ ngày 7/4 - 13/4",
+   "forecast_max_g_per_l": 14.5,
+   "measured": false,
+   "quote_vi": "Dự báo (từ ngày 7/4 - 13/4), độ mặn cao nhất tại Trần Đề ở mức 19,8g/l, tại Long Phú 15,7g/l, tại Đại Ngãi 6,4g/l, tại rạch Phụng An 3,6g/l, tại Cái Trâm 0,9g/l; tại Dù Tho 14,5g/l",
+   "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202504/thong-tin-nong-nghiep-ngay-94-0533877/",
+   "published": "23:09,09/04/2025"
+  },
+  {
+   "period": "từ ngày 7/4  - 13/4",
+   "forecast_max_g_per_l": 14.5,
+   "measured": false,
+   "quote_vi": "Dự báo (từ ngày 7/4  - 13/4 ), độ mặn cao nhất tại Trần Đề ở mức 19,8 g/l, tại Long Phú 15,7 g/l, tại Đại Ngãi 6,4 g/l, tại rạch Phụng An 3,6 g/l, tại Cái Trâm 0,9 g/l; tại Dù Tho 14,5 g/l",
+   "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202504/thong-tin-nong-nghiep-ngay-114-abd5c71/",
+   "published": "23:51,11/04/2025"
+  },
+  {
+   "period": "từ ngày 14/4 - 20/4",
+   "forecast_max_g_per_l": 14.5,
+   "measured": false,
+   "quote_vi": "Dự báo (từ ngày 14/4 - 20/4), độ mặn cao nhất tại Trần Đề ở mức 19,8g/l, tại Long Phú 15,7g/l, tại Đại Ngãi 6,4g/l, tại rạch Phụng An 3,6g/l, tại Cái Trâm 0,9g/l; tại Dù Tho 14,5g/l",
+   "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202504/thong-tin-nong-nghiep-ngay-134-f765bbd/",
+   "published": "23:46,13/04/2025"
+  },
+  {
+   "period": "từ ngày 14/4 - 20/4",
+   "forecast_max_g_per_l": 13.2,
+   "measured": false,
+   "quote_vi": "Dự báo (từ ngày 14/4 - 20/4), độ mặn cao nhất tại Trần Đề ở mức 17,1 g/l, tại Long Phú 14,2 g/l, tại Đại Ngãi 5,6 g/l, tại rạch Phụng An 3,3 g/l, tại Cái Trâm 0,7 g/l; tại Dù Tho 13,2 g/l",
+   "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202504/thong-tin-nong-nghiep-ngay-154-8c512d6/",
+   "published": "23:36,15/04/2025"
+  },
+  {
+   "period": "từ ngày 21/4 - 27/4",
+   "forecast_max_g_per_l": 9.2,
+   "measured": false,
+   "quote_vi": "Dự báo (từ ngày 21/4 - 27/4), độ mặn cao nhất tại Trần Đề ở mức 16,2g/l, tại Long Phú 11,7g/l, tại Đại Ngãi 5,2g/l, tại rạch Phụng An 3,1g/l, tại Cái Trâm 0,7g/l; tại Dù Tho 9,2g/l",
+   "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202504/thong-tin-nong-nghiep-ngay-214-d3c5a8d/",
+   "published": "23:35,21/04/2025"
+  },
+  {
+   "period": "từ ngày 21/4 - 27/4",
+   "forecast_max_g_per_l": 9.8,
+   "measured": false,
+   "quote_vi": "Dự báo (từ ngày 21/4 - 27/4), độ mặn cao nhất tại Trần Đề ở mức 15,2g/l, tại Long Phú 11,7g/l, tại Đại Ngãi 4,9g/l, tại rạch Phụng An 1,8g/l, tại Cái Trâm 0,5g/l; tại Dù Tho 9,8g/l",
+   "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202504/thong-tin-nong-nghiep-ngay-234-2af36d5/",
+   "published": "22:38,23/04/2025"
+  },
+  {
+   "period": "từ ngày 21/4 - 27/4",
+   "forecast_max_g_per_l": 9.3,
+   "measured": false,
+   "quote_vi": "Dự báo (từ ngày 21/4 - 27/4), độ mặn cao nhất tại Trần Đề ở mức 14,3g/l, tại Long Phú 9,7g/l, tại Đại Ngãi 2,5g/l, tại rạch Phụng An 1,8g/l, tại Cái Trâm 0,9g/l; tại Dù Tho 9,3g/l",
+   "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202504/thong-tin-nong-nghiep-ngay-254-d050964/",
+   "published": "22:55,25/04/2025"
+  },
+  {
+   "period": "từ ngày 28/4 - 4/5",
+   "forecast_max_g_per_l": 9.3,
+   "measured": false,
+   "quote_vi": "Dự báo (từ ngày 28/4 - 4/5), độ mặn cao nhất tại Trần Đề ở mức 14,3g/l, tại Long Phú 9,7g/l, tại Đại Ngãi 2,5g/l, tại rạch Phụng An 1,8g/l, tại Cái Trâm 0,9g/l; tại Dù Tho 9,3g/l",
+   "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202504/thong-tin-nong-nghiep-ngay-274-cdc2e75/",
+   "published": "22:17,27/04/2025"
+  },
+  {
+   "period": "từ ngày 28/4 - 4/5",
+   "forecast_max_g_per_l": 13.1,
+   "measured": false,
+   "quote_vi": "Dự báo (từ ngày 28/4 - 4/5), độ mặn cao nhất tại Trần Đề ở mức 20,1g/l, tại Long Phú 15,6g/l, tại Đại Ngãi 4,3g/l, tại rạch Phụng An 1,6g/l, tại Cái Trâm 0,7g/l; tại Dù Tho 13,1g/l",
+   "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202505/thong-tin-nong-nghiep-ngay-35-2094b8d/",
+   "published": "22:59,03/05/2025"
+  },
+  {
+   "period": "từ ngày 5/5 - 11/5",
+   "forecast_max_g_per_l": 12.6,
+   "measured": false,
+   "quote_vi": "Dự báo (từ ngày 5/5 - 11/5), độ mặn cao nhất tại Trần Đề ở mức 12,7g/l, tại Long Phú 8,8g/l, tại Đại Ngãi 2,5g/l, tại rạch Phụng An 1,3g/l, tại Cái Trâm 0,8g/l; tại Dù Tho 12,6g/l",
+   "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202505/thong-tin-nong-nghiep-ngay-95-7be2a5e/",
+   "published": "23:50,09/05/2025"
+  },
+  {
+   "period": "từ ngày 12/5 - 18/5",
+   "forecast_max_g_per_l": 12.6,
+   "measured": false,
+   "quote_vi": "Dự báo (từ ngày 12/5 - 18/5), độ mặn cao nhất tại Trần Đề ở mức 12,7g/l, tại Long Phú 8,8g/l, tại Đại Ngãi 2,5g/l, tại rạch Phụng An 1,3g/l, tại Cái Trâm 0,8g/l; tại Dù Tho 12,6g/l",
+   "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202505/thong-tin-nong-nghiep-ngay-115-9af2340/",
+   "published": "22:19,11/05/2025"
+  },
+  {
+   "period": "từ ngày 19/5 - 25/5",
+   "forecast_max_g_per_l": 9.9,
+   "measured": false,
+   "quote_vi": "Dự báo (từ ngày 19/5 - 25/5), độ mặn cao nhất tại Trần Đề ở mức 9,3g/l, tại Long Phú 6,0g/l, tại Đại Ngãi 2,3g/l, tại rạch Phụng An 0,9g/l, tại Cái Trâm 0,8g/l; tại Dù Tho 9,9g/l",
+   "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202505/thong-tin-nong-nghiep-ngay-235-8687553/",
+   "published": "23:20,23/05/2025"
+  },
+  {
+   "period": "từ ngày 25/5 - 31/5",
+   "forecast_max_g_per_l": 9.9,
+   "measured": false,
+   "quote_vi": "Dự báo (từ ngày 25/5 - 31/5), độ mặn cao nhất tại Trần Đề ở mức 9,3g/l, tại Long Phú 6,0g/l, tại Đại Ngãi 2,3g/l, tại rạch Phụng An 0,9g/l, tại Cái Trâm 0,8g/l; tại Dù Tho 9,9g/l",
+   "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202505/thong-tin-nong-nghiep-ngay-255-c956c2b/",
+   "published": "22:00,25/05/2025"
+  },
+  {
+   "period": "từ ngày 26/5 - 1/6",
+   "forecast_max_g_per_l": 5.7,
+   "measured": false,
+   "quote_vi": "Dự báo (từ ngày 26/5 - 1/6), độ mặn cao nhất tại Trần Đề ở mức 8,7g/l, tại Long Phú 5,4g/l, tại Đại Ngãi 0,9g/l, tại rạch Phụng An 0,6g/l, tại Cái Trâm 0,8g/l; tại Dù Tho 5,7g/l",
+   "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202505/thong-tin-nong-nghiep-ngay-275-91b2496/",
+   "published": "22:16,27/05/2025"
+  },
+  {
+   "period": "từ ngày 26/5 - 1/6",
+   "forecast_max_g_per_l": 3.8,
+   "measured": false,
+   "quote_vi": "Dự báo (từ ngày 26/5 - 1/6), độ mặn cao nhất tại Trần Đề ở mức 6,4g/l, tại Long Phú 2,8g/l, tại Đại Ngãi 0,4g/l, tại rạch Phụng An 0,6g/l, tại Cái Trâm 0,5g/l; tại Dù Tho 3,8g/l",
+   "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202506/thong-tin-nong-nghiep-ngay-16-f0767b6/",
+   "published": "22:38,01/06/2025"
+  }
+ ],
+ "pre_2017_context": [
+  {
+   "ppt": 2.9,
+   "date": "6/1/2016",
+   "measured": true,
+   "quote_vi": "Độ mặn cao nhất trên Sông Dù Tho tại Tham Đôn là 2,9‰, thấp nhất là 1,2‰.",
+   "url": "https://tepbac.com/tin-tuc/full/thong-bao-tinh-hinh-xam-nhap-man-ngay-6-1-2016-15735.html"
+  },
+  {
+   "ppt": 16.5,
+   "date": "forecast early Apr 2016",
+   "measured": false,
+   "quote_vi": "Trên sông Mỹ Thanh tại Tham Đôn đạt mức 16.5‰, tại Thạnh Phú (Mỹ Xuyên) là 12.5‰, tại thành phố Sóc Trăng 6.5‰.",
+   "url": "https://www.vietnamplus.vn/nuoc-ngot-da-ve-nhung-xam-nhap-man-van-dien-bien-phuc-tap-post379811.vnp",
+   "published": "2016-04-06 05:13",
+   "note": "read via WebFetch summary, not raw text"
+  }
+ ],
+ "thanh_thoi_thuan": {
+  "same_site_as_du_tho": "NO. Thạnh Thới Thuận is in huyện Trần Đề on the north bank of the Mỹ Thanh, ~25 km from the mouth, opposite phường Khánh Hòa (Vĩnh Châu, 27 km). Đài KTTV Sóc Trăng's Jan 2025 outlook named 'Thạnh Thới Thuận (huyện Trần Đề) 20,6-22,6‰'; its Mar/Apr 2025 outlooks name 'Khánh Hòa 23,2‰' in the same slot. So Thạnh Thới Thuận is most likely the earlier name of (or the gauge opposite) the Khánh Hòa station, i.e. Khánh Hòa's predecessor, not Dù Tho's.",
+  "geography_quote": {
+   "quote_vi": "Sông có chiều dài khoảng 25 km, làm ranh giới tự nhiên giữa các xã Thạnh Thới An , Liêu Tú , Lịch Hội Thượng , Trần Đề ở phía Bắc và phường Khánh Hòa , xã Vĩnh Hải ở phía Nam",
+   "url": "https://vi.wikipedia.org/wiki/S%C3%B4ng_M%E1%BB%B9_Thanh"
+  },
+  "readings": [
+   {
+    "season": "2020",
+    "ppt": 11.4,
+    "date_or_period": "mid-Dec 2019",
+    "measured": true,
+    "peak_of_season": false,
+    "quote_vi": "Độ mặn đo được cao nhất vào trung tuần tháng 12/2019 tại các trạm trên sông Hậu tại Trần Đề 20,5‰, Long Phú 14,2‰, Đại Ngãi 10,7‰; trên sông Mỹ Thanh tại Thạnh Thới Thuận 11,4‰",
+    "url": "https://thanhtra.com.vn/kinh-te/lao-dong-viec-lam/Soc-Trang-Han-han-xam-nhap-man-dien-ra-gay-gat-160024.html",
+    "published": "2020-02-09 13:03"
+   },
+   {
+    "season": "2020",
+    "ppt": 15.9,
+    "date_or_period": "early Feb 2020",
+    "measured": true,
+    "peak_of_season": false,
+    "previously_found": true,
+    "quote_vi": "đầu tháng 2/2020 ... trên sông Mỹ Thanh tại Thạnh Thới Thuận 15,9‰",
+    "url": "https://thanhtra.com.vn/kinh-te/lao-dong-viec-lam/Soc-Trang-Han-han-xam-nhap-man-dien-ra-gay-gat-160024.html",
+    "published": "2020-02-09"
+   },
+   {
+    "season": "2020",
+    "ppt": 19.5,
+    "date_or_period": "forecast after early Feb 2020",
+    "measured": false,
+    "quote_vi": "trên sông Mỹ Thanh tại Thạnh Thới Thuận (cách cửa sông Mỹ Thanh 25km) ở mức 19,5‰",
+    "url": "https://thanhtra.com.vn/kinh-te/lao-dong-viec-lam/Soc-Trang-Han-han-xam-nhap-man-dien-ra-gay-gat-160024.html",
+    "published": "2020-02-09"
+   },
+   {
+    "season": "2022",
+    "ppt": 16,
+    "date_or_period": "forecast Feb 2022 ('gần 16‰')",
+    "measured": false,
+    "quote_vi": "Còn trên sông Mỹ Thanh tại Thạnh Thới Thuận đạt mức khá cao (gần 16‰), tại TP Sóc Trăng là 3,1‰",
+    "url": "https://tuoitre.vn/mien-tay-san-sang-ung-pho-han-man-20220217081004408.htm",
+    "published": "2022-02-17",
+    "note": "sentence follows 'Dự báo độ mặn cao nhất...'; treat as forecast"
+   },
+   {
+    "season": "2025",
+    "ppt": 22.6,
+    "date_or_period": "season outlook Jan-Apr 2025, range 20,6-22,6",
+    "measured": false,
+    "quote_vi": "Trên sông Mỹ Thanh tại Thạnh Thới Thuận (huyện Trần Đề) từ 20,6 - 22,6‰, tại Thạnh Phú (huyện Mỹ Xuyên) từ 7,7 - 9,7‰",
+    "url": "https://dantocmiennui.baotintuc.vn/soc-trang-ung-pho-han-man-khi-mua-kho-sap-vao-cao-diem-post357790.html",
+    "published": "2025-01-09"
+   }
+  ],
+  "unverified_snippets_not_counted": [
+   "24,9‰ measured week in Mar 2020 + 26,0‰ forecast (sotnmt.soctrang.gov.vn 'Thông báo KTTV tháng 03/2020', site returns 502)",
+   "13,5‰ Dec 2019 (thiennhien.net 2019/12/26, 404)",
+   "2023 outlook 22,4-24,4‰ (soctrang.gov.vn THONG_BAO_LICH_MUA_VU_2023.pdf, host unreachable)"
+  ]
+ },
+ "khanh_hoa_same_day": [
+  {
+   "type": "forecast vs forecast",
+   "published": "2025-03-16",
+   "khanh_hoa_ppt": 23.2,
+   "du_tho_ppt": 13.1,
+   "quote_vi": "trên sông Mỹ Thanh tại Khánh Hòa 23,2‰, tại Dù Tho 13,1‰, tại Thạnh Phú 8,2‰",
+   "url": "https://baosoctrang.org.vn/xa-hoi/202503/tinh-hinh-xam-nhap-man-tren-dia-ban-tinh-soc-trang-dien-bien-phuc-tap-kho-luong-4c7609f/",
+   "note": "already in file 1"
+  },
+  {
+   "type": "forecast vs forecast (Dù Tho given as joint range with Thạnh Phú)",
+   "published": "2025-04-25",
+   "khanh_hoa_ppt": 23.2,
+   "du_tho_ppt": "8.2-13.1",
+   "quote_vi": "trên sông Mỹ Thanh tại phường Khánh Hòa, thị xã Vĩnh Châu độ mặn 23,2‰; tại Dù Tho, xã Tham Đôn và xã Thạnh Phú, huyện Mỹ Xuyên độ mặn từ 8,2 - 13,1‰",
+   "url": "https://baosoctrang.org.vn/doi-song-xa-hoi/202504/soc-trang-thuc-hien-giai-phap-ung-pho-cac-loai-hinh-thien-tai-95e2b4f/"
+  }
+ ],
+ "khanh_hoa_same_day_note": "No measured same-day Dù Tho + Khánh Hòa pair found. Chi cục Thủy lợi daily bulletins (Dù Tho) never list Khánh Hòa; Đài KTTV / Báo Cần Thơ 2026 bulletins list Khánh Hòa but not Dù Tho (e.g. Báo Cần Thơ 16/04/2026: 'Trên sông Mỹ Thanh tại Khánh Hòa 14‰, Thạnh Phú 0,6‰, Sóc Trăng 0,7‰'). Possible pairing by date: 2025 Dù Tho daily series vs any Khánh Hòa 2025 daily values from another source.",
+ "searched": [
+  "Re-fetched and re-parsed ~70 Báo Sóc Trăng bulletins Feb-Jun 2025 (+ May bulletins not in first crawl)",
+  "WebSearch (standard/extended): Dù Tho/Tham Đôn/sông Dù Tho/Thạnh Thới Thuận/Ngọc Tố + độ mặn, years 2016-2026, site:baosoctrang, baocantho",
+  "Fetched: tepbac 2016 & 2018, VietnamPlus 2016/2024/2025, thanhtra 2020, tuoitre 2020/2022, plo 2022, baotintuc 2023/2024/2026, nhandan 2023/2024/2026, tienphong 2024, kinhtedothi 2023/2024, bnews 2025/2026, chinhsachcuocsong/dantocmiennui 2025, baocantho 2026 (a202241, a203277, a218733, a221211), sggp 2026, Báo Sóc Trăng 'Địa danh Tham Đôn'/'Địa danh sông Mỹ Thanh'",
+  "Unreachable: sotnmt.soctrang.gov.vn (502), sonnmt.soctrang.gov.vn (not allowed), soctrang.gov.vn (502), nongnghiepmoitruong.vn (403), thiennhien.net (404)"
+ ]
+}

@@ -1143,6 +1143,16 @@ def test_kttv_missing_station():
         assert build.kttv_salinity(pts[pid]["lat"], pts[pid]["lon"]) is None, pid
 
 
+def test_write_dated_keeps_old_date():
+    import tempfile
+    p = pathlib.Path(tempfile.mkdtemp()) / "x.json"
+    p.write_text(json.dumps({"generated": "2000-01-01", "a": [1, 2]}), encoding="utf-8")
+    build.write_dated(p, {"a": (1, 2)})  # same data (tuple round-trips to list): date kept
+    assert json.loads(p.read_text(encoding="utf-8"))["generated"] == "2000-01-01"
+    build.write_dated(p, {"a": [3]})
+    assert json.loads(p.read_text(encoding="utf-8"))["generated"] != "2000-01-01"
+
+
 if __name__ == "__main__":
     import sys
     # Windows uses cp1252 when output is redirected; Vietnamese text would crash print().

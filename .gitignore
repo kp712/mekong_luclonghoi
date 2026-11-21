@@ -1,2 +1,3 @@
 # Python bytecode cache, written whenever the pipeline scripts or tests run
 __pycache__/
+shots/

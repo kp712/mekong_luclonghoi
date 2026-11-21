@@ -1,0 +1,909 @@
+{
+ "khanh_hoa": {
+  "2023": [],
+  "2024": [],
+  "2025": [
+   {
+    "ppt": 23.2,
+    "month": 4,
+    "date_or_period": "season-end forecast made mid-Mar 2025 for rest of 2024-25 dry season",
+    "measured": false,
+    "station_as_named": "Khánh Hòa (sông Mỹ Thanh)",
+    "quote_vi": "Dự báo độ mặn cao nhất tại các điểm đo từ nay tới hết mùa khô năm 2024 - 2025 như sau: ... trên sông Mỹ Thanh tại Khánh Hòa 23,2‰, tại Dù Tho 13,1‰, tại Thạnh Phú 8,2‰",
+    "gloss_en": "FORECAST 23.2‰ at Khánh Hòa (Sóc Trăng hydromet station). Not a reading; no measured Khánh Hòa value for 2025 was found.",
+    "url": "https://baosoctrang.org.vn/xa-hoi/202503/tinh-hinh-xam-nhap-man-tren-dia-ban-tinh-soc-trang-dien-bien-phuc-tap-kho-luong-4c7609f/",
+    "published": "2025-03-16"
+   }
+  ],
+  "2026": [
+   {
+    "ppt": 14.0,
+    "month": 4,
+    "date_or_period": "about 15-16 Apr 2026 (day not stated; \"hiện đo được\" = currently measured)",
+    "measured": true,
+    "station_as_named": "Khánh Hòa (sông Mỹ Thanh)",
+    "quote_vi": "Độ mặn cao nhất xâm nhập từ biển Đông trên sông Hậu tại Trần Đề hiện đo được 7,3‰, Đại Ngãi 1,7‰, An Lạc Tây 0,2‰. Trên sông Mỹ Thanh tại Khánh Hòa 14‰, Thạnh Phú 0,6‰, Sóc Trăng 0,7‰.",
+    "gloss_en": "Cần Thơ city hydromet station via Báo Cần Thơ: highest salinity currently measured on the My Thanh river at Khánh Hòa is 14‰. Mid-rise reading, not the season peak.",
+    "url": "https://baocantho.com.vn/do-man-len-cao-som-hon-2-ngay-so-voi-ky-trieu-cuong-dau-thang-3-am-lich-a202241.html",
+    "published": "2026-04-16"
+   },
+   {
+    "ppt": 17.0,
+    "month": 4,
+    "date_or_period": "forecast for 16-20 Apr 2026, peak 19 Apr",
+    "measured": false,
+    "station_as_named": "Khánh Hòa (sông Mỹ Thanh)",
+    "quote_vi": "Trên sông Mỹ Thanh tại Khánh Hòa 15-17‰, Thạnh Phú 0,8-1,5‰, Sóc Trăng 0,7-1‰.",
+    "gloss_en": "FORECAST 15-17‰ for the 19 Apr 2026 spring-tide peak (ppt = upper bound). Not a reading.",
+    "url": "https://baocantho.com.vn/do-man-len-cao-som-hon-2-ngay-so-voi-ky-trieu-cuong-dau-thang-3-am-lich-a202241.html",
+    "published": "2026-04-16"
+   },
+   {
+    "ppt": 12.5,
+    "month": 4,
+    "date_or_period": "forecast for peak 28-30 Apr 2026",
+    "measured": false,
+    "station_as_named": "phường Khánh Hòa (sông Mỹ Thanh, 27 km from sea)",
+    "quote_vi": "phường Khánh Hòa trên sông Mỹ Thanh cách cửa biển 27km, nồng độ mặn cao nhất 10,5-12,5‰",
+    "gloss_en": "FORECAST 10.5-12.5‰ for 28-30 Apr 2026 (ppt = upper bound). Not a reading.",
+    "url": "https://baocantho.com.vn/nong-do-man-tang-cao-va-dat-dinh-tu-ngay-28-4-a203277.html",
+    "published": "2026-04-28"
+   }
+  ]
+ },
+ "kien_giang": {
+  "Rạch Giá": {
+   "river": "Kiên (Kiên river mouth), 7 km from river mouth",
+   "district": "Rạch Giá city (Kiên Giang, now An Giang)",
+   "seasons": {
+    "2024": [
+     {
+      "ppt": 5.8,
+      "month": 4,
+      "date_or_period": "21-30/4/2024",
+      "measured": true,
+      "station_as_named": "Rạch Giá",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 21-30/4/2024 | 26 Rạch Giá Kiên Kiên Giang 7 5.8 Lớn hơn 5.3",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 21-30/4/2024\", column Smax (g/l ≈ ‰): Rạch Giá station = 5.8",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2024/4/30/dbqg_xman_20240430_1500.pdf",
+      "published": "2024-04-30"
+     },
+     {
+      "ppt": 1.6,
+      "month": 4,
+      "date_or_period": "11-20/4/2024",
+      "measured": true,
+      "station_as_named": "Rạch Giá",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 11-20/4/2024 | 26 Rạch Giá Kiên Kiên Giang 7 1.6 Lớn hơn 1.1",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 11-20/4/2024\", column Smax (g/l ≈ ‰): Rạch Giá station = 1.6",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2024/4/20/dbqg_xman_20240420_1500.pdf",
+      "published": "2024-04-20"
+     },
+     {
+      "ppt": 1.0,
+      "month": 4,
+      "date_or_period": "01-10/4/2024",
+      "measured": true,
+      "station_as_named": "Rạch Giá",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 01-10/4/2024 | 26 Rạch Giá Kiên Kiên Giang 7 1 Lớn hơn 0.5",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 01-10/4/2024\", column Smax (g/l ≈ ‰): Rạch Giá station = 1",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2024/4/10/dbqg_xman_20240410_1500.pdf",
+      "published": "2024-04-10"
+     },
+     {
+      "ppt": 0.9,
+      "month": 5,
+      "date_or_period": "01-10/5/2024",
+      "measured": true,
+      "station_as_named": "Rạch Giá",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 01-10/5/2024 | 26 Rạch Giá Kiên Kiên Giang 7 0.9 Nhỏ hơn 0.3",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 01-10/5/2024\", column Smax (g/l ≈ ‰): Rạch Giá station = 0.9",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2024/5/10/dbqg_xman_20240510_1500.pdf",
+      "published": "2024-05-10"
+     },
+     {
+      "ppt": 0.7,
+      "month": 3,
+      "date_or_period": "21-31/3/2024",
+      "measured": true,
+      "station_as_named": "Rạch Giá",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 21-31/3/2024 | 26 Rạch Giá Kiên Kiên Giang 7 0.7 Lớn hơn 0.3",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 21-31/3/2024\", column Smax (g/l ≈ ‰): Rạch Giá station = 0.7",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2024/3/31/dbqg_xman_20240331_1500.pdf",
+      "published": "2024-03-31"
+     },
+     {
+      "ppt": 0.6,
+      "month": 5,
+      "date_or_period": "11-20/5/2024",
+      "measured": true,
+      "station_as_named": "Rạch Giá",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 11-20/5/2024 | 26 Rạch Giá Kiên Kiên Giang 7 0.6 Nhỏ hơn 0.6",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 11-20/5/2024\", column Smax (g/l ≈ ‰): Rạch Giá station = 0.6",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2024/5/20/dbqg_xman_20240520_1500.pdf",
+      "published": "2024-05-20"
+     },
+     {
+      "ppt": 0.5,
+      "month": 3,
+      "date_or_period": "11-20/3/2024",
+      "measured": true,
+      "station_as_named": "Rạch Giá",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 11-20/3/2024 | 26 Rạch Giá Kiên Kiên Giang 7 0.5 Xấp xỉ",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 11-20/3/2024\", column Smax (g/l ≈ ‰): Rạch Giá station = 0.5",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2024/3/20/dbqg_xman_20240320_1500.pdf",
+      "published": "2024-03-20"
+     }
+    ],
+    "2025": [],
+    "2026": [],
+    "2019": [
+     {
+      "ppt": 1.1,
+      "month": 2,
+      "date_or_period": "to 20 Feb 2019 (mid-season, not peak)",
+      "measured": true,
+      "station_as_named": "Rạch Giá (sông Kiên)",
+      "quote_vi": "tại trạm Rạch Giá trên sông Kiên là 1,1‰, thấp hơn 7,6‰ so với cùng kỳ năm 2018",
+      "gloss_en": "Rạch Giá on the Kiên river 1.1‰ on 20 Feb 2019, 7.6‰ lower than the same time of 2018 (implies ~8.7‰ in Feb 2018, derived, not printed).",
+      "url": "https://tuoitre.vn/nld/thoi-su/han-man-khoc-liet-am-anh-mien-tay-20190228202118424.htm",
+      "published": "2019-02-28"
+     }
+    ]
+   }
+  },
+  "Gò Quao": {
+   "river": "Cái Lớn, 35 km from river mouth",
+   "district": "Gò Quao district (thị trấn Gò Quao), Kiên Giang, now An Giang",
+   "seasons": {
+    "2024": [
+     {
+      "ppt": 13.6,
+      "month": 4,
+      "date_or_period": "11-20/4/2024",
+      "measured": true,
+      "station_as_named": "Gò Quao",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 11-20/4/2024 | 27 Gò Quao Cái Lớn Kiên Giang 35 13.6 Lớn hơn 2.7",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 11-20/4/2024\", column Smax (g/l ≈ ‰): Gò Quao station = 13.6",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2024/4/20/dbqg_xman_20240420_1500.pdf",
+      "published": "2024-04-20"
+     },
+     {
+      "ppt": 13.3,
+      "month": 5,
+      "date_or_period": "01-10/5/2024",
+      "measured": true,
+      "station_as_named": "Gò Quao",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 01-10/5/2024 | 27 Gò Quao Cái Lớn Kiên Giang 35 13.3 Lớn hơn 3.1",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 01-10/5/2024\", column Smax (g/l ≈ ‰): Gò Quao station = 13.3",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2024/5/10/dbqg_xman_20240510_1500.pdf",
+      "published": "2024-05-10"
+     },
+     {
+      "ppt": 12.7,
+      "month": 3,
+      "date_or_period": "21-31/3/2024",
+      "measured": true,
+      "station_as_named": "Gò Quao",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 21-31/3/2024 | 27 Gò Quao Cái Lớn Kiên Giang 35 12.7 Lớn hơn 9.6",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 21-31/3/2024\", column Smax (g/l ≈ ‰): Gò Quao station = 12.7",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2024/3/31/dbqg_xman_20240331_1500.pdf",
+      "published": "2024-03-31"
+     },
+     {
+      "ppt": 11.4,
+      "month": 4,
+      "date_or_period": "01-10/4/2024",
+      "measured": true,
+      "station_as_named": "Gò Quao",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 01-10/4/2024 | 27 Gò Quao Cái Lớn Kiên Giang 35 11.4 Lớn hơn 0.5",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 01-10/4/2024\", column Smax (g/l ≈ ‰): Gò Quao station = 11.4",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2024/4/10/dbqg_xman_20240410_1500.pdf",
+      "published": "2024-04-10"
+     },
+     {
+      "ppt": 11.0,
+      "month": 4,
+      "date_or_period": "21-30/4/2024",
+      "measured": true,
+      "station_as_named": "Gò Quao",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 21-30/4/2024 | 27 Gò Quao Cái Lớn Kiên Giang 35 11 Xấp xỉ",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 21-30/4/2024\", column Smax (g/l ≈ ‰): Gò Quao station = 11",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2024/4/30/dbqg_xman_20240430_1500.pdf",
+      "published": "2024-04-30"
+     },
+     {
+      "ppt": 10.0,
+      "month": 5,
+      "date_or_period": "11-20/5/2024",
+      "measured": true,
+      "station_as_named": "Gò Quao",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 11-20/5/2024 | 27 Gò Quao Cái Lớn Kiên Giang 35 10 Nhỏ hơn 0.2",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 11-20/5/2024\", column Smax (g/l ≈ ‰): Gò Quao station = 10",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2024/5/20/dbqg_xman_20240520_1500.pdf",
+      "published": "2024-05-20"
+     },
+     {
+      "ppt": 7.8,
+      "month": 3,
+      "date_or_period": "11-20/3/2024",
+      "measured": true,
+      "station_as_named": "Gò Quao",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 11-20/3/2024 | 27 Gò Quao Cái Lớn Kiên Giang 35 7.8 Lớn hơn 4.7",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 11-20/3/2024\", column Smax (g/l ≈ ‰): Gò Quao station = 7.8",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2024/3/20/dbqg_xman_20240320_1500.pdf",
+      "published": "2024-03-20"
+     }
+    ],
+    "2025": [
+     {
+      "ppt": 7.1,
+      "month": 3,
+      "date_or_period": "21-31/3/2025",
+      "measured": true,
+      "station_as_named": "Gò Quao",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 21-31/3/2025 | 27 Gò Quao Cái Lớn Kiên Giang 35 7.1 Nhỏ hơn 5.6",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 21-31/3/2025\", column Smax (g/l ≈ ‰): Gò Quao station = 7.1",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2025/3/31/dbqg_xman_20250331_1500.pdf",
+      "published": "2025-03-31"
+     },
+     {
+      "ppt": 6.0,
+      "month": 4,
+      "date_or_period": "11-20/4/2025",
+      "measured": true,
+      "station_as_named": "Gò Quao",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 11-20/4/2025 | 27 Gò Quao Cái Lớn Kiên Giang 35 6 Nhỏ hơn 7.6",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 11-20/4/2025\", column Smax (g/l ≈ ‰): Gò Quao station = 6",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2025/4/20/dbqg_xman_20250420_1500.pdf",
+      "published": "2025-04-20"
+     },
+     {
+      "ppt": 5.3,
+      "month": 1,
+      "date_or_period": "21-31/1/2025",
+      "measured": true,
+      "station_as_named": "Gò Quao",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 21-31/1/2025 | 27 Gò Quao Cái Lớn Kiên Giang 35 5.3 Lớn hơn 2.6",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 21-31/1/2025\", column Smax (g/l ≈ ‰): Gò Quao station = 5.3",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2025/1/31/dbqg_xman_20250131_1500.pdf",
+      "published": "2025-01-31"
+     },
+     {
+      "ppt": 4.9,
+      "month": 1,
+      "date_or_period": "21-31/1/2025",
+      "measured": true,
+      "station_as_named": "Gò Quao",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 21-31/1/2025 | 27 Gò Quao Cái Lớn Kiên Giang 35 4.9 Nhỏ hơn 5.2",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 21-31/1/2025\", column Smax (g/l ≈ ‰): Gò Quao station = 4.9",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2025/2/10/dbqg_xman_20250210_1500.pdf",
+      "published": "2025-02-10"
+     },
+     {
+      "ppt": 4.8,
+      "month": 5,
+      "date_or_period": "11-20/5/2025",
+      "measured": true,
+      "station_as_named": "Gò Quao",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 11-20/5/2025 | 27 Gò Quao Cái Lớn Kiên Giang 35 4.8 Nhỏ hơn 8.5",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 11-20/5/2025\", column Smax (g/l ≈ ‰): Gò Quao station = 4.8",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2025/5/20/dbqg_xman_20250520_1500.pdf",
+      "published": "2025-05-20"
+     },
+     {
+      "ppt": 4.6,
+      "month": 4,
+      "date_or_period": "01-10/4/2025",
+      "measured": true,
+      "station_as_named": "Gò Quao",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 01-10/4/2025 | 27 Gò Quao Cái Lớn Kiên Giang 35 4.6 Nhỏ hơn 9",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 01-10/4/2025\", column Smax (g/l ≈ ‰): Gò Quao station = 4.6",
+      "url": "https://kttv.gov.vn//upload/thuyvan1/2025/4/10/dbqg_xman_20250410_1500.pdf",
+      "published": "2025-04-10"
+     },
+     {
+      "ppt": 4.6,
+      "month": 5,
+      "date_or_period": "21-31/5/2025",
+      "measured": true,
+      "station_as_named": "Gò Quao",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 21-31/5/2025 | 27 Gò Quao Cái Lớn Kiên Giang 35 4.6 Nhỏ hơn 8.7",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 21-31/5/2025\", column Smax (g/l ≈ ‰): Gò Quao station = 4.6",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2025/5/31/dbqg_xman_20250531_1500.pdf",
+      "published": "2025-05-31"
+     },
+     {
+      "ppt": 3.8,
+      "month": 2,
+      "date_or_period": "11-20/2/2025",
+      "measured": true,
+      "station_as_named": "Gò Quao",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 11-20/2/2025 | 27 Gò Quao Cái Lớn Kiên Giang 35 3.8 Nhỏ hơn 6.3",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 11-20/2/2025\", column Smax (g/l ≈ ‰): Gò Quao station = 3.8",
+      "url": "https://kttv.gov.vn//upload/thuyvan1/2025/2/20/dbqg_xman_20250220_1500.pdf",
+      "published": "2025-02-20"
+     },
+     {
+      "ppt": 3.6,
+      "month": 5,
+      "date_or_period": "01-10/5/2025",
+      "measured": true,
+      "station_as_named": "Gò Quao",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 01-10/5/2025 | 27 Gò Quao Cái Lớn Kiên Giang 35 3.6 Nhỏ hơn 9.7",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 01-10/5/2025\", column Smax (g/l ≈ ‰): Gò Quao station = 3.6",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2025/5/10/dbqg_xman_20250510_1500.pdf",
+      "published": "2025-05-10"
+     },
+     {
+      "ppt": 2.5,
+      "month": 2,
+      "date_or_period": "21-28/2/2025",
+      "measured": true,
+      "station_as_named": "Gò Quao",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 21-28/2/2025 | 27 Gò Quao Cái Lớn Kiên Giang 35 2.5 Nhỏ hơn 7.6",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 21-28/2/2025\", column Smax (g/l ≈ ‰): Gò Quao station = 2.5",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2025/2/28/dbqg_xman_20250228_1500.pdf",
+      "published": "2025-02-28"
+     },
+     {
+      "ppt": 2.4,
+      "month": 4,
+      "date_or_period": "21-30/4/2025",
+      "measured": true,
+      "station_as_named": "Gò Quao",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 21-30/4/2025 | 27 Gò Quao Cái Lớn Kiên Giang 35 2.4 Nhỏ hơn 11.2",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 21-30/4/2025\", column Smax (g/l ≈ ‰): Gò Quao station = 2.4",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2025/4/30/dbqg_xman_20250430_1500.pdf",
+      "published": "2025-04-30"
+     },
+     {
+      "ppt": 1.8,
+      "month": 3,
+      "date_or_period": "11-20/3/2025",
+      "measured": true,
+      "station_as_named": "Gò Quao",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 11-20/3/2025 | 27 Gò Quao Cái Lớn Kiên Giang 35 1.8 Nhỏ hơn 0.9",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 11-20/3/2025\", column Smax (g/l ≈ ‰): Gò Quao station = 1.8",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2025/3/20/dbqg_xman_20250320_1500.pdf",
+      "published": "2025-03-20"
+     },
+     {
+      "ppt": 1.4,
+      "month": 1,
+      "date_or_period": "11-20/1/2025",
+      "measured": true,
+      "station_as_named": "Gò Quao",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 11-20/1/2025 | 27 Gò Quao Cái Lớn Kiên Giang 35 1.4 Nhỏ hơn 1.3",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 11-20/1/2025\", column Smax (g/l ≈ ‰): Gò Quao station = 1.4",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2025/1/20/dbqg_xman_20250120_1500.pdf",
+      "published": "2025-01-20"
+     },
+     {
+      "ppt": 1.4,
+      "month": 3,
+      "date_or_period": "01-10/3/2025",
+      "measured": true,
+      "station_as_named": "Gò Quao",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 01-10/3/2025 | 27 Gò Quao Cái Lớn Kiên Giang 35 1.4 Nhỏ hơn 1.3",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 01-10/3/2025\", column Smax (g/l ≈ ‰): Gò Quao station = 1.4",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2025/3/10/dbqg_xman_20250310_1500.pdf",
+      "published": "2025-03-10"
+     }
+    ],
+    "2026": [
+     {
+      "ppt": 15.5,
+      "month": 5,
+      "date_or_period": "01-10/5/2026",
+      "measured": true,
+      "station_as_named": "Gò Quao",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 01-10/5/2026 | 27 Gò Quao Cái Lớn An Giang 35 15.5 Lớn hơn 10.7",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 01-10/5/2026\", column Smax (g/l ≈ ‰): Gò Quao station = 15.5",
+      "url": "https://kttv.gov.vn//upload/thuyvan1/2026/5/10/dbqg_xman_20260510_1500.pdf",
+      "published": "2026-05-10"
+     },
+     {
+      "ppt": 14.7,
+      "month": 4,
+      "date_or_period": "21-30/4/2026",
+      "measured": true,
+      "station_as_named": "Gò Quao",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 21-30/4/2026 | 27 Gò Quao Cái Lớn An Giang 35 14.7 Lớn hơn 8.7",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 21-30/4/2026\", column Smax (g/l ≈ ‰): Gò Quao station = 14.7",
+      "url": "https://kttv.gov.vn//upload/thuyvan1/2026/4/30/dbqg_xman_20260430_1500.pdf",
+      "published": "2026-04-30"
+     },
+     {
+      "ppt": 13.6,
+      "month": 4,
+      "date_or_period": "11-20/4/2026",
+      "measured": true,
+      "station_as_named": "Gò Quao",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 11-20/4/2026 | 27 Gò Quao Cái Lớn An Giang 35 13.6 Lớn hơn 7.6",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 11-20/4/2026\", column Smax (g/l ≈ ‰): Gò Quao station = 13.6",
+      "url": "https://kttv.gov.vn//upload/thuyvan1/2026/4/20/dbqg_xman_20260420_1500.pdf",
+      "published": "2026-04-20"
+     },
+     {
+      "ppt": 8.6,
+      "month": 5,
+      "date_or_period": "11-20/5/2026",
+      "measured": true,
+      "station_as_named": "Gò Quao",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 11-20/5/2026 | 27 Gò Quao Cái Lớn An Giang 35 8.6 Lớn hơn 3.8",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 11-20/5/2026\", column Smax (g/l ≈ ‰): Gò Quao station = 8.6",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2026/5/20/dbqg_xman_20260520_1500.pdf",
+      "published": "2026-05-20"
+     },
+     {
+      "ppt": 2.9,
+      "month": 4,
+      "date_or_period": "1-10/4/2026 (table title in PDF misprints 21-31/3/2026; bulletin covers 11-20/4 forecast)",
+      "measured": true,
+      "station_as_named": "Gò Quao",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 21-31/3/2026 | 27 Gò Quao Cái Lớn Kiên Giang 35 2.9 Nhỏ hơn 3.1",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 1-10/4/2026 (table title in PDF misprints 21-31/3/2026; bulletin covers 11-20/4 forecast)\", column Smax (g/l ≈ ‰): Gò Quao station = 2.9",
+      "url": "https://kttv.gov.vn//upload/thuyvan1/2026/4/10/dbqg_xman_20260410_1500.pdf",
+      "published": "2026-04-10"
+     },
+     {
+      "ppt": 1.4,
+      "month": 5,
+      "date_or_period": "21-31/5/2026",
+      "measured": true,
+      "station_as_named": "Gò Quao",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 21-31/5/2026 | 27 Gò Quao Cái Lớn An Giang 35 1.4 Nhỏ hơn 3.4",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 21-31/5/2026\", column Smax (g/l ≈ ‰): Gò Quao station = 1.4",
+      "url": "https://kttv.gov.vn//upload/thuyvan1/2026/5/31/dbqg_xman_20260531_1500.pdf",
+      "published": "2026-05-31"
+     },
+     {
+      "ppt": 1.0,
+      "month": 3,
+      "date_or_period": "21-31/3/2026",
+      "measured": true,
+      "station_as_named": "Gò Quao",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 21-31/3/2026 | 27 Gò Quao Cái Lớn Kiên Giang 35 1 Nhỏ hơn 6.1",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 21-31/3/2026\", column Smax (g/l ≈ ‰): Gò Quao station = 1",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2026/3/31/dbqg_xman_20260331_1500.pdf",
+      "published": "2026-03-31"
+     },
+     {
+      "ppt": 0.9,
+      "month": 3,
+      "date_or_period": "11-20/3/2026",
+      "measured": true,
+      "station_as_named": "Gò Quao",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 11-20/3/2026 | 27 Gò Quao Cái Lớn Kiên Giang 35 0.9 Nhỏ hơn 6.2",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 11-20/3/2026\", column Smax (g/l ≈ ‰): Gò Quao station = 0.9",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2026/3/20/dbqg_xman_20260320_1500.pdf",
+      "published": "2026-03-20"
+     },
+     {
+      "ppt": 0.3,
+      "month": 3,
+      "date_or_period": "01-10/3/2026",
+      "measured": true,
+      "station_as_named": "Gò Quao",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 01-10/3/2026 | 27 Gò Quao Cái Lớn Kiên Giang 35 0.3 Nhỏ hơn 6.8",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 01-10/3/2026\", column Smax (g/l ≈ ‰): Gò Quao station = 0.3",
+      "url": "https://kttv.gov.vn//upload/thuyvan1/2026/3/10/dbqg_xman_20260310_1500.pdf",
+      "published": "2026-03-10"
+     }
+    ],
+    "2020": [
+     {
+      "ppt": 4.2,
+      "month": 12,
+      "date_or_period": "10 Dec 2019 (early season, not peak)",
+      "measured": true,
+      "station_as_named": "Gò Quao",
+      "quote_vi": "tại Gò Quao (cách 35km) là 4,2g/l",
+      "gloss_en": "Gò Quao (35 km from sea) 4.2 g/l from 10 Dec 2019.",
+      "url": "https://moitruong.net.vn/kien-giang-trien-khai-giai-phap-phong-chong-han-han-xam-nhap-man-mua-kho-nam-2019-2020-40972.html",
+      "published": "2019-12-19"
+     }
+    ]
+   }
+  },
+  "An Ninh": {
+   "river": "Cái Bé, 8 km from river mouth",
+   "district": "district not stated in the KTTV table (Cái Bé river, Kiên Giang, now An Giang)",
+   "seasons": {
+    "2024": [
+     {
+      "ppt": 19.8,
+      "month": 4,
+      "date_or_period": "11-20/4/2024",
+      "measured": true,
+      "station_as_named": "An Ninh",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 11-20/4/2024 | 28 An Ninh Cái Bé Kiên Giang 8 19.8 Lớn hơn 5.3",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 11-20/4/2024\", column Smax (g/l ≈ ‰): An Ninh station = 19.8",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2024/4/20/dbqg_xman_20240420_1500.pdf",
+      "published": "2024-04-20"
+     },
+     {
+      "ppt": 17.0,
+      "month": 4,
+      "date_or_period": "01-10/4/2024",
+      "measured": true,
+      "station_as_named": "An Ninh",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 01-10/4/2024 | 28 An Ninh Cái Bé Kiên Giang 8 17 Lớn hơn 2.5",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 01-10/4/2024\", column Smax (g/l ≈ ‰): An Ninh station = 17",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2024/4/10/dbqg_xman_20240410_1500.pdf",
+      "published": "2024-04-10"
+     },
+     {
+      "ppt": 12.5,
+      "month": 4,
+      "date_or_period": "21-30/4/2024",
+      "measured": true,
+      "station_as_named": "An Ninh",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 21-30/4/2024 | 28 An Ninh Cái Bé Kiên Giang 8 12.5 Nhỏ hơn 2",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 21-30/4/2024\", column Smax (g/l ≈ ‰): An Ninh station = 12.5",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2024/4/30/dbqg_xman_20240430_1500.pdf",
+      "published": "2024-04-30"
+     },
+     {
+      "ppt": 10.1,
+      "month": 3,
+      "date_or_period": "21-31/3/2024",
+      "measured": true,
+      "station_as_named": "An Ninh",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 21-31/3/2024 | 28 An Ninh Cái Bé Kiên Giang 8 10.1 Lớn hơn 1.9",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 21-31/3/2024\", column Smax (g/l ≈ ‰): An Ninh station = 10.1",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2024/3/31/dbqg_xman_20240331_1500.pdf",
+      "published": "2024-03-31"
+     },
+     {
+      "ppt": 10.0,
+      "month": 3,
+      "date_or_period": "11-20/3/2024",
+      "measured": true,
+      "station_as_named": "An Ninh",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 11-20/3/2024 | 28 An Ninh Cái Bé Kiên Giang 8 10 Lớn hơn 1.8",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 11-20/3/2024\", column Smax (g/l ≈ ‰): An Ninh station = 10",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2024/3/20/dbqg_xman_20240320_1500.pdf",
+      "published": "2024-03-20"
+     },
+     {
+      "ppt": 9.7,
+      "month": 5,
+      "date_or_period": "01-10/5/2024",
+      "measured": true,
+      "station_as_named": "An Ninh",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 01-10/5/2024 | 28 An Ninh Cái Bé Kiên Giang 8 9.7 Nhỏ hơn 8.9",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 01-10/5/2024\", column Smax (g/l ≈ ‰): An Ninh station = 9.7",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2024/5/10/dbqg_xman_20240510_1500.pdf",
+      "published": "2024-05-10"
+     },
+     {
+      "ppt": 8.8,
+      "month": 5,
+      "date_or_period": "11-20/5/2024",
+      "measured": true,
+      "station_as_named": "An Ninh",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 11-20/5/2024 | 28 An Ninh Cái Bé Kiên Giang 8 8.8 Nhỏ hơn 9.8",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 11-20/5/2024\", column Smax (g/l ≈ ‰): An Ninh station = 8.8",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2024/5/20/dbqg_xman_20240520_1500.pdf",
+      "published": "2024-05-20"
+     }
+    ],
+    "2025": [
+     {
+      "ppt": 16.5,
+      "month": 3,
+      "date_or_period": "21-31/3/2025",
+      "measured": true,
+      "station_as_named": "An Ninh",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 21-31/3/2025 | 28 An Ninh Cái Bé Kiên Giang 8 16.5 Lớn hơn 5.1",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 21-31/3/2025\", column Smax (g/l ≈ ‰): An Ninh station = 16.5",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2025/3/31/dbqg_xman_20250331_1500.pdf",
+      "published": "2025-03-31"
+     },
+     {
+      "ppt": 16.2,
+      "month": 4,
+      "date_or_period": "01-10/4/2025",
+      "measured": true,
+      "station_as_named": "An Ninh",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 01-10/4/2025 | 28 An Ninh Cái Bé Kiên Giang 8 16.2 Nhỏ hơn 3.6",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 01-10/4/2025\", column Smax (g/l ≈ ‰): An Ninh station = 16.2",
+      "url": "https://kttv.gov.vn//upload/thuyvan1/2025/4/10/dbqg_xman_20250410_1500.pdf",
+      "published": "2025-04-10"
+     },
+     {
+      "ppt": 15.3,
+      "month": 1,
+      "date_or_period": "21-31/1/2025",
+      "measured": true,
+      "station_as_named": "An Ninh",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 21-31/1/2025 | 28 An Ninh Cái Bé Kiên Giang 8 15.3 Lớn hơn 6.4",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 21-31/1/2025\", column Smax (g/l ≈ ‰): An Ninh station = 15.3",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2025/1/31/dbqg_xman_20250131_1500.pdf",
+      "published": "2025-01-31"
+     },
+     {
+      "ppt": 13.5,
+      "month": 1,
+      "date_or_period": "21-31/1/2025",
+      "measured": true,
+      "station_as_named": "An Ninh",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 21-31/1/2025 | 28 An Ninh Cái Bé Kiên Giang 8 13.5 Nhỏ hơn 3.1",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 21-31/1/2025\", column Smax (g/l ≈ ‰): An Ninh station = 13.5",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2025/2/10/dbqg_xman_20250210_1500.pdf",
+      "published": "2025-02-10"
+     },
+     {
+      "ppt": 10.7,
+      "month": 2,
+      "date_or_period": "11-20/2/2025",
+      "measured": true,
+      "station_as_named": "An Ninh",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 11-20/2/2025 | 28 An Ninh Cái Bé Kiên Giang 8 10.7 Nhỏ hơn 5.9",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 11-20/2/2025\", column Smax (g/l ≈ ‰): An Ninh station = 10.7",
+      "url": "https://kttv.gov.vn//upload/thuyvan1/2025/2/20/dbqg_xman_20250220_1500.pdf",
+      "published": "2025-02-20"
+     },
+     {
+      "ppt": 10.1,
+      "month": 1,
+      "date_or_period": "11-20/1/2025",
+      "measured": true,
+      "station_as_named": "An Ninh",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 11-20/1/2025 | 28 An Ninh Cái Bé Kiên Giang 8 10.1 Lớn hơn 1.2",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 11-20/1/2025\", column Smax (g/l ≈ ‰): An Ninh station = 10.1",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2025/1/20/dbqg_xman_20250120_1500.pdf",
+      "published": "2025-01-20"
+     },
+     {
+      "ppt": 8.3,
+      "month": 4,
+      "date_or_period": "11-20/4/2025",
+      "measured": true,
+      "station_as_named": "An Ninh",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 11-20/4/2025 | 28 An Ninh Cái Bé Kiên Giang 8 8.3 Nhỏ hơn 1.5",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 11-20/4/2025\", column Smax (g/l ≈ ‰): An Ninh station = 8.3",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2025/4/20/dbqg_xman_20250420_1500.pdf",
+      "published": "2025-04-20"
+     },
+     {
+      "ppt": 5.8,
+      "month": 5,
+      "date_or_period": "01-10/5/2025",
+      "measured": true,
+      "station_as_named": "An Ninh",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 01-10/5/2025 | 28 An Ninh Cái Bé Kiên Giang 8 5.8 Nhỏ hơn 3.9",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 01-10/5/2025\", column Smax (g/l ≈ ‰): An Ninh station = 5.8",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2025/5/10/dbqg_xman_20250510_1500.pdf",
+      "published": "2025-05-10"
+     },
+     {
+      "ppt": 4.6,
+      "month": 3,
+      "date_or_period": "01-10/3/2025",
+      "measured": true,
+      "station_as_named": "An Ninh",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 01-10/3/2025 | 28 An Ninh Cái Bé Kiên Giang 8 4.6 Nhỏ hơn 6.8",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 01-10/3/2025\", column Smax (g/l ≈ ‰): An Ninh station = 4.6",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2025/3/10/dbqg_xman_20250310_1500.pdf",
+      "published": "2025-03-10"
+     },
+     {
+      "ppt": 4.6,
+      "month": 4,
+      "date_or_period": "21-30/4/2025",
+      "measured": true,
+      "station_as_named": "An Ninh",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 21-30/4/2025 | 28 An Ninh Cái Bé Kiên Giang 8 4.6 Nhỏ hơn 15.2",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 21-30/4/2025\", column Smax (g/l ≈ ‰): An Ninh station = 4.6",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2025/4/30/dbqg_xman_20250430_1500.pdf",
+      "published": "2025-04-30"
+     },
+     {
+      "ppt": 4.4,
+      "month": 3,
+      "date_or_period": "11-20/3/2025",
+      "measured": true,
+      "station_as_named": "An Ninh",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 11-20/3/2025 | 28 An Ninh Cái Bé Kiên Giang 8 4.4 Nhỏ hơn 7",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 11-20/3/2025\", column Smax (g/l ≈ ‰): An Ninh station = 4.4",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2025/3/20/dbqg_xman_20250320_1500.pdf",
+      "published": "2025-03-20"
+     },
+     {
+      "ppt": 4.4,
+      "month": 5,
+      "date_or_period": "11-20/5/2025",
+      "measured": true,
+      "station_as_named": "An Ninh",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 11-20/5/2025 | 28 An Ninh Cái Bé Kiên Giang 8 4.4 Nhỏ hơn 5.3",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 11-20/5/2025\", column Smax (g/l ≈ ‰): An Ninh station = 4.4",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2025/5/20/dbqg_xman_20250520_1500.pdf",
+      "published": "2025-05-20"
+     },
+     {
+      "ppt": 4.2,
+      "month": 2,
+      "date_or_period": "21-28/2/2025",
+      "measured": true,
+      "station_as_named": "An Ninh",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 21-28/2/2025 | 28 An Ninh 8 4.2",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 21-28/2/2025\", column Smax (g/l ≈ ‰): An Ninh station = 4.2",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2025/2/28/dbqg_xman_20250228_1500.pdf",
+      "published": "2025-02-28"
+     },
+     {
+      "ppt": 3.4,
+      "month": 5,
+      "date_or_period": "21-31/5/2025",
+      "measured": true,
+      "station_as_named": "An Ninh",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 21-31/5/2025 | 28 An Ninh Cái Bé Kiên Giang 8 3.4 Nhỏ hơn 6.3",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 21-31/5/2025\", column Smax (g/l ≈ ‰): An Ninh station = 3.4",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2025/5/31/dbqg_xman_20250531_1500.pdf",
+      "published": "2025-05-31"
+     }
+    ],
+    "2026": [
+     {
+      "ppt": 17.7,
+      "month": 4,
+      "date_or_period": "11-20/4/2026",
+      "measured": true,
+      "station_as_named": "An Ninh",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 11-20/4/2026 | 28 An Ninh Cái Bé An Giang 8 17.7 Lớn hơn 1.5",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 11-20/4/2026\", column Smax (g/l ≈ ‰): An Ninh station = 17.7",
+      "url": "https://kttv.gov.vn//upload/thuyvan1/2026/4/20/dbqg_xman_20260420_1500.pdf",
+      "published": "2026-04-20"
+     },
+     {
+      "ppt": 13.6,
+      "month": 5,
+      "date_or_period": "11-20/5/2026",
+      "measured": true,
+      "station_as_named": "An Ninh",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 11-20/5/2026 | 28 An Ninh Cái Bé An Giang 8 13.6 Lớn hơn 7.8",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 11-20/5/2026\", column Smax (g/l ≈ ‰): An Ninh station = 13.6",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2026/5/20/dbqg_xman_20260520_1500.pdf",
+      "published": "2026-05-20"
+     },
+     {
+      "ppt": 11.2,
+      "month": 4,
+      "date_or_period": "21-30/4/2026",
+      "measured": true,
+      "station_as_named": "An Ninh",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 21-30/4/2026 | 28 An Ninh Cái Bé An Giang 8 11.2 Nhỏ hơn 5",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 21-30/4/2026\", column Smax (g/l ≈ ‰): An Ninh station = 11.2",
+      "url": "https://kttv.gov.vn//upload/thuyvan1/2026/4/30/dbqg_xman_20260430_1500.pdf",
+      "published": "2026-04-30"
+     },
+     {
+      "ppt": 9.2,
+      "month": 4,
+      "date_or_period": "1-10/4/2026 (table title in PDF misprints 21-31/3/2026; bulletin covers 11-20/4 forecast)",
+      "measured": true,
+      "station_as_named": "An Ninh",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 21-31/3/2026 | 28 An Ninh Cái Bé Kiên Giang 8 9.2 Nhỏ hơn 7",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 1-10/4/2026 (table title in PDF misprints 21-31/3/2026; bulletin covers 11-20/4 forecast)\", column Smax (g/l ≈ ‰): An Ninh station = 9.2",
+      "url": "https://kttv.gov.vn//upload/thuyvan1/2026/4/10/dbqg_xman_20260410_1500.pdf",
+      "published": "2026-04-10"
+     },
+     {
+      "ppt": 6.9,
+      "month": 5,
+      "date_or_period": "01-10/5/2026",
+      "measured": true,
+      "station_as_named": "An Ninh",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 01-10/5/2026 | 28 An Ninh Cái Bé An Giang 8 6.9 Lớn hơn 1.1",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 01-10/5/2026\", column Smax (g/l ≈ ‰): An Ninh station = 6.9",
+      "url": "https://kttv.gov.vn//upload/thuyvan1/2026/5/10/dbqg_xman_20260510_1500.pdf",
+      "published": "2026-05-10"
+     },
+     {
+      "ppt": 4.6,
+      "month": 3,
+      "date_or_period": "11-20/3/2026",
+      "measured": true,
+      "station_as_named": "An Ninh",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 11-20/3/2026 | 28 An Ninh Cái Bé Kiên Giang 8 4.6 Nhỏ hơn 1.9",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 11-20/3/2026\", column Smax (g/l ≈ ‰): An Ninh station = 4.6",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2026/3/20/dbqg_xman_20260320_1500.pdf",
+      "published": "2026-03-20"
+     },
+     {
+      "ppt": 4.6,
+      "month": 3,
+      "date_or_period": "21-31/3/2026",
+      "measured": true,
+      "station_as_named": "An Ninh",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 21-31/3/2026 | 28 An Ninh Cái Bé Kiên Giang 8 4.6 Nhỏ hơn 1.9",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 21-31/3/2026\", column Smax (g/l ≈ ‰): An Ninh station = 4.6",
+      "url": "https://kttv.gov.vn//upload/thuyvan2/2026/3/31/dbqg_xman_20260331_1500.pdf",
+      "published": "2026-03-31"
+     },
+     {
+      "ppt": 1.4,
+      "month": 3,
+      "date_or_period": "01-10/3/2026",
+      "measured": true,
+      "station_as_named": "An Ninh",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 01-10/3/2026 | 28 An Ninh Cái Bé Kiên Giang 8 1.4 Nhỏ hơn 5.1",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 01-10/3/2026\", column Smax (g/l ≈ ‰): An Ninh station = 1.4",
+      "url": "https://kttv.gov.vn//upload/thuyvan1/2026/3/10/dbqg_xman_20260310_1500.pdf",
+      "published": "2026-03-10"
+     },
+     {
+      "ppt": 0.8,
+      "month": 5,
+      "date_or_period": "21-31/5/2026",
+      "measured": true,
+      "station_as_named": "An Ninh",
+      "quote_vi": "Bảng 1. Bảng độ mặn cao nhất từ ngày 21-31/5/2026 | 28 An Ninh Cái Bé An Giang 8 0.8 Nhỏ hơn 5",
+      "gloss_en": "KTTV national forecast centre bulletin, Table 1 \"highest salinity 21-31/5/2026\", column Smax (g/l ≈ ‰): An Ninh station = 0.8",
+      "url": "https://kttv.gov.vn//upload/thuyvan1/2026/5/31/dbqg_xman_20260531_1500.pdf",
+      "published": "2026-05-31"
+     }
+    ],
+    "2020": [
+     {
+      "ppt": 14.5,
+      "month": 12,
+      "date_or_period": "10 Dec 2019 spring tide (early season, not peak)",
+      "measured": true,
+      "station_as_named": "An Ninh (sông Cái Bé)",
+      "quote_vi": "trên tuyến sông Cái Bé mặn xâm nhập tại An Ninh (cách biển 08km) là 14,5g/l",
+      "gloss_en": "On the Cái Bé at An Ninh (8 km from sea) 14.5 g/l, from 10 Dec 2019.",
+      "url": "https://moitruong.net.vn/kien-giang-trien-khai-giai-phap-phong-chong-han-han-xam-nhap-man-mua-kho-nam-2019-2020-40972.html",
+      "published": "2019-12-19"
+     }
+    ]
+   }
+  },
+  "Xẻo Rô": {
+   "river": "Cái Lớn, about 7 km from river mouth",
+   "district": "An Biên (per khuyennongvn.gov.vn 2024 article \"Xẻo Rô (An Biên)\")",
+   "seasons": {
+    "2020": [
+     {
+      "ppt": 13.8,
+      "month": 12,
+      "date_or_period": "10 Dec 2019 spring tide (early part of 2019-20 dry season; NOT the season peak)",
+      "measured": true,
+      "station_as_named": "Xẻo Rô",
+      "quote_vi": "Từ ngày 10/12/2019, ở một số khu vực trên địa bàn tỉnh Kiên Giang, độ mặn ven bờ biển tăng cao ... Tuyến sông Cái Lớn tại Xẻo Rô (cách biển 07km) là 13,8g/l",
+      "gloss_en": "From 10 Dec 2019 salinity rose; on the Cái Lớn at Xẻo Rô (7 km from sea) 13.8 g/l. Early-season reading only.",
+      "url": "https://moitruong.net.vn/kien-giang-trien-khai-giai-phap-phong-chong-han-han-xam-nhap-man-mua-kho-nam-2019-2020-40972.html",
+      "published": "2019-12-19"
+     }
+    ],
+    "2019": [
+     {
+      "ppt": 15.2,
+      "month": 2,
+      "date_or_period": "to 20 Feb 2019; range 3.6-15.2‰ covers Gò Quao AND Xẻo Rô together (upper end not attributed to one station)",
+      "measured": true,
+      "station_as_named": "trạm Gò Quao, Xẻo Rô (range)",
+      "quote_vi": "tại các trạm trên sông Cái Lớn (Gò Quao, Xẻo Rô) dao động từ 3,6‰ - 15,2‰, cao hơn cùng kỳ năm 2018 từ 1‰-3‰.",
+      "gloss_en": "Cái Lớn stations (Gò Quao, Xẻo Rô) ranged 3.6-15.2‰ up to 20 Feb 2019. Unattributed range, mid-season.",
+      "url": "https://tuoitre.vn/nld/thoi-su/han-man-khoc-liet-am-anh-mien-tay-20190228202118424.htm",
+      "published": "2019-02-28"
+     }
+    ]
+   }
+  }
+ },
+ "searched": [
+  "WebSearch: độ mặn cao nhất Vĩnh Châu Khánh Hòa 2023/2024/2025/2026 (several phrasings)",
+  "WebSearch: Khánh Hòa sông Mỹ Thanh độ mặn đo được (baocantho, baosoctrang, baoangiang domains)",
+  "WebSearch: Rạch Giá / Xẻo Rô / Tắc Cậu / Gò Quao / An Ninh độ mặn Kiên Giang 2019-2023 (baokiengiang, tuoitre, nhandan, moitruong, congly, danviet)",
+  "WebSearch restricted to kttv.gov.vn, kttv-nb.org.vn, vawr.org.vn, siwrr.org.vn",
+  "curl+pdftotext: kttv.gov.vn dbqg_xman_YYYYMMDD_1500.pdf for dates 10/20/28-31 of Jan-Jun 2017-2026: found only 2024-03-20..2024-05-20, 2025-01-20..2025-05-31 (plus 2025-02-10/20/28), 2026-03-10..2026-05-31; none for 2017-2023, none for Jan-Feb 2024 or Jan-Feb 2026 or Dec",
+  "Fetched: baosoctrang.org.vn (2025 articles + daily \"Thông tin nông nghiệp\" 15/3 and 17/4/2025: Mỹ Thanh points are Dù Tho/Thạnh Phú, no Khánh Hòa), baocantho.com.vn 2026 articles, bnews.vn, tuoitre.vn, moitruong.net.vn, khuyennongvn.gov.vn, vawr.org.vn weekly bulletins 2023/2024 (only forecast tables, no Khánh Hòa)",
+  "UNREACHABLE via proxy: soctrang.gov.vn (32-TC-2024.pdf, Vĩnh Châu 85 BC PKT.pdf), quantracmoitruongsoctrang.org.vn (automatic-station salinity table), kttv-nb.org.vn NABO_XMAN PDF (returns HTML), nongnghiepmoitruong.vn and dangcongsan.vn (empty), vnexpress.net (404 root)",
+  "Not searched/failed: baokiengiang.vn archive, Tắc Cậu / Vĩnh Thuận / Giồng Riềng / Kiên Lương series, 2017-2018 and 2020-2023 Rạch Giá peaks"
+ ],
+ "notes": "Khánh Hòa: NO measured dry-season peak found for 2023, 2024 or 2025. The only measured Khánh Hòa value is 14‰ (about 15-16 Apr 2026, a mid-rise reading, Báo Cần Thơ citing the Cần Thơ hydromet station); 2025 and 2026 forecasts are recorded with measured=false. The KTTV national bulletins list Sóc Trăng stations Trần Đề, Long Phú, Đại Ngãi, Thạnh Phú, Sóc Trăng only - never Khánh Hòa. Báo Sóc Trăng daily bulletins use Dù Tho on the Mỹ Thanh, not Khánh Hòa. Kiên Giang: KTTV Table 1 (Smax, g/l, per 10-day period) gives Rạch Giá, Gò Quao and An Ninh for 2024, 2025, 2026. Coverage gaps: 2024 bulletins found only from 20 Mar (Jan-Feb 2024 missing; Rạch Giá 5.8 on 21-30 Apr 2024 is the max of those found); 2026 only from 10 Mar (Jan-Feb missing, peak could be earlier but values were low in Mar). Rạch Giá is '-' (no data) in every 2025 and 2026 bulletin. In the 2026 bulletins the province column says An Giang from 20 Apr 2026. Two PDFs have stale Table 1 titles (20250210 says 21-31/1/2025; 20260410 says 21-31/3/2026); these are not peaks. 'season' keys are the calendar year of the Jan-May months; the Dec 2019 items are keyed 2020 (2019-20 season). Station names Xẻo Rô, Tắc Cậu, Vĩnh Thuận, Giồng Riềng, Kiên Lương: no usable measured seasonal peak found for 2017-2026 (Xẻo Rô forecasts like 25‰ for Mar 2024 and 16-18‰ for Apr 2025 are forecasts and omitted). Units g/l treated as ‰."
+}
