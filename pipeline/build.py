@@ -575,7 +575,7 @@ def summary(clim, nd, sal, elnino=False):
     water = line(f"Winter–spring rice ({MONTHS['en'][a]}–{MONTHS['en'][b]}) needs ≈ {need} mm of canal water, field losses included",
                  f"Lúa Đông Xuân ({MONTHS['vi'][a]}–{MONTHS['vi'][b]}) cần ≈ {need} mm nước tưới từ kênh, kể cả thất thoát trên ruộng")
     if lvl == UNKNOWN:
-        salt = line("Salt: no estimate for this area yet (salinity is never measured by satellite; no public report checked here).",
+        salt = sal.get("reason") or line("Salt: no estimate for this area yet (salinity is never measured by satellite; no public report checked here).",
                     "Mặn: chưa có ước tính cho khu vực này (độ mặn không đo bằng vệ tinh; chưa kiểm tra báo cáo công khai nào ở đây).")
     else:
         at = (f" at {sal['station']} station, {whole(sal['km'])} km away", f" tại trạm {sal['station']}, cách {vi_num(whole(sal['km']))} km") if "station" in sal else ("", "")
@@ -655,28 +655,55 @@ def km_between(lat1, lon1, lat2, lon2):
     return 12742 * math.asin(math.sqrt(h))
 
 
-def salt_months(name):
-    """Months whose KTTV bulletin readings at the station reached SALT_MED (4‰) in at least 2 dry seasons."""
+def salt_months(name, seasons=None, need=2):
+    """Months whose KTTV bulletin readings at the station reached SALT_MED (4‰) in at least `need` dry seasons
+    (of `seasons` if given, else of SALT_SEASONS)."""
     seen = defaultdict(set)
     for d, b in KTTV.items():
         day = date.fromisoformat(d)
-        if b["readings"].get(name, 0) >= SALT_MED and in_salt_seasons(day.year + (day.month == 12)):
-            seen[day.month].add(day.year + (day.month == 12))
-    return sorted(m for m, ys in seen.items() if len(ys) >= 2)
+        y = day.year + (day.month == 12)
+        if b["readings"].get(name, 0) >= SALT_MED and (y in seasons if seasons else in_salt_seasons(y)):
+            seen[day.month].add(y)
+    return sorted(m for m, ys in seen.items() if len(ys) >= need)
+
+
+def nearest_station(lat, lon):
+    """(name, km) of the KTTV bulletin station nearest a point; ValueError if a bulletin station has no coordinates."""
+    names = sorted({n for b in KTTV.values() for n in b["readings"]})
+    for n in names:
+        if n not in KTTV_STATIONS:
+            raise ValueError(f"no coordinates for KTTV station {n}")
+    return min(((n, km_between(lat, lon, KTTV_STATIONS[n]["lat"], KTTV_STATIONS[n]["lon"])) for n in names), key=lambda x: x[1])
+
+
+def no_estimate(lat, lon):
+    """unknown_salinity() for a province point kttv_salinity gives no estimate, saying why: its nearest station is over
+    SALT_KM away, or it has readings for only one kind of year (typical or El Niño)."""
+    name, km = nearest_station(lat, lon)
+    d = (whole(round(km, 1)), vi_num(whole(round(km, 1))))
+    if km > SALT_KM:
+        why = line(f"the nearest KTTV salinity station, {name}, is {d[0]} km away (over {SALT_KM} km)",
+                   f"trạm đo mặn KTTV gần nhất, {name}, cách {d[1]} km (xa hơn {SALT_KM} km)")
+    else:
+        rec = {y: r for y, r in station_record(name).items() if in_salt_seasons(y)}
+        ys = ", ".join(map(str, sorted(rec)))
+        kind = ("El Niño", "năm El Niño", "typical-year", "năm thường") if all(map(salt_elnino, rec)) else ("typical", "năm thường", "El Niño", "năm El Niño")
+        why = line(f"the nearest KTTV salinity station, {name} ({d[0]} km away), has readings only for {kind[0]} years ({ys}), so no {kind[2]} estimate is given",
+                   f"trạm đo mặn KTTV gần nhất, {name} (cách {d[1]} km), chỉ có số liệu {kind[1]} ({ys}), nên chưa có ước tính cho {kind[3]}")
+    return dict(unknown_salinity(),
+                note=line(f"No salinity estimate here: {why['en']}. Salinity is never measured by satellite; check local salinity reports before planting in the dry season.",
+                          f"Chưa có ước tính độ mặn ở đây: {why['vi']}. Độ mặn không đo bằng vệ tinh; hãy xem bản tin độ mặn địa phương trước khi xuống giống mùa khô."),
+                reason=line(f"Salt: no estimate here: {why['en']} (salinity is never measured by satellite).",
+                            f"Mặn: chưa có ước tính ở đây: {why['vi']} (độ mặn không đo bằng vệ tinh)."))
 
 
 def kttv_salinity(lat, lon):
     """(typical, El Niño) salinity of a province point from its nearest KTTV station (site_salinity's dict shape plus station,
     km, partial and caveat), or None when that station is over SALT_KM away or has no dry season in one of the views."""
-    names = sorted({n for b in KTTV.values() for n in b["readings"]})
-    for n in names:
-        if n not in KTTV_STATIONS:
-            raise ValueError(f"no coordinates for KTTV station {n}")
-    dist = {n: km_between(lat, lon, KTTV_STATIONS[n]["lat"], KTTV_STATIONS[n]["lon"]) for n in names}
-    name = min(names, key=dist.get)
-    if dist[name] > SALT_KM:
+    name, km = nearest_station(lat, lon)
+    if km > SALT_KM:
         return None
-    km = round(dist[name], 1)
+    km = round(km, 1)
     rec = {y: r for y, r in station_record(name).items() if in_salt_seasons(y)}
     views = [{y: r for y, r in rec.items() if salt_elnino(y) == e} for e in (False, True)]
     if not all(views):  # e.g. Rạch Giá: bulletins only in 2024, so no typical season to compare with
@@ -684,11 +711,18 @@ def kttv_salinity(lat, lon):
     months = salt_months(name)
     at = line(f"Nearest KTTV salinity station: {name}, {whole(km)} km away (station position approximate).",
               f"Trạm đo mặn KTTV gần nhất: {name}, cách {vi_num(whole(km))} km (vị trí trạm gần đúng).")
-    month_note = (line(" Salt months: months that reached 4‰ there in at least 2 dry seasons.", " Tháng mặn: các tháng độ mặn tại trạm đạt 4‰ trong ít nhất 2 mùa khô.")
-                  if months else line(" No month reached 4‰ there in 2 dry seasons.", " Chưa tháng nào độ mặn tại trạm đạt 4‰ trong 2 mùa khô."))
 
     def one(view, kind):
         ppt = round(sum(r[0] for r in view.values()) / len(view), 1)
+        ms = months
+        if ms:
+            month_note = line(" Salt months: months that reached 4‰ there in at least 2 dry seasons.", " Tháng mặn: các tháng độ mặn tại trạm đạt 4‰ trong ít nhất 2 mùa khô.")
+        elif salt_level(ppt) != "low":  # salty on average, yet no month reached 4‰ twice: any season of this view counts
+            ms = sorted(set(salt_months(name, set(view), 1)) | {r[1] for r in view.values() if r[0] >= SALT_MED})
+            month_note = line(f" Fewer than 2 dry seasons reached 4‰ in any month, so the months that reached 4‰ in any {kind[0]} season are used.",
+                              f" Không tháng nào đạt 4‰ trong ít nhất 2 mùa khô, nên dùng các tháng đạt 4‰ trong bất kỳ mùa khô {kind[1]} nào.")
+        else:
+            month_note = line(" No month reached 4‰ there in 2 dry seasons.", " Chưa tháng nào độ mặn tại trạm đạt 4‰ trong 2 mùa khô.")
         ys, part = ", ".join(map(str, sorted(view))), sorted(y for y, r in view.items() if r[2])
         if len(view) == 1:
             peak = line(f" Highest reading of the one {kind[0]} dry season in the bulletins: {ppt}‰ ({ys}); one season only, so a rough guide.",
@@ -699,7 +733,7 @@ def kttv_salinity(lat, lon):
         caveat = line(f" Dry season {', '.join(map(str, part))}: highest in the bulletins found; may miss an earlier peak.",
                       f" Mùa khô {', '.join(map(str, part))}: cao nhất trong các bản tin tìm được; có thể bỏ sót đỉnh mặn sớm hơn.") if part else None
         note = {k: at[k] + peak[k] + (caveat[k] if caveat else "") + month_note[k] for k in ("en", "vi")}
-        return dict(months=months, note=note, station_ppt=ppt, estimate=True, seasons=len(rec), last_year=max(rec),
+        return dict(months=ms, note=note, station_ppt=ppt, estimate=True, seasons=len(rec), last_year=max(rec),
                     level=salt_level(ppt), max_ppt=ppt, station=name, km=km, partial=bool(part), caveat=caveat)
     return one(views[0], ("typical", "năm thường")), one(views[1], ("El Niño", "năm El Niño"))
 
@@ -863,12 +897,15 @@ def make_card(rot, clim, nd, sal, elnino=False):
         why.append(sourced(line(f"Weather & salt not scored: no salinity estimate for this area yet. {whole(w['hot_days'])} days at or above 35 °C while crops grow ({pw['en']}).",
                                 f"Chưa chấm điểm Thời tiết & mặn: chưa có ước tính độ mặn cho khu vực này. {vi_num(whole(w['hot_days']))} ngày từ 35 °C trở lên khi cây đang sinh trưởng ({pw['vi']})."), POWER_SRC, HEAT_SRC))
     else:
-        peak_en, peak_vi = ((f"{sal['station']} station {whole(sal['km'])} km away, average peak {w['ppt']}‰{'; highest in the bulletins found; may miss an earlier peak' if sal['partial'] else ''}; estimate from station reports",
-                             f"trạm {sal['station']} cách {vi_num(whole(sal['km']))} km, độ mặn cao nhất trung bình {vi_num(w['ppt'])}‰{'; cao nhất trong các bản tin tìm được, có thể bỏ sót đỉnh mặn sớm hơn' if sal['partial'] else ''}; ước tính từ báo cáo trạm")
-                            if "station" in sal else
-                            (f"station average peak {w['ppt']}‰, estimate from station reports", f"độ mặn cao nhất trung bình tại trạm {vi_num(w['ppt'])}‰, ước tính từ báo cáo trạm") if sal["max_ppt"] is not None else
-                            (f"station average peak {w['ppt']}‰, but rated low here: sluices keep salt out of the fields; estimate from station reports",
-                             f"độ mặn cao nhất trung bình tại trạm {vi_num(w['ppt'])}‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm"))
+        if "station" in sal:  # a province point: its nearest KTTV station
+            part = ("; highest in the bulletins found; may miss an earlier peak", "; cao nhất trong các bản tin tìm được, có thể bỏ sót đỉnh mặn sớm hơn") if sal["partial"] else ("", "")
+            peak_en = f"{sal['station']} station {whole(sal['km'])} km away, average peak {w['ppt']}‰{part[0]}; estimate from station reports"
+            peak_vi = f"trạm {sal['station']} cách {vi_num(whole(sal['km']))} km, độ mặn cao nhất trung bình {vi_num(w['ppt'])}‰{part[1]}; ước tính từ báo cáo trạm"
+        elif sal["max_ppt"] is not None:
+            peak_en, peak_vi = f"station average peak {w['ppt']}‰, estimate from station reports", f"độ mặn cao nhất trung bình tại trạm {vi_num(w['ppt'])}‰, ước tính từ báo cáo trạm"
+        else:
+            peak_en = f"station average peak {w['ppt']}‰, but rated low here: sluices keep salt out of the fields; estimate from station reports"
+            peak_vi = f"độ mặn cao nhất trung bình tại trạm {vi_num(w['ppt'])}‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm"
         why.append(sourced(line(f"Weather & salt {x}: crops in the field in {w['salt_k']} of {w['salt_n']} salt months ({peak_en}); {whole(w['hot_days'])} days at or above 35 °C while crops grow ({pw['en']}); {w['canal_mm']} mm of canal water needed in salty months ({wsrc['en']}).",
                         f"Thời tiết & mặn {vi_num(x)}: có cây trồng trên ruộng trong {w['salt_k']}/{w['salt_n']} tháng mặn ({peak_vi}); {vi_num(whole(w['hot_days']))} ngày từ 35 °C trở lên khi cây đang sinh trưởng ({pw['vi']}); cần {w['canal_mm']} mm nước tưới từ kênh trong các tháng mặn ({wsrc['vi']})."), SALINITY["sources"], POWER_SRC, HEAT_SRC, GPM_SRC))
 
@@ -1013,7 +1050,9 @@ def province(pr, rotations, gpm):
     soil, soil_ids = mean_soil(ids)
     sal = dict(unknown_salinity(), note=line(
         f"No single salinity estimate for the whole province: salt is shown per former province, from its nearest KTTV station where one lies within {SALT_KM} km.",
-        f"Không có một ước tính độ mặn chung cho cả tỉnh: độ mặn được hiển thị theo từng tỉnh cũ, theo trạm KTTV gần nhất nếu có trạm trong phạm vi {SALT_KM} km."))
+        f"Không có một ước tính độ mặn chung cho cả tỉnh: độ mặn được hiển thị theo từng tỉnh cũ, theo trạm KTTV gần nhất nếu có trạm trong phạm vi {SALT_KM} km."),
+               reason=line("Salt: no estimate for the whole province; salt is shown per former province: pick a former province to see its salt.",
+                           "Mặn: chưa có ước tính chung cho cả tỉnh; độ mặn được hiển thị theo từng tỉnh cũ: hãy chọn một tỉnh cũ để xem độ mặn."))
     scored = pr["region"] in SCORED_REGIONS
     cards = [card(r, clim, None, sal, soil=soil, site=pr["id"]) for r in rotations] if scored else []
     cards_e = [card(r, clim_e, None, sal, elnino=True, soil=soil, site=pr["id"]) for r in rotations] if scored else []
@@ -1047,7 +1086,7 @@ def place(f, pr, rotations, gpm):
         nd["farmland"] = farmland(nd)
     use = nd if nd and nd["farmland"] else None  # a town or water pixel says nothing about the fields: not used
     soil = point_soil(f["id"])
-    sal, sal_e = kttv_salinity(f["lat"], f["lon"]) or (unknown_salinity(),) * 2
+    sal, sal_e = kttv_salinity(f["lat"], f["lon"]) or (no_estimate(f["lat"], f["lon"]),) * 2
     scored = pr["region"] in SCORED_REGIONS
     cards = [card(r, clim, use, sal, soil=soil, site=f["id"]) for r in rotations] if scored else []
     cards_e = [card(r, clim_e, use, sal_e, elnino=True, soil=soil, site=f["id"]) for r in rotations] if scored else []
