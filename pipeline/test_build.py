@@ -886,6 +886,27 @@ def test_map_box():
     assert all(abs(box[k] - ext[k]) <= 0.3 for k in box), (box, ext)
 
 
+def test_no_orphans():
+    """data/raw and the offline tiles hold only what the app's area needs (sites.points(), vn.js MAIN)."""
+    import math
+    import sites
+    ids = {p["id"] for p in sites.points()}
+    per_point = [f for f in build.RAW.iterdir() if re.match(r"(power|soil|ndvi|hls)_", f.name)]
+    assert not [f.name for f in per_point if f.name.split("_", 1)[1].split(".")[0] not in ids]
+    assert set(json.loads((build.RAW / "gpm.json").read_text(encoding="utf-8"))) == ids
+    js = (build.ROOT / "docs" / "app" / "tiles.js").read_text(encoding="utf-8")
+    tiles = json.loads(js[js.index("{"):js.rindex("}") + 1])
+    base = build.ROOT / "docs" / tiles["path"] / "sat"
+    on_disk = {str(f.relative_to(base).with_suffix("")) for f in base.rglob("*.jpg")}
+    assert set(tiles["sat"]) == on_disk
+    box = {k: float(v) for k, v in re.findall(r"\b([wesn]): ([\d.]+)", re.search(r"const MAIN = \{[^}]*\}",
+           (build.ROOT / "docs" / "app" / "vn.js").read_text(encoding="utf-8")).group(0))}
+    lat = lambda y, n: math.degrees(math.atan(math.sinh(math.pi * (1 - 2 * y / n))))
+    for t in tiles["sat"]:
+        z, x, y = map(int, t.split("/")); n = 2 ** z
+        assert x / n * 360 - 180 < box["e"] and (x + 1) / n * 360 - 180 > box["w"] and lat(y + 1, n) < box["n"] and lat(y, n) > box["s"], t
+
+
 def test_outlines():
     """docs/app/vn_geo.js: 14 former + 6 joined provinces, and every pin inside its own outline."""
     import make_outlines as mo
