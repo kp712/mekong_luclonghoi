@@ -612,18 +612,30 @@ def in_salt_seasons(y):
     return SALT_SEASONS[0] <= int(y) <= SALT_SEASONS[1]
 
 
+def table_rows(sid):
+    """{season: [peak ‰, month]} of a Sóc Trăng table station: the paper's yearly peaks, plus any lower_bound season (a measured
+    reading entered as 'at least', so it can only understate that season)."""
+    st = json.loads((RAW / "salinity_stations.json").read_text(encoding="utf-8"))["stations"][sid]
+    return {**st["yearly_max"], **{y: [v["ppt"], v["month"]] for y, v in st.get("lower_bound", {}).items()}}
+
+
+def full_last_year(sid):
+    """The last season of a table station with a published peak (lower_bound seasons are single readings, not peaks: the
+    confidence rule 'no reading after 2022' still applies to a station whose newer seasons are only lower bounds)."""
+    return max(int(y) for y in json.loads((RAW / "salinity_stations.json").read_text(encoding="utf-8"))["stations"][sid]["yearly_max"])
+
+
 def station_salt(sid, elnino):
-    """A station's highest salinity of each dry season (‰, data/raw/salinity_stations.json), averaged over the SALT_SEASONS
+    """A station's highest salinity of each dry season (‰, table_rows), averaged over the SALT_SEASONS
     that are El Niño (elnino=True, salt_elnino) or not: (average, first year, last year, number of seasons). Dry season of year y ends in y."""
-    rows = json.loads((RAW / "salinity_stations.json").read_text(encoding="utf-8"))["stations"][sid]["yearly_max"]
+    rows = table_rows(sid)
     ys = {int(y): v[0] for y, v in rows.items() if in_salt_seasons(y) and salt_elnino(int(y)) == elnino}
     return round(sum(ys.values()) / len(ys), 1), min(ys), max(ys), len(ys)
 
 
 def peak_months(sid):
     """Months when the station had its highest reading in at least 2 of the SALT_SEASONS dry seasons."""
-    rows = json.loads((RAW / "salinity_stations.json").read_text(encoding="utf-8"))["stations"][sid]["yearly_max"]
-    ms = [v[1] for y, v in rows.items() if in_salt_seasons(y)]
+    ms = [v[1] for y, v in table_rows(sid).items() if in_salt_seasons(y)]
     return {m for m in ms if ms.count(m) >= 2}
 
 
@@ -803,8 +815,12 @@ def site_salinity(entry):
     yrs = f"{min(a0, b0)}–{max(a1, b1)}"
     note = line(f"{entry['note']['en']} Highest reading of each dry season there: {t}‰ on average in typical years, {e}‰ in El Niño years ({yrs}).",
                 f"{entry['note']['vi']} Độ mặn cao nhất mỗi mùa khô tại trạm: trung bình {vi_num(t)}‰ trong năm thường, {vi_num(e)}‰ trong năm El Niño ({yrs}).")
+    lb = {y: v for y, v in json.loads((RAW / "salinity_stations.json").read_text(encoding="utf-8"))["stations"][entry["station"]].get("lower_bound", {}).items() if in_salt_seasons(y)}
+    for y, v in sorted(lb.items()):  # a season counted as 'at least' one reading: say so, with its source
+        note = {k: note[k] + line(f" {y}: at least {v['ppt']}‰, one reading on {v['date']} while salt was still rising, not the season's peak ({v['source']['title'].split(' (')[0]}).",
+                                  f" {y}: ít nhất {vi_num(v['ppt'])}‰, một lần đo khoảng {v['date'].replace('about ', '').replace(' Apr ', '/4/')} khi mặn còn đang lên, không phải đỉnh mùa ({v['source']['title'].split(' (')[0]}).")[k] for k in ("en", "vi")}
     months = sorted(set(entry["months"]) | peak_months(entry["station"]))  # reported months + the station's usual peak months
-    one = lambda ppt: dict(months=months, note=note, station_ppt=ppt, estimate=True, seasons=na + nb, last_year=max(a1, b1),
+    one = lambda ppt: dict(months=months, note=note, station_ppt=ppt, estimate=True, seasons=na + nb, last_year=min(max(a1, b1), full_last_year(entry["station"])),
                            level=entry.get("level") or salt_level(ppt), max_ppt=None if "level" in entry else ppt)
     return one(t), one(e)
 
