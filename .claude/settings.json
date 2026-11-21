@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 pipeline/test_build.py)",
+      "mcp__github__pull_request_read"
+    ]
+  }
+}

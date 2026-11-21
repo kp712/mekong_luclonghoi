@@ -1171,6 +1171,18 @@ def place(f, pr, rotations, gpm):
                 elnino={"climate": clim_e, "salinity": sal_e, "cards": cards_e, "summary": place_summary(clim_e, use, sal_e, scored, elnino=True)})
 
 
+def write_dated(path, data):
+    """Write data under today's "generated" date, but keep the old date when nothing else changed (no date-only diffs)."""
+    data = json.loads(json.dumps({"generated": date.today().isoformat(), **data}))
+    try:
+        old = json.loads(path.read_text(encoding="utf-8"))
+        if dict(old, generated=None) == dict(data, generated=None):
+            data["generated"] = old["generated"]
+    except (OSError, ValueError, KeyError):
+        pass
+    path.write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
+
+
 def build():
     rot_file = json.loads((HERE / "rotations.json").read_text(encoding="utf-8"))
     rotations = rot_file["rotations"]
@@ -1214,9 +1226,9 @@ def build():
     soil_help = [dict({k: v for k, v in h.items() if k != "sources"}, src=cite(h["sources"])) for h in rot_file["soil_help"]]
     resources = {k: dict({a: b for a, b in r.items() if a != "sources"}, src=cite(r["sources"])) for k, r in RESOURCES.items()}
     OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text(json.dumps({"generated": date.today().isoformat(), "soil_help": soil_help,
-                               "outlook": dict({k: OUTLOOK[k] for k in ("elnino", "text")}, src=outlook_src), "resources": resources, "pest_rule": pest_rule,
-                               **area, "sources": [v for _, v in sorted(SOURCES.values(), key=lambda x: x[0])], "sites": sites}, ensure_ascii=False, indent=1), encoding="utf-8")
+    write_dated(OUT, {"soil_help": soil_help,
+                      "outlook": dict({k: OUTLOOK[k] for k in ("elnino", "text")}, src=outlook_src), "resources": resources, "pest_rule": pest_rule,
+                      **area, "sources": [v for _, v in sorted(SOURCES.values(), key=lambda x: x[0])], "sites": sites})
     print("wrote", OUT, len(sites), "sites")
     # The 34 provinces go to their own file with its own numbered source list, so the file every phone downloads stays small
     SOURCES.clear()
@@ -1231,9 +1243,9 @@ def build():
                  salt={"level": s["salinity"]["level"], "months": s["salinity"]["months"], "max_ppt": s["salinity"]["max_ppt"],
                        "elnino_max_ppt": s["elnino"]["salinity"]["max_ppt"], "estimate": True},
                  crops=s["ndvi"]["crops_per_year"] if s["ndvi"] else None) for s in sites]
-    PROV_OUT.write_text(json.dumps({"generated": date.today().isoformat(), "regions": REGIONS, **head,
-                                    "sources": [v for _, v in sorted(SOURCES.values(), key=lambda x: x[0])], "provinces": provinces,
-                                    "places": places, "pins": pins, "stations": kttv_stations()}, ensure_ascii=False, indent=1), encoding="utf-8")
+    write_dated(PROV_OUT, {"regions": REGIONS, **head,
+                           "sources": [v for _, v in sorted(SOURCES.values(), key=lambda x: x[0])], "provinces": provinces,
+                           "places": places, "pins": pins, "stations": kttv_stations()})
     print("wrote", PROV_OUT, len(provinces), "provinces,", len(places), "province points")
 
 

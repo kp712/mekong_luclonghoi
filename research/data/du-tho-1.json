@@ -1,0 +1,382 @@
+{
+ "location": {
+  "name": "Dù Tho",
+  "river": "Mỹ Thanh (sông Mỹ Thanh)",
+  "admin": "huyện Mỹ Xuyên, former Sóc Trăng province (now Cần Thơ city); text lists 'Dù Tho, xã Tham Đôn và xã Thạnh Phú, huyện Mỹ Xuyên' together",
+  "coordinates": "not found",
+  "operator": "Đài Khí tượng Thủy văn tỉnh Sóc Trăng (daily bulletins carried by Báo Sóc Trăng, Chi cục Thủy lợi data)",
+  "other_mythanh_stations": "Khánh Hòa (Vĩnh Châu, 27 km from sea, per Báo Cần Thơ 28/04/2026 headline summary), Thạnh Phú (Nhu Gia), TP Sóc Trăng (Sông Đinh). In Feb 2020 the Mỹ Thanh station named was Thạnh Thới Thuận (25 km from mouth), not Dù Tho.",
+  "source_for_location": "https://baosoctrang.org.vn/doi-song-xa-hoi/202504/soc-trang-thuc-hien-giai-phap-ung-pho-cac-loai-hinh-thien-tai-95e2b4f/"
+ },
+ "seasons": {
+  "2017": [],
+  "2018": [],
+  "2019": [],
+  "2020": [],
+  "2021": [],
+  "2022": [],
+  "2023": [],
+  "2024": [
+   {
+    "ppt": 5.2,
+    "month": "2",
+    "date_or_period": "21-29/2/2024 (highest daily salinity in that window)",
+    "measured": true,
+    "peak_of_season": false,
+    "quote_vi": "từ ngày 21-29/2, độ mặn cao nhất tại các điểm đo xuất hiện trong những ngày giữa tuần ... Độ mặn trên sông Mỹ Thanh: Dù Tho 5,2‰, tại xã Thạnh Phú 0,5‰, thành phố Sóc Trăng 2,0‰.",
+    "gloss_en": "21-29 Feb, highest readings occurred midweek ... Mỹ Thanh river: Dù Tho 5.2 per mille, Thạnh Phú 0.5, Sóc Trăng city 2.0. Season peak NOT found (peak usually Mar-Apr).",
+    "url": "https://thuongmai360.vn/moi-truong/soc-trang-nhieu-giai-phap-ung-pho-han-man-xam-nhap.html",
+    "published": "2024-03-01"
+   },
+   {
+    "ppt": 9.8,
+    "month": "2",
+    "date_or_period": "21-29/2/2024 (published 25/02, text says peak expected in 2nd half of week)",
+    "measured": false,
+    "peak_of_season": false,
+    "quote_vi": "độ mặn cao nhất ngày tại các điểm đo đang có xu thế xuống chậm, sau đó lên lại, đạt đỉnh trong nửa cuối tuần ... trên sông Mỹ Thanh tại Dù Tho 9,8‰, tại Thạnh Phú 3,3‰ và TP Sóc Trăng 3,8‰.",
+    "gloss_en": "Daily max salinity at stations is slowly falling then rising again, peaking in the second half of the week ... Mỹ Thanh at Dù Tho 9.8, Thạnh Phú 3.3, Sóc Trăng city 3.8. Written as a forecast/outlook for the week; later measured value in the 1 Mar article was 5.2.",
+    "url": "https://moitruong.net.vn/xam-nhap-man-den-som-soc-trang-van-dong-nguoi-dan-tru-nuoc-ngot-71981.html",
+    "published": "2024-02-25"
+   }
+  ],
+  "2025": [
+   {
+    "ppt": 15.8,
+    "month": "3",
+    "date_or_period": "9/3/2025 daily max (g/l); highest of the daily bulletins I could read (see daily_2025); gaps exist",
+    "measured": true,
+    "peak_of_season": "max of readable days only",
+    "quote_vi": "Ngày 9/3 ... trên sông Mỹ Thanh: Dù Tho cao nhất 15,8g/l - thấp nhất 1,0g/l",
+    "gloss_en": "9 March, Mỹ Thanh river: Dù Tho highest 15.8 g/l, lowest 1.0 g/l (g/l ~ per mille).",
+    "url": "https://baosoctrang.org.vn/nong-lam-thuy-san/202503/thong-tin-nong-nghiep-ngay-113-d7a5c93/",
+    "published": "2025-03-11 22:07"
+   },
+   {
+    "ppt": 13.1,
+    "month": "3-5",
+    "date_or_period": "forecast of season max, published 16/03/2025",
+    "measured": false,
+    "quote_vi": "Dự báo độ mặn cao nhất tại các điểm đo từ nay tới hết mùa khô năm 2024 - 2025 ... trên sông Mỹ Thanh tại Khánh Hòa 23,2‰, tại Dù Tho 13,1‰, tại Thạnh Phú 8,2‰",
+    "gloss_en": "Forecast of highest salinity from now to the end of the 2024-25 dry season: Mỹ Thanh at Khánh Hòa 23.2, Dù Tho 13.1, Thạnh Phú 8.2. (Already exceeded by the measured 15.8 on 9 Mar.)",
+    "url": "https://baosoctrang.org.vn/xa-hoi/202503/tinh-hinh-xam-nhap-man-tren-dia-ban-tinh-soc-trang-dien-bien-phuc-tap-kho-luong-4c7609f/",
+    "published": "2025-03-16 11:03"
+   }
+  ],
+  "2026": []
+ },
+ "daily_2025": {
+  "note": "Observed daily max at Dù Tho in g/l, parsed from Báo Sóc Trăng 'Thông tin nông nghiệp' bulletins (url pattern https://baosoctrang.org.vn/nong-lam-thuy-san/YYYYMM/thong-tin-nong-nghiep-ngay-DM-<hash>/). Dates covered: 3/2-8/2, 13/2-24/2, 27/2-10/3, 13/3-16/3, 7/4-8/4, 15/4-26/4, 29/4-4/5. NOT retrieved: 11-12/3, 17-31/3 (the 19/3 and 21/3 bulletins exist per search snippets but were not parsed), 9-14/4, 27-28/4, after 4/5. Search snippets (not read by me) suggest 19/3 5.7 and 21/3 7.7.",
+  "rows": [
+   {
+    "date": "3/2/2025",
+    "max_g_per_l": 1.5,
+    "article_slug": "thong-tin-nong-nghiep-ngay-52-eda1a72",
+    "published": "23:36, 05/02/2025"
+   },
+   {
+    "date": "4/2/2025",
+    "max_g_per_l": 1.5,
+    "article_slug": "thong-tin-nong-nghiep-ngay-52-eda1a72",
+    "published": "23:36, 05/02/2025"
+   },
+   {
+    "date": "5/2/2025",
+    "max_g_per_l": 1.2,
+    "article_slug": "thong-tin-nong-nghiep-ngay-72-38e5b9c",
+    "published": "23:13, 07/02/2025"
+   },
+   {
+    "date": "6/2/2025",
+    "max_g_per_l": 1.1,
+    "article_slug": "thong-tin-nong-nghiep-ngay-72-38e5b9c",
+    "published": "23:13, 07/02/2025"
+   },
+   {
+    "date": "7/2/2025",
+    "max_g_per_l": 1.2,
+    "article_slug": "thong-tin-nong-nghiep-ngay-92-dc472e2",
+    "published": "23:18, 09/02/2025"
+   },
+   {
+    "date": "8/2/2025",
+    "max_g_per_l": 1.4,
+    "article_slug": "thong-tin-nong-nghiep-ngay-92-dc472e2",
+    "published": "23:18, 09/02/2025"
+   },
+   {
+    "date": "13/2/2025",
+    "max_g_per_l": 2.2,
+    "article_slug": "thong-tin-nong-nghiep-ngay-152-20b183a",
+    "published": "22:34, 15/02/2025"
+   },
+   {
+    "date": "14/2/2025",
+    "max_g_per_l": 1.7,
+    "article_slug": "thong-tin-nong-nghiep-ngay-152-20b183a",
+    "published": "22:34, 15/02/2025"
+   },
+   {
+    "date": "17/2/2025",
+    "max_g_per_l": 2.0,
+    "article_slug": "thong-tin-nong-nghiep-ngay-192-ee077e1",
+    "published": "22:59, 19/02/2025"
+   },
+   {
+    "date": "18/2/2025",
+    "max_g_per_l": 2.0,
+    "article_slug": "thong-tin-nong-nghiep-ngay-192-ee077e1",
+    "published": "22:59, 19/02/2025"
+   },
+   {
+    "date": "19/2/2025",
+    "max_g_per_l": 1.1,
+    "article_slug": "thong-tin-nong-nghiep-ngay-212-d1f51dd",
+    "published": "23:14, 21/02/2025"
+   },
+   {
+    "date": "20/2/2025",
+    "max_g_per_l": 0.5,
+    "article_slug": "thong-tin-nong-nghiep-ngay-212-d1f51dd",
+    "published": "23:14, 21/02/2025"
+   },
+   {
+    "date": "21/2/2025",
+    "max_g_per_l": 0.5,
+    "article_slug": "thong-tin-nong-nghiep-ngay-232-b70652b",
+    "published": "23:26, 23/02/2025"
+   },
+   {
+    "date": "22/2/2025",
+    "max_g_per_l": 0.5,
+    "article_slug": "thong-tin-nong-nghiep-ngay-232-b70652b",
+    "published": "23:26, 23/02/2025"
+   },
+   {
+    "date": "23/2/2025",
+    "max_g_per_l": 1.8,
+    "article_slug": "thong-tin-nong-nghiep-ngay-255-0382aba",
+    "published": "22:56, 25/02/2025"
+   },
+   {
+    "date": "24/2/2025",
+    "max_g_per_l": 2.6,
+    "article_slug": "thong-tin-nong-nghiep-ngay-255-0382aba",
+    "published": "22:56, 25/02/2025"
+   },
+   {
+    "date": "27/2/2025",
+    "max_g_per_l": 4.5,
+    "article_slug": "thong-tin-nong-nghiep-ngay-13-d100542",
+    "published": "23:47, 01/03/2025"
+   },
+   {
+    "date": "28/2/2025",
+    "max_g_per_l": 5.2,
+    "article_slug": "thong-tin-nong-nghiep-ngay-13-d100542",
+    "published": "23:47, 01/03/2025"
+   },
+   {
+    "date": "3/3/2025",
+    "max_g_per_l": 4.8,
+    "article_slug": "thong-tin-nong-nghiep-ngay-53-ca36bab",
+    "published": "23:03, 05/03/2025"
+   },
+   {
+    "date": "4/3/2025",
+    "max_g_per_l": 4.4,
+    "article_slug": "thong-tin-nong-nghiep-ngay-53-ca36bab",
+    "published": "23:03, 05/03/2025"
+   },
+   {
+    "date": "5/3/2025",
+    "max_g_per_l": 3.9,
+    "article_slug": "thong-tin-nong-nghiep-ngay-73-4a43590",
+    "published": "23:31, 07/03/2025"
+   },
+   {
+    "date": "6/3/2025",
+    "max_g_per_l": 5.0,
+    "article_slug": "thong-tin-nong-nghiep-ngay-73-4a43590",
+    "published": "23:31, 07/03/2025"
+   },
+   {
+    "date": "7/3/2025",
+    "max_g_per_l": 9.6,
+    "article_slug": "thong-tin-nong-nghiep-ngay-93-a9f748b",
+    "published": "23:06, 09/03/2025"
+   },
+   {
+    "date": "8/3/2025",
+    "max_g_per_l": 12.0,
+    "article_slug": "thong-tin-nong-nghiep-ngay-93-a9f748b",
+    "published": "23:06, 09/03/2025"
+   },
+   {
+    "date": "9/3/2025",
+    "max_g_per_l": 15.8,
+    "article_slug": "thong-tin-nong-nghiep-ngay-113-d7a5c93",
+    "published": "22:07, 11/03/2025"
+   },
+   {
+    "date": "10/3/2025",
+    "max_g_per_l": 13.7,
+    "article_slug": "thong-tin-nong-nghiep-ngay-113-d7a5c93",
+    "published": "22:07, 11/03/2025"
+   },
+   {
+    "date": "13/3/2025",
+    "max_g_per_l": 9.7,
+    "article_slug": "thong-tin-nong-nghiep-ngay-153-49c7b7b",
+    "published": "23:43, 15/03/2025"
+   },
+   {
+    "date": "14/3/2025",
+    "max_g_per_l": 6.4,
+    "article_slug": "thong-tin-nong-nghiep-ngay-153-49c7b7b",
+    "published": "23:43, 15/03/2025"
+   },
+   {
+    "date": "15/3/2025",
+    "max_g_per_l": 7.0,
+    "article_slug": "thong-tin-nong-nghiep-ngay-173-6fe2453",
+    "published": "23:24, 17/03/2025"
+   },
+   {
+    "date": "16/3/2025",
+    "max_g_per_l": 7.7,
+    "article_slug": "thong-tin-nong-nghiep-ngay-173-6fe2453",
+    "published": "23:24, 17/03/2025"
+   },
+   {
+    "date": "7/4/2025",
+    "max_g_per_l": 11.8,
+    "article_slug": "thong-tin-nong-nghiep-ngay-94-0533877",
+    "published": "23:09, 09/04/2025"
+   },
+   {
+    "date": "8/4/2025",
+    "max_g_per_l": 10.9,
+    "article_slug": "thong-tin-nong-nghiep-ngay-94-0533877",
+    "published": "23:09, 09/04/2025"
+   },
+   {
+    "date": "15/4/2025",
+    "max_g_per_l": 9.4,
+    "article_slug": "thong-tin-nong-nghiep-ngay-174-ea963f4",
+    "published": "22:39, 17/04/2025"
+   },
+   {
+    "date": "16/4/2025",
+    "max_g_per_l": 9.2,
+    "article_slug": "thong-tin-nong-nghiep-ngay-174-ea963f4",
+    "published": "22:39, 17/04/2025"
+   },
+   {
+    "date": "17/4/2025",
+    "max_g_per_l": 9.3,
+    "article_slug": "thong-tin-nong-nghiep-ngay-194-293256b",
+    "published": "00:02, 20/04/2025"
+   },
+   {
+    "date": "18/4/2025",
+    "max_g_per_l": 8.8,
+    "article_slug": "thong-tin-nong-nghiep-ngay-194-293256b",
+    "published": "00:02, 20/04/2025"
+   },
+   {
+    "date": "19/4/2025",
+    "max_g_per_l": 7.2,
+    "article_slug": "thong-tin-nong-nghiep-ngay-214-d3c5a8d",
+    "published": "23:35, 21/04/2025"
+   },
+   {
+    "date": "20/4/2025",
+    "max_g_per_l": 8.4,
+    "article_slug": "thong-tin-nong-nghiep-ngay-214-d3c5a8d",
+    "published": "23:35, 21/04/2025"
+   },
+   {
+    "date": "21/4/2025",
+    "max_g_per_l": 7.8,
+    "article_slug": "thong-tin-nong-nghiep-ngay-234-2af36d5",
+    "published": "22:38, 23/04/2025"
+   },
+   {
+    "date": "22/4/2025",
+    "max_g_per_l": 8.5,
+    "article_slug": "thong-tin-nong-nghiep-ngay-234-2af36d5",
+    "published": "22:38, 23/04/2025"
+   },
+   {
+    "date": "23/4/2025",
+    "max_g_per_l": 6.6,
+    "article_slug": "thong-tin-nong-nghiep-ngay-254-d050964",
+    "published": "22:55, 25/04/2025"
+   },
+   {
+    "date": "24/4/2025",
+    "max_g_per_l": 6.8,
+    "article_slug": "thong-tin-nong-nghiep-ngay-254-d050964",
+    "published": "22:55, 25/04/2025"
+   },
+   {
+    "date": "25/4/2025",
+    "max_g_per_l": 7.9,
+    "article_slug": "thong-tin-nong-nghiep-ngay-274-cdc2e75",
+    "published": "22:17, 27/04/2025"
+   },
+   {
+    "date": "26/4/2025",
+    "max_g_per_l": 7.9,
+    "article_slug": "thong-tin-nong-nghiep-ngay-274-cdc2e75",
+    "published": "22:17, 27/04/2025"
+   },
+   {
+    "date": "29/4/2025",
+    "max_g_per_l": 10.6,
+    "article_slug": "thong-tin-nong-nghiep-ngay-15-aa63c80",
+    "published": "23:12, 01/05/2025"
+   },
+   {
+    "date": "30/4/2025",
+    "max_g_per_l": 8.7,
+    "article_slug": "thong-tin-nong-nghiep-ngay-15-aa63c80",
+    "published": "23:12, 01/05/2025"
+   },
+   {
+    "date": "1/5/2025",
+    "max_g_per_l": 11.9,
+    "article_slug": "thong-tin-nong-nghiep-ngay-35-2094b8d",
+    "published": "22:59, 03/05/2025"
+   },
+   {
+    "date": "2/5/2025",
+    "max_g_per_l": 13.0,
+    "article_slug": "thong-tin-nong-nghiep-ngay-35-2094b8d",
+    "published": "22:59, 03/05/2025"
+   },
+   {
+    "date": "3/5/2025",
+    "max_g_per_l": 12.6,
+    "article_slug": "thong-tin-nong-nghiep-ngay-55-b0f70ad",
+    "published": "23:32, 05/05/2025"
+   },
+   {
+    "date": "4/5/2025",
+    "max_g_per_l": 12.0,
+    "article_slug": "thong-tin-nong-nghiep-ngay-55-b0f70ad",
+    "published": "23:32, 05/05/2025"
+   }
+  ]
+ },
+ "searched": [
+  "Google News RSS queries (Dù Tho độ mặn; trạm Dù Tho; sông Mỹ Thanh...) - titles only, links not resolvable; Bing/DDG blocked or unusable",
+  "WebSearch: Dù Tho độ mặn (several variants, per year 2019-2026)",
+  "kttv.gov.vn national bulletins dbqg_xman_20250310/20260310/20240510: no Dù Tho (only Trần Đề, Đại Ngãi, Long Phú, Sóc Trăng stations)",
+  "vawr.org.vn weekly bulletins 9/3, 16/3, 4/5 2023: no Dù Tho or Mỹ Thanh",
+  "Fetched & read: baosoctrang (crawled ~150 Thông tin nông nghiệp pages Feb-Jun 2025), thuongmai360, moitruong.net.vn, bnews.vn, tuoitre 2022-03-01, vtv 2025-01-16, kinhtedothi (2023-02-23, 2024-03-01, 2024-04-24), baocantho 2026 (Jan-Apr), thanhtra 2020 - Dù Tho appears only in the ones cited",
+  "baosoctrang.org.vn site search is Google CSE (not usable); site archive appears to stop ~June 2025"
+ ],
+ "notes": "Dù Tho values found only for 2024 (partial) and 2025. Nothing found for 2017-2023 or 2026 season: no overlap with Khánh Hòa 2017-2022 record. Evidence the station is a recent addition: Feb 2020 Sóc Trăng bulletin names Thạnh Thới Thuận on the Mỹ Thanh (15.9‰ early Feb 2020 measured, forecast 19.5‰, source https://thanhtra.com.vn/an-sinh-AFA9C5670/soc-trang-han-han-xam-nhap-man-dien-ra-gay-gat-BFE2C89F.html, 2020-02-09) and Dù Tho is not named in that or the 2022-03-01 Tuổi Trẻ article. Dù Tho is ~upstream of Khánh Hòa (Khánh Hòa is 27 km from the sea; Dù Tho is lower: 2025 forecast 13.1 vs 23.2 at Khánh Hòa), so Dù Tho peaks should be lower than Khánh Hòa's; do not treat them as comparable without a calibration overlap. Báo Cần Thơ 2026-01-23 confirms Dù Tho is still reported in 2025 ('13 đợt XNM ... sông Mỹ Thanh tại Dù Tho'), now under Cần Thơ city. g/l and ‰ treated as equal. Some search-tool summaries named values (8.2‰ Dù Tho 2024 'VietnamPlus', 6.8-14.5 etc.) that I could not verify in fetched text, so they are excluded."
+}
