@@ -63,6 +63,7 @@ const VnMap = (() => {
     stn: ["{n} station, {k} km", "Trạm {n}, {k} km"], cropsY: ["Crops a year", "Số vụ mỗi năm"], pts: ["{n} points", "{n} điểm"],
     sAvg: ["Average {a} mm · wettest {n} {m} mm", "Trung bình {a} mm · mưa nhiều nhất {n} {m} mm"],
     sBal: ["{n} of {t} points get more rain than crops need", "{n}/{t} điểm có mưa nhiều hơn cây cần"],
+    sSalt: ["{n} of {t} points with an estimate reach 4‰", "{n}/{t} điểm có ước tính lên 4‰"],
     srcRain: ["Rain: NASA GPM IMERG", "Mưa: NASA GPM IMERG"], srcBal: ["Rain: NASA GPM IMERG · water need: NASA POWER (FAO-56)", "Mưa: NASA GPM IMERG · nhu cầu nước: NASA POWER (FAO-56)"]
   };
   const t = (k, sub) => { let s = (sub ? T[k][sub] : T[k])[lang === "vi" ? 1 : 0]; return s; };
@@ -171,6 +172,12 @@ const VnMap = (() => {
     const rings = Object.entries(ids ? G.former : G.province).filter(([id]) => !ids || ids.has(id)).flatMap(([, rs]) => rs.map(ringPts));
     const url = pts.length ? clipImage(MAIN, rings, 110, 150, (lat, lon) => ramp(stops, (idw(pts, lat, lon) - lo) / span)) : "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
     if (gradLayer) gradLayer.setUrl(url); else gradLayer = L.imageOverlay(url, [[MAIN.s, MAIN.w], [MAIN.n, MAIN.e]], { pane: "vn-grad", interactive: false }).addTo(map);
+  }
+  /* the month slider's salt line in the country view: the points on screen, not the 5 Sóc Trăng areas (null zoomed in) */
+  function saltCount(m) {
+    if (!D || !countryOn) return null;
+    const vs = D.places.map((x) => salMon(x, m)).filter((v) => v != null);
+    return fill(t("sSalt"), { n: vs.filter((v) => v >= 4).length, t: vs.length });
   }
   /* the month slider asks what to write under the month in the rain layers (null in salt: it keeps its own text) */
   function sliderInfo(m) {
@@ -509,12 +516,14 @@ ${green}${heat}
   let countryOn = null;
   function country() {
     const on = map.getZoom() < COUNTRY_Z || !!sel;
+    document.body.classList.toggle("vn-far", map.getZoom() < COUNTRY_Z);  // the 5 Sóc Trăng plates only when zoomed in (vn.css)
     $("#vnKey").hidden = !on || desktop();
     if (on === countryOn) return;
     countryOn = on;
     map.getPane("vn-labels").style.display = on ? "" : "none";  // the colour layer follows the mode (paint), at every zoom
     Object.values(pins).forEach((p) => { p.m.getElement().style.display = on ? "" : "none"; });
     document.body.classList.toggle("vn-country", on);
+    try { if (typeof D5 !== "undefined") D5.month(D5.mon()); } catch (e) {}  // the month line switches between the country and Sóc Trăng counts
     if (on) placeLabels();
   }
   function hover(id) {
@@ -664,5 +673,5 @@ ${(p.areas || []).length ? `<button type="button" class="vn-golink" data-home>${
     }).catch((e) => console.warn("vn.js", e));
   }
   if (typeof MapView !== "undefined" && MapView.leaflet) start(); else document.addEventListener("mapview:ready", start, { once: true });
-  return { country: showCountry, card, sliderInfo, mount: drawKey, selected: () => sel };
+  return { country: showCountry, card, sliderInfo, saltCount, mount: drawKey, selected: () => sel };
 })();

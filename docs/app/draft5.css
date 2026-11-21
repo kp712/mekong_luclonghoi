@@ -72,8 +72,6 @@ body.has-site #d5Month { right: auto; left: calc(var(--rail-w) + 20px) }
 #d5Pred { margin-top: 14px }
 #d5Pred .pz-seg button { min-height: 40px; font-family: var(--font) }
 
-#d5ThemeSeg { margin-top: 10px; display: flex }
-#d5ThemeSeg button { flex: 1 }
 @media (max-width: 760px) {
   #d5Theme { display: none }
   #d5Month, body.has-site #d5Month { left: 16px; right: 16px; width: auto; bottom: calc(var(--tk-h) + 64px + env(safe-area-inset-bottom, 0px)); background: var(--panel-solid) }  /* above the phone area row (#areaDock) */

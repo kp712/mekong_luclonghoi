@@ -3,8 +3,8 @@
 A static PWA for Mekong Delta rice farmers and extension officers (NASA Space Apps 2026). Sóc Trăng farmers first. This repo replaces `luclonghoi_jsc`.
 
 ## Commands
-- Tests: `python3 pipeline/test_build.py` (plain `test_*` functions, no pytest). Run them after any change to `pipeline/` or `docs/data/`.
-- Rebuild data: `python3 pipeline/build.py` writes `docs/data/sites.json` and `docs/data/provinces.json`. It keeps the old `generated` date when nothing else changed, so any diff in `docs/data/` after a build is a real change: commit it.
+- Tests: `python3 pipeline/test_build.py` (plain `test_*` functions, no pytest; needs `pip install pdfplumber` because it imports the salinity fetcher). Run them after any change to `pipeline/` or `docs/data/`.
+- Rebuild data: `python3 pipeline/build.py` writes `docs/data/sites.json`, `docs/data/provinces.json` and `docs/app/builder.js`. It keeps the old `generated` date when nothing else changed, so any diff in `docs/data/` after a build is a real change: commit it.
 - Salinity bulletins: `python3 pipeline/fetch_salinity_vietnam.py` writes `data/raw/salinity_kttv_vietnam.json`. It writes nothing if any fetch fails.
 - Screenshots: `node tools/shot.js [page] [outdir]`. The default page is `index.html#vietnam`. It takes desktop and phone shots and exits 1 on page errors.
 - Serve by hand: `python3 -m http.server 8000 -d docs`.
@@ -18,7 +18,7 @@ A static PWA for Mekong Delta rice farmers and extension officers (NASA Space Ap
   - `rx.js`: the salt model, `RX.Model.profile`.
   - `dash.js`: the dashboard cards.
   - `app.js`: the planner.
-  - `builder.js`: plan-builder data. It must match `sites.json`; `test_builder_salt_sync` checks this.
+  - `builder.js`: Plan Lab constants, written by `build.py` (`write_builder`); never edit by hand.
   - `strings.js`: EN/VI text.
   - `extra.js`: layout glue.
   - `load.js`: loads data and registers `sw.js`.

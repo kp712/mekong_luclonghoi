@@ -48,6 +48,29 @@ const SiteData = (() => {
   return { get, app, rx };
 })();
 let SITES_JSON, DATA, COSTS, RESEARCH;
+/* Farm: the one saved list of fields, shared by the planner (app.js) and the dashboard (dash.js), in "mre-farm".
+   Both change the same field objects: {id, name, site, size (ha), seasons, cur, rot, ...the dashboard's plan}.
+   Saves from before the merge (the planner's own "mre-fields", with ha) are moved in once, matched as before. */
+const Farm = (() => {
+  const get = (k) => { try { return JSON.parse(localStorage.getItem(k) || "null") } catch (e) { return null } };
+  const st = get("mre-farm") || { fields: [], sel: null, ui: "simple" };
+  if (!Array.isArray(st.fields)) st.fields = [];
+  const save = () => { try { localStorage.setItem("mre-farm", JSON.stringify(st)) } catch (e) {} };
+  const old = get("mre-fields");
+  if (Array.isArray(old)) {
+    let last = null; try { last = localStorage.getItem("mre-last") } catch (e) {}
+    old.forEach((a) => {
+      if (!a || !a.id || !a.site) return;
+      const d = st.fields.find((f) => f.appId === a.id || (!f.appId && f.site === a.site && f.name === a.name));
+      if (d) { delete d.appId; if (!(d.size > 0) && a.ha > 0) d.size = a.ha; if (!d.seasons && a.seasons) d.seasons = a.seasons; if (a.cur) d.cur = a.cur; if (last === a.id) last = d.id }
+      else st.fields.push({ id: a.id, name: a.name, site: a.site, size: a.ha > 0 ? a.ha : null, seasons: a.seasons, cur: a.cur });
+    });
+    st.fields.forEach((f) => delete f.appId);
+    save();
+    try { localStorage.removeItem("mre-fields"); if (last) localStorage.setItem("mre-last", last) } catch (e) {}
+  }
+  return { st, save };
+})();
 /* AppReady: the app scripts start "when the page is ready". They now arrive after the data, when the page is already
    parsed, so their start functions are queued here and run, in the order they asked, once the last script has loaded:
    the same order DOMContentLoaded gave them before. */

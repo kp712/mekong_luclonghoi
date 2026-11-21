@@ -27,8 +27,8 @@ const SrcExtra = (() => {
   const MODEL = [
     { title: "FAO Irrigation and Drainage Paper 61 (Tanji & Kielen 2002), Annex 1: crop salt tolerance data, after Maas & Grattan (1999)",
       use: { vi: "Ngưỡng chịu mặn: lúa bắt đầu giảm năng suất ở 3,0 dS/m, mất 12% cho mỗi dS/m vượt ngưỡng; bắp 1,7 dS/m (dùng thay cho cây màu).", en: "Salt tolerance: rice starts to lose yield at 3.0 dS/m and loses 12% per dS/m above it; maize 1.7 dS/m (stand-in for upland crops)." } },
-    { title: "NOAA Climate Prediction Center, ENSO diagnostic discussion (8 Oct 2026)",
-      use: { vi: "Khả năng El Niño trên 83%, dùng để cân giữa năm thường và năm El Niño.", en: "El Niño chance above 83%, used to weigh typical and El Niño years." } }
+    { title: "NOAA Climate Prediction Center, ENSO diagnostic discussion (latest issue)",
+      use: { vi: "Khả năng El Niño trong bản dự báo mới nhất, dùng để cân giữa năm thường và năm El Niño.", en: "The El Niño chance in the latest issue, used to weigh typical and El Niño years." } }
   ];
   const item = (x) => `<li>${x.url ? `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a>` : esc(x.title)}${x.quote ? ` <q lang="vi">${esc(x.quote)}</q>` : ""}${x.use ? `<br><small>${esc(L(x.use))}</small>` : ""}</li>`;
   function costItems() {

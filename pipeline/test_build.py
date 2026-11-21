@@ -1062,8 +1062,8 @@ def test_salt_lower_bound():
     assert "at least 14.0‰" in typ["note"]["en"] and "ít nhất 14,0‰" in typ["note"]["vi"] and "baocantho" not in typ["note"]["en"]
 
 
-def test_builder_salt_sync():
-    """docs/app/builder.js BUILDER.sites (plan builder, lab.js) carries each pin's salinity as in sites.json."""
+def test_builder_sync():
+    """docs/app/builder.js (Plan Lab, written by build.write_builder) matches sites.json and the pipeline's constants and files."""
     text = (build.ROOT / "docs" / "app" / "builder.js").read_text(encoding="utf-8")
     line = next(ln for ln in text.splitlines() if ln.startswith("const BUILDER = "))
     b = json.loads(line[len("const BUILDER = "):].rstrip(";"))
@@ -1073,7 +1073,11 @@ def test_builder_salt_sync():
         for view, sal in (("typical", sites[sid]["salinity"]), ("elnino", sites[sid]["elnino"]["salinity"])):
             w = v[view]
             assert (w["salt"], w["ppt"], w["max_ppt"], w["level"]) == (sal["months"], sal["station_ppt"], sal["max_ppt"], sal["level"]), \
-                (sid, view, "copy sites.json salinity months/station_ppt/max_ppt/level into builder.js")
+                (sid, view, "run pipeline/build.py: builder.js is out of date")
+    rot = json.loads((build.HERE / "rotations.json").read_text(encoding="utf-8"))
+    assert b["rubric"] == rot["_rubric"] and b["const"]["SALT_FULL"] == build.SALT_FULL and b["const"]["WS_W"] == list(build.WS_W)
+    assert b["rot_profit"] == {r["id"]: {"months": r["months"], "profit": r["profit"]} for r in rot["rotations"]}
+    assert b["median"] == {k: build.median_profit(k) for k in b["median"]}
 
 
 def test_station_monthly():

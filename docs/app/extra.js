@@ -39,18 +39,9 @@ const D5 = (() => {
     b.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg>';
     b.addEventListener("click", () => { const t = isDark() ? "light" : "dark"; root.dataset.theme = t; try { localStorage.setItem("mre-theme", t) } catch (e) {} paintTheme(); });
     const tools = $("#topbar .tools"); tools && tools.insertBefore(b, $(".set-wrap", tools));
-    /* the same choice inside Settings (the only place on phones, where the top bar is full) */
-    const seg = document.createElement("div");
-    seg.className = "seg"; seg.id = "d5ThemeSeg"; seg.setAttribute("role", "group");
-    seg.innerHTML = '<button type="button" data-th="light"></button><button type="button" data-th="dark"></button>';
-    seg.addEventListener("click", (e) => { const x = e.target.closest("[data-th]"); if (!x) return; root.dataset.theme = x.dataset.th; try { localStorage.setItem("mre-theme", x.dataset.th) } catch (er) {} paintTheme(); });
-    const sp = $("#setPanel"); sp && sp.appendChild(seg);
   }
   function paintTheme() {
     const b = $("#d5Theme"), d = isDark(); if (b) { b.setAttribute("aria-label", L(T.theme)); b.setAttribute("aria-pressed", d) }
-    const seg = $("#d5ThemeSeg"); if (!seg) return;
-    seg.setAttribute("aria-label", L(T.theme));
-    seg.querySelectorAll("[data-th]").forEach((x) => { const on = (x.dataset.th === "dark") === d; x.setAttribute("aria-pressed", on); x.textContent = L(x.dataset.th === "dark" ? T.dark : T.light) });
   }
 
   /* ---------- month slider (concept D) ---------- */
@@ -81,7 +72,8 @@ const D5 = (() => {
     const rain = typeof VnMap !== "undefined" && VnMap.sliderInfo ? VnMap.sliderInfo(mon) : null;
     $("#d5Month").classList.toggle("is-rain", !!rain);
     $("#d5MName").textContent = C.monthsLong()[mon];
-    $("#d5MCount").textContent = rain ? rain.count : n ? L(T.count)(n, t) : L(T.none);
+    const vnSalt = !rain && typeof VnMap !== "undefined" && VnMap.saltCount ? VnMap.saltCount(mon) : null;
+    $("#d5MCount").textContent = rain ? rain.count : vnSalt || (n ? L(T.count)(n, t) : L(T.none));
     $("#d5Range").value = mon; $("#d5Range").setAttribute("aria-label", L(T.month) + ": " + C.monthsLong()[mon]);
     $("#d5Ticks").innerHTML = C.months().map((x, i) => `<span class="${rain ? (rain.wet[i] ? "w" : "") : anySalt(i) ? "s" : ""}${i === mon ? " on" : ""}">${C.lang === "en" ? x.charAt(0) : x.replace(/^Th/, "")}</span>`).join("");
     $("#d5Note").textContent = rain ? rain.note : L(T.est);

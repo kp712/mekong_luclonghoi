@@ -5,7 +5,7 @@
    - Map tiles (the saved Sóc Trăng tiles and the online imagery) are kept as the farmer views them, up to TILE_MAX.
    - Anything else (place search, live weather) goes to the network as before.
    pipeline/test_build.py checks that PRECACHE lists every local file index.html loads, and that each one exists. */
-const CACHE = "mre-app-1", TILES = "mre-tiles-1", TILE_MAX = 1500;
+const CACHE = "mre-app-2", TILES = "mre-tiles-1", TILE_MAX = 1500;
 const LEAFLET = "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js";
 const PRECACHE = [
   "./",
@@ -78,8 +78,9 @@ self.addEventListener("fetch", (e) => {
   }
   if (!isApp(u)) return;
   // the saved copy at once (a page address opens the saved app), refreshed in the background for the next open
-  const key = r.mode === "navigate" ? "./" : r;
-  e.respondWith(caches.open(CACHE).then((c) => c.match(key, { ignoreSearch: r.mode === "navigate" }).then((hit) => {
+  const root = new URL("./", self.location).pathname;  // only the app page shares the "./" key; other pages keep their own
+  const key = r.mode === "navigate" && (u.pathname === root || u.pathname === root + "index.html") ? "./" : r;
+  e.respondWith(caches.open(CACHE).then((c) => c.match(key, { ignoreSearch: key === "./" }).then((hit) => {
     const net = fetch(r).then((res) => { if (res.ok) c.put(key, res.clone()); return res; });
     if (hit) { e.waitUntil(net.catch(() => {})); return hit; }
     return net;
