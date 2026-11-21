@@ -44,6 +44,8 @@ A static PWA for Mekong Delta rice farmers and extension officers (started at NA
 - Never show model or map values to farmers as measured readings. Say where every number comes from.
 
 ## House rules
+- New session: read the newest `plans/*handoff*.md` first for open work.
+- Before executing a change, use the `ponytail` skill (smallest complete change; end replies with what was skipped and any risk). The user asks for this every time.
 - Ask the user with multiple-choice question boxes (AskUserQuestion), as often as useful. Give a recommended option first.
 - Work on a `claude/*` branch with one PR per finished task; batch small notes and fixes into it. Create the PR as a draft, mark it ready, then merge it into `main` right away (the user's standing rule). Merge needs the full 40-character head SHA (`git rev-parse HEAD`).
 - End commit messages with the attribution lines from the session reminder. Never put model names in commits, code or PRs.
