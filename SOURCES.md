@@ -134,6 +134,17 @@ The rice figures lean on 2023–24, a record-price season in Sóc Trăng; the 20
 <details><summary>Show all checks and their numbers</summary>
 
 - **Pins sit on rice.** We tested a 7×7 grid of MODIS pixels (~5 km) around each pin through the AppEEARS API and moved two pins onto rice-like pixels: Vĩnh Châu by 3.7 km and Mỹ Xuyên by 3.3 km. Re-checked on the last 10 seasons (Dec 2014 – Nov 2024), all five pins pass our rice test: 1.9–3.0 crops a year, yearly peak greenness 0.69–0.92 and dips to 0.15–0.28. In 2000–2014 the same pixels showed 2.0–2.7 crops a year; the biggest change is Vĩnh Châu, from 2.3 to 3.0.
+- **A 30 m check of the bare months (NASA HLS; no score uses it).** We read NASA HLS greenness (Landsat 8/9 and Sentinel-2, 30 m; `appeears.py hls`) at 9 points 30 m apart around each pin, Dec 2014 – Nov 2024. Only cloud-free dates count (Fmask), and each date's value is the median of its clear points. A month is bare when its mean NDVI is below 0.3 in more than half of the years with a clear date. It is unknown when fewer than 5 of the 10 years have one. Clear dates are scarce: about 1–3 a month in the dry season, under 1 in July–October.
+
+  | Pin | MODIS bare months (used) | HLS bare months | HLS unknown |
+  |---|---|---|---|
+  | Vĩnh Châu | none | Jan–May | Jul |
+  | Trần Đề | Mar–May, Oct | Mar–May | none |
+  | Mỹ Xuyên | Apr | Mar–Jun, Oct | Jul |
+  | Long Phú | May | May, Sep | none |
+  | Ngã Năm | none | none | Oct |
+
+  For February–April, the months the field-calendar rule reads, the two agree at four pins. Vĩnh Châu disagrees. At 30 m its fields look bare or flooded from January to May, while at 250 m MODIS no month is bare in most years. We have not found out why: the MODIS pixel may mix rice with greener land around it, or the 30 m points may sit on a pond or a fallow plot. If HLS replaced MODIS, only Vĩnh Châu's upland and salt-tolerant cards would change (one confidence level up). We keep MODIS until Vĩnh Châu is checked on the ground or in sharper imagery. Per-pin numbers: `hls_check` in `docs/data/sites.json`.
 - **NASA data finds the known droughts.** Ranking dry seasons by water shortfall (Dec–Apr, Penman–Monteith ET₀ minus all rain, at Trần Đề): over 1984–2024 with NASA POWER rain (the full POWER record; the repository now keeps only Dec 2000 – Nov 2024, so repeating this needs an earlier start in `fetch_power.py`), the three driest are 1997–98, 1987–88 and 1986–87, all El Niño winters in NOAA's index; over 2000–2024 with NASA GPM rain, 4 of the 5 driest are El Niño seasons (2004–05, 2019–20, 2023–24, 2015–16). 2015–16 and 2019–20 are the years Vietnamese reports describe as the worst recent droughts and salt intrusion.
 - **Two NASA rain sources move together.** NASA GPM rain (~10 km, used by the app) and NASA POWER rain (~50 km) correlate at 0.93 month to month at every pin over Dec 2000 – Nov 2024; GPM's yearly totals are 8–25% higher, which barely changes the dry-season canal-water need (numbers below).
 - **Two ways to estimate water demand.** FAO-56 Penman–Monteith (used by the app) matches FAO-56's worked example (3.88 against 3.9 mm/day); the temperature-only Hargreaves formula reads low on this coast (numbers below).

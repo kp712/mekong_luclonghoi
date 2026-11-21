@@ -10,7 +10,9 @@ AppEEARS queues the job; it can take minutes to hours. The script waits, and if 
 running the same command again resumes the same job instead of submitting a new one.
 """
 import base64
+import csv
 import hashlib
+import io
 import json
 import math
 import os
@@ -87,10 +89,29 @@ def run_task(name, coords, layers=None, start=START, end="12-31-2025"):
         print(time.strftime("%H:%M"), "job status:", status, "- checking again in 60 s", flush=True)
         time.sleep(60)
     files = call(f"/bundle/{task_id}", token)["files"]
-    f = next(f for f in files if f["file_name"].endswith("-results.csv"))
-    out.write_bytes(call(f"/bundle/{task_id}/{f['file_id']}", token))
+    parts = [call(f"/bundle/{task_id}/{f['file_id']}", token).decode("utf-8")
+             for f in files if f["file_name"].endswith("-results.csv")]
+    out.write_text(merge_csv(parts), encoding="utf-8", newline="")
     print("downloaded", out)
     return out
+
+
+def merge_csv(parts):
+    """AppEEARS writes one results CSV per product; join them into one table on the columns they share (ID, Date, tile...).
+    A row one product lacks gets blank cells for that product's columns."""
+    tables = [csv.DictReader(io.StringIO(t)) for t in parts]
+    heads = [t.fieldnames for t in tables]
+    key = [c for c in heads[0] if all(c in h for h in heads)]
+    cols = key + [c for h in heads for c in h if c not in key]
+    rows = {}
+    for t in tables:
+        for r in t:
+            rows.setdefault(tuple(r[c] for c in key), {}).update(r)
+    buf = io.StringIO()
+    w = csv.DictWriter(buf, cols, restval="", lineterminator="\n")
+    w.writeheader()
+    w.writerows(rows.values())
+    return buf.getvalue()
 
 
 def rice_like(series):
