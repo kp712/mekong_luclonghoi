@@ -747,12 +747,12 @@ def test_climate_pest_inputs():
 
 def test_provinces_table():
     import sites
-    # 34 provinces since 1 Jul 2025, covering each of the 63 former provinces exactly once, in Resolution 306/NQ-CP's 6 regions
+    # the 6 southern provinces the app covers (of 34 since 1 Jul 2025), each former province exactly once (14)
     ids = [p["id"] for p in sites.PROVINCES]
     former = [f["id"] for p in sites.PROVINCES for f in p["former"]]
-    assert len(ids) == len(set(ids)) == 34 and len(former) == len(set(former)) == 63, (len(ids), len(former))
+    assert len(ids) == len(set(ids)) == 6 and len(former) == len(set(former)) == 14, (len(ids), len(former))
     count = {r: sum(p["region"] == r for p in sites.PROVINCES) for r in sites.REGIONS}
-    assert count == {"northern_midlands": 9, "red_river_delta": 6, "north_central": 5, "south_central_highlands": 6, "southeast": 3, "mekong_delta": 5}, count
+    assert count == {"southeast": 1, "mekong_delta": 5}, count
     for p in sites.PROVINCES:
         own = [f for f in p["former"] if f["id"] == p["id"]]
         assert len(own) == 1 and (own[0]["lat"], own[0]["lon"]) == (p["lat"], p["lon"]), p["id"]  # the pin is its own former point
@@ -760,7 +760,7 @@ def test_provinces_table():
         assert 8 < p["lat"] < 24 and 102 < p["lon"] < 110 and all(8 < f["lat"] < 24 and 102 < f["lon"] < 110 for f in p["former"]), p["id"]
     assert next(p for p in sites.PROVINCES if p["id"] == "can_tho")["areas"] == [s["id"] for s in sites.SITES]  # former Sóc Trăng
     pts = [x["id"] for x in sites.points()]
-    assert len(pts) == len(set(pts)) == 5 + 63 and set(former) <= set(pts)
+    assert len(pts) == len(set(pts)) == 5 + 14 and set(former) <= set(pts)
 
 
 def test_province_helpers():
@@ -831,9 +831,9 @@ def test_provinces_output():
             if c.get("needs_brackish"):
                 assert any("before stocking shrimp" in r["en"] for r in c["risks"]) and not c["not_here"]
     assert sum(p["scored"] for p in d["provinces"]) == 5
-    # every one of the 63 province points has its own model
+    # every one of the 14 province points has its own model
     places = d["places"]
-    assert [x["id"] for x in places] == [f["id"] for p in sites.PROVINCES for f in p["former"]] and len(places) == 63
+    assert [x["id"] for x in places] == [f["id"] for p in sites.PROVINCES for f in p["former"]] and len(places) == 14
     region = {p["id"]: p["region"] for p in sites.PROVINCES}
     for x in places:
         assert x["region"] == region[x["province"]] and x["own"] == (x["id"] == x["province"]), x["id"]
@@ -844,7 +844,7 @@ def test_provinces_output():
             assert any("MODIS" in s["en"] for s in x["summary"]) == x["ndvi"]["farmland"], x["id"]
         # outside the Delta no line uses the Delta's rice calendar
         assert x["scored"] or not any("Winter–spring" in s["en"] for s in x["summary"] + x["elnino"]["summary"]), x["id"]
-        assert x["scored"] == (x["region"] == "mekong_delta") and bool(x["cards"]) == x["scored"] == bool(x["elnino"]["cards"])
+        assert x["scored"] == (x["region"] == "mekong_delta" or x["id"] in sites.SCORED_PLACES) and bool(x["cards"]) == x["scored"] == bool(x["elnino"]["cards"])
         sal, sal_e = x["salinity"], x["elnino"]["salinity"]
         assert (sal["level"] == "unknown") == (sal_e["level"] == "unknown"), x["id"]
         if sal["level"] != "unknown":  # nearest KTTV station within SALT_KM: an estimate naming the station and its distance
@@ -861,18 +861,20 @@ def test_provinces_output():
     assert [s["id"] for s in d["pins"]] == list(app) and d["salt_src"]
     for s in d["pins"]:
         assert s["salt"]["estimate"] is True and s["salt"]["max_ppt"] == app[s["id"]]["salinity"]["max_ppt"] and s["salt"]["level"] == app[s["id"]]["salinity"]["level"]
-    assert sum(x["own"] for x in places) == 34 and sum(x["scored"] for x in places) == 12  # Mekong Delta: 2+2+3+3+2 former provinces
+    assert sum(x["own"] for x in places) == 6 and sum(x["scored"] for x in places) == 13  # Mekong Delta 2+2+3+3+2, plus Long An
+    long_an, tay_ninh = (next(x for x in places if x["id"] == i) for i in ("long_an", "tay_ninh"))
+    assert long_an["scored"] and long_an["cards"] and not tay_ninh["scored"] and not tay_ninh["cards"]
 
 
 def test_outlines():
-    """docs/app/vn_geo.js: 63 former + 34 joined provinces, and every pin inside its own outline."""
+    """docs/app/vn_geo.js: 14 former + 6 joined provinces, and every pin inside its own outline."""
     import make_outlines as mo
     import sites
     text = (build.ROOT / "docs" / "app" / "vn_geo.js").read_text(encoding="utf-8")
     g = json.loads(text[text.index("{"):text.rindex("}") + 1])
     rings = lambda rs: [mo.ring_pts(g["arcs"], r) for r in rs]
     assert set(g["province"]) == {p["id"] for p in sites.PROVINCES}
-    assert set(g["former"]) == {f["id"] for p in sites.PROVINCES for f in p["former"]} and len(g["former"]) == 63
+    assert set(g["former"]) == {f["id"] for p in sites.PROVINCES for f in p["former"]} and len(g["former"]) == 14
     for p in sites.PROVINCES:
         for f in p["former"]:
             assert mo.inside(f["lon"], f["lat"], rings(g["former"][f["id"]])), f["id"]

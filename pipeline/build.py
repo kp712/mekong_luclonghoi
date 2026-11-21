@@ -13,14 +13,14 @@ from datetime import date, timedelta
 import hls
 import ndvi
 from make_outlines import SRC as OUTLINE_SRC
-from sites import PROVINCES, REGION_SRC, REGIONS, SCORED_REGIONS, SITES
+from sites import PROVINCES, REGION_SRC, REGIONS, SCORED_PLACES, SCORED_REGIONS, SITES
 
 HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parent
 RAW = ROOT / "data" / "raw"
 OUT = ROOT / "docs" / "data" / "sites.json"
 BUILDER_OUT = ROOT / "docs" / "app" / "builder.js"  # the Plan Lab's constants (write_builder)
-PROV_OUT = ROOT / "docs" / "data" / "provinces.json"  # the 34 provinces and the 63 province points (vietnam.html)
+PROV_OUT = ROOT / "docs" / "data" / "provinces.json"  # the 6 provinces and their 14 province points (the map)
 
 # Canal water of a rotation (FAO Manual 3 section 4.4, month by month): crop water use (FAO-56 Table 12 crop factor x ET0),
 # plus for flooded rice 200 mm to soak the soil the month before sowing, a 100 mm water layer at sowing and 4 mm/day seepage
@@ -61,7 +61,7 @@ SALINITY = json.loads((HERE / "salinity.json").read_text(encoding="utf-8"))
 PESTS = json.loads((HERE / "pests.json").read_text(encoding="utf-8"))
 LEVELS = ["low", "medium", "high"]
 LEVEL_VI = {"low": "thấp", "medium": "trung bình", "high": "cao"}
-UNKNOWN = "unknown"  # salinity level of a place with no salinity estimate (the 34 provinces): salt is not assessed there
+UNKNOWN = "unknown"  # salinity level of a place with no salinity estimate (the province averages): salt is not assessed there
 MONTHS = {"en": "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split(),
           "vi": [f"T{i}" for i in range(1, 13)]}
 # The 24 full Dec-Nov seasons where NASA POWER, NASA GPM and NASA MODIS all have data; data/raw holds longer records.
@@ -837,7 +837,7 @@ def site_salinity(entry):
 
 
 def unknown_salinity():
-    """Salinity of a place with no estimate in salinity.json (the 34 provinces): level UNKNOWN, no salt months."""
+    """Salinity of a place with no estimate in salinity.json (the province averages): level UNKNOWN, no salt months."""
     return dict(months=[], note=line("No salinity estimate for this area yet. Salinity is never measured by satellite; check local salinity reports before planting in the dry season.",
                                      "Chưa có ước tính độ mặn cho khu vực này. Độ mặn không đo bằng vệ tinh; hãy xem bản tin độ mặn địa phương trước khi xuống giống mùa khô."),
                 station_ppt=None, estimate=True, seasons=0, last_year=None, level=UNKNOWN, max_ppt=None)
@@ -1106,7 +1106,7 @@ FARM_NDVI = 0.5  # a pixel whose greenest month stays under this is a town, wate
 
 def farmland(nd):
     """True when a MODIS pixel looks like a crop field: rice and upland crops peak well above 0.5 NDVI, towns and water stay
-    near 0.2-0.4. The 34 provinces' own points sit on former capitals, so most MODIS pixels there are town."""
+    near 0.2-0.4. The provinces' own points sit on former capitals, so most MODIS pixels there are town."""
     return bool(nd) and max(nd["monthly"]) >= FARM_NDVI
 
 
@@ -1127,7 +1127,7 @@ NOT_SCORED = line("Rotation cards are not scored here: the rotations and their p
 
 
 def province(pr, rotations, gpm):
-    """One of the 34 provinces (sites.PROVINCES): the climate of each former province's point (its own NASA POWER weather,
+    """One of the provinces (sites.PROVINCES): the climate of each former province's point (its own NASA POWER weather,
     NASA GPM rain and latitude for FAO-56 water demand), averaged month by month; SoilGrids topsoil averaged over the
     points with soil. No salinity estimate (UNKNOWN: salt is shown per former province), no MODIS. Rotation cards only in SCORED_REGIONS."""
     ids = [f["id"] for f in pr["former"]]
@@ -1175,7 +1175,7 @@ def place(f, pr, rotations, gpm):
     use = nd if nd and nd["farmland"] else None  # a town or water pixel says nothing about the fields: not used
     soil = point_soil(f["id"])
     sal, sal_e = kttv_salinity(f["lat"], f["lon"]) or (no_estimate(f["lat"], f["lon"]),) * 2
-    scored = pr["region"] in SCORED_REGIONS
+    scored = pr["region"] in SCORED_REGIONS or f["id"] in SCORED_PLACES
     cards = [card(r, clim, use, sal, soil=soil, site=f["id"]) for r in rotations] if scored else []
     cards_e = [card(r, clim_e, use, sal_e, elnino=True, soil=soil, site=f["id"]) for r in rotations] if scored else []
     return dict({k: f[k] for k in ("id", "name", "lat", "lon")}, province=pr["id"], region=pr["region"],
@@ -1289,7 +1289,7 @@ def build():
                       **area, "sources": [v for _, v in sorted(SOURCES.values(), key=lambda x: x[0])], "sites": sites})
     print("wrote", OUT, len(sites), "sites")
     write_builder(rot_file, sites, gpm)
-    # The 34 provinces go to their own file with its own numbered source list, so the file every phone downloads stays small
+    # The provinces go to their own file with its own numbered source list, so the file every phone downloads stays small
     SOURCES.clear()
     head = {"chart_src": cite(POWER_SRC, GPM_SRC, FAO_SRCS), "soil_src": cite(SOIL_SRC), "region_src": cite(REGION_SRC),
             "elnino_src": cite(ONI_SRC), "ndvi_src": cite(MODIS_SRC), "outline_src": cite(OUTLINE_SRC)}
