@@ -88,7 +88,7 @@ const Cost = (() => {
       const f = fs.find((x) => x.id === fid) || fs[0];
       if (f) return { ha: +f.size, field: f };
     }
-    try { const v = parseFloat(localStorage.getItem("d5-ha")); if (v > 0) return { ha: v, field: null } } catch (e) {}
+    try { const v = parseFloat(localStorage.getItem("mre-ha")); if (v > 0) return { ha: v, field: null } } catch (e) {}
     return { ha: null, field: null };
   }
   function calc(c) {
@@ -176,7 +176,7 @@ const Cost = (() => {
   document.addEventListener("input", (e) => {
     const i = e.target.closest && e.target.closest("[data-cost-ha]"); if (!i) return;
     const v = parseFloat(String(i.value).replace(",", "."));
-    try { if (v > 0) localStorage.setItem("d5-ha", String(v)); else localStorage.removeItem("d5-ha") } catch (er) {}
+    try { if (v > 0) localStorage.setItem("mre-ha", String(v)); else localStorage.removeItem("mre-ha") } catch (er) {}
     clearTimeout(i._t); i._t = setTimeout(() => {
       const pos = i.selectionStart, sel = i.closest("#d5Cost") ? "#d5Cost [data-cost-ha]" : "#csTop [data-cost-ha]";
       refresh();

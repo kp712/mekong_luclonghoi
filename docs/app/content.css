@@ -498,14 +498,12 @@ body.ui-simple .pp-bars li { grid-template-columns: 8.5em minmax(0, 1fr) }
 .f-empty { font-size: .75rem; color: var(--ink-3); padding: .3rem 0; border: 0 !important }
 
 /* ---------- tour, lab guide, offline note ---------- */
-.tour, .gd { position: fixed; z-index: 60; left: 50%; bottom: calc(var(--tk-h) + 16px); transform: translateX(-50%); width: min(440px, calc(100vw - 32px));
+.gd { position: fixed; z-index: 60; left: 50%; bottom: calc(var(--tk-h) + 16px); transform: translateX(-50%); width: min(440px, calc(100vw - 32px));
   padding: 1rem; border: 1px solid var(--gold); border-radius: var(--r); background: var(--panel-solid); box-shadow: 0 30px 80px rgba(0,0,0,.6) }
 .gd { left: auto; right: calc(var(--drawer-w) + 16px); transform: none }
-.tour-n, .gd-n { font: 500 .8125rem/1.4 var(--font); letter-spacing: 0; color: var(--gold) }
-.tour-t { margin: .4rem 0 .8rem; font-size: .9375rem }
-.tour-b, .gd-act { display: flex; align-items: center; gap: .4rem }
-.tour-b > span { flex: 1 }
-.tour-skip, .gd-skip { min-height: 44px; color: var(--ink-3); font: 500 .8125rem/1 var(--font); letter-spacing: 0; text-transform: none }
+.gd-n { font: 500 .8125rem/1.4 var(--font); letter-spacing: 0; color: var(--gold) }
+.gd-act { display: flex; align-items: center; gap: .4rem }
+.gd-skip { min-height: 44px; color: var(--ink-3); font: 500 .8125rem/1 var(--font); letter-spacing: 0; text-transform: none }
 .gd-top { display: flex; justify-content: space-between; align-items: center }
 .gd h3 { font-weight: 800; margin: .2rem 0 .3rem }
 .gd p { font-size: .875rem; color: var(--ink-2) }
@@ -513,7 +511,7 @@ body.ui-simple .pp-bars li { grid-template-columns: 8.5em minmax(0, 1fr) }
 .gd-dots i { width: 16px; height: 2px; background: var(--line-2) }
 .gd-dots i.on { background: var(--gold) } .gd-dots i.done { background: var(--gold-2) }
 .gd-act { justify-content: flex-end }
-.tour-on, .gd-on { outline: 2px solid var(--gold) !important; outline-offset: 3px }
+.gd-on { outline: 2px solid var(--gold) !important; outline-offset: 3px }
 /* offline note: one small line under the MEKONG wordmark in the top bar, where it covers no button, map or slider */
 #brand { position: relative }
 .offline-chip { position: absolute; left: var(--gut, 16px); bottom: 6px; font: 600 .6875rem/1.2 var(--font); color: var(--ink-2);
@@ -527,7 +525,7 @@ body.ui-simple .pp-bars li { grid-template-columns: 8.5em minmax(0, 1fr) }
   .bars { height: 96px; gap: 2px } .mlab, .yr3, .green { gap: 2px } .wh3 { gap: 2px }
   .months button { height: 52px }
   .q15-row button { min-height: 72px }
-  .tour, .gd { left: 16px; right: 16px; transform: none; width: auto; bottom: 16px }
+  .gd { left: 16px; right: 16px; transform: none; width: auto; bottom: 16px }
   .cmp-grid { grid-template-columns: 1fr 1fr; gap: .5rem }
   .pp-num b { font-size: 2.6rem }
   .pp-score { grid-template-columns: auto auto }
@@ -543,7 +541,7 @@ body.calm .card { transition: none }
 
 /* ---------- print: only the plan ---------- */
 @media print {
-  .view:not(#v4), .pp-rev, .plan-tools, #planView, .pick-first, .ex3-ban, .tour, .gd, .offline-chip, #modal { display: none !important }
+  .view:not(#v4), .pp-rev, .plan-tools, #planView, .pick-first, .ex3-ban, .gd, .offline-chip, #modal { display: none !important }
   #v4 { display: block !important; color: #000 }
   #v4 .pv-list, #v4 #stripKey { display: block !important }
   .cal-m, .need, .timeline { border-color: #999 !important; color: #000 }

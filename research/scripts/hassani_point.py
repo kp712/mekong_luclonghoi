@@ -1,4 +1,4 @@
-import struct,sys,json,urllib.request,zlib
+import struct,sys,json,urllib.request
 def lzw(data):
     out=bytearray(); tab=None; bits=9; buf=0; nb=0; prev=None
     def reset():

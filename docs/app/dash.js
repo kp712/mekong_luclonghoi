@@ -1516,7 +1516,7 @@ footer{margin-top:12px;font-size:10.5px;color:#444;border-top:1px solid #999;pad
   /* the create-plan flow (app.js) asks the same "what is in the field now" question and builds its plan from the answer */
   const nowBlock = () => `<section id="nowCrop" class="nw nw-flow" aria-labelledby="nfH">${nowForm(flowNow, flowCtx(), true)}</section>`;
   /* the map lies under the dashboard: while the dashboard is on, it is inert, so keyboard and screen-reader focus never
-     lands on pins and zoom buttons nobody can see (home.js uses its own marker, so the two never undo each other) */
+     lands on pins and zoom buttons nobody can see */
   function syncInert() {
     const on = document.body.classList.contains("dv-on");
     ["map", "fx", "mapKey", "d5Month"].forEach((id) => { const n = document.getElementById(id); if (!n) return;

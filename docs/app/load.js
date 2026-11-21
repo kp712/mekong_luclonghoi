@@ -48,6 +48,12 @@ const SiteData = (() => {
   return { get, app, rx };
 })();
 let SITES_JSON, DATA, COSTS, RESEARCH;
+/* saved settings from before the one prefix (d5-, d7-) move to mre- once, so nobody loses a setting */
+(() => {
+  const ren = {"d5-ha": "mre-ha", "d5-onb1": "mre-onb1", "d5-onb2": "mre-onb2", "d7-field": "mre-household", "d7-sel": "mre-sel", "d7-reports": "mre-reports", "d7-live": "mre-live"};
+  try { Object.entries(ren).forEach(([a, b]) => { const v = localStorage.getItem(a); if (v == null) return;
+    if (localStorage.getItem(b) == null) localStorage.setItem(b, v); localStorage.removeItem(a) }) } catch (e) {}
+})();
 /* Farm: the one saved list of fields, shared by the planner (app.js) and the dashboard (dash.js), in "mre-farm".
    Both change the same field objects: {id, name, site, size (ha), seasons, cur, rot, ...the dashboard's plan}.
    Saves from before the merge (the planner's own "mre-fields", with ha) are moved in once, matched as before. */

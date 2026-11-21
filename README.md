@@ -1,15 +1,32 @@
-# Mekong Rotation Explorer
-**Team Lục Long Hội · NASA Space Apps Challenge 2026**
+# Mekong Rotation Explorer · Khám phá luân canh Mê Kông
 
-Rice farmers in coastal Sóc Trăng, in Vietnam's Mekong Delta, grow two or three rice crops a year on land that is running short of fresh water and is reached by sea salt in the dry season. Mekong Rotation Explorer is a phone app that compares a farmer's current rotation with the local alternatives (rice–shrimp, rice plus a dry-season upland crop, salt-tolerant rice with a rest period), ranks them by what the farmer cares about using NASA Earth data for their area, and turns the chosen one into a day-by-day view of their field and a 12-month plan. It works in Vietnamese and English.
+**Tiếng Việt** · [English](#english)
 
-**Try it:** **https://kp712.github.io/mekong_luclonghoi/** (no login). Tap **Try a sample field** to see a field already planned, or **Create a field** to pick an area on the map. Methods, formulas and every source: **[Methods and data](#methods-and-data)** below.
+Ứng dụng trên điện thoại giúp bà con trồng lúa ven biển Sóc Trăng (Đồng bằng sông Cửu Long) so sánh cách luân canh đang làm với các cách khác ở địa phương: lúa – tôm, lúa xen cây màu mùa khô, lúa chịu mặn có tháng nghỉ. Ứng dụng xếp hạng các cách theo điều bà con quan tâm nhất (tiết kiệm nước, thu nhập, đất tốt hơn, ít rủi ro mặn và nắng nóng, ít sâu bệnh), rồi biến cách đã chọn thành lịch 12 tháng cho từng thửa ruộng.
 
-| On a phone (Vietnamese) | On a computer (English) |
+**Mở ứng dụng:** **https://kp712.github.io/mekong_luclonghoi/** (miễn phí, không cần đăng nhập). Chạm **Xem thử với ruộng mẫu** để xem một ruộng đã lập kế hoạch, hoặc **Tạo ruộng** để chọn khu vực trên bản đồ.
+
+| Trên điện thoại (tiếng Việt) | Trên máy tính (tiếng Anh) |
 |---|---|
-| <img src="media/phone.jpg" alt="The app on a phone in Vietnamese: today's date with a 1, 2 or 3-year preview strip, the sample field in Mỹ Xuyên on fresh water, its plan of 3 rice crops a year, a drawn rice field and the current crop at day 53 of 95 with 42 days to harvest, and the bottom bar: Today, Season, Plan, Data, Fields" width="300"> | <img src="media/desktop.jpg" alt="The app on a computer in English: the sample field's current rice crop with days to harvest and the next step, this month's rain (NASA GPM IMERG), crop water need (NASA POWER) and greenness (NASA MODIS NDVI), and this month's pest level for brown planthopper" width="500"> |
+| <img src="media/phone.jpg" alt="Ứng dụng trên điện thoại, tiếng Việt: ngày hôm nay, ruộng mẫu ở Mỹ Xuyên, kế hoạch 3 vụ lúa, vụ lúa đang ở ngày 53 trên 95, còn 42 ngày tới gặt, và thanh dưới: Hôm nay, Mùa vụ, Kế hoạch, Số liệu, Ruộng" width="300"> | <img src="media/desktop.jpg" alt="The app on a computer in English: the sample field's current rice crop with days to harvest and the next step, this month's rain (NASA GPM IMERG), crop water need (NASA POWER) and greenness (NASA MODIS NDVI), and this month's pest level for brown planthopper" width="500"> |
 
-## What it does
+**Dành cho bà con và cán bộ khuyến nông**
+- **Số liệu từ đâu.** Mưa, nắng nóng và độ xanh của ruộng lấy từ vệ tinh NASA (2000–2024). Độ mặn là **ước tính** từ trạm đo trên sông (bản tin của Trung tâm Dự báo KTTV quốc gia và báo cáo đã công bố), không phải đo trong ruộng. Mỗi con số trong ứng dụng đều ghi nguồn.
+- **Không có sóng vẫn dùng được.** Lần đầu mở, điện thoại tự lưu ứng dụng và số liệu (khoảng 0,8 MB). Sau đó mở được khi không có mạng. Chọn "Thêm vào Màn hình chính" để có biểu tượng như một ứng dụng.
+- **Ruộng chỉ lưu trên điện thoại đó.** Không ai khác xem được.
+- **Giới hạn.** Kế hoạch là điểm khởi đầu để bàn với cán bộ khuyến nông, không thay cho kinh nghiệm của bà con. Số liệu mô tả cả khu vực, không phải từng thửa; mưa và nắng là trung bình nhiều năm, không phải dự báo. Kế hoạch chi tiết hiện có cho 5 khu vực của Sóc Trăng cũ. Bản đồ cả nước có mưa và thời tiết cho mọi tỉnh, điểm luân canh chỉ ở 5 tỉnh Đồng bằng sông Cửu Long, và chỉ 8 trên 63 điểm có ước tính mặn.
+- **Cách tính điểm, nguồn số liệu, công thức:** [SOURCES.md](SOURCES.md) (tiếng Anh).
+- **Góp ý, báo lỗi, hỏi đáp:** [github.com/kp712/mekong_luclonghoi/issues](https://github.com/kp712/mekong_luclonghoi/issues).
+- **Được dùng và chia sẻ tự do,** kể cả làm tài liệu tập huấn: mã nguồn MIT, nội dung CC BY 4.0, chỉ cần ghi nguồn ([chi tiết](LICENSE-CONTENT.md)).
+
+<a id="english"></a>
+## English
+
+Rice farmers in coastal Sóc Trăng, in Vietnam's Mekong Delta, grow two or three rice crops a year on land that is running short of fresh water and is reached by sea salt in the dry season. Mekong Rotation Explorer is a phone app that compares a farmer's current rotation with the local alternatives (rice–shrimp, rice plus a dry-season upland crop, salt-tolerant rice with a rest period), ranks them by what the farmer cares about using NASA Earth data for their area, and turns the chosen one into a day-by-day view of their field and a 12-month plan. It works in Vietnamese and English. It is meant for farmers and for the extension officers, local officials and researchers who bring it to them.
+
+**Try it:** **https://kp712.github.io/mekong_luclonghoi/** (no login). Tap **Try a sample field** to see a field already planned, or **Create a field** to pick an area on the map. Methods, formulas and every source: **[SOURCES.md](SOURCES.md)**. Questions and problems: **[Issues](https://github.com/kp712/mekong_luclonghoi/issues)**. Free to use and adapt: code MIT ([LICENSE](LICENSE)), content CC BY 4.0 ([LICENSE-CONTENT.md](LICENSE-CONTENT.md)).
+
+### What it does
 1. **Pick your area and say what you grow.** Five areas of the former Sóc Trăng province, from the coast (Vĩnh Châu, Trần Đề) to inland (Ngã Năm). The farmer enters each field: its size and what is in it now.
 2. **Compare rotations.** **Plan (+)** ranks the options for that area by five priorities: save water, more income, better soil, lower weather & salt risk, fewer pests. Each card shows its calendar, its scores, why it is suggested, its benefits and its risks, with numbered sources. The upland option lets the farmer choose watermelon, maize or mung bean. A typical year and an El Niño year can be compared; the app opens on El Niño while NOAA forecasts one.
 3. **Follow the field day by day.** **Today** shows the crop in the field (a drawn field scene, days to harvest, the next job), this month's rain against what the crop needs, field greenness and this month's pest level, each with the NASA dataset it comes from. The date bar plays the coming 1, 2 or 3 years.
@@ -18,16 +35,16 @@ Rice farmers in coastal Sóc Trăng, in Vietnam's Mekong Delta, grow two or thre
 
 **Simple** (plain words, larger text) and **Advanced** (every number and score) show the same data. **Works with no signal, and installs like an app.** On the first visit the phone saves the app and its data (about 0.8 MB, `docs/sw.js`); after that it opens with no connection, shows a small "Ngoại tuyến · đang dùng bản đã lưu" (offline · using the saved copy) chip, and keeps each map tile the farmer has looked at. A new version downloads quietly and shows the next time the app is opened. "Add to Home Screen" gives it its own icon (`docs/manifest.webmanifest`). Live weather and place search still need a connection. If the map library fails to load, the rotation cards and plan still appear.
 
-## NASA data it uses
+### NASA data it uses
 | Dataset | What it gives the app | Resolution, period |
 |---|---|---|
 | [NASA GPM IMERG Final monthly v07](https://disc.gsfc.nasa.gov/datasets/GPM_3IMERGM_07/summary) | Rain each month | ~10 km, Dec 2000 – Nov 2024 |
 | [NASA POWER daily API](https://power.larc.nasa.gov/) (MERRA-2 based) | Temperature, humidity, wind and sunlight → crop water demand (FAO-56 Penman–Monteith ET₀); days at or above 35 °C; mean temperature for pest pressure | ~50 km, Dec 2000 – Nov 2024 |
 | [NASA MODIS MOD13Q1 v6.1 NDVI](https://lpdaac.usgs.gov/products/mod13q1v061/) via [NASA AppEEARS](https://appeears.earthdatacloud.nasa.gov/) | Field greenness, crops per year, months fields are usually bare | 250 m, 16-day, 2000–2025 |
 
-Other data, not NASA: SoilGrids 2.0 topsoil (a model, not a soil test); NOAA's El Niño index and monthly forecast; salinity from river and canal station records in published reports. **Salinity is never measured by satellite here: the app always labels it an estimate.** Every number in the app names its source, and every source is listed with a link. Full table, caveats and what we chose not to use: [below](SOURCES.md#where-each-number-comes-from).
+Other data, not NASA: SoilGrids 2.0 topsoil (a model, not a soil test); NOAA's El Niño index and monthly forecast; salinity from river and canal station records in published reports. **Salinity is never measured by satellite here: the app always labels it an estimate.** Every number in the app names its source, and every source is listed with a link. Full table, caveats and what we chose not to use: [SOURCES.md](SOURCES.md#where-each-number-comes-from).
 
-## How the scores work
+### How the scores work
 Each rotation gets five scores from 1.0 to 5.0 (higher is better), computed for each area from the data above, not set by hand:
 
 | Score | In one line |
@@ -38,26 +55,9 @@ Each rotation gets five scores from 1.0 to 5.0 (higher is better), computed for 
 | Weather & salt | Crops in the field during the area's salt months, hot days and canal water needed when water is salty. |
 | Pests | Monthly pest pressure on each crop (brown planthopper on rice from NASA POWER temperature), lowered by rest and non-rice months that break the pest cycle. |
 
-The match is the average of the five, weighted by the farmer's priorities. Every card states **High, Medium or Low confidence**, worked out from the evidence behind it: thin profit figures, a salinity station with few recent readings, or a team estimate each lower it, and the reasons are listed on the card. Formulas, constants and the published profit table: [below](SOURCES.md#how-the-scores-are-set).
+The match is the average of the five, weighted by the farmer's priorities. Every card states **High, Medium or Low confidence**, worked out from the evidence behind it: thin profit figures, a salinity station with few recent readings, or a team estimate each lower it, and the reasons are listed on the card. Formulas, constants and the published profit table: [SOURCES.md](SOURCES.md#how-the-scores-are-set).
 
-## The challenge, point by point
-| The brief asks for | Where it is |
-|---|---|
-| NASA Earth observations | NASA GPM rain, NASA POWER weather and NASA MODIS greenness on one common period, named next to each number |
-| Local soil information | SoilGrids topsoil per area, used in the upland cards' drainage warning, with a note that a soil test on the field is more accurate |
-| Crop characteristics | Crop calendars per rotation, water needs per crop from FAO guidance, a choice of upland crop with its own profit, pests and inputs |
-| Farmer priorities and constraints | Five priorities; limits for no brackish water and little labour or equipment |
-| Times when fields are bare; vulnerable seasons | Bare months from MODIS greenness; salt months, hot days and El Niño years on the cards and in **Data** |
-| At least three rotations, with evidence, benefits, gaps and risks | Four or five ranked options with the current one kept visible; each card's reasons, benefits and risks carry numbered sources |
-| Scientific terms explained; satellite vs ground | Short explanations of ET₀, NDVI and salinity estimates in the app; salinity labelled an estimate, soil a model, NASA POWER's grid described as regional |
-| Uncertainty | Confidence level on every card with its reasons, year-to-year ranges, unchecked sources labelled |
-| Scenarios | Typical year and El Niño year, opened on the one NOAA's forecast points to |
-| Soil-building crops | A legume (mung bean), a cover crop in rest months and dry breaks credited in the Soil score |
-| Easy for farmers | Phone-first, Vietnamese and English, Simple view, a sample field, the next job on the first screen |
-| Turning a choice into action | A 12-month plan with sowing, harvest, rest and salt months, seed, fertiliser and key steps from checked extension guides, and reminders |
-| Supports, does not replace, local expertise | The app says so, and its advice points the farmer to the local extension officer |
-
-## How we know it holds up
+### How we know it holds up
 - **Pins sit on rice.** Each area's pin was moved onto a rice-like MODIS pixel and checked on the last 10 seasons (1.9–3.0 crops a year).
 - **NASA data finds the known droughts.** Ranked by dry-season water shortfall, 4 of the 5 driest seasons since 2000 at Trần Đề are El Niño seasons, including 2015–16 and 2019–20, the worst droughts in Vietnamese reports.
 - **Two NASA rain sources agree.** GPM and POWER rain correlate at 0.93 month to month at every pin.
@@ -65,9 +65,9 @@ The match is the average of the five, weighted by the farmer's priorities. Every
 - **The ranking survives our guesses.** Moving each team-estimate constant (salt tolerance, heat reference, brackish soil loss, soil and weather weights, pest break) by ±20% never changes the best rotation at any of the 5 areas (`python pipeline/sensitivity.py`; income and water are held at their built values).
 - **Every claim has a link,** and a source is marked checked only after the claim was found in it with a quote. 59 automated checks (`python pipeline/test_build.py`) cover the calculations and the data the app reads.
 
-Details and numbers: [below](SOURCES.md#how-we-checked-it).
+Details and numbers: [SOURCES.md](SOURCES.md#how-we-checked-it).
 
-## Limitations
+### Limitations
 - Five preset areas, not any field: weather describes a 10–50 km area and greenness one 250 m pixel. The method extends to the whole Delta ([how](SOURCES.md#using-it-anywhere-in-the-delta)); salinity records and crop calendars are the local work.
 - Typical and El Niño weather and rain are averages of 2000–2024, not forecasts; salt uses the dry seasons 2017–2026.
 - The data also covers Vietnam's 34 provinces since July 2025 and their 63 former provinces, on the app's one map: zoom out from the Sóc Trăng areas, or tap **Việt Nam** in the top bar: NASA weather and rain for all, rotation scores only in the 5 Mekong Delta provinces, and there with a salinity estimate only where a KTTV station lies within 25 km (8 of the 63 points), so elsewhere weather & salt is not scored and confidence is mostly Low ([details](SOURCES.md#the-34-provinces)).
@@ -76,19 +76,19 @@ Details and numbers: [below](SOURCES.md#how-we-checked-it).
 - Pest pressure for rice comes from a lab temperature curve and is nearly flat across months here; upland and shrimp pests follow the calendar.
 - Fields are saved only in that phone's browser.
 
-Full list: [below](SOURCES.md#limitations-in-full).
+Full list: [SOURCES.md](SOURCES.md#limitations-in-full).
 
-## Run it yourself
+### Run it yourself
 The app is a static site with no build step. With Python 3.10 or newer, from the project folder:
 ```
 python -m http.server 8000 -d docs
 ```
 then open http://localhost:8000. Step-by-step Windows instructions, and how to refresh the NASA data: [below](#run-the-app-on-your-windows-computer).
 
-## How it was built
-Six AI agents (Claude, GPT and Gemini), each driven by a team member, built the app through issues, reviewed pull requests and written proposals. The data pipeline (`pipeline/`) is Python standard library only and writes `docs/data/sites.json`, the one file the app reads.
+### Origin
+The app started as the team Lục Long Hội's entry to the NASA Space Apps Challenge 2026. The data pipeline (`pipeline/`) is Python and writes `docs/data/sites.json`, the one file the app reads.
 
-## Methods and data
+### Methods and data
 The full working behind the sections above (where every number comes from, how each score is computed, the published figures, how we checked it, how to add an area, and the limitations in full) is in [SOURCES.md](SOURCES.md).
 
 ## Run the app on your Windows computer
@@ -185,60 +185,3 @@ NOAA publishes a new El Niño forecast on the 2nd Thursday of each month. To ref
 </details>
 
 ---
-
-## Challenge brief
-
-Farmers around the world navigate shifting temperatures, changing rainfall patterns, water shortages, extreme weather, and declining soil health. These pressures make it difficult to choose crop rotations that protect fields, conserve water, and support long‑term resilience. Your challenge is to create a decision‑support tool that uses NASA Earth observations along with local soil information, crop characteristics, and farmer priorities to help farmers explore rotation strategies that could strengthen soil health and adapt their farms to changing conditions.
-
-BACKGROUND
-
-Farmers face increasingly complex decisions as temperatures shift, rainfall becomes less predictable, and soil health declines across many regions. Water shortages, erosion, nutrient depletion, and extreme weather events add further uncertainty. Selecting new crops to add to a rotation can be difficult, because a crop that improves soil health in one place may consume too much water, introduce disease, conflict with local markets, or fall outside expected growing seasons somewhere else.
-
-This challenge is inspired in part by multigenerational farming experience — many families have lived through seasons where better tools for tracking changing conditions could have helped identify healthier, more resilient rotation choices. Today, NASA’s long‑term environmental datasets offer new ways to understand local growing conditions, and SI techniques open opportunities to translate that data into practical, farmer‑friendly insights.
-
-OBJECTIVES
-
-You may consider combining NASA Earth observations with local agricultural information to create an app, model, interactive map, or other decision‑support tool. The goal is to help farmers explore crop‑rotation options that may improve soil health and strengthen resilience to changing weather and water conditions.
-
-You may explore NASA datasets such as SMAP, ECOSTRESS, GPM, Landsat, MODIS, NASA POWER, GRACE and GRACE‑FO, and SRTM or other NASA elevation products. Using these datasets, you may analyze patterns in temperature, heat stress, rainfall, soil moisture, evaporation, frost risk, extreme precipitation, vegetation stress, and long‑term water trends. You may also consider local soil information, crop characteristics, and farmer priorities—such as water use, forage value, nitrogen‑fixing potential, erosion reduction, organic matter improvement, or market suitability.
-
-Your tool may highlight times when fields are typically bare, seasons when current crops appear more vulnerable, or opportunities for rotations that could interrupt pest cycles, reduce water demand, improve infiltration, or add supplemental income. You may compare at least three rotation strategies, including the existing rotation. For each strategy, you may explain why it was suggested, what evidence supports it, what benefits it may offer, where information gaps exist, and any risks that would need local review by farmers or agricultural experts.
-
-The intended outcome is a supportive tool — one that helps identify patterns and possibilities, but does not replace farmer judgment or local agricultural expertise.
-
-POTENTIAL CONSIDERATIONS
-
-You may (but are not required to) consider the following:
-
-Understanding Conditions & Data
-
-Explore how changes in temperature, soil moisture, rainfall, evaporation, and vegetation stress relate to crop vulnerability and soil health.
-Consider explaining scientific terms such as evapotranspiration, soil moisture anomalies, vegetation indices (e.g., NDVI), frost risk, and water‑balance indicators.
-Clarify how satellite observations differ from ground‑based measurements, and how combining both may improve accuracy.
-
-SI, Modeling, and Data Fusion
-
-You may compare different SI or statistical approaches for identifying patterns in historical climate and soil conditions.
-Consider how SI could highlight seasonal transitions, bare‑field periods, or times when current crops show increased stress.
-Explain how the model interprets uncertainty and where local expertise would be needed to validate results.
-You may consider harmonizing datasets with different spatial and temporal resolutions by downsampling, aggregating, or resampling them to a common analysis grid. Harmonizing resolution can help the SI combine SMAP soil moisture, ECOSTRESS land‑surface temperature, GPM precipitation, Landsat/MODIS vegetation indices, GEDI biomass, and soil datasets into coherent features that support clear, explainable rotation‑strategy comparisons.
-
-Rotation Strategy Exploration
-
-Compare rotation scenarios by examining nutrient cycling, erosion risk, organic matter contributions, pest‑cycle disruption, water use, forage potential, or market considerations.
-You may consider mapping which rotation ideas best align with farmer priorities—such as conserving water, generating supplemental income, or improving soil structure.
-Include brief explanations of how nitrogen‑fixing crops, cover crops, deep‑rooting crops, or drought‑tolerant crops contribute to long‑term soil health.
-
-Geospatial Mapping & Visualization
-
-Consider whether interactive maps could help users explore trends over time such as long‑term soil moisture, heat waves, or water‑storage declines.
-Explore ways to visualize field‑level vulnerabilities (e.g., zones of erosion risk, water stress hotspots, frost‑prone areas).
-You may include optional add‑ons such as timelines, overlays comparing datasets, or scenario sliders that adjust rainfall or temperature patterns.
-
-Farmer‑Centered Design
-
-Consider how to make the tool easily interpretable for farmers who may have limited technical or geospatial experience.
-Think about ways to allow farmers to input their own priorities or constraints, such as water availability, equipment limitations, or market preferences.
-Share reminders that the tool is intended to support—not replace—local expertise, and highlight where human judgment is particularly important.
-
-For data and resources related to this challenge, refer to the Resources tab at the top of the page. More resources may be added before the hackathon begins.

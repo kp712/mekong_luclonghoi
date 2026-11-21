@@ -83,7 +83,7 @@ const Hub = (() => {
   const css = (v) => getComputedStyle(document.documentElement).getPropertyValue(v).trim() || "#999";
 
   /* ----- shared selection ----- */
-  const sel = Object.assign({ area: null, rot: null, variety: "" }, store("d7-sel") || {});
+  const sel = Object.assign({ area: null, rot: null, variety: "" }, store("mre-sel") || {});
   const sites = () => (D() ? D().sites : []);
   const site = () => sites().find((s) => s.id === sel.area) || (window.App && App.site && App.site()) || sites()[0];
   const cardsOf = (s) => (s && s.cards) || [];
@@ -95,7 +95,7 @@ const Hub = (() => {
   function fieldHTML() {
     const s = site(); if (!s) return `<p class="ph">${L(T.noPlan)}</p>`;
     const cs = cardsOf(s); if (!cs.find((c) => c.id === sel.rot)) sel.rot = (cs[0] || {}).id;
-    const f = store("d7-field") || {};
+    const f = store("mre-household") || {};
     const opt = (v, t, cur) => `<option value="${esc(v)}"${v === cur ? " selected" : ""}>${esc(t)}</option>`;
     const vars = VAR().varieties.map((v) => opt(v.id, v.name, sel.variety)).join("");
     return `<div class="hb-form">
@@ -115,7 +115,7 @@ const Hub = (() => {
   }
   function paintAnswer() {
     const host = $("#hbAns"); if (!host) return;
-    const s = site(), c = cardsOf(s).find((x) => x.id === sel.rot), f = store("d7-field") || {};
+    const s = site(), c = cardsOf(s).find((x) => x.id === sel.rot), f = store("mre-household") || {};
     if (!s || !c) { host.innerHTML = ""; return; }
     let out = "";
     const P = RX.Model.predict(c, s.id), fc = Math.round(P.blend);
@@ -141,8 +141,8 @@ const Hub = (() => {
   }
   function wireField() {
     const upd = () => {
-      sel.area = $("#hbArea").value; sel.rot = $("#hbRot").value; sel.variety = $("#hbVar").value; store("d7-sel", sel);
-      store("d7-field", { ha: $("#hbHa").value, salt: $("#hbSalt").value, crew: $("#hbCrew").value, bud: $("#hbBud").value, lab: $("#hbLab").value });
+      sel.area = $("#hbArea").value; sel.rot = $("#hbRot").value; sel.variety = $("#hbVar").value; store("mre-sel", sel);
+      store("mre-household", { ha: $("#hbHa").value, salt: $("#hbSalt").value, crew: $("#hbCrew").value, bud: $("#hbBud").value, lab: $("#hbLab").value });
       paintAnswer();
     };
     $$("#hbBody input, #hbBody select").forEach((e) => e.addEventListener("input", upd));
@@ -218,12 +218,12 @@ const Hub = (() => {
   }
   function wireFeedback() {
     $$(".hb-seg").forEach((g) => g.addEventListener("click", (e) => { const b = e.target.closest("button"); if (!b) return; picked[g.dataset.k] = b.dataset.v; $$("button", g).forEach((x) => x.setAttribute("aria-pressed", x === b)); }));
-    $("#hbArea").addEventListener("change", () => { sel.area = $("#hbArea").value; sel.rot = null; store("d7-sel", sel); show("fb"); });
-    $("#hbRot").addEventListener("change", () => { sel.rot = $("#hbRot").value; store("d7-sel", sel); paintLearn(); });
+    $("#hbArea").addEventListener("change", () => { sel.area = $("#hbArea").value; sel.rot = null; store("mre-sel", sel); show("fb"); });
+    $("#hbRot").addEventListener("change", () => { sel.rot = $("#hbRot").value; store("mre-sel", sel); paintLearn(); });
     $("#hbSend").onclick = () => {
       const s = site(), c = cardsOf(s).find((x) => x.id === sel.rot), msg = $("#hbMsg");
       if (!c || picked.loss == null) { msg.textContent = L(T.q1); return; }
-      const f = store("d7-field") || {}, P = RX.Model.predict(c, s.id);
+      const f = store("mre-household") || {}, P = RX.Model.predict(c, s.id);
       Learn.add({ area: s.id, rot: c.id, variety: sel.variety || null, pred: Math.round(P.blend), lossKey: picked.loss,
                   ok: picked.ok == null ? undefined : picked.ok === "true", changed: picked.changed == null ? undefined : picked.changed === "true",
                   note: ($("#hbNote").value || "").slice(0, 280) });
@@ -233,7 +233,7 @@ const Hub = (() => {
   }
 
   /* ----- tab: live data ----- */
-  const LIVEKEY = "d7-live";
+  const LIVEKEY = "mre-live";
   async function loadRain(s) {
     const lat = s.lat ?? (s.coords && s.coords[0]), lon = s.lon ?? s.lng ?? (s.coords && s.coords[1]);
     if (lat == null || lon == null) throw new Error("no coords");

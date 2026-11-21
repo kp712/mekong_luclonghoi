@@ -10,14 +10,10 @@
 
 /* ---- the look: one CSS filter on the tile pane ---- */
 .sg-map .leaflet-tile-pane { transition: opacity .2s linear; }
-.sg-map.sg-swap .leaflet-tile-pane { opacity: 0; }
 /* the filter sits on each tile, not on the whole pane: a filtered pane is re-drawn on every frame of a zoom
    (the stutter), a filtered tile is drawn once and then only moved by the GPU */
 .sg-map.layer-sat .leaflet-tile {
   filter: var(--tile-filter);
-}
-.sg-map.layer-night .leaflet-tile {
-  filter: brightness(1.1) contrast(1.15) sepia(.25) hue-rotate(-10deg);
 }
 .sg-map .leaflet-tile { image-rendering: auto; }
 

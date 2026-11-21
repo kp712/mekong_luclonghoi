@@ -110,8 +110,8 @@ ex3Ban: n => `Đang xem ví dụ ${n}. Chọn khu vực của bạn trên bản 
 ex3Back: "Về bản đồ",
 lab3: "Tự xếp lịch của bạn và xem điểm"
 });
-Object.assign(STR.en, { copy4: "© 2026 Mekong Rotation Explorer team · NASA Space Apps 2026 entry. Please do not copy or reuse without permission." });
-Object.assign(STR.vi, { copy4: "© 2026 Nhóm Mekong Rotation Explorer · Bài dự thi NASA Space Apps 2026. Vui lòng không sao chép hoặc dùng lại khi chưa được phép." });
+Object.assign(STR.en, { copy4: "© 2026 Mekong Rotation Explorer team · Free to use and share: code MIT, content CC BY 4.0. Questions: github.com/kp712/mekong_luclonghoi/issues" });
+Object.assign(STR.vi, { copy4: "© 2026 Nhóm Mekong Rotation Explorer · Được dùng và chia sẻ tự do: mã nguồn MIT, nội dung CC BY 4.0. Hỏi đáp: github.com/kp712/mekong_luclonghoi/issues" });
 /* ================= the app (Draft 3 logic, new DOM targets) ================= */
 (() => {
 "use strict";
@@ -195,23 +195,9 @@ return out.map(([a, b]) => a === b ? t("monthsLong")[a] : `${t("monthsLong")[a]}
 
 /* ---------- Draft 3 text kept outside STR (nature parts 2, 4, 5), verbatim ---------- */
 const TT = {
-en: { size: "Text size", tour: "Tour", next: "Next", back: "Back", done: "Done", skip: "Skip tour",
-steps: ["Welcome! Choose Simple for plain words and big buttons, or Advanced for numbers and sources. You can change it any time.",
-"Tell the app how you are using it: at home, or in the field (big buttons you just tap, for wet or muddy hands). Sunlight makes the screen easier to read outdoors.",
-"Your field is at the top of the Priorities step: give it a name, its area, what you grow now and its size, to see your own water and profit numbers.",
-"Pick your area on the map. Point at an area to light it up; tap or click it to open a box with everything about that area.",
-"Say what matters most to you. The options re-rank as you change them.",
-"Get your 12-month plan, then print it or share it.",
-"Settings stay on the right edge of the screen, even as you scroll. Each switch has a short note on what it does."],
+en: { size: "Text size",
 settings: "Settings", detail: "Detail", lang: "Language", text: "Text size", motion: "Motion", guide: "Guided tour", anim: "Animated", lite: "Lite", theme: "Colours", thLight: "Light", thDark: "Dark", thAuto: "Auto" },
-vi: { size: "Cỡ chữ", tour: "Hướng dẫn", next: "Tiếp", back: "Quay lại", done: "Xong", skip: "Bỏ qua",
-steps: ["Chào mừng bà con! Chọn Đơn giản để xem lời ngắn gọn và nút lớn, hoặc Nâng cao để xem số liệu và nguồn. Có thể đổi bất cứ lúc nào.",
-"Cho ứng dụng biết bạn đang dùng thế nào: ở nhà, hoặc ngoài ruộng (nút lớn chỉ cần chạm, cho tay ướt hoặc dính bùn). Nút Nắng giúp màn hình dễ đọc hơn ngoài trời.",
-"Ruộng của bạn nằm ở đầu bước Điều bạn cần: đặt tên, chọn khu vực, cây đang trồng và diện tích để xem nước và lợi nhuận của riêng bạn.",
-"Chọn khu vực của bạn trên bản đồ. Rê chuột lên một khu vực để tô sáng nó; chạm hoặc bấm vào để mở hộp với mọi thông tin về khu vực đó.",
-"Cho biết điều gì quan trọng nhất với bạn. Các lựa chọn được xếp lại khi bạn thay đổi.",
-"Nhận kế hoạch 12 tháng, rồi in hoặc chia sẻ.",
-"Cài đặt luôn nằm ở mép phải màn hình, kể cả khi bạn cuộn trang. Mỗi nút có một dòng ghi chú cho biết nó làm gì."],
+vi: { size: "Cỡ chữ",
 settings: "Cài đặt", detail: "Mức chi tiết", lang: "Ngôn ngữ", text: "Cỡ chữ", motion: "Chuyển động", theme: "Màu nền", thLight: "Sáng", thDark: "Tối", thAuto: "Tự động", guide: "Hướng dẫn từng bước", anim: "Sinh động", lite: "Nhẹ" }
 };
 const tt = k => TT[lang][k];
@@ -274,7 +260,7 @@ steps: [["Dry the platform and clean out the canals.", "Phơi trảng, sên vét
 ["Finish shrimp by the end of July, to wash out salt for the rice.", "Thu hoạch xong tôm chậm nhất cuối tháng 7, để kịp rửa mặn cho lúa."]] }
 };
 
-/* ---------- about this project, for judges (verbatim) ---------- */
+/* ---------- about this app ---------- */
 const ABOUT = {
 en: [["What it is", "A phone-first tool for rice farmers in coastal Sóc Trăng (Mekong Delta). It compares the farmer's current rotation with local alternatives (rice–shrimp, rice with a dry-season upland crop, salt-tolerant rice with a rest), ranks them by what the farmer cares about, and turns the chosen one into a 12-month plan. English and Vietnamese."],
 ["NASA data in the app", "Rain: NASA GPM IMERG monthly (~10 km, Dec 2000 – Nov 2024). Water demand (ET₀): FAO-56 Penman–Monteith from NASA POWER temperature, humidity, wind and sunlight. Field greenness and crops per year: NASA MODIS NDVI (MOD13Q1, 250 m) through NASA AppEEARS. Heat days: NASA POWER. The 7-day strip in the month panel reads NASA POWER daily data live."],
@@ -298,28 +284,9 @@ const fillT = (scope = document) => scope.querySelectorAll("[data-t]").forEach(e
 
 /* missing pieces inside an existing view get Draft 3's own markup, so the steps work whatever the shell wrote */
 function ensureSkeleton() {
-const add = (id, view, html, before) => { if (has("#" + id) || !has(view)) return; const v = $(view), b = before && v.querySelector(before);
-b ? b.insertAdjacentHTML("beforebegin", html) : v.insertAdjacentHTML("beforeend", html) };
-add("areaHead", "#v1", `<div id="areaHead"></div>`); add("modeSeg", "#v1", `<div class="seg" id="modeSeg" role="group"></div>`);
-add("year", "#v1", `<div class="year" id="year"></div>`); add("outlook", "#v1", `<div id="outlook"></div>`); add("areaMore", "#v1", `<div id="areaMore"></div>`);
-add("growNow", "#v2", `<div class="grow-now" id="growNow" role="group"></div>`); add("sliders", "#v2", `<div class="sliders" id="sliders"></div>`);
-add("noBrackish", "#v2", `<label class="tog"><input type="checkbox" id="noBrackish"><span data-t="c_brackish"></span></label>`);
-if (has("#v2") && !document.querySelector("#v2 .wf")) { const lm = $("#v2").querySelector(".limits"); const h = `<div class="wf"></div>`; lm ? lm.insertAdjacentHTML("beforebegin", h) : $("#v2").insertAdjacentHTML("beforeend", h) }
-add("bestNow", "#v2", `<div class="best-now" id="bestNow"></div>`);
-add("common", "#v3", `<p class="common" id="common" hidden></p>`); add("cards", "#v3", `<div class="cards" id="cards"></div>`); add("compare", "#v3", `<div class="compare" id="compare" hidden></div>`);
-add("planFor", "#v4", `<p class="plan-for" id="planFor"></p>`);
-add("printPlan", "#v4", `<div class="plan-tools"><button type="button" class="tool-btn" id="printPlan"></button><button type="button" class="tool-btn" id="sharePlan"></button><button type="button" class="tool-btn" id="readPlan" aria-pressed="false"></button><span class="share-msg" id="shareMsg" role="status"></span></div>`);
-add("planWarn", "#v4", `<p class="warn" id="planWarn" hidden></p>`); add("planView", "#v4", `<div class="seg plan-view" role="group" id="planView"></div>`);
-add("calendar", "#v4", `<div class="calendar" id="calendar"></div>`); add("strip", "#v4", `<div class="strip" id="strip"></div>`); add("stripKey", "#v4", `<div class="strip-key" id="stripKey"></div>`);
-add("timeline", "#v4", `<ol class="timeline" id="timeline"></ol>`);
-add("planMore", "#v4", `<details class="plan-more" id="planMore" hidden><summary data-t="planMore"></summary><ol class="timeline" id="timelineMore"></ol></details>`);
-add("needs", "#v4", `<h3 class="sub-h" data-t="planNeed"></h3><div class="needs" id="needs"></div>`); add("talk", "#v4", `<p class="talk" id="talk" data-t="talk"></p>`);
-add("planLab", "#vLab", `<div id="planLab"></div>`);
-/* draft5: "Your field" lives at the top of step 2; an old list or add button elsewhere is taken out so each id stays unique */
-$$("#addField, #fieldList").forEach(n => { if (!n.closest("#myFields")) n.parentNode.removeChild(n) });
+/* the step views come complete in index.html; only "Your field" (step 2) is built here */
 if (has("#v2") && !has("#myFields")) $("#v2").insertAdjacentHTML("afterbegin", `<div id="myFields" class="box my-fields"><h3 class="mf-h" id="mfH" data-t="myFieldH"></h3><p class="mf-why" data-t="myFieldWhy"></p>
 <ul class="field-list" id="fieldList" aria-labelledby="mfH"></ul><button type="button" class="add-btn" id="addField" aria-expanded="false"></button></div>`);
-if (has("#planMore") && !has("#timelineMore")) $("#planMore").insertAdjacentHTML("beforeend", `<ol class="timeline" id="timelineMore"></ol>`);
 }
 
 /* the pieces Draft 3 built on top of its base markup (parts 8, 11, 12, 15, app fixes, draft 3) */
@@ -353,7 +320,7 @@ label("#addField", "addField", "plus");
 if (has("#uiPick") && !$("#uiPick").querySelector("[data-ui]")) $("#uiPick").innerHTML = `<span class="up-l" data-t="uiPickL"></span>
 <button type="button" data-ui="simple"><b data-t="uiSimple"></b><small data-t="uiSimpleD"></small></button><button type="button" data-ui="advanced"><b data-t="uiAdvanced"></b><small data-t="uiAdvancedD"></small></button>`;
 if (has("#heroCta") && !has("#ex3Btn") && siteById(EX_ID)) $("#heroCta").insertAdjacentHTML("afterend", `<button type="button" class="ex3-btn" id="ex3Btn">${ico("arrow")}<span></span></button>`);
-[["#heroEyebrow", "heroEyebrow"], ["#heroH", "heroH"], ["#heroP", "heroP"], ["#heroCta", "heroCta"], ["#judgeLink", "aboutLink"]].forEach(([s, k]) => { const el = document.querySelector(s); if (el && !el.matches("[data-t]") && !el.querySelector("[data-t]")) el.dataset.t = k });
+[["#heroEyebrow", "heroEyebrow"], ["#heroH", "heroH"], ["#heroP", "heroP"], ["#heroCta", "heroCta"], ["#aboutLink", "aboutLink"]].forEach(([s, k]) => { const el = document.querySelector(s); if (el && !el.matches("[data-t]") && !el.querySelector("[data-t]")) el.dataset.t = k });
 /* live regions, as in Draft 3 */
 ["#year", "#bestNow", "#compare", "#areaMore", "#tkArea"].forEach(s => { const el = document.querySelector(s); if (el && !el.hasAttribute("aria-live")) el.setAttribute("aria-live", "polite") });
 const dt = document.querySelector("#dTitle"); if (dt && !dt.hasAttribute("tabindex")) dt.setAttribute("tabindex", "-1");
@@ -714,7 +681,7 @@ function fieldLine(c) {
 const wt = waterOf(c); if (!wt) return "";
 const f = fieldId ? fields().find(x => x.id === fieldId && x.site === site.id) : null;
 const fmt = x => Math.round(x / 10) * 10 >= 1000 ? (Math.round(x / 100) * 100).toLocaleString(lang === "vi" ? "vi-VN" : "en-US") : String(Math.round(x));
-const dh = f && f.size ? +f.size : parseFloat(load("d5-ha") || "");  /* draft5: the size typed above the cards counts too */
+const dh = f && f.size ? +f.size : parseFloat(load("mre-ha") || "");  /* draft5: the size typed above the cards counts too */
 return dh > 0 ? t("fieldHa")(num(dh), fmt(wt[0] * 10 * dh)) : t("fieldPer")(fmt(wt[0] * 10));
 }
 /* part 17: the 12 months as numbered tiles, coloured by crop (both views).
@@ -1274,30 +1241,6 @@ document.body.classList.toggle("calm", lite); if (keep) save("mre-motion", lite 
 $$("[data-motion]").forEach(b => b.setAttribute("aria-pressed", (b.dataset.motion === "lite") === lite));
 }
 
-/* ---------- tour (first-visit guide, now opened from settings) ---------- */
-/* each stop: [selector, drawer step or null, index into TT steps]; stops whose element is missing are skipped */
-const TOUR = [["#uiPick", null, 0], ["#gearBtn", null, 1], ["#map", null, 3], ["#myFields", 2, 2], ["#v2", 2, 4], ["#v4", 4, 5], ["#gearBtn", null, 6]];
-let ti = -1, tourList = TOUR;
-function tour(i) {
-$$(".tour-on").forEach(n => n.classList.remove("tour-on"));
-if (i === 0 && ti < 0) tourList = TOUR.filter(x => has(x[0]));
-if (i < 0 || i >= tourList.length) return endTour();
-ti = i; const st = tourList[i], sel = st[0];
-if (st[1] != null) go(st[1], { noFocus: true });
-const el = document.querySelector(sel); if (el) { el.classList.add("tour-on"); if (el.offsetParent) el.scrollIntoView({ behavior: calm() ? "auto" : "smooth", block: "nearest" }) }
-let box = document.querySelector("#tour");
-if (!box) { document.body.insertAdjacentHTML("beforeend", `<div class="tour" id="tour" role="dialog" aria-labelledby="tourT"><p class="tour-n" id="tourN"></p><p class="tour-t" id="tourT"></p>
-<div class="tour-b"><button type="button" class="tour-skip" id="tourSkip"></button><span></span><button type="button" class="ghost-btn" id="tourBack"></button><button type="button" class="go-btn" id="tourNext"></button></div></div>`); box = $("#tour") }
-box.hidden = false; tourText(); $("#tourNext").focus({ preventScroll: true });
-}
-function tourText() {
-if (ti < 0 || !has("#tour")) return;
-$("#tourN").textContent = `${ti + 1} / ${tourList.length}`; $("#tourT").textContent = tt("steps")[tourList[ti][2]];
-$("#tourSkip").textContent = tt("skip"); $("#tourBack").textContent = tt("back"); $("#tourBack").hidden = ti === 0;
-$("#tourNext").textContent = ti === tourList.length - 1 ? tt("done") : tt("next");
-}
-function endTour() { ti = -1; const b = document.querySelector("#tour"); if (b) b.hidden = true; $$(".tour-on").forEach(n => n.classList.remove("tour-on")); save("mre-tour", "1") }
-
 /* ---------- plan lab guide: one step at a time (part 11) ---------- */
 const GD = ["#plCard1", "#plCard2", "#plBrushes", "#plMonths", "#plScore", "#plWarn", "#plSugg"];
 let gi = -1;
@@ -1441,7 +1384,6 @@ b.classList.toggle("ui-simple", ui === "simple"); b.classList.toggle("ui-advance
 fillT();
 $("#lEn").setAttribute("aria-pressed", lang === "en"); $("#lVi").setAttribute("aria-pressed", lang === "vi");
 $$("[data-ui]").forEach(x => x.setAttribute("aria-pressed", x.dataset.ui === ui));
-$$("#layerSeg [data-layer]").forEach(x => { if (!x.textContent.trim()) x.textContent = t(x.dataset.layer === "night" ? "layerNight" : "layerSat") });
 if (has("#ex3Btn")) setTxt($("#ex3Btn"), t("ex3Btn")(exName()));
 $$(".ex3-ban").forEach(x => { x.hidden = !exOn; x.querySelector("span").textContent = t("ex3Ban")(exName()); x.querySelector("button").textContent = t("ex3Back") });
 { let dock = document.querySelector("#areaDock");  // phones: one-tap area buttons above the bottom strip (map pins are small there)
@@ -1454,12 +1396,11 @@ mv("labels", lang);
 $("#gearBtn").setAttribute("aria-label", tt("settings")); $("#setPanel").setAttribute("aria-label", tt("settings"));
 $("#mClose").setAttribute("aria-label", t("closeBig")); $("#dClose").setAttribute("aria-label", t("drawerClose"));
 netState(); renderSettings(); if (setOpen()) { const f = document.querySelector("#setBody button"); f && f.focus({ preventScroll: true }) }
-renderAll(); priTexts(); markListen(); tourText();
+renderAll(); priTexts(); markListen();
 if (mKind === "plan" && ppCard) showPlan(ppCard.id); else if (mKind === "about") openAbout(); else if (mKind === "sources") openSources();
 if (gi >= 0) setTimeout(() => guide(gi), 60);
 if (step === "lab") { const L = PL(); if (L && L.refresh) { try { L.refresh() } catch (e) {} } }
 walk(document.querySelector("#drawer")); walk(document.querySelector("#ticker"));
-typeof Home !== "undefined" && Home.render && Home.render();
 }
 const EX_ID = "tran_de", exName = () => { const x = siteById(EX_ID); return x ? shortName(x) : "" };
 
@@ -1471,7 +1412,7 @@ let b;
 /* cite marks open the numbered sources */
 if ((b = c(".cite"))) { e.preventDefault(); openSources(b.dataset.src); return }
 if ((b = c("[data-open]"))) { e.preventDefault(); b.dataset.open === "about" ? openAbout() : openSources(); return }
-if (c("#judgeLink") || c('a[href="#about"]')) { e.preventDefault(); openAbout(); return }
+if (c("#aboutLink") || c('a[href="#about"]')) { e.preventDefault(); openAbout(); return }
 if (c('a[href="#sources"]')) { e.preventDefault(); openSources(); return }
 /* modal */
 if (c("#mClose")) return closeModal();
@@ -1487,13 +1428,10 @@ if ((b = c("[data-fm]"))) { setFm(b.dataset.fm, true); return }
 if ((b = c("[data-size]"))) { setSize(b.dataset.size); return }
 if ((b = c("[data-motion]"))) { setCalm(b.dataset.motion === "lite", true); return }
 if ((b = c("[data-thm]"))) { const v = b.dataset.thm;   /* not data-theme: <html> carries that one */ if (v === "auto") { delete root.dataset.theme; drop("mre-theme") } else { root.dataset.theme = v; save("mre-theme", v) } renderSettings(); return }
-if (c("#tourBtn")) { toggleSettings(false); tour(0); return }
-if (c("#tourNext")) return tour(ti + 1); if (c("#tourBack")) return tour(ti - 1); if (c("#tourSkip")) return endTour();
 if (c("#saveCopy")) { saveCopy(); return }
 if ((b = c("[data-gd]"))) { guide(b.dataset.gd === "x" ? -1 : +b.dataset.gd); return }
 /* top bar */
 if (c("#lEn")) return setLang("en"); if (c("#lVi")) return setLang("vi");
-if ((b = c("#layerSeg [data-layer]"))) { mv("setLayer", b.dataset.layer); $$("#layerSeg [data-layer]").forEach(x => { x.setAttribute("aria-pressed", x === b); x.classList.toggle("on", x === b) }); return }
 /* hero */
 if (c("#heroCta") || c("[data-pickarea]")) { if (c("[data-pickarea]")) closePanel(); pulsePins(); const m = document.querySelector("#map"); if (m) { if (!m.hasAttribute("tabindex")) m.setAttribute("tabindex", "-1"); m.focus({ preventScroll: true }) } return }
 if (c("#ex3Btn")) { exGo = true; try { choose(siteById(EX_ID), true) } finally { exGo = false } exOn = true; mv("focus", EX_ID); applyAll(); go(2); return }
@@ -1558,7 +1496,6 @@ document.addEventListener("keydown", e => {
 if (e.key === "Escape") {
 if (modalOpen()) { e.preventDefault(); return closeModal() }
 if (setOpen()) { toggleSettings(false); const g = document.querySelector("#gearBtn"); g && g.focus(); return }
-if (ti >= 0) return endTour();
 if (gi >= 0) return guide(-1);
 if (drawerOpen()) return closePanel();
 return;
@@ -1569,10 +1506,6 @@ if (!f.length) return; const a = f[0], z = f[f.length - 1];
 if (e.shiftKey && document.activeElement === a) { e.preventDefault(); z.focus() } else if (!e.shiftKey && document.activeElement === z) { e.preventDefault(); a.focus() }
 }
 });
-/* copy guard (draft 3): no context menu or dragging outside form fields */
-const editable = el => el && el.closest && el.closest("input, textarea, select, [contenteditable='true']");
-document.addEventListener("contextmenu", e => { if (!editable(e.target) && !(e.target.closest && e.target.closest("#map"))) e.preventDefault() });
-document.addEventListener("dragstart", e => { if (!editable(e.target) && !(e.target.closest && e.target.closest("#map"))) e.preventDefault() });
 
 /* ---------- start ---------- */
 window.App = { refresh: () => renderAll(), fieldId: () => fieldId, cur: () => cur, ranked, planId: () => planId, V, t, lang: () => lang, site: () => site, go, toast, mode: () => mode, weights: () => ({ ...w }), upCrop: () => upCrop, guide, openPanel, closePanel, ui: () => ui, setUi: u => { if (u !== ui) setUi(u) }, hasField: () => hasField(), example: () => exOn, askField: () => askField(),
@@ -1588,7 +1521,6 @@ initSliders();
 let sz = load("mre-text"); setSize(sz === "big" || sz === "small" ? sz : "n");
 const mo = load("mre-motion"); setCalm(mo ? mo === "lite" : still, false);
 setFm(fm, false); setPv(pv);
-$$("#layerSeg [data-layer]").forEach((x, i) => { if (!x.hasAttribute("aria-pressed")) x.setAttribute("aria-pressed", i === 0) });
 /* the map; without Leaflet or MapView the hero offers plain area buttons so the app still works */
 let mapOk = false;
 if (MV() && window.L) { try { MV().init(document.querySelector("#map"), DATA.sites, { onHover, onSelect }); mapOk = true } catch (e) { console.warn("MapView.init", e) } }

@@ -38,7 +38,7 @@ const Onboard = (() => {
     document.body.appendChild(root);
     root.addEventListener("click", (e) => {
       const b = e.target.closest("button"); if (!b) return;
-      if (b.dataset.ob === "skip") { put("d5-onb1"); put("d5-onb2"); end(); }   /* skip = the whole guide, not just this part */
+      if (b.dataset.ob === "skip") { put("mre-onb1"); put("mre-onb2"); end(); }   /* skip = the whole guide, not just this part */
       else if (b.dataset.ob === "back") show(i - 1);
       else if (b.dataset.ob === "next") (i >= list.length - 1 ? end() : show(i + 1));
     });
@@ -94,8 +94,8 @@ const Onboard = (() => {
     const b = document.body;
     new MutationObserver(() => {
       if (running()) return;
-      if (b.classList.contains("home-off") && !b.classList.contains("drawer-open") && !get("d5-onb1")) setTimeout(() => { if (!running() && !b.classList.contains("drawer-open")) start(P1, "d5-onb1") }, 120);
-      else if (b.classList.contains("drawer-open") && !get("d5-onb2")) setTimeout(() => { if (!running() && b.classList.contains("drawer-open")) start(P2, "d5-onb2") }, 700);
+      if (!b.classList.contains("drawer-open") && !get("mre-onb1")) setTimeout(() => { if (!running() && !b.classList.contains("drawer-open")) start(P1, "mre-onb1") }, 120);
+      else if (b.classList.contains("drawer-open") && !get("mre-onb2")) setTimeout(() => { if (!running() && b.classList.contains("drawer-open")) start(P2, "mre-onb2") }, 700);
     }).observe(b, { attributes: true, attributeFilter: ["class"] });
     /* Settings > Guided tour: replay this tutorial instead of the old tour */
     addEventListener("click", (e) => {

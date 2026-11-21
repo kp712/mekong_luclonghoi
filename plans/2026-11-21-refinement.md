@@ -17,14 +17,14 @@ Decided with the user (grilling session). Audit summary: tests 59 ok; build repr
 - [x] Docs: pdfplumber install, 59 checks, Pages from main, old repo link
 
 ## PR 2 — declutter
-- [ ] Delete classic page, night map, old home screen, old app.js tour, ensureSkeleton, dead functions, Open-Meteo history + fetch script
-- [ ] POWER raw: keep Dec 2000–Nov 2024, gzip; fetch + build read .json.gz
-- [ ] One storage prefix mre- with migration
-- [ ] MIT (code) + CC BY 4.0 (content); footer line
-- [ ] README Vietnamese first then English; Issues as contact; hackathon text → one origin line; SOURCES stays English
-- [ ] Judge-facing app text reworded (show user each change first)
+- [x] Delete classic page, night map, old home screen, old app.js tour, ensureSkeleton, dead functions, Open-Meteo history + fetch script
+- [x] POWER raw: keep Dec 2000–Nov 2024, gzip; fetch + build read .json.gz
+- [x] One storage prefix mre- with migration
+- [x] MIT (code) + CC BY 4.0 (content); footer line
+- [x] README Vietnamese first then English; Issues as contact; hackathon text → one origin line; SOURCES stays English
+- [x] Judge-facing app text reworded (show user each change first)
 - [ ] Delete merged remote branches (list first); keep plans/ and pretty JSON
-- [ ] Update CLAUDE.md
+- [x] Update CLAUDE.md
 
 ## PR 3 — HLS
 - [ ] Run `python pipeline/appeears.py hls`; report results in SOURCES.md only (no app change)

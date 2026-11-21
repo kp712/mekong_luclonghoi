@@ -1,11 +1,12 @@
-"""Download NASA POWER daily weather for every pin -> data/raw/power_<id>.json, NOAA's El Niño index -> data/raw/oni.txt
+"""Download NASA POWER daily weather for every pin -> data/raw/power_<id>.json.gz, NOAA's El Niño index -> data/raw/oni.txt
 and NOAA's latest El Niño outlook -> data/raw/enso_outlook.json.
-Rain, temperature, humidity, wind and sunlight (for FAO-56 Penman-Monteith water demand), 1984-2025:
-sunlight (ALLSKY_SFC_SW_DWN) starts in 1984. All free, no login. Run: python pipeline/fetch_power.py
+Rain, temperature, humidity, wind and sunlight (for FAO-56 Penman-Monteith water demand), Dec 2000 - Nov 2024
+(build.PERIOD), gzipped to keep the repository small. All free, no login. Run: python pipeline/fetch_power.py
 Every point of sites.points(): the app's pins and one point per former province (63).
 Only points with no file yet: python pipeline/fetch_power.py missing
 Only refresh NOAA's outlook (monthly, 2nd Thursday): python pipeline/fetch_power.py enso
 """
+import gzip
 import html
 import json
 import pathlib
@@ -19,7 +20,7 @@ from sites import points
 RAW = pathlib.Path(__file__).resolve().parent.parent / "data" / "raw"
 URL = ("https://power.larc.nasa.gov/api/temporal/daily/point"
        "?parameters=PRECTOTCORR,T2M_MAX,T2M_MIN,RH2M,WS2M,ALLSKY_SFC_SW_DWN&community=AG"
-       "&latitude={lat}&longitude={lon}&start=19840101&end=20251231&format=JSON")
+       "&latitude={lat}&longitude={lon}&start=20001201&end=20241130&format=JSON")
 ONI_URL = "https://www.cpc.ncep.noaa.gov/data/indices/oni.ascii.txt"  # NOAA Oceanic Niño Index, 3-month seasons
 ENSO_URL = "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml"  # NOAA CPC monthly ENSO discussion
 
@@ -51,14 +52,14 @@ def main():
         with urllib.request.urlopen(ONI_URL, timeout=120) as r:
             (RAW / "oni.txt").write_bytes(r.read())
     for s in points():
-        if only_missing and (RAW / f"power_{s['id']}.json").exists():
+        if only_missing and (RAW / f"power_{s['id']}.json.gz").exists():
             continue
         print("fetching", s["id"])
         with urllib.request.urlopen(URL.format(**s), timeout=120) as r:
             data = json.load(r)
         # keep only the values; the header tells us the source (MERRA-2) and fill value (-999)
         out = {"source": data["header"]["sources"], "parameter": data["properties"]["parameter"]}
-        (RAW / f"power_{s['id']}.json").write_text(json.dumps(out), encoding="utf-8")
+        (RAW / f"power_{s['id']}.json.gz").write_bytes(gzip.compress(json.dumps(out).encode("utf-8"), mtime=0))
 
 
 if __name__ == "__main__":

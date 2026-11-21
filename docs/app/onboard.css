@@ -1,7 +1,6 @@
 /* onboard.css (Draft 5): first-visit tutorial + declutter of the map page. */
 
 /* ---------- declutter ---------- */
-#layerSeg { display: none !important }                 /* satellite / night switch: not needed by farmers */
 .sg-legend { display: none !important }                /* repeats the left panel's salt chips */
 .sg-label small { display: none }                      /* "MODIS · 2,9 vụ/năm": kept in the area panel instead */
 .sg-label.is-hover small, .sg-label.is-sel small { display: block }

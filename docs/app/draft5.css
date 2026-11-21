@@ -165,7 +165,7 @@ body.has-site #d5Month { right: auto; left: calc(var(--rail-w) + 20px) }
 .sz-checks .mid { background: color-mix(in srgb, var(--gold) 12%, transparent) } .sz-checks .mid i { background: var(--gold) }
 
 /* the salt month bar belongs to the map only: never over the dashboard, home or a full-screen panel */
-body.dv-on #d5Month, body.home-on #d5Month { display: none !important }
+body.dv-on #d5Month { display: none !important }
 
 /* ---------- step 4: repeats removed in both views ---------- */
 #v4 #planFor, #v4 #talk { display: none }   /* plan name is in the "Your plan is" card; the talk line repeats the disclaimer */
