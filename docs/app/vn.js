@@ -93,8 +93,10 @@ const VnMap = (() => {
   /* ---------- the data a view shows ---------- */
   const climOf = (o) => (yr === "elnino" ? o.elnino.climate : o.climate);
   const salOf = (o) => (yr === "elnino" ? o.elnino && o.elnino.salinity : o.salinity);
-  /* salt ‰ this month at a point (null = no estimate; 0 = not a salt month there: below 4‰) */
-  const salMon = (o, m) => { const s = o && salOf(o); return s && s.level !== "unknown" && s.max_ppt != null ? RX.Model.profile(s.months, s.max_ppt, false)[m] : null; };
+  /* salt ‰ this month at a point (null = no estimate; 0 = no reading and not a salt month there: below 4‰) */
+  /* a month's ‰ for one view of a station or point: the bulletins' own reading where there is one, else the salt-month profile */
+  const monPpt = (s, m) => (s.monthly && s.monthly[m] != null ? s.monthly[m] : RX.Model.profile(s.months, s.max_ppt, false)[m]);
+  const salMon = (o, m) => { const s = o && salOf(o); return s && s.level !== "unknown" && s.max_ppt != null ? monPpt(s, m) : null; };
   /* a month the profile gives 0 is not a salt month (under 4‰), not fresh water: it reads "< 4‰", never "0,0‰" */
   const salTxt = (sv) => (sv ? `${num(sv, 1)}‰` : "< 4‰");
   const kmText = (km) => num(km, km < 10 ? 1 : 0);  // as build.py km_text
@@ -163,7 +165,7 @@ const VnMap = (() => {
     document.body.classList.toggle("vn-rainlayer", mode !== "salt");
     let pts, stops, lo = 0, span = 1, ids = null;
     if (mode === "salt") {
-      pts = (D.stations || []).filter((s) => s[yr]).map((s) => ({ lat: s.lat, lon: s.lon, v: RX.Model.profile(s[yr].months, s[yr].max_ppt, false)[mon] }));
+      pts = (D.stations || []).filter((s) => s[yr]).map((s) => ({ lat: s.lat, lon: s.lon, v: monPpt(s[yr], mon) }));
       ids = new Set(D.places.filter((x) => salMon(x, mon) != null).map((x) => x.id)); stops = SALT; lo = 0.5; span = 14.5;
     } else { pts = points().map((p) => ({ lat: p.lat, lon: p.lon, v: pv(p, mon) })); range = yearRange(); stops = mode === "rain" ? BLUE : DIV; lo = range[0]; span = Math.max(1e-6, range[1] - range[0]); }
     const rings = Object.entries(ids ? G.former : G.province).filter(([id]) => !ids || ids.has(id)).flatMap(([, rs]) => rs.map(ringPts));

@@ -1046,12 +1046,12 @@ def test_kttv_stations_export():
         for k, view in zip(("typical", "elnino"), build.station_views(n)):
             assert (k in s) == bool(view), (n, k)
             if view:
-                assert set(s[k]) == {"level", "max_ppt", "months"} and s[k]["level"] in build.LEVELS and s[k]["max_ppt"] > 0, (n, k)
+                assert set(s[k]) == {"level", "max_ppt", "months", "monthly"} and len(s[k]["monthly"]) == 12 and s[k]["level"] in build.LEVELS and s[k]["max_ppt"] > 0, (n, k)
     assert "typical" not in st["Rạch Giá"] and "elnino" in st["Rạch Giá"]  # bulletins only in 2024, an El Niño year
     for x in d["places"]:  # a point's estimate is its station's, view by view
         for k, sal in (("typical", x["salinity"]), ("elnino", x["elnino"]["salinity"])):
             if sal["level"] != "unknown":
-                assert {f: sal[f] for f in ("level", "max_ppt", "months")} == st[sal["station"]][k], (x["id"], k)
+                assert {f: sal[f] for f in ("level", "max_ppt", "months", "monthly")} == st[sal["station"]][k], (x["id"], k)
 
 
 def test_builder_salt_sync():
@@ -1066,6 +1066,20 @@ def test_builder_salt_sync():
             w = v[view]
             assert (w["salt"], w["ppt"], w["max_ppt"], w["level"]) == (sal["months"], sal["station_ppt"], sal["max_ppt"], sal["level"]), \
                 (sid, view, "copy sites.json salinity months/station_ppt/max_ppt/level into builder.js")
+
+
+def test_station_monthly():
+    # each month: that month's highest 10-day reading, averaged over the view's seasons with a reading; None without one
+    typ, nino = build.station_views("Trần Đề")
+    m = build.station_monthly("Trần Đề", typ)
+    for mon in range(1, 13):
+        per = {}
+        for d, b in build.KTTV.items():
+            dd = build.date.fromisoformat(d)
+            if dd.month == mon and "Trần Đề" in b["readings"] and dd.year + (dd.month == 12) in typ:
+                per[dd.year] = max(per.get(dd.year, 0), b["readings"]["Trần Đề"])
+        assert m[mon - 1] == (round(sum(per.values()) / len(per), 1) if per else None), (mon, m[mon - 1], per)
+    assert m[6] is None  # July: no bulletin
 
 
 def test_kttv_never_shrinks():
