@@ -8,6 +8,7 @@ import json
 import sys
 
 import build
+import salinity
 
 SHIFT = 0.2
 
@@ -20,7 +21,7 @@ def baseline():
         power = build.read_power(s["id"])
         rain = json.loads((build.RAW / "gpm.json").read_text(encoding="utf-8"))[s["id"]]
         clim = build.climate(power, s["lat"], build.typical_year, rain)
-        sal, _ = build.site_salinity(build.SALINITY["sites"][s["id"]])
+        sal, _ = salinity.at(s)
         rows = []
         for c in s["cards"]:
             v = c["variants"][c["crop_default"]] if "variants" in c else c
