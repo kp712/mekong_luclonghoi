@@ -692,6 +692,17 @@ def station_view(name, view):
     return ppt, salt_level(ppt), ms, rule
 
 
+def station_monthly(name, view):
+    """12 monthly ‰ of a station for one view (its seasons, as station_views gives): each month's highest 10-day reading in
+    the bulletins, averaged over the view's seasons that have one; None where no bulletin has a reading that month."""
+    got = defaultdict(lambda: defaultdict(list))
+    for d, b in KTTV.items():
+        day = date.fromisoformat(d)
+        if name in b["readings"] and day.year + (day.month == 12) in view:
+            got[day.month][day.year + (day.month == 12)].append(b["readings"][name])
+    return [round(sum(max(v) for v in got[m].values()) / len(got[m]), 1) if got[m] else None for m in range(1, 13)]
+
+
 def station_views(name):
     """(typical, El Niño) seasons of a station within SALT_SEASONS, as station_record's rows."""
     rec = {y: r for y, r in station_record(name).items() if in_salt_seasons(y)}
@@ -708,7 +719,7 @@ def kttv_stations():
         for key, view in zip(("typical", "elnino"), station_views(n)):
             if view:
                 ppt, level, ms, _ = station_view(n, view)
-                s[key] = {"level": level, "max_ppt": ppt, "months": ms}
+                s[key] = {"level": level, "max_ppt": ppt, "months": ms, "monthly": station_monthly(n, view)}
         out.append(s)
     return out
 
@@ -780,7 +791,8 @@ def kttv_salinity(lat, lon):
                       f" Mùa khô {', '.join(map(str, part))}: cao nhất trong các bản tin tìm được; có thể bỏ sót đỉnh mặn sớm hơn.") if part else None
         note = {k: at[k] + peak[k] + (caveat[k] if caveat else "") + month_note[k] for k in ("en", "vi")}
         return dict(months=ms, note=note, station_ppt=ppt, estimate=True, seasons=len(rec), last_year=max(rec),
-                    level=salt_level(ppt), max_ppt=ppt, station=name, km=km, partial=bool(part), caveat=caveat)
+                    level=salt_level(ppt), max_ppt=ppt, station=name, km=km, partial=bool(part), caveat=caveat,
+                    monthly=station_monthly(name, view))
     return one(views[0], ("typical", "năm thường")), one(views[1], ("El Niño", "năm El Niño"))
 
 

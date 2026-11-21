@@ -40732,7 +40732,21 @@
     "caveat": {
      "en": " Dry season 2026: highest in the bulletins found; may miss an earlier peak.",
      "vi": " Mùa khô 2026: cao nhất trong các bản tin tìm được; có thể bỏ sót đỉnh mặn sớm hơn."
-    }
+    },
+    "monthly": [
+     7.3,
+     7.4,
+     7.5,
+     6.7,
+     3.0,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ]
    },
    "scored": false,
    "not_scored": {
@@ -40904,7 +40918,21 @@
      "caveat": {
       "en": " Dry season 2024: highest in the bulletins found; may miss an earlier peak.",
       "vi": " Mùa khô 2024: cao nhất trong các bản tin tìm được; có thể bỏ sót đỉnh mặn sớm hơn."
-     }
+     },
+     "monthly": [
+      null,
+      null,
+      10.4,
+      9.2,
+      6.0,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
     },
     "cards": [],
     "summary": [
@@ -41768,7 +41796,21 @@
     "caveat": {
      "en": " Dry season 2026: highest in the bulletins found; may miss an earlier peak.",
      "vi": " Mùa khô 2026: cao nhất trong các bản tin tìm được; có thể bỏ sót đỉnh mặn sớm hơn."
-    }
+    },
+    "monthly": [
+     0.8,
+     1.4,
+     0.9,
+     1.4,
+     2.1,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ]
    },
    "scored": false,
    "not_scored": {
@@ -41941,7 +41983,21 @@
      "caveat": {
       "en": " Dry season 2024: highest in the bulletins found; may miss an earlier peak.",
       "vi": " Mùa khô 2024: cao nhất trong các bản tin tìm được; có thể bỏ sót đỉnh mặn sớm hơn."
-     }
+     },
+     "monthly": [
+      null,
+      null,
+      4.7,
+      11.1,
+      10.9,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
     },
     "cards": [],
     "summary": [
@@ -42179,7 +42235,21 @@
     "caveat": {
      "en": " Dry season 2026: highest in the bulletins found; may miss an earlier peak.",
      "vi": " Mùa khô 2026: cao nhất trong các bản tin tìm được; có thể bỏ sót đỉnh mặn sớm hơn."
-    }
+    },
+    "monthly": [
+     7.3,
+     7.4,
+     7.5,
+     6.7,
+     3.0,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ]
    },
    "scored": false,
    "not_scored": {
@@ -42351,7 +42421,21 @@
      "caveat": {
       "en": " Dry season 2024: highest in the bulletins found; may miss an earlier peak.",
       "vi": " Mùa khô 2024: cao nhất trong các bản tin tìm được; có thể bỏ sót đỉnh mặn sớm hơn."
-     }
+     },
+     "monthly": [
+      null,
+      null,
+      10.4,
+      9.2,
+      6.0,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
     },
     "cards": [],
     "summary": [
@@ -46060,7 +46144,21 @@
     "caveat": {
      "en": " Dry season 2026: highest in the bulletins found; may miss an earlier peak.",
      "vi": " Mùa khô 2026: cao nhất trong các bản tin tìm được; có thể bỏ sót đỉnh mặn sớm hơn."
-    }
+    },
+    "monthly": [
+     0.5,
+     2.5,
+     2.8,
+     2.7,
+     2.1,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ]
    },
    "scored": true,
    "not_scored": null,
@@ -47615,7 +47713,21 @@
      "caveat": {
       "en": " Dry season 2024: highest in the bulletins found; may miss an earlier peak.",
       "vi": " Mùa khô 2024: cao nhất trong các bản tin tìm được; có thể bỏ sót đỉnh mặn sớm hơn."
-     }
+     },
+     "monthly": [
+      null,
+      null,
+      8.8,
+      8.6,
+      3.9,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
     },
     "cards": [
      {
@@ -57786,7 +57898,21 @@
     "caveat": {
      "en": " Dry season 2026: highest in the bulletins found; may miss an earlier peak.",
      "vi": " Mùa khô 2026: cao nhất trong các bản tin tìm được; có thể bỏ sót đỉnh mặn sớm hơn."
-    }
+    },
+    "monthly": [
+     0.5,
+     2.5,
+     2.8,
+     2.7,
+     2.1,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ]
    },
    "scored": true,
    "not_scored": null,
@@ -59341,7 +59467,21 @@
      "caveat": {
       "en": " Dry season 2024: highest in the bulletins found; may miss an earlier peak.",
       "vi": " Mùa khô 2024: cao nhất trong các bản tin tìm được; có thể bỏ sót đỉnh mặn sớm hơn."
-     }
+     },
+     "monthly": [
+      null,
+      null,
+      8.8,
+      8.6,
+      3.9,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
     },
     "cards": [
      {
@@ -60906,7 +61046,21 @@
     "caveat": {
      "en": " Dry season 2026: highest in the bulletins found; may miss an earlier peak.",
      "vi": " Mùa khô 2026: cao nhất trong các bản tin tìm được; có thể bỏ sót đỉnh mặn sớm hơn."
-    }
+    },
+    "monthly": [
+     9.7,
+     9.2,
+     9.4,
+     7.3,
+     5.0,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ]
    },
    "scored": true,
    "not_scored": null,
@@ -62461,7 +62615,21 @@
      "caveat": {
       "en": " Dry season 2024: highest in the bulletins found; may miss an earlier peak.",
       "vi": " Mùa khô 2024: cao nhất trong các bản tin tìm được; có thể bỏ sót đỉnh mặn sớm hơn."
-     }
+     },
+     "monthly": [
+      null,
+      null,
+      10.7,
+      6.1,
+      5.0,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
     },
     "cards": [
      {
@@ -66862,7 +67030,21 @@
     "station": "Sóc Trăng",
     "km": 2.0,
     "partial": false,
-    "caveat": null
+    "caveat": null,
+    "monthly": [
+     1.4,
+     2.9,
+     2.5,
+     2.3,
+     2.4,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ]
    },
    "scored": true,
    "not_scored": null,
@@ -68316,7 +68498,21 @@
      "station": "Sóc Trăng",
      "km": 2.0,
      "partial": false,
-     "caveat": null
+     "caveat": null,
+     "monthly": [
+      null,
+      null,
+      3.3,
+      2.8,
+      4.4,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
     },
     "cards": [
      {
@@ -69783,7 +69979,21 @@
     "caveat": {
      "en": " Dry season 2026: highest in the bulletins found; may miss an earlier peak.",
      "vi": " Mùa khô 2026: cao nhất trong các bản tin tìm được; có thể bỏ sót đỉnh mặn sớm hơn."
-    }
+    },
+    "monthly": [
+     5.3,
+     4.9,
+     4.0,
+     10.3,
+     10.2,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ]
    },
    "scored": true,
    "not_scored": null,
@@ -71338,7 +71548,21 @@
      "caveat": {
       "en": " Dry season 2024: highest in the bulletins found; may miss an earlier peak.",
       "vi": " Mùa khô 2024: cao nhất trong các bản tin tìm được; có thể bỏ sót đỉnh mặn sớm hơn."
-     }
+     },
+     "monthly": [
+      null,
+      null,
+      12.7,
+      13.6,
+      13.3,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
     },
     "cards": [
      {
@@ -78592,6 +78816,20 @@
      3,
      4,
      5
+    ],
+    "monthly": [
+     15.3,
+     13.5,
+     10.6,
+     16.9,
+     9.7,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    },
    "elnino": {
@@ -78601,6 +78839,20 @@
      3,
      4,
      5
+    ],
+    "monthly": [
+     null,
+     null,
+     10.1,
+     19.8,
+     9.7,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    }
   },
@@ -78615,6 +78867,20 @@
      3,
      4,
      5
+    ],
+    "monthly": [
+     22.6,
+     29.3,
+     26.8,
+     26.1,
+     24.4,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    },
    "elnino": {
@@ -78624,6 +78890,20 @@
      3,
      4,
      5
+    ],
+    "monthly": [
+     null,
+     null,
+     27.9,
+     23.8,
+     22.9,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    }
   },
@@ -78636,6 +78916,20 @@
     "max_ppt": 3.0,
     "months": [
      3
+    ],
+    "monthly": [
+     0.5,
+     2.5,
+     2.8,
+     2.7,
+     2.1,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    },
    "elnino": {
@@ -78643,6 +78937,20 @@
     "max_ppt": 8.8,
     "months": [
      3
+    ],
+    "monthly": [
+     null,
+     null,
+     8.8,
+     8.6,
+     3.9,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    }
   },
@@ -78657,6 +78965,20 @@
      3,
      4,
      5
+    ],
+    "monthly": [
+     18.9,
+     23.9,
+     22.7,
+     23.4,
+     23.8,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    },
    "elnino": {
@@ -78666,6 +78988,20 @@
      3,
      4,
      5
+    ],
+    "monthly": [
+     null,
+     null,
+     25.3,
+     23.9,
+     22.4,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    }
   },
@@ -78678,6 +79014,20 @@
     "max_ppt": 4.5,
     "months": [
      5
+    ],
+    "monthly": [
+     1.8,
+     2.9,
+     2.6,
+     2.7,
+     3.5,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    },
    "elnino": {
@@ -78685,6 +79035,20 @@
     "max_ppt": 10.9,
     "months": [
      5
+    ],
+    "monthly": [
+     null,
+     null,
+     5.9,
+     10.9,
+     10.8,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    }
   },
@@ -78699,6 +79063,20 @@
      3,
      4,
      5
+    ],
+    "monthly": [
+     21.3,
+     25.7,
+     21.8,
+     24.8,
+     18.9,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    },
    "elnino": {
@@ -78708,6 +79086,20 @@
      3,
      4,
      5
+    ],
+    "monthly": [
+     null,
+     null,
+     29.0,
+     26.1,
+     22.2,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    }
   },
@@ -78721,6 +79113,20 @@
     "months": [
      3,
      4
+    ],
+    "monthly": [
+     7.3,
+     7.4,
+     7.5,
+     6.7,
+     3.0,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    },
    "elnino": {
@@ -78729,6 +79135,20 @@
     "months": [
      3,
      4
+    ],
+    "monthly": [
+     null,
+     null,
+     10.4,
+     9.2,
+     6.0,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    }
   },
@@ -78743,6 +79163,20 @@
      3,
      4,
      5
+    ],
+    "monthly": [
+     10.8,
+     13.3,
+     9.1,
+     5.7,
+     3.9,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    },
    "elnino": {
@@ -78752,6 +79186,20 @@
      3,
      4,
      5
+    ],
+    "monthly": [
+     null,
+     null,
+     10.2,
+     7.3,
+     4.2,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    }
   },
@@ -78766,6 +79214,20 @@
      3,
      4,
      5
+    ],
+    "monthly": [
+     26.4,
+     27.2,
+     29.0,
+     29.4,
+     28.1,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    },
    "elnino": {
@@ -78775,6 +79237,20 @@
      3,
      4,
      5
+    ],
+    "monthly": [
+     null,
+     null,
+     27.9,
+     31.7,
+     32.5,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    }
   },
@@ -78789,6 +79265,20 @@
      3,
      4,
      5
+    ],
+    "monthly": [
+     5.3,
+     4.9,
+     4.0,
+     10.3,
+     10.2,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    },
    "elnino": {
@@ -78798,6 +79288,20 @@
      3,
      4,
      5
+    ],
+    "monthly": [
+     null,
+     null,
+     12.7,
+     13.6,
+     13.3,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    }
   },
@@ -78812,6 +79316,20 @@
      3,
      4,
      5
+    ],
+    "monthly": [
+     7.7,
+     9.7,
+     10.2,
+     9.8,
+     8.9,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    },
    "elnino": {
@@ -78821,6 +79339,20 @@
      3,
      4,
      5
+    ],
+    "monthly": [
+     null,
+     null,
+     16.2,
+     14.4,
+     10.6,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    }
   },
@@ -78835,6 +79367,20 @@
      3,
      4,
      5
+    ],
+    "monthly": [
+     14.3,
+     14.7,
+     13.1,
+     12.2,
+     8.9,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    },
    "elnino": {
@@ -78844,6 +79390,20 @@
      3,
      4,
      5
+    ],
+    "monthly": [
+     null,
+     null,
+     17.2,
+     13.8,
+     11.3,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    }
   },
@@ -78858,6 +79418,20 @@
      3,
      4,
      5
+    ],
+    "monthly": [
+     8.9,
+     9.7,
+     9.4,
+     7.2,
+     5.1,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    },
    "elnino": {
@@ -78867,6 +79441,20 @@
      3,
      4,
      5
+    ],
+    "monthly": [
+     null,
+     null,
+     10.7,
+     7.1,
+     6.1,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    }
   },
@@ -78882,6 +79470,20 @@
      3,
      4,
      5
+    ],
+    "monthly": [
+     13.3,
+     17.8,
+     19.6,
+     16.5,
+     10.2,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    },
    "elnino": {
@@ -78892,6 +79494,20 @@
      3,
      4,
      5
+    ],
+    "monthly": [
+     null,
+     null,
+     19.9,
+     15.1,
+     16.2,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    }
   },
@@ -78906,6 +79522,20 @@
      3,
      4,
      5
+    ],
+    "monthly": [
+     8.9,
+     12.9,
+     13.5,
+     12.9,
+     12.3,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    },
    "elnino": {
@@ -78915,6 +79545,20 @@
      3,
      4,
      5
+    ],
+    "monthly": [
+     null,
+     null,
+     18.6,
+     18.1,
+     14.4,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    }
   },
@@ -78927,6 +79571,20 @@
     "max_ppt": 5.8,
     "months": [
      4
+    ],
+    "monthly": [
+     null,
+     null,
+     0.7,
+     5.8,
+     0.9,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    }
   },
@@ -78939,6 +79597,20 @@
     "max_ppt": 3.3,
     "months": [
      4
+    ],
+    "monthly": [
+     1.4,
+     2.9,
+     2.5,
+     2.3,
+     2.4,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    },
    "elnino": {
@@ -78946,6 +79618,20 @@
     "max_ppt": 7.1,
     "months": [
      4
+    ],
+    "monthly": [
+     null,
+     null,
+     3.3,
+     2.8,
+     4.4,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    }
   },
@@ -78960,6 +79646,20 @@
      3,
      4,
      5
+    ],
+    "monthly": [
+     30.7,
+     31.6,
+     32.1,
+     32.8,
+     33.0,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    },
    "elnino": {
@@ -78969,6 +79669,20 @@
      3,
      4,
      5
+    ],
+    "monthly": [
+     null,
+     null,
+     32.3,
+     37.6,
+     39.3,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    }
   },
@@ -78983,6 +79697,20 @@
      3,
      4,
      5
+    ],
+    "monthly": [
+     12.4,
+     16.4,
+     14.1,
+     14.0,
+     9.7,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    },
    "elnino": {
@@ -78992,6 +79720,20 @@
      3,
      4,
      5
+    ],
+    "monthly": [
+     null,
+     null,
+     19.6,
+     17.8,
+     13.9,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    }
   },
@@ -79005,6 +79747,20 @@
     "months": [
      4,
      5
+    ],
+    "monthly": [
+     0.7,
+     0.6,
+     1.6,
+     3.0,
+     4.2,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    },
    "elnino": {
@@ -79013,6 +79769,20 @@
     "months": [
      4,
      5
+    ],
+    "monthly": [
+     null,
+     null,
+     1.1,
+     5.2,
+     8.0,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    }
   },
@@ -79027,6 +79797,20 @@
      3,
      4,
      5
+    ],
+    "monthly": [
+     20.2,
+     20.6,
+     17.1,
+     14.1,
+     11.8,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    },
    "elnino": {
@@ -79036,6 +79820,20 @@
      3,
      4,
      5
+    ],
+    "monthly": [
+     null,
+     null,
+     16.5,
+     15.6,
+     13.2,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    }
   },
@@ -79050,6 +79848,20 @@
      3,
      4,
      5
+    ],
+    "monthly": [
+     9.7,
+     9.2,
+     9.4,
+     7.3,
+     5.0,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    },
    "elnino": {
@@ -79059,6 +79871,20 @@
      3,
      4,
      5
+    ],
+    "monthly": [
+     null,
+     null,
+     10.7,
+     6.1,
+     5.0,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    }
   },
@@ -79074,6 +79900,20 @@
      3,
      4,
      5
+    ],
+    "monthly": [
+     16.9,
+     21.9,
+     23.1,
+     19.8,
+     14.6,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    },
    "elnino": {
@@ -79084,6 +79924,20 @@
      3,
      4,
      5
+    ],
+    "monthly": [
+     null,
+     null,
+     23.7,
+     20.4,
+     19.9,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    }
   },
@@ -79094,7 +79948,21 @@
    "typical": {
     "level": "low",
     "max_ppt": 0.5,
-    "months": []
+    "months": [],
+    "monthly": [
+     0.1,
+     0.3,
+     0.2,
+     0.2,
+     0.3,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ]
    },
    "elnino": {
     "level": "medium",
@@ -79102,6 +79970,20 @@
     "months": [
      4,
      5
+    ],
+    "monthly": [
+     null,
+     null,
+     0.6,
+     4.3,
+     5.9,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    }
   },
@@ -79112,7 +79994,21 @@
    "typical": {
     "level": "low",
     "max_ppt": 2.5,
-    "months": []
+    "months": [],
+    "monthly": [
+     0.8,
+     1.4,
+     0.9,
+     1.4,
+     2.1,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ]
    },
    "elnino": {
     "level": "medium",
@@ -79121,6 +80017,20 @@
      3,
      4,
      5
+    ],
+    "monthly": [
+     null,
+     null,
+     4.7,
+     11.1,
+     10.9,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    }
   },
@@ -79135,6 +80045,20 @@
      3,
      4,
      5
+    ],
+    "monthly": [
+     21.4,
+     22.0,
+     22.6,
+     21.1,
+     19.9,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    },
    "elnino": {
@@ -79144,6 +80068,20 @@
      3,
      4,
      5
+    ],
+    "monthly": [
+     null,
+     null,
+     26.3,
+     26.0,
+     22.0,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    }
   },
@@ -79154,7 +80092,21 @@
    "typical": {
     "level": "low",
     "max_ppt": 0.9,
-    "months": []
+    "months": [],
+    "monthly": [
+     0.3,
+     0.8,
+     0.6,
+     0.4,
+     0.6,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ]
    },
    "elnino": {
     "level": "medium",
@@ -79162,6 +80114,20 @@
     "months": [
      4,
      5
+    ],
+    "monthly": [
+     null,
+     null,
+     1.3,
+     4.5,
+     4.7,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    }
   },
@@ -79176,6 +80142,20 @@
      2,
      3,
      4
+    ],
+    "monthly": [
+     7.8,
+     8.9,
+     10.5,
+     5.5,
+     1.9,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    },
    "elnino": {
@@ -79185,6 +80165,20 @@
      2,
      3,
      4
+    ],
+    "monthly": [
+     null,
+     null,
+     8.9,
+     5.2,
+     5.3,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
     ]
    }
   }
