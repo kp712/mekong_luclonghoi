@@ -1082,6 +1082,21 @@ def test_station_monthly():
     assert m[6] is None  # July: no bulletin
 
 
+def test_offline_precache():
+    """sw.js saves every local file index.html loads (src, href, data-src) plus the data the app fetches, and each exists;
+    the manifest's icons exist."""
+    import re
+    docs = pathlib.Path(__file__).resolve().parent.parent / "docs"
+    sw, idx = (docs / "sw.js").read_text(encoding="utf-8"), (docs / "index.html").read_text(encoding="utf-8")
+    pre = set(re.findall(r'^  "([^"]+)",?$', sw, re.M)) - {"./"}
+    need = set(re.findall(r'(?:src|href)="((?:app|data)/[^"#?]+)"', idx)) | set(re.findall(r'data-src="([^"]+)"', idx))
+    need |= {"index.html", "data/sites.json", "data/provinces.json", "app/vn_geo.js", "app/costs.json", "app/research.json", "manifest.webmanifest"}
+    assert need <= pre, sorted(need - pre)
+    assert all((docs / p).is_file() for p in pre), [p for p in pre if not (docs / p).is_file()]
+    man = json.loads((docs / "manifest.webmanifest").read_text(encoding="utf-8"))
+    assert all((docs / i["src"]).is_file() and i["src"] in pre for i in man["icons"])
+
+
 def test_kttv_never_shrinks():
     lost = fetch_salinity_vietnam.lost_dates
     assert lost({"2025-04-10": {}, "2025-05-10": {}}, {"2025-05-10": {}, "2026-03-10": {}}) == ["2025-04-10"]

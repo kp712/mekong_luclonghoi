@@ -16,7 +16,7 @@ Rice farmers in coastal Sóc Trăng, in Vietnam's Mekong Delta, grow two or thre
 4. **See the season and the evidence.** **Season** is the 12-month calendar. **Data** shows salt in the field and over 12 months, the months a crop is safe from salt, estimated profit, the five scores, the El Niño outlook, sowing and harvest reminders, and a multi-year view.
 5. **Several fields, one phone.** **Fields** keeps each field's area, crops, priorities and plan, saved on that phone only.
 
-**Simple** (plain words, larger text) and **Advanced** (every number and score) show the same data. The app works offline-light: if the map library fails to load, the rotation cards and plan still appear.
+**Simple** (plain words, larger text) and **Advanced** (every number and score) show the same data. **Works with no signal, and installs like an app.** On the first visit the phone saves the app and its data (about 0.8 MB, `docs/sw.js`); after that it opens with no connection, shows a small "Ngoại tuyến · đang dùng bản đã lưu" (offline · using the saved copy) chip, and keeps each map tile the farmer has looked at. A new version downloads quietly and shows the next time the app is opened. "Add to Home Screen" gives it its own icon (`docs/manifest.webmanifest`). Live weather and place search still need a connection. If the map library fails to load, the rotation cards and plan still appear.
 
 ## NASA data it uses
 | Dataset | What it gives the app | Resolution, period |

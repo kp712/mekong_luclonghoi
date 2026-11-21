@@ -87,3 +87,5 @@ const AppReady = (() => {
     .then(([j, c, r]) => { SITES_JSON = j; DATA = SiteData.app(j); COSTS = c; RESEARCH = r; start() })
     .catch(fail);
 })();
+/* offline copy and home-screen install (sw.js); not available when the page is opened from disk (file://) */
+if ("serviceWorker" in navigator && location.protocol !== "file:") addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));
