@@ -1127,6 +1127,31 @@ def test_salt_lower_bound():
     assert "at least 14.0‰" in typ["note"]["en"] and "ít nhất 14,0‰" in typ["note"]["vi"] and "baocantho" not in typ["note"]["en"]
 
 
+def test_score_parity():
+    """docs/app/score.js (Plan Lab, dashboard pests) gives every card in sites.json the same scores as build.py."""
+    import subprocess
+    js = r"""
+    const fs = require("fs"), vm = require("vm"), root = process.argv[1];
+    const ctx = { SITES_JSON: JSON.parse(fs.readFileSync(root + "/data/sites.json", "utf8")), module: {} };
+    vm.createContext(ctx);
+    for (const f of ["builder.js", "score.js"]) vm.runInContext(fs.readFileSync(root + "/app/" + f, "utf8").replace(/^const (BUILDER|EXTRA|Score) =/gm, "globalThis.$1 ="), ctx);
+    const out = [];
+    for (const s of ctx.SITES_JSON.sites) for (const view of ["typical", "elnino"]) {
+      for (const c of (view === "typical" ? s.cards : s.elnino.cards)) {
+        for (const x of c.variants ? Object.values(c.variants).map(v => ({ ...v, id: c.id })) : [c]) {
+          out.push({ site: s.id, view, id: x.id, crop: x.crop || null, js: ctx.Score.ofCard(s.id, view, x, x.crop).scores, py: x.scores });
+        }
+      }
+    }
+    console.log(JSON.stringify(out));
+    """
+    res = json.loads(subprocess.run(["node", "-e", js, str(build.ROOT / "docs")], capture_output=True, text=True, check=True).stdout)
+    assert len(res) >= 5 * 2 * 7, len(res)  # 5 pins x 2 views x (4 cards + 3 upland crops)
+    bad = [(r["site"], r["view"], r["id"], r["crop"], {k: (r["py"][k], r["js"][k]) for k in r["py"] if r["py"][k] != r["js"][k]})
+           for r in res if r["py"] != r["js"]]
+    assert not bad, bad
+
+
 def test_builder_sync():
     """docs/app/builder.js (Plan Lab, written by build.write_builder) matches sites.json and the pipeline's constants and files."""
     text = (build.ROOT / "docs" / "app" / "builder.js").read_text(encoding="utf-8")
