@@ -1054,6 +1054,20 @@ def test_kttv_stations_export():
                 assert {f: sal[f] for f in ("level", "max_ppt", "months")} == st[sal["station"]][k], (x["id"], k)
 
 
+def test_builder_salt_sync():
+    """docs/app/builder.js BUILDER.sites (plan builder, lab.js) carries each pin's salinity as in sites.json."""
+    text = (build.ROOT / "docs" / "app" / "builder.js").read_text(encoding="utf-8")
+    line = next(ln for ln in text.splitlines() if ln.startswith("const BUILDER = "))
+    b = json.loads(line[len("const BUILDER = "):].rstrip(";"))
+    sites = {s["id"]: s for s in json.loads(build.OUT.read_text(encoding="utf-8"))["sites"]}
+    assert set(b["sites"]) == set(sites)
+    for sid, v in b["sites"].items():
+        for view, sal in (("typical", sites[sid]["salinity"]), ("elnino", sites[sid]["elnino"]["salinity"])):
+            w = v[view]
+            assert (w["salt"], w["ppt"], w["max_ppt"], w["level"]) == (sal["months"], sal["station_ppt"], sal["max_ppt"], sal["level"]), \
+                (sid, view, "copy sites.json salinity months/station_ppt/max_ppt/level into builder.js")
+
+
 def test_kttv_never_shrinks():
     lost = fetch_salinity_vietnam.lost_dates
     assert lost({"2025-04-10": {}, "2025-05-10": {}}, {"2025-05-10": {}, "2026-03-10": {}}) == ["2025-04-10"]
