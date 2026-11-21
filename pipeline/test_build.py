@@ -348,10 +348,11 @@ def test_salinity_station_data():
 
 
 def test_gpm_cross_check():
-    assert fetch_gpm.cell(105.96, 9.365) == (2859, 993)        # Vĩnh Châu pin -> cell centred 105.95 E, 9.35 N
+    assert fetch_gpm.cell(105.96, 9.365) == (2859, 993)        # old Vĩnh Châu pin -> cell centred 105.95 E, 9.35 N
     assert fetch_gpm.mm_per_month(0.01, 2016, 1) == 7.4        # 0.01 mm/hr x 744 hours
     text = "Dataset: x\nprecipitation[0][0], 0.5, 0.25\nprecipitation[0][1], 0, -9999.9\nlat, 9.25, 9.35"
     assert fetch_gpm.parse(text) == [[0.5, 0.25], [0.0, -9999.9]]
+    assert fetch_gpm.parse(text.replace("precipitation[", "/Grid/precipitation[")) == [[0.5, 0.25], [0.0, -9999.9]]  # cloud DAP4 CSV
     days = {f"2020{m:02d}{d:02d}": float(m) for m in range(1, 13) for d in (1, 2)} | \
            {f"2021{m:02d}{d:02d}": float(13 - m) for m in range(1, 13) for d in (1, 2)}
     power = {"parameter": {"PRECTOTCORR": days}}
