@@ -1,105 +1,105 @@
 {
  "An Ninh": {
   "river": "Cái Bé",
-  "readings": 26,
+  "readings": 30,
   "max_ppt": 19.8,
   "first": "2024-03-20",
   "last": "2026-05-31"
  },
  "An Thuận": {
   "river": "Hàm Luông",
-  "readings": 26,
-  "max_ppt": 29.9,
+  "readings": 30,
+  "max_ppt": 30.7,
   "first": "2024-03-20",
   "last": "2026-05-31"
  },
  "An Định": {
   "river": "Tiền",
-  "readings": 26,
+  "readings": 29,
   "max_ppt": 8.8,
   "first": "2024-03-20",
   "last": "2026-05-31"
  },
  "Bình Đại": {
   "river": "Cửa Đại",
-  "readings": 26,
+  "readings": 30,
   "max_ppt": 25.3,
   "first": "2024-03-20",
   "last": "2026-05-31"
  },
  "Bến Lức": {
   "river": "Vàm Cỏ Đông",
-  "readings": 26,
+  "readings": 30,
   "max_ppt": 10.9,
   "first": "2024-03-20",
   "last": "2026-05-31"
  },
  "Bến Trại": {
   "river": "Cổ Chiên (cửa Cổ Chiên)",
-  "readings": 26,
+  "readings": 30,
   "max_ppt": 29.0,
   "first": "2024-03-20",
   "last": "2026-05-31"
  },
  "Cát Lái": {
   "river": "Sài Gòn",
-  "readings": 25,
+  "readings": 29,
   "max_ppt": 10.4,
   "first": "2024-03-20",
   "last": "2026-05-31"
  },
  "Cầu Quan": {
   "river": "Hậu (cửa Định An)",
-  "readings": 26,
+  "readings": 30,
   "max_ppt": 13.3,
   "first": "2024-03-20",
   "last": "2026-05-31"
  },
  "Gành Hào": {
   "river": "Gành Hào",
-  "readings": 26,
+  "readings": 30,
   "max_ppt": 32.5,
   "first": "2024-03-20",
   "last": "2026-05-31"
  },
  "Gò Quao": {
   "river": "Cái Lớn",
-  "readings": 26,
+  "readings": 30,
   "max_ppt": 15.5,
   "first": "2024-03-20",
   "last": "2026-05-31"
  },
  "Hòa Bình": {
   "river": "Cửa Tiểu",
-  "readings": 26,
+  "readings": 30,
   "max_ppt": 16.2,
   "first": "2024-03-20",
   "last": "2026-05-31"
  },
  "Hưng Mỹ": {
   "river": "Cổ Chiên (cửa Cung Hầu)",
-  "readings": 26,
+  "readings": 30,
   "max_ppt": 17.2,
   "first": "2024-03-20",
   "last": "2026-05-31"
  },
  "Hương Mỹ": {
   "river": "Cổ Chiên (cửa Cổ Chiên)",
-  "readings": 26,
+  "readings": 30,
   "max_ppt": 11.3,
   "first": "2024-03-20",
   "last": "2026-05-31"
  },
  "Long Phú": {
   "river": "Hậu (cửa Trần Đề)",
-  "readings": 26,
+  "readings": 30,
   "max_ppt": 19.9,
   "first": "2024-03-20",
   "last": "2026-05-31"
  },
  "Lộc Thuận": {
   "river": "Cửa Đại",
-  "readings": 26,
+  "readings": 30,
   "max_ppt": 18.6,
   "first": "2024-03-20",
   "last": "2026-05-31"
@@ -113,84 +113,84 @@
  },
  "Sóc Trăng": {
   "river": "K. Maspero",
-  "readings": 26,
+  "readings": 30,
   "max_ppt": 4.4,
   "first": "2024-03-20",
   "last": "2026-05-31"
  },
  "Sông Đốc": {
   "river": "Sông Đốc",
-  "readings": 26,
+  "readings": 30,
   "max_ppt": 39.3,
   "first": "2024-03-20",
   "last": "2026-05-31"
  },
  "Sơn Đốc": {
   "river": "Hàm Luông",
-  "readings": 26,
+  "readings": 30,
   "max_ppt": 19.6,
   "first": "2024-03-20",
   "last": "2026-05-31"
  },
  "Thạnh Phú": {
   "river": "K. Như Gia",
-  "readings": 26,
+  "readings": 30,
   "max_ppt": 8.0,
   "first": "2024-03-20",
   "last": "2026-05-31"
  },
  "Trà Kha": {
   "river": "Hậu (cửa Định An)",
-  "readings": 26,
+  "readings": 30,
   "max_ppt": 20.6,
   "first": "2024-03-20",
   "last": "2026-05-31"
  },
  "Trà Vinh": {
   "river": "Cổ Chiên (cửa Cung Hầu)",
-  "readings": 26,
+  "readings": 30,
   "max_ppt": 11.2,
   "first": "2024-03-20",
   "last": "2026-05-31"
  },
  "Trần Đề": {
   "river": "Hậu",
-  "readings": 26,
+  "readings": 30,
   "max_ppt": 23.7,
   "first": "2024-03-20",
   "last": "2026-05-31"
  },
  "Tuyên Nhơn": {
   "river": "Vàm Cỏ Tây",
-  "readings": 26,
+  "readings": 30,
   "max_ppt": 5.9,
   "first": "2024-03-20",
   "last": "2026-05-31"
  },
  "Tân An": {
   "river": "Vàm Cỏ Tây",
-  "readings": 26,
+  "readings": 30,
   "max_ppt": 11.1,
   "first": "2024-03-20",
   "last": "2026-05-31"
  },
  "Vàm Kênh": {
   "river": "Cửa Tiểu",
-  "readings": 26,
+  "readings": 30,
   "max_ppt": 26.3,
   "first": "2024-03-20",
   "last": "2026-05-31"
  },
  "Xuân Khánh": {
   "river": "Vàm Cỏ Đông",
-  "readings": 26,
+  "readings": 30,
   "max_ppt": 4.7,
   "first": "2024-03-20",
   "last": "2026-05-31"
  },
  "Đại Ngãi": {
   "river": "Hậu (cửa Tranh Đề)",
-  "readings": 26,
+  "readings": 30,
   "max_ppt": 10.5,
   "first": "2024-03-20",
   "last": "2026-05-31"

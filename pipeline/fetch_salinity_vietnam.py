@@ -6,6 +6,7 @@ data/raw/salinity_vietnam_summary.json.
 Run: py pipeline/fetch_salinity_vietnam.py
 """
 import calendar
+import datetime
 import io
 import json
 import pathlib
@@ -41,12 +42,13 @@ def urlopen_retry(req, timeout, tries=3):
             time.sleep(2)
 
 
-def probe_pdfs(have):
-    """HEAD-probe the date-patterned PDF URLs for 10th/20th/last day of Dec-Mar, 2024-2026, not already known.
-    The upload folder is thuyvan1 or thuyvan2; the issue hour is always 1500 (336 other hour guesses all 404'd)."""
+def probe_pdfs(have, failed):
+    """HEAD-probe the date-patterned PDF URLs for 10th/20th/last day of Dec-May, 2024 to this year, not already known.
+    The upload folder is thuyvan1 or thuyvan2; the issue hour is always 1500 (336 other hour guesses all 404'd).
+    A network error (not a 404) is appended to `failed`."""
     found = {}
-    for y in (2024, 2025, 2026):
-        for m in (12, 1, 2, 3):
+    for y in range(2024, datetime.date.today().year + 1):
+        for m in (12, 1, 2, 3, 4, 5):
             for d in (10, 20, calendar.monthrange(y, m)[1]):
                 dt = f"{y}-{m:02d}-{d:02d}"
                 if dt in have:
@@ -60,31 +62,34 @@ def probe_pdfs(have):
                     except urllib.error.HTTPError:
                         pass
                     except OSError as e:
-                        print("Warning: probe failed:", url, e)
+                        print("  ERROR probe:", url, e)
+                        failed.append(url)
     return found
 
 
 def fetch_html(url):
     req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-    with urllib.request.urlopen(req, timeout=30) as r:
+    with urlopen_retry(req, 30) as r:
         return r.read().decode("utf-8", "replace")
 
 
-def discover_kttv_pdfs():
-    """Return {date_str: pdf_url} from existing salinity_bulletins.json + live kttv.gov.vn list."""
+def discover_kttv_pdfs(failed):
+    """Return {date_str: pdf_url} from the bulletins already on file + live kttv.gov.vn list + date probes.
+    Listing, post-page and probe network errors are appended to `failed`."""
     pdfs = {}
-    existing = RAW / "salinity_bulletins.json"
-    if existing.exists():
-        b = json.loads(existing.read_text(encoding="utf-8")).get("bulletins", {})
-        for dt, info in b.items():
-            if info.get("url"):
-                pdfs[dt] = info["url"].replace("kttv.gov.vn//", "kttv.gov.vn/")
+    for name in ("salinity_bulletins.json", "salinity_kttv_vietnam.json"):
+        existing = RAW / name
+        if existing.exists():
+            for dt, info in json.loads(existing.read_text(encoding="utf-8")).get("bulletins", {}).items():
+                if info.get("url"):
+                    pdfs[dt] = info["url"].replace("kttv.gov.vn//", "kttv.gov.vn/")
     posts, page = set(), 1
     while True:  # listing pages via ?pageindex=N; stop when a page adds no new posts
         try:
             html = fetch_html(f"{KTTV_LIST_URL}?pageindex={page}")
         except OSError as e:
-            print("Warning: could not fetch live KTTV list:", e)
+            print(f"  ERROR listing page {page}:", e)
+            failed.append(f"listing page {page}")
             break
         new = set(re.findall(r'href="(https?://kttv\.gov\.vn/[^"]*xam-nhap-man[^"]*\.html)"', html, re.I)) - posts
         if not new:
@@ -94,13 +99,15 @@ def discover_kttv_pdfs():
     for post_url in sorted(posts):
         try:
             phtml = fetch_html(post_url)
-        except OSError:
+        except OSError as e:
+            print("  ERROR post page:", post_url, e)
+            failed.append(post_url)
             continue
         for pdf_url in re.findall(r'https?://[^\s"\'<>]+\.pdf', phtml, re.I):
             m = re.search(r'(\d{4})(\d{2})(\d{2})', pdf_url)
             dt = f"{m[1]}-{m[2]}-{m[3]}" if m else post_url
             pdfs[dt] = pdf_url.replace("kttv.gov.vn//", "kttv.gov.vn/")
-    pdfs.update(probe_pdfs(pdfs))
+    pdfs.update(probe_pdfs(pdfs, failed))
     return dict(sorted(pdfs.items()))
 
 
@@ -143,12 +150,19 @@ def extract_measured_table(pdf_bytes):
     return rows_out
 
 
+def lost_dates(old_bulletins, new_bulletins):
+    """Bulletin dates on file that a new run would drop (the file must never shrink)."""
+    return sorted(set(old_bulletins) - set(new_bulletins))
+
+
 def main():
     RAW.mkdir(parents=True, exist_ok=True)
-    pdfs = discover_kttv_pdfs()
+    out_path = RAW / "salinity_kttv_vietnam.json"
+    failed = []
+    pdfs = discover_kttv_pdfs(failed)
     print(f"Found {len(pdfs)} KTTV salinity bulletin PDFs")
 
-    bulletins, rivers, failed = {}, {}, []
+    bulletins, rivers = {}, {}
     for dt, url in pdfs.items():
         print(f"Downloading & parsing {dt}: {url}", flush=True)
         try:
@@ -158,15 +172,22 @@ def main():
             print(f"  ERROR {dt}: {e}", flush=True)
             failed.append(dt)
             continue
+        if not table:
+            print(f"  ERROR {dt}: no measured-table rows", flush=True)
+            failed.append(dt)
+            continue
         bulletins[dt] = {"url": url, "readings": {k: v for k, (_, v) in table.items()}}
         for k, (river, _) in table.items():
             rivers.setdefault(k, river)
         print(f"  extracted {len(table)} stations", flush=True)
 
     if failed:
-        sys.exit(f"{len(failed)} bulletin(s) failed ({', '.join(failed)}); nothing written")
+        sys.exit(f"{len(failed)} fetch(es) failed ({', '.join(failed)}); nothing written")
+    if out_path.exists():
+        lost = lost_dates(json.loads(out_path.read_text(encoding="utf-8"))["bulletins"], bulletins)
+        if lost:
+            sys.exit(f"{len(lost)} bulletin(s) on file missing from this run ({', '.join(lost)}); nothing written")
 
-    out_path = RAW / "salinity_kttv_vietnam.json"
     out_data = {
         "source": {
             "title": "NCHMF (Trung tâm Dự báo KTTV quốc gia), Tin dự báo xâm nhập mặn trên khu vực Nam Bộ",
