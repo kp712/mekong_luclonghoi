@@ -277,7 +277,7 @@ const Model = (() => {
     if (!field) return profile(n.salt || t.salt, n.peak || t.peak, false)[m];
     return profile(n.salt || t.salt, n.peak || t.peak, t.level === "low")[m] * kFor(t).k;
   }
-  return { saltAt, kFor, predict, html, askHTML, summary, onChange: (f) => subs.push(f), get ans() { return ans; }, set, P_NINO };
+  return { saltAt, kFor, predict, profile, html, askHTML, summary, onChange: (f) => subs.push(f), get ans() { return ans; }, set, P_NINO };
 })();
 
 return { Core, Model, DATA };
