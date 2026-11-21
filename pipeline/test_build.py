@@ -1072,6 +1072,14 @@ def test_kttv_never_shrinks():
     lost = fetch_salinity_vietnam.lost_dates
     assert lost({"2025-04-10": {}, "2025-05-10": {}}, {"2025-05-10": {}, "2026-03-10": {}}) == ["2025-04-10"]
     assert lost({"2025-05-10": {}}, {"2025-05-10": {}, "2026-03-10": {}}) == []
+    # a bulletin KTTV later removed (404) keeps its stored readings; other errors still stop the run
+    import urllib.error
+    keep = fetch_salinity_vietnam.keep_stored
+    gone = urllib.error.HTTPError("u", 404, "Not Found", {}, None)
+    assert keep(gone, "2025-04-10", {"2025-04-10": {}})
+    assert not keep(gone, "2026-04-10", {"2025-04-10": {}})  # never on file: nothing to keep
+    assert not keep(urllib.error.HTTPError("u", 500, "err", {}, None), "2025-04-10", {"2025-04-10": {}})
+    assert not keep(OSError("reset"), "2025-04-10", {"2025-04-10": {}})
 
 
 def test_km_and_far_points():

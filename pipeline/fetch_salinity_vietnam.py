@@ -155,6 +155,12 @@ def lost_dates(old_bulletins, new_bulletins):
     return sorted(set(old_bulletins) - set(new_bulletins))
 
 
+def keep_stored(err, dt, old_bulletins):
+    """A bulletin on file whose PDF KTTV has since removed (HTTP 404) keeps its stored readings instead of blocking every
+    later run; any other failure still stops the run."""
+    return isinstance(err, urllib.error.HTTPError) and err.code == 404 and dt in old_bulletins
+
+
 def main():
     RAW.mkdir(parents=True, exist_ok=True)
     out_path = RAW / "salinity_kttv_vietnam.json"
@@ -162,6 +168,9 @@ def main():
     pdfs = discover_kttv_pdfs(failed)
     print(f"Found {len(pdfs)} KTTV salinity bulletin PDFs")
 
+    old = json.loads(out_path.read_text(encoding="utf-8"))["bulletins"] if out_path.exists() else {}
+    sum_path = RAW / "salinity_vietnam_summary.json"
+    old_rivers = {k: v["river"] for k, v in json.loads(sum_path.read_text(encoding="utf-8")).items()} if sum_path.exists() else {}
     bulletins, rivers = {}, {}
     for dt, url in pdfs.items():
         print(f"Downloading & parsing {dt}: {url}", flush=True)
@@ -169,6 +178,10 @@ def main():
             req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
             table = extract_measured_table(urlopen_retry(req, 45).read())
         except Exception as e:
+            if keep_stored(e, dt, old):
+                print(f"  WARNING {dt}: PDF no longer online (404); keeping the readings on file", flush=True)
+                bulletins[dt] = old[dt]
+                continue
             print(f"  ERROR {dt}: {e}", flush=True)
             failed.append(dt)
             continue
@@ -183,8 +196,8 @@ def main():
 
     if failed:
         sys.exit(f"{len(failed)} fetch(es) failed ({', '.join(failed)}); nothing written")
-    if out_path.exists():
-        lost = lost_dates(json.loads(out_path.read_text(encoding="utf-8"))["bulletins"], bulletins)
+    if old:
+        lost = lost_dates(old, bulletins)
         if lost:
             sys.exit(f"{len(lost)} bulletin(s) on file missing from this run ({', '.join(lost)}); nothing written")
 
@@ -203,11 +216,10 @@ def main():
         for st, v in b["readings"].items():
             per_station[st].append((dt, v))
     summary = {
-        st: {"river": rivers[st], "readings": len(r), "max_ppt": max(v for _, v in r),
+        st: {"river": rivers.get(st, old_rivers.get(st, "")), "readings": len(r), "max_ppt": max(v for _, v in r),
              "first": min(d for d, _ in r), "last": max(d for d, _ in r)}
         for st, r in sorted(per_station.items())
     }
-    sum_path = RAW / "salinity_vietnam_summary.json"
     sum_path.write_text(json.dumps(summary, ensure_ascii=False, indent=1), encoding="utf-8")
     print(f"wrote {sum_path} ({len(summary)} stations)")
 
