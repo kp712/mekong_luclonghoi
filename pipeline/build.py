@@ -578,7 +578,7 @@ def summary(clim, nd, sal, elnino=False):
         salt = sal.get("reason") or line("Salt: no estimate for this area yet (salinity is never measured by satellite; no public report checked here).",
                     "Mặn: chưa có ước tính cho khu vực này (độ mặn không đo bằng vệ tinh; chưa kiểm tra báo cáo công khai nào ở đây).")
     else:
-        at = (f" at {sal['station']} station, {whole(sal['km'])} km away", f" tại trạm {sal['station']}, cách {vi_num(whole(sal['km']))} km") if "station" in sal else ("", "")
+        at = (f" at {sal['station']} station, {km_text(sal['km'])} km away", f" tại trạm {sal['station']}, cách {vi_num(km_text(sal['km']))} km") if "station" in sal else ("", "")
         when = (f"Salt usually {month_names(sal['months'], 'en')}", f"Mặn thường vào {month_names(sal['months'], 'vi')}") if sal["months"] else ("Salt", "Mặn")
         salt = line(f"{when[0]}: {lvl}{at[0]} (estimate from public reports, not satellite).",
                     f"{when[1]}, mức {LEVEL_VI[lvl]}{at[1]} (ước tính từ báo cáo công khai, không đo bằng vệ tinh).")
@@ -656,15 +656,61 @@ def km_between(lat1, lon1, lat2, lon2):
 
 
 def salt_months(name, seasons=None, need=2):
-    """Months whose KTTV bulletin readings at the station reached SALT_MED (4‰) in at least `need` dry seasons
-    (of `seasons` if given, else of SALT_SEASONS)."""
+    """Months that reached SALT_MED (4‰) at the station in at least `need` dry seasons (of `seasons` if given, else of
+    SALT_SEASONS): its KTTV bulletin readings, and at a Sóc Trăng table station also each table row's peak, at its month."""
     seen = defaultdict(set)
+    want = lambda y: y in seasons if seasons else in_salt_seasons(y)
     for d, b in KTTV.items():
         day = date.fromisoformat(d)
         y = day.year + (day.month == 12)
-        if b["readings"].get(name, 0) >= SALT_MED and (y in seasons if seasons else in_salt_seasons(y)):
+        if b["readings"].get(name, 0) >= SALT_MED and want(y):
             seen[day.month].add(y)
+    sid = next((k for k, v in TABLE_KTTV.items() if v == name), None)
+    for y, (ppt, m) in (json.loads((RAW / "salinity_stations.json").read_text(encoding="utf-8"))["stations"][sid]["yearly_max"].items() if sid else ()):
+        if ppt >= SALT_MED and want(int(y)):
+            seen[m].add(int(y))
     return sorted(m for m, ys in seen.items() if len(ys) >= need)
+
+
+def km_text(km):
+    """Distance as the app writes it: one decimal under 10 km, whole km from 10 km (as the tile in docs/app/vn.js)."""
+    return f"{round(km, 1):.1f}" if km < 10 else str(int(km + 0.5))
+
+
+def station_view(name, view):
+    """One view (typical or El Niño seasons, {season: (max_ppt, month, partial)}) of a station: (max_ppt, level, months,
+    rule). max_ppt: the average of the seasons' peaks. months: salt_months (rule "two"); if none while the level is medium or
+    high (ruling R3), the range from the first to the last month that reached 4‰ in any season of this view (rule "any");
+    else none (rule "none")."""
+    ppt = round(sum(r[0] for r in view.values()) / len(view), 1)
+    ms, rule = salt_months(name), "two"
+    if not ms and salt_level(ppt) != "low":
+        q = salt_months(name, set(view), 1)
+        ms, rule = list(range(min(q), max(q) + 1)), "any"
+    elif not ms:
+        rule = "none"
+    return ppt, salt_level(ppt), ms, rule
+
+
+def station_views(name):
+    """(typical, El Niño) seasons of a station within SALT_SEASONS, as station_record's rows."""
+    rec = {y: r for y, r in station_record(name).items() if in_salt_seasons(y)}
+    return tuple({y: r for y, r in rec.items() if salt_elnino(y) == e} for e in (False, True))
+
+
+def kttv_stations():
+    """The KTTV stations for the salt map (docs/app/vn.js blends between them): name, position, and for each view with at
+    least one season in SALT_SEASONS its level, max_ppt and months (station_view, the same rules as the province points)."""
+    names = sorted({n for b in KTTV.values() for n in b["readings"]})
+    out = []
+    for n in names:
+        s = {"name": n, "lat": KTTV_STATIONS[n]["lat"], "lon": KTTV_STATIONS[n]["lon"]}
+        for key, view in zip(("typical", "elnino"), station_views(n)):
+            if view:
+                ppt, level, ms, _ = station_view(n, view)
+                s[key] = {"level": level, "max_ppt": ppt, "months": ms}
+        out.append(s)
+    return out
 
 
 def nearest_station(lat, lon):
@@ -680,8 +726,11 @@ def no_estimate(lat, lon):
     """unknown_salinity() for a province point kttv_salinity gives no estimate, saying why: its nearest station is over
     SALT_KM away, or it has readings for only one kind of year (typical or El Niño)."""
     name, km = nearest_station(lat, lon)
-    d = (whole(round(km, 1)), vi_num(whole(round(km, 1))))
-    if km > SALT_KM:
+    d = (km_text(km), vi_num(km_text(km)))
+    if km > 100:  # the bulletins cover the south only: a far station's distance tells a farmer nothing
+        why = line("this point is outside the area covered by KTTV's salinity bulletins for southern Vietnam",
+                   "điểm này nằm ngoài khu vực bản tin độ mặn Nam Bộ của KTTV")
+    elif km > SALT_KM:
         why = line(f"the nearest KTTV salinity station, {name}, is {d[0]} km away (over {SALT_KM} km)",
                    f"trạm đo mặn KTTV gần nhất, {name}, cách {d[1]} km (xa hơn {SALT_KM} km)")
     else:
@@ -704,23 +753,20 @@ def kttv_salinity(lat, lon):
     if km > SALT_KM:
         return None
     km = round(km, 1)
-    rec = {y: r for y, r in station_record(name).items() if in_salt_seasons(y)}
-    views = [{y: r for y, r in rec.items() if salt_elnino(y) == e} for e in (False, True)]
+    views = station_views(name)
+    rec = {**views[0], **views[1]}
     if not all(views):  # e.g. Rạch Giá: bulletins only in 2024, so no typical season to compare with
         return None
-    months = salt_months(name)
-    at = line(f"Nearest KTTV salinity station: {name}, {whole(km)} km away (station position approximate).",
-              f"Trạm đo mặn KTTV gần nhất: {name}, cách {vi_num(whole(km))} km (vị trí trạm gần đúng).")
+    at = line(f"Nearest KTTV salinity station: {name}, {km_text(km)} km away (station position approximate).",
+              f"Trạm đo mặn KTTV gần nhất: {name}, cách {vi_num(km_text(km))} km (vị trí trạm gần đúng).")
 
     def one(view, kind):
-        ppt = round(sum(r[0] for r in view.values()) / len(view), 1)
-        ms = months
-        if ms:
+        ppt, _, ms, rule = station_view(name, view)
+        if rule == "two":
             month_note = line(" Salt months: months that reached 4‰ there in at least 2 dry seasons.", " Tháng mặn: các tháng độ mặn tại trạm đạt 4‰ trong ít nhất 2 mùa khô.")
-        elif salt_level(ppt) != "low":  # salty on average, yet no month reached 4‰ twice: any season of this view counts
-            ms = sorted(set(salt_months(name, set(view), 1)) | {r[1] for r in view.values() if r[0] >= SALT_MED})
-            month_note = line(f" Fewer than 2 dry seasons reached 4‰ in any month, so the months that reached 4‰ in any {kind[0]} season are used.",
-                              f" Không tháng nào đạt 4‰ trong ít nhất 2 mùa khô, nên dùng các tháng đạt 4‰ trong bất kỳ mùa khô {kind[1]} nào.")
+        elif rule == "any":  # salty on average, yet no month reached 4‰ twice: any season of this view counts
+            month_note = line(f" Fewer than 2 dry seasons reached 4‰ in any month, so the months from the first to the last that reached 4‰ in any {kind[0]} season are used.",
+                              f" Không tháng nào đạt 4‰ trong ít nhất 2 mùa khô, nên dùng các tháng từ tháng đầu đến tháng cuối đạt 4‰ trong bất kỳ mùa khô {kind[1]} nào.")
         else:
             month_note = line(" No month reached 4‰ there in 2 dry seasons.", " Chưa tháng nào độ mặn tại trạm đạt 4‰ trong 2 mùa khô.")
         ys, part = ", ".join(map(str, sorted(view))), sorted(y for y, r in view.items() if r[2])
@@ -899,8 +945,8 @@ def make_card(rot, clim, nd, sal, elnino=False):
     else:
         if "station" in sal:  # a province point: its nearest KTTV station
             part = ("; highest in the bulletins found; may miss an earlier peak", "; cao nhất trong các bản tin tìm được, có thể bỏ sót đỉnh mặn sớm hơn") if sal["partial"] else ("", "")
-            peak_en = f"{sal['station']} station {whole(sal['km'])} km away, average peak {w['ppt']}‰{part[0]}; estimate from station reports"
-            peak_vi = f"trạm {sal['station']} cách {vi_num(whole(sal['km']))} km, độ mặn cao nhất trung bình {vi_num(w['ppt'])}‰{part[1]}; ước tính từ báo cáo trạm"
+            peak_en = f"{sal['station']} station {km_text(sal['km'])} km away, average peak {w['ppt']}‰{part[0]}; estimate from station reports"
+            peak_vi = f"trạm {sal['station']} cách {vi_num(km_text(sal['km']))} km, độ mặn cao nhất trung bình {vi_num(w['ppt'])}‰{part[1]}; ước tính từ báo cáo trạm"
         elif sal["max_ppt"] is not None:
             peak_en, peak_vi = f"station average peak {w['ppt']}‰, estimate from station reports", f"độ mặn cao nhất trung bình tại trạm {vi_num(w['ppt'])}‰, ước tính từ báo cáo trạm"
         else:
@@ -1159,7 +1205,7 @@ def build():
                  crops=s["ndvi"]["crops_per_year"] if s["ndvi"] else None) for s in sites]
     PROV_OUT.write_text(json.dumps({"generated": date.today().isoformat(), "regions": REGIONS, **head,
                                     "sources": [v for _, v in sorted(SOURCES.values(), key=lambda x: x[0])], "provinces": provinces,
-                                    "places": places, "pins": pins}, ensure_ascii=False, indent=1), encoding="utf-8")
+                                    "places": places, "pins": pins, "stations": kttv_stations()}, ensure_ascii=False, indent=1), encoding="utf-8")
     print("wrote", PROV_OUT, len(provinces), "provinces,", len(places), "province points")
 
 
