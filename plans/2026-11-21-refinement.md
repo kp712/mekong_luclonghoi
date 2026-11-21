@@ -27,4 +27,4 @@ Decided with the user (grilling session). Audit summary: tests 59 ok; build repr
 - [x] Update CLAUDE.md
 
 ## PR 3 — HLS
-- [ ] Run `python pipeline/appeears.py hls`; report results in SOURCES.md only (no app change)
+- [x] Run `python pipeline/appeears.py hls`; report results in SOURCES.md only (no app change)

@@ -1,5 +1,6 @@
 """Self-checks. Run: python pipeline/test_build.py  (no pytest needed)"""
 import contextlib
+import csv
 import io
 import json
 import pathlib
@@ -576,6 +577,8 @@ def test_hls_clear_dates():
     for fill in (-19999, -9999, -1.9999, -0.9999):
         assert parse([("vinhchauP0", d, fill, 0, "", "")]) == none
     assert parse([("vinhchauP0", d, -9999, 0, -19999, 0), ("vinhchauP1", "2020-02-02", 3000, 0, "", "")]) == {"vinh_chau": {"2020-02-02": 0.3}}
+    # AppEEARS's real export: scaled NDVI with the raw fill code -19999 is scaled, and the fill is no data
+    assert hls.detect_encoding(["-19999.0", "0.5449"]) == "scaled" and hls.scaled_ndvi("-19999.0", "scaled") is None
     assert hls.scaled_ndvi(12000) is None and hls.scaled_ndvi("") is None and hls.scaled_ndvi(1.2, "scaled") is None  # out of -1..1, empty
     # nine points on one date are one date (median of the nine), and Landsat + Sentinel-2 the same day are one date too
     nine = [(f"vinhchauP{k}", d, 1000 * (k + 1), 0, "", "") for k in range(9)]
@@ -588,6 +591,15 @@ def test_hls_clear_dates():
     pts = hls.points(site)
     assert len(pts) == 9 and len({p["id"] for p in pts}) == 9 and all(p["id"].isalnum() for p in pts)
     assert all(0.02 < appeears.km(site["lat"], site["lon"], p["latitude"], p["longitude"]) < 0.05 for p in pts[1:])
+
+
+def test_merge_csv_joins_products():
+    """AppEEARS bundles one CSV per product; merged, each (ID, Date) row has every product's columns, blanks where absent."""
+    a = "ID,Date,HLSL30_020_Fmask\nvP0,2020-01-01,0\nvP0,2020-01-02,2\n"
+    b = "ID,Date,HLSL30_VI_020_NDVI\nvP0,2020-01-01,5000\n"
+    rows = list(csv.DictReader(io.StringIO(appeears.merge_csv([a, b]))))
+    assert rows == [{"ID": "vP0", "Date": "2020-01-01", "HLSL30_020_Fmask": "0", "HLSL30_VI_020_NDVI": "5000"},
+                    {"ID": "vP0", "Date": "2020-01-02", "HLSL30_020_Fmask": "2", "HLSL30_VI_020_NDVI": ""}]
 
 
 def test_hls_median_precision():

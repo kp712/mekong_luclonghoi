@@ -56,10 +56,11 @@ def scaled_ndvi(raw, encoding="raw"):
 
 
 def detect_encoding(cells):
-    """"raw" or "scaled" for a whole file's NDVI cells. A whole number beyond -1..1 (7000, -9999) can only be raw;
+    """"raw" or "scaled" for a whole file's NDVI cells. Fill codes say nothing (AppEEARS scales NDVI but keeps fill as
+    raw -19999). A whole number beyond -1..1 (7000) can only be raw;
     a fractional value (0.52, -0.9999) can only be scaled. Both kinds in one file, or neither (only 0, 1, -1 or blanks),
-    cannot be decided: ValueError, and the caller passes encoding explicitly or checks the export."""
-    raw = scaled = False
+    cannot be decided: ValueError (unless the file is all fill: no data either way), and the caller passes encoding explicitly or checks the export."""
+    raw = scaled = fill = False
     for c in cells:
         try:
             v = float(c)
@@ -67,10 +68,15 @@ def detect_encoding(cells):
             continue
         if v != v:
             continue
+        if v in FILL_RAW:
+            fill = True
+            continue
         if v == int(v) and abs(v) > 1:
             raw = True
         elif v != int(v):
             scaled = True
+    if not raw and not scaled and fill:
+        return "raw"
     if raw == scaled:
         raise ValueError("HLS NDVI encoding is ambiguous (" + ("raw and scaled values both present" if raw else "no value tells raw from scaled") + "); pass encoding='raw' or 'scaled'")
     return "raw" if raw else "scaled"
