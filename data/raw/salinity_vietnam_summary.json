@@ -1,968 +1,198 @@
 {
- "ha_noi": {
-  "name": {
-   "en": "Hanoi",
-   "vi": "Hà Nội"
-  },
-  "region": "Red River Delta",
-  "status": "inland_freshwater",
-  "note": "Inland/highland province; no coastal salinity intrusion"
+ "An Ninh": {
+  "river": "Cái Bé",
+  "readings": 26,
+  "max_ppt": 19.8,
+  "first": "2024-03-20",
+  "last": "2026-05-31"
  },
- "hai_phong": {
-  "name": {
-   "en": "Hai Phong",
-   "vi": "Hải Phòng"
-  },
-  "region": "Red River Delta",
-  "status": "coastal_no_kttv_bulletin",
-  "note": "Coastal province outside KTTV Southern 10-day salinity bulletins"
+ "An Thuận": {
+  "river": "Hàm Luông",
+  "readings": 26,
+  "max_ppt": 29.9,
+  "first": "2024-03-20",
+  "last": "2026-05-31"
  },
- "vinh_phuc": {
-  "name": {
-   "en": "Vinh Phuc",
-   "vi": "Vĩnh Phúc"
-  },
-  "region": "Red River Delta",
-  "status": "inland_freshwater",
-  "note": "Inland/highland province; no coastal salinity intrusion"
+ "An Định": {
+  "river": "Tiền",
+  "readings": 26,
+  "max_ppt": 8.8,
+  "first": "2024-03-20",
+  "last": "2026-05-31"
  },
- "bac_ninh": {
-  "name": {
-   "en": "Bac Ninh",
-   "vi": "Bắc Ninh"
-  },
-  "region": "Red River Delta",
-  "status": "inland_freshwater",
-  "note": "Inland/highland province; no coastal salinity intrusion"
+ "Bình Đại": {
+  "river": "Cửa Đại",
+  "readings": 26,
+  "max_ppt": 25.3,
+  "first": "2024-03-20",
+  "last": "2026-05-31"
  },
- "quang_ninh": {
-  "name": {
-   "en": "Quang Ninh",
-   "vi": "Quảng Ninh"
-  },
-  "region": "Red River Delta",
-  "status": "coastal_no_kttv_bulletin",
-  "note": "Coastal province outside KTTV Southern 10-day salinity bulletins"
+ "Bến Lức": {
+  "river": "Vàm Cỏ Đông",
+  "readings": 26,
+  "max_ppt": 10.9,
+  "first": "2024-03-20",
+  "last": "2026-05-31"
  },
- "hai_duong": {
-  "name": {
-   "en": "Hai Duong",
-   "vi": "Hải Dương"
-  },
-  "region": "Red River Delta",
-  "status": "inland_freshwater",
-  "note": "Inland/highland province; no coastal salinity intrusion"
+ "Bến Trại": {
+  "river": "Cổ Chiên (cửa Cổ Chiên)",
+  "readings": 26,
+  "max_ppt": 29.0,
+  "first": "2024-03-20",
+  "last": "2026-05-31"
  },
- "hung_yen": {
-  "name": {
-   "en": "Hung Yen",
-   "vi": "Hưng Yên"
-  },
-  "region": "Red River Delta",
-  "status": "inland_freshwater",
-  "note": "Inland/highland province; no coastal salinity intrusion"
+ "Cát Lái": {
+  "river": "Sài Gòn",
+  "readings": 25,
+  "max_ppt": 10.4,
+  "first": "2024-03-20",
+  "last": "2026-05-31"
  },
- "thai_binh": {
-  "name": {
-   "en": "Thai Binh",
-   "vi": "Thái Bình"
-  },
-  "region": "Red River Delta",
-  "status": "coastal_no_kttv_bulletin",
-  "note": "Coastal province outside KTTV Southern 10-day salinity bulletins"
+ "Cầu Quan": {
+  "river": "Hậu (cửa Định An)",
+  "readings": 26,
+  "max_ppt": 13.3,
+  "first": "2024-03-20",
+  "last": "2026-05-31"
  },
- "ha_nam": {
-  "name": {
-   "en": "Ha Nam",
-   "vi": "Hà Nam"
-  },
-  "region": "Red River Delta",
-  "status": "inland_freshwater",
-  "note": "Inland/highland province; no coastal salinity intrusion"
+ "Gành Hào": {
+  "river": "Gành Hào",
+  "readings": 26,
+  "max_ppt": 32.5,
+  "first": "2024-03-20",
+  "last": "2026-05-31"
  },
- "nam_dinh": {
-  "name": {
-   "en": "Nam Dinh",
-   "vi": "Nam Định"
-  },
-  "region": "Red River Delta",
-  "status": "coastal_no_kttv_bulletin",
-  "note": "Coastal province outside KTTV Southern 10-day salinity bulletins"
+ "Gò Quao": {
+  "river": "Cái Lớn",
+  "readings": 26,
+  "max_ppt": 15.5,
+  "first": "2024-03-20",
+  "last": "2026-05-31"
  },
- "ninh_binh": {
-  "name": {
-   "en": "Ninh Binh",
-   "vi": "Ninh Bình"
-  },
-  "region": "Red River Delta",
-  "status": "coastal_no_kttv_bulletin",
-  "note": "Coastal province outside KTTV Southern 10-day salinity bulletins"
+ "Hòa Bình": {
+  "river": "Cửa Tiểu",
+  "readings": 26,
+  "max_ppt": 16.2,
+  "first": "2024-03-20",
+  "last": "2026-05-31"
  },
- "ha_giang": {
-  "name": {
-   "en": "Ha Giang",
-   "vi": "Hà Giang"
-  },
-  "region": "Northeast",
-  "status": "inland_freshwater",
-  "note": "Inland/highland province; no coastal salinity intrusion"
+ "Hưng Mỹ": {
+  "river": "Cổ Chiên (cửa Cung Hầu)",
+  "readings": 26,
+  "max_ppt": 17.2,
+  "first": "2024-03-20",
+  "last": "2026-05-31"
  },
- "cao_bang": {
-  "name": {
-   "en": "Cao Bang",
-   "vi": "Cao Bằng"
-  },
-  "region": "Northeast",
-  "status": "inland_freshwater",
-  "note": "Inland/highland province; no coastal salinity intrusion"
+ "Hương Mỹ": {
+  "river": "Cổ Chiên (cửa Cổ Chiên)",
+  "readings": 26,
+  "max_ppt": 11.3,
+  "first": "2024-03-20",
+  "last": "2026-05-31"
  },
- "bac_kan": {
-  "name": {
-   "en": "Bac Kan",
-   "vi": "Bắc Kạn"
-  },
-  "region": "Northeast",
-  "status": "inland_freshwater",
-  "note": "Inland/highland province; no coastal salinity intrusion"
+ "Long Phú": {
+  "river": "Hậu (cửa Trần Đề)",
+  "readings": 26,
+  "max_ppt": 19.9,
+  "first": "2024-03-20",
+  "last": "2026-05-31"
  },
- "tuyen_quang": {
-  "name": {
-   "en": "Tuyen Quang",
-   "vi": "Tuyên Quang"
-  },
-  "region": "Northeast",
-  "status": "inland_freshwater",
-  "note": "Inland/highland province; no coastal salinity intrusion"
+ "Lộc Thuận": {
+  "river": "Cửa Đại",
+  "readings": 26,
+  "max_ppt": 18.6,
+  "first": "2024-03-20",
+  "last": "2026-05-31"
  },
- "lao_cai": {
-  "name": {
-   "en": "Lao Cai",
-   "vi": "Lào Cai"
-  },
-  "region": "Northeast",
-  "status": "inland_freshwater",
-  "note": "Inland/highland province; no coastal salinity intrusion"
+ "Rạch Giá": {
+  "river": "Kiên",
+  "readings": 7,
+  "max_ppt": 5.8,
+  "first": "2024-03-20",
+  "last": "2024-05-20"
  },
- "yen_bai": {
-  "name": {
-   "en": "Yen Bai",
-   "vi": "Yên Bái"
-  },
-  "region": "Northeast",
-  "status": "inland_freshwater",
-  "note": "Inland/highland province; no coastal salinity intrusion"
+ "Sóc Trăng": {
+  "river": "K. Maspero",
+  "readings": 26,
+  "max_ppt": 4.4,
+  "first": "2024-03-20",
+  "last": "2026-05-31"
  },
- "thai_nguyen": {
-  "name": {
-   "en": "Thai Nguyen",
-   "vi": "Thái Nguyên"
-  },
-  "region": "Northeast",
-  "status": "inland_freshwater",
-  "note": "Inland/highland province; no coastal salinity intrusion"
+ "Sông Đốc": {
+  "river": "Sông Đốc",
+  "readings": 26,
+  "max_ppt": 39.3,
+  "first": "2024-03-20",
+  "last": "2026-05-31"
  },
- "lang_son": {
-  "name": {
-   "en": "Lang Son",
-   "vi": "Lạng Sơn"
-  },
-  "region": "Northeast",
-  "status": "inland_freshwater",
-  "note": "Inland/highland province; no coastal salinity intrusion"
+ "Sơn Đốc": {
+  "river": "Hàm Luông",
+  "readings": 26,
+  "max_ppt": 19.6,
+  "first": "2024-03-20",
+  "last": "2026-05-31"
  },
- "bac_giang": {
-  "name": {
-   "en": "Bac Giang",
-   "vi": "Bắc Giang"
-  },
-  "region": "Northeast",
-  "status": "inland_freshwater",
-  "note": "Inland/highland province; no coastal salinity intrusion"
+ "Thạnh Phú": {
+  "river": "K. Như Gia",
+  "readings": 26,
+  "max_ppt": 8.0,
+  "first": "2024-03-20",
+  "last": "2026-05-31"
  },
- "phu_tho": {
-  "name": {
-   "en": "Phu Tho",
-   "vi": "Phú Thọ"
-  },
-  "region": "Northeast",
-  "status": "inland_freshwater",
-  "note": "Inland/highland province; no coastal salinity intrusion"
+ "Trà Kha": {
+  "river": "Hậu (cửa Định An)",
+  "readings": 26,
+  "max_ppt": 20.6,
+  "first": "2024-03-20",
+  "last": "2026-05-31"
  },
- "dien_bien": {
-  "name": {
-   "en": "Dien Bien",
-   "vi": "Điện Biên"
-  },
-  "region": "Northwest",
-  "status": "inland_freshwater",
-  "note": "Inland/highland province; no coastal salinity intrusion"
+ "Trà Vinh": {
+  "river": "Cổ Chiên (cửa Cung Hầu)",
+  "readings": 26,
+  "max_ppt": 11.2,
+  "first": "2024-03-20",
+  "last": "2026-05-31"
  },
- "lai_chau": {
-  "name": {
-   "en": "Lai Chau",
-   "vi": "Lai Châu"
-  },
-  "region": "Northwest",
-  "status": "inland_freshwater",
-  "note": "Inland/highland province; no coastal salinity intrusion"
+ "Trần Đề": {
+  "river": "Hậu",
+  "readings": 26,
+  "max_ppt": 23.7,
+  "first": "2024-03-20",
+  "last": "2026-05-31"
  },
- "son_la": {
-  "name": {
-   "en": "Son La",
-   "vi": "Sơn La"
-  },
-  "region": "Northwest",
-  "status": "inland_freshwater",
-  "note": "Inland/highland province; no coastal salinity intrusion"
+ "Tuyên Nhơn": {
+  "river": "Vàm Cỏ Tây",
+  "readings": 26,
+  "max_ppt": 5.9,
+  "first": "2024-03-20",
+  "last": "2026-05-31"
  },
- "hoa_binh": {
-  "name": {
-   "en": "Hoa Binh",
-   "vi": "Hòa Bình"
-  },
-  "region": "Northwest",
-  "status": "inland_freshwater",
-  "note": "Inland/highland province; no coastal salinity intrusion"
+ "Tân An": {
+  "river": "Vàm Cỏ Tây",
+  "readings": 26,
+  "max_ppt": 11.1,
+  "first": "2024-03-20",
+  "last": "2026-05-31"
  },
- "thanh_hoa": {
-  "name": {
-   "en": "Thanh Hoa",
-   "vi": "Thanh Hóa"
-  },
-  "region": "North Central Coast",
-  "status": "coastal_no_kttv_bulletin",
-  "note": "Coastal province outside KTTV Southern 10-day salinity bulletins"
+ "Vàm Kênh": {
+  "river": "Cửa Tiểu",
+  "readings": 26,
+  "max_ppt": 26.3,
+  "first": "2024-03-20",
+  "last": "2026-05-31"
  },
- "nghe_an": {
-  "name": {
-   "en": "Nghe An",
-   "vi": "Nghệ An"
-  },
-  "region": "North Central Coast",
-  "status": "coastal_no_kttv_bulletin",
-  "note": "Coastal province outside KTTV Southern 10-day salinity bulletins"
+ "Xuân Khánh": {
+  "river": "Vàm Cỏ Đông",
+  "readings": 26,
+  "max_ppt": 4.7,
+  "first": "2024-03-20",
+  "last": "2026-05-31"
  },
- "ha_tinh": {
-  "name": {
-   "en": "Ha Tinh",
-   "vi": "Hà Tĩnh"
-  },
-  "region": "North Central Coast",
-  "status": "coastal_no_kttv_bulletin",
-  "note": "Coastal province outside KTTV Southern 10-day salinity bulletins"
- },
- "quang_binh": {
-  "name": {
-   "en": "Quang Binh",
-   "vi": "Quảng Bình"
-  },
-  "region": "North Central Coast",
-  "status": "coastal_no_kttv_bulletin",
-  "note": "Coastal province outside KTTV Southern 10-day salinity bulletins"
- },
- "quang_tri": {
-  "name": {
-   "en": "Quang Tri",
-   "vi": "Quảng Trị"
-  },
-  "region": "North Central Coast",
-  "status": "coastal_no_kttv_bulletin",
-  "note": "Coastal province outside KTTV Southern 10-day salinity bulletins"
- },
- "thua_thien_hue": {
-  "name": {
-   "en": "Thua Thien Hue",
-   "vi": "Thừa Thiên Huế"
-  },
-  "region": "North Central Coast",
-  "status": "coastal_no_kttv_bulletin",
-  "note": "Coastal province outside KTTV Southern 10-day salinity bulletins"
- },
- "da_nang": {
-  "name": {
-   "en": "Da Nang",
-   "vi": "Đà Nẵng"
-  },
-  "region": "South Central Coast",
-  "status": "coastal_no_kttv_bulletin",
-  "note": "Coastal province outside KTTV Southern 10-day salinity bulletins"
- },
- "quang_nam": {
-  "name": {
-   "en": "Quang Nam",
-   "vi": "Quảng Nam"
-  },
-  "region": "South Central Coast",
-  "status": "coastal_no_kttv_bulletin",
-  "note": "Coastal province outside KTTV Southern 10-day salinity bulletins"
- },
- "quang_ngai": {
-  "name": {
-   "en": "Quang Ngai",
-   "vi": "Quảng Ngãi"
-  },
-  "region": "South Central Coast",
-  "status": "coastal_no_kttv_bulletin",
-  "note": "Coastal province outside KTTV Southern 10-day salinity bulletins"
- },
- "binh_dinh": {
-  "name": {
-   "en": "Binh Dinh",
-   "vi": "Bình Định"
-  },
-  "region": "South Central Coast",
-  "status": "coastal_no_kttv_bulletin",
-  "note": "Coastal province outside KTTV Southern 10-day salinity bulletins"
- },
- "phu_yen": {
-  "name": {
-   "en": "Phu Yen",
-   "vi": "Phú Yên"
-  },
-  "region": "South Central Coast",
-  "status": "coastal_no_kttv_bulletin",
-  "note": "Coastal province outside KTTV Southern 10-day salinity bulletins"
- },
- "khanh_hoa": {
-  "name": {
-   "en": "Khanh Hoa",
-   "vi": "Khánh Hòa"
-  },
-  "region": "South Central Coast",
-  "status": "coastal_no_kttv_bulletin",
-  "note": "Coastal province outside KTTV Southern 10-day salinity bulletins"
- },
- "ninh_thuan": {
-  "name": {
-   "en": "Ninh Thuan",
-   "vi": "Ninh Thuận"
-  },
-  "region": "South Central Coast",
-  "status": "coastal_no_kttv_bulletin",
-  "note": "Coastal province outside KTTV Southern 10-day salinity bulletins"
- },
- "binh_thuan": {
-  "name": {
-   "en": "Binh Thuan",
-   "vi": "Bình Thuận"
-  },
-  "region": "South Central Coast",
-  "status": "coastal_no_kttv_bulletin",
-  "note": "Coastal province outside KTTV Southern 10-day salinity bulletins"
- },
- "kon_tum": {
-  "name": {
-   "en": "Kon Tum",
-   "vi": "Kon Tum"
-  },
-  "region": "Central Highlands",
-  "status": "inland_freshwater",
-  "note": "Inland/highland province; no coastal salinity intrusion"
- },
- "gia_lai": {
-  "name": {
-   "en": "Gia Lai",
-   "vi": "Gia Lai"
-  },
-  "region": "Central Highlands",
-  "status": "inland_freshwater",
-  "note": "Inland/highland province; no coastal salinity intrusion"
- },
- "dak_lak": {
-  "name": {
-   "en": "Dak Lak",
-   "vi": "Đắk Lắk"
-  },
-  "region": "Central Highlands",
-  "status": "inland_freshwater",
-  "note": "Inland/highland province; no coastal salinity intrusion"
- },
- "dak_nong": {
-  "name": {
-   "en": "Dak Nong",
-   "vi": "Đắk Nông"
-  },
-  "region": "Central Highlands",
-  "status": "inland_freshwater",
-  "note": "Inland/highland province; no coastal salinity intrusion"
- },
- "lam_dong": {
-  "name": {
-   "en": "Lam Dong",
-   "vi": "Lâm Đồng"
-  },
-  "region": "Central Highlands",
-  "status": "inland_freshwater",
-  "note": "Inland/highland province; no coastal salinity intrusion"
- },
- "binh_phuoc": {
-  "name": {
-   "en": "Binh Phuoc",
-   "vi": "Bình Phước"
-  },
-  "region": "Southeast",
-  "status": "inland_freshwater",
-  "note": "Inland/highland province; no coastal salinity intrusion"
- },
- "tay_ninh": {
-  "name": {
-   "en": "Tay Ninh",
-   "vi": "Tây Ninh"
-  },
-  "region": "Southeast",
-  "status": "kttv_monitored",
-  "max_smax_gl": 5.5,
-  "stations": {
-   "Bến Lức": {
-    "river": "Vàm Cỏ Đông",
-    "distance_km": 67.0,
-    "readings": 5,
-    "max_smax_gl": 5.5,
-    "mean_smax_gl": 3.46
-   },
-   "Tuyên Nhơn": {
-    "river": "Vàm Cỏ Tây",
-    "distance_km": 120.0,
-    "readings": 5,
-    "max_smax_gl": 0.5,
-    "mean_smax_gl": 0.34
-   },
-   "Tân An": {
-    "river": "Vàm Cỏ Tây",
-    "distance_km": 80.0,
-    "readings": 5,
-    "max_smax_gl": 3.2,
-    "mean_smax_gl": 1.84
-   },
-   "Xuân Khánh": {
-    "river": "Vàm Cỏ Đông",
-    "distance_km": 95.0,
-    "readings": 5,
-    "max_smax_gl": 0.9,
-    "mean_smax_gl": 0.52
-   }
-  }
- },
- "binh_duong": {
-  "name": {
-   "en": "Binh Duong",
-   "vi": "Bình Dương"
-  },
-  "region": "Southeast",
-  "status": "inland_freshwater",
-  "note": "Inland/highland province; no coastal salinity intrusion"
- },
- "dong_nai": {
-  "name": {
-   "en": "Dong Nai",
-   "vi": "Đồng Nai"
-  },
-  "region": "Southeast",
-  "status": "inland_freshwater",
-  "note": "Inland/highland province; no coastal salinity intrusion"
- },
- "ba_ria_vung_tau": {
-  "name": {
-   "en": "Ba Ria - Vung Tau",
-   "vi": "Bà Rịa - Vũng Tàu"
-  },
-  "region": "Southeast",
-  "status": "coastal_no_kttv_bulletin",
-  "note": "Coastal province outside KTTV Southern 10-day salinity bulletins"
- },
- "ho_chi_minh": {
-  "name": {
-   "en": "Ho Chi Minh City",
-   "vi": "TP. Hồ Chí Minh"
-  },
-  "region": "Southeast",
-  "status": "kttv_monitored",
-  "max_smax_gl": 10.4,
-  "stations": {
-   "Cát Lái": {
-    "river": "Sài Gòn",
-    "distance_km": 58.0,
-    "readings": 22,
-    "max_smax_gl": 10.4,
-    "mean_smax_gl": 5.88
-   }
-  }
- },
- "long_an": {
-  "name": {
-   "en": "Long An",
-   "vi": "Long An"
-  },
-  "region": "Mekong Delta",
-  "status": "kttv_monitored",
-  "max_smax_gl": 11.1,
-  "stations": {
-   "Bến Lức": {
-    "river": "Vàm Cỏ Đông",
-    "distance_km": 67.0,
-    "readings": 18,
-    "max_smax_gl": 10.9,
-    "mean_smax_gl": 4.56
-   },
-   "Tuyên Nhơn": {
-    "river": "Vàm Cỏ Tây",
-    "distance_km": 120.0,
-    "readings": 18,
-    "max_smax_gl": 5.9,
-    "mean_smax_gl": 1.39
-   },
-   "Tân An": {
-    "river": "Vàm Cỏ Tây",
-    "distance_km": 80.0,
-    "readings": 18,
-    "max_smax_gl": 11.1,
-    "mean_smax_gl": 3.73
-   },
-   "Xuân Khánh": {
-    "river": "Vàm Cỏ Đông",
-    "distance_km": 95.0,
-    "readings": 18,
-    "max_smax_gl": 4.7,
-    "mean_smax_gl": 1.41
-   }
-  }
- },
- "tien_giang": {
-  "name": {
-   "en": "Tien Giang",
-   "vi": "Tiền Giang"
-  },
-  "region": "Mekong Delta",
-  "status": "kttv_monitored",
-  "max_smax_gl": 26.3,
-  "stations": {
-   "An Định": {
-    "river": "Tiền",
-    "distance_km": 48.0,
-    "readings": 18,
-    "max_smax_gl": 8.8,
-    "mean_smax_gl": 3.43
-   },
-   "Hòa Bình": {
-    "river": "Cửa Tiểu",
-    "distance_km": 18.0,
-    "readings": 18,
-    "max_smax_gl": 16.2,
-    "mean_smax_gl": 10.03
-   },
-   "Vàm Kênh": {
-    "river": "Cửa Tiểu",
-    "distance_km": 2.0,
-    "readings": 18,
-    "max_smax_gl": 26.3,
-    "mean_smax_gl": 22.15
-   }
-  }
- },
- "ben_tre": {
-  "name": {
-   "en": "Ben Tre",
-   "vi": "Bến Tre"
-  },
-  "region": "Mekong Delta",
-  "status": "kttv_monitored",
-  "max_smax_gl": 29.9,
-  "stations": {
-   "An Thuận": {
-    "river": "Hàm Luông",
-    "distance_km": 10.0,
-    "readings": 18,
-    "max_smax_gl": 29.9,
-    "mean_smax_gl": 24.26
-   },
-   "Bình Đại": {
-    "river": "Cửa Đại",
-    "distance_km": 4.0,
-    "readings": 18,
-    "max_smax_gl": 25.3,
-    "mean_smax_gl": 22.04
-   },
-   "Bến Trại": {
-    "river": "Cổ Chiên (cửa Cổ Chiên)",
-    "distance_km": 10.0,
-    "readings": 18,
-    "max_smax_gl": 29.0,
-    "mean_smax_gl": 20.92
-   },
-   "Hương Mỹ": {
-    "river": "Cổ Chiên (cửa Cổ Chiên)",
-    "distance_km": 25.0,
-    "readings": 18,
-    "max_smax_gl": 11.3,
-    "mean_smax_gl": 6.66
-   },
-   "Lộc Thuận": {
-    "river": "Cửa Đại",
-    "distance_km": 18.0,
-    "readings": 18,
-    "max_smax_gl": 18.6,
-    "mean_smax_gl": 13.01
-   },
-   "Sơn Đốc": {
-    "river": "Hàm Luông",
-    "distance_km": 20.0,
-    "readings": 18,
-    "max_smax_gl": 19.6,
-    "mean_smax_gl": 13.41
-   }
-  }
- },
- "tra_vinh": {
-  "name": {
-   "en": "Tra Vinh",
-   "vi": "Trà Vinh"
-  },
-  "region": "Mekong Delta",
-  "status": "kttv_monitored",
-  "max_smax_gl": 20.6,
-  "stations": {
-   "Cầu Quan": {
-    "river": "Hậu (cửa Định An)",
-    "distance_km": 32.0,
-    "readings": 18,
-    "max_smax_gl": 13.3,
-    "mean_smax_gl": 6.84
-   },
-   "Hưng Mỹ": {
-    "river": "Cổ Chiên (cửa Cung Hầu)",
-    "distance_km": 17.0,
-    "readings": 18,
-    "max_smax_gl": 17.2,
-    "mean_smax_gl": 11.82
-   },
-   "Trà Kha": {
-    "river": "Hậu (cửa Định An)",
-    "distance_km": 7.0,
-    "readings": 18,
-    "max_smax_gl": 20.6,
-    "mean_smax_gl": 14.19
-   },
-   "Trà Vinh": {
-    "river": "Cổ Chiên (cửa Cung Hầu)",
-    "distance_km": 28.0,
-    "readings": 18,
-    "max_smax_gl": 11.2,
-    "mean_smax_gl": 6.61
-   }
-  }
- },
- "vinh_long": {
-  "name": {
-   "en": "Vinh Long",
-   "vi": "Vĩnh Long"
-  },
-  "region": "Mekong Delta",
-  "status": "kttv_monitored",
-  "max_smax_gl": 24.1,
-  "stations": {
-   "An Thuận": {
-    "river": "Hàm Luông",
-    "distance_km": 10.0,
-    "readings": 5,
-    "max_smax_gl": 21.5,
-    "mean_smax_gl": 20.16
-   },
-   "Bình Đại": {
-    "river": "Cửa Đại",
-    "distance_km": 4.0,
-    "readings": 5,
-    "max_smax_gl": 24.1,
-    "mean_smax_gl": 22.34
-   },
-   "Bến Trại": {
-    "river": "Cổ Chiên (cửa Cổ Chiên)",
-    "distance_km": 10.0,
-    "readings": 5,
-    "max_smax_gl": 23.7,
-    "mean_smax_gl": 17.28
-   },
-   "Cầu Quan": {
-    "river": "Hậu (cửa Định An)",
-    "distance_km": 32.0,
-    "readings": 5,
-    "max_smax_gl": 4.2,
-    "mean_smax_gl": 3.16
-   },
-   "Hưng Mỹ": {
-    "river": "Cổ Chiên (cửa Cung Hầu)",
-    "distance_km": 17.0,
-    "readings": 5,
-    "max_smax_gl": 10.0,
-    "mean_smax_gl": 8.34
-   },
-   "Hương Mỹ": {
-    "river": "Cổ Chiên (cửa Cổ Chiên)",
-    "distance_km": 25.0,
-    "readings": 5,
-    "max_smax_gl": 6.0,
-    "mean_smax_gl": 4.84
-   },
-   "Lộc Thuận": {
-    "river": "Cửa Đại",
-    "distance_km": 18.0,
-    "readings": 5,
-    "max_smax_gl": 13.5,
-    "mean_smax_gl": 11.88
-   },
-   "Sơn Đốc": {
-    "river": "Hàm Luông",
-    "distance_km": 20.0,
-    "readings": 5,
-    "max_smax_gl": 11.5,
-    "mean_smax_gl": 9.4
-   },
-   "Trà Kha": {
-    "river": "Hậu (cửa Định An)",
-    "distance_km": 7.0,
-    "readings": 5,
-    "max_smax_gl": 12.7,
-    "mean_smax_gl": 9.72
-   },
-   "Trà Vinh": {
-    "river": "Cổ Chiên (cửa Cung Hầu)",
-    "distance_km": 28.0,
-    "readings": 5,
-    "max_smax_gl": 6.1,
-    "mean_smax_gl": 4.68
-   }
-  }
- },
- "dong_thap": {
-  "name": {
-   "en": "Dong Thap",
-   "vi": "Đồng Tháp"
-  },
-  "region": "Mekong Delta",
-  "status": "kttv_monitored",
-  "max_smax_gl": 20.8,
-  "stations": {
-   "An Định": {
-    "river": "Tiền",
-    "distance_km": 48.0,
-    "readings": 5,
-    "max_smax_gl": 2.0,
-    "mean_smax_gl": 1.42
-   },
-   "Hòa Bình": {
-    "river": "Cửa Tiểu",
-    "distance_km": 18.0,
-    "readings": 5,
-    "max_smax_gl": 9.8,
-    "mean_smax_gl": 8.0
-   },
-   "Vàm Kênh": {
-    "river": "Cửa Tiểu",
-    "distance_km": 2.0,
-    "readings": 5,
-    "max_smax_gl": 20.8,
-    "mean_smax_gl": 19.46
-   }
-  }
- },
- "an_giang": {
-  "name": {
-   "en": "An Giang",
-   "vi": "An Giang"
-  },
-  "region": "Mekong Delta",
-  "status": "kttv_monitored",
-  "max_smax_gl": 17.7,
-  "stations": {
-   "An Ninh": {
-    "river": "Cái Bé",
-    "distance_km": 8.0,
-    "readings": 5,
-    "max_smax_gl": 17.7,
-    "mean_smax_gl": 10.04
-   },
-   "Gò Quao": {
-    "river": "Cái Lớn",
-    "distance_km": 35.0,
-    "readings": 5,
-    "max_smax_gl": 15.5,
-    "mean_smax_gl": 10.76
-   }
-  }
- },
- "kien_giang": {
-  "name": {
-   "en": "Kien Giang",
-   "vi": "Kiên Giang"
-  },
-  "region": "Mekong Delta",
-  "status": "kttv_monitored",
-  "max_smax_gl": 19.8,
-  "stations": {
-   "An Ninh": {
-    "river": "Cái Bé",
-    "distance_km": 8.0,
-    "readings": 18,
-    "max_smax_gl": 19.8,
-    "mean_smax_gl": 9.58
-   },
-   "Gò Quao": {
-    "river": "Cái Lớn",
-    "distance_km": 35.0,
-    "readings": 18,
-    "max_smax_gl": 13.6,
-    "mean_smax_gl": 6.23
-   },
-   "Rạch Giá": {
-    "river": "Kiên",
-    "distance_km": 7.0,
-    "readings": 7,
-    "max_smax_gl": 5.8,
-    "mean_smax_gl": 1.59
-   }
-  }
- },
- "can_tho": {
-  "name": {
-   "en": "Can Tho",
-   "vi": "Cần Thơ"
-  },
-  "region": "Mekong Delta",
-  "status": "kttv_monitored",
-  "max_smax_gl": 18.2,
-  "stations": {
-   "Long Phú": {
-    "river": "Hậu (cửa Trần Đề)",
-    "distance_km": 15.0,
-    "readings": 5,
-    "max_smax_gl": 14.7,
-    "mean_smax_gl": 8.92
-   },
-   "Sóc Trăng": {
-    "river": "K. Maspero",
-    "distance_km": 59.0,
-    "readings": 5,
-    "max_smax_gl": 1.5,
-    "mean_smax_gl": 1.18
-   },
-   "Thạnh Phú": {
-    "river": "K. Như Gia",
-    "distance_km": 58.0,
-    "readings": 5,
-    "max_smax_gl": 1.6,
-    "mean_smax_gl": 1.04
-   },
-   "Trần Đề": {
-    "river": "Hậu",
-    "distance_km": 10.0,
-    "readings": 5,
-    "max_smax_gl": 18.2,
-    "mean_smax_gl": 12.44
-   },
-   "Đại Ngãi": {
-    "river": "Hậu (cửa Tranh Đề)",
-    "distance_km": 35.0,
-    "readings": 5,
-    "max_smax_gl": 5.0,
-    "mean_smax_gl": 3.12
-   }
-  }
- },
- "hau_giang": {
-  "name": {
-   "en": "Hau Giang",
-   "vi": "Hậu Giang"
-  },
-  "region": "Mekong Delta",
-  "status": "inland_freshwater",
-  "note": "Inland/highland province; no coastal salinity intrusion"
- },
- "soc_trang": {
-  "name": {
-   "en": "Soc Trang",
-   "vi": "Sóc Trăng"
-  },
-  "region": "Mekong Delta",
-  "status": "kttv_monitored",
-  "max_smax_gl": 23.7,
-  "stations": {
-   "Long Phú": {
-    "river": "Hậu (cửa Trần Đề)",
-    "distance_km": 15.0,
-    "readings": 18,
-    "max_smax_gl": 19.9,
-    "mean_smax_gl": 13.18
-   },
-   "Sóc Trăng": {
-    "river": "K. Maspero",
-    "distance_km": 59.0,
-    "readings": 18,
-    "max_smax_gl": 4.4,
-    "mean_smax_gl": 2.02
-   },
-   "Thạnh Phú": {
-    "river": "K. Như Gia",
-    "distance_km": 58.0,
-    "readings": 18,
-    "max_smax_gl": 8.0,
-    "mean_smax_gl": 2.0
-   },
-   "Trần Đề": {
-    "river": "Hậu",
-    "distance_km": 10.0,
-    "readings": 18,
-    "max_smax_gl": 23.7,
-    "mean_smax_gl": 16.92
-   },
-   "Đại Ngãi": {
-    "river": "Hậu (cửa Tranh Đề)",
-    "distance_km": 35.0,
-    "readings": 18,
-    "max_smax_gl": 10.5,
-    "mean_smax_gl": 5.18
-   }
-  }
- },
- "bac_lieu": {
-  "name": {
-   "en": "Bac Lieu",
-   "vi": "Bạc Liêu"
-  },
-  "region": "Mekong Delta",
-  "status": "kttv_monitored",
-  "max_smax_gl": 32.5,
-  "stations": {
-   "Gành Hào": {
-    "river": "Gành Hào",
-    "distance_km": 2.0,
-    "readings": 18,
-    "max_smax_gl": 32.5,
-    "mean_smax_gl": 27.74
-   }
-  }
- },
- "ca_mau": {
-  "name": {
-   "en": "Ca Mau",
-   "vi": "Cà Mau"
-  },
-  "region": "Mekong Delta",
-  "status": "kttv_monitored",
-  "max_smax_gl": 39.3,
-  "stations": {
-   "Gành Hào": {
-    "river": "Gành Hào",
-    "distance_km": 2.0,
-    "readings": 5,
-    "max_smax_gl": 31.0,
-    "mean_smax_gl": 28.22
-   },
-   "Sông Đốc": {
-    "river": "Sông Đốc",
-    "distance_km": 1.5,
-    "readings": 23,
-    "max_smax_gl": 39.3,
-    "mean_smax_gl": 32.79
-   }
-  }
+ "Đại Ngãi": {
+  "river": "Hậu (cửa Tranh Đề)",
+  "readings": 26,
+  "max_ppt": 10.5,
+  "first": "2024-03-20",
+  "last": "2026-05-31"
  }
 }
