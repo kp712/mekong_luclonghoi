@@ -859,6 +859,9 @@ def test_kttv_bulletins_by_station():
     b = json.loads((pathlib.Path(__file__).resolve().parent.parent / "data/raw/salinity_kttv_vietnam.json").read_text(encoding="utf-8"))["bulletins"]
     assert len(b) >= 23, len(b)
     assert all(isinstance(v["readings"], dict) and "province" not in v for v in b.values())
+    assert all(type(x) is float and x > 0 for v in b.values() for x in v["readings"].values())
+    summ = json.loads((pathlib.Path(__file__).resolve().parent.parent / "data/raw/salinity_vietnam_summary.json").read_text(encoding="utf-8"))
+    assert all(set(v) == {"river", "readings", "max_ppt", "first", "last"} for v in summ.values()) and "Gò Quao" in summ
     assert {d[:4] for d, v in b.items() if "Gò Quao" in v["readings"]} >= {"2024", "2026"}
 
 

@@ -267,6 +267,38 @@
     "An Ninh": 10.1
    }
   },
+  "2025-01-31": {
+   "url": "https://kttv.gov.vn/upload/thuyvan2/2025/1/31/dbqg_xman_20250131_1500.pdf",
+   "readings": {
+    "Cát Lái": 7.3,
+    "Bến Lức": 1.8,
+    "Xuân Khánh": 0.3,
+    "Tân An": 0.8,
+    "Tuyên Nhơn": 0.1,
+    "Vàm Kênh": 21.4,
+    "Hòa Bình": 7.5,
+    "An Định": 0.2,
+    "Bình Đại": 15.6,
+    "Lộc Thuận": 6.7,
+    "An Thuận": 22.5,
+    "Sơn Đốc": 12.4,
+    "Bến Trại": 17.3,
+    "Hương Mỹ": 8.9,
+    "Hưng Mỹ": 14.3,
+    "Cầu Quan": 10.8,
+    "Trà Vinh": 9.7,
+    "Trà Kha": 20.2,
+    "Long Phú": 13.3,
+    "Đại Ngãi": 7.8,
+    "Trần Đề": 16.9,
+    "Thạnh Phú": 0.4,
+    "Sóc Trăng": 1.4,
+    "Gành Hào": 22.7,
+    "Sông Đốc": 29.7,
+    "Gò Quao": 5.3,
+    "An Ninh": 15.3
+   }
+  },
   "2025-02-10": {
    "url": "https://kttv.gov.vn/upload/thuyvan2/2025/2/10/dbqg_xman_20250210_1500.pdf",
    "readings": {
@@ -296,6 +328,38 @@
     "Sông Đốc": 31.6,
     "Gò Quao": 4.9,
     "An Ninh": 13.5
+   }
+  },
+  "2025-02-20": {
+   "url": "https://kttv.gov.vn/upload/thuyvan1/2025/2/20/dbqg_xman_20250220_1500.pdf",
+   "readings": {
+    "Cát Lái": 7.4,
+    "Bến Lức": 2.4,
+    "Xuân Khánh": 0.7,
+    "Tân An": 0.9,
+    "Tuyên Nhơn": 0.2,
+    "Vàm Kênh": 20.8,
+    "Hòa Bình": 8.5,
+    "An Định": 1.1,
+    "Bình Đại": 20.5,
+    "Lộc Thuận": 10.7,
+    "An Thuận": 25.8,
+    "Sơn Đốc": 11.8,
+    "Bến Trại": 18.8,
+    "Hương Mỹ": 7.1,
+    "Hưng Mỹ": 12.1,
+    "Cầu Quan": 8.8,
+    "Trà Vinh": 7.9,
+    "Trà Kha": 17.1,
+    "Long Phú": 12.7,
+    "Đại Ngãi": 5.0,
+    "Trần Đề": 16.9,
+    "Thạnh Phú": 0.5,
+    "Sóc Trăng": 1.3,
+    "Gành Hào": 27.2,
+    "Sông Đốc": 30.5,
+    "Gò Quao": 3.8,
+    "An Ninh": 10.7
    }
   },
   "2025-02-28": {
@@ -488,6 +552,38 @@
     "Sông Đốc": 34.3,
     "Gò Quao": 2.4,
     "An Ninh": 4.6
+   }
+  },
+  "2026-03-10": {
+   "url": "https://kttv.gov.vn/upload/thuyvan1/2026/3/10/dbqg_xman_20260310_1500.pdf",
+   "readings": {
+    "Cát Lái": 7.6,
+    "Bến Lức": 1.7,
+    "Xuân Khánh": 0.2,
+    "Tân An": 0.3,
+    "Tuyên Nhơn": 0.1,
+    "Vàm Kênh": 22.3,
+    "Hòa Bình": 7.2,
+    "An Định": 1.6,
+    "Bình Đại": 20.0,
+    "Lộc Thuận": 10.7,
+    "An Thuận": 20.5,
+    "Sơn Đốc": 9.8,
+    "Bến Trại": 18.7,
+    "Hương Mỹ": 6.2,
+    "Hưng Mỹ": 9.0,
+    "Cầu Quan": 4.2,
+    "Trà Vinh": 5.8,
+    "Trà Kha": 11.0,
+    "Long Phú": 6.5,
+    "Đại Ngãi": 1.4,
+    "Trần Đề": 9.5,
+    "Thạnh Phú": 0.4,
+    "Sóc Trăng": 0.8,
+    "Gành Hào": 28.7,
+    "Sông Đốc": 27.5,
+    "Gò Quao": 0.3,
+    "An Ninh": 1.4
    }
   },
   "2026-03-20": {

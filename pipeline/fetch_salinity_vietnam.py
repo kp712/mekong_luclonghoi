@@ -5,11 +5,15 @@ data/raw/salinity_vietnam_summary.json.
 
 Run: py pipeline/fetch_salinity_vietnam.py
 """
+import calendar
 import io
 import json
 import pathlib
 import re
 import sys
+import time
+import unicodedata
+import urllib.error
 import urllib.request
 from collections import defaultdict
 
@@ -19,6 +23,46 @@ import pdfplumber
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 RAW = ROOT / "data" / "raw"
 KTTV_LIST_URL = "https://kttv.gov.vn/kttv/vi-VN/1/xam-nhap-man-20-18.html"
+
+def clean(text):
+    return unicodedata.normalize("NFC", re.sub(r'\s+', ' ', text or '')).strip()
+
+
+def urlopen_retry(req, timeout, tries=3):
+    """The proxy occasionally resets connections; HTTP errors (404) are not retried."""
+    for i in range(tries):
+        try:
+            return urllib.request.urlopen(req, timeout=timeout)
+        except urllib.error.HTTPError:
+            raise
+        except OSError:
+            if i == tries - 1:
+                raise
+            time.sleep(2)
+
+
+def probe_pdfs(have):
+    """HEAD-probe the date-patterned PDF URLs for 10th/20th/last day of Dec-Mar, 2024-2026, not already known.
+    The upload folder is thuyvan1 or thuyvan2; the issue hour is always 1500 (336 other hour guesses all 404'd)."""
+    found = {}
+    for y in (2024, 2025, 2026):
+        for m in (12, 1, 2, 3):
+            for d in (10, 20, calendar.monthrange(y, m)[1]):
+                dt = f"{y}-{m:02d}-{d:02d}"
+                if dt in have:
+                    continue
+                for folder in ("thuyvan1", "thuyvan2"):
+                    url = f"https://kttv.gov.vn/upload/{folder}/{y}/{m}/{d}/dbqg_xman_{y}{m:02d}{d:02d}_1500.pdf"
+                    try:
+                        urlopen_retry(urllib.request.Request(url, method="HEAD", headers={"User-Agent": "Mozilla/5.0"}), 30)
+                        found[dt] = url
+                        break
+                    except urllib.error.HTTPError:
+                        pass
+                    except OSError as e:
+                        print("Warning: probe failed:", url, e)
+    return found
+
 
 def fetch_html(url):
     req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
@@ -56,6 +100,7 @@ def discover_kttv_pdfs():
             m = re.search(r'(\d{4})(\d{2})(\d{2})', pdf_url)
             dt = f"{m[1]}-{m[2]}-{m[3]}" if m else post_url
             pdfs[dt] = pdf_url.replace("kttv.gov.vn//", "kttv.gov.vn/")
+    pdfs.update(probe_pdfs(pdfs))
     return dict(sorted(pdfs.items()))
 
 
@@ -87,11 +132,11 @@ def extract_measured_table(pdf_bytes):
                 for r in table[1:]:
                     if len(r) <= max(idx_station, idx_smax):
                         continue
-                    station = re.sub(r'\s+', ' ', (r[idx_station] or '')).strip()
+                    station = clean(r[idx_station])
                     smax = parse_float(r[idx_smax])
                     if not station or smax is None:
                         continue
-                    river = re.sub(r'\s+', ' ', (r[idx_river] or '')).strip() if idx_river is not None else ""
+                    river = clean(r[idx_river]) if idx_river is not None else ""
                     rows_out[station] = (river, smax)
                 if rows_out:
                     return rows_out
@@ -103,19 +148,23 @@ def main():
     pdfs = discover_kttv_pdfs()
     print(f"Found {len(pdfs)} KTTV salinity bulletin PDFs")
 
-    bulletins, rivers = {}, {}
+    bulletins, rivers, failed = {}, {}, []
     for dt, url in pdfs.items():
         print(f"Downloading & parsing {dt}: {url}", flush=True)
         try:
             req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-            table = extract_measured_table(urllib.request.urlopen(req, timeout=45).read())
+            table = extract_measured_table(urlopen_retry(req, 45).read())
         except Exception as e:
             print(f"  ERROR {dt}: {e}", flush=True)
+            failed.append(dt)
             continue
         bulletins[dt] = {"url": url, "readings": {k: v for k, (_, v) in table.items()}}
         for k, (river, _) in table.items():
             rivers.setdefault(k, river)
         print(f"  extracted {len(table)} stations", flush=True)
+
+    if failed:
+        sys.exit(f"{len(failed)} bulletin(s) failed ({', '.join(failed)}); nothing written")
 
     out_path = RAW / "salinity_kttv_vietnam.json"
     out_data = {
