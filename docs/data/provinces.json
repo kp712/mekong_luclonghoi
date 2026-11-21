@@ -54586,55 +54586,6 @@
    }
   },
   {
-   "name": "Cát Lái",
-   "lat": 10.7698786,
-   "lon": 106.7746914,
-   "typical": {
-    "level": "medium",
-    "max_ppt": 8.1,
-    "months": [
-     3,
-     4
-    ],
-    "monthly": [
-     7.3,
-     7.4,
-     7.5,
-     6.7,
-     3.0,
-     null,
-     null,
-     null,
-     null,
-     null,
-     null,
-     null
-    ]
-   },
-   "elnino": {
-    "level": "medium",
-    "max_ppt": 10.4,
-    "months": [
-     3,
-     4
-    ],
-    "monthly": [
-     null,
-     null,
-     10.4,
-     9.2,
-     6.0,
-     null,
-     null,
-     null,
-     null,
-     null,
-     null,
-     null
-    ]
-   }
-  },
-  {
    "name": "Cầu Quan",
    "lat": 9.7677999,
    "lon": 106.1279465,

@@ -13,7 +13,7 @@ from datetime import date, timedelta
 import hls
 import ndvi
 from make_outlines import SRC as OUTLINE_SRC
-from sites import PROVINCES, REGION_SRC, REGIONS, SCORED_PLACES, SCORED_REGIONS, SITES
+from sites import OUT_OF_SCOPE_STATIONS, PROVINCES, REGION_SRC, REGIONS, SCORED_PLACES, SCORED_REGIONS, SITES
 
 HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parent
@@ -732,10 +732,15 @@ def station_views(name):
     return tuple({y: r for y, r in rec.items() if salt_elnino(y) == e} for e in (False, True))
 
 
+def bulletin_stations():
+    """Names of the KTTV bulletin stations inside the app's area (sorted)."""
+    return sorted({n for b in KTTV.values() for n in b["readings"]} - set(OUT_OF_SCOPE_STATIONS))
+
+
 def kttv_stations():
     """The KTTV stations for the salt map (docs/app/vn.js blends between them): name, position, and for each view with at
     least one season in SALT_SEASONS its level, max_ppt and months (station_view, the same rules as the province points)."""
-    names = sorted({n for b in KTTV.values() for n in b["readings"]})
+    names = bulletin_stations()
     out = []
     for n in names:
         s = {"name": n, "lat": KTTV_STATIONS[n]["lat"], "lon": KTTV_STATIONS[n]["lon"]}
@@ -749,7 +754,7 @@ def kttv_stations():
 
 def nearest_station(lat, lon):
     """(name, km) of the KTTV bulletin station nearest a point; ValueError if a bulletin station has no coordinates."""
-    names = sorted({n for b in KTTV.values() for n in b["readings"]})
+    names = bulletin_stations()
     for n in names:
         if n not in KTTV_STATIONS:
             raise ValueError(f"no coordinates for KTTV station {n}")

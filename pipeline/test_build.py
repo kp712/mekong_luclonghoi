@@ -866,6 +866,13 @@ def test_provinces_output():
     assert long_an["scored"] and long_an["cards"] and not tay_ninh["scored"] and not tay_ninh["cards"]
 
 
+def test_out_of_scope_station():
+    d = json.loads(build.PROV_OUT.read_text(encoding="utf-8"))
+    assert "Cát Lái" not in {s["name"] for s in d["stations"]}
+    long_an = next(x for x in d["places"] if x["id"] == "long_an")
+    assert long_an["salinity"]["station"] == "Tân An"   # its own nearest station, never Cát Lái
+
+
 def test_outlines():
     """docs/app/vn_geo.js: 14 former + 6 joined provinces, and every pin inside its own outline."""
     import make_outlines as mo
