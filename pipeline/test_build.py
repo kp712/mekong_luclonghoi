@@ -333,9 +333,10 @@ def test_salinity_station_data():
     for sid, (n, lo, hi, mean) in table2.items():
         xs = [v[0] for v in st[sid]["yearly_max"].values()]
         assert (len(xs), min(xs), max(xs), round(sum(xs) / len(xs), 2)) == (n, lo, hi, mean), sid
-    # El Niño seasons were saltier at every pin's station over the last 10 seasons
+    # El Niño seasons were saltier at every pin's station over the SALT_SEASONS, except Ngã Năm (rated low by its own rule:
+    # its canal read 15-17‰ in 2017-2018, typical seasons, and 2.6‰ in El Niño 2019)
     assert all(build.station_salt(s["station"], True)[0] > build.station_salt(s["station"], False)[0]
-               for s in json.loads((build.HERE / "salinity.json").read_text(encoding="utf-8"))["sites"].values())
+               for k, s in json.loads((build.HERE / "salinity.json").read_text(encoding="utf-8"))["sites"].items() if k != "nga_nam")
     # the national 10-day bulletins are a second, independent record: never above the paper's yearly max, equal in 9 of 10
     bul = json.loads((build.RAW / "salinity_bulletins.json").read_text(encoding="utf-8"))["bulletins"]
     same = 0
@@ -821,8 +822,15 @@ def test_provinces_output():
             assert any("MODIS" in s["en"] for s in x["summary"]) == x["ndvi"]["farmland"], x["id"]
         # outside the Delta no line uses the Delta's rice calendar
         assert x["scored"] or not any("Winter–spring" in s["en"] for s in x["summary"] + x["elnino"]["summary"]), x["id"]
-        assert x["salinity"]["level"] == "unknown" and x["scored"] == (x["region"] == "mekong_delta")
-        assert bool(x["cards"]) == x["scored"] == bool(x["elnino"]["cards"])
+        assert x["scored"] == (x["region"] == "mekong_delta") and bool(x["cards"]) == x["scored"] == bool(x["elnino"]["cards"])
+        sal, sal_e = x["salinity"], x["elnino"]["salinity"]
+        assert (sal["level"] == "unknown") == (sal_e["level"] == "unknown"), x["id"]
+        if sal["level"] != "unknown":  # nearest KTTV station within SALT_KM: an estimate naming the station and its distance
+            assert sal["station"] == sal_e["station"] and sal["km"] <= build.SALT_KM and sal["max_ppt"] is not None, x["id"]
+            salt = [s for s in x["summary"] if s.get("salt")] + [s for s in x["elnino"]["summary"] if s.get("salt")]
+            assert all(sal["station"] in s["en"] and f"{build.whole(sal['km'])} km" in s["en"] and sal["station"] in s["vi"] for s in salt), x["id"]
+            assert all(c["scores"]["salt"] is not None for c in flat(x)), x["id"]
+            continue
         for c in flat(x):  # no salinity estimate: low, except the bare Feb-Apr bonus MODIS can give (confidence())
             ok = ("low", "medium") if x["ndvi"] and x["ndvi"]["farmland"] and c["id"] in ("rice_upland", "salt_tolerant") else ("low",)
             assert c["scores"]["salt"] is None and c["confidence"] in ok, (x["id"], c["id"], c["confidence"])
@@ -879,6 +887,136 @@ def test_kttv_station_coords():
     for n, s in st.items():
         assert 8.3 <= s["lat"] <= 11.2 and 104.4 <= s["lon"] <= 107.1, n
         assert s["source"]["url"] and type(s["approximate"]) is bool and s["river"], n
+
+
+def kttv_raw():
+    return json.loads((build.RAW / "salinity_kttv_vietnam.json").read_text(encoding="utf-8"))["bulletins"]
+
+
+def station_at(name, dlat_km=0.0):
+    """(lat, lon) of a KTTV station, moved dlat_km km due south."""
+    st = json.loads((build.RAW / "kttv_stations.json").read_text(encoding="utf-8"))["stations"][name]
+    return st["lat"] - dlat_km / 111.195, st["lon"]  # 1° of latitude = 6371 km x pi / 180 = 111.195 km
+
+
+def test_salt_window():
+    assert build.SALT_SEASONS == (2017, 2026)
+    assert build.salt_elnino(2024) and not build.salt_elnino(2025) and not build.salt_elnino(2026)
+    assert build.salt_elnino(2016) and not build.salt_elnino(2017)  # straight from oni.txt, not limited to PERIOD
+    _, first, last, _ = build.station_salt("tran_de", False)
+    assert first == 2017 and last >= 2025, (first, last)
+    _, first, last, n = build.station_salt("tran_de", True)
+    assert (first, last, n) == (2019, 2024, 3)  # El Niño dry seasons 2019, 2020, 2024
+
+
+def test_station_record_merge():
+    rec = build.station_record("Trần Đề")
+    assert rec[2024] == (23.7, 3, False)  # the table's row wins over the bulletins' partial 2024 season
+    assert rec[1999][2] is False and min(rec) == 1999
+    months26 = {int(d[5:7]) for d, b in kttv_raw().items() if d[:4] == "2026" and "Trần Đề" in b["readings"]}
+    if not {2, 3} <= months26:  # 2026 partial at Trần Đề: never merged into a full record
+        assert 2026 not in rec
+    bd = build.station_record("Bình Đại")  # not a table station: bulletins only
+    assert set(bd) == {2024, 2025, 2026} and bd[2024] == (25.3, 3, True) and bd[2025] == (23.9, 2, False) and bd[2026][2] is True
+
+
+def test_kttv_nearest():
+    import sites
+    pts = {f["id"]: f for p in sites.PROVINCES for f in p["former"]}
+    bt = build.kttv_salinity(pts["ben_tre"]["lat"], pts["ben_tre"]["lon"])
+    assert bt and bt[0]["level"] != build.UNKNOWN and bt[1]["level"] != build.UNKNOWN
+    for pid in ("dong_thap", "an_giang"):  # Cao Lãnh and Long Xuyên: far from the coast and the Cái Bé / Cái Lớn stations
+        got = build.kttv_salinity(pts[pid]["lat"], pts[pid]["lon"])
+        assert got is None or got[0]["station"] not in ("Vàm Kênh", "Gò Quao", "An Ninh"), (pid, got[0]["station"])
+    t, e = build.kttv_salinity(*station_at("Sông Đốc", 25.0))
+    assert t["station"] == e["station"] == "Sông Đốc" and t["km"] == 25.0
+    assert build.kttv_salinity(*station_at("Sông Đốc", 25.5)) is None
+    t, _ = build.kttv_salinity(*station_at("Trần Đề"))
+    assert t["station"] == "Trần Đề" and t["km"] == 0 and t["seasons"] == 9 and t["last_year"] == 2025  # the table's long record
+
+
+def test_kttv_salt_months():
+    b = kttv_raw()
+    def seasons(name, m):
+        return {d[:4] for d, v in b.items() if int(d[5:7]) == m and v["readings"].get(name, 0) >= build.SALT_MED}
+    assert len(seasons("Long Phú", 3)) >= 2 and len(seasons("Long Phú", 1)) == 1  # the data this test relies on
+    t, e = build.kttv_salinity(*station_at("Long Phú"))
+    assert 3 in t["months"] and 1 not in t["months"] and t["months"] == e["months"]
+    assert len(seasons("Sóc Trăng", 5)) == 1 and 5 not in build.kttv_salinity(*station_at("Sóc Trăng"))[0]["months"]
+
+
+def test_kttv_partial_label():
+    t, e = build.kttv_salinity(*station_at("Bình Đại"))
+    assert t["partial"] and e["partial"]  # 2026 (typical) and 2024 (El Niño) have no February bulletin
+    for s in (t, e):
+        assert "may miss an earlier peak" in s["note"]["en"] and "Bình Đại" in s["note"]["en"] and "‰" in s["note"]["vi"]
+    assert "one" in e["note"]["en"] and "duy nhất" in e["note"]["vi"]  # the El Niño view rests on 2024 alone
+    assert e["station_ppt"] == 25.3 and t["station_ppt"] == round((23.9 + 24.1) / 2, 1)
+    assert not build.kttv_salinity(*station_at("Trần Đề"))[0]["partial"]
+    sm = build.summary({"rain_mm": [100] * 12, "et0_mm": [120] * 12}, None, t)[1]
+    assert "Bình Đại" in sm["en"] and f"{build.whole(t['km'])} km" in sm["en"] and "may miss an earlier peak" in sm["en"] and "Bình Đại" in sm["vi"]
+
+
+def test_province_average_salt():
+    d = json.loads(build.PROV_OUT.read_text(encoding="utf-8"))
+    for p in d["provinces"]:
+        for sal in (p["salinity"], p["elnino"]["salinity"]):
+            assert sal["level"] == "unknown" and "former province" in sal["note"]["en"] and "tỉnh cũ" in sal["note"]["vi"], p["id"]
+        for sm in (p["summary"], p["elnino"]["summary"]):  # the flagged salt line sends the farmer to a former province
+            salt = [x for x in sm if x.get("salt")][0]
+            assert "pick a former province" in salt["en"] and "chọn một tỉnh cũ" in salt["vi"] and "no public report" not in salt["en"], p["id"]
+
+
+def points():
+    import sites
+    return {f["id"]: f for p in sites.PROVINCES for f in p["former"]}
+
+
+def test_no_estimate_reasons():
+    d = {x["id"]: x for x in json.loads(build.PROV_OUT.read_text(encoding="utf-8"))["places"]}
+    salt = lambda x, v: [s for s in (x["summary"] if v == "t" else x["elnino"]["summary"]) if s.get("salt")][0]
+    kg = d["kien_giang"]  # Rạch Giá station 0.3 km away, but bulletins only for 2024 (an El Niño year)
+    assert kg["salinity"]["level"] == kg["elnino"]["salinity"]["level"] == build.UNKNOWN
+    for v in ("t", "e"):
+        assert "Rạch Giá" in salt(kg, v)["en"] and "only for El Niño" in salt(kg, v)["en"] and "no typical-year estimate" in salt(kg, v)["en"]
+        assert "Rạch Giá" in salt(kg, v)["vi"] and "năm El Niño" in salt(kg, v)["vi"]
+    far = d["can_tho"]  # Đại Ngãi is the nearest station, about 50 km away
+    st, km = build.nearest_station(far["lat"], far["lon"])
+    assert km > build.SALT_KM and all(st in salt(far, v)["en"] and f"{whole_km(km)} km" in salt(far, v)["en"] and st in salt(far, v)["vi"] for v in ("t", "e"))
+    assert "no public report" not in json.dumps([s for x in d.values() for s in x["summary"] + x["elnino"]["summary"]])
+
+
+def whole_km(km):
+    return build.whole(round(km, 1))
+
+
+def test_salt_months_when_salty():
+    d = json.loads(build.PROV_OUT.read_text(encoding="utf-8"))["places"]
+    for x in d:
+        for sal in (x["salinity"], x["elnino"]["salinity"]):
+            if sal["level"] in ("medium", "high"):
+                assert sal["months"], (x["id"], sal["level"])
+    pts = points()
+    for pid in ("soc_trang", "long_an", "tien_giang"):  # El Niño medium, but no month reached 4‰ in 2 seasons
+        t, e = build.kttv_salinity(pts[pid]["lat"], pts[pid]["lon"])
+        assert e["level"] == "medium" and e["months"] and "any El Niño season" in e["note"]["en"] and "bất kỳ" in e["note"]["vi"], pid
+        assert t["level"] == "low" and "any" not in t["note"]["en"], pid
+    assert build.kttv_salinity(pts["long_an"]["lat"], pts["long_an"]["lon"])[1]["months"] == [3, 4, 5]  # Tân An 2024: 4.7-11.1‰ Mar-May
+
+
+def test_kttv_missing_station():
+    saved = build.KTTV_STATIONS
+    build.KTTV_STATIONS = {k: v for k, v in saved.items() if k != "Gò Quao"}
+    try:
+        build.kttv_salinity(10.0, 106.0)
+        assert False, "expected ValueError"
+    except ValueError as e:
+        assert "Gò Quao" in str(e)
+    finally:
+        build.KTTV_STATIONS = saved
+    pts = points()
+    for pid in ("can_tho", "vinh_long"):  # inland on the Hậu / Cổ Chiên: no coastal station within 25 km
+        assert build.kttv_salinity(pts[pid]["lat"], pts[pid]["lon"]) is None, pid
 
 
 if __name__ == "__main__":
