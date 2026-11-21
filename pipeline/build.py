@@ -131,6 +131,7 @@ OUTLOOK = outlook(json.loads((RAW / "enso_outlook.json").read_text(encoding="utf
 GPM_SRC = {"title": "NASA GPM IMERG Final monthly v07 (GPM_3IMERGM), 0.1° (~10 km)", "url": "https://disc.gsfc.nasa.gov/datasets/GPM_3IMERGM_07/summary", "verified": True}
 POWER_SRC = {"title": "NASA POWER daily API (MERRA-2 based)", "url": "https://power.larc.nasa.gov/", "verified": True}
 MODIS_SRC = {"title": "NASA MODIS MOD13Q1 v6.1 NDVI, 250 m", "url": "https://lpdaac.usgs.gov/products/mod13q1v061/", "verified": True}
+HLS_SRC = {"title": "NASA HLS v2.0 NDVI (Landsat 8/9 + Sentinel-2), 30 m, cloud-free dates", "url": "https://lpdaac.usgs.gov/products/hlsl30v002/", "verified": True}
 HEAT_SRC = {"title": "Yoshida S. (1981), Fundamentals of Rice Crop Science, IRRI (heat at flowering)", "url": "http://books.irri.org/9711040522_content.pdf",
             "note": "Checked. Section 2.3.6, p. 81: 'High percentages of spikelet sterility occur if temperatures exceed 35°C at anthesis and last for more than 1 hour.' Table 2.4 (p. 72) gives 35 °C as the critical high temperature at anthesis (as a daily mean). Whereas Yoshida measures exposure at flowering (anthesis), our daily-maximum proxy counts NASA POWER days whose daily maximum reaches or exceeds 35 °C across the months a crop is in the field.", "verified": True}
 FAO29_SRC = {"title": "Ayers & Westcot (1985), Water quality for agriculture, FAO Irrigation and Drainage Paper 29 Rev. 1, Table 4 and 5",
@@ -910,8 +911,8 @@ def confidence(rot, nd, sal, not_here, elnino=False):
     if nd is None:
         conf -= 1
         why.append(line("Satellite greenness (NDVI) is not loaded for this site.", "Chưa có dữ liệu độ xanh vệ tinh (NDVI) cho điểm này."))
-    elif set(nd["bare_months"]) & {2, 3, 4} and rot["id"] in ("rice_upland", "salt_tolerant"):
-        conf += 1  # team rule: the dry-season gap this option needs already exists in the field calendar
+    elif (set(nd["bare_months"]) | set(nd.get("hls_bare_months", ()))) & {2, 3, 4} and rot["id"] in ("rice_upland", "salt_tolerant"):
+        conf += 1  # team rule: the dry-season gap this option needs already exists (bare in MODIS or in 30 m HLS)
     if sal["level"] == UNKNOWN:
         conf -= 1
         why.append(line("No salinity estimate for this area: weather & salt is not scored, salt-month profit losses are not counted and shrimp's brackish-water need is not checked.",
@@ -1018,6 +1019,9 @@ def make_card(rot, clim, nd, sal, elnino=False):
     if nd and nd["bare_months"] and rot["id"] in ("rice_upland", "salt_tolerant"):
         ev.append(sourced(line(f"NASA MODIS NDVI: fields are usually bare in {month_names(nd['bare_months'], 'en')}, a window that fits this option.",
                        f"NASA MODIS NDVI: ruộng thường để trống vào {month_names(nd['bare_months'], 'vi')}, phù hợp với phương án này."), MODIS_SRC))
+    if nd and nd.get("hls_bare_months") and rot["id"] in ("rice_upland", "salt_tolerant"):
+        ev.append(sourced(line(f"NASA HLS NDVI (30 m): fields are usually bare in {month_names(nd['hls_bare_months'], 'en')}.",
+                       f"NASA HLS NDVI (30 m): ruộng thường để trống vào {month_names(nd['hls_bare_months'], 'vi')}."), HLS_SRC))
 
     # Salinity: local estimate, never satellite
     risk = sal["level"]  # the El Niño view passes the El Niño seasons' salinity
@@ -1262,6 +1266,8 @@ def build():
             nd_e = chart(in_elnino)
         hls_file = RAW / f"hls_{s['id']}.json"
         hls_result = hls_check(json.loads(hls_file.read_text(encoding="utf-8")), nd["bare_months"] if nd else ()) if hls_file.exists() else None
+        if nd and hls_result:  # a month bare in HLS but not MODIS also counts for the field-calendar rule
+            nd = dict(nd, hls_bare_months=[m for m in hls_result["bare_months"] if m not in nd["bare_months"]])
         if hls_result and not hls_result["rice_like"]:
             print(f"WARNING: {s['id']} does not look like rice at 30 m (HLS peak {hls_result['peak']}, low {hls_result['low']}); try appeears.py find-hls {s['id']}")
         soil_file = RAW / f"soil_{s['id']}.json"

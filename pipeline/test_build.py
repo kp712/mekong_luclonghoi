@@ -194,6 +194,7 @@ def test_confidence():
     assert lvl("rice2", sal=dict(good, seasons=4)) == "low"
     assert lvl("rice_shrimp", nh=True) == "low"                       # fallback income + not here
     assert L.index(lvl("salt_tolerant")) > L.index(lvl("salt_tolerant", dict(nd, bare_months=[10])))  # MODIS bare-window bonus
+    assert lvl("salt_tolerant", dict(nd, bare_months=[10], hls_bare_months=[4])) == lvl("salt_tolerant")  # bare in HLS only counts too
     assert lvl("rice_upland", dict(nd, bare_months=[10])) == "low"                                 # autumn–winter rice income rests on fallbacks
     assert lvl("rice_upland") == "medium"                             # thin income caps at medium, even with the bare-window bonus
     # team estimates cost one level in total, and a loss estimate counts only where it applies

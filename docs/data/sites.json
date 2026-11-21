@@ -30,7 +30,7 @@
     "vi": "Cây che phủ được trồng trong thời gian đất nghỉ để giữ cho đất không bị trống, không phải để bán. Theo FAO, cây che phủ bảo vệ đất trống, bổ sung chất hữu cơ giúp cải thiện cấu trúc đất, giúp hạn chế cỏ dại và sâu bệnh, và giữ lại dinh dưỡng cho vụ sau."
    },
    "src": [
-    66
+    67
    ]
   },
   {
@@ -46,8 +46,8 @@
     "vi": "Trồng lúa ngập nước nhiều năm có thể làm đất bị nén chặt bên dưới tầng cày. Trong một thí nghiệm 10 năm ở Đồng bằng sông Cửu Long, luân canh lúa với bắp hoặc đậu xanh làm đất tơi xốp hơn ở độ sâu 10–30 cm và rễ lúa ăn sâu hơn. Một thí nghiệm sau đó, cũng ở Đồng bằng sông Cửu Long (2017–2020, đậu nành và mè) không thấy năng suất lúa tăng chỉ nhờ luân canh."
    },
    "src": [
-    67,
-    68
+    68,
+    69
    ]
   },
   {
@@ -64,7 +64,7 @@
    },
    "src": [
     3,
-    69
+    70
    ]
   },
   {
@@ -136,11 +136,11 @@
     }
    ],
    "src": [
-    70,
     71,
     72,
     73,
-    74
+    74,
+    75
    ]
   },
   "rice_st": {
@@ -173,9 +173,9 @@
     }
    ],
    "src": [
-    75,
     76,
-    77
+    77,
+    78
    ]
   },
   "mungbean": {
@@ -216,9 +216,9 @@
     "vi": "Hướng dẫn chung cả nước, không riêng cho Đồng bằng sông Cửu Long: hãy hỏi cán bộ khuyến nông."
    },
    "src": [
-    78,
     79,
-    80
+    80,
+    81
    ]
   },
   "watermelon": {
@@ -252,7 +252,7 @@
     }
    ],
    "src": [
-    81,
+    82,
     54
    ]
   },
@@ -294,9 +294,9 @@
     "vi": "Hướng dẫn chung cả nước, không riêng cho Đồng bằng sông Cửu Long: hãy hỏi cán bộ khuyến nông."
    },
    "src": [
-    78,
-    82,
-    83
+    79,
+    83,
+    84
    ]
   },
   "shrimp": {
@@ -332,10 +332,10 @@
     }
    ],
    "src": [
-    75,
-    84,
     76,
-    77
+    85,
+    77,
+    78
    ]
   }
  },
@@ -727,6 +727,11 @@
    "verified": true
   },
   {
+   "title": "NASA HLS v2.0 NDVI (Landsat 8/9 + Sentinel-2), 30 m, cloud-free dates",
+   "url": "https://lpdaac.usgs.gov/products/hlsl30v002/",
+   "verified": true
+  },
+  {
    "title": "FAO, Conservation Agriculture: Soil organic cover",
    "url": "https://www.fao.org/conservation-agriculture/in-practice/soil-organic-cover/en",
    "verified": true
@@ -995,7 +1000,8 @@
      6,
      10
     ],
-    "crops_per_year": 1.9
+    "crops_per_year": 1.9,
+    "hls_bare_months": []
    },
    "salinity": {
     "months": [
@@ -4431,7 +4437,8 @@
      5,
      10
     ],
-    "crops_per_year": 1.9
+    "crops_per_year": 1.9,
+    "hls_bare_months": []
    },
    "salinity": {
     "months": [
@@ -7669,7 +7676,13 @@
     "bare_months": [
      4
     ],
-    "crops_per_year": 1.9
+    "crops_per_year": 1.9,
+    "hls_bare_months": [
+     3,
+     5,
+     6,
+     10
+    ]
    },
    "salinity": {
     "months": [
@@ -8391,6 +8404,13 @@
          "src": [
           12
          ]
+        },
+        {
+         "en": "NASA HLS NDVI (30 m): fields are usually bare in Mar, May–Jun, Oct.",
+         "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T3, T5–T6, T10.",
+         "src": [
+          66
+         ]
         }
        ],
        "crop": "watermelon",
@@ -8608,6 +8628,13 @@
          "src": [
           12
          ]
+        },
+        {
+         "en": "NASA HLS NDVI (30 m): fields are usually bare in Mar, May–Jun, Oct.",
+         "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T3, T5–T6, T10.",
+         "src": [
+          66
+         ]
         }
        ],
        "crop": "maize",
@@ -8809,6 +8836,13 @@
          "src": [
           12
          ]
+        },
+        {
+         "en": "NASA HLS NDVI (30 m): fields are usually bare in Mar, May–Jun, Oct.",
+         "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T3, T5–T6, T10.",
+         "src": [
+          66
+         ]
         }
        ],
        "crop": "mungbean",
@@ -8990,6 +9024,13 @@
        "vi": "NASA MODIS NDVI: ruộng thường để trống vào T4, phù hợp với phương án này.",
        "src": [
         12
+       ]
+      },
+      {
+       "en": "NASA HLS NDVI (30 m): fields are usually bare in Mar, May–Jun, Oct.",
+       "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T3, T5–T6, T10.",
+       "src": [
+        66
        ]
       }
      ],
@@ -10014,6 +10055,13 @@
           "src": [
            12
           ]
+         },
+         {
+          "en": "NASA HLS NDVI (30 m): fields are usually bare in Mar, May–Jun, Oct.",
+          "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T3, T5–T6, T10.",
+          "src": [
+           66
+          ]
          }
         ],
         "crop": "watermelon",
@@ -10231,6 +10279,13 @@
           "src": [
            12
           ]
+         },
+         {
+          "en": "NASA HLS NDVI (30 m): fields are usually bare in Mar, May–Jun, Oct.",
+          "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T3, T5–T6, T10.",
+          "src": [
+           66
+          ]
          }
         ],
         "crop": "maize",
@@ -10432,6 +10487,13 @@
           "src": [
            12
           ]
+         },
+         {
+          "en": "NASA HLS NDVI (30 m): fields are usually bare in Mar, May–Jun, Oct.",
+          "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T3, T5–T6, T10.",
+          "src": [
+           66
+          ]
          }
         ],
         "crop": "mungbean",
@@ -10613,6 +10675,13 @@
         "vi": "NASA MODIS NDVI: ruộng thường để trống vào T4, phù hợp với phương án này.",
         "src": [
          12
+        ]
+       },
+       {
+        "en": "NASA HLS NDVI (30 m): fields are usually bare in Mar, May–Jun, Oct.",
+        "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T3, T5–T6, T10.",
+        "src": [
+         66
         ]
        }
       ],
@@ -10880,7 +10949,10 @@
     "bare_months": [
      5
     ],
-    "crops_per_year": 2.4
+    "crops_per_year": 2.4,
+    "hls_bare_months": [
+     9
+    ]
    },
    "salinity": {
     "months": [
@@ -11614,6 +11686,13 @@
          "src": [
           12
          ]
+        },
+        {
+         "en": "NASA HLS NDVI (30 m): fields are usually bare in Sep.",
+         "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T9.",
+         "src": [
+          66
+         ]
         }
        ],
        "crop": "watermelon",
@@ -11830,6 +11909,13 @@
          "src": [
           12
          ]
+        },
+        {
+         "en": "NASA HLS NDVI (30 m): fields are usually bare in Sep.",
+         "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T9.",
+         "src": [
+          66
+         ]
         }
        ],
        "crop": "maize",
@@ -12030,6 +12116,13 @@
          "src": [
           12
          ]
+        },
+        {
+         "en": "NASA HLS NDVI (30 m): fields are usually bare in Sep.",
+         "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T9.",
+         "src": [
+          66
+         ]
         }
        ],
        "crop": "mungbean",
@@ -12211,6 +12304,13 @@
        "vi": "NASA MODIS NDVI: ruộng thường để trống vào T5, phù hợp với phương án này.",
        "src": [
         12
+       ]
+      },
+      {
+       "en": "NASA HLS NDVI (30 m): fields are usually bare in Sep.",
+       "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T9.",
+       "src": [
+        66
        ]
       }
      ],
@@ -13242,6 +13342,13 @@
           "src": [
            12
           ]
+         },
+         {
+          "en": "NASA HLS NDVI (30 m): fields are usually bare in Sep.",
+          "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T9.",
+          "src": [
+           66
+          ]
          }
         ],
         "crop": "watermelon",
@@ -13458,6 +13565,13 @@
           "src": [
            12
           ]
+         },
+         {
+          "en": "NASA HLS NDVI (30 m): fields are usually bare in Sep.",
+          "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T9.",
+          "src": [
+           66
+          ]
          }
         ],
         "crop": "maize",
@@ -13658,6 +13772,13 @@
           "src": [
            12
           ]
+         },
+         {
+          "en": "NASA HLS NDVI (30 m): fields are usually bare in Sep.",
+          "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T9.",
+          "src": [
+           66
+          ]
          }
         ],
         "crop": "mungbean",
@@ -13839,6 +13960,13 @@
         "vi": "NASA MODIS NDVI: ruộng thường để trống vào T5, phù hợp với phương án này.",
         "src": [
          12
+        ]
+       },
+       {
+        "en": "NASA HLS NDVI (30 m): fields are usually bare in Sep.",
+        "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T9.",
+        "src": [
+         66
         ]
        }
       ],
@@ -14108,7 +14236,10 @@
      10,
      11
     ],
-    "crops_per_year": 2.1
+    "crops_per_year": 2.1,
+    "hls_bare_months": [
+     4
+    ]
    },
    "salinity": {
     "months": [
@@ -14818,10 +14949,17 @@
          "src": [
           12
          ]
+        },
+        {
+         "en": "NASA HLS NDVI (30 m): fields are usually bare in Apr.",
+         "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T4.",
+         "src": [
+          66
+         ]
         }
        ],
        "crop": "watermelon",
-       "confidence": "low",
+       "confidence": "medium",
        "not_here": false,
        "plan": {
         "U": {
@@ -15022,10 +15160,17 @@
          "src": [
           12
          ]
+        },
+        {
+         "en": "NASA HLS NDVI (30 m): fields are usually bare in Apr.",
+         "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T4.",
+         "src": [
+          66
+         ]
         }
        ],
        "crop": "maize",
-       "confidence": "low",
+       "confidence": "medium",
        "not_here": false,
        "plan": {
         "U": {
@@ -15210,10 +15355,17 @@
          "src": [
           12
          ]
+        },
+        {
+         "en": "NASA HLS NDVI (30 m): fields are usually bare in Apr.",
+         "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T4.",
+         "src": [
+          66
+         ]
         }
        ],
        "crop": "mungbean",
-       "confidence": "low",
+       "confidence": "medium",
        "not_here": false,
        "plan": {
         "U": {
@@ -15392,10 +15544,17 @@
        "src": [
         12
        ]
+      },
+      {
+       "en": "NASA HLS NDVI (30 m): fields are usually bare in Apr.",
+       "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T4.",
+       "src": [
+        66
+       ]
       }
      ],
      "crop": null,
-     "confidence": "medium",
+     "confidence": "high",
      "not_here": false,
      "plan": {
       "R1": {
@@ -16402,10 +16561,17 @@
           "src": [
            12
           ]
+         },
+         {
+          "en": "NASA HLS NDVI (30 m): fields are usually bare in Apr.",
+          "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T4.",
+          "src": [
+           66
+          ]
          }
         ],
         "crop": "watermelon",
-        "confidence": "low",
+        "confidence": "medium",
         "not_here": false,
         "plan": {
          "U": {
@@ -16606,10 +16772,17 @@
           "src": [
            12
           ]
+         },
+         {
+          "en": "NASA HLS NDVI (30 m): fields are usually bare in Apr.",
+          "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T4.",
+          "src": [
+           66
+          ]
          }
         ],
         "crop": "maize",
-        "confidence": "low",
+        "confidence": "medium",
         "not_here": false,
         "plan": {
          "U": {
@@ -16794,10 +16967,17 @@
           "src": [
            12
           ]
+         },
+         {
+          "en": "NASA HLS NDVI (30 m): fields are usually bare in Apr.",
+          "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T4.",
+          "src": [
+           66
+          ]
          }
         ],
         "crop": "mungbean",
-        "confidence": "low",
+        "confidence": "medium",
         "not_here": false,
         "plan": {
          "U": {
@@ -16976,10 +17156,17 @@
         "src": [
          12
         ]
+       },
+       {
+        "en": "NASA HLS NDVI (30 m): fields are usually bare in Apr.",
+        "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T4.",
+        "src": [
+         66
+        ]
        }
       ],
       "crop": null,
-      "confidence": "medium",
+      "confidence": "high",
       "not_here": false,
       "plan": {
        "R1": {

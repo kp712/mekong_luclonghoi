@@ -8,6 +8,7 @@ A static PWA for Mekong Delta rice farmers and extension officers (started at NA
 - Salinity bulletins: `python3 pipeline/fetch_salinity_vietnam.py` writes `data/raw/salinity_kttv_vietnam.json`. It writes nothing if any fetch fails.
 - Screenshots: `node tools/shot.js [page] [outdir]`. The default page is `index.html#vietnam`. It takes desktop and phone shots and exits 1 on page errors.
 - Serve by hand: `python3 -m http.server 8000 -d docs`.
+- Pins must be rice at 30 m (HLS peak >= 0.7, dip < 0.35, water <= 10%); `test_build.py` fails a pin that is not. `python3 pipeline/appeears.py find-hls <pin> [half]` searches a grid for rice; check candidates on Esri imagery before `--apply`.
 
 ## File map
 - `docs/index.html` is the app. `vietnam.html` only redirects to it (old links).
@@ -56,3 +57,5 @@ A static PWA for Mekong Delta rice farmers and extension officers (started at NA
 - Python edits to Vietnamese text: read and write with `encoding="utf-8"`. For multi-line edits, use a Python string replace with an assert, not sed.
 - Vietnamese government sites (`*.soctrang.gov.vn`) and `web.archive.org` are unreachable from the cloud sandbox.
 - A safety check blocks inline heredoc scripts that contain words like `removeChild`; write the script to the scratchpad and run it.
+- Earthdata login must be sent up front (`HTTPPasswordMgrWithPriorAuth`): the login server resets Python requests that wait for a 401.
+- From the cloud sandbox, `gpm1.gesdisc` resets every connection and others drop often: `fetch_gpm.py` uses NASA's cloud OPeNDAP copy first, fetches only missing cells, 4 months at a time; rerun it until it reports no missing months.
