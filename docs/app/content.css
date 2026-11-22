@@ -534,18 +534,9 @@ body.calm .card { transition: none }
 #addField:hover { background: color-mix(in srgb, var(--gold) 22%, transparent) }
 body.field-mode #addField { min-height: 56px; width: 100% }
 
-/* step 2: the field comes first (app.js renderNeedField) */
-.need-field { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 10px 12px; margin: 0 0 14px; padding: 12px 14px; border-radius: var(--r); border: 1.5px solid var(--gold); background: color-mix(in srgb, var(--gold) 12%, var(--panel-solid)) }
-.need-field[hidden] { display: none }
-.need-field p { margin: 0; display: grid; gap: 2px; font-size: .875rem; line-height: 1.4; color: var(--ink-2) }
-.need-field b { font-size: .9375rem; color: var(--ink) }
-.need-field .btn, .need-field .ghost-btn { min-height: 44px; white-space: nowrap }
-.need-field.ok { border-color: var(--line-2); background: var(--panel-solid) }
-@media (max-width: 420px) { .need-field { grid-template-columns: 1fr } .need-field .btn { width: 100% } }
 #fieldForm [aria-invalid="true"] { border-color: var(--risk) !important; outline: 2px solid var(--risk) }
 #fieldForm .f-err { margin: 4px 0 0; font-weight: 600; color: var(--risk) }
-#fieldForm .f-err[hidden], #fieldForm .f-need[hidden] { display: none }
-#fieldForm .f-need { margin: 0 0 6px; padding: 10px 12px; border-radius: 12px; border: 1px solid var(--gold); background: color-mix(in srgb, var(--gold) 12%, transparent); font-size: .9375rem; line-height: 1.45; color: var(--ink) }
+#fieldForm .f-err[hidden] { display: none }
 @media (max-width: 760px) { .gd { bottom: calc(96px + env(safe-area-inset-bottom, 0px)) } }
 @media (max-width: 760px) { #gearBtn .ib-t { display: none } }
 

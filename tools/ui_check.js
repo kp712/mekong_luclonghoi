@@ -17,7 +17,8 @@ async function toCards(page, url) {
   await home(page, url);
   await page.locator('.dv-welcome [data-dv=add]').click();
   await page.locator('.sg-pin').nth(1).click();
-  await page.locator('#dNext').click(); await page.locator('#dNext').click();
+  await page.locator('#dNext').click();   // step 1 "this is my area" opens the field form when the area has no field
+  await page.waitForSelector('#fieldForm', { state: 'visible' });
   // The form can re-draw between two fills and send text to the wrong input: fill until both values stick.
   for (let i = 0; i < 5; i++) {
     await page.fill('#fName', 'Ruộng thử'); await page.fill('#fSize', '1,5');
@@ -136,6 +137,80 @@ const CHECKS = [
     }
     assert(!/undefined/.test(await page.evaluate(() => document.body.innerText)), 'undefined in the page text');
   } },
+  { name: 'create', async run({ page, url }) {
+    const farm = () => page.evaluate(() => (JSON.parse(localStorage.getItem('mre-farm') || 'null') || { fields: [] }).fields);
+    const form = async () => { await page.evaluate(() => App.openFieldForm('tran_de')); await page.waitForSelector('#fieldForm', { state: 'visible' }); };
+    await home(page, url); await page.locator('.dv-welcome [data-dv=add]').click();
+    await page.locator('.sg-pin').nth(1).click(); await page.waitForSelector('#v1.on');
+    await page.locator('#dNext').click();
+    await page.waitForSelector('#fieldForm', { state: 'visible', timeout: 3000 });
+    assert(await page.locator('#needField').count() === 0, 'step 2 gate box still there');
+    assert(await page.getAttribute('#fName', 'placeholder') === 'Ruộng Trần Đề', 'placeholder: ' + await page.getAttribute('#fName', 'placeholder'));
+    assert(await page.locator('#fTry').isVisible(), 'no Xem thử button');
+    await page.locator('#fieldForm [type=submit]').click();               // everything empty
+    await page.waitForSelector('#v2.on');
+    let fs = await farm();
+    assert(fs.length === 1 && fs[0].name === 'Ruộng Trần Đề' && !fs[0].size, 'empty form saved as ' + JSON.stringify(fs));
+    for (const bad of ['0', 'abc', '5000']) {
+      await form(); assert(!(await page.locator('#fTry').isVisible()), 'Xem thử in a form opened on purpose');
+      await page.fill('#fSize', bad); await page.locator('#fieldForm [type=submit]').click();
+      assert(await page.locator('#fieldForm .f-err').isVisible(), 'no error for size ' + bad);
+      assert((await farm()).length === 1, 'saved with size ' + bad);
+      await page.locator('#fCancel').click();
+    }
+    await form(); await page.locator('#fieldForm [type=submit]').click();
+    fs = await farm(); assert(fs.length === 2 && fs[1].name === 'Ruộng Trần Đề 2', 'second name ' + JSON.stringify(fs.map(f => f.name)));
+    await page.evaluate(id => { const f = JSON.parse(localStorage.getItem('mre-farm')); f.fields.find(x => x.id === id).size = 1.5; localStorage.setItem('mre-farm', JSON.stringify(f)); Farm.st.fields.find(x => x.id === id).size = 1.5; }, fs[0].id);
+    await page.evaluate(id => App.openField(id), fs[1].id);
+    assert(await page.evaluate(() => Cost.ha()) == null, 'sizeless field borrows another field\'s hectares: ' + await page.evaluate(() => Cost.ha()));
+    await page.evaluate(id => document.querySelector(`[data-edit="${id}"]`).click(), fs[0].id);  // edit the first field
+    await page.waitForSelector('#fieldForm', { state: 'visible' });
+    assert(!(await page.locator('#fTry').isVisible()), 'Xem thử shown when editing');
+    await page.locator('#fieldForm [type=submit]').click();
+    fs = await farm(); assert(fs.length === 2 && fs[0].name === 'Ruộng Trần Đề', 'edit changed the name: ' + fs[0].name);
+  } },
+  { name: 'create-en', async run({ page, url }) {
+    await home(page, url); await page.locator('#lEn').click(); await page.locator('.dv-welcome [data-dv=add]').click();
+    await page.locator('.sg-pin').nth(1).click(); await page.waitForSelector('#v1.on');
+    await page.locator('#dNext').click(); await page.waitForSelector('#fieldForm', { state: 'visible', timeout: 3000 });
+    assert(await page.getAttribute('#fName', 'placeholder') === 'Field Trần Đề', 'EN placeholder: ' + await page.getAttribute('#fName', 'placeholder'));
+    assert((await page.locator('#fTry').textContent()).trim() === "Just look, don't save", 'EN Xem thử label');
+  } },
+  { name: 'form-320', async run({ page, url }) {
+    await page.setViewportSize({ width: 320, height: 640 });
+    await home(page, url); await page.locator('.dv-welcome [data-dv=add]').click();
+    await page.locator('.sg-pin .sg-pin-btn').nth(1).evaluate(b => b.click()); await page.waitForSelector('#v1.on');
+    await page.locator('#dNext').click(); await page.waitForSelector('#fieldForm', { state: 'visible', timeout: 3000 });
+    for (const b of await page.locator('#fieldForm .f-actions button:visible').all()) {
+      const r = await b.boundingBox(); assert(r && r.x >= 0 && r.x + r.width <= 320, 'off screen at 320 px: ' + (await b.textContent()).trim());
+    }
+  } },
+  { name: 'try', async run({ page, url }) {
+    await home(page, url); await page.locator('.dv-welcome [data-dv=add]').click();
+    await page.locator('.sg-pin').nth(1).click(); await page.waitForSelector('#v1.on');
+    await page.locator('#dNext').click(); await page.waitForSelector('#fieldForm', { state: 'visible', timeout: 3000 });
+    await page.locator('#fTry').click();
+    await page.waitForSelector('#v2.on');
+    assert(await page.locator('#growNow').isVisible(), 'Xem thử should land on "what do you grow"');
+    assert(await page.evaluate(() => (JSON.parse(localStorage.getItem('mre-farm') || 'null') || { fields: [] }).fields.length) === 0, 'Xem thử saved a field');
+    for (let i = 0; i < 4 && !(await page.locator('#v3.on').count()); i++) { await page.locator('#dNext').click({ timeout: 1500 }).catch(() => {}); await page.waitForTimeout(300); }
+    await page.waitForSelector('#v3.on');
+    assert(/1 ha/.test(await page.locator('#cards .card:visible .cs-h').first().textContent()), 'cards not per 1 ha');
+    const again = async (n) => { await page.locator('#dClose').click(); await page.locator('.sg-pin .sg-pin-btn').nth(n).evaluate(b => b.click());   // the map zooms to the chosen area, so a pin can be off screen await page.waitForSelector('#v1.on');
+      await page.locator('#dNext').click(); await page.waitForSelector('#fieldForm', { state: 'visible', timeout: 3000 }); await page.locator('#fCancel').click(); };
+    await again(2);   // another area asks again
+    await again(1);   // and back on the first area too
+  } },
+  { name: 'salt-text', async run({ page, url }) {
+    // sample field (Mỹ Xuyên): November is outside the salt months, so the model gives 0: show "< 4‰", never "0,0‰"
+    const check = async (where) => { const txt = await page.evaluate(() => document.body.innerText);
+      assert(!/(^|[^\d])0[,.]0\s*‰/.test(txt), 'a 0,0‰ reading on ' + where);
+      assert(txt.includes('< 4‰'), 'no "< 4‰" on ' + where); };
+    await home(page, url); await page.locator('.dv-welcome [data-dv=demo]').click(); await page.waitForSelector('.s-salt');
+    await check('Today');
+    await page.locator('.nv-b', { hasText: 'Số liệu' }).click(); await page.locator('[data-zoomb="salt"]').first().click();
+    await page.waitForSelector('#dvZoom:not([hidden])'); await check('the salt detail');
+  } },
   { name: 'folds-no-storage', async run({ page, url, errs }) {
     await page.addInitScript(() => { const boom = () => { throw new Error('blocked') }; Storage.prototype.getItem = boom; Storage.prototype.setItem = boom; });
     await home(page, url);
@@ -152,7 +227,8 @@ const CHECKS = [
 server.listen(0, async () => {
   const url = `http://localhost:${server.address().port}/index.html`;
   const b = await chromium.launch(); let bad = 0;
-  for (const c of CHECKS) {
+  const only = process.argv.slice(2);   // node tools/ui_check.js create try: run only those checks
+  for (const c of CHECKS.filter(c => !only.length || only.includes(c.name))) {
     const ctx = await b.newContext({ ...devices['iPhone 13'], serviceWorkers: 'block' }), errs = [];
     await ctx.addInitScript(() => { try { localStorage.setItem('mre-onb1', '1'); localStorage.setItem('mre-onb2', '1'); } catch (e) {} });
     const page = await ctx.newPage();

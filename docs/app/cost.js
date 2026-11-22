@@ -84,9 +84,9 @@ const Cost = (() => {
     const a = typeof App !== "undefined" ? App : null, s = a && a.site && a.site(), ex = !!(a && a.example && a.example());
     if (a && s && !ex && typeof a.fields === "function") {
       const fid = typeof a.fieldId === "function" ? a.fieldId() : null;
-      const fs = a.fields().filter((f) => f.site === s.id && f.size > 0);
-      const f = fs.find((x) => x.id === fid) || fs[0];
-      if (f) return { ha: +f.size, field: f };
+      const own = a.fields().find((x) => x.id === fid && x.site === s.id);   /* the open field's own size only: a sizeless field never borrows another's */
+      const f = own || a.fields().find((x) => x.site === s.id && x.size > 0);
+      if (f && f.size > 0) return { ha: +f.size, field: f };
     }
     try { const v = parseFloat(localStorage.getItem("mre-ha")); if (v > 0) return { ha: v, field: null } } catch (e) {}
     return { ha: null, field: null };

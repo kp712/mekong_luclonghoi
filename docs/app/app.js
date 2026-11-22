@@ -1,8 +1,8 @@
 /* app.js: Mekong Explorer Draft 4 "Sigma". Draft 3 app logic (drafts/sigma/ref/draft3.html) ported into the dark map shell.
    Same scoring, wording (via t()) and numbers as Draft 3; only DOM targets, markup and class names changed. Illustrated scene code dropped. */
 /* field first: the plan steps (3 and 4) need the farmer's own field */
-Object.assign(STR.en, { needSizeMax: "That is too big for one field. Enter less than 1,000 ha (1 ha = 10 công).", needField: "Enter your field first to continue", needFieldP: "Your plan is made for your own field. Give it a name and its size, then continue.", needFieldB: "Enter my field", needName: "Please write a name for your field", needSize: "Please write the size of your field in ha (for example 1,5)", fieldReady: f => `Your field: ${f}` });
-Object.assign(STR.vi, { needSizeMax: "Số này quá lớn cho một ruộng. Hãy nhập dưới 1.000 ha (1 ha = 10 công).", needField: "Hãy nhập ruộng của bạn trước để tiếp tục", needFieldP: "Kế hoạch được làm cho chính ruộng của bạn. Đặt tên và nhập diện tích ruộng rồi tiếp tục.", needFieldB: "Nhập ruộng của tôi", needName: "Hãy đặt tên cho ruộng", needSize: "Hãy nhập diện tích ruộng, tính bằng ha (ví dụ 1,5)", fieldReady: f => `Ruộng của bạn: ${f}` });
+Object.assign(STR.en, { needSizeMax: "That is too big for one field. Enter less than 1,000 ha (1 ha = 10 công).", needFieldB: "Enter my field", needSize: "Please write the size of your field in ha (for example 1,5)", fieldReady: f => `Your field: ${f}` });
+Object.assign(STR.vi, { needSizeMax: "Số này quá lớn cho một ruộng. Hãy nhập dưới 1.000 ha (1 ha = 10 công).", needFieldB: "Nhập ruộng của tôi", needSize: "Hãy nhập diện tích ruộng, tính bằng ha (ví dụ 1,5)", fieldReady: f => `Ruộng của bạn: ${f}` });
 /* ---- Draft 3 text from later parts, copied verbatim (part 10, 11, 12, 15, 17, app fixes, draft 3, copy note) ---- */
 Object.assign(STR.en, {
 bn_home: "At home mode is on. Everything moves smoothly again.", bn_wet: "In the field mode is on. Big buttons, just tap.", bn_one: "One hand mode is on. Your controls are at the bottom."
@@ -471,6 +471,7 @@ function sizeCheck(ha) {
 }
 const fchk = () => `<details class="fold"${Folds.attrs("checks")}><summary>${esc(t("foldField"))}</summary><div id="fChecks" class="f-checks" aria-live="polite"></div></details>`;
 function formChecks() {
+  const fa = document.querySelector("#fArea"), fn = document.querySelector("#fName"); if (fa && fn) fn.placeholder = defaultName(fa.value);
   const box = document.querySelector("#fChecks"); if (!box) return;
   const s = siteById((document.querySelector("#fArea") || {}).value), sz = [0, 1, 2].map(i => (document.querySelector("#fS" + i) || {}).value || "R");
   const ha = parseFloat(String((document.querySelector("#fSize") || {}).value || "").replace(",", ".")), sc = sizeCheck(ha);
@@ -577,6 +578,7 @@ function onSelect(id) { const s = id && siteById(id); if (!s) return; onHover(nu
 function choose(s, quiet) {
 if (fieldId && (fields().find(f => f.id === fieldId) || {}).site !== s.id) fieldId = null;
 if (!exGo) exOn = false;
+if (trySite !== s.id) trySite = null;
 curPicked = false;
 site = s; planId = null; upCrop = null;
 cur = s.crops && s.crops < 2.5 ? "rice2" : "rice3"; seasons = SEAS_OF[cur].slice();
@@ -1005,7 +1007,7 @@ li.classList.remove("flash"); void li.offsetWidth; li.classList.add("flash"); se
 /* field form (add / edit), Draft 3's form in the modal */
 function openFieldForm(preset, edit) {
 editId = edit ? edit.id : null; pendingNext = false;
-document.querySelectorAll("#fieldForm [aria-invalid]").forEach(x => x.removeAttribute("aria-invalid")); fErr(""); document.querySelectorAll("#fieldForm .f-need").forEach(x => x.hidden = true);
+document.querySelectorAll("#fieldForm [aria-invalid]").forEach(x => x.removeAttribute("aria-invalid")); fErr("");
 if (has("#addField")) $("#addField").setAttribute("aria-expanded", "true");
 if (inShell("#fieldForm")) {
 const fm0 = $("#fieldForm"); if (fm0.reset) fm0.reset();
@@ -1019,6 +1021,7 @@ if (!fm0.querySelector(".f-cong")) { const fa = fm0.querySelector(".f-actions");
 const fc = fm0.querySelector(".f-cong"); if (fc) fc.textContent = t("congNote");
 if (!fm0.querySelector("#fChecks")) { const fa = fm0.querySelector(".f-actions"); if (fa) fa.insertAdjacentHTML("beforebegin", fchk()) }
 const sb = fm0.querySelector("[type=submit]"); if (sb) { sb.removeAttribute("data-t"); sb.textContent = t(edit ? "fUpdate" : "fSave") }
+const ft = $("#fTry"); if (ft) { ft.hidden = true; ft.textContent = t("fTry") }   /* askField shows it: only the step 1 path offers "Xem thử" */
 const fn = fm0.querySelector(".f-note"); if (fn) fn.textContent = t("fNote");
 openModal("", "field", h ? h.id : null, "#fieldForm");
 if (preset) $("#fArea").value = preset;
@@ -1032,7 +1035,7 @@ openModal(`<form class="f-form" id="fieldForm"><h2 id="fH" tabindex="-1">${esc(t
 <fieldset class="f-seasons"><legend>${esc(t("fSeasons"))}</legend>${t("seasons").map(([nm, mo], i) => `<label class="f-seas"><span>${esc(nm)} <small>${esc(mo)}</small></span><select id="fS${i}">${SEAS_OPTS.map(o => `<option value="${o}">${esc(t("sCrop")[o])}</option>`).join("")}</select></label>`).join("")}</fieldset>
 <label><span>${t("fSize")}</span><input id="fSize" type="text" inputmode="decimal" autocomplete="off" placeholder="1,5"></label>
 <p class="f-cong">${esc(t("congNote"))}</p>${fchk()}
-<div class="f-actions"><button type="submit" class="go-btn">${t(edit ? "fUpdate" : "fSave")}</button><button type="button" class="ghost-btn" id="fCancel">${t("fCancel")}</button></div>
+<div class="f-actions"><button type="submit" class="go-btn">${t(edit ? "fUpdate" : "fSave")}</button><button type="button" class="ghost-btn" id="fTry" hidden>${t("fTry")}</button><button type="button" class="ghost-btn" id="fCancel">${t("fCancel")}</button></div>
 <p class="f-note">${t("fNote")}</p></form>`, "field", "fH");
 if (preset) $("#fArea").value = preset;
 if (edit) { $("#fName").value = edit.name; $("#fArea").value = edit.site; $("#fSize").value = edit.size || "" }
@@ -1040,19 +1043,17 @@ if (edit) { $("#fName").value = edit.name; $("#fArea").value = edit.site; $("#fS
 }
 function submitField() {
 const ha = parseFloat(String($("#fSize").value).replace(",", "."));
-const nm0 = String($("#fName").value || "").trim();
-if (!nm0) { fErr(t("needName")); $("#fName").setAttribute("aria-invalid", "true"); $("#fName").focus(); return }
-if (!(ha > 0)) { fErr(t("needSize")); $("#fSize").setAttribute("aria-invalid", "true"); $("#fSize").focus(); return }
-if (!(ha < MAX_HA)) { fErr(t("needSizeMax")); $("#fSize").setAttribute("aria-invalid", "true"); $("#fSize").focus(); return }
+if (String($("#fSize").value).trim() && !(ha > 0)) { fErr(t("needSize")); $("#fSize").setAttribute("aria-invalid", "true"); $("#fSize").focus(); return }
+if (ha >= MAX_HA) { fErr(t("needSizeMax")); $("#fSize").setAttribute("aria-invalid", "true"); $("#fSize").focus(); return }
 $("#fName").removeAttribute("aria-invalid"); $("#fSize").removeAttribute("aria-invalid");
 const old = editId && fields().find(x => x.id === editId);
-const f = { id: old ? old.id : Date.now().toString(36), name: String($("#fName").value || "").trim() || (old ? old.name : `${t("fDefault")} ${fields().length + 1}`), site: $("#fArea").value, seasons: [0, 1, 2].map(i => (document.querySelector("#fS" + i) || {}).value || "R"), size: ha > 0 ? Math.round(ha * 10) / 10 : null };
+const f = { id: old ? old.id : Date.now().toString(36), name: String($("#fName").value || "").trim() || (old ? old.name : defaultName($("#fArea").value)), site: $("#fArea").value, seasons: [0, 1, 2].map(i => (document.querySelector("#fS" + i) || {}).value || "R"), size: ha > 0 ? Math.round(ha * 10) / 10 : null };
 f.cur = curFrom(f.seasons);
 if (old) { if (old.site !== f.site) delete old.rot; Object.assign(old, f) } else Farm.st.fields.push(f);   /* in place: the dashboard's plan for this field stays */
 try { typeof Dash !== "undefined" && Dash.syncField && Dash.syncField() } catch (e) {}
 const goOn = pendingNext;
-saveFields(); closeModal(false); openField(f.id);
-if (goOn) { pendingNext = false; setTimeout(() => { go(2); setTimeout(() => { if (typeof Side !== "undefined" && Side.sub) Side.sub("b") }, 30) }, 80) } else renderNeedField();
+trySite = null; saveFields(); closeModal(false); openField(f.id);
+if (goOn) { pendingNext = false; setTimeout(() => { go(2); setTimeout(() => { if (typeof Side !== "undefined" && Side.sub) Side.sub("b") }, 30) }, 80) }
 }
 const saveFields = () => Farm.save();
 
@@ -1134,12 +1135,15 @@ const dc = document.querySelector("#dClose"); if (dc) { dc.setAttribute("aria-la
 }
 /* a saved field on the chosen area (the example area needs none) */
 function hasField() {
-if (!site || exOn) return true;
+if (!site || exOn || trySite === site.id) return true;
 if (fieldId && fields().some(f => f.id === fieldId && f.site === site.id)) return true;
 const f = fields().find(x => x.site === site.id); if (f) { fieldId = f.id; save("mre-last", f.id); return true }
 return false;
 }
 let pendingNext = false;
+let trySite = null;   /* "Xem thử": the area being looked at without a saved field (never stored) */
+/* empty name: "Ruộng Trần Đề", then "Ruộng Trần Đề 2" for a second field in that area */
+const defaultName = id => { const s0 = siteById(id), n = fields().filter(f => f.site === id).length + 1; return `${t("fDefault")} ${s0 ? shortName(s0) : ""}${n > 1 ? " " + n : ""}`.trim() };
 const MAX_HA = 1000;   /* one field is under 1,000 ha; the dashboard uses the same limit */
 /* inline message in the field form (a toast would sit under the modal dialog) */
 function fErr(msg) {
@@ -1148,27 +1152,15 @@ let p = fm.querySelector(".f-err");
 if (!p) { p = document.createElement("p"); p.className = "f-err"; p.setAttribute("role", "alert"); const fa = fm.querySelector(".f-actions"); fa ? fa.parentNode.insertBefore(p, fa) : fm.appendChild(p) }
 p.textContent = msg || ""; p.hidden = !msg;
 }
-function askField() { openFieldForm(site && site.id); pendingNext = true; const fm = document.querySelector("#fieldForm"); if (!fm) return;
-let n = fm.querySelector(".f-need"); if (!n) { n = document.createElement("p"); n.className = "f-need"; const h = fm.querySelector("h2"); h ? h.insertAdjacentElement("afterend", n) : fm.prepend(n) }
-n.textContent = t("needFieldP"); n.hidden = false }
+function askField() { openFieldForm(site && site.id); pendingNext = true; const ft = document.querySelector("#fTry"); if (ft) ft.hidden = false }
 /* delete a field from the planner list; quiet = the dashboard asked, so don't call it back */
 function removeField(id, quiet) {
 const f = fields().find(x => x.id === id); if (!f) return;
 Farm.st.fields = Farm.st.fields.filter(x => x.id !== id); if (fieldId === id) { fieldId = null; drop("mre-last") } saveFields(); renderAll();
 if (!quiet) { try { typeof Dash !== "undefined" && Dash.unlink && Dash.unlink() } catch (e) {} }
 }
-function renderNeedField() {
-const v2 = document.querySelector("#v2"); if (!v2) return;
-let el = document.querySelector("#needField");
-if (!el) { el = document.createElement("div"); el.id = "needField"; el.className = "need-field"; el.setAttribute("role", "note"); v2.insertBefore(el, v2.firstChild) }
-const f = site && fields().find(x => x.id === fieldId);
-if (!site || exOn || f) { el.hidden = true; return }   /* a saved field is already shown, with its edit button, in "Your fields" below */
-el.hidden = false; el.classList.toggle("ok", !!f);
-el.innerHTML = f ? `<p><b>${esc(t("fieldReady")(f.name))}${f.size ? ` · ${num(f.size)} ha` : ""}</b></p><button type="button" class="ghost-btn" data-edit="${f.id}">${esc(t("fEdit"))}</button>`
-: `<p><b>${esc(t("needField"))}</b><span>${esc(t("needFieldP"))}</span></p><button type="button" class="btn gold" data-needfield>${esc(t("needFieldB"))}</button>`;
-}
 function nextStep() {
-if (step === 1) { if (site && !exOn) go(2); else { closePanel(); pulsePins() } return }
+if (step === 1) { if (site && !exOn) { if (!hasField()) return askField(); go(2) } else { closePanel(); pulsePins() } return }
 if (!site) { closePanel(); pulsePins(); return }
 if (step === 2) { if (!hasField()) return askField(); return go(3) }
 if (step === 3) { const a = ranked(), p = (a.find(x => x.c.id === planId) || a[0]); if (p) { planId = p.c.id; renderCards(false); setTimeout(() => go(4), 120) } else go(4); return }
@@ -1351,7 +1343,7 @@ list.forEach(walk);
 
 /* ---------- language, detail level, everything at once ---------- */
 function renderAll() {
-renderArea(); renderCards(true); renderTicker(); renderHead(); renderNeedField();
+renderArea(); renderCards(true); renderTicker(); renderHead();
 if (step === "lab" && drawerOpen()) { const L = PL(); if (L && L.refresh) { try { L.refresh() } catch (e) { console.warn("Lab.refresh", e) } } }
 $$("#heroAreas [data-site], #areaHead [data-site]").forEach(b => b.setAttribute("aria-pressed", !!site && site.id === b.dataset.site));
 }
@@ -1397,6 +1389,7 @@ if (T === modal()) return closeModal();
 if (c("#ppKeep")) { closeModal(false); go(4); return }
 if (c("#ppChange")) { const pc = ppCard, s = site; closeModal(false); const L = PL(); if (L && L.open && s) L.open(s.id, pc); else go("lab"); return }
 if (c("#fCancel")) { pendingNext = false; return closeModal() }
+if (c("#fTry")) { trySite = site && site.id; pendingNext = false; closeModal(); setTimeout(() => { go(2); setTimeout(() => { if (typeof Side !== "undefined" && Side.sub) Side.sub("a") }, 30) }, 80); return }
 /* settings */
 if (c("#gearBtn")) { toggleSettings(!setOpen()); return }
 if (setOpen() && !c("#setPanel")) toggleSettings(false);
@@ -1451,7 +1444,6 @@ if (c("#readPlan")) { readPlan(); return }
 if ((b = c("#planView [data-pv]"))) { setPv(b.dataset.pv); return }
 if (c("#ppRev")) { const a = document.querySelector("#cards .card.isplan"); if (a) showPlan(a.dataset.id); return }
 /* step 2: your fields */
-if (c("[data-needfield]")) { askField(); return }
 if (c("#addField")) { openFieldForm(site && site.id); return }
 if ((b = c("[data-edit]"))) { openFieldForm(null, fields().find(f => f.id === b.dataset.edit)); return }
 if ((b = c("[data-del]"))) { removeField(b.dataset.del); return }

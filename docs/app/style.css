@@ -506,7 +506,7 @@ body.drawer-open #ticker { right: var(--drawer-w) }
   font: 400 1rem/1.3 var(--font); letter-spacing: 0; text-transform: none;
 }
 #fieldForm input:focus-visible, #fieldForm select:focus-visible { border-color: var(--gold) }
-.f-actions { display: flex; gap: .6rem }
+.f-actions { display: flex; flex-wrap: wrap; gap: .6rem }
 
 /* =====================================================================
    Toast
