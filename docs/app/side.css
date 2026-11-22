@@ -189,8 +189,6 @@ body.drawer-full #steps, body.drawer-full .d-prog, body.drawer-full #dNum { disp
   body.drawer-full #v2.sub-a.fc.on { grid-template-columns: minmax(0, 1fr) }
   body.drawer-full #v2.sub-a.fc > .fc-r { display: none }
 }
-/* simple mode: no "check what you entered" list */
-body.dv-simple :is(.sz-why, #fChecks) { display: none !important }
 
 /* ---------- phone and map clean-up ---------- */
 /* the area name row at the bottom of the phone screen is gone: the map pins and the area HUD do that job */
@@ -219,10 +217,6 @@ body:has(#gearBtn[aria-expanded="true"]) :is(#d5Month, #dvBack, #mapKey, #side) 
 .dv-mh { margin: 0; font-size: .75rem; color: var(--ink-3); grid-column: 1 / -1 }
 .dv-setmode .seg, .dv-modebar .seg { display: flex } .dv-setmode .seg button, .dv-modebar .seg button { flex: 1; min-height: 44px }
 body.drawer-full .dv-modebar { max-width: 520px }
-/* Simple mode: no data-source chips under the area title (Advanced and About still list them) */
-body.dv-simple #areaHead .nasa8 { display: none }
-/* planner in Simple: only the inputs and the answer; the extra numbers, sliders and notes show in Advanced */
-body.dv-simple :is(#areaMore, #howText, #wDef, #sliders, #ppRev, #congNote, .sz-why, #fChecks, .wf-pen, .wf-sub, .pz-how, .pz-conf) { display: none !important }
 #side :is(#sdFind, #sdLayer, #sdFoot):empty { display: none }
 /* the parts of the one box sit on hairlines: card, map colour, month */
 #side #sdLayer, #side #sdMonthHost { border-top: 1px solid var(--line); padding-top: 14px }

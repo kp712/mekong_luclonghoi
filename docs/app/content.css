@@ -15,9 +15,7 @@ img, svg { -webkit-user-drag: none }
 .cite { font: 500 .8125rem/1 var(--font); color: var(--gold); text-decoration: none; margin-left: .25em; padding: 2px; white-space: nowrap }
 .cite:hover { text-decoration: underline }
 .adv { }
-:is(.cite, .src, .s-src, .nasa8, .green, .glab, .field8, .wk,
-#howText, #planView, #stripKey,
-.pp-bars b, .pp-num, .pp-grade, .scale3-y):not(details.fold *) { display: none !important }
+:is(.cite, .src, .s-src, .field8):not(details.fold *) { display: none !important }
 body:not(.more15) #cards > .card:nth-child(n+4):not(.isplan):not(.isnow) { display: none !important }
 
 .go-btn, .ghost-btn {
@@ -404,7 +402,8 @@ body.field-mode .track { display: none }
 .pp-m.k-R, .pp-m.k-T, .pp-m.k-U, .pp-m.k-S, .pp-m.k-F { background: none }
 .pp-m.k-R i, .pp-m.k-T i { background: var(--rice) } .pp-m.k-U i { background: var(--gold-2) } .pp-m.k-S i { background: var(--water) } .pp-m.k-F i { background: var(--line-2) }
 .pp-m.k-T i { box-shadow: inset 0 0 0 2px var(--gold) }
-.pp-score { display: grid; grid-template-columns: auto auto minmax(0, 1fr); gap: .4rem 1.2rem; align-items: center; padding: 1rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line) }
+.pp-nums { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem 1.2rem; margin-bottom: .8rem }
+.pp-score { display: grid; grid-template-columns: minmax(0, 1fr); gap: .4rem 1.2rem; align-items: center; padding: 1rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line) }
 .pp-num { display: grid; justify-items: start }
 .pp-num small { font: 500 .8125rem/1.4 var(--font); letter-spacing: 0; text-transform: none; color: var(--ink-2) }
 .pp-num b { font: 700 3.4rem/1 var(--font); letter-spacing: -.05em; color: var(--gold) }
@@ -414,13 +413,10 @@ body.field-mode .track { display: none }
 .g-C .pp-num b, .g-C .pp-grade b { color: var(--ink) }
 .g-D .pp-num b, .g-D .pp-grade b { color: var(--risk) }
 .g-D .pp-grade { border-color: var(--risk) }
-.pp-word { grid-column: 1 / -1; font-size: 1.125rem; font-weight: 800 }
+.pp-word { font-size: 1.6rem; font-weight: 800 }
 .pp-say { grid-column: 1 / -1; font-size: .875rem; color: var(--ink-2) }
-body.ui-simple .pp-score { grid-template-columns: 1fr }
-body.ui-simple .pp-word { font-size: 1.6rem }
 .pp-bars { display: grid; gap: .45rem }
 .pp-bars li { display: grid; grid-template-columns: 9em minmax(0, 1fr) 2.5em; gap: .6rem; align-items: center; font-size: .8125rem }
-body.ui-simple .pp-bars li { grid-template-columns: 8.5em minmax(0, 1fr) }
 .pp-bar { height: 4px; background: var(--line); position: relative }
 .pp-bar i { position: absolute; inset: 0 auto 0 0; background: var(--gold) }
 .pp-bars b { font: 600 .8125rem/1 var(--font); text-align: right }
@@ -502,7 +498,6 @@ body.ui-simple .pp-bars li { grid-template-columns: 8.5em minmax(0, 1fr) }
   .q15-row button { min-height: 72px }
   .gd { left: 16px; right: 16px; transform: none; width: auto; bottom: 16px }
   .pp-num b { font-size: 2.6rem }
-  .pp-score { grid-template-columns: auto auto }
   .pp-bars li { grid-template-columns: 7em minmax(0, 1fr) 2.2em }
 }
 @media (max-width: 400px) {

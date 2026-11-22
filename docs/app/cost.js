@@ -164,7 +164,7 @@ const Cost = (() => {
   /* ---------- step 4: money crop by crop ---------- */
   function plan(c) {
     if (!c || typeof App === "undefined" || !App.site || !App.site()) return;
-    const anchor = $("#d5Pred") || $("#d5W4") || $("#planFor"); if (!anchor) return;
+    const anchor = $("#s4m") || $("#s4") || $("#planFor"); if (!anchor) return;
     let el = $("#d5Cost"); if (!el) { el = document.createElement("div"); el.id = "d5Cost"; el.className = "box d5-box"; anchor.insertAdjacentElement("afterend", el) }
     const card = (App.ranked().find((x) => x.c.id === c.id) || { c }).c, r = calc(card), { ha } = getHa(), k = ha || 1;
     const now = new Date().getMonth();

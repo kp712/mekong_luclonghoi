@@ -36,9 +36,9 @@ const CHECKS = [
     assert(await f.count() === 1 && !(await f.evaluate(d => d.open)), 'area fold missing or open');
     assert(await f.locator('#areaMore').count() === 1, '#areaMore not in the fold');
     assert(await f.locator('#areaFull').count() === 1 && await f.locator('#d5W1').count() === 1, '#areaFull / #d5W1 not in the fold');
-    await f.locator('summary').click(); await page.waitForTimeout(200); await page.reload(); await toStep(page, 1);
+    await f.locator(':scope > summary').click(); await page.waitForTimeout(200); await page.reload(); await toStep(page, 1);
     assert(await f.evaluate(d => d.open), 'open state not remembered');
-    await f.locator('summary').click(); await page.waitForTimeout(200); await page.reload(); await toStep(page, 1);
+    await f.locator(':scope > summary').click(); await page.waitForTimeout(200); await page.reload(); await toStep(page, 1);
     assert(!(await f.evaluate(d => d.open)), 'closed state not remembered');
   } },
   { name: 'cards', async run({ page, url }) {
@@ -59,6 +59,42 @@ const CHECKS = [
     await page.evaluate(() => App.refresh()); await page.waitForTimeout(300);
     assert(await page.locator('#cards .card:visible details.fold[data-fold="card"][open]').count() === 4, 'open state not shared by all cards');
   } },
+  { name: 'steps', async run({ page, url }) {
+    await toCards(page, url); await toStep(page, 1);
+    assert(await page.locator('#modeSeg').isVisible(), '#modeSeg hidden on step 1');
+    assert(await page.locator('#v1 #areaFold .nasa8').count() === 1 && await page.locator('#v1 #areaFold p.scale3[data-t]').count() === 1, '.nasa8 / .scale3 not in the area fold');
+    await toStep(page, 2); await page.evaluate(() => Side.sub && Side.sub('b')); await page.waitForTimeout(200);
+    assert(await page.locator('#sliders').isVisible(), '#sliders hidden');
+    assert(await page.locator('#howText').isVisible() && await page.locator('#wDef').isVisible(), '#howText / #wDef hidden on step 2');
+    assert(await page.locator('#v2 details.fold[data-fold="checks"]').count() >= 1, 'checks fold missing');
+    await toStep(page, 4);
+    for (const s of ['#s4', '#d5Cost']) assert(await page.locator(s).isVisible(), s + ' hidden');
+    const pf = page.locator('#planFold');
+    assert(await pf.count() === 1 && !(await pf.evaluate(d => d.open)), '#planFold missing or open');
+    for (const s of ['#calendar', '#needs', '#d5W4', '#d5Pred', '#planView', '#stripKey', '.pv-list']) assert(await pf.locator(s).count() >= 1, s + ' not in #planFold');
+    assert(await page.locator('#planOk .po-where, #planOk .po-cal, #planOk .po-next').count() === 0, 'po-where/cal/next still rendered');
+    const mf = page.locator('#season details.fold[data-fold="month"]');
+    assert(await mf.count() === 1 && await mf.locator('#wk').count() === 1, '#wk not in the month fold');
+    await page.locator('#ppRev').click(); await page.waitForSelector('.pp-score');
+    assert(await page.locator('.pp-score .pp-num').evaluate(e => !!e.closest('details.fold')), '.pp-num not in a fold');
+    assert(await page.locator('.pp-word').isVisible() && await page.locator('.pp-say').isVisible(), 'pp-word / pp-say hidden');
+  } },
+  { name: 'width', async run({ page, url }) {
+    await toCards(page, url);
+    for (const n of [1, 2, 3, 4]) {
+      await toStep(page, n);
+      await page.evaluate(() => document.querySelectorAll('details.fold').forEach(d => { d.open = true }));
+      await page.waitForTimeout(250);
+      assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), 'sideways scroll on step ' + n);
+    }
+  } },
+  { name: 'print', async run({ page, url }) {
+    await toCards(page, url); await toStep(page, 4);
+    await page.evaluate(() => { document.querySelector('#planFold').open = false });
+    const html = await page.evaluate(() => App.planDoc());
+    assert(html.includes('class="calendar"') && html.includes('class="needs"'), 'calendar / needs missing from the print');
+    assert(html.includes('id="d5W4"'), 'wheel missing from the print');
+  } },
   { name: 'folds-no-storage', fresh: true, async run({ page, url, errs }) {
     await page.addInitScript(() => { const boom = () => { throw new Error('blocked') }; Storage.prototype.getItem = boom; Storage.prototype.setItem = boom; });
     await home(page, url);
@@ -67,7 +103,7 @@ const CHECKS = [
     await page.waitForSelector('#v1.on');
     const f = page.locator('#v1 details.fold[data-fold="area"]');
     assert(await f.count() === 1 && !(await f.evaluate(d => d.open)), 'area fold missing or open');
-    await f.locator('summary').click(); await page.waitForTimeout(200);
+    await f.locator(':scope > summary').click(); await page.waitForTimeout(200);
     assert(!errs.length, 'page errors: ' + errs.join(' | '));
   } },
 ];

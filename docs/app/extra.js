@@ -159,7 +159,7 @@ const D5 = (() => {
     sync();
     const s = App.site(); if (!s || !c) return;
     planCard = c.id;
-    const w = host("d5W4", $("#planFor")); wheels.d5W4 = c.id; w.innerHTML = wheelHTML("d5W4", c.id);
+    const w = host("d5W4", $("#planFold > summary")); wheels.d5W4 = c.id; w.innerHTML = wheelHTML("d5W4", c.id);
     paintPred();
     typeof Cost !== "undefined" && Cost.plan(c);
   }

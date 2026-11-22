@@ -340,7 +340,6 @@ const seasons = runs.map(r => `<span class="${r.x ? "wet" : "dry"}" style="grid-
 const bars = ord.map((m, i) => { const r = v.rain[m], cls = v.salt.includes(m + 1) ? "salt" : wet[i] ? "wet" : "dry";
 return `<div class="${cls}" style="height:${Math.max(6, r / max * 100)}%;animation-delay:${i * 30}ms" title="${ML3(i)}: ${r} mm${rg3 ? ` (${rg3[0][m]}–${rg3[1][m]} mm)` : ""}"></div>` }).join("")
 + (rg3 ? `<span class="wh3" aria-hidden="true">${ord.map(m => `<b><i style="bottom:${(rg3[0][m] / max * 100).toFixed(1)}%;height:${(Math.max(0, rg3[1][m] - rg3[0][m]) / max * 100).toFixed(1)}%"></i></b>`).join("")}</span>` : "");
-const green = v.ndvi ? `<div class="green" aria-hidden="true">${ord.map(m => v.ndvi[m]).map((g, i) => `<i style="opacity:${Math.max(.15, Math.min(1, (g - .2) / .5)).toFixed(2)}" title="NDVI ${g}"></i>`).join("")}</div><div class="glab">${t("green")}${L3 ? " " + t("greenTyp3") : ""}${cite(DATA.chart_src)}</div>` : "";
 const lines = (v.latest ? `<li><span>${esc(t("ltRain")(v.rain.reduce((a, b) => a + b, 0), s.rain.reduce((a, b) => a + b, 0)))}${cite(DATA.chart_src)}</span></li>` : "") + v.summary.filter(x => x.salt).map(x => `<li class="s"><span>${esc(pick(x))}</span></li>`).join("") + (v.crops ? `<li>${esc(t("crops")(v.crops))}</li>` : "");
 $("#areaFull").innerHTML = v.summary.filter(x => !v.latest || x.salt).map(x => `<li class="${x.salt ? "s" : ""}"><span>${esc(pick(x.full))}${cite(x.src)}</span></li>`).join("");
 $("#year").innerHTML = `<div class="eyebrow">${mode === "latest" && EXTRA.latest[s.id] ? t("yearEyebrowLt")(EXTRA.latest[s.id]) : t(mode === "elnino" ? "yearEyebrowEl" : "yearEyebrow")}</div>
@@ -348,9 +347,8 @@ $("#year").innerHTML = `<div class="eyebrow">${mode === "latest" && EXTRA.latest
 <div class="bars${rg3 ? " has-wh3" : ""}" role="img" aria-label="${esc(ord.map((m, i) => `${ML3(i)} ${v.rain[m]} mm${rg3 ? ` (${t("whA3")(rg3[0][m], rg3[1][m])})` : ""}`).join(", "))}">${bars}</div>
 <div class="mlab${L3 ? " lt3" : ""}">${ord.map((m, i) => `<span${L3 && st3 && i === 12 - st3 ? ' class="ny3"' : ""}>${t("months")[m]}</span>`).join("")}</div>
 ${L3 ? `<div class="yr3" aria-hidden="true"><span style="grid-column:1/${st3 ? 13 - st3 : 13}">${y3}</span>${st3 ? `<span class="ny3" style="grid-column:${13 - st3}/13">${y3 + 1}</span>` : ""}</div>` : ""}
-${green}
 <div class="ykey"><span><i class="k-wet"></i>${t("wet")}</span><span><i class="k-dry"></i>${t("dry")}</span><span><i class="k-salt"></i>${t("salt")}</span>${rg3 ? `<span class="wk3"><i class="wh3k" aria-hidden="true"></i>${esc(t(mode === "elnino" ? "whKeyEl3" : "whKey3"))}</span>` : ""}</div>
-<ul class="ylines">${lines}</ul><div class="src">${t("yearSrc")}${cite(DATA.salt_src)}</div><p class="scale3 scale3-y">${esc(t("scale3"))}</p>`;
+<ul class="ylines">${lines}</ul><div class="src">${t("yearSrc")}${cite(DATA.salt_src)}</div>`;
 }
 
 /* ---------- step 1: the area panel (year, modes, outlook, fresh/salt strip, fit, months, confirm) ---------- */
@@ -363,7 +361,7 @@ $("#year").innerHTML = ""; $("#outlook").innerHTML = ""; $("#areaMore").innerHTM
 const v = V(site);
 $("#areaFold").hidden = false; $("#modeSeg").hidden = false;
 $$("#modeSeg [data-mode]").forEach(b => b.setAttribute("aria-pressed", b.dataset.mode === mode));
-$("#areaHead").innerHTML = `<span class="rg-badge">${t("chosenArea")}</span>${nasaBadges()}`;   /* the area name is the drawer title */
+$("#areaHead").innerHTML = `<span class="rg-badge">${t("chosenArea")}</span>`; $("#areaNasa").innerHTML = nasaBadges();   /* the area name is the drawer title */
 renderYear(site);
 $("#outlook").innerHTML = (mode === "elnino" ? `<div class="mode-note">${t("modeNote")}${cite(DATA.elnino_src)}</div>` : mode === "latest" ? `<div class="mode-note">${t("modeNoteLt")}${cite(DATA.chart_src)}</div>` : "")
 + (o.elnino ? `<div class="outlook"><b>${t("forecast")}:</b> ${esc(pick(o.text))}${cite(o.src)}</div>` : "");
@@ -403,7 +401,7 @@ Object.assign(STR.en, {
   wfFewMach: "Few people but machines: rice can be done by machine; melon and chilli still need picking by hand.",
   wfPen: (p) => p > 0 ? `Other crops (melon, maize, chilli) need much hand work, so their scores drop by ${p.toFixed(1)} point (team estimate).` : "Enough hands for other crops: no score is taken off.",
   fSeasons: "What you grow in each season", setT: "Settings", fcH: "Checking what you entered:", poEye: "Your plan is:", s4H: "Your season path", s4Need: "What to get ready",
-  s4Rest: "Rest the field", s4Wait: "Wait for the next season (too late to sow)", s4Late: "sown late, short variety", s4Salt: "Salty water", s4SaltS: "Salt", sCropL: { R: "Rice", S: "Shrimp" }, s4Cost: "Money to put in", s4Profit: "Profit", s4Year: (h) => h ? `for ${h} ha, a year` : "for 1 ha, a year", s4Est: "Estimate from published figures.", poFit: "Fit with your priorities:", poWhy: "Why:", poOther: "Choose another option", poScore: "See the plan score", poNext: "Below: what to do each month, and what you need. Print it or share it with your family and extension officer.", szHow: ["Each row is one crop season of the year.", "In each row, tap what you grow then.", "Nothing grown that season? Tap “Nothing / rest”."], szQuick: "Quick pick:", szYear: "Your year:", szEx: [["3 rice crops", ["R","R","R"]], ["2 rice crops", ["R","R","-"]], ["1 rice crop", ["R","-","-"]], ["Shrimp, then rice", ["S","S","R"]], ["Rice + other crop", ["R","U","R"]]], savedPlan: "Plan saved as a text file. Send it on Zalo or keep it.", savedPrint: "Plan saved. Open the file: it asks to print or save as PDF."
+  s4Rest: "Rest the field", s4Wait: "Wait for the next season (too late to sow)", s4Late: "sown late, short variety", s4Salt: "Salty water", s4SaltS: "Salt", sCropL: { R: "Rice", S: "Shrimp" }, s4Cost: "Money to put in", s4Profit: "Profit", s4Year: (h) => h ? `for ${h} ha, a year` : "for 1 ha, a year", s4Est: "Estimate from published figures.", poFit: "Fit with your priorities:", poWhy: "Why:", poOther: "Choose another option", poScore: "See the plan score", szHow: ["Each row is one crop season of the year.", "In each row, tap what you grow then.", "Nothing grown that season? Tap “Nothing / rest”."], szQuick: "Quick pick:", szYear: "Your year:", szEx: [["3 rice crops", ["R","R","R"]], ["2 rice crops", ["R","R","-"]], ["1 rice crop", ["R","-","-"]], ["Shrimp, then rice", ["S","S","R"]], ["Rice + other crop", ["R","U","R"]]], savedPlan: "Plan saved as a text file. Send it on Zalo or keep it.", savedPrint: "Plan saved. Open the file: it asks to print or save as PDF."
 });
 Object.assign(STR.vi, {
   riceUpland: "Lúa + cây màu", seasH: "Bạn đang trồng gì? Chạm chọn cho từng vụ",
@@ -417,7 +415,7 @@ Object.assign(STR.vi, {
   wfFewMach: "Ít người nhưng có máy: lúa làm bằng máy được; dưa, ớt vẫn phải hái tay.",
   wfPen: (p) => p > 0 ? `Cây màu (dưa, bắp, ớt) cần nhiều công tay, nên điểm cây màu bị trừ ${p.toFixed(1).replace(".", ",")} điểm (ước tính của nhóm).` : "Đủ sức làm cây màu: không trừ điểm.",
   fSeasons: "Trồng gì trong từng vụ", setT: "Cài đặt", fcH: "Kiểm tra thông tin bạn nhập:", poEye: "Kế hoạch của bạn là:", s4H: "Đường mùa vụ của bạn", s4Need: "Cần chuẩn bị gì",
-  s4Rest: "Cho ruộng nghỉ", s4Wait: "Chờ vụ sau (không kịp sạ)", s4Late: "sạ muộn, giống ngắn ngày", s4Salt: "Nước mặn", s4SaltS: "Mặn", sCropL: { R: "Lúa", S: "Tôm" }, s4Cost: "Vốn cần có", s4Profit: "Tiền lời", s4Year: (h) => h ? `cho ${h} ha, mỗi năm` : "cho 1 ha, mỗi năm", s4Est: "Ước tính từ số liệu đã công bố.", poFit: "Mức hợp với ưu tiên của bạn:", poWhy: "Vì sao:", poOther: "Chọn phương án khác", poScore: "Xem điểm kế hoạch", poNext: "Bên dưới: việc cần làm mỗi tháng và những gì cần chuẩn bị. In ra hoặc gửi cho gia đình, cán bộ khuyến nông.", szHow: ["Mỗi hàng là một vụ trong năm.", "Ở mỗi hàng, chạm vào thứ bạn trồng vụ đó.", "Vụ nào không trồng gì thì chạm “Bỏ trống / nghỉ”."], szQuick: "Chọn nhanh:", szYear: "Năm của bạn:", szEx: [["3 vụ lúa", ["R","R","R"]], ["2 vụ lúa", ["R","R","-"]], ["1 vụ lúa", ["R","-","-"]], ["Tôm rồi lúa", ["S","S","R"]], ["Lúa + cây màu", ["R","U","R"]]], savedPlan: "Đã lưu kế hoạch thành tệp chữ. Gửi qua Zalo hoặc giữ lại.", savedPrint: "Đã lưu kế hoạch. Mở tệp ra: máy sẽ hỏi in hoặc lưu PDF."
+  s4Rest: "Cho ruộng nghỉ", s4Wait: "Chờ vụ sau (không kịp sạ)", s4Late: "sạ muộn, giống ngắn ngày", s4Salt: "Nước mặn", s4SaltS: "Mặn", sCropL: { R: "Lúa", S: "Tôm" }, s4Cost: "Vốn cần có", s4Profit: "Tiền lời", s4Year: (h) => h ? `cho ${h} ha, mỗi năm` : "cho 1 ha, mỗi năm", s4Est: "Ước tính từ số liệu đã công bố.", poFit: "Mức hợp với ưu tiên của bạn:", poWhy: "Vì sao:", poOther: "Chọn phương án khác", poScore: "Xem điểm kế hoạch", szHow: ["Mỗi hàng là một vụ trong năm.", "Ở mỗi hàng, chạm vào thứ bạn trồng vụ đó.", "Vụ nào không trồng gì thì chạm “Bỏ trống / nghỉ”."], szQuick: "Chọn nhanh:", szYear: "Năm của bạn:", szEx: [["3 vụ lúa", ["R","R","R"]], ["2 vụ lúa", ["R","R","-"]], ["1 vụ lúa", ["R","-","-"]], ["Tôm rồi lúa", ["S","S","R"]], ["Lúa + cây màu", ["R","U","R"]]], savedPlan: "Đã lưu kế hoạch thành tệp chữ. Gửi qua Zalo hoặc giữ lại.", savedPrint: "Đã lưu kế hoạch. Mở tệp ra: máy sẽ hỏi in hoặc lưu PDF."
 });
 const SEAS_OPTS = ["R", "S", "U", "-"];
 const SEAS_OF = { rice3: ["R", "R", "R"], rice2: ["R", "R", "-"], rice_shrimp: ["S", "S", "R"], rice_upland: ["R", "U", "R"] };
@@ -473,6 +471,7 @@ function sizeCheck(ha) {
   if (ha < 0.05) return { ok: false, t: vi ? `${num(ha)} ha chưa tới nửa công (500 m²). Nếu bạn tính bằng công, chia cho 10 để ra ha.` : `${num(ha)} ha is under half a công (500 m²). If you counted in công, divide by 10 to get ha.` };
   return { ok: true, t: vi ? `${num(ha)} ha = ${cong} công. Ứng dụng dùng số này để tính nước và lợi nhuận cho ruộng của bạn.` : `${num(ha)} ha = ${cong} công. The app uses it for your field's water and profit.` };
 }
+const fchk = () => `<details class="fold"${Folds.attrs("checks")}><summary>${esc(t("foldField"))}</summary><div id="fChecks" class="f-checks" aria-live="polite"></div></details>`;
 function formChecks() {
   const box = document.querySelector("#fChecks"); if (!box) return;
   const s = siteById((document.querySelector("#fArea") || {}).value), sz = [0, 1, 2].map(i => (document.querySelector("#fS" + i) || {}).value || "R");
@@ -491,7 +490,7 @@ function renderSeasons() {
 <div class="sz-quick"><span>${esc(t("szQuick"))}</span><div>${exs}</div></div>` + S.map(([nm, mo], i) => `<fieldset class="sz-box"><legend><b><span class="sz-n">${i + 1}</span>${esc(nm)}</b><span>${esc(mo)}</span></legend>
 <div class="sz-opts">${SEAS_OPTS.map(o => `<button type="button" class="sz-o sz-${o === "-" ? "rest" : o}" data-season="${i}" data-sc="${o}" aria-pressed="${seasons[i] === o}" aria-label="${esc(C[o])}" title="${esc(C[o])}"><span class="sz-ic" aria-hidden="true">${ico({ R: "rice", S: "shrimp", U: "upland", "-": "fallow" }[o], 22)}</span><span class="sz-t" aria-hidden="true">${esc(t("sCropS")[o])}</span></button>`).join("")}</div></fieldset>`).join("") +
   `<div class="sz-year" aria-hidden="true"><span>${esc(t("szYear"))}</span><div class="sz-bar">${yr}</div></div><p class="sz-match" role="status">${esc(one ? t("sMatchOne") : t("sMatch")(curName(k)))}${!curPicked ? ` <span class="sz-guess">${esc(t("sGuess"))}</span>` : ""}</p>` +
-  `<div class="sz-why"><p class="fc-h">${esc(t("fcH"))}</p>${checksHTML(seasonChecks(site, seasons))}</div>`;
+  `<details class="fold sz-why"${Folds.attrs("checks")}><summary>${esc(t("foldChecks"))}</summary><p class="fc-h">${esc(t("fcH"))}</p>${checksHTML(seasonChecks(site, seasons))}</details>`;
 }
 function renderWorkforce() {
   const wrap = document.querySelector("#v2 .wf"); if (!wrap) return;
@@ -507,16 +506,18 @@ return `<span class="f-alert ${salt ? "salt" : wet ? "wet" : "dry"}">${t("months
 function renderSeason() {
 const box = document.querySelector("#season"), s = site; if (!box) return;
 if (!s) { box.innerHTML = `<h4>${t("seasonH0")}</h4><p class="s-empty">${t("seasonPick")}</p>`; return }
-const v = V(s), r = v.rain[month], e = v.et0[month], wet = r >= e, salt = v.salt.includes(month + 1), g = v.ndvi ? v.ndvi[month] : null, hv = harvestOf(s, cur, month), simple = ui === "simple";
+const v = V(s), r = v.rain[month], e = v.et0[month], wet = r >= e, salt = v.salt.includes(month + 1), g = v.ndvi ? v.ndvi[month] : null, hv = harvestOf(s, cur, month);
 box.innerHTML = `<h4>${t("seasonH")(esc(pick(s.name)))}</h4>
 <div class="months" role="group" aria-label="${t("monthPick")}">${t("months").map((m, i) => {
 const sw = v.rain[i] >= v.et0[i], ss = v.salt.includes(i + 1);
 return `<button type="button" data-month="${i}" aria-pressed="${i === month}" aria-label="${t("monthsLong")[i]}" class="${sw ? "w" : "d"}${ss ? " s" : ""}"><span>${m}</span><i style="height:${Math.max(10, Math.min(100, v.rain[i] / 3.5)).toFixed(0)}%"></i></button>` }).join("")}</div>
 <div class="s-now"><b>${t("monthsLong")[month]}</b><span class="s-chip ${wet ? "wet" : "dry"}">${wet ? ICON_DROP : ICON_SUN} ${t(wet ? "sRainy" : "sDry")}</span>${salt ? `<span class="s-chip salt">${t("sSalt")}</span>` : ""}${hv ? `<span class="s-chip hv">${t("sHarvest")}</span>` : ""}</div>
-<ul class="s-facts">${simple ? `<li>${t(wet ? "sWetP" : "sDryP")}</li>` : `<li>${t("sRain")(r, e)}</li>${g != null ? `<li>${t("sGreen")(num(g))}</li>` : ""}`}${salt ? `<li>${t("sSaltNote")}${cite(DATA.salt_src)}</li>` : ""}</ul>
-<p class="scale3">${esc(t(simple ? "scale3s" : "scale3"))}</p>
+<ul class="s-facts"><li>${t(wet ? "sWetP" : "sDryP")}</li>${salt ? `<li>${t("sSaltNote")}${cite(DATA.salt_src)}</li>` : ""}</ul>
+<p class="scale3">${esc(t("scale3s"))}</p>
+<details class="fold"${Folds.attrs("month")}><summary>${t("foldMonth")}</summary><ul class="s-facts"><li>${t("sRain")(r, e)}</li>${g != null ? `<li>${t("sGreen")(num(g))}</li>` : ""}</ul>
+${v.ndvi ? `<div class="green" aria-hidden="true">${v.ndvi.map((x, i) => `<i style="opacity:${Math.max(.15, Math.min(1, (x - .2) / .5)).toFixed(2)}" title="NDVI ${x}"></i>`).join("")}</div><div class="glab">${t("green")}${cite(DATA.chart_src)}</div>` : ""}
 <p class="s-src">${t(mode === "elnino" ? "modeElnino" : "modeTypical")} · ${t("srcWord")}${cite(DATA.chart_src)}</p>
-<div class="wk" id="wk"></div>
+<div class="wk" id="wk"></div></details>
 ${fieldId ? "" : `<button type="button" class="ghost-btn" id="saveArea">${ico("plus")}<span>${t("saveArea")}</span></button>`}`;
 loadWeather(s);
 }
@@ -798,10 +799,8 @@ $("#planFor").textContent = `${t("planFor")}: ${pick(c.name)} · ${pick(site.nam
 { let ok = document.querySelector("#planOk"); if (!ok) { $("#planFor").insertAdjacentHTML("beforebegin", `<div id="planOk" class="plan-ok" role="status"></div>`); ok = document.querySelector("#planOk") }
 const sc = (ranked().find(x => x.c.id === c.id) || {}).s, why = (c.why || [])[0];
 ok.innerHTML = `<p class="po-eye">${ico("check", 16)}<span>${esc(t("poEye"))}</span></p><h3 class="po-name">${esc(pick(c.name))}</h3>
-<p class="po-where">${esc(pick(site.name))}${fieldId && !exOn ? " · " + esc((fields().find(f => f.id === fieldId) || {}).name || "") : ""}</p>
-<p class="po-cal">${esc(pick(c.calendar))}</p>${sc != null ? `<p class="po-fit">${esc(t("poFit"))} <b>${esc(fitWord(sc))}</b> (${num(Math.max(0, sc).toFixed(1))}/5)</p>` : ""}${why ? `<p class="po-why"><b>${esc(t("poWhy"))}</b> ${esc(pick(why))}</p>` : ""}
-<div class="po-act"><button type="button" class="ghost-btn" data-go="3">${esc(t("poOther"))}</button></div>
-<p class="po-next">${esc(t("poNext"))}</p>` }
+${sc != null ? `<p class="po-fit">${esc(t("poFit"))} <b>${esc(fitWord(sc))}</b> (${num(Math.max(0, sc).toFixed(1))}/5)</p>` : ""}${why ? `<p class="po-why"><b>${esc(t("poWhy"))}</b> ${esc(pick(why))}</p>` : ""}
+<div class="po-act"><button type="button" class="ghost-btn" data-go="3">${esc(t("poOther"))}</button></div>` }
 $("#planWarn").hidden = !DATA.outlook.elnino; $("#planWarn").innerHTML = DATA.outlook.elnino ? esc(t("planElnino")) + cite(DATA.outlook.src) : "";
 $("#strip").innerHTML = Array.from({ length: 12 }, (_, i) => { const m = code(i)[0], d = new Date(now.getFullYear(), m0 + i), yr = !i || !d.getMonth();
 return `<div><i class="m-${m}${isSalt(i) ? " salt" : ""}"></i><span class="${yr ? "yr" : ""}">${t("monthsLong")[d.getMonth()]}${yr ? `<br>${d.getFullYear()}` : ""}</span></div>` }).join("");
@@ -825,7 +824,7 @@ planText = runs.map(r => {
   const marks = [started ? t("planCont") : `${t(r.code === "S" ? "planStock" : "planSow")}: ${lab(r.from)}`, ends ? `${t("planHarvest")}: ${lab(r.to)}` : ""].filter(Boolean).join(", ");
   return `${span(r.from, r.to)}: ${nm[0].toUpperCase() + nm.slice(1)}. ${marks[0].toUpperCase() + marks.slice(1)}.${salt}`;
 });
-const first = ui === "simple" ? 2 : 12;
+const first = 12;
 $("#timeline").innerHTML = items.slice(0, first).join("");
 $("#timelineMore").innerHTML = items.slice(first).join("");
 $("#planMore").hidden = items.length <= first;
@@ -843,17 +842,11 @@ return `<div class="cal-m m-${m} ${cls}${i === 0 ? " now" : ""}">
 <div class="cal-act">${esc(act)}</div>${crop ? `<div class="cal-crop">${esc(crop[0].toUpperCase() + crop.slice(1))}</div>` : ""}
 ${isSalt(i) ? `<span class="cal-salt">${t("calSalt")}</span>` : ""}${i === 0 ? `<span class="cal-now">${t("calNow")}</span>` : ""}</div>` }).join("");
 const res = [...new Set(runs.filter(r => r.code !== "-").flatMap(r => c.plan[r.code].res))];
-if (ui === "simple") {   /* part 18: short key steps in Simple */
-const L = x => x[lang === "vi" ? 1 : 0], res18 = [...new Set(c.months.filter(m => m !== "-" && c.plan[m]).flatMap(m => c.plan[m].res))];
-$("#needs").innerHTML = res18.map(k => { const r = DATA.resources[k], s = SHORT[k]; if (!r || !s) return "";
-return `<div class="need need18"><h4>${esc(pick(r.name))}</h4><dl>
-${s.seed ? `<div><dt>${t("seed")}</dt><dd>${esc(L(s.seed))}</dd></div>` : ""}${s.fert ? `<div><dt>${t("fert")}</dt><dd>${esc(L(s.fert))}</dd></div>` : ""}
-<div><dt>${t("steps")}</dt><dd><ol>${s.steps.map(x => `<li>${esc(L(x))}</li>`).join("")}</ol></dd></div></dl></div>` }).join("");
-} else $("#needs").innerHTML = res.map(k => { const r = DATA.resources[k]; return `<div class="need"><h4>${esc(pick(r.name))}</h4><dl>
+$("#needs").innerHTML = res.map(k => { const r = DATA.resources[k]; return `<div class="need"><h4>${esc(pick(r.name))}</h4><dl>
 ${r.seed ? `<div><dt>${t("seed")}</dt><dd>${esc(pick(r.seed))}</dd></div>` : ""}${r.fertiliser ? `<div><dt>${t("fert")}</dt><dd>${esc(pick(r.fertiliser))}</dd></div>` : ""}
 ${r.steps && r.steps.length ? `<div><dt>${t("steps")}</dt><dd><ol>${r.steps.map(s => `<li>${esc(pick(s))}</li>`).join("")}</ol></dd></div>` : ""}</dl></div>` }).join("");
-typeof D5 !== "undefined" && D5.plan(c);
 renderPath(c, runs, lab, span, isSalt, SHORT, code, c0, isWait, isLate);
+typeof D5 !== "undefined" && D5.plan(c);
 }
 /* Simple view of step 4: one season path, a stop per crop (when, what to do, salt, what to get ready) and one money line.
    It stands in for the forecast, wheel, cost, calendar and needs boxes, which stay in Advanced. */
@@ -985,9 +978,10 @@ openModal(`<div class="pp">
 <div class="pp-months" role="img" aria-label="${esc(months.map((m, i) => `${ML[i]}: ${t("ppLeg")[m[0]] || ""}`).join(", "))}">${months.map((m, i) =>
 `<div class="pp-m k-${m[0] === "-" ? "F" : m[0]}${v.salt.includes(i + 1) ? " salt" : ""}"><i></i><span>${MS[i]}</span></div>`).join("")}</div>
 <div class="pp-key">${used.map(k => `<span><i class="k-${k === "-" ? "F" : k}"></i>${esc(t("ppLeg")[k] || "")}</span>`).join("")}<span><i class="salt"></i>${esc(t("lgSalt"))}</span></div>
-${r ? `<div class="pp-score g-${r.g}"><div class="pp-num"><small>${esc(t("ppScore"))}</small><b>${r.p}</b><small>${esc(t("ppOf"))}</small></div>
-<div class="pp-grade"><span>${esc(t("ppGrade"))}</span><b>${r.g}</b></div><b class="pp-word">${esc(t("ppW" + r.g))}</b><p class="pp-say">${esc(t("ppGrade" + r.g))}</p></div>
-<ul class="pp-bars">${KEYS.map(bar).join("")}</ul>` : `<p class="pp-say">${esc(t("ppNoScore"))}</p>`}
+${r ? `<div class="pp-score g-${r.g}"><b class="pp-word">${esc(t("ppW" + r.g))}</b><p class="pp-say">${esc(t("ppGrade" + r.g))}</p>
+<details class="fold"${Folds.attrs("plan")}><summary>${esc(t("foldMonth"))}</summary><div class="pp-nums"><div class="pp-num"><small>${esc(t("ppScore"))}</small><b>${r.p}</b><small>${esc(t("ppOf"))}</small></div>
+<div class="pp-grade"><span>${esc(t("ppGrade"))}</span><b>${r.g}</b></div></div>
+<ul class="pp-bars">${KEYS.map(bar).join("")}</ul></details></div>` : `<p class="pp-say">${esc(t("ppNoScore"))}</p>`}
 <p class="pp-hint">${esc(t("ppHint"))}</p>
 <div class="pp-act"><button type="button" class="go-btn" id="ppKeep">${esc(t("ppKeep"))}</button>${ok ? `<button type="button" class="ghost-btn" id="ppChange">${ico("tools")}<span>${esc(t("ppChange"))}</span></button>` : ""}</div></div>`, "plan", "ppH");
 }
@@ -1026,7 +1020,7 @@ const fl = fm0.querySelector(".f-seasons legend"); if (fl) fl.textContent = t("f
 fm0.querySelectorAll(".f-seas").forEach((lb, i) => { const sp = lb.querySelector("span"); sp.innerHTML = `${esc(t("seasons")[i][0])} <small>${esc(t("seasons")[i][1])}</small>`; lb.querySelector("select").innerHTML = SEAS_OPTS.map(o => `<option value="${o}">${esc(t("sCrop")[o])}</option>`).join("") }) }
 if (!fm0.querySelector(".f-cong")) { const fa = fm0.querySelector(".f-actions"); if (fa) fa.insertAdjacentHTML("beforebegin", `<p class="f-cong"></p>`) }
 const fc = fm0.querySelector(".f-cong"); if (fc) fc.textContent = t("congNote");
-if (!fm0.querySelector("#fChecks")) { const fa = fm0.querySelector(".f-actions"); if (fa) fa.insertAdjacentHTML("beforebegin", `<div id="fChecks" class="f-checks" aria-live="polite"></div>`) }
+if (!fm0.querySelector("#fChecks")) { const fa = fm0.querySelector(".f-actions"); if (fa) fa.insertAdjacentHTML("beforebegin", fchk()) }
 const sb = fm0.querySelector("[type=submit]"); if (sb) { sb.removeAttribute("data-t"); sb.textContent = t(edit ? "fUpdate" : "fSave") }
 const fn = fm0.querySelector(".f-note"); if (fn) fn.textContent = t("fNote");
 openModal("", "field", h ? h.id : null, "#fieldForm");
@@ -1040,7 +1034,7 @@ openModal(`<form class="f-form" id="fieldForm"><h2 id="fH" tabindex="-1">${esc(t
 <label><span>${t("fArea")}</span><select id="fArea">${DATA.sites.map(s => `<option value="${s.id}">${esc(pick(s.name))}</option>`).join("")}</select></label>
 <fieldset class="f-seasons"><legend>${esc(t("fSeasons"))}</legend>${t("seasons").map(([nm, mo], i) => `<label class="f-seas"><span>${esc(nm)} <small>${esc(mo)}</small></span><select id="fS${i}">${SEAS_OPTS.map(o => `<option value="${o}">${esc(t("sCrop")[o])}</option>`).join("")}</select></label>`).join("")}</fieldset>
 <label><span>${t("fSize")}</span><input id="fSize" type="text" inputmode="decimal" autocomplete="off" placeholder="1,5"></label>
-<p class="f-cong">${esc(t("congNote"))}</p><div id="fChecks" class="f-checks" aria-live="polite"></div>
+<p class="f-cong">${esc(t("congNote"))}</p>${fchk()}
 <div class="f-actions"><button type="submit" class="go-btn">${t(edit ? "fUpdate" : "fSave")}</button><button type="button" class="ghost-btn" id="fCancel">${t("fCancel")}</button></div>
 <p class="f-note">${t("fNote")}</p></form>`, "field", "fH");
 if (preset) $("#fArea").value = preset;
@@ -1211,7 +1205,7 @@ $("#setBody").innerHTML = `<p class="set-note">${esc(t("setNote"))}</p>
 ${dlApi && copyB64.length > 100 ? `<button type="button" class="ghost-btn" id="saveCopy">${esc(t("saveCopy"))}</button><span class="share-msg" id="saveMsg" role="status"></span>` : ""}
 <p class="copy4">${esc(t("copy4"))}</p>`;
 }
-const setUi = u => { ui = u; if (u === "simple" && mode !== "typical") mode = "typical"; save("mre-ui", u); applyAll() };
+const setUi = u => { ui = u; save("mre-ui", u); applyAll() };
 const setLang = l => { lang = l; save("mre-lang", l); applyAll() };
 function setFm(m, banner) {
 fm = m; save("mre-fm", m); document.body.classList.toggle("field-mode", m === "wet");
@@ -1265,15 +1259,15 @@ if (window.claude && claude.use) { try { claude.use("downloads").then(d => { dlA
    one column, no buttons, printed from a hidden frame so the drawer's scroll boxes and columns never cut it. */
 function planDocHTML() {
   const v = document.querySelector("#v4"); if (!v) return "";
-  const shown = el => !!el && el.offsetHeight > 0;
-  const order = ["#planOk", "#s4", "#s4m", "#d5Cost", "#planWarn", "#calendar", "#v4 .pv-list", "#v4 h3[data-t='planNeed']", "#congNote", "#needs", "#v4 .disclaimer", "#v4 .copy4"];
+  const shown = el => !!el && !el.hidden && (el.offsetHeight > 0 || !!el.closest("details.fold"));
+  const order = ["#planOk", "#s4", "#s4m", "#d5Cost", "#d5W4", "#d5Pred", "#planWarn", "#calendar", "#v4 .pv-list", "#v4 h3[data-t='planNeed']", "#congNote", "#needs", "#v4 .disclaimer", "#v4 .copy4"];
   const parts = order.map(q => document.querySelector(q)).filter(el => el && v.contains(el) && shown(el) && !el.closest(".plan-tools")).map(el => {
     const c = el.cloneNode(true);
     /* a folded part prints open, its summary as a plain title */
     c.querySelectorAll("details").forEach(d => { const box = document.createElement("div"); box.className = d.className; const sm = d.querySelector(":scope > summary");
       if (sm) { const h = document.createElement("p"); h.className = "pd-sub"; h.textContent = sm.textContent.trim(); box.appendChild(h); sm.remove() }
       while (d.firstChild) box.appendChild(d.firstChild); d.replaceWith(box) });
-    c.querySelectorAll("button, .po-act, .po-next, input, [data-cost-ha], .cs-ha").forEach(x => x.remove());
+    c.querySelectorAll("button, .po-act, input, [data-cost-ha], .cs-ha").forEach(x => x.remove());
     return c.outerHTML; }).join("\n");
   const f = fieldId && !exOn ? fields().find(x => x.id === fieldId) : null;
   const sub = [site ? pick(site.name) : "", f ? f.name + (f.size ? ` · ${num(f.size)} ha` : "") : "", new Date().toLocaleDateString(lang === "vi" ? "vi-VN" : "en-GB")].filter(Boolean).map(esc).join(" · ");
