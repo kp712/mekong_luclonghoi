@@ -1052,7 +1052,7 @@ f.cur = curFrom(f.seasons);
 if (old) { if (old.site !== f.site) delete old.rot; Object.assign(old, f) } else Farm.st.fields.push(f);   /* in place: the dashboard's plan for this field stays */
 try { typeof Dash !== "undefined" && Dash.syncField && Dash.syncField() } catch (e) {}
 const goOn = pendingNext;
-trySite = null; saveFields(); closeModal(false); openField(f.id);
+trySite = null; adding = false; saveFields(); closeModal(false); openField(f.id);
 if (goOn) { pendingNext = false; setTimeout(() => { go(2); setTimeout(() => { if (typeof Side !== "undefined" && Side.sub) Side.sub("b") }, 30) }, 80) }
 }
 const saveFields = () => Farm.save();
@@ -1137,11 +1137,12 @@ const dc = document.querySelector("#dClose"); if (dc) { dc.setAttribute("aria-la
 function hasField() {
 if (!site || exOn || trySite === site.id) return true;
 if (fieldId && fields().some(f => f.id === fieldId && f.site === site.id)) return true;
-const f = fields().find(x => x.site === site.id); if (f) { fieldId = f.id; save("mre-last", f.id); return true }
+const f = !adding && fields().find(x => x.site === site.id); if (f) { fieldId = f.id; save("mre-last", f.id); return true }
 return false;
 }
 let pendingNext = false;
-let trySite = null;   /* "Xem thử": the area being looked at without a saved field (never stored) */
+let trySite = null;
+let adding = false;   /* dashboard "Thêm ruộng": a new field, so an area's existing field is not adopted (and not overwritten) */   /* "Xem thử": the area being looked at without a saved field (never stored) */
 /* empty name: "Ruộng Trần Đề", then "Ruộng Trần Đề 2" for a second field in that area */
 const defaultName = id => { const s0 = siteById(id), n = fields().filter(f => f.site === id).length + 1; return `${t("fDefault")} ${s0 ? shortName(s0) : ""}${n > 1 ? " " + n : ""}`.trim() };
 const MAX_HA = 1000;   /* one field is under 1,000 ha; the dashboard uses the same limit */
@@ -1475,7 +1476,7 @@ if (e.shiftKey && document.activeElement === a) { e.preventDefault(); z.focus() 
 
 /* ---------- start ---------- */
 window.App = { refresh: () => renderAll(), fieldId: () => fieldId, cur: () => cur, ranked, planId: () => planId, V, t, lang: () => lang, site: () => site, go, toast, mode: () => mode, weights: () => ({ ...w }), upCrop: () => upCrop, guide, openPanel, closePanel, hasField: () => hasField(), example: () => exOn, askField: () => askField(),
-  fields: () => fields(), removeField, planDoc: () => planDocHTML(), openField: id => openField(id), openFieldForm: siteId => openFieldForm(siteId) };
+  fields: () => fields(), removeField, planDoc: () => planDocHTML(), openField: id => openField(id), openFieldForm: siteId => openFieldForm(siteId), startAdd: on => { adding = on; if (on) fieldId = null } };
 function start() {
 ensureSkeleton(); buildExtras();
 (document.querySelector("#brand") || document.body).appendChild(offChip);
