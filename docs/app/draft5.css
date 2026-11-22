@@ -208,7 +208,6 @@ body.ui-simple .plan-ok .po-where, body.ui-simple .plan-ok .po-cal, body.ui-simp
 .s4-st { height: 64px; min-height: 0 }
 .s4-b { align-content: center }
 /* step 1, Simple: the area chart already shows the 12 months; the rotation wheel waits for Advanced and step 4 */
-body.ui-simple #v1 #d5W1 { display: none }
 
 /* ---------- full screen (1000px+): the two columns scroll on their own, like two pages side by side ---------- */
 @media screen and (min-width: 1000px) {

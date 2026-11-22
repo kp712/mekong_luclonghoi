@@ -344,7 +344,8 @@ const bars = ord.map((m, i) => { const r = v.rain[m], cls = v.salt.includes(m + 
 return `<div class="${cls}" style="height:${Math.max(6, r / max * 100)}%;animation-delay:${i * 30}ms" title="${ML3(i)}: ${r} mm${rg3 ? ` (${rg3[0][m]}–${rg3[1][m]} mm)` : ""}"></div>` }).join("")
 + (rg3 ? `<span class="wh3" aria-hidden="true">${ord.map(m => `<b><i style="bottom:${(rg3[0][m] / max * 100).toFixed(1)}%;height:${(Math.max(0, rg3[1][m] - rg3[0][m]) / max * 100).toFixed(1)}%"></i></b>`).join("")}</span>` : "");
 const green = v.ndvi ? `<div class="green" aria-hidden="true">${ord.map(m => v.ndvi[m]).map((g, i) => `<i style="opacity:${Math.max(.15, Math.min(1, (g - .2) / .5)).toFixed(2)}" title="NDVI ${g}"></i>`).join("")}</div><div class="glab">${t("green")}${L3 ? " " + t("greenTyp3") : ""}${cite(DATA.chart_src)}</div>` : "";
-const lines = (v.latest ? `<li><span>${esc(t("ltRain")(v.rain.reduce((a, b) => a + b, 0), s.rain.reduce((a, b) => a + b, 0)))}${cite(DATA.chart_src)}</span></li>` : "") + v.summary.filter(x => v.latest ? x.salt : ui === "advanced" || x.salt).map(x => `<li class="${x.salt ? "s" : ""}"><span>${esc(pick(ui === "advanced" ? x.full : x))}${cite(x.src)}</span></li>`).join("") + (v.crops && ui === "simple" ? `<li>${esc(t("crops")(v.crops))}</li>` : "");
+const lines = (v.latest ? `<li><span>${esc(t("ltRain")(v.rain.reduce((a, b) => a + b, 0), s.rain.reduce((a, b) => a + b, 0)))}${cite(DATA.chart_src)}</span></li>` : "") + v.summary.filter(x => x.salt).map(x => `<li class="s"><span>${esc(pick(x))}</span></li>`).join("") + (v.crops ? `<li>${esc(t("crops")(v.crops))}</li>` : "");
+$("#areaFull").innerHTML = v.summary.filter(x => !v.latest || x.salt).map(x => `<li class="${x.salt ? "s" : ""}"><span>${esc(pick(x.full))}${cite(x.src)}</span></li>`).join("");
 $("#year").innerHTML = `<div class="eyebrow">${mode === "latest" && EXTRA.latest[s.id] ? t("yearEyebrowLt")(EXTRA.latest[s.id]) : t(mode === "elnino" ? "yearEyebrowEl" : "yearEyebrow")}</div>
 <div class="seasons" aria-hidden="true">${seasons}</div>
 <div class="bars${rg3 ? " has-wh3" : ""}" role="img" aria-label="${esc(ord.map((m, i) => `${ML3(i)} ${v.rain[m]} mm${rg3 ? ` (${t("whA3")(rg3[0][m], rg3[1][m])})` : ""}`).join(", "))}">${bars}</div>
@@ -361,9 +362,9 @@ function renderArea() {
 const o = DATA.outlook;
 if (!site) {
 $("#areaHead").innerHTML = `<p class="hint1">${esc(t(coarse.matches ? "step1hintTap" : "step1hint"))}</p>${areaButtons()}`;
-$("#year").innerHTML = ""; $("#outlook").innerHTML = ""; $("#areaMore").innerHTML = ""; $("#modeSeg").hidden = true; typeof D5 !== "undefined" && D5.area(); return }
+$("#year").innerHTML = ""; $("#outlook").innerHTML = ""; $("#areaMore").innerHTML = ""; $("#areaFull").innerHTML = ""; $("#areaFold").hidden = true; $("#modeSeg").hidden = true; typeof D5 !== "undefined" && D5.area(); return }
 const v = V(site);
-$("#modeSeg").hidden = false;
+$("#areaFold").hidden = false; $("#modeSeg").hidden = false;
 $$("#modeSeg [data-mode]").forEach(b => b.setAttribute("aria-pressed", b.dataset.mode === mode));
 $("#areaHead").innerHTML = `<span class="rg-badge">${t("chosenArea")}</span>${nasaBadges()}`;   /* the area name is the drawer title */
 renderYear(site);

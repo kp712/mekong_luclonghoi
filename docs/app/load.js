@@ -77,6 +77,20 @@ const Farm = (() => {
   }
   return { st, save };
 })();
+/* Folds: every <details class="fold" data-fold="TYPE"> remembers open/closed per TYPE in "mre-folds" ({type: bool}).
+   Dynamic HTML adds Folds.attrs(type); static folds are set by Folds.apply(). Storage may throw: folds then start closed. */
+const Folds = (() => {
+  const read = () => { try { return JSON.parse(localStorage.getItem("mre-folds") || "{}") || {} } catch (e) { return {} } };
+  document.addEventListener("toggle", (e) => {
+    const d = e.target; if (!d.matches || !d.matches("details[data-fold]")) return;
+    const s = read(); s[d.dataset.fold] = d.open;
+    try { localStorage.setItem("mre-folds", JSON.stringify(s)) } catch (x) {}
+  }, true);
+  return {
+    attrs: (type) => ` data-fold="${type}"${read()[type] ? " open" : ""}`,
+    apply: (root = document) => { const s = read(); root.querySelectorAll("details[data-fold]").forEach((d) => { d.open = !!s[d.dataset.fold] }) },
+  };
+})();
 /* AppReady: the app scripts start "when the page is ready". They now arrive after the data, when the page is already
    parsed, so their start functions are queued here and run, in the order they asked, once the last script has loaded:
    the same order DOMContentLoaded gave them before. */
@@ -86,6 +100,7 @@ const AppReady = (() => {
   const flush = () => { open = true; const fs = q; q = null; fs.forEach((fn) => { try { fn() } catch (e) { console.error(e) } }) };
   return { on, flush, waiting: () => !open };
 })();
+AppReady.on(() => Folds.apply());
 (function boot() {
   /* a calm loading line while the data travels (slow phone connections), replaced by the app */
   const wait = document.createElement("p");

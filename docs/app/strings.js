@@ -131,6 +131,7 @@ months: ["1","2","3","4","5","6","7","8","9","10","11","12"], monthsLong: ["T1",
 }
 };
 Object.assign(STR.en, {
+foldArea: "See the area's numbers", foldCard: "Why & sources", foldChecks: "Check the season plan", foldField: "Check my field", foldPlan: "See the detailed calendar", foldMonth: "See the numbers",
 modeLatest: "Latest 12 months", modeElnino: "El Niño (worst case)",
 yearEyebrowLt: o => `Your area, latest 12 months on record (${ymText(o.from)} – ${ymText(o.to)})`,
 modeNoteLt: "Rain: the newest 12 months of NASA GPM IMERG data. Salt months and all scores stay those of the typical year, because there are no newer station readings. Oct–Dec bars are from 2024, Jan–Sep from 2025.",
@@ -169,6 +170,7 @@ h_detail: "Simple shows fewer numbers; Advanced shows every score and source.", 
 h_text: "Make text and boxes bigger (A+) or smaller (A−).", h_theme: "Auto follows your phone's light or dark setting.", h_motion: "Turn animations down to save battery on older phones."
 });
 Object.assign(STR.vi, {
+foldArea: "Xem số liệu khu vực", foldCard: "Vì sao & nguồn", foldChecks: "Kiểm tra lịch vụ", foldField: "Kiểm tra ruộng", foldPlan: "Xem lịch chi tiết", foldMonth: "Xem số đo",
 modeLatest: "12 tháng gần nhất", modeElnino: "El Niño (xấu nhất)",
 yearEyebrowLt: o => `Khu vực của bạn, 12 tháng gần nhất có số liệu (${ymText(o.from)} – ${ymText(o.to)})`,
 modeNoteLt: "Mưa: 12 tháng mới nhất của dữ liệu NASA GPM IMERG. Tháng mặn và mọi điểm số vẫn theo năm điển hình, vì chưa có số liệu trạm đo mới hơn. Cột T10–T12 là năm 2024, T1–T9 là năm 2025.",

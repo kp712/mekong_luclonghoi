@@ -583,3 +583,11 @@ body.field-mode #addField { min-height: 56px; width: 100% }
 #fieldForm .f-need { margin: 0 0 6px; padding: 10px 12px; border-radius: 12px; border: 1px solid var(--gold); background: color-mix(in srgb, var(--gold) 12%, transparent); font-size: .9375rem; line-height: 1.45; color: var(--ink) }
 @media (max-width: 760px) { .gd { bottom: calc(96px + env(safe-area-inset-bottom, 0px)) } }
 @media (max-width: 760px) { #gearBtn .ib-t { display: none } }
+
+/* folds: native <details>, remembered per type by Folds (load.js). Sources show only inside them. */
+details.fold { margin: .8rem 0 }
+details.fold > summary { display: flex; align-items: center; justify-content: space-between; gap: .5rem; min-height: 48px; padding: 0 .9rem; border: 1px solid var(--line-2); border-radius: var(--r); font-weight: 600; cursor: pointer; list-style: none }
+details.fold > summary::-webkit-details-marker { display: none }
+details.fold > summary::after { content: ""; flex: none; width: .5rem; height: .5rem; border: solid currentColor; border-width: 0 2px 2px 0; transform: rotate(45deg); transition: transform .15s }
+details.fold[open] > summary::after { transform: rotate(-135deg) }
+body details.fold .cite, body details.fold .src, body details.fold .s-src { display: inline !important }
