@@ -968,13 +968,15 @@ def station_at(name, dlat_km=0.0):
 
 
 def test_salt_window():
-    assert salinity.SALT_SEASONS == (2017, 2026)
+    assert salinity.SALT_SEASONS == (2016, 2026)
     assert salinity.salt_elnino(2024) and not salinity.salt_elnino(2025) and not salinity.salt_elnino(2026)
     assert salinity.salt_elnino(2016) and not salinity.salt_elnino(2017)  # straight from oni.txt, not limited to PERIOD
     _, first, last, _ = salinity.station_salt(salinity.DATA, "tran_de", False)
     assert first == 2017 and last >= 2025, (first, last)
     _, first, last, n = salinity.station_salt(salinity.DATA, "tran_de", True)
-    assert (first, last, n) == (2019, 2024, 3)  # El Niño dry seasons 2019, 2020, 2024
+    assert (first, last, n) == (2016, 2024, 4)  # El Niño dry seasons 2016, 2019, 2020, 2024
+    s = {x["id"]: x for x in json.loads((build.ROOT / "docs/data/sites.json").read_text(encoding="utf-8"))["sites"]}
+    assert s["nga_nam"]["salinity"]["level"] == "low" and s["nga_nam"]["elnino"]["salinity"]["level"] == "low"
 
 
 def test_station_record_merge():
@@ -1000,7 +1002,7 @@ def test_kttv_nearest():
     assert t["station"] == e["station"] == "Sông Đốc" and t["km"] == 25.0
     assert point_salinity(*station_at("Sông Đốc", 25.5))[0]["level"] == build.UNKNOWN
     t, _ = point_salinity(*station_at("Trần Đề"))
-    assert t["station"] == "Trần Đề" and t["km"] == 0 and t["seasons"] == 9 and t["last_year"] == 2025  # the table's long record
+    assert t["station"] == "Trần Đề" and t["km"] == 0 and t["seasons"] == 10 and t["last_year"] == 2025  # the table's long record
 
 
 def test_kttv_salt_months():

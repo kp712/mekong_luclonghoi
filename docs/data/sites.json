@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-21",
+ "generated": "2026-11-22",
  "bounds": {
   "w": 103.0,
   "e": 107.0,
@@ -1018,12 +1018,12 @@
      5
     ],
     "note": {
-     "en": "Coastal strip. Nearest station: Khánh Hòa, on the Vĩnh Châu coast. Highest reading of each dry season there: 15.4‰ on average in typical years, 17.7‰ in El Niño years (2017–2026). 2026: at least 14.0‰, one reading on about 15-16 Apr 2026 while salt was still rising, not the season's peak (Báo Cần Thơ).",
-     "vi": "Dải ven biển. Trạm gần nhất: Khánh Hòa, ven biển Vĩnh Châu. Độ mặn cao nhất mỗi mùa khô tại trạm: trung bình 15,4‰ trong năm thường, 17,7‰ trong năm El Niño (2017–2026). 2026: ít nhất 14,0‰, một lần đo khoảng 15-16/4/2026 khi mặn còn đang lên, không phải đỉnh mùa (Báo Cần Thơ)."
+     "en": "Coastal strip. Nearest station: Khánh Hòa, on the Vĩnh Châu coast. Highest reading of each dry season there: 15.4‰ on average in typical years, 17.6‰ in El Niño years (2016–2026). 2026: at least 14.0‰, one reading on about 15-16 Apr 2026 while salt was still rising, not the season's peak (Báo Cần Thơ).",
+     "vi": "Dải ven biển. Trạm gần nhất: Khánh Hòa, ven biển Vĩnh Châu. Độ mặn cao nhất mỗi mùa khô tại trạm: trung bình 15,4‰ trong năm thường, 17,6‰ trong năm El Niño (2016–2026). 2026: ít nhất 14,0‰, một lần đo khoảng 15-16/4/2026 khi mặn còn đang lên, không phải đỉnh mùa (Báo Cần Thơ)."
     },
     "station_ppt": 15.4,
     "estimate": true,
-    "seasons": 7,
+    "seasons": 8,
     "last_year": 2022,
     "level": "high",
     "max_ppt": 15.4
@@ -2758,15 +2758,15 @@
       5
      ],
      "note": {
-      "en": "Coastal strip. Nearest station: Khánh Hòa, on the Vĩnh Châu coast. Highest reading of each dry season there: 15.4‰ on average in typical years, 17.7‰ in El Niño years (2017–2026). 2026: at least 14.0‰, one reading on about 15-16 Apr 2026 while salt was still rising, not the season's peak (Báo Cần Thơ).",
-      "vi": "Dải ven biển. Trạm gần nhất: Khánh Hòa, ven biển Vĩnh Châu. Độ mặn cao nhất mỗi mùa khô tại trạm: trung bình 15,4‰ trong năm thường, 17,7‰ trong năm El Niño (2017–2026). 2026: ít nhất 14,0‰, một lần đo khoảng 15-16/4/2026 khi mặn còn đang lên, không phải đỉnh mùa (Báo Cần Thơ)."
+      "en": "Coastal strip. Nearest station: Khánh Hòa, on the Vĩnh Châu coast. Highest reading of each dry season there: 15.4‰ on average in typical years, 17.6‰ in El Niño years (2016–2026). 2026: at least 14.0‰, one reading on about 15-16 Apr 2026 while salt was still rising, not the season's peak (Báo Cần Thơ).",
+      "vi": "Dải ven biển. Trạm gần nhất: Khánh Hòa, ven biển Vĩnh Châu. Độ mặn cao nhất mỗi mùa khô tại trạm: trung bình 15,4‰ trong năm thường, 17,6‰ trong năm El Niño (2016–2026). 2026: ít nhất 14,0‰, một lần đo khoảng 15-16/4/2026 khi mặn còn đang lên, không phải đỉnh mùa (Báo Cần Thơ)."
      },
-     "station_ppt": 17.7,
+     "station_ppt": 17.6,
      "estimate": true,
-     "seasons": 7,
+     "seasons": 8,
      "last_year": 2022,
      "level": "high",
-     "max_ppt": 17.7
+     "max_ppt": 17.6
     },
     "cards": [
      {
@@ -2874,8 +2874,8 @@
         ]
        },
        {
-        "en": "Weather & salt 2.2: crops in the field in 4 of 5 salt months (station average peak 17.7‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1295 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 2,2: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,7‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1295 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 2.2: crops in the field in 4 of 5 salt months (station average peak 17.6‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1295 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 2,2: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,6‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1295 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -3059,8 +3059,8 @@
         ]
        },
        {
-        "en": "Weather & salt 2.2: crops in the field in 4 of 5 salt months (station average peak 17.7‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1295 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 2,2: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,7‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1295 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 2.2: crops in the field in 4 of 5 salt months (station average peak 17.6‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1295 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 2,2: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,6‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1295 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -3255,8 +3255,8 @@
         ]
        },
        {
-        "en": "Weather & salt 5.0: crops in the field in 0 of 5 salt months (station average peak 17.7‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 0 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,7‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 0 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 5.0: crops in the field in 0 of 5 salt months (station average peak 17.6‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 0 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,6‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 0 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -3482,8 +3482,8 @@
           ]
          },
          {
-          "en": "Weather & salt 2.4: crops in the field in 4 of 5 salt months (station average peak 17.7‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1030 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 2,4: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,7‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1030 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 2.4: crops in the field in 4 of 5 salt months (station average peak 17.6‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1030 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+          "vi": "Thời tiết & mặn 2,4: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,6‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1030 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -3716,8 +3716,8 @@
           ]
          },
          {
-          "en": "Weather & salt 2.4: crops in the field in 4 of 5 salt months (station average peak 17.7‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1018 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 2,4: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,7‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1018 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 2.4: crops in the field in 4 of 5 salt months (station average peak 17.6‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1018 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+          "vi": "Thời tiết & mặn 2,4: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,6‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1018 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -3944,8 +3944,8 @@
           ]
          },
          {
-          "en": "Weather & salt 2.4: crops in the field in 4 of 5 salt months (station average peak 17.7‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 997 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 2,4: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,7‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 997 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 2.4: crops in the field in 4 of 5 salt months (station average peak 17.6‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 997 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+          "vi": "Thời tiết & mặn 2,4: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,6‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 997 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -4129,8 +4129,8 @@
         ]
        },
        {
-        "en": "Weather & salt 4.1: crops in the field in 2 of 5 salt months (station average peak 17.7‰, estimate from station reports); 0.4 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 679 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 4,1: có cây trồng trên ruộng trong 2/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,7‰, ước tính từ báo cáo trạm); 0,4 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 679 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 4.1: crops in the field in 2 of 5 salt months (station average peak 17.6‰, estimate from station reports); 0.4 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 679 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 4,1: có cây trồng trên ruộng trong 2/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,6‰, ước tính từ báo cáo trạm); 0,4 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 679 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -4454,12 +4454,12 @@
      5
     ],
     "note": {
-     "en": "Trần Đề station at the Hậu River mouth, 10 km from the sea. Highest reading of each dry season there: 20.9‰ on average in typical years, 22.7‰ in El Niño years (2017–2025).",
-     "vi": "Trạm Trần Đề ở cửa sông Hậu, cách biển 10 km. Độ mặn cao nhất mỗi mùa khô tại trạm: trung bình 20,9‰ trong năm thường, 22,7‰ trong năm El Niño (2017–2025)."
+     "en": "Trần Đề station at the Hậu River mouth, 10 km from the sea. Highest reading of each dry season there: 20.9‰ on average in typical years, 23.9‰ in El Niño years (2016–2025).",
+     "vi": "Trạm Trần Đề ở cửa sông Hậu, cách biển 10 km. Độ mặn cao nhất mỗi mùa khô tại trạm: trung bình 20,9‰ trong năm thường, 23,9‰ trong năm El Niño (2016–2025)."
     },
     "station_ppt": 20.9,
     "estimate": true,
-    "seasons": 9,
+    "seasons": 10,
     "last_year": 2025,
     "level": "high",
     "max_ppt": 20.9
@@ -6095,15 +6095,15 @@
       5
      ],
      "note": {
-      "en": "Trần Đề station at the Hậu River mouth, 10 km from the sea. Highest reading of each dry season there: 20.9‰ on average in typical years, 22.7‰ in El Niño years (2017–2025).",
-      "vi": "Trạm Trần Đề ở cửa sông Hậu, cách biển 10 km. Độ mặn cao nhất mỗi mùa khô tại trạm: trung bình 20,9‰ trong năm thường, 22,7‰ trong năm El Niño (2017–2025)."
+      "en": "Trần Đề station at the Hậu River mouth, 10 km from the sea. Highest reading of each dry season there: 20.9‰ on average in typical years, 23.9‰ in El Niño years (2016–2025).",
+      "vi": "Trạm Trần Đề ở cửa sông Hậu, cách biển 10 km. Độ mặn cao nhất mỗi mùa khô tại trạm: trung bình 20,9‰ trong năm thường, 23,9‰ trong năm El Niño (2016–2025)."
      },
-     "station_ppt": 22.7,
+     "station_ppt": 23.9,
      "estimate": true,
-     "seasons": 9,
+     "seasons": 10,
      "last_year": 2025,
      "level": "high",
-     "max_ppt": 22.7
+     "max_ppt": 23.9
     },
     "cards": [
      {
@@ -6197,8 +6197,8 @@
         ]
        },
        {
-        "en": "Weather & salt 2.4: crops in the field in 3 of 4 salt months (station average peak 22.7‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1047 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 2,4: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 22,7‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1047 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 2.4: crops in the field in 3 of 4 salt months (station average peak 23.9‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1047 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 2,4: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 23,9‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1047 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -6368,8 +6368,8 @@
         ]
        },
        {
-        "en": "Weather & salt 2.4: crops in the field in 3 of 4 salt months (station average peak 22.7‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1047 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 2,4: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 22,7‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1047 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 2.4: crops in the field in 3 of 4 salt months (station average peak 23.9‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1047 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 2,4: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 23,9‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1047 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -6550,8 +6550,8 @@
         ]
        },
        {
-        "en": "Weather & salt 5.0: crops in the field in 0 of 4 salt months (station average peak 22.7‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 0 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 22,7‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 0 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 5.0: crops in the field in 0 of 4 salt months (station average peak 23.9‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 0 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 23,9‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 0 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -6764,8 +6764,8 @@
           ]
          },
          {
-          "en": "Weather & salt 2.5: crops in the field in 3 of 4 salt months (station average peak 22.7‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 934 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 2,5: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 22,7‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 934 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 2.5: crops in the field in 3 of 4 salt months (station average peak 23.9‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 934 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+          "vi": "Thời tiết & mặn 2,5: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 23,9‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 934 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -6985,8 +6985,8 @@
           ]
          },
          {
-          "en": "Weather & salt 2.5: crops in the field in 3 of 4 salt months (station average peak 22.7‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 893 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 2,5: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 22,7‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 893 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 2.5: crops in the field in 3 of 4 salt months (station average peak 23.9‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 893 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+          "vi": "Thời tiết & mặn 2,5: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 23,9‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 893 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -7200,8 +7200,8 @@
           ]
          },
          {
-          "en": "Weather & salt 2.5: crops in the field in 3 of 4 salt months (station average peak 22.7‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 893 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 2,5: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 22,7‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 893 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 2.5: crops in the field in 3 of 4 salt months (station average peak 23.9‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 893 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+          "vi": "Thời tiết & mặn 2,5: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 23,9‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 893 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -7371,8 +7371,8 @@
         ]
        },
        {
-        "en": "Weather & salt 4.3: crops in the field in 1 of 4 salt months (station average peak 22.7‰, estimate from station reports); 0.4 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 477 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 4,3: có cây trồng trên ruộng trong 1/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 22,7‰, ước tính từ báo cáo trạm); 0,4 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 477 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 4.3: crops in the field in 1 of 4 salt months (station average peak 23.9‰, estimate from station reports); 0.4 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 477 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 4,3: có cây trồng trên ruộng trong 1/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 23,9‰, ước tính từ báo cáo trạm); 0,4 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 477 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -7698,12 +7698,12 @@
      5
     ],
     "note": {
-     "en": "Known rice–shrimp area. Nearest station: Thạnh Phú, on the Nhu Gia canal. Highest reading of each dry season there: 6.4‰ on average in typical years, 10.3‰ in El Niño years (2017–2025).",
-     "vi": "Vùng lúa – tôm truyền thống. Trạm gần nhất: Thạnh Phú, trên kênh Nhu Gia. Độ mặn cao nhất mỗi mùa khô tại trạm: trung bình 6,4‰ trong năm thường, 10,3‰ trong năm El Niño (2017–2025)."
+     "en": "Known rice–shrimp area. Nearest station: Thạnh Phú, on the Nhu Gia canal. Highest reading of each dry season there: 6.4‰ on average in typical years, 11.1‰ in El Niño years (2016–2025).",
+     "vi": "Vùng lúa – tôm truyền thống. Trạm gần nhất: Thạnh Phú, trên kênh Nhu Gia. Độ mặn cao nhất mỗi mùa khô tại trạm: trung bình 6,4‰ trong năm thường, 11,1‰ trong năm El Niño (2016–2025)."
     },
     "station_ppt": 6.4,
     "estimate": true,
-    "seasons": 9,
+    "seasons": 10,
     "last_year": 2025,
     "level": "medium",
     "max_ppt": 6.4
@@ -9354,15 +9354,15 @@
       5
      ],
      "note": {
-      "en": "Known rice–shrimp area. Nearest station: Thạnh Phú, on the Nhu Gia canal. Highest reading of each dry season there: 6.4‰ on average in typical years, 10.3‰ in El Niño years (2017–2025).",
-      "vi": "Vùng lúa – tôm truyền thống. Trạm gần nhất: Thạnh Phú, trên kênh Nhu Gia. Độ mặn cao nhất mỗi mùa khô tại trạm: trung bình 6,4‰ trong năm thường, 10,3‰ trong năm El Niño (2017–2025)."
+      "en": "Known rice–shrimp area. Nearest station: Thạnh Phú, on the Nhu Gia canal. Highest reading of each dry season there: 6.4‰ on average in typical years, 11.1‰ in El Niño years (2016–2025).",
+      "vi": "Vùng lúa – tôm truyền thống. Trạm gần nhất: Thạnh Phú, trên kênh Nhu Gia. Độ mặn cao nhất mỗi mùa khô tại trạm: trung bình 6,4‰ trong năm thường, 11,1‰ trong năm El Niño (2016–2025)."
      },
-     "station_ppt": 10.3,
+     "station_ppt": 11.1,
      "estimate": true,
-     "seasons": 9,
+     "seasons": 10,
      "last_year": 2025,
      "level": "medium",
-     "max_ppt": 10.3
+     "max_ppt": 11.1
     },
     "cards": [
      {
@@ -9439,7 +9439,7 @@
       },
       "scores": {
        "water": 1.0,
-       "salt": 2.2,
+       "salt": 2.1,
        "soil": 1.3,
        "pests": 1.9,
        "income": 3.0
@@ -9456,8 +9456,8 @@
         ]
        },
        {
-        "en": "Weather & salt 2.2: crops in the field in 3 of 4 salt months (station average peak 10.3‰, estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1029 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 2,2: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 10,3‰, ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1029 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 2.1: crops in the field in 3 of 4 salt months (station average peak 11.1‰, estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1029 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 2,1: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 11,1‰, ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1029 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -9610,7 +9610,7 @@
       },
       "scores": {
        "water": 1.3,
-       "salt": 2.2,
+       "salt": 2.1,
        "soil": 2.0,
        "pests": 3.1,
        "income": 1.8
@@ -9627,8 +9627,8 @@
         ]
        },
        {
-        "en": "Weather & salt 2.2: crops in the field in 3 of 4 salt months (station average peak 10.3‰, estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1029 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 2,2: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 10,3‰, ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1029 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 2.1: crops in the field in 3 of 4 salt months (station average peak 11.1‰, estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1029 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 2,1: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 11,1‰, ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1029 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -9809,8 +9809,8 @@
         ]
        },
        {
-        "en": "Weather & salt 5.0: crops in the field in 0 of 4 salt months (station average peak 10.3‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 0 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 10,3‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 0 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 5.0: crops in the field in 0 of 4 salt months (station average peak 11.1‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 0 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 11,1‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 0 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -9980,7 +9980,7 @@
         },
         "scores": {
          "water": 2.4,
-         "salt": 2.3,
+         "salt": 2.2,
          "soil": 2.1,
          "pests": 2.9,
          "income": 4.4
@@ -10009,8 +10009,8 @@
           ]
          },
          {
-          "en": "Weather & salt 2.3: crops in the field in 3 of 4 salt months (station average peak 10.3‰, estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 916 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 2,3: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 10,3‰, ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 916 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 2.2: crops in the field in 3 of 4 salt months (station average peak 11.1‰, estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 916 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+          "vi": "Thời tiết & mặn 2,2: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 11,1‰, ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 916 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -10208,7 +10208,7 @@
         },
         "scores": {
          "water": 2.4,
-         "salt": 2.3,
+         "salt": 2.2,
          "soil": 2.1,
          "pests": 2.9,
          "income": 4.4
@@ -10237,8 +10237,8 @@
           ]
          },
          {
-          "en": "Weather & salt 2.3: crops in the field in 3 of 4 salt months (station average peak 10.3‰, estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 870 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 2,3: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 10,3‰, ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 870 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 2.2: crops in the field in 3 of 4 salt months (station average peak 11.1‰, estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 870 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+          "vi": "Thời tiết & mặn 2,2: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 11,1‰, ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 870 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -10430,7 +10430,7 @@
         "water_saved": 0.368,
         "scores": {
          "water": 2.5,
-         "salt": 2.3,
+         "salt": 2.2,
          "soil": 3.9,
          "pests": 2.9,
          "income": null
@@ -10459,8 +10459,8 @@
           ]
          },
          {
-          "en": "Weather & salt 2.3: crops in the field in 3 of 4 salt months (station average peak 10.3‰, estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 870 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 2,3: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 10,3‰, ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 870 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 2.2: crops in the field in 3 of 4 salt months (station average peak 11.1‰, estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 870 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+          "vi": "Thời tiết & mặn 2,2: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 11,1‰, ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 870 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -10616,7 +10616,7 @@
       },
       "scores": {
        "water": 2.7,
-       "salt": 4.2,
+       "salt": 4.1,
        "soil": 2.8,
        "pests": 3.0,
        "income": 3.1
@@ -10637,8 +10637,8 @@
         ]
        },
        {
-        "en": "Weather & salt 4.2: crops in the field in 1 of 4 salt months (station average peak 10.3‰, estimate from station reports); 10.8 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 442 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 4,2: có cây trồng trên ruộng trong 1/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 10,3‰, ước tính từ báo cáo trạm); 10,8 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 442 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 4.1: crops in the field in 1 of 4 salt months (station average peak 11.1‰, estimate from station reports); 10.8 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 442 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 4,1: có cây trồng trên ruộng trong 1/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 11,1‰, ước tính từ báo cáo trạm); 10,8 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 442 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -10967,12 +10967,12 @@
      4
     ],
     "note": {
-     "en": "Along the Hậu River. Long Phú station, 15 km from the sea; in 2019–20 salt arrived from mid-December. Highest reading of each dry season there: 16.8‰ on average in typical years, 18.5‰ in El Niño years (2017–2025).",
-     "vi": "Dọc sông Hậu. Trạm Long Phú, cách biển 15 km; mùa khô 2019–20 mặn đến từ giữa tháng 12. Độ mặn cao nhất mỗi mùa khô tại trạm: trung bình 16,8‰ trong năm thường, 18,5‰ trong năm El Niño (2017–2025)."
+     "en": "Along the Hậu River. Long Phú station, 15 km from the sea; in 2019–20 salt arrived from mid-December. Highest reading of each dry season there: 16.8‰ on average in typical years, 19.6‰ in El Niño years (2016–2025).",
+     "vi": "Dọc sông Hậu. Trạm Long Phú, cách biển 15 km; mùa khô 2019–20 mặn đến từ giữa tháng 12. Độ mặn cao nhất mỗi mùa khô tại trạm: trung bình 16,8‰ trong năm thường, 19,6‰ trong năm El Niño (2016–2025)."
     },
     "station_ppt": 16.8,
     "estimate": true,
-    "seasons": 9,
+    "seasons": 10,
     "last_year": 2025,
     "level": "high",
     "max_ppt": 16.8
@@ -12628,15 +12628,15 @@
       4
      ],
      "note": {
-      "en": "Along the Hậu River. Long Phú station, 15 km from the sea; in 2019–20 salt arrived from mid-December. Highest reading of each dry season there: 16.8‰ on average in typical years, 18.5‰ in El Niño years (2017–2025).",
-      "vi": "Dọc sông Hậu. Trạm Long Phú, cách biển 15 km; mùa khô 2019–20 mặn đến từ giữa tháng 12. Độ mặn cao nhất mỗi mùa khô tại trạm: trung bình 16,8‰ trong năm thường, 18,5‰ trong năm El Niño (2017–2025)."
+      "en": "Along the Hậu River. Long Phú station, 15 km from the sea; in 2019–20 salt arrived from mid-December. Highest reading of each dry season there: 16.8‰ on average in typical years, 19.6‰ in El Niño years (2016–2025).",
+      "vi": "Dọc sông Hậu. Trạm Long Phú, cách biển 15 km; mùa khô 2019–20 mặn đến từ giữa tháng 12. Độ mặn cao nhất mỗi mùa khô tại trạm: trung bình 16,8‰ trong năm thường, 19,6‰ trong năm El Niño (2016–2025)."
      },
-     "station_ppt": 18.5,
+     "station_ppt": 19.6,
      "estimate": true,
-     "seasons": 9,
+     "seasons": 10,
      "last_year": 2025,
      "level": "high",
-     "max_ppt": 18.5
+     "max_ppt": 19.6
     },
     "cards": [
      {
@@ -12730,8 +12730,8 @@
         ]
        },
        {
-        "en": "Weather & salt 2.6: crops in the field in 2 of 3 salt months (station average peak 18.5‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 846 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 2,6: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 18,5‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 846 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 2.6: crops in the field in 2 of 3 salt months (station average peak 19.6‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 846 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 2,6: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 19,6‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 846 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -12901,8 +12901,8 @@
         ]
        },
        {
-        "en": "Weather & salt 2.6: crops in the field in 2 of 3 salt months (station average peak 18.5‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 846 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 2,6: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 18,5‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 846 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 2.6: crops in the field in 2 of 3 salt months (station average peak 19.6‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 846 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 2,6: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 19,6‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 846 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -13083,8 +13083,8 @@
         ]
        },
        {
-        "en": "Weather & salt 5.0: crops in the field in 0 of 3 salt months (station average peak 18.5‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 0 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 18,5‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 0 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 5.0: crops in the field in 0 of 3 salt months (station average peak 19.6‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 0 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 19,6‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 0 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -13296,8 +13296,8 @@
           ]
          },
          {
-          "en": "Weather & salt 2.7: crops in the field in 2 of 3 salt months (station average peak 18.5‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 733 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 2,7: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 18,5‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 733 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 2.7: crops in the field in 2 of 3 salt months (station average peak 19.6‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 733 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+          "vi": "Thời tiết & mặn 2,7: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 19,6‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 733 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -13523,8 +13523,8 @@
           ]
          },
          {
-          "en": "Weather & salt 2.7: crops in the field in 2 of 3 salt months (station average peak 18.5‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 692 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 2,7: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 18,5‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 692 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 2.7: crops in the field in 2 of 3 salt months (station average peak 19.6‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 692 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+          "vi": "Thời tiết & mặn 2,7: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 19,6‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 692 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -13744,8 +13744,8 @@
           ]
          },
          {
-          "en": "Weather & salt 2.7: crops in the field in 2 of 3 salt months (station average peak 18.5‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 692 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 2,7: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 18,5‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 692 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 2.7: crops in the field in 2 of 3 salt months (station average peak 19.6‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 692 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+          "vi": "Thời tiết & mặn 2,7: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 19,6‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 692 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -13922,8 +13922,8 @@
         ]
        },
        {
-        "en": "Weather & salt 4.8: crops in the field in 0 of 3 salt months (station average peak 18.5‰, estimate from station reports); 0.4 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 200 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 4,8: có cây trồng trên ruộng trong 0/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 18,5‰, ước tính từ báo cáo trạm); 0,4 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 200 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 4.8: crops in the field in 0 of 3 salt months (station average peak 19.6‰, estimate from station reports); 0.4 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 200 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 4,8: có cây trồng trên ruộng trong 0/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 19,6‰, ước tính từ báo cáo trạm); 0,4 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 200 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -14254,12 +14254,12 @@
      5
     ],
     "note": {
-     "en": "Rated low although the Ngã Năm canal station reads higher: salt-control sluices around Ngã Năm and Mỹ Tú keep salt out of the fields, and NASA MODIS sees rice here through the dry season (fields bare only in September–November), a freshwater pattern. Highest reading of each dry season there: 9.4‰ on average in typical years, 6.5‰ in El Niño years (2017–2025).",
-     "vi": "Xếp mức thấp dù trạm kênh Ngã Năm đo cao hơn: các cống ngăn mặn quanh Ngã Năm và Mỹ Tú chặn mặn vào ruộng, và NASA MODIS ghi nhận lúa ở đây vẫn trồng suốt mùa khô (ruộng chỉ để trống tháng 9–11), dấu hiệu vùng nước ngọt. Độ mặn cao nhất mỗi mùa khô tại trạm: trung bình 9,4‰ trong năm thường, 6,5‰ trong năm El Niño (2017–2025)."
+     "en": "Rated low although the Ngã Năm canal station reads higher: salt-control sluices around Ngã Năm and Mỹ Tú keep salt out of the fields, and NASA MODIS sees rice here through the dry season (fields bare only in September–November), a freshwater pattern. Highest reading of each dry season there: 9.4‰ on average in typical years, 10.7‰ in El Niño years (2016–2025).",
+     "vi": "Xếp mức thấp dù trạm kênh Ngã Năm đo cao hơn: các cống ngăn mặn quanh Ngã Năm và Mỹ Tú chặn mặn vào ruộng, và NASA MODIS ghi nhận lúa ở đây vẫn trồng suốt mùa khô (ruộng chỉ để trống tháng 9–11), dấu hiệu vùng nước ngọt. Độ mặn cao nhất mỗi mùa khô tại trạm: trung bình 9,4‰ trong năm thường, 10,7‰ trong năm El Niño (2016–2025)."
     },
     "station_ppt": 9.4,
     "estimate": true,
-    "seasons": 9,
+    "seasons": 10,
     "last_year": 2025,
     "level": "low",
     "max_ppt": null
@@ -15871,12 +15871,12 @@
       5
      ],
      "note": {
-      "en": "Rated low although the Ngã Năm canal station reads higher: salt-control sluices around Ngã Năm and Mỹ Tú keep salt out of the fields, and NASA MODIS sees rice here through the dry season (fields bare only in September–November), a freshwater pattern. Highest reading of each dry season there: 9.4‰ on average in typical years, 6.5‰ in El Niño years (2017–2025).",
-      "vi": "Xếp mức thấp dù trạm kênh Ngã Năm đo cao hơn: các cống ngăn mặn quanh Ngã Năm và Mỹ Tú chặn mặn vào ruộng, và NASA MODIS ghi nhận lúa ở đây vẫn trồng suốt mùa khô (ruộng chỉ để trống tháng 9–11), dấu hiệu vùng nước ngọt. Độ mặn cao nhất mỗi mùa khô tại trạm: trung bình 9,4‰ trong năm thường, 6,5‰ trong năm El Niño (2017–2025)."
+      "en": "Rated low although the Ngã Năm canal station reads higher: salt-control sluices around Ngã Năm and Mỹ Tú keep salt out of the fields, and NASA MODIS sees rice here through the dry season (fields bare only in September–November), a freshwater pattern. Highest reading of each dry season there: 9.4‰ on average in typical years, 10.7‰ in El Niño years (2016–2025).",
+      "vi": "Xếp mức thấp dù trạm kênh Ngã Năm đo cao hơn: các cống ngăn mặn quanh Ngã Năm và Mỹ Tú chặn mặn vào ruộng, và NASA MODIS ghi nhận lúa ở đây vẫn trồng suốt mùa khô (ruộng chỉ để trống tháng 9–11), dấu hiệu vùng nước ngọt. Độ mặn cao nhất mỗi mùa khô tại trạm: trung bình 9,4‰ trong năm thường, 10,7‰ trong năm El Niño (2016–2025)."
      },
-     "station_ppt": 6.5,
+     "station_ppt": 10.7,
      "estimate": true,
-     "seasons": 9,
+     "seasons": 10,
      "last_year": 2025,
      "level": "low",
      "max_ppt": null
@@ -15973,8 +15973,8 @@
         ]
        },
        {
-        "en": "Weather & salt 3.0: crops in the field in 2 of 3 salt months (station average peak 6.5‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 772 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 3,0: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 6,5‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 772 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 3.0: crops in the field in 2 of 3 salt months (station average peak 10.7‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 772 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 3,0: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 10,7‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 772 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -16144,8 +16144,8 @@
         ]
        },
        {
-        "en": "Weather & salt 3.0: crops in the field in 2 of 3 salt months (station average peak 6.5‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 772 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 3,0: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 6,5‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 772 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 3.0: crops in the field in 2 of 3 salt months (station average peak 10.7‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 772 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 3,0: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 10,7‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 772 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -16330,8 +16330,8 @@
         ]
        },
        {
-        "en": "Weather & salt 5.0: crops in the field in 0 of 3 salt months (station average peak 6.5‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 0 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 6,5‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 0 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 5.0: crops in the field in 0 of 3 salt months (station average peak 10.7‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 0 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 10,7‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 0 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -16515,8 +16515,8 @@
           ]
          },
          {
-          "en": "Weather & salt 3.0: crops in the field in 2 of 3 salt months (station average peak 6.5‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 772 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 3,0: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 6,5‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 772 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 3.0: crops in the field in 2 of 3 salt months (station average peak 10.7‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 772 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+          "vi": "Thời tiết & mặn 3,0: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 10,7‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 772 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -16730,8 +16730,8 @@
           ]
          },
          {
-          "en": "Weather & salt 3.0: crops in the field in 2 of 3 salt months (station average peak 6.5‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 772 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 3,0: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 6,5‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 772 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 3.0: crops in the field in 2 of 3 salt months (station average peak 10.7‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 772 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+          "vi": "Thời tiết & mặn 3,0: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 10,7‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 772 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -16939,8 +16939,8 @@
           ]
          },
          {
-          "en": "Weather & salt 3.0: crops in the field in 2 of 3 salt months (station average peak 6.5‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 772 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 3,0: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 6,5‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 772 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 3.0: crops in the field in 2 of 3 salt months (station average peak 10.7‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 772 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+          "vi": "Thời tiết & mặn 3,0: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 10,7‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 772 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -17117,8 +17117,8 @@
         ]
        },
        {
-        "en": "Weather & salt 4.2: crops in the field in 1 of 3 salt months (station average peak 6.5‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 10.8 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 421 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 4,2: có cây trồng trên ruộng trong 1/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 6,5‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 10,8 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 421 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 4.2: crops in the field in 1 of 3 salt months (station average peak 10.7‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 10.8 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 421 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 4,2: có cây trồng trên ruộng trong 1/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 10,7‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 10,8 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 421 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          4,
          5,

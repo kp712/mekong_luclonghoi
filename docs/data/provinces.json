@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-21",
+ "generated": "2026-11-22",
  "regions": {
   "southeast": {
    "en": "Southeast",
@@ -42505,7 +42505,7 @@
     },
     "station_ppt": 3.3,
     "estimate": true,
-    "seasons": 9,
+    "seasons": 10,
     "last_year": 2025,
     "level": "low",
     "max_ppt": 3.3,
@@ -43968,15 +43968,15 @@
       4
      ],
      "note": {
-      "en": "Nearest KTTV salinity station: Sóc Trăng, 2.0 km away (station position approximate). Highest reading of each El Niño dry season there: 7.1‰ on average (2019, 2020, 2024). Salt months: months that reached 4‰ there in at least 2 dry seasons.",
-      "vi": "Trạm đo mặn KTTV gần nhất: Sóc Trăng, cách 2,0 km (vị trí trạm gần đúng). Độ mặn cao nhất mỗi mùa khô năm El Niño tại trạm: trung bình 7,1‰ (2019, 2020, 2024). Tháng mặn: các tháng độ mặn tại trạm đạt 4‰ trong ít nhất 2 mùa khô."
+      "en": "Nearest KTTV salinity station: Sóc Trăng, 2.0 km away (station position approximate). Highest reading of each El Niño dry season there: 7.6‰ on average (2016, 2019, 2020, 2024). Salt months: months that reached 4‰ there in at least 2 dry seasons.",
+      "vi": "Trạm đo mặn KTTV gần nhất: Sóc Trăng, cách 2,0 km (vị trí trạm gần đúng). Độ mặn cao nhất mỗi mùa khô năm El Niño tại trạm: trung bình 7,6‰ (2016, 2019, 2020, 2024). Tháng mặn: các tháng độ mặn tại trạm đạt 4‰ trong ít nhất 2 mùa khô."
      },
-     "station_ppt": 7.1,
+     "station_ppt": 7.6,
      "estimate": true,
-     "seasons": 9,
+     "seasons": 10,
      "last_year": 2025,
      "level": "medium",
-     "max_ppt": 7.1,
+     "max_ppt": 7.6,
      "station": "Sóc Trăng",
      "km": 2.0,
      "partial": false,
@@ -44092,8 +44092,8 @@
         ]
        },
        {
-        "en": "Weather & salt 3.0: crops in the field in 1 of 1 salt months (Sóc Trăng station 2.0 km away, average peak 7.1‰; estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 409 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 3,0: có cây trồng trên ruộng trong 1/1 tháng mặn (trạm Sóc Trăng cách 2,0 km, độ mặn cao nhất trung bình 7,1‰; ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 409 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 3.0: crops in the field in 1 of 1 salt months (Sóc Trăng station 2.0 km away, average peak 7.6‰; estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 409 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 3,0: có cây trồng trên ruộng trong 1/1 tháng mặn (trạm Sóc Trăng cách 2,0 km, độ mặn cao nhất trung bình 7,6‰; ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 409 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          54,
          55,
@@ -44267,8 +44267,8 @@
         ]
        },
        {
-        "en": "Weather & salt 3.0: crops in the field in 1 of 1 salt months (Sóc Trăng station 2.0 km away, average peak 7.1‰; estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 409 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 3,0: có cây trồng trên ruộng trong 1/1 tháng mặn (trạm Sóc Trăng cách 2,0 km, độ mặn cao nhất trung bình 7,1‰; ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 409 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 3.0: crops in the field in 1 of 1 salt months (Sóc Trăng station 2.0 km away, average peak 7.6‰; estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 409 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 3,0: có cây trồng trên ruộng trong 1/1 tháng mặn (trạm Sóc Trăng cách 2,0 km, độ mặn cao nhất trung bình 7,6‰; ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 409 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          54,
          55,
@@ -44453,8 +44453,8 @@
         ]
        },
        {
-        "en": "Weather & salt 5.0: crops in the field in 0 of 1 salt months (Sóc Trăng station 2.0 km away, average peak 7.1‰; estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 0 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/1 tháng mặn (trạm Sóc Trăng cách 2,0 km, độ mặn cao nhất trung bình 7,1‰; ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 0 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 5.0: crops in the field in 0 of 1 salt months (Sóc Trăng station 2.0 km away, average peak 7.6‰; estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 0 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/1 tháng mặn (trạm Sóc Trăng cách 2,0 km, độ mặn cao nhất trung bình 7,6‰; ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 0 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          54,
          55,
@@ -44637,8 +44637,8 @@
           ]
          },
          {
-          "en": "Weather & salt 3.0: crops in the field in 1 of 1 salt months (Sóc Trăng station 2.0 km away, average peak 7.1‰; estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 409 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 3,0: có cây trồng trên ruộng trong 1/1 tháng mặn (trạm Sóc Trăng cách 2,0 km, độ mặn cao nhất trung bình 7,1‰; ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 409 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 3.0: crops in the field in 1 of 1 salt months (Sóc Trăng station 2.0 km away, average peak 7.6‰; estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 409 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+          "vi": "Thời tiết & mặn 3,0: có cây trồng trên ruộng trong 1/1 tháng mặn (trạm Sóc Trăng cách 2,0 km, độ mặn cao nhất trung bình 7,6‰; ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 409 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
           "src": [
            54,
            55,
@@ -44835,8 +44835,8 @@
           ]
          },
          {
-          "en": "Weather & salt 3.0: crops in the field in 1 of 1 salt months (Sóc Trăng station 2.0 km away, average peak 7.1‰; estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 409 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 3,0: có cây trồng trên ruộng trong 1/1 tháng mặn (trạm Sóc Trăng cách 2,0 km, độ mặn cao nhất trung bình 7,1‰; ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 409 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 3.0: crops in the field in 1 of 1 salt months (Sóc Trăng station 2.0 km away, average peak 7.6‰; estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 409 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+          "vi": "Thời tiết & mặn 3,0: có cây trồng trên ruộng trong 1/1 tháng mặn (trạm Sóc Trăng cách 2,0 km, độ mặn cao nhất trung bình 7,6‰; ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 409 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
           "src": [
            54,
            55,
@@ -45027,8 +45027,8 @@
           ]
          },
          {
-          "en": "Weather & salt 3.0: crops in the field in 1 of 1 salt months (Sóc Trăng station 2.0 km away, average peak 7.1‰; estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 409 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 3,0: có cây trồng trên ruộng trong 1/1 tháng mặn (trạm Sóc Trăng cách 2,0 km, độ mặn cao nhất trung bình 7,1‰; ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 409 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 3.0: crops in the field in 1 of 1 salt months (Sóc Trăng station 2.0 km away, average peak 7.6‰; estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 409 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+          "vi": "Thời tiết & mặn 3,0: có cây trồng trên ruộng trong 1/1 tháng mặn (trạm Sóc Trăng cách 2,0 km, độ mặn cao nhất trung bình 7,6‰; ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 409 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
           "src": [
            54,
            55,
@@ -45195,8 +45195,8 @@
         ]
        },
        {
-        "en": "Weather & salt 4.6: crops in the field in 0 of 1 salt months (Sóc Trăng station 2.0 km away, average peak 7.1‰; estimate from station reports); 0.4 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 200 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 4,6: có cây trồng trên ruộng trong 0/1 tháng mặn (trạm Sóc Trăng cách 2,0 km, độ mặn cao nhất trung bình 7,1‰; ước tính từ báo cáo trạm); 0,4 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 200 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 4.6: crops in the field in 0 of 1 salt months (Sóc Trăng station 2.0 km away, average peak 7.6‰; estimate from station reports); 0.4 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 200 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 4,6: có cây trồng trên ruộng trong 0/1 tháng mặn (trạm Sóc Trăng cách 2,0 km, độ mặn cao nhất trung bình 7,6‰; ước tính từ báo cáo trạm); 0,4 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 200 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          54,
          55,
@@ -54194,7 +54194,7 @@
      5
     ],
     "max_ppt": 15.4,
-    "elnino_max_ppt": 17.7,
+    "elnino_max_ppt": 17.6,
     "estimate": true
    },
    "crops": 1.9
@@ -54216,7 +54216,7 @@
      5
     ],
     "max_ppt": 20.9,
-    "elnino_max_ppt": 22.7,
+    "elnino_max_ppt": 23.9,
     "estimate": true
    },
    "crops": 1.9
@@ -54238,7 +54238,7 @@
      5
     ],
     "max_ppt": 6.4,
-    "elnino_max_ppt": 10.3,
+    "elnino_max_ppt": 11.1,
     "estimate": true
    },
    "crops": 1.9
@@ -54259,7 +54259,7 @@
      4
     ],
     "max_ppt": 16.8,
-    "elnino_max_ppt": 18.5,
+    "elnino_max_ppt": 19.6,
     "estimate": true
    },
    "crops": 2.4
@@ -54921,7 +54921,7 @@
    },
    "elnino": {
     "level": "high",
-    "max_ppt": 18.5,
+    "max_ppt": 19.6,
     "months": [
      2,
      3,
@@ -55048,7 +55048,7 @@
    },
    "elnino": {
     "level": "medium",
-    "max_ppt": 7.1,
+    "max_ppt": 7.6,
     "months": [
      4
     ],
@@ -55198,7 +55198,7 @@
    },
    "elnino": {
     "level": "medium",
-    "max_ppt": 10.3,
+    "max_ppt": 11.1,
     "months": [
      4,
      5
@@ -55351,7 +55351,7 @@
    },
    "elnino": {
     "level": "high",
-    "max_ppt": 22.7,
+    "max_ppt": 23.9,
     "months": [
      2,
      3,
@@ -55593,7 +55593,7 @@
    },
    "elnino": {
     "level": "medium",
-    "max_ppt": 9.6,
+    "max_ppt": 10.6,
     "months": [
      2,
      3,

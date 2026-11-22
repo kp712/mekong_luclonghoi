@@ -19,8 +19,8 @@ from text import km_text, line, vi_num
 
 RAW = pathlib.Path(__file__).resolve().parent.parent / "data" / "raw"
 SALT_HIGH, SALT_MED = 15, 4  # ‰ cut-offs of the salinity level rule (see salinity.json _readme)
-# Salinity has its own window: dry seasons by the year they end, 2017-2026, so the KTTV bulletins (2024-2026) fall inside it.
-SALT_SEASONS = (2017, 2026)
+# Salinity has its own window: dry seasons by the year they end, 2016-2026, so 2015-16, the last very strong El Niño, and the KTTV bulletins (2024-2026) fall inside it.
+SALT_SEASONS = (2016, 2026)
 SALT_KM = 25  # a province point takes its nearest KTTV station's salinity only this close (km, team rule); else no estimate
 UNKNOWN = "unknown"  # salinity level of a place with no salinity estimate (the province averages): salt is not assessed there# The 24 full Dec-Nov seasons where NASA POWER, NASA GPM and NASA MODIS all have data; data/raw holds longer records.
 SALT_ELNINO = {int(r[1]) for r in (ln.split() for ln in (RAW / "oni.txt").read_text(encoding="utf-8").splitlines())
