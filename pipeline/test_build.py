@@ -352,7 +352,7 @@ def test_salinity_station_data():
     assert typ["level"] == eln["level"] == "low" and typ["max_ppt"] is None and typ["station_ppt"] > 4  # override: severity 4/15
     typ, eln = salinity.at({"id": "long_phu"})
     assert typ["level"] == salinity.salt_level(typ["max_ppt"]) and "‰" in typ["note"]["en"] and "," in typ["note"]["vi"]
-    assert salinity.at({"id": "my_xuyen"})[0]["months"] == [2, 3, 4, 5]  # Thạnh Phú peaked in May in 4 of 9 recent seasons
+    assert salinity.at({"id": "my_xuyen"})[0]["months"] == [2, 3, 4, 5]  # Thạnh Phú peaked in May in 5 of 10 recent seasons (2016-2025)
     assert typ["seasons"] >= 5 and typ["last_year"] >= 2023  # confidence station rule reads these
     st = json.loads((build.RAW / "salinity_stations.json").read_text(encoding="utf-8"))["stations"]
     # our typing of the paper's Table 4 must reproduce its Table 2: years, min, max, mean (‰) per station
@@ -362,10 +362,9 @@ def test_salinity_station_data():
     for sid, (n, lo, hi, mean) in table2.items():
         xs = [v[0] for v in st[sid]["yearly_max"].values()]
         assert (len(xs), min(xs), max(xs), round(sum(xs) / len(xs), 2)) == (n, lo, hi, mean), sid
-    # El Niño seasons were saltier at every pin's station over the SALT_SEASONS, except Ngã Năm (rated low by its own rule:
-    # its canal read 15-17‰ in 2017-2018, typical seasons, and 2.6‰ in El Niño 2019)
+    # El Niño seasons were saltier at every pin's station over the SALT_SEASONS
     assert all(salinity.station_salt(salinity.DATA, s["station"], True)[0] > salinity.station_salt(salinity.DATA, s["station"], False)[0]
-               for k, s in json.loads((build.HERE / "salinity.json").read_text(encoding="utf-8"))["sites"].items() if k != "nga_nam")
+               for s in json.loads((build.HERE / "salinity.json").read_text(encoding="utf-8"))["sites"].values())
     # the national 10-day bulletins are a second, independent record: never above the paper's yearly max, equal in 9 of 10
     bul = json.loads((build.RAW / "salinity_bulletins.json").read_text(encoding="utf-8"))["bulletins"]
     same = 0
