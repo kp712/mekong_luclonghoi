@@ -22,7 +22,7 @@ body.ui-simple .mini-key .sep ~ span, body.ui-simple .card .dt, body.ui-simple .
 body.ui-simple .card .mini, body.ui-simple .card .mini-m, body.ui-simple .card .mini-key, body.ui-simple .meter,
 body.ui-simple .bn-cal, body.ui-simple .sl-why, body.ui-simple #howText, body.ui-simple #planView, body.ui-simple #stripKey,
 body.ui-simple .pp-bars b, body.ui-simple .pp-num, body.ui-simple .pp-grade, body.ui-simple .scale3-y { display: none !important }
-body.ui-simple:not(.more15) #cards > .card:nth-child(n+4):not(.isplan) { display: none !important }
+body.ui-simple:not(.more15) #cards > .card:nth-child(n+4):not(.isplan):not(.isnow) { display: none !important }
 
 .go-btn, .ghost-btn {
   display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
@@ -321,6 +321,9 @@ body.ui-simple .card h3 { font-size: 1.25rem }
 .conf { font: 500 .8125rem/1.4 var(--font); letter-spacing: 0; text-transform: none; color: var(--ink-3) }
 .before8 { margin: .5rem 0; padding: .625rem .75rem; border-left: 3px solid var(--gold); border-radius: 8px; background: var(--panel-solid) }
 .before8 ul { margin: .25rem 0 0; padding-left: 1.1rem; list-style: disc } .before8 li + li { margin-top: .375rem }
+.vs-now { margin: 8px 0 0; padding: 10px 14px; border-radius: var(--r); background: var(--bg-2); font-size: .875rem; color: var(--ink) }
+.vs-now small { color: var(--ink-2) }
+.vs-ask { padding: 0; border: 0; background: none; font: inherit; font-weight: 700; color: var(--ink); text-decoration: underline; cursor: pointer }
 .field8 { display: flex; gap: .4rem; font-size: .8125rem; color: var(--ink-2) }
 .field8 .ico { color: var(--water); margin-top: .15em }
 .card details { border-top: 1px solid var(--line); padding-top: .2rem }

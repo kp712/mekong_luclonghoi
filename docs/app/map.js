@@ -380,7 +380,7 @@ const MapView = typeof L === "undefined" ? {} : (() => {
   }
 
   /* Place each name plate where it overlaps no other plate or pin: right of the pin, else left
-     (phones: under the pin, else above). The selected area is placed first; a plate with no free
+     (phones: under the pin, else above, else right or left). The selected area is placed first; a plate with no free
      side is hidden until hovered or selected. */
   function updateLabelVisibility() {
     if (!map) return;
@@ -403,12 +403,14 @@ const MapView = typeof L === "undefined" ? {} : (() => {
       const lab = pins[s.id] && pins[s.id].label; if (!lab) return;
       const p = P[s.id], w = lab.offsetWidth || 120, h = lab.offsetHeight || 30;
       const opts = phone
-        ? [["below", { x0: p.x - w / 2, x1: p.x + w / 2, y0: p.y + GAP, y1: p.y + GAP + h }], ["above", { x0: p.x - w / 2, x1: p.x + w / 2, y0: p.y - GAP - h, y1: p.y - GAP }]]
+        ? [["below", { x0: p.x - w / 2, x1: p.x + w / 2, y0: p.y + GAP, y1: p.y + GAP + h }], ["above", { x0: p.x - w / 2, x1: p.x + w / 2, y0: p.y - GAP - h, y1: p.y - GAP }],
+           ["right", { x0: p.x + GAP, x1: p.x + GAP + w, y0: p.y - h / 2, y1: p.y + h / 2 }], ["left", { x0: p.x - GAP - w, x1: p.x - GAP, y0: p.y - h / 2, y1: p.y + h / 2 }]]
         : [["right", { x0: p.x + GAP, x1: p.x + GAP + w, y0: p.y - h / 2, y1: p.y + h / 2 }], ["left", { x0: p.x - GAP - w, x1: p.x - GAP, y0: p.y - h / 2, y1: p.y + h / 2 }]];
       const ok = opts.find((o) => clear(o[1]) && inView(o[1])) || opts.find((o) => clear(o[1]));
       const use = ok || opts[0];
       lab.classList.toggle("sg-left", use[0] === "left");
       lab.classList.toggle("sg-above", use[0] === "above");
+      lab.classList.toggle("sg-side", phone && (use[0] === "right" || use[0] === "left"));
       lab.classList.toggle("sg-hide", !ok);
       if (ok) taken.push(ok[1]);
     });
