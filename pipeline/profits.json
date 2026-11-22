@@ -473,7 +473,7 @@
    "place": "Ba Đình general agricultural cooperative, Vĩnh Lộc, Hồng Dân, Bạc Liêu (30–40 per shrimp crop; tôm càng xanh with tôm sú and tôm thẻ)",
    "year": 2023,
    "kind": "cooperative",
-   "fallback": false,
+   "fallback": true,
    "source": {
     "title": "VietNamNet (17 Nov 2023), Phát triển bền vững mô hình lúa tôm tại một hợp tác xã ở Bạc Liêu",
     "url": "https://vietnamnet.vn/phat-trien-ben-vung-mo-hinh-lua-tom-tai-mot-hop-tac-xa-o-bac-lieu-2234232.html",
@@ -623,7 +623,7 @@
    "place": "Sóc Trăng (255 interviews in Thạnh Trị, Mỹ Xuyên, Vĩnh Châu, Kế Sách); the paper's 'lúa 1 vụ' row, read as the rice crop of rice–shrimp land",
    "year": 2023,
    "kind": "university",
-   "fallback": false,
+   "fallback": true,
    "source": {
     "title": "Nguyễn Văn Hoàng Thanh, Nguyễn Thị Hồng Điệp, Nguyễn Trọng Nguyễn & Phan Kỳ Trung, Tạp chí Khoa học Đại học Cần Thơ vol. 61 special issue Môi trường và Biến đổi khí hậu (2025): 238-249, Phân tích đánh đổi phát thải khí nhà kính - hiệu quả kinh tế trên mô hình canh tác nông nghiệp tỉnh Sóc Trăng",
     "url": "https://ctujsvn.ctu.edu.vn/index.php/ctujsvn/article/download/6979/4911/25076",

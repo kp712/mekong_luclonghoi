@@ -1384,16 +1384,16 @@
      "water_saved": 0.8,
      "profit_range": {
       "lo": 56.5,
-      "mid": 73.2,
+      "mid": 84.5,
       "hi": 132.8,
-      "n": 10
+      "n": 8
      },
      "scores": {
       "water": 4.2,
       "salt": null,
       "soil": 1.4,
       "pests": 2.9,
-      "income": 2.2
+      "income": 2.6
      },
      "why": [
       {
@@ -1431,8 +1431,8 @@
        ]
       },
       {
-       "en": "Income 2.2: estimated profit ≈ 73.2 vs 95.4 M ₫/ha a year for 3 rice crops (0.8×; medians of 10 published figures, 2020–2026).",
-       "vi": "Thu nhập 2,2: lợi nhuận ước tính ≈ 73,2 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,8×; trung vị của 10 số liệu đã công bố, 2020–2026).",
+       "en": "Income 2.6: estimated profit ≈ 84.5 vs 95.4 M ₫/ha a year for 3 rice crops (0.9×; medians of 8 published figures, 2020–2026).",
+       "vi": "Thu nhập 2,6: lợi nhuận ước tính ≈ 84,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,9×; trung vị của 8 số liệu đã công bố, 2020–2026).",
        "src": [
         33,
         34,
@@ -2805,16 +2805,16 @@
       "water_saved": 0.854,
       "profit_range": {
        "lo": 56.5,
-       "mid": 73.2,
+       "mid": 84.5,
        "hi": 132.8,
-       "n": 10
+       "n": 8
       },
       "scores": {
        "water": 4.4,
        "salt": null,
        "soil": 1.4,
        "pests": 2.7,
-       "income": 2.2
+       "income": 2.6
       },
       "why": [
        {
@@ -2852,8 +2852,8 @@
         ]
        },
        {
-        "en": "Income 2.2: estimated profit ≈ 73.2 vs 95.4 M ₫/ha a year for 3 rice crops (0.8×; medians of 10 published figures, 2020–2026).",
-        "vi": "Thu nhập 2,2: lợi nhuận ước tính ≈ 73,2 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,8×; trung vị của 10 số liệu đã công bố, 2020–2026).",
+        "en": "Income 2.6: estimated profit ≈ 84.5 vs 95.4 M ₫/ha a year for 3 rice crops (0.9×; medians of 8 published figures, 2020–2026).",
+        "vi": "Thu nhập 2,6: lợi nhuận ước tính ≈ 84,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,9×; trung vị của 8 số liệu đã công bố, 2020–2026).",
         "src": [
          33,
          34,
@@ -4274,16 +4274,16 @@
      "water_saved": 0.865,
      "profit_range": {
       "lo": 56.5,
-      "mid": 73.2,
+      "mid": 84.5,
       "hi": 132.8,
-      "n": 10
+      "n": 8
      },
      "scores": {
       "water": 4.5,
       "salt": null,
       "soil": 1.4,
       "pests": 3.0,
-      "income": 2.2
+      "income": 2.6
      },
      "why": [
       {
@@ -4321,8 +4321,8 @@
        ]
       },
       {
-       "en": "Income 2.2: estimated profit ≈ 73.2 vs 95.4 M ₫/ha a year for 3 rice crops (0.8×; medians of 10 published figures, 2020–2026).",
-       "vi": "Thu nhập 2,2: lợi nhuận ước tính ≈ 73,2 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,8×; trung vị của 10 số liệu đã công bố, 2020–2026).",
+       "en": "Income 2.6: estimated profit ≈ 84.5 vs 95.4 M ₫/ha a year for 3 rice crops (0.9×; medians of 8 published figures, 2020–2026).",
+       "vi": "Thu nhập 2,6: lợi nhuận ước tính ≈ 84,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,9×; trung vị của 8 số liệu đã công bố, 2020–2026).",
        "src": [
         33,
         34,
@@ -5695,16 +5695,16 @@
       "water_saved": 0.9,
       "profit_range": {
        "lo": 56.5,
-       "mid": 73.2,
+       "mid": 84.5,
        "hi": 132.8,
-       "n": 10
+       "n": 8
       },
       "scores": {
        "water": 4.6,
        "salt": null,
        "soil": 1.4,
        "pests": 2.8,
-       "income": 2.2
+       "income": 2.6
       },
       "why": [
        {
@@ -5742,8 +5742,8 @@
         ]
        },
        {
-        "en": "Income 2.2: estimated profit ≈ 73.2 vs 95.4 M ₫/ha a year for 3 rice crops (0.8×; medians of 10 published figures, 2020–2026).",
-        "vi": "Thu nhập 2,2: lợi nhuận ước tính ≈ 73,2 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,8×; trung vị của 10 số liệu đã công bố, 2020–2026).",
+        "en": "Income 2.6: estimated profit ≈ 84.5 vs 95.4 M ₫/ha a year for 3 rice crops (0.9×; medians of 8 published figures, 2020–2026).",
+        "vi": "Thu nhập 2,6: lợi nhuận ước tính ≈ 84,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,9×; trung vị của 8 số liệu đã công bố, 2020–2026).",
         "src": [
          33,
          34,
@@ -7176,16 +7176,16 @@
      "water_saved": 0.779,
      "profit_range": {
       "lo": 56.5,
-      "mid": 73.2,
+      "mid": 84.5,
       "hi": 132.8,
-      "n": 10
+      "n": 8
      },
      "scores": {
       "water": 4.1,
       "salt": null,
       "soil": 1.4,
       "pests": 3.1,
-      "income": 2.2
+      "income": 2.6
      },
      "why": [
       {
@@ -7223,8 +7223,8 @@
        ]
       },
       {
-       "en": "Income 2.2: estimated profit ≈ 73.2 vs 95.4 M ₫/ha a year for 3 rice crops (0.8×; medians of 10 published figures, 2020–2026).",
-       "vi": "Thu nhập 2,2: lợi nhuận ước tính ≈ 73,2 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,8×; trung vị của 10 số liệu đã công bố, 2020–2026).",
+       "en": "Income 2.6: estimated profit ≈ 84.5 vs 95.4 M ₫/ha a year for 3 rice crops (0.9×; medians of 8 published figures, 2020–2026).",
+       "vi": "Thu nhập 2,6: lợi nhuận ước tính ≈ 84,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,9×; trung vị của 8 số liệu đã công bố, 2020–2026).",
        "src": [
         33,
         34,
@@ -8597,16 +8597,16 @@
       "water_saved": 0.833,
       "profit_range": {
        "lo": 56.5,
-       "mid": 73.2,
+       "mid": 84.5,
        "hi": 132.8,
-       "n": 10
+       "n": 8
       },
       "scores": {
        "water": 4.3,
        "salt": null,
        "soil": 1.4,
        "pests": 3.0,
-       "income": 2.2
+       "income": 2.6
       },
       "why": [
        {
@@ -8644,8 +8644,8 @@
         ]
        },
        {
-        "en": "Income 2.2: estimated profit ≈ 73.2 vs 95.4 M ₫/ha a year for 3 rice crops (0.8×; medians of 10 published figures, 2020–2026).",
-        "vi": "Thu nhập 2,2: lợi nhuận ước tính ≈ 73,2 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,8×; trung vị của 10 số liệu đã công bố, 2020–2026).",
+        "en": "Income 2.6: estimated profit ≈ 84.5 vs 95.4 M ₫/ha a year for 3 rice crops (0.9×; medians of 8 published figures, 2020–2026).",
+        "vi": "Thu nhập 2,6: lợi nhuận ước tính ≈ 84,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,9×; trung vị của 8 số liệu đã công bố, 2020–2026).",
         "src": [
          33,
          34,
@@ -10084,16 +10084,16 @@
      "water_saved": 0.834,
      "profit_range": {
       "lo": 56.5,
-      "mid": 73.2,
+      "mid": 84.5,
       "hi": 132.8,
-      "n": 10
+      "n": 8
      },
      "scores": {
       "water": 4.3,
       "salt": null,
       "soil": 1.4,
       "pests": 3.1,
-      "income": 2.2
+      "income": 2.6
      },
      "why": [
       {
@@ -10131,8 +10131,8 @@
        ]
       },
       {
-       "en": "Income 2.2: estimated profit ≈ 73.2 vs 95.4 M ₫/ha a year for 3 rice crops (0.8×; medians of 10 published figures, 2020–2026).",
-       "vi": "Thu nhập 2,2: lợi nhuận ước tính ≈ 73,2 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,8×; trung vị của 10 số liệu đã công bố, 2020–2026).",
+       "en": "Income 2.6: estimated profit ≈ 84.5 vs 95.4 M ₫/ha a year for 3 rice crops (0.9×; medians of 8 published figures, 2020–2026).",
+       "vi": "Thu nhập 2,6: lợi nhuận ước tính ≈ 84,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,9×; trung vị của 8 số liệu đã công bố, 2020–2026).",
        "src": [
         33,
         34,
@@ -11505,16 +11505,16 @@
       "water_saved": 0.878,
       "profit_range": {
        "lo": 56.5,
-       "mid": 73.2,
+       "mid": 84.5,
        "hi": 132.8,
-       "n": 10
+       "n": 8
       },
       "scores": {
        "water": 4.5,
        "salt": null,
        "soil": 1.4,
        "pests": 3.0,
-       "income": 2.2
+       "income": 2.6
       },
       "why": [
        {
@@ -11552,8 +11552,8 @@
         ]
        },
        {
-        "en": "Income 2.2: estimated profit ≈ 73.2 vs 95.4 M ₫/ha a year for 3 rice crops (0.8×; medians of 10 published figures, 2020–2026).",
-        "vi": "Thu nhập 2,2: lợi nhuận ước tính ≈ 73,2 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,8×; trung vị của 10 số liệu đã công bố, 2020–2026).",
+        "en": "Income 2.6: estimated profit ≈ 84.5 vs 95.4 M ₫/ha a year for 3 rice crops (0.9×; medians of 8 published figures, 2020–2026).",
+        "vi": "Thu nhập 2,6: lợi nhuận ước tính ≈ 84,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,9×; trung vị của 8 số liệu đã công bố, 2020–2026).",
         "src": [
          33,
          34,
@@ -12974,16 +12974,16 @@
      "water_saved": 0.852,
      "profit_range": {
       "lo": 56.5,
-      "mid": 73.2,
+      "mid": 84.5,
       "hi": 132.8,
-      "n": 10
+      "n": 8
      },
      "scores": {
       "water": 4.4,
       "salt": null,
       "soil": 1.4,
       "pests": 3.2,
-      "income": 2.2
+      "income": 2.6
      },
      "why": [
       {
@@ -13021,8 +13021,8 @@
        ]
       },
       {
-       "en": "Income 2.2: estimated profit ≈ 73.2 vs 95.4 M ₫/ha a year for 3 rice crops (0.8×; medians of 10 published figures, 2020–2026).",
-       "vi": "Thu nhập 2,2: lợi nhuận ước tính ≈ 73,2 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,8×; trung vị của 10 số liệu đã công bố, 2020–2026).",
+       "en": "Income 2.6: estimated profit ≈ 84.5 vs 95.4 M ₫/ha a year for 3 rice crops (0.9×; medians of 8 published figures, 2020–2026).",
+       "vi": "Thu nhập 2,6: lợi nhuận ước tính ≈ 84,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,9×; trung vị của 8 số liệu đã công bố, 2020–2026).",
        "src": [
         33,
         34,
@@ -14395,16 +14395,16 @@
       "water_saved": 0.914,
       "profit_range": {
        "lo": 56.5,
-       "mid": 73.2,
+       "mid": 84.5,
        "hi": 132.8,
-       "n": 10
+       "n": 8
       },
       "scores": {
        "water": 4.7,
        "salt": null,
        "soil": 1.4,
        "pests": 3.1,
-       "income": 2.2
+       "income": 2.6
       },
       "why": [
        {
@@ -14442,8 +14442,8 @@
         ]
        },
        {
-        "en": "Income 2.2: estimated profit ≈ 73.2 vs 95.4 M ₫/ha a year for 3 rice crops (0.8×; medians of 10 published figures, 2020–2026).",
-        "vi": "Thu nhập 2,2: lợi nhuận ước tính ≈ 73,2 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,8×; trung vị của 10 số liệu đã công bố, 2020–2026).",
+        "en": "Income 2.6: estimated profit ≈ 84.5 vs 95.4 M ₫/ha a year for 3 rice crops (0.9×; medians of 8 published figures, 2020–2026).",
+        "vi": "Thu nhập 2,6: lợi nhuận ước tính ≈ 84,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,9×; trung vị của 8 số liệu đã công bố, 2020–2026).",
         "src": [
          33,
          34,
@@ -16263,9 +16263,9 @@
      "water_saved": 0.777,
      "profit_range": {
       "lo": 27.5,
-      "mid": 37.5,
+      "mid": 45.8,
       "hi": 61.1,
-      "n": 5
+      "n": 4
      },
      "scores": {
       "water": 4.1,
@@ -16319,8 +16319,8 @@
        ]
       },
       {
-       "en": "Income 1.0: estimated profit ≈ 37.5 vs 95.4 M ₫/ha a year for 3 rice crops (0.4×; medians of 5 published figures, 2020–2026).",
-       "vi": "Thu nhập 1,0: lợi nhuận ước tính ≈ 37,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,4×; trung vị của 5 số liệu đã công bố, 2020–2026).",
+       "en": "Income 1.0: estimated profit ≈ 45.8 vs 95.4 M ₫/ha a year for 3 rice crops (0.5×; medians of 4 published figures, 2020–2026).",
+       "vi": "Thu nhập 1,0: lợi nhuận ước tính ≈ 45,8 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,5×; trung vị của 4 số liệu đã công bố, 2020–2026).",
        "src": [
         44,
         45,
@@ -17836,16 +17836,16 @@
       "water_saved": 0.836,
       "profit_range": {
        "lo": 56.5,
-       "mid": 73.2,
+       "mid": 84.5,
        "hi": 132.8,
-       "n": 10
+       "n": 8
       },
       "scores": {
        "water": 4.3,
        "salt": 5.0,
        "soil": 1.4,
        "pests": 2.7,
-       "income": 2.3
+       "income": 2.7
       },
       "why": [
        {
@@ -17892,8 +17892,8 @@
         ]
        },
        {
-        "en": "Income 2.3: estimated profit ≈ 73.2 vs 92.9 M ₫/ha a year for 3 rice crops (0.8×; medians of 10 published figures, 2020–2026).",
-        "vi": "Thu nhập 2,3: lợi nhuận ước tính ≈ 73,2 so với 92,9 triệu đồng/ha/năm của 3 vụ lúa (0,8×; trung vị của 10 số liệu đã công bố, 2020–2026).",
+        "en": "Income 2.7: estimated profit ≈ 84.5 vs 92.9 M ₫/ha a year for 3 rice crops (0.9×; medians of 8 published figures, 2020–2026).",
+        "vi": "Thu nhập 2,7: lợi nhuận ước tính ≈ 84,5 so với 92,9 triệu đồng/ha/năm của 3 vụ lúa (0,9×; trung vị của 8 số liệu đã công bố, 2020–2026).",
         "src": [
          33,
          34,
@@ -19423,16 +19423,16 @@
      "water_saved": 0.838,
      "profit_range": {
       "lo": 56.5,
-      "mid": 73.2,
+      "mid": 84.5,
       "hi": 132.8,
-      "n": 10
+      "n": 8
      },
      "scores": {
       "water": 4.4,
       "salt": null,
       "soil": 1.4,
       "pests": 2.9,
-      "income": 2.2
+      "income": 2.6
      },
      "why": [
       {
@@ -19470,8 +19470,8 @@
        ]
       },
       {
-       "en": "Income 2.2: estimated profit ≈ 73.2 vs 95.4 M ₫/ha a year for 3 rice crops (0.8×; medians of 10 published figures, 2020–2026).",
-       "vi": "Thu nhập 2,2: lợi nhuận ước tính ≈ 73,2 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,8×; trung vị của 10 số liệu đã công bố, 2020–2026).",
+       "en": "Income 2.6: estimated profit ≈ 84.5 vs 95.4 M ₫/ha a year for 3 rice crops (0.9×; medians of 8 published figures, 2020–2026).",
+       "vi": "Thu nhập 2,6: lợi nhuận ước tính ≈ 84,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,9×; trung vị của 8 số liệu đã công bố, 2020–2026).",
        "src": [
         33,
         34,
@@ -20843,16 +20843,16 @@
       "water_saved": 0.867,
       "profit_range": {
        "lo": 56.5,
-       "mid": 73.2,
+       "mid": 84.5,
        "hi": 132.8,
-       "n": 10
+       "n": 8
       },
       "scores": {
        "water": 4.5,
        "salt": null,
        "soil": 1.4,
        "pests": 2.7,
-       "income": 2.2
+       "income": 2.6
       },
       "why": [
        {
@@ -20890,8 +20890,8 @@
         ]
        },
        {
-        "en": "Income 2.2: estimated profit ≈ 73.2 vs 95.4 M ₫/ha a year for 3 rice crops (0.8×; medians of 10 published figures, 2020–2026).",
-        "vi": "Thu nhập 2,2: lợi nhuận ước tính ≈ 73,2 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,8×; trung vị của 10 số liệu đã công bố, 2020–2026).",
+        "en": "Income 2.6: estimated profit ≈ 84.5 vs 95.4 M ₫/ha a year for 3 rice crops (0.9×; medians of 8 published figures, 2020–2026).",
+        "vi": "Thu nhập 2,6: lợi nhuận ước tính ≈ 84,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,9×; trung vị của 8 số liệu đã công bố, 2020–2026).",
         "src": [
          33,
          34,
@@ -22344,9 +22344,9 @@
      "water_saved": 0.769,
      "profit_range": {
       "lo": 27.5,
-      "mid": 37.5,
+      "mid": 45.8,
       "hi": 61.1,
-      "n": 5
+      "n": 4
      },
      "scores": {
       "water": 4.1,
@@ -22400,8 +22400,8 @@
        ]
       },
       {
-       "en": "Income 1.0: estimated profit ≈ 37.5 vs 95.4 M ₫/ha a year for 3 rice crops (0.4×; medians of 5 published figures, 2020–2026).",
-       "vi": "Thu nhập 1,0: lợi nhuận ước tính ≈ 37,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,4×; trung vị của 5 số liệu đã công bố, 2020–2026).",
+       "en": "Income 1.0: estimated profit ≈ 45.8 vs 95.4 M ₫/ha a year for 3 rice crops (0.5×; medians of 4 published figures, 2020–2026).",
+       "vi": "Thu nhập 1,0: lợi nhuận ước tính ≈ 45,8 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,5×; trung vị của 4 số liệu đã công bố, 2020–2026).",
        "src": [
         44,
         45,
@@ -23915,16 +23915,16 @@
       "water_saved": 0.822,
       "profit_range": {
        "lo": 56.5,
-       "mid": 73.2,
+       "mid": 84.5,
        "hi": 132.8,
-       "n": 10
+       "n": 8
       },
       "scores": {
        "water": 4.3,
        "salt": 5.0,
        "soil": 1.4,
        "pests": 2.7,
-       "income": 2.2
+       "income": 2.6
       },
       "why": [
        {
@@ -23971,8 +23971,8 @@
         ]
        },
        {
-        "en": "Income 2.2: estimated profit ≈ 73.2 vs 95.4 M ₫/ha a year for 3 rice crops (0.8×; medians of 10 published figures, 2020–2026).",
-        "vi": "Thu nhập 2,2: lợi nhuận ước tính ≈ 73,2 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,8×; trung vị của 10 số liệu đã công bố, 2020–2026).",
+        "en": "Income 2.6: estimated profit ≈ 84.5 vs 95.4 M ₫/ha a year for 3 rice crops (0.9×; medians of 8 published figures, 2020–2026).",
+        "vi": "Thu nhập 2,6: lợi nhuận ước tính ≈ 84,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,9×; trung vị của 8 số liệu đã công bố, 2020–2026).",
         "src": [
          33,
          34,
@@ -25502,16 +25502,16 @@
      "water_saved": 0.853,
      "profit_range": {
       "lo": 56.5,
-      "mid": 73.2,
+      "mid": 84.5,
       "hi": 132.8,
-      "n": 10
+      "n": 8
      },
      "scores": {
       "water": 4.4,
       "salt": null,
       "soil": 1.4,
       "pests": 2.9,
-      "income": 2.2
+      "income": 2.6
      },
      "why": [
       {
@@ -25549,8 +25549,8 @@
        ]
       },
       {
-       "en": "Income 2.2: estimated profit ≈ 73.2 vs 95.4 M ₫/ha a year for 3 rice crops (0.8×; medians of 10 published figures, 2020–2026).",
-       "vi": "Thu nhập 2,2: lợi nhuận ước tính ≈ 73,2 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,8×; trung vị của 10 số liệu đã công bố, 2020–2026).",
+       "en": "Income 2.6: estimated profit ≈ 84.5 vs 95.4 M ₫/ha a year for 3 rice crops (0.9×; medians of 8 published figures, 2020–2026).",
+       "vi": "Thu nhập 2,6: lợi nhuận ước tính ≈ 84,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,9×; trung vị của 8 số liệu đã công bố, 2020–2026).",
        "src": [
         33,
         34,
@@ -26922,16 +26922,16 @@
       "water_saved": 0.89,
       "profit_range": {
        "lo": 56.5,
-       "mid": 73.2,
+       "mid": 84.5,
        "hi": 132.8,
-       "n": 10
+       "n": 8
       },
       "scores": {
        "water": 4.6,
        "salt": null,
        "soil": 1.4,
        "pests": 2.7,
-       "income": 2.2
+       "income": 2.6
       },
       "why": [
        {
@@ -26969,8 +26969,8 @@
         ]
        },
        {
-        "en": "Income 2.2: estimated profit ≈ 73.2 vs 95.4 M ₫/ha a year for 3 rice crops (0.8×; medians of 10 published figures, 2020–2026).",
-        "vi": "Thu nhập 2,2: lợi nhuận ước tính ≈ 73,2 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,8×; trung vị của 10 số liệu đã công bố, 2020–2026).",
+        "en": "Income 2.6: estimated profit ≈ 84.5 vs 95.4 M ₫/ha a year for 3 rice crops (0.9×; medians of 8 published figures, 2020–2026).",
+        "vi": "Thu nhập 2,6: lợi nhuận ước tính ≈ 84,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,9×; trung vị của 8 số liệu đã công bố, 2020–2026).",
         "src": [
          33,
          34,
@@ -28356,16 +28356,16 @@
      "water_saved": 0.859,
      "profit_range": {
       "lo": 56.5,
-      "mid": 73.2,
+      "mid": 84.5,
       "hi": 132.8,
-      "n": 10
+      "n": 8
      },
      "scores": {
       "water": 4.4,
       "salt": null,
       "soil": 1.4,
       "pests": 3.1,
-      "income": 2.2
+      "income": 2.6
      },
      "why": [
       {
@@ -28403,8 +28403,8 @@
        ]
       },
       {
-       "en": "Income 2.2: estimated profit ≈ 73.2 vs 95.4 M ₫/ha a year for 3 rice crops (0.8×; medians of 10 published figures, 2020–2026).",
-       "vi": "Thu nhập 2,2: lợi nhuận ước tính ≈ 73,2 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,8×; trung vị của 10 số liệu đã công bố, 2020–2026).",
+       "en": "Income 2.6: estimated profit ≈ 84.5 vs 95.4 M ₫/ha a year for 3 rice crops (0.9×; medians of 8 published figures, 2020–2026).",
+       "vi": "Thu nhập 2,6: lợi nhuận ước tính ≈ 84,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,9×; trung vị của 8 số liệu đã công bố, 2020–2026).",
        "src": [
         33,
         34,
@@ -29776,16 +29776,16 @@
       "water_saved": 0.907,
       "profit_range": {
        "lo": 56.5,
-       "mid": 73.2,
+       "mid": 84.5,
        "hi": 132.8,
-       "n": 10
+       "n": 8
       },
       "scores": {
        "water": 4.6,
        "salt": null,
        "soil": 1.4,
        "pests": 2.9,
-       "income": 2.2
+       "income": 2.6
       },
       "why": [
        {
@@ -29823,8 +29823,8 @@
         ]
        },
        {
-        "en": "Income 2.2: estimated profit ≈ 73.2 vs 95.4 M ₫/ha a year for 3 rice crops (0.8×; medians of 10 published figures, 2020–2026).",
-        "vi": "Thu nhập 2,2: lợi nhuận ước tính ≈ 73,2 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,8×; trung vị của 10 số liệu đã công bố, 2020–2026).",
+        "en": "Income 2.6: estimated profit ≈ 84.5 vs 95.4 M ₫/ha a year for 3 rice crops (0.9×; medians of 8 published figures, 2020–2026).",
+        "vi": "Thu nhập 2,6: lợi nhuận ước tính ≈ 84,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,9×; trung vị của 8 số liệu đã công bố, 2020–2026).",
         "src": [
          33,
          34,
@@ -31269,16 +31269,16 @@
      "water_saved": 0.789,
      "profit_range": {
       "lo": 56.5,
-      "mid": 73.2,
+      "mid": 84.5,
       "hi": 132.8,
-      "n": 10
+      "n": 8
      },
      "scores": {
       "water": 4.2,
       "salt": null,
       "soil": 1.4,
       "pests": 2.9,
-      "income": 2.2
+      "income": 2.6
      },
      "why": [
       {
@@ -31316,8 +31316,8 @@
        ]
       },
       {
-       "en": "Income 2.2: estimated profit ≈ 73.2 vs 95.4 M ₫/ha a year for 3 rice crops (0.8×; medians of 10 published figures, 2020–2026).",
-       "vi": "Thu nhập 2,2: lợi nhuận ước tính ≈ 73,2 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,8×; trung vị của 10 số liệu đã công bố, 2020–2026).",
+       "en": "Income 2.6: estimated profit ≈ 84.5 vs 95.4 M ₫/ha a year for 3 rice crops (0.9×; medians of 8 published figures, 2020–2026).",
+       "vi": "Thu nhập 2,6: lợi nhuận ước tính ≈ 84,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,9×; trung vị của 8 số liệu đã công bố, 2020–2026).",
        "src": [
         33,
         34,
@@ -32689,16 +32689,16 @@
       "water_saved": 0.851,
       "profit_range": {
        "lo": 56.5,
-       "mid": 73.2,
+       "mid": 84.5,
        "hi": 132.8,
-       "n": 10
+       "n": 8
       },
       "scores": {
        "water": 4.4,
        "salt": null,
        "soil": 1.4,
        "pests": 2.7,
-       "income": 2.2
+       "income": 2.6
       },
       "why": [
        {
@@ -32736,8 +32736,8 @@
         ]
        },
        {
-        "en": "Income 2.2: estimated profit ≈ 73.2 vs 95.4 M ₫/ha a year for 3 rice crops (0.8×; medians of 10 published figures, 2020–2026).",
-        "vi": "Thu nhập 2,2: lợi nhuận ước tính ≈ 73,2 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,8×; trung vị của 10 số liệu đã công bố, 2020–2026).",
+        "en": "Income 2.6: estimated profit ≈ 84.5 vs 95.4 M ₫/ha a year for 3 rice crops (0.9×; medians of 8 published figures, 2020–2026).",
+        "vi": "Thu nhập 2,6: lợi nhuận ước tính ≈ 84,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,9×; trung vị của 8 số liệu đã công bố, 2020–2026).",
         "src": [
          33,
          34,
@@ -34190,9 +34190,9 @@
      "water_saved": 0.765,
      "profit_range": {
       "lo": 27.5,
-      "mid": 37.5,
+      "mid": 45.8,
       "hi": 61.1,
-      "n": 5
+      "n": 4
      },
      "scores": {
       "water": 4.1,
@@ -34246,8 +34246,8 @@
        ]
       },
       {
-       "en": "Income 1.0: estimated profit ≈ 37.5 vs 95.4 M ₫/ha a year for 3 rice crops (0.4×; medians of 5 published figures, 2020–2026).",
-       "vi": "Thu nhập 1,0: lợi nhuận ước tính ≈ 37,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,4×; trung vị của 5 số liệu đã công bố, 2020–2026).",
+       "en": "Income 1.0: estimated profit ≈ 45.8 vs 95.4 M ₫/ha a year for 3 rice crops (0.5×; medians of 4 published figures, 2020–2026).",
+       "vi": "Thu nhập 1,0: lợi nhuận ước tính ≈ 45,8 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,5×; trung vị của 4 số liệu đã công bố, 2020–2026).",
        "src": [
         44,
         45,
@@ -35761,16 +35761,16 @@
       "water_saved": 0.82,
       "profit_range": {
        "lo": 56.5,
-       "mid": 73.2,
+       "mid": 84.5,
        "hi": 132.8,
-       "n": 10
+       "n": 8
       },
       "scores": {
        "water": 4.3,
        "salt": 5.0,
        "soil": 1.4,
        "pests": 3.1,
-       "income": 2.2
+       "income": 2.6
       },
       "why": [
        {
@@ -35817,8 +35817,8 @@
         ]
        },
        {
-        "en": "Income 2.2: estimated profit ≈ 73.2 vs 95.4 M ₫/ha a year for 3 rice crops (0.8×; medians of 10 published figures, 2020–2026).",
-        "vi": "Thu nhập 2,2: lợi nhuận ước tính ≈ 73,2 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,8×; trung vị của 10 số liệu đã công bố, 2020–2026).",
+        "en": "Income 2.6: estimated profit ≈ 84.5 vs 95.4 M ₫/ha a year for 3 rice crops (0.9×; medians of 8 published figures, 2020–2026).",
+        "vi": "Thu nhập 2,6: lợi nhuận ước tính ≈ 84,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,9×; trung vị của 8 số liệu đã công bố, 2020–2026).",
         "src": [
          33,
          34,
@@ -37354,16 +37354,16 @@
      "water_saved": 0.782,
      "profit_range": {
       "lo": 56.5,
-      "mid": 73.2,
+      "mid": 84.5,
       "hi": 132.8,
-      "n": 10
+      "n": 8
      },
      "scores": {
       "water": 4.1,
       "salt": 5.0,
       "soil": 1.4,
       "pests": 3.2,
-      "income": 2.2
+      "income": 2.6
      },
      "why": [
       {
@@ -37410,8 +37410,8 @@
        ]
       },
       {
-       "en": "Income 2.2: estimated profit ≈ 73.2 vs 95.4 M ₫/ha a year for 3 rice crops (0.8×; medians of 10 published figures, 2020–2026).",
-       "vi": "Thu nhập 2,2: lợi nhuận ước tính ≈ 73,2 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,8×; trung vị của 10 số liệu đã công bố, 2020–2026).",
+       "en": "Income 2.6: estimated profit ≈ 84.5 vs 95.4 M ₫/ha a year for 3 rice crops (0.9×; medians of 8 published figures, 2020–2026).",
+       "vi": "Thu nhập 2,6: lợi nhuận ước tính ≈ 84,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,9×; trung vị của 8 số liệu đã công bố, 2020–2026).",
        "src": [
         33,
         34,
@@ -38933,16 +38933,16 @@
       "water_saved": 0.824,
       "profit_range": {
        "lo": 56.5,
-       "mid": 73.2,
+       "mid": 84.5,
        "hi": 132.8,
-       "n": 10
+       "n": 8
       },
       "scores": {
        "water": 4.3,
        "salt": 5.0,
        "soil": 1.4,
        "pests": 3.1,
-       "income": 2.3
+       "income": 2.7
       },
       "why": [
        {
@@ -38989,8 +38989,8 @@
         ]
        },
        {
-        "en": "Income 2.3: estimated profit ≈ 73.2 vs 92.9 M ₫/ha a year for 3 rice crops (0.8×; medians of 10 published figures, 2020–2026).",
-        "vi": "Thu nhập 2,3: lợi nhuận ước tính ≈ 73,2 so với 92,9 triệu đồng/ha/năm của 3 vụ lúa (0,8×; trung vị của 10 số liệu đã công bố, 2020–2026).",
+        "en": "Income 2.7: estimated profit ≈ 84.5 vs 92.9 M ₫/ha a year for 3 rice crops (0.9×; medians of 8 published figures, 2020–2026).",
+        "vi": "Thu nhập 2,7: lợi nhuận ước tính ≈ 84,5 so với 92,9 triệu đồng/ha/năm của 3 vụ lúa (0,9×; trung vị của 8 số liệu đã công bố, 2020–2026).",
         "src": [
          33,
          34,
@@ -40494,16 +40494,16 @@
      "water_saved": 0.821,
      "profit_range": {
       "lo": 56.5,
-      "mid": 73.2,
+      "mid": 84.5,
       "hi": 132.8,
-      "n": 10
+      "n": 8
      },
      "scores": {
       "water": 4.3,
       "salt": null,
       "soil": 1.4,
       "pests": 3.0,
-      "income": 2.2
+      "income": 2.6
      },
      "why": [
       {
@@ -40541,8 +40541,8 @@
        ]
       },
       {
-       "en": "Income 2.2: estimated profit ≈ 73.2 vs 95.4 M ₫/ha a year for 3 rice crops (0.8×; medians of 10 published figures, 2020–2026).",
-       "vi": "Thu nhập 2,2: lợi nhuận ước tính ≈ 73,2 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,8×; trung vị của 10 số liệu đã công bố, 2020–2026).",
+       "en": "Income 2.6: estimated profit ≈ 84.5 vs 95.4 M ₫/ha a year for 3 rice crops (0.9×; medians of 8 published figures, 2020–2026).",
+       "vi": "Thu nhập 2,6: lợi nhuận ước tính ≈ 84,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,9×; trung vị của 8 số liệu đã công bố, 2020–2026).",
        "src": [
         33,
         34,
@@ -41897,16 +41897,16 @@
       "water_saved": 0.87,
       "profit_range": {
        "lo": 56.5,
-       "mid": 73.2,
+       "mid": 84.5,
        "hi": 132.8,
-       "n": 10
+       "n": 8
       },
       "scores": {
        "water": 4.5,
        "salt": null,
        "soil": 1.4,
        "pests": 2.8,
-       "income": 2.2
+       "income": 2.6
       },
       "why": [
        {
@@ -41944,8 +41944,8 @@
         ]
        },
        {
-        "en": "Income 2.2: estimated profit ≈ 73.2 vs 95.4 M ₫/ha a year for 3 rice crops (0.8×; medians of 10 published figures, 2020–2026).",
-        "vi": "Thu nhập 2,2: lợi nhuận ước tính ≈ 73,2 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,8×; trung vị của 10 số liệu đã công bố, 2020–2026).",
+        "en": "Income 2.6: estimated profit ≈ 84.5 vs 95.4 M ₫/ha a year for 3 rice crops (0.9×; medians of 8 published figures, 2020–2026).",
+        "vi": "Thu nhập 2,6: lợi nhuận ước tính ≈ 84,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,9×; trung vị của 8 số liệu đã công bố, 2020–2026).",
         "src": [
          33,
          34,
@@ -43348,9 +43348,9 @@
      "water_saved": 0.801,
      "profit_range": {
       "lo": 27.5,
-      "mid": 37.5,
+      "mid": 45.8,
       "hi": 61.1,
-      "n": 5
+      "n": 4
      },
      "scores": {
       "water": 4.2,
@@ -43404,8 +43404,8 @@
        ]
       },
       {
-       "en": "Income 1.0: estimated profit ≈ 37.5 vs 95.4 M ₫/ha a year for 3 rice crops (0.4×; medians of 5 published figures, 2020–2026).",
-       "vi": "Thu nhập 1,0: lợi nhuận ước tính ≈ 37,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,4×; trung vị của 5 số liệu đã công bố, 2020–2026).",
+       "en": "Income 1.0: estimated profit ≈ 45.8 vs 95.4 M ₫/ha a year for 3 rice crops (0.5×; medians of 4 published figures, 2020–2026).",
+       "vi": "Thu nhập 1,0: lợi nhuận ước tính ≈ 45,8 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,5×; trung vị của 4 số liệu đã công bố, 2020–2026).",
        "src": [
         44,
         45,
@@ -44818,16 +44818,16 @@
       "water_saved": 0.851,
       "profit_range": {
        "lo": 56.5,
-       "mid": 73.2,
+       "mid": 84.5,
        "hi": 132.8,
-       "n": 10
+       "n": 8
       },
       "scores": {
        "water": 4.4,
        "salt": 5.0,
        "soil": 1.4,
        "pests": 3.3,
-       "income": 2.3
+       "income": 2.7
       },
       "why": [
        {
@@ -44874,8 +44874,8 @@
         ]
        },
        {
-        "en": "Income 2.3: estimated profit ≈ 73.2 vs 92.9 M ₫/ha a year for 3 rice crops (0.8×; medians of 10 published figures, 2020–2026).",
-        "vi": "Thu nhập 2,3: lợi nhuận ước tính ≈ 73,2 so với 92,9 triệu đồng/ha/năm của 3 vụ lúa (0,8×; trung vị của 10 số liệu đã công bố, 2020–2026).",
+        "en": "Income 2.7: estimated profit ≈ 84.5 vs 92.9 M ₫/ha a year for 3 rice crops (0.9×; medians of 8 published figures, 2020–2026).",
+        "vi": "Thu nhập 2,7: lợi nhuận ước tính ≈ 84,5 so với 92,9 triệu đồng/ha/năm của 3 vụ lúa (0,9×; trung vị của 8 số liệu đã công bố, 2020–2026).",
         "src": [
          33,
          34,
@@ -46355,16 +46355,16 @@
      "water_saved": 0.869,
      "profit_range": {
       "lo": 56.5,
-      "mid": 73.2,
+      "mid": 84.5,
       "hi": 132.8,
-      "n": 10
+      "n": 8
      },
      "scores": {
       "water": 4.5,
       "salt": 5.0,
       "soil": 1.4,
       "pests": 3.0,
-      "income": 2.2
+      "income": 2.6
      },
      "why": [
       {
@@ -46411,8 +46411,8 @@
        ]
       },
       {
-       "en": "Income 2.2: estimated profit ≈ 73.2 vs 95.4 M ₫/ha a year for 3 rice crops (0.8×; medians of 10 published figures, 2020–2026).",
-       "vi": "Thu nhập 2,2: lợi nhuận ước tính ≈ 73,2 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,8×; trung vị của 10 số liệu đã công bố, 2020–2026).",
+       "en": "Income 2.6: estimated profit ≈ 84.5 vs 95.4 M ₫/ha a year for 3 rice crops (0.9×; medians of 8 published figures, 2020–2026).",
+       "vi": "Thu nhập 2,6: lợi nhuận ước tính ≈ 84,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,9×; trung vị của 8 số liệu đã công bố, 2020–2026).",
        "src": [
         33,
         34,
@@ -47934,16 +47934,16 @@
       "water_saved": 0.908,
       "profit_range": {
        "lo": 56.5,
-       "mid": 73.2,
+       "mid": 84.5,
        "hi": 132.8,
-       "n": 10
+       "n": 8
       },
       "scores": {
        "water": 4.6,
        "salt": 5.0,
        "soil": 1.4,
        "pests": 2.8,
-       "income": 2.3
+       "income": 2.7
       },
       "why": [
        {
@@ -47990,8 +47990,8 @@
         ]
        },
        {
-        "en": "Income 2.3: estimated profit ≈ 73.2 vs 92.9 M ₫/ha a year for 3 rice crops (0.8×; medians of 10 published figures, 2020–2026).",
-        "vi": "Thu nhập 2,3: lợi nhuận ước tính ≈ 73,2 so với 92,9 triệu đồng/ha/năm của 3 vụ lúa (0,8×; trung vị của 10 số liệu đã công bố, 2020–2026).",
+        "en": "Income 2.7: estimated profit ≈ 84.5 vs 92.9 M ₫/ha a year for 3 rice crops (0.9×; medians of 8 published figures, 2020–2026).",
+        "vi": "Thu nhập 2,7: lợi nhuận ước tính ≈ 84,5 so với 92,9 triệu đồng/ha/năm của 3 vụ lúa (0,9×; trung vị của 8 số liệu đã công bố, 2020–2026).",
         "src": [
          33,
          34,
@@ -49521,16 +49521,16 @@
      "water_saved": 0.885,
      "profit_range": {
       "lo": 56.5,
-      "mid": 73.2,
+      "mid": 84.5,
       "hi": 132.8,
-      "n": 10
+      "n": 8
      },
      "scores": {
       "water": 4.5,
       "salt": null,
       "soil": 1.4,
       "pests": 3.3,
-      "income": 2.2
+      "income": 2.6
      },
      "why": [
       {
@@ -49568,8 +49568,8 @@
        ]
       },
       {
-       "en": "Income 2.2: estimated profit ≈ 73.2 vs 95.4 M ₫/ha a year for 3 rice crops (0.8×; medians of 10 published figures, 2020–2026).",
-       "vi": "Thu nhập 2,2: lợi nhuận ước tính ≈ 73,2 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,8×; trung vị của 10 số liệu đã công bố, 2020–2026).",
+       "en": "Income 2.6: estimated profit ≈ 84.5 vs 95.4 M ₫/ha a year for 3 rice crops (0.9×; medians of 8 published figures, 2020–2026).",
+       "vi": "Thu nhập 2,6: lợi nhuận ước tính ≈ 84,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,9×; trung vị của 8 số liệu đã công bố, 2020–2026).",
        "src": [
         33,
         34,
@@ -50941,16 +50941,16 @@
       "water_saved": 0.944,
       "profit_range": {
        "lo": 56.5,
-       "mid": 73.2,
+       "mid": 84.5,
        "hi": 132.8,
-       "n": 10
+       "n": 8
       },
       "scores": {
        "water": 4.8,
        "salt": null,
        "soil": 1.4,
        "pests": 3.1,
-       "income": 2.2
+       "income": 2.6
       },
       "why": [
        {
@@ -50988,8 +50988,8 @@
         ]
        },
        {
-        "en": "Income 2.2: estimated profit ≈ 73.2 vs 95.4 M ₫/ha a year for 3 rice crops (0.8×; medians of 10 published figures, 2020–2026).",
-        "vi": "Thu nhập 2,2: lợi nhuận ước tính ≈ 73,2 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,8×; trung vị của 10 số liệu đã công bố, 2020–2026).",
+        "en": "Income 2.6: estimated profit ≈ 84.5 vs 95.4 M ₫/ha a year for 3 rice crops (0.9×; medians of 8 published figures, 2020–2026).",
+        "vi": "Thu nhập 2,6: lợi nhuận ước tính ≈ 84,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,9×; trung vị của 8 số liệu đã công bố, 2020–2026).",
         "src": [
          33,
          34,
@@ -52375,16 +52375,16 @@
      "water_saved": 0.826,
      "profit_range": {
       "lo": 56.5,
-      "mid": 73.2,
+      "mid": 84.5,
       "hi": 132.8,
-      "n": 10
+      "n": 8
      },
      "scores": {
       "water": 4.3,
       "salt": null,
       "soil": 1.4,
       "pests": 3.2,
-      "income": 2.2
+      "income": 2.6
      },
      "why": [
       {
@@ -52422,8 +52422,8 @@
        ]
       },
       {
-       "en": "Income 2.2: estimated profit ≈ 73.2 vs 95.4 M ₫/ha a year for 3 rice crops (0.8×; medians of 10 published figures, 2020–2026).",
-       "vi": "Thu nhập 2,2: lợi nhuận ước tính ≈ 73,2 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,8×; trung vị của 10 số liệu đã công bố, 2020–2026).",
+       "en": "Income 2.6: estimated profit ≈ 84.5 vs 95.4 M ₫/ha a year for 3 rice crops (0.9×; medians of 8 published figures, 2020–2026).",
+       "vi": "Thu nhập 2,6: lợi nhuận ước tính ≈ 84,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,9×; trung vị của 8 số liệu đã công bố, 2020–2026).",
        "src": [
         33,
         34,
@@ -53795,16 +53795,16 @@
       "water_saved": 0.888,
       "profit_range": {
        "lo": 56.5,
-       "mid": 73.2,
+       "mid": 84.5,
        "hi": 132.8,
-       "n": 10
+       "n": 8
       },
       "scores": {
        "water": 4.6,
        "salt": null,
        "soil": 1.4,
        "pests": 3.0,
-       "income": 2.2
+       "income": 2.6
       },
       "why": [
        {
@@ -53842,8 +53842,8 @@
         ]
        },
        {
-        "en": "Income 2.2: estimated profit ≈ 73.2 vs 95.4 M ₫/ha a year for 3 rice crops (0.8×; medians of 10 published figures, 2020–2026).",
-        "vi": "Thu nhập 2,2: lợi nhuận ước tính ≈ 73,2 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,8×; trung vị của 10 số liệu đã công bố, 2020–2026).",
+        "en": "Income 2.6: estimated profit ≈ 84.5 vs 95.4 M ₫/ha a year for 3 rice crops (0.9×; medians of 8 published figures, 2020–2026).",
+        "vi": "Thu nhập 2,6: lợi nhuận ước tính ≈ 84,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,9×; trung vị của 8 số liệu đã công bố, 2020–2026).",
         "src": [
          33,
          34,
