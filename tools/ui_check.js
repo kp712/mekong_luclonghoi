@@ -54,6 +54,7 @@ const CHECKS = [
     assert(await cards.first().locator('.rw15').isVisible(), 'fit word not on the face');
     assert(await cards.first().locator('.cs-cell:visible').count() === 2, 'face needs cost and profit only');
     assert(await cards.first().locator('.vs-now').isVisible(), 'vs-now line missing');
+    assert(await cards.first().locator('.dots:visible').count() === 0, 'score dots on the card face');
     await fold.locator('summary').click(); await page.waitForTimeout(200);
     await page.evaluate(() => App.refresh()); await page.waitForTimeout(300);
     assert(await page.locator('#cards .card:visible details.fold[data-fold="card"][open]').count() === 4, 'open state not shared by all cards');

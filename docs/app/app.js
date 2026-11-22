@@ -734,7 +734,6 @@ ${vsNow(c, cards)}
 ${strip15(c.months, null)}
 ${pickCrop}
 <div class="match">${ring(sc)}<div class="match-txt"><span>${t("match")}</span></div></div>
-${KEYS.map(x => `<li><span>${t("scoreNames")[x]}</span>${c.scores[x] == null ? `<span class="dots">${t("noScore")}</span>` : dots(c.scores[x])}</li>`).join("")}</ul>
 <span class="conf">${t("confidence")}: ${t(c.confidence)}</span>
 ${labour && c.upland ? `<span class="tag warn">${t("labourWarn")}</span>` : ""}
 <details class="why8"><summary>${t("why8")}</summary><ul>${whyLines(c).map(x => `<li>${esc(x)}</li>`).join("")}</ul></details>
@@ -779,7 +778,7 @@ const n = V(site).salt.length, rec = [];
 if (n >= 4 && w.salt < 2) rec.push(t("recSalt")(n));
 if (c.id !== cur) rec.push(t("recTalk"));
 el.innerHTML = `<div class="bn-head">${ring(Math.max(0, top.s), "lg")}
-<div><span class="bn-badge">${t("bestNow")}</span><h3>${esc(pick(c.name))}</h3><p class="bn-cal">${esc(pick(c.calendar))}</p>${strip15(c.months)}</div></div>
+<div><span class="bn-badge">${t("bestNow")}</span><h3>${esc(pick(c.name))}</h3>${strip15(c.months)}</div></div>
 <p class="bn-why">${t("bestWhy")(why)}</p>${rec.length ? `<ul class="bn-rec">${rec.map(r => `<li>${esc(r)}</li>`).join("")}</ul>` : ""}
 <div class="bn-act"><button type="button" class="go-btn" data-best="${c.id}">${t("planBtn")}</button><button type="button" class="ghost-btn" data-go="3">${t("seeAll")}</button></div>`;
 const bx = el.querySelector(".ring b"), v = Math.max(0, top.s);

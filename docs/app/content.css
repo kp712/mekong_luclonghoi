@@ -15,8 +15,8 @@ img, svg { -webkit-user-drag: none }
 .cite { font: 500 .8125rem/1 var(--font); color: var(--gold); text-decoration: none; margin-left: .25em; padding: 2px; white-space: nowrap }
 .cite:hover { text-decoration: underline }
 .adv { }
-:is(.adv, .cite, .src, .s-src, .nasa8, .green, .glab, .field8, .wk, .mini-w, .mini-key .sep, .mini-key .sep ~ span,
-.card .mini, .card .mini-m, .card .mini-key, .bn-cal, .sl-why, #howText, #planView, #stripKey,
+:is(.cite, .src, .s-src, .nasa8, .green, .glab, .field8, .wk,
+#howText, #planView, #stripKey,
 .pp-bars b, .pp-num, .pp-grade, .scale3-y):not(details.fold *) { display: none !important }
 body:not(.more15) #cards > .card:nth-child(n+4):not(.isplan):not(.isnow) { display: none !important }
 
@@ -235,7 +235,6 @@ body.field-mode .track { display: none }
 .bn-head { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1rem; align-items: center }
 .bn-badge { font: 500 .8125rem/1.4 var(--font); letter-spacing: 0; text-transform: none; color: var(--gold) }
 .bn-head h3 { font-size: 1.25rem; font-weight: 800; letter-spacing: -.01em; line-height: 1.2; margin: .15rem 0 }
-.bn-cal { font-size: .8125rem; color: var(--ink-2) }
 .bn-why { margin-top: .8rem; font-size: .875rem }
 .bn-rec { margin-top: .6rem; display: grid; gap: .4rem; font-size: .8125rem; color: var(--ink-2) }
 .bn-rec li { border-left: 2px solid var(--risk); padding-left: .6rem }
