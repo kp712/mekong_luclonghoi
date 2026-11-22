@@ -123,7 +123,7 @@ const Cost = (() => {
     const r = calc(c), { ha } = getHa(), k = ha || 1;
     const cells = [cell(L(T.cost), r.cost, k, "c")];
     if (r.profit != null) cells.push(cell(L(T.profit), r.profit, k, "p"));
-    return `<div class="cs-box" data-cost-for="${esc(c.id)}">
+    return `<div class="cs-box">
       <p class="cs-h">${esc(L(T.h))} <span>· ${esc(headOf(ha))}</span></p>
       <div class="cs-grid">${cells.join("")}</div>
       ${r.partial ? `<p class="cs-warn">${esc(L(T.partial))}</p>` : ""}
@@ -136,7 +136,7 @@ const Cost = (() => {
     const cells = [cell(L(T.cost), r.cost, k, "c", r.lo, r.hi)];
     if (r.profit != null) cells.push(cell(L(T.profit), r.profit, k, "p", r.plo, r.phi), cell(L(T.gross), r.cost + r.profit, k, "g"));
     cells.push(`<div class="cs-cell k"><span>${esc(L(T.byCrop))}</span><ul class="cs-crops">${crops}</ul></div>`);
-    return `<div class="cs-extra" data-cost-for="${esc(c.id)}">
+    return `<div class="cs-extra">
       <p class="cs-h">${esc(L(T.h))} <span>· ${esc(headOf(ha))}</span></p>
       <div class="cs-grid">${cells.join("")}</div>
       ${machBlock(r.crops)}<p class="cs-note">${esc(L(T.note))}</p>${srcList(r.crops)}

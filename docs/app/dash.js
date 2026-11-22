@@ -27,7 +27,7 @@ const Dash = (() => {
       delThis: "Xoá ruộng này", delH: (n) => `Xoá "${n}"?`, delP: "Kế hoạch của ruộng này sẽ bị xoá khỏi máy. Không lấy lại được.", delYes: "Xoá ruộng", cancel: "Không xoá", deleted: "Đã xoá ruộng",
       foldWhy: "Vì sao hợp",
       sNow: "Nước tháng này", sMoney: "Tiền lời", sTodo: "Việc tháng này",
-      modeL: "Chế độ", addShort: "Thêm ruộng", welcome: "Chào mừng! Hãy tạo ruộng đầu tiên", welcomeP: "Bạn chưa có ruộng nào. Tạo ruộng để xem lịch làm, nước mặn và tiền lời của ruộng mình.",
+      addShort: "Thêm ruộng", welcome: "Chào mừng! Hãy tạo ruộng đầu tiên", welcomeP: "Bạn chưa có ruộng nào. Tạo ruộng để xem lịch làm, nước mặn và tiền lời của ruộng mình.",
       wsteps: ["Chọn khu vực của bạn trên bản đồ", "Trả lời vài câu về ruộng", "Chọn cách trồng và lưu lại"], create: "Tạo ruộng",
       waterNow: "Nước trong ruộng tháng này", perCong: "triệu đồng mỗi công mỗi năm", perCongS: "tr/công", tapPlanS: "Kế hoạch 12 tháng", ninoShort: "Năm nay có thể hạn mặn (El Niño). Mặn có thể đến sớm hơn.",
       saltNowA: "Độ mặn trong ruộng, tháng này", chartH: "Mặn và mưa trong 12 tháng", chartL: "Biểu đồ độ mặn và lượng mưa theo tháng", rainM: "Mưa", safeH: "Tháng có cây trồng an toàn mặn", safeL: "tháng",
@@ -82,7 +82,7 @@ const Dash = (() => {
       delThis: "Delete this field", delH: (n) => `Delete "${n}"?`, delP: "This field's plan will be removed from this device. It cannot be undone.", delYes: "Delete field", cancel: "Keep it", deleted: "Field deleted",
       foldWhy: "Why it fits",
       sNow: "Water this month", sMoney: "Profit", sTodo: "This month's job",
-      modeL: "Mode", addShort: "Add field", welcome: "Welcome! Please create your first field", welcomeP: "You have no fields yet. Create one to see your jobs, salty water and profit for your field.",
+      addShort: "Add field", welcome: "Welcome! Please create your first field", welcomeP: "You have no fields yet. Create one to see your jobs, salty water and profit for your field.",
       wsteps: ["Pick your area on the map", "Answer a few questions about the field", "Choose a plan and save it"], create: "Create a field",
       waterNow: "Water in your field this month", perCong: "million ₫ per công per year", perCongS: "M₫/công", tapPlanS: "12-month plan", ninoShort: "This may be a drought-and-salt year (El Niño). Salt may come earlier.",
       saltNowA: "Salt in the field, this month", chartH: "Salt and rain over 12 months", chartL: "Chart of salt and rain by month", rainM: "Rain", safeH: "Crop months safe from salt", safeL: "months",
@@ -1240,12 +1240,12 @@ footer{margin-top:12px;font-size:10.5px;color:#444;border-top:1px solid #999;pad
   /* ---------------- change plan / answers ---------------- */
   function whyFit(c, f) {
     const w = weightsOf(f), ks = SK.filter((k) => c.scores[k] != null), tw = ks.reduce((a, k) => a + w[k], 0), pen = c.upland ? PEN[f.wfP ?? 1][f.wfM ?? 0] : 0;
-    return `<details class="dv-whyfit"><summary>${esc(T("why"))} ${nf(scoreOf(c, f), 1)}?</summary><pre class="dv-math">${esc(ks.map((k) => `${T("sc")[k].padEnd(15)} ${nf(c.scores[k], 1)} × ${w[k]}`).join("\n") + `\n= ${nf(ks.reduce((a, k) => a + w[k] * c.scores[k], 0), 1)} ÷ ${tw}${pen ? " − " + nf(pen, 1) : ""} = ${nf(scoreOf(c, f), 2)}`)}</pre></details>`;
+    return `<details class="fold dv-whyfit"${Folds.attrs("why")}><summary>${esc(T("foldWhy"))}</summary><pre class="dv-math">${esc(ks.map((k) => `${T("sc")[k].padEnd(15)} ${nf(c.scores[k], 1)} × ${w[k]}`).join("\n") + `\n= ${nf(ks.reduce((a, k) => a + w[k] * c.scores[k], 0), 1)} ÷ ${tw}${pen ? " − " + nf(pen, 1) : ""} = ${nf(scoreOf(c, f), 2)}`)}</pre></details>`;
   }
   function chooseSheet() {
     const f = fieldSel(), r = rank(f), best = r.find((x) => !x.no), cur = r.find((x) => x.c.id === f.rot);
     sheet(`<div class="dv-sheethead"><h2>${esc(T("chooseH"))}</h2><button type="button" class="dv-shx" data-dv="close" aria-label="${esc(T("close"))}">${ic("x", 22)}</button></div><p class="sd-note dv-askline">${esc(T("ask"))}</p>${best && best.c.id !== f.rot && (!cur || nf(best.s, 1) !== nf(cur.s, 1)) ? `<p class="dv-best">${esc(T("bestFor")(L(best.c.name)))}</p>` : ""}<p class="sd-note">${esc(T("chooseP"))}</p>
-      <div class="dv-opts-list">${r.map(({ c, s, no }) => `<div class="dv-optc${c.id === f.rot ? " cur" : ""}${no ? " no" : ""}"><div class="dv-optt"><b>${esc(L(c.name))}</b>${no ? `<small class="a-no">${esc(T("notHere"))}</small>` : ""}<small>${esc(L(c.calendar))}</small><span class="sd-chip">${esc(T("fit"))} ${nf(s, 1)}/5</span><details class="fold"${Folds.attrs("why")}><summary>${esc(T("foldWhy"))}</summary>${whyFit(c, f)}</details></div>
+      <div class="dv-opts-list">${r.map(({ c, s, no }) => `<div class="dv-optc${c.id === f.rot ? " cur" : ""}${no ? " no" : ""}"><div class="dv-optt"><b>${esc(L(c.name))}</b>${no ? `<small class="a-no">${esc(T("notHere"))}</small>` : ""}<small>${esc(L(c.calendar))}</small><span class="sd-chip">${esc(T("fit"))} ${nf(s, 1)}/5</span>${whyFit(c, f)}</div>
         ${c.id === f.rot ? `<span class="sd-chip lv-low">${esc(T("current"))}</span>` : `<button type="button" class="btn gold" data-use="${c.id}">${esc(T("use"))}</button>`}</div>`).join("")}</div>`);
   }
   function optsSheet() {

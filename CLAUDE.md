@@ -24,7 +24,7 @@ A static PWA for Mekong Delta rice farmers and extension officers (started at NA
   - `score.js`: the card scores in JS (`Score.evaluate`, `ofCard`, `monthPest`) for the Plan Lab and the dashboard's pest card. `test_score_parity` checks it against `sites.json`: change a scoring rule in `build.py` and here together.
   - `strings.js`: EN/VI text.
   - `extra.js`: layout glue.
-  - `load.js`: loads data, registers `sw.js`, and holds `Farm`, the one saved field list shared by `app.js` and `dash.js`.
+  - `load.js`: loads data, registers `sw.js`, and holds `Farm`, the one saved field list shared by `app.js` and `dash.js`, and `Folds` (open state of each `<details class="fold" data-fold>` per type, key `mre-folds`).
 - `docs/sw.js` is the offline cache. When you add a file the app needs offline, add it to `PRECACHE`; `test_offline_precache` checks this.
 - `pipeline/build.py` merges everything. All salinity rules are in `pipeline/salinity.py`: call `salinity.at(point)` (pins and province points alike, always a typical/El Niño pair), `salinity.stations()` and `salinity.unknown()`; tests pass a modified `salinity.DATA` instead of patching globals. `pipeline/text.py` has the bilingual text helpers both use.
 - `data/raw/` holds the fetched inputs. NASA POWER is `power_<id>.json.gz` (Dec 2000 – Nov 2024 only); read it with `build.read_power(id)`. `salinity_stations.json` is the Sóc Trăng paper table plus `lower_bound` seasons. `kttv_stations.json` has the approximate OpenStreetMap coordinates of the stations.

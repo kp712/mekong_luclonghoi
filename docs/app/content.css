@@ -14,7 +14,6 @@ img, svg { -webkit-user-drag: none }
 .ico { display: inline-block; vertical-align: -.2em; flex: none }
 .cite { font: 500 .8125rem/1 var(--font); color: var(--gold); text-decoration: none; margin-left: .25em; padding: 2px; white-space: nowrap }
 .cite:hover { text-decoration: underline }
-.adv { }
 :is(.cite, .src, .s-src, .field8):not(details.fold *) { display: none !important }
 body:not(.more15) #cards > .card:nth-child(n+4):not(.isplan):not(.isnow) { display: none !important }
 
@@ -320,6 +319,7 @@ body.field-mode .track { display: none }
 .card summary::-webkit-details-marker { display: none }
 .card summary::before { content: "+"; font: 500 1rem/1 var(--font); color: var(--gold); width: 1rem }
 .card details[open] > summary::before { content: "−" }
+.card details.fold > summary::before { content: none }
 .card details ul { display: grid; gap: .3rem; margin: .2rem 0 .7rem; font-size: .8125rem; color: var(--ink-2) }
 .card details li { padding-left: .8rem; position: relative }
 .card details li::before { content: ""; position: absolute; left: 0; top: .65em; width: 4px; height: 1px; background: var(--gold-2) }
@@ -380,7 +380,6 @@ body.field-mode .track { display: none }
 .timeline .hint { font-size: .8125rem; font-weight: 400; color: var(--ink-2) }
 .salt-badge { justify-self: start; display: inline-block; font: 500 .8125rem/1.4 var(--font); letter-spacing: 0; text-transform: none; color: var(--risk);
   border: 1px solid color-mix(in srgb, var(--risk) 55%, transparent); padding: .15rem .45rem; border-radius: 2px; font-weight: 500 }
-.plan-more summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; font: 500 .8125rem/1.4 var(--font); letter-spacing: 0; text-transform: none; color: var(--gold) }
 .cong-note { font-size: .75rem; color: var(--ink-3) }
 .needs { display: grid; gap: 8px }
 .need { padding: .9rem; border: 1px solid var(--line); border-radius: var(--r) }

@@ -180,7 +180,7 @@ const Side = (() => {
     b.setAttribute("aria-label", t); b.title = t; b.setAttribute("aria-pressed", on ? "true" : "false");
   }
   /* full screen: each step splits into two columns, answers on the left, results on the right */
-  const RIGHT = { v1: "#year, #areaMore", v2: "#bestNow", v4: "#s4m, #d5Cost, #ppRev, #planFold" };
+  const RIGHT = { v1: "#year, #areaFold", v2: "#bestNow", v4: "#s4m, #d5Cost, #ppRev, #planFold" };
   function split(on) {
     Object.keys(RIGHT).forEach((id) => {
       const v = document.getElementById(id); if (!v) return;

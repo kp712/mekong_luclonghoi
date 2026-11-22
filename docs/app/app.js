@@ -195,9 +195,9 @@ return out.map(([a, b]) => a === b ? t("monthsLong")[a] : `${t("monthsLong")[a]}
 /* ---------- Draft 3 text kept outside STR (nature parts 2, 4, 5), verbatim ---------- */
 const TT = {
 en: { size: "Text size",
-settings: "Settings", detail: "Detail", lang: "Language", text: "Text size", motion: "Motion", guide: "Guided tour", anim: "Animated", lite: "Lite", theme: "Colours", thLight: "Light", thDark: "Dark", thAuto: "Auto" },
+settings: "Settings", lang: "Language", text: "Text size", motion: "Motion", guide: "Guided tour", anim: "Animated", lite: "Lite", theme: "Colours", thLight: "Light", thDark: "Dark", thAuto: "Auto" },
 vi: { size: "Cỡ chữ",
-settings: "Cài đặt", detail: "Mức chi tiết", lang: "Ngôn ngữ", text: "Cỡ chữ", motion: "Chuyển động", theme: "Màu nền", thLight: "Sáng", thDark: "Tối", thAuto: "Tự động", guide: "Hướng dẫn từng bước", anim: "Sinh động", lite: "Nhẹ" }
+settings: "Cài đặt", lang: "Ngôn ngữ", text: "Cỡ chữ", motion: "Chuyển động", theme: "Màu nền", thLight: "Sáng", thDark: "Tối", thAuto: "Tự động", guide: "Hướng dẫn từng bước", anim: "Sinh động", lite: "Nhẹ" }
 };
 const tt = k => TT[lang][k];
 
@@ -337,15 +337,15 @@ const seasons = runs.map(r => `<span class="${r.x ? "wet" : "dry"}" style="grid-
 const bars = ord.map((m, i) => { const r = v.rain[m], cls = v.salt.includes(m + 1) ? "salt" : wet[i] ? "wet" : "dry";
 return `<div class="${cls}" style="height:${Math.max(6, r / max * 100)}%;animation-delay:${i * 30}ms" title="${ML3(i)}: ${r} mm${rg3 ? ` (${rg3[0][m]}–${rg3[1][m]} mm)` : ""}"></div>` }).join("")
 + (rg3 ? `<span class="wh3" aria-hidden="true">${ord.map(m => `<b><i style="bottom:${(rg3[0][m] / max * 100).toFixed(1)}%;height:${(Math.max(0, rg3[1][m] - rg3[0][m]) / max * 100).toFixed(1)}%"></i></b>`).join("")}</span>` : "");
-const lines = (v.latest ? `<li><span>${esc(t("ltRain")(v.rain.reduce((a, b) => a + b, 0), s.rain.reduce((a, b) => a + b, 0)))}${cite(DATA.chart_src)}</span></li>` : "") + v.summary.filter(x => x.salt).map(x => `<li class="s"><span>${esc(pick(x))}</span></li>`).join("") + (v.crops ? `<li>${esc(t("crops")(v.crops))}</li>` : "");
-$("#areaFull").innerHTML = v.summary.filter(x => !v.latest || x.salt).map(x => `<li class="${x.salt ? "s" : ""}"><span>${esc(pick(x.full))}${cite(x.src)}</span></li>`).join("");
+const lines = (v.latest ? `<li><span>${esc(t("ltRain")(v.rain.reduce((a, b) => a + b, 0), s.rain.reduce((a, b) => a + b, 0)))}</span></li>` : "") + v.summary.filter(x => x.salt).map(x => `<li class="s"><span>${esc(pick(x))}</span></li>`).join("") + (v.crops ? `<li>${esc(t("crops")(v.crops))}</li>` : "");
+$("#areaFull").innerHTML = (v.latest ? `<li><span>${esc(t("ltRain")(v.rain.reduce((a, b) => a + b, 0), s.rain.reduce((a, b) => a + b, 0)))}${cite(DATA.chart_src)}</span></li>` : "") + v.summary.filter(x => !v.latest || x.salt).map(x => `<li class="${x.salt ? "s" : ""}"><span>${esc(pick(x.full))}${cite(x.src)}</span></li>`).join("");
 $("#year").innerHTML = `<div class="eyebrow">${mode === "latest" && EXTRA.latest[s.id] ? t("yearEyebrowLt")(EXTRA.latest[s.id]) : t(mode === "elnino" ? "yearEyebrowEl" : "yearEyebrow")}</div>
 <div class="seasons" aria-hidden="true">${seasons}</div>
 <div class="bars${rg3 ? " has-wh3" : ""}" role="img" aria-label="${esc(ord.map((m, i) => `${ML3(i)} ${v.rain[m]} mm${rg3 ? ` (${t("whA3")(rg3[0][m], rg3[1][m])})` : ""}`).join(", "))}">${bars}</div>
 <div class="mlab${L3 ? " lt3" : ""}">${ord.map((m, i) => `<span${L3 && st3 && i === 12 - st3 ? ' class="ny3"' : ""}>${t("months")[m]}</span>`).join("")}</div>
 ${L3 ? `<div class="yr3" aria-hidden="true"><span style="grid-column:1/${st3 ? 13 - st3 : 13}">${y3}</span>${st3 ? `<span class="ny3" style="grid-column:${13 - st3}/13">${y3 + 1}</span>` : ""}</div>` : ""}
 <div class="ykey"><span><i class="k-wet"></i>${t("wet")}</span><span><i class="k-dry"></i>${t("dry")}</span><span><i class="k-salt"></i>${t("salt")}</span>${rg3 ? `<span class="wk3"><i class="wh3k" aria-hidden="true"></i>${esc(t(mode === "elnino" ? "whKeyEl3" : "whKey3"))}</span>` : ""}</div>
-<ul class="ylines">${lines}</ul><div class="src">${t("yearSrc")}${cite(DATA.salt_src)}</div>`;
+<ul class="ylines">${lines}</ul>`;
 }
 
 /* ---------- step 1: the area panel (year, modes, outlook, fresh/salt strip, fit, months, confirm) ---------- */
@@ -360,8 +360,8 @@ $("#areaFold").hidden = false; $("#modeSeg").hidden = false;
 $$("#modeSeg [data-mode]").forEach(b => b.setAttribute("aria-pressed", b.dataset.mode === mode));
 $("#areaHead").innerHTML = `<span class="rg-badge">${t("chosenArea")}</span>`; $("#areaNasa").innerHTML = nasaBadges();   /* the area name is the drawer title */
 renderYear(site);
-$("#outlook").innerHTML = (mode === "elnino" ? `<div class="mode-note">${t("modeNote")}${cite(DATA.elnino_src)}</div>` : mode === "latest" ? `<div class="mode-note">${t("modeNoteLt")}${cite(DATA.chart_src)}</div>` : "")
-+ (o.elnino ? `<div class="outlook"><b>${t("forecast")}:</b> ${esc(pick(o.text))}${cite(o.src)}</div>` : "");
+$("#outlook").innerHTML = (mode === "elnino" ? `<div class="mode-note">${t("modeNote")}</div>` : mode === "latest" ? `<div class="mode-note">${t("modeNoteLt")}</div>` : "")
++ (o.elnino ? `<div class="outlook"><b>${t("forecast")}:</b> ${esc(pick(o.text))}</div>` : "");
 /* part 8: fresh water and salt, and how the area fits what matters to you */
 const ML = t("monthsLong");
 const cells = v.rain.map((r, i) => { const c = v.salt.includes(i + 1) ? "salt" : r >= v.et0[i] ? "wet" : "dry";
@@ -377,7 +377,8 @@ $("#areaMore").innerHTML = `<section class="s8"><h4>${t("shFresh")}</h4>
 <button type="button" class="go-btn" data-sheetplan="${c.id}">${t("shPlan")}</button></li>`).join("")}</ol>
 <button type="button" class="ghost-btn" data-go="2">${t("shChange")}</button></section>
 <section class="s8 season" id="season"></section>
-<section class="s8 cf"><p class="cf-q">${t("cfTitle")}</p><div class="cf-row"><button type="button" class="ghost-btn" id="cfNo">${t("cfNo")}</button><button type="button" class="go-btn" id="cfYes">${ico("check")}<span>${t("cfYes")}</span></button></div></section>`;
+<section class="s8 cf"><p class="cf-q">${t("cfTitle")}</p><div class="cf-row"><button type="button" class="ghost-btn" id="cfNo">${t("cfNo")}</button><button type="button" class="go-btn" id="cfYes">${ico("check")}<span>${t("cfYes")}</span></button></div></section>
+<div class="src">${t("yearSrc")}${cite(DATA.salt_src)}${mode === "elnino" ? cite(DATA.elnino_src) : mode === "latest" ? cite(DATA.chart_src) : ""}${o.elnino ? cite(o.src) : ""}</div>`;
 renderSeason();
 typeof D5 !== "undefined" && D5.area();
 }
@@ -474,6 +475,7 @@ function formChecks() {
   const s = siteById((document.querySelector("#fArea") || {}).value), sz = [0, 1, 2].map(i => (document.querySelector("#fS" + i) || {}).value || "R");
   const ha = parseFloat(String((document.querySelector("#fSize") || {}).value || "").replace(",", ".")), sc = sizeCheck(ha);
   box.innerHTML = `<p class="fc-h">${esc(t("fcH"))}</p>` + checksHTML((sc ? [sc] : []).concat(seasonChecks(s, sz)));
+  if (box.querySelector(".no")) box.closest("details").open = true;   /* a warning must not hide in a closed fold (this also saves "checks" as open) */
 }
 function renderSeasons() {
   const g = document.querySelector("#growNow"); if (!g) return;
@@ -509,11 +511,11 @@ box.innerHTML = `<h4>${t("seasonH")(esc(pick(s.name)))}</h4>
 const sw = v.rain[i] >= v.et0[i], ss = v.salt.includes(i + 1);
 return `<button type="button" data-month="${i}" aria-pressed="${i === month}" aria-label="${t("monthsLong")[i]}" class="${sw ? "w" : "d"}${ss ? " s" : ""}"><span>${m}</span><i style="height:${Math.max(10, Math.min(100, v.rain[i] / 3.5)).toFixed(0)}%"></i></button>` }).join("")}</div>
 <div class="s-now"><b>${t("monthsLong")[month]}</b><span class="s-chip ${wet ? "wet" : "dry"}">${wet ? ICON_DROP : ICON_SUN} ${t(wet ? "sRainy" : "sDry")}</span>${salt ? `<span class="s-chip salt">${t("sSalt")}</span>` : ""}${hv ? `<span class="s-chip hv">${t("sHarvest")}</span>` : ""}</div>
-<ul class="s-facts"><li>${t(wet ? "sWetP" : "sDryP")}</li>${salt ? `<li>${t("sSaltNote")}${cite(DATA.salt_src)}</li>` : ""}</ul>
+<ul class="s-facts"><li>${t(wet ? "sWetP" : "sDryP")}</li>${salt ? `<li>${t("sSaltNote")}</li>` : ""}</ul>
 <p class="scale3">${esc(t("scale3s"))}</p>
 <details class="fold"${Folds.attrs("month")}><summary>${t("foldMonth")}</summary><ul class="s-facts"><li>${t("sRain")(r, e)}</li>${g != null ? `<li>${t("sGreen")(num(g))}</li>` : ""}</ul>
 ${v.ndvi ? `<div class="green" aria-hidden="true">${v.ndvi.map((x, i) => `<i style="opacity:${Math.max(.15, Math.min(1, (x - .2) / .5)).toFixed(2)}" title="NDVI ${x}"></i>`).join("")}</div><div class="glab">${t("green")}${cite(DATA.chart_src)}</div>` : ""}
-<p class="s-src">${t(mode === "elnino" ? "modeElnino" : "modeTypical")} · ${t("srcWord")}${cite(DATA.chart_src)}</p>
+<p class="s-src">${t(mode === "elnino" ? "modeElnino" : "modeTypical")} · ${t("srcWord")}${cite(DATA.chart_src)}${salt ? cite(DATA.salt_src) : ""}</p>
 <div class="wk" id="wk"></div></details>
 ${fieldId ? "" : `<button type="button" class="ghost-btn" id="saveArea">${ico("plus")}<span>${t("saveArea")}</span></button>`}`;
 loadWeather(s);
@@ -736,12 +738,12 @@ ${pickCrop}
 ${labour && c.upland ? `<span class="tag warn">${t("labourWarn")}</span>` : ""}
 <details class="why8"><summary>${t("why8")}</summary><ul>${whyLines(c).map(x => `<li>${esc(x)}</li>`).join("")}</ul></details>
 <details class="fold"${Folds.attrs("card")}><summary>${t("foldCard")}</summary>
-<ul class="subs adv">${KEYS.map(x => `<li><span>${t("scoreNames")[x]}</span>${c.scores[x] == null ? `<span class="dots">${t("noScore")}</span>` : dots(c.scores[x])}</li>`).join("")}</ul>
+<ul class="subs">${KEYS.map(x => `<li><span>${t("scoreNames")[x]}</span>${c.scores[x] == null ? `<span class="dots">${t("noScore")}</span>` : dots(c.scores[x])}</li>`).join("")}</ul>
 ${strip15(c.months, vw.rain.map((r, j) => r >= vw.et0[j] ? "wet" : "dry"))}
 ${fl ? `<p class="field8">${ico("drop", 14)} <span>${esc(fl)}</span></p>` : ""}
 <b>${t("why")}</b><ul>${c.id === cur ? `<li>${t("isNow")}</li>` : ""}${li(c.why)}</ul>
 <b>${t("benefits")}</b><ul>${li(c.benefits)}</ul>${risks.length ? `<b>${t("risks")}</b><ul>${li(risks)}</ul>` : ""}
-<p class="adv c-src">${t("cardSrc")}${cite(c.src)}</p></details>
+<p class="c-src">${t("cardSrc")}${cite(c.src)}</p></details>
 ${before ? `<div class="before8"><b>${t("beforeChoose")}</b><ul>${li(risks)}</ul></div>` : ""}
 <div class="c-actions"><button type="button" class="plan-btn" data-plan="${c.id}" aria-pressed="${c.id === plan.id && planId === plan.id}">${t(c.id === plan.id ? (planId === plan.id ? "planOn" : "planAuto") : "planBtn")}</button>
 <button type="button" class="listen-btn" data-listen="${c.id}" aria-pressed="${speaking === c.id}">${ico("listen")}<span>${t(speaking === c.id ? "listenStop" : "listen")}</span></button></div>
@@ -798,7 +800,8 @@ const sc = (ranked().find(x => x.c.id === c.id) || {}).s, why = (c.why || [])[0]
 ok.innerHTML = `<p class="po-eye">${ico("check", 16)}<span>${esc(t("poEye"))}</span></p><h3 class="po-name">${esc(pick(c.name))}</h3>
 ${sc != null ? `<p class="po-fit">${esc(t("poFit"))} <b>${esc(fitWord(sc))}</b> (${num(Math.max(0, sc).toFixed(1))}/5)</p>` : ""}${why ? `<p class="po-why"><b>${esc(t("poWhy"))}</b> ${esc(pick(why))}</p>` : ""}
 <div class="po-act"><button type="button" class="ghost-btn" data-go="3">${esc(t("poOther"))}</button></div>` }
-$("#planWarn").hidden = !DATA.outlook.elnino; $("#planWarn").innerHTML = DATA.outlook.elnino ? esc(t("planElnino")) + cite(DATA.outlook.src) : "";
+$("#planWarn").hidden = !DATA.outlook.elnino; $("#planWarn").innerHTML = DATA.outlook.elnino ? esc(t("planElnino")) : "";
+$("#planSrc").hidden = !DATA.outlook.elnino; $("#planSrc").innerHTML = DATA.outlook.elnino ? t("srcWord") + cite(DATA.outlook.src) : "";
 $("#strip").innerHTML = Array.from({ length: 12 }, (_, i) => { const m = code(i)[0], d = new Date(now.getFullYear(), m0 + i), yr = !i || !d.getMonth();
 return `<div><i class="m-${m}${isSalt(i) ? " salt" : ""}"></i><span class="${yr ? "yr" : ""}">${t("monthsLong")[d.getMonth()]}${yr ? `<br>${d.getFullYear()}` : ""}</span></div>` }).join("");
 $("#stripKey").innerHTML = t("stripKey").map((x, i) => `<span><i class="sk-${["R", "U", "S", "F", "salt"][i]}"></i>${esc(x)}</span>`).join("");
@@ -821,10 +824,7 @@ planText = runs.map(r => {
   const marks = [started ? t("planCont") : `${t(r.code === "S" ? "planStock" : "planSow")}: ${lab(r.from)}`, ends ? `${t("planHarvest")}: ${lab(r.to)}` : ""].filter(Boolean).join(", ");
   return `${span(r.from, r.to)}: ${nm[0].toUpperCase() + nm.slice(1)}. ${marks[0].toUpperCase() + marks.slice(1)}.${salt}`;
 });
-const first = 12;
-$("#timeline").innerHTML = items.slice(0, first).join("");
-$("#timelineMore").innerHTML = items.slice(first).join("");
-$("#planMore").hidden = items.length <= first;
+$("#timeline").innerHTML = items.join("");
 $("#calendar").innerHTML = Array.from({ length: 12 }, (_, i) => {
 const k = code(i), m = k[0], d = new Date(now.getFullYear(), m0 + i), r = runs.find(x => i >= x.from && i <= x.to);
 let act, cls;
@@ -976,7 +976,7 @@ openModal(`<div class="pp">
 `<div class="pp-m k-${m[0] === "-" ? "F" : m[0]}${v.salt.includes(i + 1) ? " salt" : ""}"><i></i><span>${MS[i]}</span></div>`).join("")}</div>
 <div class="pp-key">${used.map(k => `<span><i class="k-${k === "-" ? "F" : k}"></i>${esc(t("ppLeg")[k] || "")}</span>`).join("")}<span><i class="salt"></i>${esc(t("lgSalt"))}</span></div>
 ${r ? `<div class="pp-score g-${r.g}"><b class="pp-word">${esc(t("ppW" + r.g))}</b><p class="pp-say">${esc(t("ppGrade" + r.g))}</p>
-<details class="fold"${Folds.attrs("plan")}><summary>${esc(t("foldMonth"))}</summary><div class="pp-nums"><div class="pp-num"><small>${esc(t("ppScore"))}</small><b>${r.p}</b><small>${esc(t("ppOf"))}</small></div>
+<details class="fold"${Folds.attrs("score")}><summary>${esc(t("foldScore"))}</summary><div class="pp-nums"><div class="pp-num"><small>${esc(t("ppScore"))}</small><b>${r.p}</b><small>${esc(t("ppOf"))}</small></div>
 <div class="pp-grade"><span>${esc(t("ppGrade"))}</span><b>${r.g}</b></div></div>
 <ul class="pp-bars">${KEYS.map(bar).join("")}</ul></details></div>` : `<p class="pp-say">${esc(t("ppNoScore"))}</p>`}
 <p class="pp-hint">${esc(t("ppHint"))}</p>
@@ -1059,7 +1059,7 @@ const saveFields = () => Farm.save();
 /* ---------- ticker: outlook, your fields, selected area ---------- */
 function renderTicker() {
 const o = DATA.outlook;
-if (has("#tkOutlook")) $("#tkOutlook").innerHTML = `<p class="tk-t${o.elnino ? " risk" : ""}">${esc(pick(o.text))}${cite(o.src)}</p>`;
+if (has("#tkOutlook")) $("#tkOutlook").innerHTML = `<p class="tk-t${o.elnino ? " risk" : ""}">${esc(pick(o.text))}</p>`;
 renderFields();
 if (has("#tkArea")) {
 if (!site) { $("#tkArea").innerHTML = `<p class="tk-t tk-empty">${esc(t("tbPick"))}</p>`; return }
@@ -1256,8 +1256,8 @@ if (window.claude && claude.use) { try { claude.use("downloads").then(d => { dlA
 function planDocHTML() {
   const v = document.querySelector("#v4"); if (!v) return "";
   const shown = el => !!el && !el.hidden && (el.offsetHeight > 0 || !!el.closest("details.fold"));
-  const order = ["#planOk", "#s4", "#s4m", "#d5Cost", "#d5W4", "#d5Pred", "#planWarn", "#calendar", "#v4 .pv-list", "#v4 h3[data-t='planNeed']", "#congNote", "#needs", "#v4 .disclaimer", "#v4 .copy4"];
-  const parts = order.map(q => document.querySelector(q)).filter(el => el && v.contains(el) && shown(el) && !el.closest(".plan-tools")).map(el => {
+  const order = ["#planOk", "#s4", "#s4m", "#d5Cost", "#d5W4", "#d5Pred", "#planWarn", v.dataset.pv === "list" ? "#v4 .pv-list, #stripKey" : "#calendar", "#v4 h3[data-t='planNeed']", "#congNote", "#needs", "#planSrc", "#v4 .disclaimer", "#v4 .copy4"];
+  const parts = order.flatMap(q => [...document.querySelectorAll(q)]).filter(el => el && v.contains(el) && shown(el) && !el.closest(".plan-tools")).map(el => {
     const c = el.cloneNode(true);
     /* a folded part prints open, its summary as a plain title */
     c.querySelectorAll("details").forEach(d => { const box = document.createElement("div"); box.className = d.className; const sm = d.querySelector(":scope > summary");
@@ -1283,6 +1283,7 @@ body { margin: 0; padding: 0; font-family: "Be Vietnam Pro", system-ui, sans-ser
 .pd .calendar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px }
 .pd #planWarn[hidden] { display: none }
 .pd .pd-sub { margin: 8px 0 6px; font-weight: 700; font-size: 11pt }
+.print-doc .pd .cite, .print-doc .pd .src, .print-doc .pd .s-src { display: revert !important }   /* sources show in the printed copy */
 .pd .disclaimer, .pd .copy4 { font-size: 8.5pt; color: #44564F }
 </style></head><body class="${document.body.className.split(" ").filter(c => /^lang-/.test(c)).join(" ")} print-doc">
 <header class="pd-head"><h1>${esc(t("step5"))}</h1><p>${sub}</p></header><main id="v4" class="view on pd">${parts}</main></body></html>`;
@@ -1444,7 +1445,7 @@ if (c("#more15")) { document.body.classList.toggle("more15"); renderCards(false)
 if ((b = c("#cards .plan-btn"))) { planId = b.dataset.plan; renderCards(false); setTimeout(() => go(4), 120); return }
 if (!c("details, a, .cite, button") && (b = c("#cards [data-plan]"))) { planId = b.dataset.plan; renderCards(false); setTimeout(() => go(4), 120); return }
 /* step 4 */
-if (c("#printPlan")) { const pm = document.querySelector("#planMore"); if (pm) pm.open = true; document.querySelectorAll("#s4m details").forEach(d => { d.open = true }); if (dlApi) { printFile(); return } printPlanDoc(); return }
+if (c("#printPlan")) { if (dlApi) { printFile(); return } printPlanDoc(); return }
 if (c("#sharePlan")) { sharePlan(); return }
 if (c("#readPlan")) { readPlan(); return }
 if ((b = c("#planView [data-pv]"))) { setPv(b.dataset.pv); return }
@@ -1512,7 +1513,7 @@ let rt = 0; addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout
 if (document.readyState === "loading" || AppReady.waiting()) AppReady.on(start); else start();
 })();
 
-addEventListener("beforeprint", () => { document.querySelectorAll("#s4m details, #planMore").forEach(d => { d.open = true }) });
+addEventListener("beforeprint", () => { document.querySelectorAll("#v4 details").forEach(d => { d.open = true }) });
 
 /* Narrow phones (about 360px and less): the top bar wraps to two rows. --top-h then follows its real height,
    so the dashboard, drawer and map controls start below it instead of under it. */

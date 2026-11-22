@@ -105,6 +105,14 @@ const CHECKS = [
     const html = await page.evaluate(() => App.planDoc());
     assert(html.includes('class="calendar"') && html.includes('class="needs"'), 'calendar / needs missing from the print');
     assert(html.includes('id="d5W4"'), 'wheel missing from the print');
+    assert(!html.includes('id="timeline"') && !html.includes('id="strip"'), 'calendar view prints the list too');
+    const doc = await page.context().newPage();
+    await doc.setContent(html); await doc.waitForLoadState('load');
+    assert(await doc.evaluate(() => [...document.querySelectorAll('.cite, .src, .s-src')].some(e => e.offsetHeight > 0)), 'no visible source in the printed copy');
+    await doc.close();
+    await page.evaluate(() => document.querySelector('#planView [data-pv=list]').click());
+    const list = await page.evaluate(() => App.planDoc());
+    assert(list.includes('id="timeline"') && list.includes('id="strip"') && list.includes('id="stripKey"') && !list.includes('id="calendar"'), 'list view should print the strip, its key and the list, not the calendar');
   } },
   { name: 'dash', async run({ page, url }) {
     await toCards(page, url); await page.reload(); await page.waitForSelector('body.dv-on');
@@ -128,7 +136,7 @@ const CHECKS = [
     }
     assert(!/undefined/.test(await page.evaluate(() => document.body.innerText)), 'undefined in the page text');
   } },
-  { name: 'folds-no-storage', fresh: true, async run({ page, url, errs }) {
+  { name: 'folds-no-storage', async run({ page, url, errs }) {
     await page.addInitScript(() => { const boom = () => { throw new Error('blocked') }; Storage.prototype.getItem = boom; Storage.prototype.setItem = boom; });
     await home(page, url);
     await page.locator('.dv-welcome [data-dv=add]').click();
