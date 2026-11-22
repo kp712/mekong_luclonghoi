@@ -68,8 +68,8 @@ Object.assign(STR.en, { howTap: "Tap how much each one matters. The options belo
 Object.assign(STR.vi, { howTap: "Chạm để chọn mức quan trọng của từng mục. Các phương án bên dưới xếp lại ngay, và phương án hợp nhất hiện ở cuối bước này.", sub3Tap: "Cho biết bạn trồng gì, sức làm và điều bạn coi trọng. Các phương án bên dưới xếp lại ngay." });
 Object.assign(STR.en, { fit4: "Very good", fit3: "Good", fit2: "Fair", fit1: "Poor", ppWA: "Very good fit", ppWB: "Good fit", ppWC: "Fair fit", ppWD: "Risky here" });
 Object.assign(STR.vi, { fit4: "Rất hợp", fit3: "Hợp", fit2: "Tạm được", fit1: "Kém", ppWA: "Rất hợp", ppWB: "Hợp", ppWC: "Tạm được", ppWD: "Rủi ro ở đây" });
-Object.assign(STR.en, { more15: n => `Show all ${n} options`, less15: "Show only the best 3", view15s: "Simple view: plain words, the best 3 options", view15a: "Advanced view: every number and source" });
-Object.assign(STR.vi, { more15: n => `Xem cả ${n} phương án`, less15: "Chỉ xem 3 phương án tốt nhất", view15s: "Đang xem Đơn giản: lời ngắn gọn, 3 phương án tốt nhất", view15a: "Đang xem Nâng cao: mọi số liệu và nguồn" });
+Object.assign(STR.en, { more15: n => `Show all ${n} options`, less15: "Show only the best 3" });
+Object.assign(STR.vi, { more15: n => `Xem cả ${n} phương án`, less15: "Chỉ xem 3 phương án tốt nhất" });
 Object.assign(STR.en, { sunL: "Sunlight: stronger contrast", ic15: { R: "Rice", T: "Rice", S: "Shrimp", U: "Upland crop", "-": "Rest" }, ic15salt: "Salt" });
 Object.assign(STR.vi, { sunL: "Nắng: tăng độ tương phản", ic15: { R: "Lúa", T: "Lúa", S: "Tôm", U: "Cây màu", "-": "Nghỉ" }, ic15salt: "Mặn" });
 Object.assign(STR.en, {
@@ -133,7 +133,7 @@ let lang = load("mre-lang") === "en" ? "en" : "vi", ui = "simple", mode = "typic
 ui = "advanced";   /* one mode only: full detail (Simple view removed) */
 const KEYS = ["water", "income", "soil", "salt", "pests"];
 const w = { water: 2, income: 2, soil: 2, salt: 2, pests: 2 };
-let step = 1, cmp = [], exOn = false, exGo = false, curPicked = false, wPicked = false;
+let step = 1, exOn = false, exGo = false, curPicked = false, wPicked = false;
 /* the farmer's fields: the shared list in load.js (Farm), without the dashboard's demo field */
 const fields = () => Farm.st.fields.filter(f => !f.demo && DATA.sites.some(s => s.id === f.site));
 let fieldId = null, editId = null, month = new Date().getMonth(), planText = [];
@@ -167,7 +167,7 @@ trash: '<path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/>',
 print: '<path d="M6 9V3h12v6M6 18H4v-7h16v7h-2"/><path d="M6 14h12v7H6z"/>',
 share: '<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/>',
 listen: '<path d="M11 5L6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/>',
-cmp: '<path d="M8 3v18M16 3v18M3 8h5M16 16h5"/>', edit: '<path d="M4 20h4L19 9l-4-4L4 16z"/>', x: '<path d="M6 6l12 12M18 6L6 18"/>',
+edit: '<path d="M4 20h4L19 9l-4-4L4 16z"/>', x: '<path d="M6 6l12 12M18 6L6 18"/>',
 cal: '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>', list: '<path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/>',
 plus: '<path d="M12 5v14M5 12h14"/>', arrow: '<path d="M5 12h14M13 6l6 6-6 6"/>', check: '<path d="M5 12l5 5L20 7"/>',
 tools: '<path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/>',
@@ -202,7 +202,7 @@ settings: "Cài đặt", detail: "Mức chi tiết", lang: "Ngôn ngữ", text: 
 };
 const tt = k => TT[lang][k];
 
-/* ---------- part 15: Simple view plain words (swapped into STR), verbatim ---------- */
+/* ---------- part 15: plain words, merged into STR once ---------- */
 const SIMPLE = {
 en: {
 wRain: (a, b) => a === b ? "All of its rice grows in the rainy months, so rain does most of the watering." : a * 2 >= b ? "Most of its rice grows in the rainy months." : "Most of its rice grows in the dry months, so it needs canal water.",
@@ -219,9 +219,7 @@ crops: n => (n = parseFloat(String(n).replace(",", "."))) >= 2.5 ? "Ruộng ở 
 recSalt: n => `Nước mặn thường vào đây trong mùa khô. Nếu mặn từng làm hại cây trồng, hãy tăng mục "Giảm rủi ro thời tiết & mặn".`
 }
 };
-const ORIG = { en: {}, vi: {} };
-["en", "vi"].forEach(l => Object.keys(SIMPLE[l]).forEach(k => ORIG[l][k] = STR[l][k]));
-const swap = () => { const s = ui === "simple"; ["en", "vi"].forEach(l => Object.keys(SIMPLE[l]).forEach(k => STR[l][k] = s ? SIMPLE[l][k] : ORIG[l][k])) };
+["en", "vi"].forEach(l => Object.assign(STR[l], SIMPLE[l]));
 const fitWord = s => t(s >= 4 ? "fit4" : s >= 3 ? "fit3" : s >= 2 ? "fit2" : "fit1");
 
 /* ---------- part 18: Simple view key steps, short (verbatim) ---------- */
@@ -303,8 +301,7 @@ $(id).insertAdjacentHTML("afterbegin", `<div class="pick-first"><p class="pf-t" 
 <div class="ex3-ban" role="status" hidden><span></span><button type="button" data-ex3back></button></div>`) });
 /* step 3: show-all button (Simple) and the way into the builder */
 if (has("#cards") && !has("#more15")) $("#cards").insertAdjacentHTML("afterend", `<button type="button" class="more15-btn" id="more15" aria-expanded="false"></button>`);
-if (has("#v3") && !has("#view15")) $("#v3").querySelector(".ex3-ban") ? $("#v3").querySelector(".ex3-ban").insertAdjacentHTML("afterend", `<p class="view15" id="view15"></p>`) : $("#v3").insertAdjacentHTML("afterbegin", `<p class="view15" id="view15"></p>`);
-if (has("#compare") && !has("#lab3")) $("#compare").insertAdjacentHTML("afterend", `<button type="button" class="lab3" id="lab3" data-golab>${ico("tools")}<span data-t="lab3"></span></button>`);
+if (has("#more15") && !has("#lab3")) $("#more15").insertAdjacentHTML("afterend", `<button type="button" class="lab3" id="lab3" data-golab>${ico("tools")}<span data-t="lab3"></span></button>`);
 /* step 4: tool labels, plan views, plan score link, per-công note, disclaimer */
 label("#printPlan", "printPlan", "print"); label("#sharePlan", "sharePlan", "share");
 if (has("#readPlan") && !has("#readL")) $("#readPlan").innerHTML = ico("listen") + `<span id="readL"></span>`;
@@ -656,9 +653,8 @@ if (chk("#noBrackish")) cs = cs.filter(c => !c.needs_brackish || c.id === cur);
 return cs.map(c => ({ c, s: scoreOf(c) })).sort((a, b) => (a.c.not_here - b.c.not_here) || (b.s - a.s));
 }
 const dots = v => `<span class="dots">${num(v.toFixed(1))} ${[1, 2, 3, 4, 5].map(i => `<i class="${v >= i - .5 ? "on" : ""}"></i>`).join("")}</span>`;
-/* score ring: big mono number; Simple adds the plain word (part 15) */
-const ring = (s, cls = "") => `<span class="ring ${cls}" style="--s:${(Math.max(0, s) / 5).toFixed(3)}"><b>${num(s.toFixed(1))}</b><small>${t("of5")}</small>${ui === "simple" ? `<em class="rw15">${esc(fitWord(s))} <span class="rw15n">${num(s.toFixed(1))}/5</span></em>` : ""}</span>`;
-const meter = s => `<div class="meter" role="img" aria-label="${ui === "simple" ? esc(fitWord(s) + " " + num(s.toFixed(1)) + "/5") : `${num(s.toFixed(1))} ${t("of5")}`}"><i style="width:${(s / 5 * 100).toFixed(0)}%"></i></div>`;
+/* score ring: the plain fit word and x/5 (part 15) */
+const ring = (s, cls = "") => `<span class="ring ${cls}" style="--s:${(Math.max(0, s) / 5).toFixed(3)}"><b>${num(s.toFixed(1))}</b><small>${t("of5")}</small><em class="rw15">${esc(fitWord(s))} <span class="rw15n">${num(s.toFixed(1))}/5</span></em></span>`;
 const waterOf = c => { const W = (EXTRA.water || {})[site.id] || {}; return W[c.id + ":" + c.crop] || W[c.id] || null };
 function whyLines(c) {   // part 8
 const v = mode === "latest" ? site : V(site), out = [];
@@ -714,7 +710,7 @@ const stepF = now => { const k = Math.min(1, (now - t0) / d), e = 1 - Math.pow(1
 requestAnimationFrame(stepF);
 }
 function renderCards(fresh) {
-if (!site) { $("#cards").innerHTML = ""; $("#common").hidden = true; $("#bestNow").innerHTML = ""; renderCompare(); return }
+if (!site) { $("#cards").innerHTML = ""; $("#common").hidden = true; $("#bestNow").innerHTML = ""; return }
 const v = V(site), vw = mode === "latest" ? site : v;
 const cards = ranked();
 if (!cards.length) return;
@@ -724,33 +720,33 @@ const common = cards.length > 1 ? all(cards[0]).filter(x => cards.every(k => all
 $("#common").hidden = !common.length; $("#common").textContent = common.length ? `${t("allOptions")} ${common.join(" ")}` : "";
 const before = {};
 if (!fresh && !calm()) $$("#cards .card").forEach(el => before[el.dataset.id] = el.getBoundingClientRect());
-const li = xs => xs.map(x => `<li>${esc(pick(x))}${ui === "advanced" ? cite(x.src) : ""}</li>`).join("");
+const li = xs => xs.map(x => `<li>${esc(pick(x))}${cite(x.src)}</li>`).join("");
 const labour = labourPen() > 0;
 $("#cards").innerHTML = cards.map(({ c, s }, i) => {
 const pickCrop = c.choices && c.choices.length > 1 ? `<div class="crop-pick" role="group" aria-label="${t("cropPick")}"><span>${t("cropPick")}</span>${c.choices.map(x => `<button type="button" data-crop="${x}" aria-pressed="${x === c.crop}">${esc(pick(DATA.resources[x].name))}</button>`).join("")}</div>` : "";
 const risks = c.risks.concat(c.gaps).filter(x => !common.includes(pick(x)));
 const fl = fieldLine(c), sc = Math.max(0, s);
-const before = ui === "simple" && c.id === plan.id && risks.length;   // Simple hides Details: the plan card's risks and gaps show open, before its plan button
+const before = c.id === plan.id && risks.length;   // the plan card's risks and gaps show on its face, before its plan button
 return `<article data-plan="${c.id}" class="card ${i === 0 && !c.not_here ? "best" : ""} ${c.id === plan.id ? "isplan" : ""} ${c.id === cur ? "isnow" : ""} ${c.not_here ? "nothere" : ""}" data-id="${c.id}">
-<div class="c-top"><span class="rank">#${i + 1}</span>${i === 0 && !c.not_here ? `<span class="ribbon">${t("best")}</span>` : ""}<span class="c-tags">${c.id === cur ? `<span class="tag now">${t("yourNow")}</span>` : ""}${c.not_here ? `<span class="tag warn">${t("notHere")}</span>` : ""}</span></div>
+<div class="c-top">${i === 0 && !c.not_here ? `<span class="ribbon">${t("best")}</span>` : ""}<span class="c-tags">${c.id === cur ? `<span class="tag now">${t("yourNow")}</span>` : ""}${c.not_here ? `<span class="tag warn">${t("notHere")}</span>` : ""}</span></div>
 <h3>${esc(pick(c.name))}</h3>
-<p class="cal">${esc(pick(c.calendar))}</p>
 ${vsNow(c, cards)}
-${strip15(c.months, ui === "simple" ? null : vw.rain.map((r, j) => r >= vw.et0[j] ? "wet" : "dry"))}
+${strip15(c.months, null)}
 ${pickCrop}
-<div class="match">${ring(sc)}<div class="match-txt"><span>${t("match")}</span>${meter(sc)}</div></div>
-<ul class="subs adv">${KEYS.map(x => `<li><span>${t("scoreNames")[x]}</span>${c.scores[x] == null ? `<span class="dots">${t("noScore")}</span>` : dots(c.scores[x])}</li>`).join("")}</ul>
+<div class="match">${ring(sc)}<div class="match-txt"><span>${t("match")}</span></div></div>
+${KEYS.map(x => `<li><span>${t("scoreNames")[x]}</span>${c.scores[x] == null ? `<span class="dots">${t("noScore")}</span>` : dots(c.scores[x])}</li>`).join("")}</ul>
 <span class="conf">${t("confidence")}: ${t(c.confidence)}</span>
-${fl ? `<p class="field8">${ico("drop", 14)} <span>${esc(fl)}</span></p>` : ""}
 ${labour && c.upland ? `<span class="tag warn">${t("labourWarn")}</span>` : ""}
 <details class="why8"><summary>${t("why8")}</summary><ul>${whyLines(c).map(x => `<li>${esc(x)}</li>`).join("")}</ul></details>
-<details class="dt"><summary>${t(ui === "simple" ? "whyAdvice" : "details")}</summary>
+<details class="fold"${Folds.attrs("card")}><summary>${t("foldCard")}</summary>
+<ul class="subs adv">${KEYS.map(x => `<li><span>${t("scoreNames")[x]}</span>${c.scores[x] == null ? `<span class="dots">${t("noScore")}</span>` : dots(c.scores[x])}</li>`).join("")}</ul>
+${strip15(c.months, vw.rain.map((r, j) => r >= vw.et0[j] ? "wet" : "dry"))}
+${fl ? `<p class="field8">${ico("drop", 14)} <span>${esc(fl)}</span></p>` : ""}
 <b>${t("why")}</b><ul>${c.id === cur ? `<li>${t("isNow")}</li>` : ""}${li(c.why)}</ul>
 <b>${t("benefits")}</b><ul>${li(c.benefits)}</ul>${risks.length ? `<b>${t("risks")}</b><ul>${li(risks)}</ul>` : ""}
 <p class="adv c-src">${t("cardSrc")}${cite(c.src)}</p></details>
 ${before ? `<div class="before8"><b>${t("beforeChoose")}</b><ul>${li(risks)}</ul></div>` : ""}
 <div class="c-actions"><button type="button" class="plan-btn" data-plan="${c.id}" aria-pressed="${c.id === plan.id && planId === plan.id}">${t(c.id === plan.id ? (planId === plan.id ? "planOn" : "planAuto") : "planBtn")}</button>
-<button type="button" class="cmp-btn" data-cmp="${c.id}" aria-pressed="${cmp.includes(c.id)}">${ico("cmp")}<span>${t(cmp.includes(c.id) ? "cmpOn" : "cmpBtn")}</span></button>
 <button type="button" class="listen-btn" data-listen="${c.id}" aria-pressed="${speaking === c.id}">${ico("listen")}<span>${t(speaking === c.id ? "listenStop" : "listen")}</span></button></div>
 </article>`;
 }).join("");
@@ -766,12 +762,10 @@ requestAnimationFrame(() => { el.style.transition = ""; el.style.transform = "" 
 });
 if (!fresh && !calm()) { const c = $("#cards"); c.classList.remove("shimmer10"); void c.offsetWidth; c.classList.add("shimmer10") }
 renderBest(cards);
-renderCompare();
 renderPlan(plan);
 /* part 15: show-all button and the label of which view is on */
 const n = cards.length, open = document.body.classList.contains("more15"), b = document.querySelector("#more15");
 if (b) { b.hidden = n <= 3; b.textContent = open ? t("less15") : t("more15")(n); b.setAttribute("aria-expanded", open) }
-const vv = document.querySelector("#view15"); if (vv) vv.textContent = t(ui === "simple" ? "view15s" : "view15a");
 priTexts();
 }
 /* the best match now, in plain words */
@@ -780,7 +774,7 @@ const el = document.querySelector("#bestNow"); if (!el) return;
 if (!site || !list.length) { el.innerHTML = ""; return }
 const top = list.find(x => !x.c.not_here) || list[0], c = top.c;
 const ks = KEYS.filter(k => c.scores[k] != null).sort((a, b) => (w[b] * c.scores[b] - w[a] * c.scores[a]) || (c.scores[b] - c.scores[a])).slice(0, 2);
-const why = ks.map(k => `<b>${t("scoreNames")[k]}</b>${ui === "simple" ? "" : ` ${num(c.scores[k].toFixed(1))}`}`).join(` ${t("and")} `);
+const why = ks.map(k => `<b>${t("scoreNames")[k]}</b>`).join(` ${t("and")} `);
 const n = V(site).salt.length, rec = [];
 if (n >= 4 && w.salt < 2) rec.push(t("recSalt")(n));
 if (c.id !== cur) rec.push(t("recTalk"));
@@ -792,27 +786,6 @@ const bx = el.querySelector(".ring b"), v = Math.max(0, top.s);
 if (bx && !calm() && lastBest != null && Math.abs(v - lastBest) >= .1) countUp(bx, lastBest, v, 520);
 lastBest = v;
 }
-/* compare two options */
-function renderCompare() {
-const box = document.querySelector("#compare"); if (!box) return;
-if (!site) { box.hidden = true; return }
-const v = V(site), all = cardsOf(v); cmp = cmp.filter(id => all.some(c => c.id === id));
-if (!cmp.length) { box.hidden = true; box.innerHTML = ""; return }
-box.hidden = false;
-if (cmp.length < 2) { box.innerHTML = `<p class="cmp-hint">${t("cmpHint")}</p>`; return }
-const m0 = new Date().getMonth(), cols = cmp.map(id => all.find(c => c.id === id));
-const strip = c => Array.from({ length: 12 }, (_, i) => { const m = (m0 + i) % 12, k = (c.months[m] || "-")[0], salt = v.salt.includes(m + 1);
-return `<i class="m-${k}${salt ? " salt" : ""}" title="${t("monthsLong")[m]}"></i>` }).join("");
-const mlab = Array.from({ length: 12 }, (_, i) => `<span>${t("months")[(m0 + i) % 12]}</span>`).join("");
-box.innerHTML = `<div class="cmp-head"><h3>${t("cmpH")}</h3><button type="button" class="ghost-btn" id="cmpClear">${t("cmpClear")}</button></div>
-<div class="cmp-grid">${cols.map(c => `<div class="cmp-col"><h4>${esc(pick(c.name))}</h4>
-<div class="cmp-score">${ring(Math.max(0, scoreOf(c)), "sm")}<span>${t("match")}</span></div>
-<div class="cmp-months" role="img" aria-label="${t("cmpMonths")}: ${esc(pick(c.calendar))}">${strip(c)}</div><div class="cmp-mlab" aria-hidden="true">${mlab}</div>
-<p class="cmp-cal">${esc(pick(c.calendar))}</p></div>`).join("")}</div>
-<table class="cmp-table"><thead><tr><td></td>${cols.map(c => `<th scope="col">${esc(pick(c.name))}</th>`).join("")}</tr></thead>
-<tbody>${KEYS.map(k => `<tr><th scope="row">${t("scoreNames")[k]}</th>${cols.map(c => `<td>${c.scores[k] == null ? t("noScore") : dots(c.scores[k])}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
-}
-
 /* ---------- step 4: the 12-month plan (same month logic as docs/app.js) ---------- */
 function renderPlan(c0) {
 const now = new Date(), m0 = now.getMonth();
@@ -1393,7 +1366,6 @@ if (step === "lab" && drawerOpen()) { const L = PL(); if (L && L.refresh) { try 
 $$("#heroAreas [data-site], #areaHead [data-site]").forEach(b => b.setAttribute("aria-pressed", !!site && site.id === b.dataset.site));
 }
 function applyAll() {
-swap();
 document.documentElement.lang = lang;
 const b = document.body;
 b.classList.toggle("ui-simple", ui === "simple"); b.classList.toggle("ui-advanced", ui === "advanced"); b.classList.toggle("lang-vi", lang === "vi");
@@ -1480,8 +1452,6 @@ if ((b = c("[data-tk]"))) { wPicked = true; const k = b.dataset.tk; setW(k, b.da
 if ((b = c("[data-best]"))) { planId = b.dataset.best; renderCards(false); setTimeout(() => go(4), 120); return }
 /* step 3 */
 if ((b = c("[data-listen]"))) { e.preventDefault(); listen(b.dataset.listen); return }
-if ((b = c("[data-cmp]"))) { const id = b.dataset.cmp; cmp = cmp.includes(id) ? cmp.filter(x => x !== id) : cmp.concat(id).slice(-2); renderCards(false); if (cmp.length === 2) setTimeout(() => $("#compare").scrollIntoView({ behavior: calm() ? "auto" : "smooth", block: "nearest" }), 30); return }
-if (c("#cmpClear")) { cmp = []; renderCards(false); return }
 if ((b = c("[data-crop]"))) { upCrop = b.dataset.crop; renderCards(false); return }
 if (c("#more15")) { document.body.classList.toggle("more15"); renderCards(false); return }
 if ((b = c("#cards .plan-btn"))) { planId = b.dataset.plan; renderCards(false); setTimeout(() => go(4), 120); return }

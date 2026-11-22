@@ -15,14 +15,10 @@ img, svg { -webkit-user-drag: none }
 .cite { font: 500 .8125rem/1 var(--font); color: var(--gold); text-decoration: none; margin-left: .25em; padding: 2px; white-space: nowrap }
 .cite:hover { text-decoration: underline }
 .adv { }
-body.ui-simple .adv, body.ui-simple .cite, body.ui-simple .src, body.ui-simple .s-src, body.ui-simple .nasa8,
-body.ui-simple .green, body.ui-simple .glab, body.ui-simple .field8, body.ui-simple .mode-note, body.ui-simple #modeSeg,
-body.ui-simple .wk, body.ui-simple .cmp-btn, body.ui-simple #compare, body.ui-simple .mini-w, body.ui-simple .mini-key .sep,
-body.ui-simple .mini-key .sep ~ span, body.ui-simple .card .dt, body.ui-simple .card .rank, body.ui-simple .card .cal,
-body.ui-simple .card .mini, body.ui-simple .card .mini-m, body.ui-simple .card .mini-key, body.ui-simple .meter,
-body.ui-simple .bn-cal, body.ui-simple .sl-why, body.ui-simple #howText, body.ui-simple #planView, body.ui-simple #stripKey,
-body.ui-simple .pp-bars b, body.ui-simple .pp-num, body.ui-simple .pp-grade, body.ui-simple .scale3-y { display: none !important }
-body.ui-simple:not(.more15) #cards > .card:nth-child(n+4):not(.isplan):not(.isnow) { display: none !important }
+:is(.adv, .cite, .src, .s-src, .nasa8, .green, .glab, .field8, .wk, .mini-w, .mini-key .sep, .mini-key .sep ~ span,
+.card .mini, .card .mini-m, .card .mini-key, .bn-cal, .sl-why, #howText, #planView, #stripKey,
+.pp-bars b, .pp-num, .pp-grade, .scale3-y):not(details.fold *) { display: none !important }
+body:not(.more15) #cards > .card:nth-child(n+4):not(.isplan):not(.isnow) { display: none !important }
 
 .go-btn, .ghost-btn {
   display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
@@ -257,11 +253,10 @@ body.field-mode .track { display: none }
 .ring.sm b { font-size: 1.05rem }
 .ring.lg { width: 92px; height: 92px }
 .ring.lg b { font-size: 1.9rem }
-.rw15 { display: none }
-body.ui-simple .ring b, body.ui-simple .ring small { display: none }
-body.ui-simple .rw15 { display: block; font: 700 .75rem/1.1 var(--font); font-style: normal; text-align: center; max-width: 60px; color: var(--ink) }
-body.ui-simple .rw15n { display: block; font: 400 .8125rem/1.3 var(--font); color: var(--ink-2) }
-body.ui-simple .ring.sm .rw15 { font-size: .8125rem; max-width: 44px }
+.ring b, .ring small { display: none }
+.rw15 { display: block; font: 700 .75rem/1.1 var(--font); font-style: normal; text-align: center; max-width: 60px; color: var(--ink) }
+.rw15n { display: block; font: 400 .8125rem/1.3 var(--font); color: var(--ink-2) }
+.ring.sm .rw15 { font-size: .8125rem; max-width: 44px }
 
 /* ---------- step 3: cards ---------- */
 .cards { display: grid; gap: 10px }
@@ -273,15 +268,12 @@ body.ui-simple .ring.sm .rw15 { font-size: .8125rem; max-width: 44px }
 .cards.shimmer10 .card { animation: shim .5s var(--ease) }
 @keyframes shim { 40% { border-color: var(--gold-2) } }
 .c-top { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem }
-.rank { font: 700 .8125rem/1 var(--font); color: var(--ink-3) }
 .ribbon { font: 600 .8125rem/1 var(--font); letter-spacing: 0; text-transform: none; color: var(--bg); background: var(--gold); padding: .3rem .45rem; border-radius: 2px }
 .c-tags { display: inline-flex; flex-wrap: wrap; gap: .3rem }
 .tag { display: inline-flex; align-items: center; font: 500 .8125rem/1.3 var(--font); letter-spacing: 0; text-transform: none; padding: .25rem .45rem; border: 1px solid var(--line-2); border-radius: 2px; color: var(--ink-2) }
 .tag.now { color: var(--water); border-color: color-mix(in srgb, var(--water) 50%, transparent) }
 .tag.warn { color: var(--risk); border-color: color-mix(in srgb, var(--risk) 55%, transparent) }
-.card h3 { font-size: 1.125rem; font-weight: 800; letter-spacing: -.01em; line-height: 1.2 }
-body.ui-simple .card h3 { font-size: 1.25rem }
-.cal { font-size: .8125rem; color: var(--ink-2) }
+.card h3 { font-size: 1.25rem; font-weight: 800; letter-spacing: -.01em; line-height: 1.2 }
 .mini, .mini-w, .mini-m { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 2px }
 .mini i { display: block; height: 12px; border-radius: 1px }
 .mini-w i { display: block; height: 3px }
@@ -294,7 +286,7 @@ body.ui-simple .card h3 { font-size: 1.25rem }
 .m-S, .sk-S, .k-S { background: var(--water) }
 .m--, .sk-F, .k-F { background: var(--line-2) }
 .sk-salt { background: var(--risk); height: 4px !important }
-.mini .salt, .strip i.salt, .cmp-months .salt, .pp-m.salt i, .ic15-m.salt i { box-shadow: inset 0 -3px 0 var(--risk) }
+.mini .salt, .strip i.salt, .pp-m.salt i, .ic15-m.salt i { box-shadow: inset 0 -3px 0 var(--risk) }
 .ic15 { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 4px }
 .ic15-m { display: grid; gap: 3px; text-align: center; font: 500 .75rem/1 var(--font); color: var(--ink-2) }
 .ic15-m i { display: block; height: 22px; border-radius: 2px }
@@ -339,35 +331,16 @@ body.ui-simple .card h3 { font-size: 1.25rem }
 .plan-btn { flex: 1 1 100%; min-height: 48px; padding: .55rem 1rem; border-radius: var(--r); border: 1px solid var(--gold); color: var(--gold); font-weight: 700; font-size: .9375rem; text-align: center }
 .plan-btn:hover { background: var(--gold-soft) }
 .plan-btn[aria-pressed="true"] { background: var(--gold); color: var(--bg) }
-body.ui-simple .plan-btn, body.field-mode .plan-btn { min-height: 56px; font-size: 1.0625rem }
-.cmp-btn, .listen-btn { flex: 1 1 120px; display: inline-flex; align-items: center; justify-content: center; gap: .4rem; min-height: 44px; padding: .4rem .7rem;
+.plan-btn, body.field-mode .plan-btn { min-height: 56px; font-size: 1.0625rem }
+.listen-btn { flex: 1 1 120px; display: inline-flex; align-items: center; justify-content: center; gap: .4rem; min-height: 44px; padding: .4rem .7rem;
   border: 1px solid var(--line-2); border-radius: var(--r); font-size: .8125rem; color: var(--ink-2) }
-.cmp-btn:hover, .listen-btn:hover { border-color: var(--gold); color: var(--ink) }
-.cmp-btn[aria-pressed="true"], .listen-btn[aria-pressed="true"] { border-color: var(--water); color: var(--water) }
+.listen-btn:hover { border-color: var(--gold); color: var(--ink) }
+.listen-btn[aria-pressed="true"] { border-color: var(--water); color: var(--water) }
 .common { font-size: .8125rem; color: var(--ink-2); border-left: 2px solid var(--risk); padding-left: .7rem }
 #common { font-size: .8125rem; color: var(--ink-2); border-left: 2px solid var(--risk); padding-left: .7rem }
-.more15-btn { display: none; width: 100%; min-height: 48px; border: 1px dashed var(--line-2); border-radius: var(--r); font-weight: 600; color: var(--ink) }
-body.ui-simple .more15-btn { display: flex; align-items: center; justify-content: center }
-.view15 { font: 500 .8125rem/1.4 var(--font); letter-spacing: 0; text-transform: none; color: var(--gold) }
+.more15-btn { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 48px; border: 1px dashed var(--line-2); border-radius: var(--r); font-weight: 600; color: var(--ink) }
 .lab3 { display: flex; align-items: center; justify-content: center; gap: .5rem; width: 100%; min-height: 48px; border: 1px solid var(--line-2); border-radius: var(--r); font-weight: 600 }
 .lab3:hover { border-color: var(--gold); color: var(--gold) }
-
-/* compare */
-#compare { padding: 1rem; border: 1px solid var(--water); border-radius: var(--r) }
-.cmp-hint { font-size: .875rem; color: var(--ink-2) }
-.cmp-head { display: flex; justify-content: space-between; align-items: center; gap: .6rem; margin-bottom: .7rem }
-.cmp-head h3 { font: 600 .75rem/1.4 var(--font); letter-spacing: 0; text-transform: none; color: var(--water) }
-.cmp-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .7rem }
-.cmp-col { display: grid; gap: .4rem; align-content: start; min-width: 0 }
-.cmp-col h4 { font-size: .875rem; font-weight: 700; line-height: 1.25 }
-.cmp-score { display: flex; align-items: center; gap: .5rem; font-size: .75rem; color: var(--ink-2) }
-.cmp-months, .cmp-mlab { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 1px }
-.cmp-months i { display: block; height: 14px }
-.cmp-mlab span { font: 400 .5rem/1.4 var(--font); color: var(--ink-3); text-align: center }
-.cmp-cal { font-size: .75rem; color: var(--ink-2) }
-.cmp-table { width: 100%; margin-top: .8rem; border-collapse: collapse; font-size: .75rem; table-layout: fixed }
-.cmp-table th, .cmp-table td { padding: .35rem .2rem; border-bottom: 1px solid var(--line); text-align: left; font-weight: 500; overflow-wrap: anywhere }
-.cmp-table thead th { font: 500 .8125rem/1.3 var(--font); color: var(--ink-2) }
 
 /* ---------- step 4: the plan ---------- */
 #planFor { color: var(--gold) }
@@ -529,7 +502,6 @@ body.ui-simple .pp-bars li { grid-template-columns: 8.5em minmax(0, 1fr) }
   .months button { height: 52px }
   .q15-row button { min-height: 72px }
   .gd { left: 16px; right: 16px; transform: none; width: auto; bottom: 16px }
-  .cmp-grid { grid-template-columns: 1fr 1fr; gap: .5rem }
   .pp-num b { font-size: 2.6rem }
   .pp-score { grid-template-columns: auto auto }
   .pp-bars li { grid-template-columns: 7em minmax(0, 1fr) 2.2em }
@@ -590,4 +562,3 @@ details.fold > summary { display: flex; align-items: center; justify-content: sp
 details.fold > summary::-webkit-details-marker { display: none }
 details.fold > summary::after { content: ""; flex: none; width: .5rem; height: .5rem; border: solid currentColor; border-width: 0 2px 2px 0; transform: rotate(45deg); transition: transform .15s }
 details.fold[open] > summary::after { transform: rotate(-135deg) }
-body details.fold .cite, body details.fold .src, body details.fold .s-src { display: inline !important }

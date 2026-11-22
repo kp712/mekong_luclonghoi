@@ -35,10 +35,28 @@ const CHECKS = [
     const f = page.locator('#v1 details.fold[data-fold="area"]');
     assert(await f.count() === 1 && !(await f.evaluate(d => d.open)), 'area fold missing or open');
     assert(await f.locator('#areaMore').count() === 1, '#areaMore not in the fold');
+    assert(await f.locator('#areaFull').count() === 1 && await f.locator('#d5W1').count() === 1, '#areaFull / #d5W1 not in the fold');
     await f.locator('summary').click(); await page.waitForTimeout(200); await page.reload(); await toStep(page, 1);
     assert(await f.evaluate(d => d.open), 'open state not remembered');
     await f.locator('summary').click(); await page.waitForTimeout(200); await page.reload(); await toStep(page, 1);
     assert(!(await f.evaluate(d => d.open)), 'closed state not remembered');
+  } },
+  { name: 'cards', async run({ page, url }) {
+    await toCards(page, url);
+    assert(await page.locator('.cmp-btn, #compare').count() === 0, 'Compare still there');
+    const cards = page.locator('#cards .card:visible');
+    assert(await cards.count() === 4, 'want best 3 + current, got ' + await cards.count());
+    assert(await page.locator('#cards .card.isnow').isVisible(), 'current rotation hidden');
+    const fold = cards.first().locator('details.fold[data-fold="card"]');
+    assert(await fold.count() === 1 && !(await fold.evaluate(d => d.open)), 'card fold missing or open');
+    assert(await fold.locator('.subs li').count() === 5, 'sub-scores not in the fold');
+    assert(await fold.locator('.cs-mach, .cs-src').count() >= 1, 'cost extras not in the fold');
+    assert(await cards.first().locator('.rw15').isVisible(), 'fit word not on the face');
+    assert(await cards.first().locator('.cs-cell:visible').count() === 2, 'face needs cost and profit only');
+    assert(await cards.first().locator('.vs-now').isVisible(), 'vs-now line missing');
+    await fold.locator('summary').click(); await page.waitForTimeout(200);
+    await page.evaluate(() => App.refresh()); await page.waitForTimeout(300);
+    assert(await page.locator('#cards .card:visible details.fold[data-fold="card"][open]').count() === 4, 'open state not shared by all cards');
   } },
   { name: 'folds-no-storage', fresh: true, async run({ page, url, errs }) {
     await page.addInitScript(() => { const boom = () => { throw new Error('blocked') }; Storage.prototype.getItem = boom; Storage.prototype.setItem = boom; });

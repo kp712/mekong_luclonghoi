@@ -115,23 +115,31 @@ const Cost = (() => {
     if (field) return `<p class="cs-from">${esc(L(T.fromField)(field.name || ""))}</p>`;
     return `<label class="cs-ha"><span>${esc(L(T.haL))}</span><input type="number" inputmode="decimal" min="0" step="0.1" placeholder="1" value="${ha ? ha : ""}" data-cost-ha><small>${esc(L(T.haHint))}</small></label>`;
   }
-  /* one tile, four numbers side by side (2 x 2): cost, profit, harvest money, cost per crop. Nothing to scroll or open.
-     Simple view keeps only cost and profit, without ranges; sources and notes stay in Advanced. */
+  /* the face tile: cost and profit for the area, no ranges. The ranges, harvest money, cost per crop, machine/labour
+     coverage and sources are extra(c): they sit in the card's fold. */
+  const cell = (lab, v, k, cls, lo, hi) => `<div class="cs-cell ${cls}"><span>${esc(lab)}</span><b>${esc(money(v * k))}</b>${lo != null && hi != null && hi > lo ? `<small>${esc(L(T.range)(money(lo * k), money(hi * k)))}</small>` : ""}</div>`;
+  const headOf = (ha) => ha ? L(T.forHa)(num(ha, 2)) : L(T.perHa);
   function box(c) {
-    const r = calc(c), { ha } = getHa(), k = ha || 1, simple = document.body.classList.contains("ui-simple");
-    const head = ha ? L(T.forHa)(num(ha, 2)) : L(T.perHa);
-    const cell = (lab, v, lo, hi, cls) => `<div class="cs-cell ${cls}"><span>${esc(lab)}</span><b>${esc(money(v * k))}</b>${!simple && lo != null && hi != null && hi > lo ? `<small>${esc(L(T.range)(money(lo * k), money(hi * k)))}</small>` : ""}</div>`;
-    const crops = r.crops.map((x) => `<li><span>${esc(words(x.key))}</span><b>${x.cost ? esc(money(x.cost.mid * k)) : `<em>${esc(L(T.noCost))}</em>`}</b></li>`).join("");
-    const cells = [cell(L(T.cost), r.cost, r.lo, r.hi, "c")];
-    if (r.profit != null) cells.push(cell(L(T.profit), r.profit, r.plo, r.phi, "p"));
-    if (!simple && r.profit != null) cells.push(cell(L(T.gross), r.cost + r.profit, null, null, "g"));
-    if (!simple) cells.push(`<div class="cs-cell k"><span>${esc(L(T.byCrop))}</span><ul class="cs-crops">${crops}</ul></div>`);
-    return `<div class="cs-box${simple ? " is-simple" : ""}" data-cost-for="${esc(c.id)}">
-      <p class="cs-h">${esc(L(T.h))} <span>· ${esc(head)}</span></p>
+    const r = calc(c), { ha } = getHa(), k = ha || 1;
+    const cells = [cell(L(T.cost), r.cost, k, "c")];
+    if (r.profit != null) cells.push(cell(L(T.profit), r.profit, k, "p"));
+    return `<div class="cs-box" data-cost-for="${esc(c.id)}">
+      <p class="cs-h">${esc(L(T.h))} <span>· ${esc(headOf(ha))}</span></p>
       <div class="cs-grid">${cells.join("")}</div>
       ${r.partial ? `<p class="cs-warn">${esc(L(T.partial))}</p>` : ""}
-      ${simple ? `<p class="cs-note">${esc(L(T.machS))}</p>` : machBlock(r.crops)}
-      ${simple ? "" : `<details class="cs-more"><summary>${esc(L(T.src))}</summary><p class="cs-note">${esc(L(T.note))}</p>${srcList(r.crops)}</details>`}
+      <p class="cs-note">${esc(L(T.machS))}</p>
+    </div>`;
+  }
+  function extra(c) {
+    const r = calc(c), { ha } = getHa(), k = ha || 1;
+    const crops = r.crops.map((x) => `<li><span>${esc(words(x.key))}</span><b>${x.cost ? esc(money(x.cost.mid * k)) : `<em>${esc(L(T.noCost))}</em>`}</b></li>`).join("");
+    const cells = [cell(L(T.cost), r.cost, k, "c", r.lo, r.hi)];
+    if (r.profit != null) cells.push(cell(L(T.profit), r.profit, k, "p", r.plo, r.phi), cell(L(T.gross), r.cost + r.profit, k, "g"));
+    cells.push(`<div class="cs-cell k"><span>${esc(L(T.byCrop))}</span><ul class="cs-crops">${crops}</ul></div>`);
+    return `<div class="cs-extra" data-cost-for="${esc(c.id)}">
+      <p class="cs-h">${esc(L(T.h))} <span>· ${esc(headOf(ha))}</span></p>
+      <div class="cs-grid">${cells.join("")}</div>
+      ${machBlock(r.crops)}<p class="cs-note">${esc(L(T.note))}</p>${srcList(r.crops)}
     </div>`;
   }
   function srcList(crops) {
@@ -146,10 +154,10 @@ const Cost = (() => {
     top.innerHTML = haInput();
     host.querySelectorAll("article.card[data-id]").forEach((el) => {
       const it = list.find((x) => x.c.id === el.dataset.id); if (!it) return;
-      const old = el.querySelector(".cs-box"); const html = box(it.c);
-      if (old) { if (old.outerHTML !== html) { const open = old.querySelector("details[open]"); old.outerHTML = html; if (open) { const n = el.querySelector(".cs-box details"); if (n) n.open = true } } return }
-      const anchor = el.querySelector(".ic15-key") || el.querySelector(".mini") || el.querySelector(".cal");
-      if (anchor) anchor.insertAdjacentHTML("afterend", html); else el.insertAdjacentHTML("beforeend", html);
+      const put = (sel, html, at, where) => { const old = el.querySelector(sel); if (old) { if (old.outerHTML !== html) old.outerHTML = html } else if (at) at.insertAdjacentHTML(where, html) };
+      const anchor = el.querySelector(".ic15-key") || el.querySelector(".mini");
+      put(".cs-box", box(it.c), anchor, "afterend");
+      put(".cs-extra", extra(it.c), el.querySelector("details.fold"), "beforeend");
     });
   }
 
@@ -168,7 +176,7 @@ const Cost = (() => {
       <div class="cs-row c"><span>${esc(L(T.total))}</span><b>${esc(money(r.cost * k))}</b></div>
       ${r.profit != null ? `<div class="cs-row p"><span>${esc(L(T.profit))}</span><b>${esc(money(r.profit * k))}</b></div>` : ""}
       ${r.partial ? `<p class="cs-warn">${esc(L(T.partial))}</p>` : ""}<p class="cs-note">${esc(L(T.note))}</p>
-      ${document.body.classList.contains("ui-simple") ? `<p class="cs-note">${esc(L(T.machS))}</p>` : machBlock(r.crops)}`;
+      <p class="cs-note">${esc(L(T.machS))}</p>`;
   }
 
   /* ---------- wiring ---------- */
