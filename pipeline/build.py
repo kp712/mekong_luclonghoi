@@ -64,7 +64,7 @@ LEVELS = ["low", "medium", "high"]
 LEVEL_VI = {"low": "thấp", "medium": "trung bình", "high": "cao"}
 PERIOD = (date(2000, 12, 1), date(2024, 11, 30))
 # The newest 10 of those seasons: crops per year and bare months describe today's farm calendar, which changed at some pins.
-RECENT = (date(2014, 12, 1), PERIOD[1])
+RECENT = (date(PERIOD[1].year - 10, 12, 1), PERIOD[1])
 
 
 def elnino_seasons():
@@ -76,10 +76,10 @@ def elnino_seasons():
 
 ONI = elnino_seasons()
 ELNINO = sorted(ONI)  # each number is the year the season starts in December
-ONI_SRC = {"title": f"NOAA CPC Oceanic Niño Index (ONI): {len(ELNINO)} El Niño winters, Dec 2000 – Nov 2024",
+ONI_SRC = {"title": f"NOAA CPC Oceanic Niño Index (ONI): {len(ELNINO)} El Niño winters, Dec {PERIOD[0].year} – Nov {PERIOD[1].year}",
            "url": "https://www.cpc.ncep.noaa.gov/data/indices/oni.ascii.txt",
            "note": "Dec–Feb ONI 0.5 or more: " + ", ".join(f"{y}–{(y + 1) % 100:02d} ({v})" for y, v in ONI.items())
-                   + ". Saved in data/raw/oni.txt; checked against NOAA's live file: Dec–Feb values 2001–2024 identical.", "verified": True}
+                   + f". Saved in data/raw/oni.txt; checked against NOAA's live file: Dec–Feb values {PERIOD[0].year + 1}–{PERIOD[1].year} identical.", "verified": True}
 # NOAA CPC's latest ENSO status (data/raw/enso_outlook.json, from pipeline/fetch_power.py): the app opens on the El Niño view
 # while NOAA says El Niño is here or coming (Advisory = present, Watch = favoured within 6 months).
 ENSO_VI = {"El Niño Advisory": "đang có El Niño", "El Niño Watch": "El Niño có thể hình thành",
@@ -793,8 +793,8 @@ def make_card(rot, clim, nd, sal, elnino=False):
                          "hi": yearly_profit(rot, sal, elnino, not_here, high_profit), "n": n}
     benefits = list(rot["benefits"])
     ratio = round(p / p3, 1)
-    why.append(sourced(line(f"Income {x}: estimated profit ≈ {p} vs {p3} M ₫/ha a year for 3 rice crops ({ratio}×; medians of {n} published figures, 2020–2025).",
-                            f"Thu nhập {vi_num(x)}: lợi nhuận ước tính ≈ {vi_num(p)} so với {vi_num(p3)} triệu đồng/ha/năm của 3 vụ lúa ({vi_num(ratio)}×; trung vị của {n} số liệu đã công bố, 2020–2025)."), psrc))
+    why.append(sourced(line(f"Income {x}: estimated profit ≈ {p} vs {p3} M ₫/ha a year for 3 rice crops ({ratio}×; medians of {n} published figures, 2020–2026).",
+                            f"Thu nhập {vi_num(x)}: lợi nhuận ước tính ≈ {vi_num(p)} so với {vi_num(p3)} triệu đồng/ha/năm của 3 vụ lúa ({vi_num(ratio)}×; trung vị của {n} số liệu đã công bố, 2020–2026)."), psrc))
 
     level, reasons = confidence(rot, nd, sal, not_here, elnino)
     return finish(c, rot, s, why + ev, risks + reasons, gaps, benefits, level, not_here)

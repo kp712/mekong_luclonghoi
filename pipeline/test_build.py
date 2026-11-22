@@ -56,12 +56,22 @@ def test_month_names():
     assert build.month_names([1, 2, 3, 4, 5], "vi") == "T1–T5" and build.month_names([3], "en") == "Mar"
 
 
+def test_gpm_covers_period():
+    gpm = json.loads((build.RAW / "gpm.json").read_text(encoding="utf-8"))
+    need = {f"{y}-{m:02d}" for y in range(build.PERIOD[0].year, build.PERIOD[1].year + 1) for m in range(1, 13)
+            if build.PERIOD[0] <= date(y, m, 1) <= build.PERIOD[1]}
+    for pid, months in gpm.items():
+        assert need <= set(months), (pid, sorted(need - set(months))[:3])
+
+
 def test_elnino_year():
     site = next(s for s in build.SITES if s["id"] == "tran_de")
     power = build.read_power("tran_de")
     assert build.ELNINO == [2002, 2004, 2006, 2009, 2014, 2015, 2018, 2019, 2023], build.ELNINO  # from NOAA's Dec-Feb index >= 0.5
     assert build.in_elnino(date(2015, 12, 1)) and build.in_elnino(date(2016, 11, 30)) and not build.in_elnino(date(2016, 12, 1))
-    assert build.typical_year(date(2017, 6, 1)) and not build.typical_year(date(2016, 3, 1)) and not build.typical_year(date(2025, 3, 1))
+    assert build.typical_year(date(2017, 6, 1)) and not build.typical_year(date(2016, 3, 1))
+    assert not build.typical_year(date(2025, 3, 1))  # outside PERIOD
+    assert build.PERIOD[1] == date(2024, 11, 30) and build.RECENT[0] == date(2014, 12, 1)
     gpm = json.loads((build.RAW / "gpm.json").read_text(encoding="utf-8"))["tran_de"]
     typ, eln = (build.climate(power, site["lat"], keep, gpm) for keep in (build.typical_year, build.in_elnino))
     assert typ["rain_mm"] != build.climate(power, site["lat"], build.typical_year)["rain_mm"]  # rain comes from GPM, not POWER
@@ -253,6 +263,19 @@ def test_income_score():
     assert build.yearly_profit(rots["rice_shrimp"], sal, True, False) <= build.yearly_profit(rots["rice_shrimp"], sal, False, False)  # typical losses (shrimp disease) also hit El Niño years
 
 
+def test_profit_figures_clean():
+    pf = json.loads((build.HERE / "profits.json").read_text(encoding="utf-8"))
+    figs = pf["figures"]
+    seen = [(f["key"], f["source"]["url"], f["value"]) for f in figs]
+    assert len(seen) == len(set(seen)), "duplicate profit figure"
+    for f in figs:
+        assert f["unit"] in ("crop", "year") and f["kind"] in ("survey", "government", "university", "cooperative", "farmer", "news")
+        if not f["fallback"]:
+            assert f["kind"] in ("survey", "government", "university", "cooperative") and 2020 <= f["year"] <= 2026, f["place"]
+            assert f["source"]["verified"], f["place"]
+    assert any(f["key"] == "mungbean" for f in figs) or "mungbean (no checked figure" in pf["_readme"]
+
+
 def test_profit_figures():
     pf = json.loads((build.HERE / "profits.json").read_text(encoding="utf-8"))
     rots = {r["id"]: r for r in json.loads((build.HERE / "rotations.json").read_text(encoding="utf-8"))["rotations"]}
@@ -329,7 +352,7 @@ def test_salinity_station_data():
     assert typ["level"] == eln["level"] == "low" and typ["max_ppt"] is None and typ["station_ppt"] > 4  # override: severity 4/15
     typ, eln = salinity.at({"id": "long_phu"})
     assert typ["level"] == salinity.salt_level(typ["max_ppt"]) and "‰" in typ["note"]["en"] and "," in typ["note"]["vi"]
-    assert salinity.at({"id": "my_xuyen"})[0]["months"] == [2, 3, 4, 5]  # Thạnh Phú peaked in May in 4 of 9 recent seasons
+    assert salinity.at({"id": "my_xuyen"})[0]["months"] == [2, 3, 4, 5]  # Thạnh Phú peaked in May in 5 of 10 recent seasons (2016-2025)
     assert typ["seasons"] >= 5 and typ["last_year"] >= 2023  # confidence station rule reads these
     st = json.loads((build.RAW / "salinity_stations.json").read_text(encoding="utf-8"))["stations"]
     # our typing of the paper's Table 4 must reproduce its Table 2: years, min, max, mean (‰) per station
@@ -339,10 +362,9 @@ def test_salinity_station_data():
     for sid, (n, lo, hi, mean) in table2.items():
         xs = [v[0] for v in st[sid]["yearly_max"].values()]
         assert (len(xs), min(xs), max(xs), round(sum(xs) / len(xs), 2)) == (n, lo, hi, mean), sid
-    # El Niño seasons were saltier at every pin's station over the SALT_SEASONS, except Ngã Năm (rated low by its own rule:
-    # its canal read 15-17‰ in 2017-2018, typical seasons, and 2.6‰ in El Niño 2019)
+    # El Niño seasons were saltier at every pin's station over the SALT_SEASONS
     assert all(salinity.station_salt(salinity.DATA, s["station"], True)[0] > salinity.station_salt(salinity.DATA, s["station"], False)[0]
-               for k, s in json.loads((build.HERE / "salinity.json").read_text(encoding="utf-8"))["sites"].items() if k != "nga_nam")
+               for s in json.loads((build.HERE / "salinity.json").read_text(encoding="utf-8"))["sites"].values())
     # the national 10-day bulletins are a second, independent record: never above the paper's yearly max, equal in 9 of 10
     bul = json.loads((build.RAW / "salinity_bulletins.json").read_text(encoding="utf-8"))["bulletins"]
     same = 0
@@ -968,13 +990,15 @@ def station_at(name, dlat_km=0.0):
 
 
 def test_salt_window():
-    assert salinity.SALT_SEASONS == (2017, 2026)
+    assert salinity.SALT_SEASONS == (2016, 2026)
     assert salinity.salt_elnino(2024) and not salinity.salt_elnino(2025) and not salinity.salt_elnino(2026)
     assert salinity.salt_elnino(2016) and not salinity.salt_elnino(2017)  # straight from oni.txt, not limited to PERIOD
     _, first, last, _ = salinity.station_salt(salinity.DATA, "tran_de", False)
     assert first == 2017 and last >= 2025, (first, last)
     _, first, last, n = salinity.station_salt(salinity.DATA, "tran_de", True)
-    assert (first, last, n) == (2019, 2024, 3)  # El Niño dry seasons 2019, 2020, 2024
+    assert (first, last, n) == (2016, 2024, 4)  # El Niño dry seasons 2016, 2019, 2020, 2024
+    s = {x["id"]: x for x in json.loads((build.ROOT / "docs/data/sites.json").read_text(encoding="utf-8"))["sites"]}
+    assert s["nga_nam"]["salinity"]["level"] == "low" and s["nga_nam"]["elnino"]["salinity"]["level"] == "low"
 
 
 def test_station_record_merge():
@@ -1000,7 +1024,7 @@ def test_kttv_nearest():
     assert t["station"] == e["station"] == "Sông Đốc" and t["km"] == 25.0
     assert point_salinity(*station_at("Sông Đốc", 25.5))[0]["level"] == build.UNKNOWN
     t, _ = point_salinity(*station_at("Trần Đề"))
-    assert t["station"] == "Trần Đề" and t["km"] == 0 and t["seasons"] == 9 and t["last_year"] == 2025  # the table's long record
+    assert t["station"] == "Trần Đề" and t["km"] == 0 and t["seasons"] == 10 and t["last_year"] == 2025  # the table's long record
 
 
 def test_kttv_salt_months():

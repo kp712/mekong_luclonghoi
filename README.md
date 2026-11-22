@@ -75,9 +75,9 @@ Details and numbers: [SOURCES.md](SOURCES.md#how-we-checked-it).
 
 ### Limitations
 - Five preset areas, not any field: weather describes a 10–50 km area and greenness one 250 m pixel. The method extends to the whole Delta ([how](SOURCES.md#using-it-anywhere-in-the-delta)); salinity records and crop calendars are the local work.
-- Typical and El Niño weather and rain are averages of 2000–2024, not forecasts; salt uses the dry seasons 2017–2026.
+- Typical and El Niño weather and rain are averages of 2000–2024, not forecasts; salt uses the dry seasons 2016–2026.
 - The data also covers 6 southern provinces (the Mekong Delta's 5 and Tây Ninh, 14 former provinces) on the app's one map: zoom out from the Sóc Trăng areas, or tap **ĐBSCL** in the top bar. NASA weather and rain for all; rotation scores in the 12 Mekong Delta former provinces and former Long An; a salinity estimate only where a KTTV station lies within 25 km (6 of the 14 points), so elsewhere weather & salt is not scored and confidence is mostly Low ([details](SOURCES.md#the-6-provinces)). We cover the south first and will add more provinces once it is refined.
-- Salinity comes from river and canal stations, not fields. Each Sóc Trăng typical-year average rests on 4–6 dry seasons and each El Niño average on 2–3; the other provinces rest on 1–3 seasons of 10-day bulletins, and the El Niño view on one season (2024).
+- Salinity comes from river and canal stations, not fields. Each Sóc Trăng typical-year average rests on 4–6 dry seasons and each El Niño average on 3–4; the other provinces rest on 1–3 seasons of 10-day bulletins, and the El Niño view on one season (2024).
 - Scores are our rules from published sources, not calibrated against farm yields; profits are medians of published figures from other places and years. Some constants are team estimates, and each one lowers the card's confidence.
 - Pest pressure for rice comes from a lab temperature curve and is nearly flat across months here; upland and shrimp pests follow the calendar.
 - Fields are saved only in that phone's browser.

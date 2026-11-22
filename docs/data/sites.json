@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-21",
+ "generated": "2026-11-22",
  "bounds": {
   "w": 103.0,
   "e": 107.0,
@@ -20,7 +20,7 @@
     "vi": "Đậu xanh là cây họ đậu. Vi khuẩn trong nốt sần ở rễ lấy đạm từ không khí, nên vụ lúa sau có thể cần ít phân hơn. Trong một thí nghiệm trong nhà kính ở Malaysia, lúa trồng sau cây họ đậu sử dụng đạm tốt hơn; tác dụng của đậu xanh nhỏ hơn các loại đậu khác."
    },
    "src": [
-    57
+    69
    ]
   },
   {
@@ -36,7 +36,7 @@
     "vi": "Cây che phủ được trồng trong thời gian đất nghỉ để giữ cho đất không bị trống, không phải để bán. Theo FAO, cây che phủ bảo vệ đất trống, bổ sung chất hữu cơ giúp cải thiện cấu trúc đất, giúp hạn chế cỏ dại và sâu bệnh, và giữ lại dinh dưỡng cho vụ sau."
    },
    "src": [
-    67
+    79
    ]
   },
   {
@@ -52,8 +52,8 @@
     "vi": "Trồng lúa ngập nước nhiều năm có thể làm đất bị nén chặt bên dưới tầng cày. Trong một thí nghiệm 10 năm ở Đồng bằng sông Cửu Long, luân canh lúa với bắp hoặc đậu xanh làm đất tơi xốp hơn ở độ sâu 10–30 cm và rễ lúa ăn sâu hơn. Một thí nghiệm sau đó, cũng ở Đồng bằng sông Cửu Long (2017–2020, đậu nành và mè) không thấy năng suất lúa tăng chỉ nhờ luân canh."
    },
    "src": [
-    68,
-    69
+    80,
+    81
    ]
   },
   {
@@ -70,7 +70,7 @@
    },
    "src": [
     3,
-    70
+    82
    ]
   },
   {
@@ -142,11 +142,11 @@
     }
    ],
    "src": [
-    71,
-    72,
-    73,
-    74,
-    75
+    83,
+    84,
+    85,
+    86,
+    87
    ]
   },
   "rice_st": {
@@ -179,9 +179,9 @@
     }
    ],
    "src": [
-    76,
-    77,
-    78
+    88,
+    89,
+    90
    ]
   },
   "mungbean": {
@@ -222,9 +222,9 @@
     "vi": "Hướng dẫn chung cả nước, không riêng cho Đồng bằng sông Cửu Long: hãy hỏi cán bộ khuyến nông."
    },
    "src": [
-    79,
-    80,
-    81
+    91,
+    92,
+    93
    ]
   },
   "watermelon": {
@@ -258,8 +258,8 @@
     }
    ],
    "src": [
-    82,
-    54
+    94,
+    66
    ]
   },
   "maize": {
@@ -300,9 +300,9 @@
     "vi": "Hướng dẫn chung cả nước, không riêng cho Đồng bằng sông Cửu Long: hãy hỏi cán bộ khuyến nông."
    },
    "src": [
-    79,
-    83,
-    84
+    91,
+    95,
+    96
    ]
   },
   "shrimp": {
@@ -338,10 +338,10 @@
     }
    ],
    "src": [
-    76,
-    85,
-    77,
-    78
+    88,
+    97,
+    89,
+    90
    ]
   }
  },
@@ -613,6 +613,51 @@
    "verified": true
   },
   {
+   "title": "Nguyễn Thị Kim Quyên, Huỳnh Văn Hiền & Nguyễn Thị Vàng, Tạp chí Khoa học Trường Đại học Trà Vinh no. 45 (2021, online 30 Aug 2022), Phân tích hiệu quả kĩ thuật – tài chính và những lợi ích khi tham gia vào mô hình sản xuất kinh tế tập thể: trường hợp nghiên cứu mô hình nuôi tôm – lúa luân canh tại tỉnh Sóc Trăng",
+   "url": "https://journal.tvu.edu.vn/vi/index.php/tckh/article/view/92",
+   "verified": true
+  },
+  {
+   "title": "Mirzabaev, Nguyen, Basnet & Ong (IRRI, March 2026), A Cost-Benefit and Optimization Analysis for Low-Emission Rice Production Systems in Bac Lieu, Mekong Delta, Viet Nam",
+   "url": "https://cgspace.cgiar.org/items/153aafa9-9534-4573-9e38-be0d3092351e",
+   "verified": true
+  },
+  {
+   "title": "Phan Thị Thanh Trúc, Huỳnh Kim Hường, Lê Thị Phương Mai & Trần Nguyễn Hải Nam, Tạp chí Khoa học Trường Đại học Trà Vinh vol. 13 special issue (5 Dec 2023), Đánh giá hiệu quả kĩ thuật và tài chính của mô hình nuôi tôm càng xanh (Macrobrachium rosenbergii) trong ruộng lúa tại huyện Thạnh Phú, tỉnh Bến Tre",
+   "url": "https://journal.tvu.edu.vn/vi/index.php/tckh/article/view/191",
+   "verified": true
+  },
+  {
+   "title": "VietNamNet (17 Nov 2023), Phát triển bền vững mô hình lúa tôm tại một hợp tác xã ở Bạc Liêu",
+   "url": "https://vietnamnet.vn/phat-trien-ben-vung-mo-hinh-lua-tom-tai-mot-hop-tac-xa-o-bac-lieu-2234232.html",
+   "verified": true
+  },
+  {
+   "title": "Quách Ngọc Ngân Khánh et al., Tạp chí Nông nghiệp và Môi trường no. 21 (15 Nov 2024), Đặc điểm kỹ thuật, kinh tế, xã hội và môi trường của mô hình lúa - tôm và chuyên tôm tại huyện Mỹ Xuyên, tỉnh Sóc Trăng",
+   "url": "https://tapchikhoahoc.nnmt.net.vn/index.php/vjae/article/download/104/585",
+   "verified": true
+  },
+  {
+   "title": "Nhân Dân (6 May 2026), Cần quy hoạch cụ thể vùng sản xuất tôm-lúa",
+   "url": "https://nhandan.vn/can-quy-hoach-cu-the-vung-san-xuat-tom-lua-post960415.html",
+   "verified": true
+  },
+  {
+   "title": "Báo Sóc Trăng (29 Oct 2024), Khác biệt và lợi thế",
+   "url": "https://baosoctrang.org.vn/kinh-te/202410/khac-biet-va-loi-the-82e4f6f/",
+   "verified": true
+  },
+  {
+   "title": "Nhân Dân (28 Oct 2026), Nuôi tôm càng xanh toàn đực: Tăng thu nhập trên đất lúa",
+   "url": "https://nhandan.vn/hieu-qua-tu-mo-hinh-nuoi-tom-toan-duc-post998639.html",
+   "verified": true
+  },
+  {
+   "title": "VnEconomy (13 Nov 2023), Giải pháp cho vùng nhiễm mặn Bạc Liêu: Hiệu quả mô hình tôm – lúa",
+   "url": "https://vneconomy.vn/giai-phap-cho-vung-nhiem-man-bac-lieu-hieu-qua-mo-hinh-tom-lua.htm",
+   "verified": true
+  },
+  {
    "title": "Ministry of Agriculture and Environment, climate-change adaptation bulletin (March 2026), Mô hình tôm - lúa và bí quyết thuận thiên, thích ứng biến đổi khí hậu",
    "url": "https://adaptation.dcc.mae.gov.vn/wp-content/uploads/2026/04/Ban-tin-TUBDKH-t3.2026_TN1.pdf",
    "verified": true
@@ -620,6 +665,21 @@
   {
    "title": "Nhân Dân (10 Mar 2021), Lúa thơm - tôm sạch ở Sóc Trăng",
    "url": "https://nhandan.vn/post-637970.html",
+   "verified": true
+  },
+  {
+   "title": "Nguyễn Văn Hoàng Thanh, Nguyễn Thị Hồng Điệp, Nguyễn Trọng Nguyễn & Phan Kỳ Trung, Tạp chí Khoa học Đại học Cần Thơ vol. 61 special issue Môi trường và Biến đổi khí hậu (2025): 238-249, Phân tích đánh đổi phát thải khí nhà kính - hiệu quả kinh tế trên mô hình canh tác nông nghiệp tỉnh Sóc Trăng",
+   "url": "https://ctujsvn.ctu.edu.vn/index.php/ctujsvn/article/download/6979/4911/25076",
+   "verified": true
+  },
+  {
+   "title": "Ministry of Agriculture and Environment (30 Sep 2026), Đột phá mô hình lúa - tôm thích ứng biến đổi khí hậu tại ĐBSCL",
+   "url": "https://mae.gov.vn/dot-pha-mo-hinh-lua--tom-thich-ung-bien-doi-khi-hau-tai-dbscl-23077.htm",
+   "verified": true
+  },
+  {
+   "title": "Nhân Dân (27 Aug 2025), Trồng lúa ST25 vùng tôm-lúa, nông dân sẽ đạt lợi nhuận gấp đôi",
+   "url": "https://nhandan.vn/trong-lua-st25-vung-tom-lua-nong-dan-se-dat-loi-nhuan-gap-doi-post904036.html",
    "verified": true
   },
   {
@@ -1018,12 +1078,12 @@
      5
     ],
     "note": {
-     "en": "Coastal strip. Nearest station: Khánh Hòa, on the Vĩnh Châu coast. Highest reading of each dry season there: 15.4‰ on average in typical years, 17.7‰ in El Niño years (2017–2026). 2026: at least 14.0‰, one reading on about 15-16 Apr 2026 while salt was still rising, not the season's peak (Báo Cần Thơ).",
-     "vi": "Dải ven biển. Trạm gần nhất: Khánh Hòa, ven biển Vĩnh Châu. Độ mặn cao nhất mỗi mùa khô tại trạm: trung bình 15,4‰ trong năm thường, 17,7‰ trong năm El Niño (2017–2026). 2026: ít nhất 14,0‰, một lần đo khoảng 15-16/4/2026 khi mặn còn đang lên, không phải đỉnh mùa (Báo Cần Thơ)."
+     "en": "Coastal strip. Nearest station: Khánh Hòa, on the Vĩnh Châu coast. Highest reading of each dry season there: 15.4‰ on average in typical years, 17.6‰ in El Niño years (2016–2026). 2026: at least 14.0‰, one reading on about 15-16 Apr 2026 while salt was still rising, not the season's peak (Báo Cần Thơ).",
+     "vi": "Dải ven biển. Trạm gần nhất: Khánh Hòa, ven biển Vĩnh Châu. Độ mặn cao nhất mỗi mùa khô tại trạm: trung bình 15,4‰ trong năm thường, 17,6‰ trong năm El Niño (2016–2026). 2026: ít nhất 14,0‰, một lần đo khoảng 15-16/4/2026 khi mặn còn đang lên, không phải đỉnh mùa (Báo Cần Thơ)."
     },
     "station_ppt": 15.4,
     "estimate": true,
-    "seasons": 7,
+    "seasons": 8,
     "last_year": 2022,
     "level": "high",
     "max_ppt": 15.4
@@ -1168,8 +1228,8 @@
        ]
       },
       {
-       "en": "Income 3.0: estimated profit ≈ 95.4 vs 95.4 M ₫/ha a year for 3 rice crops (1.0×; medians of 11 published figures, 2020–2025).",
-       "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 95,4 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 11 số liệu đã công bố, 2020–2025).",
+       "en": "Income 3.0: estimated profit ≈ 95.4 vs 95.4 M ₫/ha a year for 3 rice crops (1.0×; medians of 11 published figures, 2020–2026).",
+       "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 95,4 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 11 số liệu đã công bố, 2020–2026).",
        "src": [
         18,
         19,
@@ -1353,8 +1413,8 @@
        ]
       },
       {
-       "en": "Income 1.9: estimated profit ≈ 65.4 vs 95.4 M ₫/ha a year for 3 rice crops (0.7×; medians of 7 published figures, 2020–2025).",
-       "vi": "Thu nhập 1,9: lợi nhuận ước tính ≈ 65,4 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,7×; trung vị của 7 số liệu đã công bố, 2020–2025).",
+       "en": "Income 1.9: estimated profit ≈ 65.4 vs 95.4 M ₫/ha a year for 3 rice crops (0.7×; medians of 7 published figures, 2020–2026).",
+       "vi": "Thu nhập 1,9: lợi nhuận ước tính ≈ 65,4 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,7×; trung vị của 7 số liệu đã công bố, 2020–2026).",
        "src": [
         18,
         19,
@@ -1460,8 +1520,8 @@
        ]
       },
       {
-       "en": "Income rests on few or widely spread published figures for shrimp and rice in the rice–shrimp field.",
-       "vi": "Thu nhập của tôm và lúa trong ruộng lúa–tôm dựa trên ít số liệu đã công bố, hoặc các số liệu chênh lệch nhau nhiều."
+       "en": "Income rests on few or widely spread published figures for shrimp.",
+       "vi": "Thu nhập của tôm dựa trên ít số liệu đã công bố, hoặc các số liệu chênh lệch nhau nhiều."
       },
       {
        "en": "The salinity station has few recent readings (last: 2022).",
@@ -1492,17 +1552,17 @@
      "water_mm": 340,
      "water_saved": 0.818,
      "profit_range": {
-      "lo": 61.6,
-      "mid": 89.1,
-      "hi": 116.7,
-      "n": 4
+      "lo": 56.5,
+      "mid": 76.2,
+      "hi": 125.8,
+      "n": 7
      },
      "scores": {
       "water": 4.3,
       "salt": 5.0,
       "soil": 1.4,
       "pests": 3.3,
-      "income": 2.8
+      "income": 2.4
      },
      "why": [
       {
@@ -1563,13 +1623,25 @@
        ]
       },
       {
-       "en": "Income 2.8: estimated profit ≈ 89.1 vs 95.4 M ₫/ha a year for 3 rice crops (0.9×; medians of 4 published figures, 2020–2025).",
-       "vi": "Thu nhập 2,8: lợi nhuận ước tính ≈ 89,1 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,9×; trung vị của 4 số liệu đã công bố, 2020–2025).",
+       "en": "Income 2.4: estimated profit ≈ 76.2 vs 95.4 M ₫/ha a year for 3 rice crops (0.8×; medians of 7 published figures, 2020–2026).",
+       "vi": "Thu nhập 2,4: lợi nhuận ước tính ≈ 76,2 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,8×; trung vị của 7 số liệu đã công bố, 2020–2026).",
        "src": [
         40,
         41,
         42,
-        43
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55
        ]
       }
      ],
@@ -1599,13 +1671,13 @@
      "upland": false,
      "needs_brackish": true,
      "cal_src": [
-      44,
-      45
+      56,
+      57
      ],
      "src": [
-      46,
+      58,
       33,
-      47
+      59
      ]
     },
     {
@@ -1657,8 +1729,8 @@
           9,
           10,
           11,
-          50,
-          51
+          62,
+          63
          ]
         },
         {
@@ -1669,7 +1741,7 @@
          "en": "Watermelon here faces melon thrips in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
          "vi": "Dưa hấu ở đây bị bọ trĩ gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
          "src": [
-          49
+          61
          ]
         },
         {
@@ -1711,7 +1783,7 @@
          "en": "We found no report of upland crops on rice land in the former Vĩnh Châu area (it is not in the province's 2025 list): check with your extension officer first.",
          "vi": "Chúng tôi chưa tìm thấy báo cáo nào về trồng màu trên đất lúa ở khu vực Vĩnh Châu cũ (không có trong danh sách năm 2025 của tỉnh): hãy hỏi cán bộ khuyến nông trước.",
          "src": [
-          48
+          60
          ]
         }
        ],
@@ -1776,8 +1848,8 @@
          ]
         },
         {
-         "en": "Income 4.4: estimated profit ≈ 155.4 vs 95.4 M ₫/ha a year for 3 rice crops (1.6×; medians of 12 published figures, 2020–2025).",
-         "vi": "Thu nhập 4,4: lợi nhuận ước tính ≈ 155,4 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (1,6×; trung vị của 12 số liệu đã công bố, 2020–2025).",
+         "en": "Income 4.4: estimated profit ≈ 155.4 vs 95.4 M ₫/ha a year for 3 rice crops (1.6×; medians of 12 published figures, 2020–2026).",
+         "vi": "Thu nhập 4,4: lợi nhuận ước tính ≈ 155,4 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (1,6×; trung vị của 12 số liệu đã công bố, 2020–2026).",
          "src": [
           23,
           24,
@@ -1786,11 +1858,11 @@
           27,
           28,
           29,
-          52,
-          53,
-          54,
-          55,
-          56
+          64,
+          65,
+          66,
+          67,
+          68
          ]
         },
         {
@@ -1836,13 +1908,13 @@
        "upland": true,
        "needs_brackish": false,
        "cal_src": [
-        48,
+        60,
         31
        ],
        "src": [
         2,
         3,
-        57,
+        69,
         35
        ],
        "offered": true
@@ -1891,8 +1963,8 @@
           9,
           10,
           11,
-          50,
-          51
+          62,
+          63
          ]
         },
         {
@@ -1903,7 +1975,7 @@
          "en": "Maize here faces fall armyworm in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
          "vi": "Bắp ở đây bị sâu keo mùa thu gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
          "src": [
-          58
+          70
          ]
         },
         {
@@ -1945,7 +2017,7 @@
          "en": "We found no report of upland crops on rice land in the former Vĩnh Châu area (it is not in the province's 2025 list): check with your extension officer first.",
          "vi": "Chúng tôi chưa tìm thấy báo cáo nào về trồng màu trên đất lúa ở khu vực Vĩnh Châu cũ (không có trong danh sách năm 2025 của tỉnh): hãy hỏi cán bộ khuyến nông trước.",
          "src": [
-          48
+          60
          ]
         }
        ],
@@ -2010,8 +2082,8 @@
          ]
         },
         {
-         "en": "Income 4.4: estimated profit ≈ 155.4 vs 95.4 M ₫/ha a year for 3 rice crops (1.6×; medians of 8 published figures, 2020–2025).",
-         "vi": "Thu nhập 4,4: lợi nhuận ước tính ≈ 155,4 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (1,6×; trung vị của 8 số liệu đã công bố, 2020–2025).",
+         "en": "Income 4.4: estimated profit ≈ 155.4 vs 95.4 M ₫/ha a year for 3 rice crops (1.6×; medians of 8 published figures, 2020–2026).",
+         "vi": "Thu nhập 4,4: lợi nhuận ước tính ≈ 155,4 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (1,6×; trung vị của 8 số liệu đã công bố, 2020–2026).",
          "src": [
           23,
           24,
@@ -2020,7 +2092,7 @@
           27,
           28,
           29,
-          52
+          64
          ]
         },
         {
@@ -2066,13 +2138,13 @@
        "upland": true,
        "needs_brackish": false,
        "cal_src": [
-        48,
+        60,
         31
        ],
        "src": [
         2,
         3,
-        57,
+        69,
         35
        ],
        "offered": true
@@ -2125,8 +2197,8 @@
           9,
           10,
           11,
-          50,
-          51
+          62,
+          63
          ]
         },
         {
@@ -2137,7 +2209,7 @@
          "en": "Mung bean here faces whitefly and pod borer in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
          "vi": "Đậu xanh ở đây bị bọ phấn trắng và sâu đục quả gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
          "src": [
-          59
+          71
          ]
         },
         {
@@ -2179,7 +2251,7 @@
          "en": "We found no report of upland crops on rice land in the former Vĩnh Châu area (it is not in the province's 2025 list): check with your extension officer first.",
          "vi": "Chúng tôi chưa tìm thấy báo cáo nào về trồng màu trên đất lúa ở khu vực Vĩnh Châu cũ (không có trong danh sách năm 2025 của tỉnh): hãy hỏi cán bộ khuyến nông trước.",
          "src": [
-          48
+          60
          ]
         }
        ],
@@ -2280,13 +2352,13 @@
        "upland": true,
        "needs_brackish": false,
        "cal_src": [
-        48,
+        60,
         31
        ],
        "src": [
         2,
         3,
-        57,
+        69,
         35
        ],
        "offered": true
@@ -2423,14 +2495,14 @@
        ]
       },
       {
-       "en": "Income 3.0: estimated profit ≈ 94.5 vs 95.4 M ₫/ha a year for 3 rice crops (1.0×; medians of 5 published figures, 2020–2025).",
-       "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 94,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 5 số liệu đã công bố, 2020–2025).",
+       "en": "Income 3.0: estimated profit ≈ 94.5 vs 95.4 M ₫/ha a year for 3 rice crops (1.0×; medians of 5 published figures, 2020–2026).",
+       "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 94,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 5 số liệu đã công bố, 2020–2026).",
        "src": [
         18,
-        60,
+        72,
         19,
         20,
-        61
+        73
        ]
       },
       {
@@ -2471,7 +2543,7 @@
       31
      ],
      "src": [
-      62,
+      74,
       35
      ]
     }
@@ -2758,15 +2830,15 @@
       5
      ],
      "note": {
-      "en": "Coastal strip. Nearest station: Khánh Hòa, on the Vĩnh Châu coast. Highest reading of each dry season there: 15.4‰ on average in typical years, 17.7‰ in El Niño years (2017–2026). 2026: at least 14.0‰, one reading on about 15-16 Apr 2026 while salt was still rising, not the season's peak (Báo Cần Thơ).",
-      "vi": "Dải ven biển. Trạm gần nhất: Khánh Hòa, ven biển Vĩnh Châu. Độ mặn cao nhất mỗi mùa khô tại trạm: trung bình 15,4‰ trong năm thường, 17,7‰ trong năm El Niño (2017–2026). 2026: ít nhất 14,0‰, một lần đo khoảng 15-16/4/2026 khi mặn còn đang lên, không phải đỉnh mùa (Báo Cần Thơ)."
+      "en": "Coastal strip. Nearest station: Khánh Hòa, on the Vĩnh Châu coast. Highest reading of each dry season there: 15.4‰ on average in typical years, 17.6‰ in El Niño years (2016–2026). 2026: at least 14.0‰, one reading on about 15-16 Apr 2026 while salt was still rising, not the season's peak (Báo Cần Thơ).",
+      "vi": "Dải ven biển. Trạm gần nhất: Khánh Hòa, ven biển Vĩnh Châu. Độ mặn cao nhất mỗi mùa khô tại trạm: trung bình 15,4‰ trong năm thường, 17,6‰ trong năm El Niño (2016–2026). 2026: ít nhất 14,0‰, một lần đo khoảng 15-16/4/2026 khi mặn còn đang lên, không phải đỉnh mùa (Báo Cần Thơ)."
      },
-     "station_ppt": 17.7,
+     "station_ppt": 17.6,
      "estimate": true,
-     "seasons": 7,
+     "seasons": 8,
      "last_year": 2022,
      "level": "high",
-     "max_ppt": 17.7
+     "max_ppt": 17.6
     },
     "cards": [
      {
@@ -2874,8 +2946,8 @@
         ]
        },
        {
-        "en": "Weather & salt 2.2: crops in the field in 4 of 5 salt months (station average peak 17.7‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1295 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 2,2: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,7‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1295 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 2.2: crops in the field in 4 of 5 salt months (station average peak 17.6‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1295 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 2,2: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,6‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1295 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -2903,8 +2975,8 @@
         ]
        },
        {
-        "en": "Income 3.0: estimated profit ≈ 88.9 vs 88.9 M ₫/ha a year for 3 rice crops (1.0×; medians of 11 published figures, 2020–2025).",
-        "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 88,9 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 11 số liệu đã công bố, 2020–2025).",
+        "en": "Income 3.0: estimated profit ≈ 88.9 vs 88.9 M ₫/ha a year for 3 rice crops (1.0×; medians of 11 published figures, 2020–2026).",
+        "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 88,9 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 11 số liệu đã công bố, 2020–2026).",
         "src": [
          18,
          19,
@@ -3059,8 +3131,8 @@
         ]
        },
        {
-        "en": "Weather & salt 2.2: crops in the field in 4 of 5 salt months (station average peak 17.7‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1295 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 2,2: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,7‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1295 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 2.2: crops in the field in 4 of 5 salt months (station average peak 17.6‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1295 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 2,2: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,6‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1295 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -3088,8 +3160,8 @@
         ]
        },
        {
-        "en": "Income 1.8: estimated profit ≈ 58.9 vs 88.9 M ₫/ha a year for 3 rice crops (0.7×; medians of 7 published figures, 2020–2025).",
-        "vi": "Thu nhập 1,8: lợi nhuận ước tính ≈ 58,9 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (0,7×; trung vị của 7 số liệu đã công bố, 2020–2025).",
+        "en": "Income 1.8: estimated profit ≈ 58.9 vs 88.9 M ₫/ha a year for 3 rice crops (0.7×; medians of 7 published figures, 2020–2026).",
+        "vi": "Thu nhập 1,8: lợi nhuận ước tính ≈ 58,9 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (0,7×; trung vị của 7 số liệu đã công bố, 2020–2026).",
         "src": [
          18,
          19,
@@ -3195,8 +3267,8 @@
         ]
        },
        {
-        "en": "Income rests on few or widely spread published figures for shrimp and rice in the rice–shrimp field.",
-        "vi": "Thu nhập của tôm và lúa trong ruộng lúa–tôm dựa trên ít số liệu đã công bố, hoặc các số liệu chênh lệch nhau nhiều."
+        "en": "Income rests on few or widely spread published figures for shrimp.",
+        "vi": "Thu nhập của tôm dựa trên ít số liệu đã công bố, hoặc các số liệu chênh lệch nhau nhiều."
        },
        {
         "en": "The salinity station has few recent readings (last: 2022).",
@@ -3227,17 +3299,17 @@
       "water_mm": 257,
       "water_saved": 0.872,
       "profit_range": {
-       "lo": 61.6,
-       "mid": 89.1,
-       "hi": 116.7,
-       "n": 4
+       "lo": 56.5,
+       "mid": 76.2,
+       "hi": 125.8,
+       "n": 7
       },
       "scores": {
        "water": 4.5,
        "salt": 5.0,
        "soil": 1.4,
        "pests": 3.3,
-       "income": 3.0
+       "income": 2.6
       },
       "why": [
        {
@@ -3255,8 +3327,8 @@
         ]
        },
        {
-        "en": "Weather & salt 5.0: crops in the field in 0 of 5 salt months (station average peak 17.7‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 0 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,7‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 0 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 5.0: crops in the field in 0 of 5 salt months (station average peak 17.6‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 0 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,6‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 0 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -3298,13 +3370,25 @@
         ]
        },
        {
-        "en": "Income 3.0: estimated profit ≈ 89.1 vs 88.9 M ₫/ha a year for 3 rice crops (1.0×; medians of 4 published figures, 2020–2025).",
-        "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 89,1 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 4 số liệu đã công bố, 2020–2025).",
+        "en": "Income 2.6: estimated profit ≈ 76.2 vs 88.9 M ₫/ha a year for 3 rice crops (0.9×; medians of 7 published figures, 2020–2026).",
+        "vi": "Thu nhập 2,6: lợi nhuận ước tính ≈ 76,2 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (0,9×; trung vị của 7 số liệu đã công bố, 2020–2026).",
         "src": [
          40,
          41,
          42,
-         43
+         43,
+         44,
+         45,
+         46,
+         47,
+         48,
+         49,
+         50,
+         51,
+         52,
+         53,
+         54,
+         55
         ]
        }
       ],
@@ -3334,13 +3418,13 @@
       "upland": false,
       "needs_brackish": true,
       "cal_src": [
-       44,
-       45
+       56,
+       57
       ],
       "src": [
-       46,
+       58,
        33,
-       47
+       59
       ]
      },
      {
@@ -3392,8 +3476,8 @@
            9,
            10,
            11,
-           50,
-           51
+           62,
+           63
           ]
          },
          {
@@ -3404,7 +3488,7 @@
           "en": "Watermelon here faces melon thrips in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
           "vi": "Dưa hấu ở đây bị bọ trĩ gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
           "src": [
-           49
+           61
           ]
          },
          {
@@ -3446,7 +3530,7 @@
           "en": "We found no report of upland crops on rice land in the former Vĩnh Châu area (it is not in the province's 2025 list): check with your extension officer first.",
           "vi": "Chúng tôi chưa tìm thấy báo cáo nào về trồng màu trên đất lúa ở khu vực Vĩnh Châu cũ (không có trong danh sách năm 2025 của tỉnh): hãy hỏi cán bộ khuyến nông trước.",
           "src": [
-           48
+           60
           ]
          }
         ],
@@ -3482,8 +3566,8 @@
           ]
          },
          {
-          "en": "Weather & salt 2.4: crops in the field in 4 of 5 salt months (station average peak 17.7‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1030 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 2,4: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,7‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1030 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 2.4: crops in the field in 4 of 5 salt months (station average peak 17.6‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1030 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+          "vi": "Thời tiết & mặn 2,4: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,6‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1030 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -3511,8 +3595,8 @@
           ]
          },
          {
-          "en": "Income 4.4: estimated profit ≈ 142.9 vs 88.9 M ₫/ha a year for 3 rice crops (1.6×; medians of 12 published figures, 2020–2025).",
-          "vi": "Thu nhập 4,4: lợi nhuận ước tính ≈ 142,9 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (1,6×; trung vị của 12 số liệu đã công bố, 2020–2025).",
+          "en": "Income 4.4: estimated profit ≈ 142.9 vs 88.9 M ₫/ha a year for 3 rice crops (1.6×; medians of 12 published figures, 2020–2026).",
+          "vi": "Thu nhập 4,4: lợi nhuận ước tính ≈ 142,9 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (1,6×; trung vị của 12 số liệu đã công bố, 2020–2026).",
           "src": [
            23,
            24,
@@ -3521,11 +3605,11 @@
            27,
            28,
            29,
-           52,
-           53,
-           54,
-           55,
-           56
+           64,
+           65,
+           66,
+           67,
+           68
           ]
          },
          {
@@ -3571,13 +3655,13 @@
         "upland": true,
         "needs_brackish": false,
         "cal_src": [
-         48,
+         60,
          31
         ],
         "src": [
          2,
          3,
-         57,
+         69,
          35
         ],
         "offered": true
@@ -3626,8 +3710,8 @@
            9,
            10,
            11,
-           50,
-           51
+           62,
+           63
           ]
          },
          {
@@ -3638,7 +3722,7 @@
           "en": "Maize here faces fall armyworm in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
           "vi": "Bắp ở đây bị sâu keo mùa thu gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
           "src": [
-           58
+           70
           ]
          },
          {
@@ -3680,7 +3764,7 @@
           "en": "We found no report of upland crops on rice land in the former Vĩnh Châu area (it is not in the province's 2025 list): check with your extension officer first.",
           "vi": "Chúng tôi chưa tìm thấy báo cáo nào về trồng màu trên đất lúa ở khu vực Vĩnh Châu cũ (không có trong danh sách năm 2025 của tỉnh): hãy hỏi cán bộ khuyến nông trước.",
           "src": [
-           48
+           60
           ]
          }
         ],
@@ -3716,8 +3800,8 @@
           ]
          },
          {
-          "en": "Weather & salt 2.4: crops in the field in 4 of 5 salt months (station average peak 17.7‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1018 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 2,4: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,7‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1018 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 2.4: crops in the field in 4 of 5 salt months (station average peak 17.6‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1018 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+          "vi": "Thời tiết & mặn 2,4: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,6‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1018 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -3745,8 +3829,8 @@
           ]
          },
          {
-          "en": "Income 4.4: estimated profit ≈ 142.9 vs 88.9 M ₫/ha a year for 3 rice crops (1.6×; medians of 8 published figures, 2020–2025).",
-          "vi": "Thu nhập 4,4: lợi nhuận ước tính ≈ 142,9 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (1,6×; trung vị của 8 số liệu đã công bố, 2020–2025).",
+          "en": "Income 4.4: estimated profit ≈ 142.9 vs 88.9 M ₫/ha a year for 3 rice crops (1.6×; medians of 8 published figures, 2020–2026).",
+          "vi": "Thu nhập 4,4: lợi nhuận ước tính ≈ 142,9 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (1,6×; trung vị của 8 số liệu đã công bố, 2020–2026).",
           "src": [
            23,
            24,
@@ -3755,7 +3839,7 @@
            27,
            28,
            29,
-           52
+           64
           ]
          },
          {
@@ -3801,13 +3885,13 @@
         "upland": true,
         "needs_brackish": false,
         "cal_src": [
-         48,
+         60,
          31
         ],
         "src": [
          2,
          3,
-         57,
+         69,
          35
         ],
         "offered": true
@@ -3860,8 +3944,8 @@
            9,
            10,
            11,
-           50,
-           51
+           62,
+           63
           ]
          },
          {
@@ -3872,7 +3956,7 @@
           "en": "Mung bean here faces whitefly and pod borer in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
           "vi": "Đậu xanh ở đây bị bọ phấn trắng và sâu đục quả gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
           "src": [
-           59
+           71
           ]
          },
          {
@@ -3914,7 +3998,7 @@
           "en": "We found no report of upland crops on rice land in the former Vĩnh Châu area (it is not in the province's 2025 list): check with your extension officer first.",
           "vi": "Chúng tôi chưa tìm thấy báo cáo nào về trồng màu trên đất lúa ở khu vực Vĩnh Châu cũ (không có trong danh sách năm 2025 của tỉnh): hãy hỏi cán bộ khuyến nông trước.",
           "src": [
-           48
+           60
           ]
          }
         ],
@@ -3944,8 +4028,8 @@
           ]
          },
          {
-          "en": "Weather & salt 2.4: crops in the field in 4 of 5 salt months (station average peak 17.7‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 997 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 2,4: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,7‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 997 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 2.4: crops in the field in 4 of 5 salt months (station average peak 17.6‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 997 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+          "vi": "Thời tiết & mặn 2,4: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,6‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 997 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -4015,13 +4099,13 @@
         "upland": true,
         "needs_brackish": false,
         "cal_src": [
-         48,
+         60,
          31
         ],
         "src": [
          2,
          3,
-         57,
+         69,
          35
         ],
         "offered": true
@@ -4129,8 +4213,8 @@
         ]
        },
        {
-        "en": "Weather & salt 4.1: crops in the field in 2 of 5 salt months (station average peak 17.7‰, estimate from station reports); 0.4 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 679 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 4,1: có cây trồng trên ruộng trong 2/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,7‰, ước tính từ báo cáo trạm); 0,4 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 679 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 4.1: crops in the field in 2 of 5 salt months (station average peak 17.6‰, estimate from station reports); 0.4 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 679 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 4,1: có cây trồng trên ruộng trong 2/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,6‰, ước tính từ báo cáo trạm); 0,4 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 679 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -4158,14 +4242,14 @@
         ]
        },
        {
-        "en": "Income 3.0: estimated profit ≈ 89.8 vs 88.9 M ₫/ha a year for 3 rice crops (1.0×; medians of 5 published figures, 2020–2025).",
-        "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 89,8 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 5 số liệu đã công bố, 2020–2025).",
+        "en": "Income 3.0: estimated profit ≈ 89.8 vs 88.9 M ₫/ha a year for 3 rice crops (1.0×; medians of 5 published figures, 2020–2026).",
+        "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 89,8 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 5 số liệu đã công bố, 2020–2026).",
         "src": [
          18,
-         60,
+         72,
          19,
          20,
-         61
+         73
         ]
        },
        {
@@ -4206,7 +4290,7 @@
        31
       ],
       "src": [
-       62,
+       74,
        35
       ]
      }
@@ -4454,12 +4538,12 @@
      5
     ],
     "note": {
-     "en": "Trần Đề station at the Hậu River mouth, 10 km from the sea. Highest reading of each dry season there: 20.9‰ on average in typical years, 22.7‰ in El Niño years (2017–2025).",
-     "vi": "Trạm Trần Đề ở cửa sông Hậu, cách biển 10 km. Độ mặn cao nhất mỗi mùa khô tại trạm: trung bình 20,9‰ trong năm thường, 22,7‰ trong năm El Niño (2017–2025)."
+     "en": "Trần Đề station at the Hậu River mouth, 10 km from the sea. Highest reading of each dry season there: 20.9‰ on average in typical years, 23.9‰ in El Niño years (2016–2025).",
+     "vi": "Trạm Trần Đề ở cửa sông Hậu, cách biển 10 km. Độ mặn cao nhất mỗi mùa khô tại trạm: trung bình 20,9‰ trong năm thường, 23,9‰ trong năm El Niño (2016–2025)."
     },
     "station_ppt": 20.9,
     "estimate": true,
-    "seasons": 9,
+    "seasons": 10,
     "last_year": 2025,
     "level": "high",
     "max_ppt": 20.9
@@ -4590,8 +4674,8 @@
        ]
       },
       {
-       "en": "Income 3.0: estimated profit ≈ 95.4 vs 95.4 M ₫/ha a year for 3 rice crops (1.0×; medians of 11 published figures, 2020–2025).",
-       "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 95,4 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 11 số liệu đã công bố, 2020–2025).",
+       "en": "Income 3.0: estimated profit ≈ 95.4 vs 95.4 M ₫/ha a year for 3 rice crops (1.0×; medians of 11 published figures, 2020–2026).",
+       "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 95,4 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 11 số liệu đã công bố, 2020–2026).",
        "src": [
         18,
         19,
@@ -4761,8 +4845,8 @@
        ]
       },
       {
-       "en": "Income 1.9: estimated profit ≈ 65.4 vs 95.4 M ₫/ha a year for 3 rice crops (0.7×; medians of 7 published figures, 2020–2025).",
-       "vi": "Thu nhập 1,9: lợi nhuận ước tính ≈ 65,4 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,7×; trung vị của 7 số liệu đã công bố, 2020–2025).",
+       "en": "Income 1.9: estimated profit ≈ 65.4 vs 95.4 M ₫/ha a year for 3 rice crops (0.7×; medians of 7 published figures, 2020–2026).",
+       "vi": "Thu nhập 1,9: lợi nhuận ước tính ≈ 65,4 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,7×; trung vị của 7 số liệu đã công bố, 2020–2026).",
        "src": [
         18,
         19,
@@ -4868,8 +4952,8 @@
        ]
       },
       {
-       "en": "Income rests on few or widely spread published figures for shrimp and rice in the rice–shrimp field.",
-       "vi": "Thu nhập của tôm và lúa trong ruộng lúa–tôm dựa trên ít số liệu đã công bố, hoặc các số liệu chênh lệch nhau nhiều."
+       "en": "Income rests on few or widely spread published figures for shrimp.",
+       "vi": "Thu nhập của tôm dựa trên ít số liệu đã công bố, hoặc các số liệu chênh lệch nhau nhiều."
       },
       {
        "en": "Uses team estimates: soil score weights and dry-break months; salt left by the shrimp phase; break credit for pests; shrimp disease floor and cold-snap rule.",
@@ -4886,17 +4970,17 @@
      "water_mm": 404,
      "water_saved": 0.797,
      "profit_range": {
-      "lo": 61.6,
-      "mid": 89.1,
-      "hi": 116.7,
-      "n": 4
+      "lo": 56.5,
+      "mid": 76.2,
+      "hi": 125.8,
+      "n": 7
      },
      "scores": {
       "water": 4.2,
       "salt": 5.0,
       "soil": 1.4,
       "pests": 3.3,
-      "income": 2.8
+      "income": 2.4
      },
      "why": [
       {
@@ -4957,13 +5041,25 @@
        ]
       },
       {
-       "en": "Income 2.8: estimated profit ≈ 89.1 vs 95.4 M ₫/ha a year for 3 rice crops (0.9×; medians of 4 published figures, 2020–2025).",
-       "vi": "Thu nhập 2,8: lợi nhuận ước tính ≈ 89,1 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,9×; trung vị của 4 số liệu đã công bố, 2020–2025).",
+       "en": "Income 2.4: estimated profit ≈ 76.2 vs 95.4 M ₫/ha a year for 3 rice crops (0.8×; medians of 7 published figures, 2020–2026).",
+       "vi": "Thu nhập 2,4: lợi nhuận ước tính ≈ 76,2 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,8×; trung vị của 7 số liệu đã công bố, 2020–2026).",
        "src": [
         40,
         41,
         42,
-        43
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55
        ]
       }
      ],
@@ -4993,13 +5089,13 @@
      "upland": false,
      "needs_brackish": true,
      "cal_src": [
-      44,
-      45
+      56,
+      57
      ],
      "src": [
-      46,
+      58,
       33,
-      47
+      59
      ]
     },
     {
@@ -5051,8 +5147,8 @@
           9,
           10,
           11,
-          50,
-          51
+          62,
+          63
          ]
         },
         {
@@ -5063,7 +5159,7 @@
          "en": "Watermelon here faces melon thrips in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
          "vi": "Dưa hấu ở đây bị bọ trĩ gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
          "src": [
-          49
+          61
          ]
         },
         {
@@ -5113,8 +5209,8 @@
          "en": "Farmers in the former Trần Đề area grow watermelon and maize on rice land in the dry season.",
          "vi": "Nông dân khu vực Trần Đề cũ trồng dưa hấu và bắp dưới chân ruộng lúa vào mùa khô.",
          "src": [
-          63,
-          64
+          75,
+          76
          ]
         },
         {
@@ -5157,8 +5253,8 @@
          ]
         },
         {
-         "en": "Income 4.4: estimated profit ≈ 155.4 vs 95.4 M ₫/ha a year for 3 rice crops (1.6×; medians of 12 published figures, 2020–2025).",
-         "vi": "Thu nhập 4,4: lợi nhuận ước tính ≈ 155,4 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (1,6×; trung vị của 12 số liệu đã công bố, 2020–2025).",
+         "en": "Income 4.4: estimated profit ≈ 155.4 vs 95.4 M ₫/ha a year for 3 rice crops (1.6×; medians of 12 published figures, 2020–2026).",
+         "vi": "Thu nhập 4,4: lợi nhuận ước tính ≈ 155,4 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (1,6×; trung vị của 12 số liệu đã công bố, 2020–2026).",
          "src": [
           23,
           24,
@@ -5167,11 +5263,11 @@
           27,
           28,
           29,
-          52,
-          53,
-          54,
-          55,
-          56
+          64,
+          65,
+          66,
+          67,
+          68
          ]
         },
         {
@@ -5217,13 +5313,13 @@
        "upland": true,
        "needs_brackish": false,
        "cal_src": [
-        48,
+        60,
         31
        ],
        "src": [
         2,
         3,
-        57,
+        69,
         35
        ],
        "offered": true
@@ -5272,8 +5368,8 @@
           9,
           10,
           11,
-          50,
-          51
+          62,
+          63
          ]
         },
         {
@@ -5284,7 +5380,7 @@
          "en": "Maize here faces fall armyworm in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
          "vi": "Bắp ở đây bị sâu keo mùa thu gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
          "src": [
-          58
+          70
          ]
         },
         {
@@ -5334,8 +5430,8 @@
          "en": "Farmers in the former Trần Đề area grow watermelon and maize on rice land in the dry season.",
          "vi": "Nông dân khu vực Trần Đề cũ trồng dưa hấu và bắp dưới chân ruộng lúa vào mùa khô.",
          "src": [
-          63,
-          64
+          75,
+          76
          ]
         },
         {
@@ -5378,8 +5474,8 @@
          ]
         },
         {
-         "en": "Income 4.4: estimated profit ≈ 155.4 vs 95.4 M ₫/ha a year for 3 rice crops (1.6×; medians of 8 published figures, 2020–2025).",
-         "vi": "Thu nhập 4,4: lợi nhuận ước tính ≈ 155,4 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (1,6×; trung vị của 8 số liệu đã công bố, 2020–2025).",
+         "en": "Income 4.4: estimated profit ≈ 155.4 vs 95.4 M ₫/ha a year for 3 rice crops (1.6×; medians of 8 published figures, 2020–2026).",
+         "vi": "Thu nhập 4,4: lợi nhuận ước tính ≈ 155,4 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (1,6×; trung vị của 8 số liệu đã công bố, 2020–2026).",
          "src": [
           23,
           24,
@@ -5388,7 +5484,7 @@
           27,
           28,
           29,
-          52
+          64
          ]
         },
         {
@@ -5434,13 +5530,13 @@
        "upland": true,
        "needs_brackish": false,
        "cal_src": [
-        48,
+        60,
         31
        ],
        "src": [
         2,
         3,
-        57,
+        69,
         35
        ],
        "offered": true
@@ -5493,8 +5589,8 @@
           9,
           10,
           11,
-          50,
-          51
+          62,
+          63
          ]
         },
         {
@@ -5505,7 +5601,7 @@
          "en": "Mung bean here faces whitefly and pod borer in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
          "vi": "Đậu xanh ở đây bị bọ phấn trắng và sâu đục quả gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
          "src": [
-          59
+          71
          ]
         },
         {
@@ -5549,8 +5645,8 @@
          "en": "Farmers in the former Trần Đề area grow watermelon and maize on rice land in the dry season.",
          "vi": "Nông dân khu vực Trần Đề cũ trồng dưa hấu và bắp dưới chân ruộng lúa vào mùa khô.",
          "src": [
-          63,
-          64
+          75,
+          76
          ]
         },
         {
@@ -5635,13 +5731,13 @@
        "upland": true,
        "needs_brackish": false,
        "cal_src": [
-        48,
+        60,
         31
        ],
        "src": [
         2,
         3,
-        57,
+        69,
         35
        ],
        "offered": true
@@ -5764,14 +5860,14 @@
        ]
       },
       {
-       "en": "Income 3.0: estimated profit ≈ 94.5 vs 95.4 M ₫/ha a year for 3 rice crops (1.0×; medians of 5 published figures, 2020–2025).",
-       "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 94,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 5 số liệu đã công bố, 2020–2025).",
+       "en": "Income 3.0: estimated profit ≈ 94.5 vs 95.4 M ₫/ha a year for 3 rice crops (1.0×; medians of 5 published figures, 2020–2026).",
+       "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 94,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 5 số liệu đã công bố, 2020–2026).",
        "src": [
         18,
-        60,
+        72,
         19,
         20,
-        61
+        73
        ]
       },
       {
@@ -5812,7 +5908,7 @@
       31
      ],
      "src": [
-      62,
+      74,
       35
      ]
     }
@@ -6095,15 +6191,15 @@
       5
      ],
      "note": {
-      "en": "Trần Đề station at the Hậu River mouth, 10 km from the sea. Highest reading of each dry season there: 20.9‰ on average in typical years, 22.7‰ in El Niño years (2017–2025).",
-      "vi": "Trạm Trần Đề ở cửa sông Hậu, cách biển 10 km. Độ mặn cao nhất mỗi mùa khô tại trạm: trung bình 20,9‰ trong năm thường, 22,7‰ trong năm El Niño (2017–2025)."
+      "en": "Trần Đề station at the Hậu River mouth, 10 km from the sea. Highest reading of each dry season there: 20.9‰ on average in typical years, 23.9‰ in El Niño years (2016–2025).",
+      "vi": "Trạm Trần Đề ở cửa sông Hậu, cách biển 10 km. Độ mặn cao nhất mỗi mùa khô tại trạm: trung bình 20,9‰ trong năm thường, 23,9‰ trong năm El Niño (2016–2025)."
      },
-     "station_ppt": 22.7,
+     "station_ppt": 23.9,
      "estimate": true,
-     "seasons": 9,
+     "seasons": 10,
      "last_year": 2025,
      "level": "high",
-     "max_ppt": 22.7
+     "max_ppt": 23.9
     },
     "cards": [
      {
@@ -6197,8 +6293,8 @@
         ]
        },
        {
-        "en": "Weather & salt 2.4: crops in the field in 3 of 4 salt months (station average peak 22.7‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1047 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 2,4: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 22,7‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1047 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 2.4: crops in the field in 3 of 4 salt months (station average peak 23.9‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1047 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 2,4: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 23,9‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1047 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -6226,8 +6322,8 @@
         ]
        },
        {
-        "en": "Income 3.0: estimated profit ≈ 88.9 vs 88.9 M ₫/ha a year for 3 rice crops (1.0×; medians of 11 published figures, 2020–2025).",
-        "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 88,9 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 11 số liệu đã công bố, 2020–2025).",
+        "en": "Income 3.0: estimated profit ≈ 88.9 vs 88.9 M ₫/ha a year for 3 rice crops (1.0×; medians of 11 published figures, 2020–2026).",
+        "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 88,9 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 11 số liệu đã công bố, 2020–2026).",
         "src": [
          18,
          19,
@@ -6368,8 +6464,8 @@
         ]
        },
        {
-        "en": "Weather & salt 2.4: crops in the field in 3 of 4 salt months (station average peak 22.7‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1047 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 2,4: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 22,7‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1047 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 2.4: crops in the field in 3 of 4 salt months (station average peak 23.9‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1047 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 2,4: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 23,9‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1047 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -6397,8 +6493,8 @@
         ]
        },
        {
-        "en": "Income 1.8: estimated profit ≈ 58.9 vs 88.9 M ₫/ha a year for 3 rice crops (0.7×; medians of 7 published figures, 2020–2025).",
-        "vi": "Thu nhập 1,8: lợi nhuận ước tính ≈ 58,9 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (0,7×; trung vị của 7 số liệu đã công bố, 2020–2025).",
+        "en": "Income 1.8: estimated profit ≈ 58.9 vs 88.9 M ₫/ha a year for 3 rice crops (0.7×; medians of 7 published figures, 2020–2026).",
+        "vi": "Thu nhập 1,8: lợi nhuận ước tính ≈ 58,9 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (0,7×; trung vị của 7 số liệu đã công bố, 2020–2026).",
         "src": [
          18,
          19,
@@ -6504,8 +6600,8 @@
         ]
        },
        {
-        "en": "Income rests on few or widely spread published figures for shrimp and rice in the rice–shrimp field.",
-        "vi": "Thu nhập của tôm và lúa trong ruộng lúa–tôm dựa trên ít số liệu đã công bố, hoặc các số liệu chênh lệch nhau nhiều."
+        "en": "Income rests on few or widely spread published figures for shrimp.",
+        "vi": "Thu nhập của tôm dựa trên ít số liệu đã công bố, hoặc các số liệu chênh lệch nhau nhiều."
        },
        {
         "en": "Uses team estimates: soil score weights and dry-break months; salt left by the shrimp phase; break credit for pests; shrimp disease floor and cold-snap rule.",
@@ -6522,17 +6618,17 @@
       "water_mm": 307,
       "water_saved": 0.855,
       "profit_range": {
-       "lo": 61.6,
-       "mid": 89.1,
-       "hi": 116.7,
-       "n": 4
+       "lo": 56.5,
+       "mid": 76.2,
+       "hi": 125.8,
+       "n": 7
       },
       "scores": {
        "water": 4.4,
        "salt": 5.0,
        "soil": 1.4,
        "pests": 3.3,
-       "income": 3.0
+       "income": 2.6
       },
       "why": [
        {
@@ -6550,8 +6646,8 @@
         ]
        },
        {
-        "en": "Weather & salt 5.0: crops in the field in 0 of 4 salt months (station average peak 22.7‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 0 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 22,7‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 0 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 5.0: crops in the field in 0 of 4 salt months (station average peak 23.9‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 0 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 23,9‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 0 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -6593,13 +6689,25 @@
         ]
        },
        {
-        "en": "Income 3.0: estimated profit ≈ 89.1 vs 88.9 M ₫/ha a year for 3 rice crops (1.0×; medians of 4 published figures, 2020–2025).",
-        "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 89,1 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 4 số liệu đã công bố, 2020–2025).",
+        "en": "Income 2.6: estimated profit ≈ 76.2 vs 88.9 M ₫/ha a year for 3 rice crops (0.9×; medians of 7 published figures, 2020–2026).",
+        "vi": "Thu nhập 2,6: lợi nhuận ước tính ≈ 76,2 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (0,9×; trung vị của 7 số liệu đã công bố, 2020–2026).",
         "src": [
          40,
          41,
          42,
-         43
+         43,
+         44,
+         45,
+         46,
+         47,
+         48,
+         49,
+         50,
+         51,
+         52,
+         53,
+         54,
+         55
         ]
        }
       ],
@@ -6629,13 +6737,13 @@
       "upland": false,
       "needs_brackish": true,
       "cal_src": [
-       44,
-       45
+       56,
+       57
       ],
       "src": [
-       46,
+       58,
        33,
-       47
+       59
       ]
      },
      {
@@ -6687,8 +6795,8 @@
            9,
            10,
            11,
-           50,
-           51
+           62,
+           63
           ]
          },
          {
@@ -6699,7 +6807,7 @@
           "en": "Watermelon here faces melon thrips in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
           "vi": "Dưa hấu ở đây bị bọ trĩ gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
           "src": [
-           49
+           61
           ]
          },
          {
@@ -6749,8 +6857,8 @@
           "en": "Farmers in the former Trần Đề area grow watermelon and maize on rice land in the dry season.",
           "vi": "Nông dân khu vực Trần Đề cũ trồng dưa hấu và bắp dưới chân ruộng lúa vào mùa khô.",
           "src": [
-           63,
-           64
+           75,
+           76
           ]
          },
          {
@@ -6764,8 +6872,8 @@
           ]
          },
          {
-          "en": "Weather & salt 2.5: crops in the field in 3 of 4 salt months (station average peak 22.7‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 934 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 2,5: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 22,7‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 934 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 2.5: crops in the field in 3 of 4 salt months (station average peak 23.9‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 934 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+          "vi": "Thời tiết & mặn 2,5: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 23,9‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 934 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -6793,8 +6901,8 @@
           ]
          },
          {
-          "en": "Income 4.4: estimated profit ≈ 142.9 vs 88.9 M ₫/ha a year for 3 rice crops (1.6×; medians of 12 published figures, 2020–2025).",
-          "vi": "Thu nhập 4,4: lợi nhuận ước tính ≈ 142,9 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (1,6×; trung vị của 12 số liệu đã công bố, 2020–2025).",
+          "en": "Income 4.4: estimated profit ≈ 142.9 vs 88.9 M ₫/ha a year for 3 rice crops (1.6×; medians of 12 published figures, 2020–2026).",
+          "vi": "Thu nhập 4,4: lợi nhuận ước tính ≈ 142,9 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (1,6×; trung vị của 12 số liệu đã công bố, 2020–2026).",
           "src": [
            23,
            24,
@@ -6803,11 +6911,11 @@
            27,
            28,
            29,
-           52,
-           53,
-           54,
-           55,
-           56
+           64,
+           65,
+           66,
+           67,
+           68
           ]
          },
          {
@@ -6853,13 +6961,13 @@
         "upland": true,
         "needs_brackish": false,
         "cal_src": [
-         48,
+         60,
          31
         ],
         "src": [
          2,
          3,
-         57,
+         69,
          35
         ],
         "offered": true
@@ -6908,8 +7016,8 @@
            9,
            10,
            11,
-           50,
-           51
+           62,
+           63
           ]
          },
          {
@@ -6920,7 +7028,7 @@
           "en": "Maize here faces fall armyworm in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
           "vi": "Bắp ở đây bị sâu keo mùa thu gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
           "src": [
-           58
+           70
           ]
          },
          {
@@ -6970,8 +7078,8 @@
           "en": "Farmers in the former Trần Đề area grow watermelon and maize on rice land in the dry season.",
           "vi": "Nông dân khu vực Trần Đề cũ trồng dưa hấu và bắp dưới chân ruộng lúa vào mùa khô.",
           "src": [
-           63,
-           64
+           75,
+           76
           ]
          },
          {
@@ -6985,8 +7093,8 @@
           ]
          },
          {
-          "en": "Weather & salt 2.5: crops in the field in 3 of 4 salt months (station average peak 22.7‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 893 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 2,5: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 22,7‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 893 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 2.5: crops in the field in 3 of 4 salt months (station average peak 23.9‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 893 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+          "vi": "Thời tiết & mặn 2,5: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 23,9‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 893 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -7014,8 +7122,8 @@
           ]
          },
          {
-          "en": "Income 4.4: estimated profit ≈ 142.9 vs 88.9 M ₫/ha a year for 3 rice crops (1.6×; medians of 8 published figures, 2020–2025).",
-          "vi": "Thu nhập 4,4: lợi nhuận ước tính ≈ 142,9 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (1,6×; trung vị của 8 số liệu đã công bố, 2020–2025).",
+          "en": "Income 4.4: estimated profit ≈ 142.9 vs 88.9 M ₫/ha a year for 3 rice crops (1.6×; medians of 8 published figures, 2020–2026).",
+          "vi": "Thu nhập 4,4: lợi nhuận ước tính ≈ 142,9 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (1,6×; trung vị của 8 số liệu đã công bố, 2020–2026).",
           "src": [
            23,
            24,
@@ -7024,7 +7132,7 @@
            27,
            28,
            29,
-           52
+           64
           ]
          },
          {
@@ -7070,13 +7178,13 @@
         "upland": true,
         "needs_brackish": false,
         "cal_src": [
-         48,
+         60,
          31
         ],
         "src": [
          2,
          3,
-         57,
+         69,
          35
         ],
         "offered": true
@@ -7129,8 +7237,8 @@
            9,
            10,
            11,
-           50,
-           51
+           62,
+           63
           ]
          },
          {
@@ -7141,7 +7249,7 @@
           "en": "Mung bean here faces whitefly and pod borer in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
           "vi": "Đậu xanh ở đây bị bọ phấn trắng và sâu đục quả gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
           "src": [
-           59
+           71
           ]
          },
          {
@@ -7185,8 +7293,8 @@
           "en": "Farmers in the former Trần Đề area grow watermelon and maize on rice land in the dry season.",
           "vi": "Nông dân khu vực Trần Đề cũ trồng dưa hấu và bắp dưới chân ruộng lúa vào mùa khô.",
           "src": [
-           63,
-           64
+           75,
+           76
           ]
          },
          {
@@ -7200,8 +7308,8 @@
           ]
          },
          {
-          "en": "Weather & salt 2.5: crops in the field in 3 of 4 salt months (station average peak 22.7‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 893 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 2,5: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 22,7‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 893 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 2.5: crops in the field in 3 of 4 salt months (station average peak 23.9‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 893 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+          "vi": "Thời tiết & mặn 2,5: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 23,9‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 893 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -7271,13 +7379,13 @@
         "upland": true,
         "needs_brackish": false,
         "cal_src": [
-         48,
+         60,
          31
         ],
         "src": [
          2,
          3,
-         57,
+         69,
          35
         ],
         "offered": true
@@ -7371,8 +7479,8 @@
         ]
        },
        {
-        "en": "Weather & salt 4.3: crops in the field in 1 of 4 salt months (station average peak 22.7‰, estimate from station reports); 0.4 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 477 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 4,3: có cây trồng trên ruộng trong 1/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 22,7‰, ước tính từ báo cáo trạm); 0,4 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 477 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 4.3: crops in the field in 1 of 4 salt months (station average peak 23.9‰, estimate from station reports); 0.4 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 477 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 4,3: có cây trồng trên ruộng trong 1/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 23,9‰, ước tính từ báo cáo trạm); 0,4 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 477 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -7400,14 +7508,14 @@
         ]
        },
        {
-        "en": "Income 3.1: estimated profit ≈ 92.0 vs 88.9 M ₫/ha a year for 3 rice crops (1.0×; medians of 5 published figures, 2020–2025).",
-        "vi": "Thu nhập 3,1: lợi nhuận ước tính ≈ 92,0 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 5 số liệu đã công bố, 2020–2025).",
+        "en": "Income 3.1: estimated profit ≈ 92.0 vs 88.9 M ₫/ha a year for 3 rice crops (1.0×; medians of 5 published figures, 2020–2026).",
+        "vi": "Thu nhập 3,1: lợi nhuận ước tính ≈ 92,0 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 5 số liệu đã công bố, 2020–2026).",
         "src": [
          18,
-         60,
+         72,
          19,
          20,
-         61
+         73
         ]
        },
        {
@@ -7448,7 +7556,7 @@
        31
       ],
       "src": [
-       62,
+       74,
        35
       ]
      }
@@ -7698,12 +7806,12 @@
      5
     ],
     "note": {
-     "en": "Known rice–shrimp area. Nearest station: Thạnh Phú, on the Nhu Gia canal. Highest reading of each dry season there: 6.4‰ on average in typical years, 10.3‰ in El Niño years (2017–2025).",
-     "vi": "Vùng lúa – tôm truyền thống. Trạm gần nhất: Thạnh Phú, trên kênh Nhu Gia. Độ mặn cao nhất mỗi mùa khô tại trạm: trung bình 6,4‰ trong năm thường, 10,3‰ trong năm El Niño (2017–2025)."
+     "en": "Known rice–shrimp area. Nearest station: Thạnh Phú, on the Nhu Gia canal. Highest reading of each dry season there: 6.4‰ on average in typical years, 11.1‰ in El Niño years (2016–2025).",
+     "vi": "Vùng lúa – tôm truyền thống. Trạm gần nhất: Thạnh Phú, trên kênh Nhu Gia. Độ mặn cao nhất mỗi mùa khô tại trạm: trung bình 6,4‰ trong năm thường, 11,1‰ trong năm El Niño (2016–2025)."
     },
     "station_ppt": 6.4,
     "estimate": true,
-    "seasons": 9,
+    "seasons": 10,
     "last_year": 2025,
     "level": "medium",
     "max_ppt": 6.4
@@ -7834,8 +7942,8 @@
        ]
       },
       {
-       "en": "Income 3.0: estimated profit ≈ 95.4 vs 95.4 M ₫/ha a year for 3 rice crops (1.0×; medians of 11 published figures, 2020–2025).",
-       "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 95,4 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 11 số liệu đã công bố, 2020–2025).",
+       "en": "Income 3.0: estimated profit ≈ 95.4 vs 95.4 M ₫/ha a year for 3 rice crops (1.0×; medians of 11 published figures, 2020–2026).",
+       "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 95,4 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 11 số liệu đã công bố, 2020–2026).",
        "src": [
         18,
         19,
@@ -8005,8 +8113,8 @@
        ]
       },
       {
-       "en": "Income 1.9: estimated profit ≈ 65.4 vs 95.4 M ₫/ha a year for 3 rice crops (0.7×; medians of 7 published figures, 2020–2025).",
-       "vi": "Thu nhập 1,9: lợi nhuận ước tính ≈ 65,4 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,7×; trung vị của 7 số liệu đã công bố, 2020–2025).",
+       "en": "Income 1.9: estimated profit ≈ 65.4 vs 95.4 M ₫/ha a year for 3 rice crops (0.7×; medians of 7 published figures, 2020–2026).",
+       "vi": "Thu nhập 1,9: lợi nhuận ước tính ≈ 65,4 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,7×; trung vị của 7 số liệu đã công bố, 2020–2026).",
        "src": [
         18,
         19,
@@ -8112,8 +8220,8 @@
        ]
       },
       {
-       "en": "Income rests on few or widely spread published figures for shrimp and rice in the rice–shrimp field.",
-       "vi": "Thu nhập của tôm và lúa trong ruộng lúa–tôm dựa trên ít số liệu đã công bố, hoặc các số liệu chênh lệch nhau nhiều."
+       "en": "Income rests on few or widely spread published figures for shrimp.",
+       "vi": "Thu nhập của tôm dựa trên ít số liệu đã công bố, hoặc các số liệu chênh lệch nhau nhiều."
       },
       {
        "en": "Uses team estimates: soil score weights and dry-break months; salt left by the shrimp phase; break credit for pests; shrimp disease floor and cold-snap rule.",
@@ -8130,17 +8238,17 @@
      "water_mm": 291,
      "water_saved": 0.838,
      "profit_range": {
-      "lo": 61.6,
-      "mid": 89.1,
-      "hi": 116.7,
-      "n": 4
+      "lo": 56.5,
+      "mid": 76.2,
+      "hi": 125.8,
+      "n": 7
      },
      "scores": {
       "water": 4.4,
       "salt": 5.0,
       "soil": 1.4,
       "pests": 3.2,
-      "income": 2.8
+      "income": 2.4
      },
      "why": [
       {
@@ -8187,13 +8295,25 @@
        ]
       },
       {
-       "en": "Income 2.8: estimated profit ≈ 89.1 vs 95.4 M ₫/ha a year for 3 rice crops (0.9×; medians of 4 published figures, 2020–2025).",
-       "vi": "Thu nhập 2,8: lợi nhuận ước tính ≈ 89,1 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,9×; trung vị của 4 số liệu đã công bố, 2020–2025).",
+       "en": "Income 2.4: estimated profit ≈ 76.2 vs 95.4 M ₫/ha a year for 3 rice crops (0.8×; medians of 7 published figures, 2020–2026).",
+       "vi": "Thu nhập 2,4: lợi nhuận ước tính ≈ 76,2 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,8×; trung vị của 7 số liệu đã công bố, 2020–2026).",
        "src": [
         40,
         41,
         42,
-        43
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55
        ]
       }
      ],
@@ -8223,13 +8343,13 @@
      "upland": false,
      "needs_brackish": true,
      "cal_src": [
-      44,
-      45
+      56,
+      57
      ],
      "src": [
-      46,
+      58,
       33,
-      47
+      59
      ]
     },
     {
@@ -8281,8 +8401,8 @@
           9,
           10,
           11,
-          50,
-          51
+          62,
+          63
          ]
         },
         {
@@ -8293,7 +8413,7 @@
          "en": "Watermelon here faces melon thrips in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
          "vi": "Dưa hấu ở đây bị bọ trĩ gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
          "src": [
-          49
+          61
          ]
         },
         {
@@ -8343,8 +8463,8 @@
          "en": "Farmers in the former Mỹ Xuyên area grow upland crops on rice land, mostly watermelon.",
          "vi": "Nông dân khu vực Mỹ Xuyên cũ trồng màu dưới chân ruộng lúa, nhiều nhất là dưa hấu.",
          "src": [
-          65,
-          48
+          77,
+          60
          ]
         },
         {
@@ -8387,8 +8507,8 @@
          ]
         },
         {
-         "en": "Income 4.4: estimated profit ≈ 155.4 vs 95.4 M ₫/ha a year for 3 rice crops (1.6×; medians of 12 published figures, 2020–2025).",
-         "vi": "Thu nhập 4,4: lợi nhuận ước tính ≈ 155,4 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (1,6×; trung vị của 12 số liệu đã công bố, 2020–2025).",
+         "en": "Income 4.4: estimated profit ≈ 155.4 vs 95.4 M ₫/ha a year for 3 rice crops (1.6×; medians of 12 published figures, 2020–2026).",
+         "vi": "Thu nhập 4,4: lợi nhuận ước tính ≈ 155,4 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (1,6×; trung vị của 12 số liệu đã công bố, 2020–2026).",
          "src": [
           23,
           24,
@@ -8397,11 +8517,11 @@
           27,
           28,
           29,
-          52,
-          53,
-          54,
-          55,
-          56
+          64,
+          65,
+          66,
+          67,
+          68
          ]
         },
         {
@@ -8415,7 +8535,7 @@
          "en": "NASA HLS NDVI (30 m): fields are usually bare in Mar, May–Jun, Oct.",
          "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T3, T5–T6, T10.",
          "src": [
-          66
+          78
          ]
         }
        ],
@@ -8454,13 +8574,13 @@
        "upland": true,
        "needs_brackish": false,
        "cal_src": [
-        48,
+        60,
         31
        ],
        "src": [
         2,
         3,
-        57,
+        69,
         35
        ],
        "offered": true
@@ -8509,8 +8629,8 @@
           9,
           10,
           11,
-          50,
-          51
+          62,
+          63
          ]
         },
         {
@@ -8521,7 +8641,7 @@
          "en": "Maize here faces fall armyworm in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
          "vi": "Bắp ở đây bị sâu keo mùa thu gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
          "src": [
-          58
+          70
          ]
         },
         {
@@ -8571,8 +8691,8 @@
          "en": "Farmers in the former Mỹ Xuyên area grow upland crops on rice land, mostly watermelon.",
          "vi": "Nông dân khu vực Mỹ Xuyên cũ trồng màu dưới chân ruộng lúa, nhiều nhất là dưa hấu.",
          "src": [
-          65,
-          48
+          77,
+          60
          ]
         },
         {
@@ -8615,8 +8735,8 @@
          ]
         },
         {
-         "en": "Income 4.4: estimated profit ≈ 155.4 vs 95.4 M ₫/ha a year for 3 rice crops (1.6×; medians of 8 published figures, 2020–2025).",
-         "vi": "Thu nhập 4,4: lợi nhuận ước tính ≈ 155,4 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (1,6×; trung vị của 8 số liệu đã công bố, 2020–2025).",
+         "en": "Income 4.4: estimated profit ≈ 155.4 vs 95.4 M ₫/ha a year for 3 rice crops (1.6×; medians of 8 published figures, 2020–2026).",
+         "vi": "Thu nhập 4,4: lợi nhuận ước tính ≈ 155,4 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (1,6×; trung vị của 8 số liệu đã công bố, 2020–2026).",
          "src": [
           23,
           24,
@@ -8625,7 +8745,7 @@
           27,
           28,
           29,
-          52
+          64
          ]
         },
         {
@@ -8639,7 +8759,7 @@
          "en": "NASA HLS NDVI (30 m): fields are usually bare in Mar, May–Jun, Oct.",
          "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T3, T5–T6, T10.",
          "src": [
-          66
+          78
          ]
         }
        ],
@@ -8678,13 +8798,13 @@
        "upland": true,
        "needs_brackish": false,
        "cal_src": [
-        48,
+        60,
         31
        ],
        "src": [
         2,
         3,
-        57,
+        69,
         35
        ],
        "offered": true
@@ -8737,8 +8857,8 @@
           9,
           10,
           11,
-          50,
-          51
+          62,
+          63
          ]
         },
         {
@@ -8749,7 +8869,7 @@
          "en": "Mung bean here faces whitefly and pod borer in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
          "vi": "Đậu xanh ở đây bị bọ phấn trắng và sâu đục quả gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
          "src": [
-          59
+          71
          ]
         },
         {
@@ -8793,8 +8913,8 @@
          "en": "Farmers in the former Mỹ Xuyên area grow upland crops on rice land, mostly watermelon.",
          "vi": "Nông dân khu vực Mỹ Xuyên cũ trồng màu dưới chân ruộng lúa, nhiều nhất là dưa hấu.",
          "src": [
-          65,
-          48
+          77,
+          60
          ]
         },
         {
@@ -8847,7 +8967,7 @@
          "en": "NASA HLS NDVI (30 m): fields are usually bare in Mar, May–Jun, Oct.",
          "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T3, T5–T6, T10.",
          "src": [
-          66
+          78
          ]
         }
        ],
@@ -8886,13 +9006,13 @@
        "upland": true,
        "needs_brackish": false,
        "cal_src": [
-        48,
+        60,
         31
        ],
        "src": [
         2,
         3,
-        57,
+        69,
         35
        ],
        "offered": true
@@ -9015,14 +9135,14 @@
        ]
       },
       {
-       "en": "Income 3.0: estimated profit ≈ 94.5 vs 95.4 M ₫/ha a year for 3 rice crops (1.0×; medians of 5 published figures, 2020–2025).",
-       "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 94,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 5 số liệu đã công bố, 2020–2025).",
+       "en": "Income 3.0: estimated profit ≈ 94.5 vs 95.4 M ₫/ha a year for 3 rice crops (1.0×; medians of 5 published figures, 2020–2026).",
+       "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 94,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 5 số liệu đã công bố, 2020–2026).",
        "src": [
         18,
-        60,
+        72,
         19,
         20,
-        61
+        73
        ]
       },
       {
@@ -9036,7 +9156,7 @@
        "en": "NASA HLS NDVI (30 m): fields are usually bare in Mar, May–Jun, Oct.",
        "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T3, T5–T6, T10.",
        "src": [
-        66
+        78
        ]
       }
      ],
@@ -9070,7 +9190,7 @@
       31
      ],
      "src": [
-      62,
+      74,
       35
      ]
     }
@@ -9354,15 +9474,15 @@
       5
      ],
      "note": {
-      "en": "Known rice–shrimp area. Nearest station: Thạnh Phú, on the Nhu Gia canal. Highest reading of each dry season there: 6.4‰ on average in typical years, 10.3‰ in El Niño years (2017–2025).",
-      "vi": "Vùng lúa – tôm truyền thống. Trạm gần nhất: Thạnh Phú, trên kênh Nhu Gia. Độ mặn cao nhất mỗi mùa khô tại trạm: trung bình 6,4‰ trong năm thường, 10,3‰ trong năm El Niño (2017–2025)."
+      "en": "Known rice–shrimp area. Nearest station: Thạnh Phú, on the Nhu Gia canal. Highest reading of each dry season there: 6.4‰ on average in typical years, 11.1‰ in El Niño years (2016–2025).",
+      "vi": "Vùng lúa – tôm truyền thống. Trạm gần nhất: Thạnh Phú, trên kênh Nhu Gia. Độ mặn cao nhất mỗi mùa khô tại trạm: trung bình 6,4‰ trong năm thường, 11,1‰ trong năm El Niño (2016–2025)."
      },
-     "station_ppt": 10.3,
+     "station_ppt": 11.1,
      "estimate": true,
-     "seasons": 9,
+     "seasons": 10,
      "last_year": 2025,
      "level": "medium",
-     "max_ppt": 10.3
+     "max_ppt": 11.1
     },
     "cards": [
      {
@@ -9439,7 +9559,7 @@
       },
       "scores": {
        "water": 1.0,
-       "salt": 2.2,
+       "salt": 2.1,
        "soil": 1.3,
        "pests": 1.9,
        "income": 3.0
@@ -9456,8 +9576,8 @@
         ]
        },
        {
-        "en": "Weather & salt 2.2: crops in the field in 3 of 4 salt months (station average peak 10.3‰, estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1029 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 2,2: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 10,3‰, ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1029 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 2.1: crops in the field in 3 of 4 salt months (station average peak 11.1‰, estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1029 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 2,1: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 11,1‰, ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1029 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -9485,8 +9605,8 @@
         ]
        },
        {
-        "en": "Income 3.0: estimated profit ≈ 88.9 vs 88.9 M ₫/ha a year for 3 rice crops (1.0×; medians of 11 published figures, 2020–2025).",
-        "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 88,9 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 11 số liệu đã công bố, 2020–2025).",
+        "en": "Income 3.0: estimated profit ≈ 88.9 vs 88.9 M ₫/ha a year for 3 rice crops (1.0×; medians of 11 published figures, 2020–2026).",
+        "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 88,9 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 11 số liệu đã công bố, 2020–2026).",
         "src": [
          18,
          19,
@@ -9610,7 +9730,7 @@
       },
       "scores": {
        "water": 1.3,
-       "salt": 2.2,
+       "salt": 2.1,
        "soil": 2.0,
        "pests": 3.1,
        "income": 1.8
@@ -9627,8 +9747,8 @@
         ]
        },
        {
-        "en": "Weather & salt 2.2: crops in the field in 3 of 4 salt months (station average peak 10.3‰, estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1029 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 2,2: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 10,3‰, ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1029 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 2.1: crops in the field in 3 of 4 salt months (station average peak 11.1‰, estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1029 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 2,1: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 11,1‰, ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1029 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -9656,8 +9776,8 @@
         ]
        },
        {
-        "en": "Income 1.8: estimated profit ≈ 58.9 vs 88.9 M ₫/ha a year for 3 rice crops (0.7×; medians of 7 published figures, 2020–2025).",
-        "vi": "Thu nhập 1,8: lợi nhuận ước tính ≈ 58,9 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (0,7×; trung vị của 7 số liệu đã công bố, 2020–2025).",
+        "en": "Income 1.8: estimated profit ≈ 58.9 vs 88.9 M ₫/ha a year for 3 rice crops (0.7×; medians of 7 published figures, 2020–2026).",
+        "vi": "Thu nhập 1,8: lợi nhuận ước tính ≈ 58,9 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (0,7×; trung vị của 7 số liệu đã công bố, 2020–2026).",
         "src": [
          18,
          19,
@@ -9763,8 +9883,8 @@
         ]
        },
        {
-        "en": "Income rests on few or widely spread published figures for shrimp and rice in the rice–shrimp field.",
-        "vi": "Thu nhập của tôm và lúa trong ruộng lúa–tôm dựa trên ít số liệu đã công bố, hoặc các số liệu chênh lệch nhau nhiều."
+        "en": "Income rests on few or widely spread published figures for shrimp.",
+        "vi": "Thu nhập của tôm dựa trên ít số liệu đã công bố, hoặc các số liệu chênh lệch nhau nhiều."
        },
        {
         "en": "Uses team estimates: soil score weights and dry-break months; salt left by the shrimp phase; break credit for pests; shrimp disease floor and cold-snap rule.",
@@ -9781,17 +9901,17 @@
       "water_mm": 227,
       "water_saved": 0.885,
       "profit_range": {
-       "lo": 61.6,
-       "mid": 89.1,
-       "hi": 116.7,
-       "n": 4
+       "lo": 56.5,
+       "mid": 76.2,
+       "hi": 125.8,
+       "n": 7
       },
       "scores": {
        "water": 4.5,
        "salt": 5.0,
        "soil": 1.4,
        "pests": 3.0,
-       "income": 3.0
+       "income": 2.6
       },
       "why": [
        {
@@ -9809,8 +9929,8 @@
         ]
        },
        {
-        "en": "Weather & salt 5.0: crops in the field in 0 of 4 salt months (station average peak 10.3‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 0 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 10,3‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 0 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 5.0: crops in the field in 0 of 4 salt months (station average peak 11.1‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 0 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 11,1‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 0 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -9838,13 +9958,25 @@
         ]
        },
        {
-        "en": "Income 3.0: estimated profit ≈ 89.1 vs 88.9 M ₫/ha a year for 3 rice crops (1.0×; medians of 4 published figures, 2020–2025).",
-        "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 89,1 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 4 số liệu đã công bố, 2020–2025).",
+        "en": "Income 2.6: estimated profit ≈ 76.2 vs 88.9 M ₫/ha a year for 3 rice crops (0.9×; medians of 7 published figures, 2020–2026).",
+        "vi": "Thu nhập 2,6: lợi nhuận ước tính ≈ 76,2 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (0,9×; trung vị của 7 số liệu đã công bố, 2020–2026).",
         "src": [
          40,
          41,
          42,
-         43
+         43,
+         44,
+         45,
+         46,
+         47,
+         48,
+         49,
+         50,
+         51,
+         52,
+         53,
+         54,
+         55
         ]
        }
       ],
@@ -9874,13 +10006,13 @@
       "upland": false,
       "needs_brackish": true,
       "cal_src": [
-       44,
-       45
+       56,
+       57
       ],
       "src": [
-       46,
+       58,
        33,
-       47
+       59
       ]
      },
      {
@@ -9932,8 +10064,8 @@
            9,
            10,
            11,
-           50,
-           51
+           62,
+           63
           ]
          },
          {
@@ -9944,7 +10076,7 @@
           "en": "Watermelon here faces melon thrips in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
           "vi": "Dưa hấu ở đây bị bọ trĩ gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
           "src": [
-           49
+           61
           ]
          },
          {
@@ -9980,7 +10112,7 @@
         },
         "scores": {
          "water": 2.4,
-         "salt": 2.3,
+         "salt": 2.2,
          "soil": 2.1,
          "pests": 2.9,
          "income": 4.4
@@ -9994,8 +10126,8 @@
           "en": "Farmers in the former Mỹ Xuyên area grow upland crops on rice land, mostly watermelon.",
           "vi": "Nông dân khu vực Mỹ Xuyên cũ trồng màu dưới chân ruộng lúa, nhiều nhất là dưa hấu.",
           "src": [
-           65,
-           48
+           77,
+           60
           ]
          },
          {
@@ -10009,8 +10141,8 @@
           ]
          },
          {
-          "en": "Weather & salt 2.3: crops in the field in 3 of 4 salt months (station average peak 10.3‰, estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 916 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 2,3: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 10,3‰, ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 916 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 2.2: crops in the field in 3 of 4 salt months (station average peak 11.1‰, estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 916 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+          "vi": "Thời tiết & mặn 2,2: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 11,1‰, ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 916 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -10038,8 +10170,8 @@
           ]
          },
          {
-          "en": "Income 4.4: estimated profit ≈ 142.9 vs 88.9 M ₫/ha a year for 3 rice crops (1.6×; medians of 12 published figures, 2020–2025).",
-          "vi": "Thu nhập 4,4: lợi nhuận ước tính ≈ 142,9 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (1,6×; trung vị của 12 số liệu đã công bố, 2020–2025).",
+          "en": "Income 4.4: estimated profit ≈ 142.9 vs 88.9 M ₫/ha a year for 3 rice crops (1.6×; medians of 12 published figures, 2020–2026).",
+          "vi": "Thu nhập 4,4: lợi nhuận ước tính ≈ 142,9 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (1,6×; trung vị của 12 số liệu đã công bố, 2020–2026).",
           "src": [
            23,
            24,
@@ -10048,11 +10180,11 @@
            27,
            28,
            29,
-           52,
-           53,
-           54,
-           55,
-           56
+           64,
+           65,
+           66,
+           67,
+           68
           ]
          },
          {
@@ -10066,7 +10198,7 @@
           "en": "NASA HLS NDVI (30 m): fields are usually bare in Mar, May–Jun, Oct.",
           "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T3, T5–T6, T10.",
           "src": [
-           66
+           78
           ]
          }
         ],
@@ -10105,13 +10237,13 @@
         "upland": true,
         "needs_brackish": false,
         "cal_src": [
-         48,
+         60,
          31
         ],
         "src": [
          2,
          3,
-         57,
+         69,
          35
         ],
         "offered": true
@@ -10160,8 +10292,8 @@
            9,
            10,
            11,
-           50,
-           51
+           62,
+           63
           ]
          },
          {
@@ -10172,7 +10304,7 @@
           "en": "Maize here faces fall armyworm in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
           "vi": "Bắp ở đây bị sâu keo mùa thu gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
           "src": [
-           58
+           70
           ]
          },
          {
@@ -10208,7 +10340,7 @@
         },
         "scores": {
          "water": 2.4,
-         "salt": 2.3,
+         "salt": 2.2,
          "soil": 2.1,
          "pests": 2.9,
          "income": 4.4
@@ -10222,8 +10354,8 @@
           "en": "Farmers in the former Mỹ Xuyên area grow upland crops on rice land, mostly watermelon.",
           "vi": "Nông dân khu vực Mỹ Xuyên cũ trồng màu dưới chân ruộng lúa, nhiều nhất là dưa hấu.",
           "src": [
-           65,
-           48
+           77,
+           60
           ]
          },
          {
@@ -10237,8 +10369,8 @@
           ]
          },
          {
-          "en": "Weather & salt 2.3: crops in the field in 3 of 4 salt months (station average peak 10.3‰, estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 870 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 2,3: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 10,3‰, ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 870 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 2.2: crops in the field in 3 of 4 salt months (station average peak 11.1‰, estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 870 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+          "vi": "Thời tiết & mặn 2,2: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 11,1‰, ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 870 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -10266,8 +10398,8 @@
           ]
          },
          {
-          "en": "Income 4.4: estimated profit ≈ 142.9 vs 88.9 M ₫/ha a year for 3 rice crops (1.6×; medians of 8 published figures, 2020–2025).",
-          "vi": "Thu nhập 4,4: lợi nhuận ước tính ≈ 142,9 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (1,6×; trung vị của 8 số liệu đã công bố, 2020–2025).",
+          "en": "Income 4.4: estimated profit ≈ 142.9 vs 88.9 M ₫/ha a year for 3 rice crops (1.6×; medians of 8 published figures, 2020–2026).",
+          "vi": "Thu nhập 4,4: lợi nhuận ước tính ≈ 142,9 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (1,6×; trung vị của 8 số liệu đã công bố, 2020–2026).",
           "src": [
            23,
            24,
@@ -10276,7 +10408,7 @@
            27,
            28,
            29,
-           52
+           64
           ]
          },
          {
@@ -10290,7 +10422,7 @@
           "en": "NASA HLS NDVI (30 m): fields are usually bare in Mar, May–Jun, Oct.",
           "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T3, T5–T6, T10.",
           "src": [
-           66
+           78
           ]
          }
         ],
@@ -10329,13 +10461,13 @@
         "upland": true,
         "needs_brackish": false,
         "cal_src": [
-         48,
+         60,
          31
         ],
         "src": [
          2,
          3,
-         57,
+         69,
          35
         ],
         "offered": true
@@ -10388,8 +10520,8 @@
            9,
            10,
            11,
-           50,
-           51
+           62,
+           63
           ]
          },
          {
@@ -10400,7 +10532,7 @@
           "en": "Mung bean here faces whitefly and pod borer in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
           "vi": "Đậu xanh ở đây bị bọ phấn trắng và sâu đục quả gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
           "src": [
-           59
+           71
           ]
          },
          {
@@ -10430,7 +10562,7 @@
         "water_saved": 0.368,
         "scores": {
          "water": 2.5,
-         "salt": 2.3,
+         "salt": 2.2,
          "soil": 3.9,
          "pests": 2.9,
          "income": null
@@ -10444,8 +10576,8 @@
           "en": "Farmers in the former Mỹ Xuyên area grow upland crops on rice land, mostly watermelon.",
           "vi": "Nông dân khu vực Mỹ Xuyên cũ trồng màu dưới chân ruộng lúa, nhiều nhất là dưa hấu.",
           "src": [
-           65,
-           48
+           77,
+           60
           ]
          },
          {
@@ -10459,8 +10591,8 @@
           ]
          },
          {
-          "en": "Weather & salt 2.3: crops in the field in 3 of 4 salt months (station average peak 10.3‰, estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 870 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 2,3: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 10,3‰, ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 870 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 2.2: crops in the field in 3 of 4 salt months (station average peak 11.1‰, estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 870 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+          "vi": "Thời tiết & mặn 2,2: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 11,1‰, ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 870 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -10498,7 +10630,7 @@
           "en": "NASA HLS NDVI (30 m): fields are usually bare in Mar, May–Jun, Oct.",
           "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T3, T5–T6, T10.",
           "src": [
-           66
+           78
           ]
          }
         ],
@@ -10537,13 +10669,13 @@
         "upland": true,
         "needs_brackish": false,
         "cal_src": [
-         48,
+         60,
          31
         ],
         "src": [
          2,
          3,
-         57,
+         69,
          35
         ],
         "offered": true
@@ -10616,7 +10748,7 @@
       },
       "scores": {
        "water": 2.7,
-       "salt": 4.2,
+       "salt": 4.1,
        "soil": 2.8,
        "pests": 3.0,
        "income": 3.1
@@ -10637,8 +10769,8 @@
         ]
        },
        {
-        "en": "Weather & salt 4.2: crops in the field in 1 of 4 salt months (station average peak 10.3‰, estimate from station reports); 10.8 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 442 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 4,2: có cây trồng trên ruộng trong 1/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 10,3‰, ước tính từ báo cáo trạm); 10,8 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 442 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 4.1: crops in the field in 1 of 4 salt months (station average peak 11.1‰, estimate from station reports); 10.8 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 442 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 4,1: có cây trồng trên ruộng trong 1/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 11,1‰, ước tính từ báo cáo trạm); 10,8 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 442 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -10666,14 +10798,14 @@
         ]
        },
        {
-        "en": "Income 3.1: estimated profit ≈ 92.0 vs 88.9 M ₫/ha a year for 3 rice crops (1.0×; medians of 5 published figures, 2020–2025).",
-        "vi": "Thu nhập 3,1: lợi nhuận ước tính ≈ 92,0 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 5 số liệu đã công bố, 2020–2025).",
+        "en": "Income 3.1: estimated profit ≈ 92.0 vs 88.9 M ₫/ha a year for 3 rice crops (1.0×; medians of 5 published figures, 2020–2026).",
+        "vi": "Thu nhập 3,1: lợi nhuận ước tính ≈ 92,0 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 5 số liệu đã công bố, 2020–2026).",
         "src": [
          18,
-         60,
+         72,
          19,
          20,
-         61
+         73
         ]
        },
        {
@@ -10687,7 +10819,7 @@
         "en": "NASA HLS NDVI (30 m): fields are usually bare in Mar, May–Jun, Oct.",
         "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T3, T5–T6, T10.",
         "src": [
-         66
+         78
         ]
        }
       ],
@@ -10721,7 +10853,7 @@
        31
       ],
       "src": [
-       62,
+       74,
        35
       ]
      }
@@ -10967,12 +11099,12 @@
      4
     ],
     "note": {
-     "en": "Along the Hậu River. Long Phú station, 15 km from the sea; in 2019–20 salt arrived from mid-December. Highest reading of each dry season there: 16.8‰ on average in typical years, 18.5‰ in El Niño years (2017–2025).",
-     "vi": "Dọc sông Hậu. Trạm Long Phú, cách biển 15 km; mùa khô 2019–20 mặn đến từ giữa tháng 12. Độ mặn cao nhất mỗi mùa khô tại trạm: trung bình 16,8‰ trong năm thường, 18,5‰ trong năm El Niño (2017–2025)."
+     "en": "Along the Hậu River. Long Phú station, 15 km from the sea; in 2019–20 salt arrived from mid-December. Highest reading of each dry season there: 16.8‰ on average in typical years, 19.6‰ in El Niño years (2016–2025).",
+     "vi": "Dọc sông Hậu. Trạm Long Phú, cách biển 15 km; mùa khô 2019–20 mặn đến từ giữa tháng 12. Độ mặn cao nhất mỗi mùa khô tại trạm: trung bình 16,8‰ trong năm thường, 19,6‰ trong năm El Niño (2016–2025)."
     },
     "station_ppt": 16.8,
     "estimate": true,
-    "seasons": 9,
+    "seasons": 10,
     "last_year": 2025,
     "level": "high",
     "max_ppt": 16.8
@@ -11103,8 +11235,8 @@
        ]
       },
       {
-       "en": "Income 3.0: estimated profit ≈ 95.4 vs 95.4 M ₫/ha a year for 3 rice crops (1.0×; medians of 11 published figures, 2020–2025).",
-       "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 95,4 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 11 số liệu đã công bố, 2020–2025).",
+       "en": "Income 3.0: estimated profit ≈ 95.4 vs 95.4 M ₫/ha a year for 3 rice crops (1.0×; medians of 11 published figures, 2020–2026).",
+       "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 95,4 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 11 số liệu đã công bố, 2020–2026).",
        "src": [
         18,
         19,
@@ -11274,8 +11406,8 @@
        ]
       },
       {
-       "en": "Income 1.9: estimated profit ≈ 65.4 vs 95.4 M ₫/ha a year for 3 rice crops (0.7×; medians of 7 published figures, 2020–2025).",
-       "vi": "Thu nhập 1,9: lợi nhuận ước tính ≈ 65,4 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,7×; trung vị của 7 số liệu đã công bố, 2020–2025).",
+       "en": "Income 1.9: estimated profit ≈ 65.4 vs 95.4 M ₫/ha a year for 3 rice crops (0.7×; medians of 7 published figures, 2020–2026).",
+       "vi": "Thu nhập 1,9: lợi nhuận ước tính ≈ 65,4 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,7×; trung vị của 7 số liệu đã công bố, 2020–2026).",
        "src": [
         18,
         19,
@@ -11381,8 +11513,8 @@
        ]
       },
       {
-       "en": "Income rests on few or widely spread published figures for shrimp and rice in the rice–shrimp field.",
-       "vi": "Thu nhập của tôm và lúa trong ruộng lúa–tôm dựa trên ít số liệu đã công bố, hoặc các số liệu chênh lệch nhau nhiều."
+       "en": "Income rests on few or widely spread published figures for shrimp.",
+       "vi": "Thu nhập của tôm dựa trên ít số liệu đã công bố, hoặc các số liệu chênh lệch nhau nhiều."
       },
       {
        "en": "Uses team estimates: soil score weights and dry-break months; salt left by the shrimp phase; break credit for pests; shrimp disease floor and cold-snap rule.",
@@ -11399,17 +11531,17 @@
      "water_mm": 413,
      "water_saved": 0.796,
      "profit_range": {
-      "lo": 61.6,
-      "mid": 89.1,
-      "hi": 116.7,
-      "n": 4
+      "lo": 56.5,
+      "mid": 76.2,
+      "hi": 125.8,
+      "n": 7
      },
      "scores": {
       "water": 4.2,
       "salt": 5.0,
       "soil": 1.4,
       "pests": 3.3,
-      "income": 2.8
+      "income": 2.4
      },
      "why": [
       {
@@ -11470,13 +11602,25 @@
        ]
       },
       {
-       "en": "Income 2.8: estimated profit ≈ 89.1 vs 95.4 M ₫/ha a year for 3 rice crops (0.9×; medians of 4 published figures, 2020–2025).",
-       "vi": "Thu nhập 2,8: lợi nhuận ước tính ≈ 89,1 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,9×; trung vị của 4 số liệu đã công bố, 2020–2025).",
+       "en": "Income 2.4: estimated profit ≈ 76.2 vs 95.4 M ₫/ha a year for 3 rice crops (0.8×; medians of 7 published figures, 2020–2026).",
+       "vi": "Thu nhập 2,4: lợi nhuận ước tính ≈ 76,2 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,8×; trung vị của 7 số liệu đã công bố, 2020–2026).",
        "src": [
         40,
         41,
         42,
-        43
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55
        ]
       }
      ],
@@ -11506,13 +11650,13 @@
      "upland": false,
      "needs_brackish": true,
      "cal_src": [
-      44,
-      45
+      56,
+      57
      ],
      "src": [
-      46,
+      58,
       33,
-      47
+      59
      ]
     },
     {
@@ -11564,8 +11708,8 @@
           9,
           10,
           11,
-          50,
-          51
+          62,
+          63
          ]
         },
         {
@@ -11576,7 +11720,7 @@
          "en": "Watermelon here faces melon thrips in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
          "vi": "Dưa hấu ở đây bị bọ trĩ gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
          "src": [
-          49
+          61
          ]
         },
         {
@@ -11626,7 +11770,7 @@
          "en": "The former Long Phú area is among the districts growing upland crops on rice land (province report, 2025), but no report we found names which crops.",
          "vi": "Khu vực Long Phú cũ nằm trong các huyện có trồng màu dưới chân ruộng (báo cáo của tỉnh, 2025), nhưng chưa có báo cáo nào chúng tôi tìm thấy nêu rõ là cây gì.",
          "src": [
-          48
+          60
          ]
         },
         {
@@ -11669,8 +11813,8 @@
          ]
         },
         {
-         "en": "Income 4.4: estimated profit ≈ 155.4 vs 95.4 M ₫/ha a year for 3 rice crops (1.6×; medians of 12 published figures, 2020–2025).",
-         "vi": "Thu nhập 4,4: lợi nhuận ước tính ≈ 155,4 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (1,6×; trung vị của 12 số liệu đã công bố, 2020–2025).",
+         "en": "Income 4.4: estimated profit ≈ 155.4 vs 95.4 M ₫/ha a year for 3 rice crops (1.6×; medians of 12 published figures, 2020–2026).",
+         "vi": "Thu nhập 4,4: lợi nhuận ước tính ≈ 155,4 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (1,6×; trung vị của 12 số liệu đã công bố, 2020–2026).",
          "src": [
           23,
           24,
@@ -11679,11 +11823,11 @@
           27,
           28,
           29,
-          52,
-          53,
-          54,
-          55,
-          56
+          64,
+          65,
+          66,
+          67,
+          68
          ]
         },
         {
@@ -11697,7 +11841,7 @@
          "en": "NASA HLS NDVI (30 m): fields are usually bare in Sep.",
          "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T9.",
          "src": [
-          66
+          78
          ]
         }
        ],
@@ -11736,13 +11880,13 @@
        "upland": true,
        "needs_brackish": false,
        "cal_src": [
-        48,
+        60,
         31
        ],
        "src": [
         2,
         3,
-        57,
+        69,
         35
        ],
        "offered": true
@@ -11791,8 +11935,8 @@
           9,
           10,
           11,
-          50,
-          51
+          62,
+          63
          ]
         },
         {
@@ -11803,7 +11947,7 @@
          "en": "Maize here faces fall armyworm in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
          "vi": "Bắp ở đây bị sâu keo mùa thu gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
          "src": [
-          58
+          70
          ]
         },
         {
@@ -11853,7 +11997,7 @@
          "en": "The former Long Phú area is among the districts growing upland crops on rice land (province report, 2025), but no report we found names which crops.",
          "vi": "Khu vực Long Phú cũ nằm trong các huyện có trồng màu dưới chân ruộng (báo cáo của tỉnh, 2025), nhưng chưa có báo cáo nào chúng tôi tìm thấy nêu rõ là cây gì.",
          "src": [
-          48
+          60
          ]
         },
         {
@@ -11896,8 +12040,8 @@
          ]
         },
         {
-         "en": "Income 4.4: estimated profit ≈ 155.4 vs 95.4 M ₫/ha a year for 3 rice crops (1.6×; medians of 8 published figures, 2020–2025).",
-         "vi": "Thu nhập 4,4: lợi nhuận ước tính ≈ 155,4 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (1,6×; trung vị của 8 số liệu đã công bố, 2020–2025).",
+         "en": "Income 4.4: estimated profit ≈ 155.4 vs 95.4 M ₫/ha a year for 3 rice crops (1.6×; medians of 8 published figures, 2020–2026).",
+         "vi": "Thu nhập 4,4: lợi nhuận ước tính ≈ 155,4 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (1,6×; trung vị của 8 số liệu đã công bố, 2020–2026).",
          "src": [
           23,
           24,
@@ -11906,7 +12050,7 @@
           27,
           28,
           29,
-          52
+          64
          ]
         },
         {
@@ -11920,7 +12064,7 @@
          "en": "NASA HLS NDVI (30 m): fields are usually bare in Sep.",
          "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T9.",
          "src": [
-          66
+          78
          ]
         }
        ],
@@ -11959,13 +12103,13 @@
        "upland": true,
        "needs_brackish": false,
        "cal_src": [
-        48,
+        60,
         31
        ],
        "src": [
         2,
         3,
-        57,
+        69,
         35
        ],
        "offered": true
@@ -12018,8 +12162,8 @@
           9,
           10,
           11,
-          50,
-          51
+          62,
+          63
          ]
         },
         {
@@ -12030,7 +12174,7 @@
          "en": "Mung bean here faces whitefly and pod borer in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
          "vi": "Đậu xanh ở đây bị bọ phấn trắng và sâu đục quả gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
          "src": [
-          59
+          71
          ]
         },
         {
@@ -12074,7 +12218,7 @@
          "en": "The former Long Phú area is among the districts growing upland crops on rice land (province report, 2025), but no report we found names which crops.",
          "vi": "Khu vực Long Phú cũ nằm trong các huyện có trồng màu dưới chân ruộng (báo cáo của tỉnh, 2025), nhưng chưa có báo cáo nào chúng tôi tìm thấy nêu rõ là cây gì.",
          "src": [
-          48
+          60
          ]
         },
         {
@@ -12127,7 +12271,7 @@
          "en": "NASA HLS NDVI (30 m): fields are usually bare in Sep.",
          "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T9.",
          "src": [
-          66
+          78
          ]
         }
        ],
@@ -12166,13 +12310,13 @@
        "upland": true,
        "needs_brackish": false,
        "cal_src": [
-        48,
+        60,
         31
        ],
        "src": [
         2,
         3,
-        57,
+        69,
         35
        ],
        "offered": true
@@ -12295,14 +12439,14 @@
        ]
       },
       {
-       "en": "Income 3.0: estimated profit ≈ 94.5 vs 95.4 M ₫/ha a year for 3 rice crops (1.0×; medians of 5 published figures, 2020–2025).",
-       "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 94,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 5 số liệu đã công bố, 2020–2025).",
+       "en": "Income 3.0: estimated profit ≈ 94.5 vs 95.4 M ₫/ha a year for 3 rice crops (1.0×; medians of 5 published figures, 2020–2026).",
+       "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 94,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 5 số liệu đã công bố, 2020–2026).",
        "src": [
         18,
-        60,
+        72,
         19,
         20,
-        61
+        73
        ]
       },
       {
@@ -12316,7 +12460,7 @@
        "en": "NASA HLS NDVI (30 m): fields are usually bare in Sep.",
        "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T9.",
        "src": [
-        66
+        78
        ]
       }
      ],
@@ -12350,7 +12494,7 @@
       31
      ],
      "src": [
-      62,
+      74,
       35
      ]
     }
@@ -12628,15 +12772,15 @@
       4
      ],
      "note": {
-      "en": "Along the Hậu River. Long Phú station, 15 km from the sea; in 2019–20 salt arrived from mid-December. Highest reading of each dry season there: 16.8‰ on average in typical years, 18.5‰ in El Niño years (2017–2025).",
-      "vi": "Dọc sông Hậu. Trạm Long Phú, cách biển 15 km; mùa khô 2019–20 mặn đến từ giữa tháng 12. Độ mặn cao nhất mỗi mùa khô tại trạm: trung bình 16,8‰ trong năm thường, 18,5‰ trong năm El Niño (2017–2025)."
+      "en": "Along the Hậu River. Long Phú station, 15 km from the sea; in 2019–20 salt arrived from mid-December. Highest reading of each dry season there: 16.8‰ on average in typical years, 19.6‰ in El Niño years (2016–2025).",
+      "vi": "Dọc sông Hậu. Trạm Long Phú, cách biển 15 km; mùa khô 2019–20 mặn đến từ giữa tháng 12. Độ mặn cao nhất mỗi mùa khô tại trạm: trung bình 16,8‰ trong năm thường, 19,6‰ trong năm El Niño (2016–2025)."
      },
-     "station_ppt": 18.5,
+     "station_ppt": 19.6,
      "estimate": true,
-     "seasons": 9,
+     "seasons": 10,
      "last_year": 2025,
      "level": "high",
-     "max_ppt": 18.5
+     "max_ppt": 19.6
     },
     "cards": [
      {
@@ -12730,8 +12874,8 @@
         ]
        },
        {
-        "en": "Weather & salt 2.6: crops in the field in 2 of 3 salt months (station average peak 18.5‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 846 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 2,6: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 18,5‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 846 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 2.6: crops in the field in 2 of 3 salt months (station average peak 19.6‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 846 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 2,6: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 19,6‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 846 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -12759,8 +12903,8 @@
         ]
        },
        {
-        "en": "Income 3.0: estimated profit ≈ 88.9 vs 88.9 M ₫/ha a year for 3 rice crops (1.0×; medians of 11 published figures, 2020–2025).",
-        "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 88,9 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 11 số liệu đã công bố, 2020–2025).",
+        "en": "Income 3.0: estimated profit ≈ 88.9 vs 88.9 M ₫/ha a year for 3 rice crops (1.0×; medians of 11 published figures, 2020–2026).",
+        "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 88,9 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 11 số liệu đã công bố, 2020–2026).",
         "src": [
          18,
          19,
@@ -12901,8 +13045,8 @@
         ]
        },
        {
-        "en": "Weather & salt 2.6: crops in the field in 2 of 3 salt months (station average peak 18.5‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 846 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 2,6: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 18,5‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 846 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 2.6: crops in the field in 2 of 3 salt months (station average peak 19.6‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 846 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 2,6: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 19,6‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 846 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -12930,8 +13074,8 @@
         ]
        },
        {
-        "en": "Income 1.8: estimated profit ≈ 58.9 vs 88.9 M ₫/ha a year for 3 rice crops (0.7×; medians of 7 published figures, 2020–2025).",
-        "vi": "Thu nhập 1,8: lợi nhuận ước tính ≈ 58,9 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (0,7×; trung vị của 7 số liệu đã công bố, 2020–2025).",
+        "en": "Income 1.8: estimated profit ≈ 58.9 vs 88.9 M ₫/ha a year for 3 rice crops (0.7×; medians of 7 published figures, 2020–2026).",
+        "vi": "Thu nhập 1,8: lợi nhuận ước tính ≈ 58,9 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (0,7×; trung vị của 7 số liệu đã công bố, 2020–2026).",
         "src": [
          18,
          19,
@@ -13037,8 +13181,8 @@
         ]
        },
        {
-        "en": "Income rests on few or widely spread published figures for shrimp and rice in the rice–shrimp field.",
-        "vi": "Thu nhập của tôm và lúa trong ruộng lúa–tôm dựa trên ít số liệu đã công bố, hoặc các số liệu chênh lệch nhau nhiều."
+        "en": "Income rests on few or widely spread published figures for shrimp.",
+        "vi": "Thu nhập của tôm dựa trên ít số liệu đã công bố, hoặc các số liệu chênh lệch nhau nhiều."
        },
        {
         "en": "Uses team estimates: soil score weights and dry-break months; salt left by the shrimp phase; break credit for pests; shrimp disease floor and cold-snap rule.",
@@ -13055,17 +13199,17 @@
       "water_mm": 341,
       "water_saved": 0.842,
       "profit_range": {
-       "lo": 61.6,
-       "mid": 89.1,
-       "hi": 116.7,
-       "n": 4
+       "lo": 56.5,
+       "mid": 76.2,
+       "hi": 125.8,
+       "n": 7
       },
       "scores": {
        "water": 4.4,
        "salt": 5.0,
        "soil": 1.4,
        "pests": 3.3,
-       "income": 3.0
+       "income": 2.6
       },
       "why": [
        {
@@ -13083,8 +13227,8 @@
         ]
        },
        {
-        "en": "Weather & salt 5.0: crops in the field in 0 of 3 salt months (station average peak 18.5‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 0 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 18,5‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 0 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 5.0: crops in the field in 0 of 3 salt months (station average peak 19.6‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 0 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 19,6‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 0 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -13126,13 +13270,25 @@
         ]
        },
        {
-        "en": "Income 3.0: estimated profit ≈ 89.1 vs 88.9 M ₫/ha a year for 3 rice crops (1.0×; medians of 4 published figures, 2020–2025).",
-        "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 89,1 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 4 số liệu đã công bố, 2020–2025).",
+        "en": "Income 2.6: estimated profit ≈ 76.2 vs 88.9 M ₫/ha a year for 3 rice crops (0.9×; medians of 7 published figures, 2020–2026).",
+        "vi": "Thu nhập 2,6: lợi nhuận ước tính ≈ 76,2 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (0,9×; trung vị của 7 số liệu đã công bố, 2020–2026).",
         "src": [
          40,
          41,
          42,
-         43
+         43,
+         44,
+         45,
+         46,
+         47,
+         48,
+         49,
+         50,
+         51,
+         52,
+         53,
+         54,
+         55
         ]
        }
       ],
@@ -13162,13 +13318,13 @@
       "upland": false,
       "needs_brackish": true,
       "cal_src": [
-       44,
-       45
+       56,
+       57
       ],
       "src": [
-       46,
+       58,
        33,
-       47
+       59
       ]
      },
      {
@@ -13220,8 +13376,8 @@
            9,
            10,
            11,
-           50,
-           51
+           62,
+           63
           ]
          },
          {
@@ -13232,7 +13388,7 @@
           "en": "Watermelon here faces melon thrips in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
           "vi": "Dưa hấu ở đây bị bọ trĩ gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
           "src": [
-           49
+           61
           ]
          },
          {
@@ -13282,7 +13438,7 @@
           "en": "The former Long Phú area is among the districts growing upland crops on rice land (province report, 2025), but no report we found names which crops.",
           "vi": "Khu vực Long Phú cũ nằm trong các huyện có trồng màu dưới chân ruộng (báo cáo của tỉnh, 2025), nhưng chưa có báo cáo nào chúng tôi tìm thấy nêu rõ là cây gì.",
           "src": [
-           48
+           60
           ]
          },
          {
@@ -13296,8 +13452,8 @@
           ]
          },
          {
-          "en": "Weather & salt 2.7: crops in the field in 2 of 3 salt months (station average peak 18.5‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 733 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 2,7: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 18,5‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 733 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 2.7: crops in the field in 2 of 3 salt months (station average peak 19.6‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 733 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+          "vi": "Thời tiết & mặn 2,7: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 19,6‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 733 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -13325,8 +13481,8 @@
           ]
          },
          {
-          "en": "Income 4.4: estimated profit ≈ 142.9 vs 88.9 M ₫/ha a year for 3 rice crops (1.6×; medians of 12 published figures, 2020–2025).",
-          "vi": "Thu nhập 4,4: lợi nhuận ước tính ≈ 142,9 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (1,6×; trung vị của 12 số liệu đã công bố, 2020–2025).",
+          "en": "Income 4.4: estimated profit ≈ 142.9 vs 88.9 M ₫/ha a year for 3 rice crops (1.6×; medians of 12 published figures, 2020–2026).",
+          "vi": "Thu nhập 4,4: lợi nhuận ước tính ≈ 142,9 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (1,6×; trung vị của 12 số liệu đã công bố, 2020–2026).",
           "src": [
            23,
            24,
@@ -13335,11 +13491,11 @@
            27,
            28,
            29,
-           52,
-           53,
-           54,
-           55,
-           56
+           64,
+           65,
+           66,
+           67,
+           68
           ]
          },
          {
@@ -13353,7 +13509,7 @@
           "en": "NASA HLS NDVI (30 m): fields are usually bare in Sep.",
           "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T9.",
           "src": [
-           66
+           78
           ]
          }
         ],
@@ -13392,13 +13548,13 @@
         "upland": true,
         "needs_brackish": false,
         "cal_src": [
-         48,
+         60,
          31
         ],
         "src": [
          2,
          3,
-         57,
+         69,
          35
         ],
         "offered": true
@@ -13447,8 +13603,8 @@
            9,
            10,
            11,
-           50,
-           51
+           62,
+           63
           ]
          },
          {
@@ -13459,7 +13615,7 @@
           "en": "Maize here faces fall armyworm in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
           "vi": "Bắp ở đây bị sâu keo mùa thu gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
           "src": [
-           58
+           70
           ]
          },
          {
@@ -13509,7 +13665,7 @@
           "en": "The former Long Phú area is among the districts growing upland crops on rice land (province report, 2025), but no report we found names which crops.",
           "vi": "Khu vực Long Phú cũ nằm trong các huyện có trồng màu dưới chân ruộng (báo cáo của tỉnh, 2025), nhưng chưa có báo cáo nào chúng tôi tìm thấy nêu rõ là cây gì.",
           "src": [
-           48
+           60
           ]
          },
          {
@@ -13523,8 +13679,8 @@
           ]
          },
          {
-          "en": "Weather & salt 2.7: crops in the field in 2 of 3 salt months (station average peak 18.5‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 692 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 2,7: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 18,5‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 692 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 2.7: crops in the field in 2 of 3 salt months (station average peak 19.6‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 692 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+          "vi": "Thời tiết & mặn 2,7: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 19,6‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 692 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -13552,8 +13708,8 @@
           ]
          },
          {
-          "en": "Income 4.4: estimated profit ≈ 142.9 vs 88.9 M ₫/ha a year for 3 rice crops (1.6×; medians of 8 published figures, 2020–2025).",
-          "vi": "Thu nhập 4,4: lợi nhuận ước tính ≈ 142,9 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (1,6×; trung vị của 8 số liệu đã công bố, 2020–2025).",
+          "en": "Income 4.4: estimated profit ≈ 142.9 vs 88.9 M ₫/ha a year for 3 rice crops (1.6×; medians of 8 published figures, 2020–2026).",
+          "vi": "Thu nhập 4,4: lợi nhuận ước tính ≈ 142,9 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (1,6×; trung vị của 8 số liệu đã công bố, 2020–2026).",
           "src": [
            23,
            24,
@@ -13562,7 +13718,7 @@
            27,
            28,
            29,
-           52
+           64
           ]
          },
          {
@@ -13576,7 +13732,7 @@
           "en": "NASA HLS NDVI (30 m): fields are usually bare in Sep.",
           "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T9.",
           "src": [
-           66
+           78
           ]
          }
         ],
@@ -13615,13 +13771,13 @@
         "upland": true,
         "needs_brackish": false,
         "cal_src": [
-         48,
+         60,
          31
         ],
         "src": [
          2,
          3,
-         57,
+         69,
          35
         ],
         "offered": true
@@ -13674,8 +13830,8 @@
            9,
            10,
            11,
-           50,
-           51
+           62,
+           63
           ]
          },
          {
@@ -13686,7 +13842,7 @@
           "en": "Mung bean here faces whitefly and pod borer in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
           "vi": "Đậu xanh ở đây bị bọ phấn trắng và sâu đục quả gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
           "src": [
-           59
+           71
           ]
          },
          {
@@ -13730,7 +13886,7 @@
           "en": "The former Long Phú area is among the districts growing upland crops on rice land (province report, 2025), but no report we found names which crops.",
           "vi": "Khu vực Long Phú cũ nằm trong các huyện có trồng màu dưới chân ruộng (báo cáo của tỉnh, 2025), nhưng chưa có báo cáo nào chúng tôi tìm thấy nêu rõ là cây gì.",
           "src": [
-           48
+           60
           ]
          },
          {
@@ -13744,8 +13900,8 @@
           ]
          },
          {
-          "en": "Weather & salt 2.7: crops in the field in 2 of 3 salt months (station average peak 18.5‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 692 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 2,7: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 18,5‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 692 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 2.7: crops in the field in 2 of 3 salt months (station average peak 19.6‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 692 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+          "vi": "Thời tiết & mặn 2,7: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 19,6‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 692 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -13783,7 +13939,7 @@
           "en": "NASA HLS NDVI (30 m): fields are usually bare in Sep.",
           "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T9.",
           "src": [
-           66
+           78
           ]
          }
         ],
@@ -13822,13 +13978,13 @@
         "upland": true,
         "needs_brackish": false,
         "cal_src": [
-         48,
+         60,
          31
         ],
         "src": [
          2,
          3,
-         57,
+         69,
          35
         ],
         "offered": true
@@ -13922,8 +14078,8 @@
         ]
        },
        {
-        "en": "Weather & salt 4.8: crops in the field in 0 of 3 salt months (station average peak 18.5‰, estimate from station reports); 0.4 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 200 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 4,8: có cây trồng trên ruộng trong 0/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 18,5‰, ước tính từ báo cáo trạm); 0,4 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 200 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 4.8: crops in the field in 0 of 3 salt months (station average peak 19.6‰, estimate from station reports); 0.4 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 200 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 4,8: có cây trồng trên ruộng trong 0/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 19,6‰, ước tính từ báo cáo trạm); 0,4 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 200 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -13951,14 +14107,14 @@
         ]
        },
        {
-        "en": "Income 3.2: estimated profit ≈ 94.5 vs 88.9 M ₫/ha a year for 3 rice crops (1.1×; medians of 5 published figures, 2020–2025).",
-        "vi": "Thu nhập 3,2: lợi nhuận ước tính ≈ 94,5 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (1,1×; trung vị của 5 số liệu đã công bố, 2020–2025).",
+        "en": "Income 3.2: estimated profit ≈ 94.5 vs 88.9 M ₫/ha a year for 3 rice crops (1.1×; medians of 5 published figures, 2020–2026).",
+        "vi": "Thu nhập 3,2: lợi nhuận ước tính ≈ 94,5 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (1,1×; trung vị của 5 số liệu đã công bố, 2020–2026).",
         "src": [
          18,
-         60,
+         72,
          19,
          20,
-         61
+         73
         ]
        },
        {
@@ -13972,7 +14128,7 @@
         "en": "NASA HLS NDVI (30 m): fields are usually bare in Sep.",
         "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T9.",
         "src": [
-         66
+         78
         ]
        }
       ],
@@ -14006,7 +14162,7 @@
        31
       ],
       "src": [
-       62,
+       74,
        35
       ]
      }
@@ -14254,12 +14410,12 @@
      5
     ],
     "note": {
-     "en": "Rated low although the Ngã Năm canal station reads higher: salt-control sluices around Ngã Năm and Mỹ Tú keep salt out of the fields, and NASA MODIS sees rice here through the dry season (fields bare only in September–November), a freshwater pattern. Highest reading of each dry season there: 9.4‰ on average in typical years, 6.5‰ in El Niño years (2017–2025).",
-     "vi": "Xếp mức thấp dù trạm kênh Ngã Năm đo cao hơn: các cống ngăn mặn quanh Ngã Năm và Mỹ Tú chặn mặn vào ruộng, và NASA MODIS ghi nhận lúa ở đây vẫn trồng suốt mùa khô (ruộng chỉ để trống tháng 9–11), dấu hiệu vùng nước ngọt. Độ mặn cao nhất mỗi mùa khô tại trạm: trung bình 9,4‰ trong năm thường, 6,5‰ trong năm El Niño (2017–2025)."
+     "en": "Rated low although the Ngã Năm canal station reads higher: salt-control sluices around Ngã Năm and Mỹ Tú keep salt out of the fields, and NASA MODIS sees rice here through the dry season (fields bare only in September–November), a freshwater pattern. Highest reading of each dry season there: 9.4‰ on average in typical years, 10.7‰ in El Niño years (2016–2025).",
+     "vi": "Xếp mức thấp dù trạm kênh Ngã Năm đo cao hơn: các cống ngăn mặn quanh Ngã Năm và Mỹ Tú chặn mặn vào ruộng, và NASA MODIS ghi nhận lúa ở đây vẫn trồng suốt mùa khô (ruộng chỉ để trống tháng 9–11), dấu hiệu vùng nước ngọt. Độ mặn cao nhất mỗi mùa khô tại trạm: trung bình 9,4‰ trong năm thường, 10,7‰ trong năm El Niño (2016–2025)."
     },
     "station_ppt": 9.4,
     "estimate": true,
-    "seasons": 9,
+    "seasons": 10,
     "last_year": 2025,
     "level": "low",
     "max_ppt": null
@@ -14390,8 +14546,8 @@
        ]
       },
       {
-       "en": "Income 3.0: estimated profit ≈ 95.4 vs 95.4 M ₫/ha a year for 3 rice crops (1.0×; medians of 11 published figures, 2020–2025).",
-       "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 95,4 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 11 số liệu đã công bố, 2020–2025).",
+       "en": "Income 3.0: estimated profit ≈ 95.4 vs 95.4 M ₫/ha a year for 3 rice crops (1.0×; medians of 11 published figures, 2020–2026).",
+       "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 95,4 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 11 số liệu đã công bố, 2020–2026).",
        "src": [
         18,
         19,
@@ -14561,8 +14717,8 @@
        ]
       },
       {
-       "en": "Income 1.9: estimated profit ≈ 65.4 vs 95.4 M ₫/ha a year for 3 rice crops (0.7×; medians of 7 published figures, 2020–2025).",
-       "vi": "Thu nhập 1,9: lợi nhuận ước tính ≈ 65,4 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,7×; trung vị của 7 số liệu đã công bố, 2020–2025).",
+       "en": "Income 1.9: estimated profit ≈ 65.4 vs 95.4 M ₫/ha a year for 3 rice crops (0.7×; medians of 7 published figures, 2020–2026).",
+       "vi": "Thu nhập 1,9: lợi nhuận ước tính ≈ 65,4 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,7×; trung vị của 7 số liệu đã công bố, 2020–2026).",
        "src": [
         18,
         19,
@@ -14668,10 +14824,6 @@
        ]
       },
       {
-       "en": "Income rests on few or widely spread published figures for rice in the rice–shrimp field.",
-       "vi": "Thu nhập của lúa trong ruộng lúa–tôm dựa trên ít số liệu đã công bố, hoặc các số liệu chênh lệch nhau nhiều."
-      },
-      {
        "en": "Inland freshwater area: brackish water is not normally available here.",
        "vi": "Vùng nước ngọt nội đồng: thường không có nước lợ để nuôi tôm."
       },
@@ -14691,9 +14843,9 @@
      "water_saved": 0.862,
      "profit_range": {
       "lo": 27.5,
-      "mid": 36.2,
-      "hi": 45,
-      "n": 2
+      "mid": 37.5,
+      "hi": 54.1,
+      "n": 3
      },
      "scores": {
       "water": 4.4,
@@ -14747,11 +14899,19 @@
        ]
       },
       {
-       "en": "Income 1.0: estimated profit ≈ 36.2 vs 95.4 M ₫/ha a year for 3 rice crops (0.4×; medians of 2 published figures, 2020–2025).",
-       "vi": "Thu nhập 1,0: lợi nhuận ước tính ≈ 36,2 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,4×; trung vị của 2 số liệu đã công bố, 2020–2025).",
+       "en": "Income 1.0: estimated profit ≈ 37.5 vs 95.4 M ₫/ha a year for 3 rice crops (0.4×; medians of 3 published figures, 2020–2026).",
+       "vi": "Thu nhập 1,0: lợi nhuận ước tính ≈ 37,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (0,4×; trung vị của 3 số liệu đã công bố, 2020–2026).",
        "src": [
+        51,
+        52,
         42,
-        43
+        46,
+        53,
+        54,
+        47,
+        55,
+        43,
+        48
        ]
       }
      ],
@@ -14781,13 +14941,13 @@
      "upland": false,
      "needs_brackish": true,
      "cal_src": [
-      44,
-      45
+      56,
+      57
      ],
      "src": [
-      46,
+      58,
       33,
-      47
+      59
      ]
     },
     {
@@ -14839,7 +14999,7 @@
          "en": "Watermelon here faces melon thrips in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
          "vi": "Dưa hấu ở đây bị bọ trĩ gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
          "src": [
-          49
+          61
          ]
         },
         {
@@ -14889,7 +15049,7 @@
          "en": "The former Ngã Năm area is among the districts growing upland crops on rice land (province report, 2025), but no report we found names which crops.",
          "vi": "Khu vực Ngã Năm cũ nằm trong các huyện có trồng màu dưới chân ruộng (báo cáo của tỉnh, 2025), nhưng chưa có báo cáo nào chúng tôi tìm thấy nêu rõ là cây gì.",
          "src": [
-          48
+          60
          ]
         },
         {
@@ -14932,8 +15092,8 @@
          ]
         },
         {
-         "en": "Income 4.4: estimated profit ≈ 155.4 vs 95.4 M ₫/ha a year for 3 rice crops (1.6×; medians of 12 published figures, 2020–2025).",
-         "vi": "Thu nhập 4,4: lợi nhuận ước tính ≈ 155,4 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (1,6×; trung vị của 12 số liệu đã công bố, 2020–2025).",
+         "en": "Income 4.4: estimated profit ≈ 155.4 vs 95.4 M ₫/ha a year for 3 rice crops (1.6×; medians of 12 published figures, 2020–2026).",
+         "vi": "Thu nhập 4,4: lợi nhuận ước tính ≈ 155,4 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (1,6×; trung vị của 12 số liệu đã công bố, 2020–2026).",
          "src": [
           23,
           24,
@@ -14942,11 +15102,11 @@
           27,
           28,
           29,
-          52,
-          53,
-          54,
-          55,
-          56
+          64,
+          65,
+          66,
+          67,
+          68
          ]
         },
         {
@@ -14960,7 +15120,7 @@
          "en": "NASA HLS NDVI (30 m): fields are usually bare in Apr.",
          "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T4.",
          "src": [
-          66
+          78
          ]
         }
        ],
@@ -14999,13 +15159,13 @@
        "upland": true,
        "needs_brackish": false,
        "cal_src": [
-        48,
+        60,
         31
        ],
        "src": [
         2,
         3,
-        57,
+        69,
         35
        ],
        "offered": true
@@ -15054,7 +15214,7 @@
          "en": "Maize here faces fall armyworm in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
          "vi": "Bắp ở đây bị sâu keo mùa thu gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
          "src": [
-          58
+          70
          ]
         },
         {
@@ -15104,7 +15264,7 @@
          "en": "The former Ngã Năm area is among the districts growing upland crops on rice land (province report, 2025), but no report we found names which crops.",
          "vi": "Khu vực Ngã Năm cũ nằm trong các huyện có trồng màu dưới chân ruộng (báo cáo của tỉnh, 2025), nhưng chưa có báo cáo nào chúng tôi tìm thấy nêu rõ là cây gì.",
          "src": [
-          48
+          60
          ]
         },
         {
@@ -15147,8 +15307,8 @@
          ]
         },
         {
-         "en": "Income 4.4: estimated profit ≈ 155.4 vs 95.4 M ₫/ha a year for 3 rice crops (1.6×; medians of 8 published figures, 2020–2025).",
-         "vi": "Thu nhập 4,4: lợi nhuận ước tính ≈ 155,4 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (1,6×; trung vị của 8 số liệu đã công bố, 2020–2025).",
+         "en": "Income 4.4: estimated profit ≈ 155.4 vs 95.4 M ₫/ha a year for 3 rice crops (1.6×; medians of 8 published figures, 2020–2026).",
+         "vi": "Thu nhập 4,4: lợi nhuận ước tính ≈ 155,4 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (1,6×; trung vị của 8 số liệu đã công bố, 2020–2026).",
          "src": [
           23,
           24,
@@ -15157,7 +15317,7 @@
           27,
           28,
           29,
-          52
+          64
          ]
         },
         {
@@ -15171,7 +15331,7 @@
          "en": "NASA HLS NDVI (30 m): fields are usually bare in Apr.",
          "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T4.",
          "src": [
-          66
+          78
          ]
         }
        ],
@@ -15210,13 +15370,13 @@
        "upland": true,
        "needs_brackish": false,
        "cal_src": [
-        48,
+        60,
         31
        ],
        "src": [
         2,
         3,
-        57,
+        69,
         35
        ],
        "offered": true
@@ -15269,7 +15429,7 @@
          "en": "Mung bean here faces whitefly and pod borer in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
          "vi": "Đậu xanh ở đây bị bọ phấn trắng và sâu đục quả gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
          "src": [
-          59
+          71
          ]
         },
         {
@@ -15313,7 +15473,7 @@
          "en": "The former Ngã Năm area is among the districts growing upland crops on rice land (province report, 2025), but no report we found names which crops.",
          "vi": "Khu vực Ngã Năm cũ nằm trong các huyện có trồng màu dưới chân ruộng (báo cáo của tỉnh, 2025), nhưng chưa có báo cáo nào chúng tôi tìm thấy nêu rõ là cây gì.",
          "src": [
-          48
+          60
          ]
         },
         {
@@ -15366,7 +15526,7 @@
          "en": "NASA HLS NDVI (30 m): fields are usually bare in Apr.",
          "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T4.",
          "src": [
-          66
+          78
          ]
         }
        ],
@@ -15405,13 +15565,13 @@
        "upland": true,
        "needs_brackish": false,
        "cal_src": [
-        48,
+        60,
         31
        ],
        "src": [
         2,
         3,
-        57,
+        69,
         35
        ],
        "offered": true
@@ -15534,14 +15694,14 @@
        ]
       },
       {
-       "en": "Income 3.0: estimated profit ≈ 94.5 vs 95.4 M ₫/ha a year for 3 rice crops (1.0×; medians of 5 published figures, 2020–2025).",
-       "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 94,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 5 số liệu đã công bố, 2020–2025).",
+       "en": "Income 3.0: estimated profit ≈ 94.5 vs 95.4 M ₫/ha a year for 3 rice crops (1.0×; medians of 5 published figures, 2020–2026).",
+       "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 94,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 5 số liệu đã công bố, 2020–2026).",
        "src": [
         18,
-        60,
+        72,
         19,
         20,
-        61
+        73
        ]
       },
       {
@@ -15555,7 +15715,7 @@
        "en": "NASA HLS NDVI (30 m): fields are usually bare in Apr.",
        "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T4.",
        "src": [
-        66
+        78
        ]
       }
      ],
@@ -15589,7 +15749,7 @@
       31
      ],
      "src": [
-      62,
+      74,
       35
      ]
     }
@@ -15871,12 +16031,12 @@
       5
      ],
      "note": {
-      "en": "Rated low although the Ngã Năm canal station reads higher: salt-control sluices around Ngã Năm and Mỹ Tú keep salt out of the fields, and NASA MODIS sees rice here through the dry season (fields bare only in September–November), a freshwater pattern. Highest reading of each dry season there: 9.4‰ on average in typical years, 6.5‰ in El Niño years (2017–2025).",
-      "vi": "Xếp mức thấp dù trạm kênh Ngã Năm đo cao hơn: các cống ngăn mặn quanh Ngã Năm và Mỹ Tú chặn mặn vào ruộng, và NASA MODIS ghi nhận lúa ở đây vẫn trồng suốt mùa khô (ruộng chỉ để trống tháng 9–11), dấu hiệu vùng nước ngọt. Độ mặn cao nhất mỗi mùa khô tại trạm: trung bình 9,4‰ trong năm thường, 6,5‰ trong năm El Niño (2017–2025)."
+      "en": "Rated low although the Ngã Năm canal station reads higher: salt-control sluices around Ngã Năm and Mỹ Tú keep salt out of the fields, and NASA MODIS sees rice here through the dry season (fields bare only in September–November), a freshwater pattern. Highest reading of each dry season there: 9.4‰ on average in typical years, 10.7‰ in El Niño years (2016–2025).",
+      "vi": "Xếp mức thấp dù trạm kênh Ngã Năm đo cao hơn: các cống ngăn mặn quanh Ngã Năm và Mỹ Tú chặn mặn vào ruộng, và NASA MODIS ghi nhận lúa ở đây vẫn trồng suốt mùa khô (ruộng chỉ để trống tháng 9–11), dấu hiệu vùng nước ngọt. Độ mặn cao nhất mỗi mùa khô tại trạm: trung bình 9,4‰ trong năm thường, 10,7‰ trong năm El Niño (2016–2025)."
      },
-     "station_ppt": 6.5,
+     "station_ppt": 10.7,
      "estimate": true,
-     "seasons": 9,
+     "seasons": 10,
      "last_year": 2025,
      "level": "low",
      "max_ppt": null
@@ -15973,8 +16133,8 @@
         ]
        },
        {
-        "en": "Weather & salt 3.0: crops in the field in 2 of 3 salt months (station average peak 6.5‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 772 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 3,0: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 6,5‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 772 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 3.0: crops in the field in 2 of 3 salt months (station average peak 10.7‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 772 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 3,0: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 10,7‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 772 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -16002,8 +16162,8 @@
         ]
        },
        {
-        "en": "Income 3.0: estimated profit ≈ 92.9 vs 92.9 M ₫/ha a year for 3 rice crops (1.0×; medians of 11 published figures, 2020–2025).",
-        "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 92,9 so với 92,9 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 11 số liệu đã công bố, 2020–2025).",
+        "en": "Income 3.0: estimated profit ≈ 92.9 vs 92.9 M ₫/ha a year for 3 rice crops (1.0×; medians of 11 published figures, 2020–2026).",
+        "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 92,9 so với 92,9 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 11 số liệu đã công bố, 2020–2026).",
         "src": [
          18,
          19,
@@ -16144,8 +16304,8 @@
         ]
        },
        {
-        "en": "Weather & salt 3.0: crops in the field in 2 of 3 salt months (station average peak 6.5‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 772 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 3,0: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 6,5‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 772 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 3.0: crops in the field in 2 of 3 salt months (station average peak 10.7‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 772 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 3,0: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 10,7‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 772 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -16173,8 +16333,8 @@
         ]
        },
        {
-        "en": "Income 1.9: estimated profit ≈ 62.9 vs 92.9 M ₫/ha a year for 3 rice crops (0.7×; medians of 7 published figures, 2020–2025).",
-        "vi": "Thu nhập 1,9: lợi nhuận ước tính ≈ 62,9 so với 92,9 triệu đồng/ha/năm của 3 vụ lúa (0,7×; trung vị của 7 số liệu đã công bố, 2020–2025).",
+        "en": "Income 1.9: estimated profit ≈ 62.9 vs 92.9 M ₫/ha a year for 3 rice crops (0.7×; medians of 7 published figures, 2020–2026).",
+        "vi": "Thu nhập 1,9: lợi nhuận ước tính ≈ 62,9 so với 92,9 triệu đồng/ha/năm của 3 vụ lúa (0,7×; trung vị của 7 số liệu đã công bố, 2020–2026).",
         "src": [
          18,
          19,
@@ -16280,10 +16440,6 @@
         ]
        },
        {
-        "en": "Income rests on few or widely spread published figures for rice in the rice–shrimp field.",
-        "vi": "Thu nhập của lúa trong ruộng lúa–tôm dựa trên ít số liệu đã công bố, hoặc các số liệu chênh lệch nhau nhiều."
-       },
-       {
         "en": "Inland freshwater area: brackish water is not normally available here.",
         "vi": "Vùng nước ngọt nội đồng: thường không có nước lợ để nuôi tôm."
        },
@@ -16303,9 +16459,9 @@
       "water_saved": 0.911,
       "profit_range": {
        "lo": 27.5,
-       "mid": 36.2,
-       "hi": 45,
-       "n": 2
+       "mid": 37.5,
+       "hi": 54.1,
+       "n": 3
       },
       "scores": {
        "water": 4.6,
@@ -16330,8 +16486,8 @@
         ]
        },
        {
-        "en": "Weather & salt 5.0: crops in the field in 0 of 3 salt months (station average peak 6.5‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 0 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 6,5‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 0 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 5.0: crops in the field in 0 of 3 salt months (station average peak 10.7‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 0 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 10,7‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 0 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -16359,11 +16515,19 @@
         ]
        },
        {
-        "en": "Income 1.0: estimated profit ≈ 36.2 vs 92.9 M ₫/ha a year for 3 rice crops (0.4×; medians of 2 published figures, 2020–2025).",
-        "vi": "Thu nhập 1,0: lợi nhuận ước tính ≈ 36,2 so với 92,9 triệu đồng/ha/năm của 3 vụ lúa (0,4×; trung vị của 2 số liệu đã công bố, 2020–2025).",
+        "en": "Income 1.0: estimated profit ≈ 37.5 vs 92.9 M ₫/ha a year for 3 rice crops (0.4×; medians of 3 published figures, 2020–2026).",
+        "vi": "Thu nhập 1,0: lợi nhuận ước tính ≈ 37,5 so với 92,9 triệu đồng/ha/năm của 3 vụ lúa (0,4×; trung vị của 3 số liệu đã công bố, 2020–2026).",
         "src": [
+         51,
+         52,
          42,
-         43
+         46,
+         53,
+         54,
+         47,
+         55,
+         43,
+         48
         ]
        }
       ],
@@ -16393,13 +16557,13 @@
       "upland": false,
       "needs_brackish": true,
       "cal_src": [
-       44,
-       45
+       56,
+       57
       ],
       "src": [
-       46,
+       58,
        33,
-       47
+       59
       ]
      },
      {
@@ -16451,7 +16615,7 @@
           "en": "Watermelon here faces melon thrips in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
           "vi": "Dưa hấu ở đây bị bọ trĩ gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
           "src": [
-           49
+           61
           ]
          },
          {
@@ -16501,7 +16665,7 @@
           "en": "The former Ngã Năm area is among the districts growing upland crops on rice land (province report, 2025), but no report we found names which crops.",
           "vi": "Khu vực Ngã Năm cũ nằm trong các huyện có trồng màu dưới chân ruộng (báo cáo của tỉnh, 2025), nhưng chưa có báo cáo nào chúng tôi tìm thấy nêu rõ là cây gì.",
           "src": [
-           48
+           60
           ]
          },
          {
@@ -16515,8 +16679,8 @@
           ]
          },
          {
-          "en": "Weather & salt 3.0: crops in the field in 2 of 3 salt months (station average peak 6.5‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 772 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 3,0: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 6,5‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 772 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 3.0: crops in the field in 2 of 3 salt months (station average peak 10.7‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 772 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+          "vi": "Thời tiết & mặn 3,0: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 10,7‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 772 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -16544,8 +16708,8 @@
           ]
          },
          {
-          "en": "Income 4.4: estimated profit ≈ 152.9 vs 92.9 M ₫/ha a year for 3 rice crops (1.6×; medians of 12 published figures, 2020–2025).",
-          "vi": "Thu nhập 4,4: lợi nhuận ước tính ≈ 152,9 so với 92,9 triệu đồng/ha/năm của 3 vụ lúa (1,6×; trung vị của 12 số liệu đã công bố, 2020–2025).",
+          "en": "Income 4.4: estimated profit ≈ 152.9 vs 92.9 M ₫/ha a year for 3 rice crops (1.6×; medians of 12 published figures, 2020–2026).",
+          "vi": "Thu nhập 4,4: lợi nhuận ước tính ≈ 152,9 so với 92,9 triệu đồng/ha/năm của 3 vụ lúa (1,6×; trung vị của 12 số liệu đã công bố, 2020–2026).",
           "src": [
            23,
            24,
@@ -16554,11 +16718,11 @@
            27,
            28,
            29,
-           52,
-           53,
-           54,
-           55,
-           56
+           64,
+           65,
+           66,
+           67,
+           68
           ]
          },
          {
@@ -16572,7 +16736,7 @@
           "en": "NASA HLS NDVI (30 m): fields are usually bare in Apr.",
           "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T4.",
           "src": [
-           66
+           78
           ]
          }
         ],
@@ -16611,13 +16775,13 @@
         "upland": true,
         "needs_brackish": false,
         "cal_src": [
-         48,
+         60,
          31
         ],
         "src": [
          2,
          3,
-         57,
+         69,
          35
         ],
         "offered": true
@@ -16666,7 +16830,7 @@
           "en": "Maize here faces fall armyworm in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
           "vi": "Bắp ở đây bị sâu keo mùa thu gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
           "src": [
-           58
+           70
           ]
          },
          {
@@ -16716,7 +16880,7 @@
           "en": "The former Ngã Năm area is among the districts growing upland crops on rice land (province report, 2025), but no report we found names which crops.",
           "vi": "Khu vực Ngã Năm cũ nằm trong các huyện có trồng màu dưới chân ruộng (báo cáo của tỉnh, 2025), nhưng chưa có báo cáo nào chúng tôi tìm thấy nêu rõ là cây gì.",
           "src": [
-           48
+           60
           ]
          },
          {
@@ -16730,8 +16894,8 @@
           ]
          },
          {
-          "en": "Weather & salt 3.0: crops in the field in 2 of 3 salt months (station average peak 6.5‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 772 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 3,0: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 6,5‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 772 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 3.0: crops in the field in 2 of 3 salt months (station average peak 10.7‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 772 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+          "vi": "Thời tiết & mặn 3,0: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 10,7‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 772 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -16759,8 +16923,8 @@
           ]
          },
          {
-          "en": "Income 4.4: estimated profit ≈ 152.9 vs 92.9 M ₫/ha a year for 3 rice crops (1.6×; medians of 8 published figures, 2020–2025).",
-          "vi": "Thu nhập 4,4: lợi nhuận ước tính ≈ 152,9 so với 92,9 triệu đồng/ha/năm của 3 vụ lúa (1,6×; trung vị của 8 số liệu đã công bố, 2020–2025).",
+          "en": "Income 4.4: estimated profit ≈ 152.9 vs 92.9 M ₫/ha a year for 3 rice crops (1.6×; medians of 8 published figures, 2020–2026).",
+          "vi": "Thu nhập 4,4: lợi nhuận ước tính ≈ 152,9 so với 92,9 triệu đồng/ha/năm của 3 vụ lúa (1,6×; trung vị của 8 số liệu đã công bố, 2020–2026).",
           "src": [
            23,
            24,
@@ -16769,7 +16933,7 @@
            27,
            28,
            29,
-           52
+           64
           ]
          },
          {
@@ -16783,7 +16947,7 @@
           "en": "NASA HLS NDVI (30 m): fields are usually bare in Apr.",
           "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T4.",
           "src": [
-           66
+           78
           ]
          }
         ],
@@ -16822,13 +16986,13 @@
         "upland": true,
         "needs_brackish": false,
         "cal_src": [
-         48,
+         60,
          31
         ],
         "src": [
          2,
          3,
-         57,
+         69,
          35
         ],
         "offered": true
@@ -16881,7 +17045,7 @@
           "en": "Mung bean here faces whitefly and pod borer in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
           "vi": "Đậu xanh ở đây bị bọ phấn trắng và sâu đục quả gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
           "src": [
-           59
+           71
           ]
          },
          {
@@ -16925,7 +17089,7 @@
           "en": "The former Ngã Năm area is among the districts growing upland crops on rice land (province report, 2025), but no report we found names which crops.",
           "vi": "Khu vực Ngã Năm cũ nằm trong các huyện có trồng màu dưới chân ruộng (báo cáo của tỉnh, 2025), nhưng chưa có báo cáo nào chúng tôi tìm thấy nêu rõ là cây gì.",
           "src": [
-           48
+           60
           ]
          },
          {
@@ -16939,8 +17103,8 @@
           ]
          },
          {
-          "en": "Weather & salt 3.0: crops in the field in 2 of 3 salt months (station average peak 6.5‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 772 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 3,0: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 6,5‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 772 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 3.0: crops in the field in 2 of 3 salt months (station average peak 10.7‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 772 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+          "vi": "Thời tiết & mặn 3,0: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 10,7‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 772 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -16978,7 +17142,7 @@
           "en": "NASA HLS NDVI (30 m): fields are usually bare in Apr.",
           "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T4.",
           "src": [
-           66
+           78
           ]
          }
         ],
@@ -17017,13 +17181,13 @@
         "upland": true,
         "needs_brackish": false,
         "cal_src": [
-         48,
+         60,
          31
         ],
         "src": [
          2,
          3,
-         57,
+         69,
          35
         ],
         "offered": true
@@ -17117,8 +17281,8 @@
         ]
        },
        {
-        "en": "Weather & salt 4.2: crops in the field in 1 of 3 salt months (station average peak 6.5‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 10.8 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 421 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 4,2: có cây trồng trên ruộng trong 1/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 6,5‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 10,8 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 421 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 4.2: crops in the field in 1 of 3 salt months (station average peak 10.7‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 10.8 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 421 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
+        "vi": "Thời tiết & mặn 4,2: có cây trồng trên ruộng trong 1/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 10,7‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 10,8 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 421 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -17146,14 +17310,14 @@
         ]
        },
        {
-        "en": "Income 3.0: estimated profit ≈ 92.0 vs 92.9 M ₫/ha a year for 3 rice crops (1.0×; medians of 5 published figures, 2020–2025).",
-        "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 92,0 so với 92,9 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 5 số liệu đã công bố, 2020–2025).",
+        "en": "Income 3.0: estimated profit ≈ 92.0 vs 92.9 M ₫/ha a year for 3 rice crops (1.0×; medians of 5 published figures, 2020–2026).",
+        "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 92,0 so với 92,9 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 5 số liệu đã công bố, 2020–2026).",
         "src": [
          18,
-         60,
+         72,
          19,
          20,
-         61
+         73
         ]
        },
        {
@@ -17167,7 +17331,7 @@
         "en": "NASA HLS NDVI (30 m): fields are usually bare in Apr.",
         "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T4.",
         "src": [
-         66
+         78
         ]
        }
       ],
@@ -17201,7 +17365,7 @@
        31
       ],
       "src": [
-       62,
+       74,
        35
       ]
      }

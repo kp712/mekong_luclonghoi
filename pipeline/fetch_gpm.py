@@ -1,5 +1,5 @@
 """Download NASA GPM IMERG monthly rain (Final run, v07, 0.1° ≈ 10 km) for every point of sites.points() -> data/raw/gpm.json.
-The app's rain (chart, water need, scores) for Dec 2000 - Nov 2024; NASA POWER rain is the cross-check.
+The app's rain (chart, water need, scores) for Dec 2000 to the latest published month (build.py averages over PERIOD); NASA POWER rain is the cross-check.
 Needs EARTHDATA_USERNAME / EARTHDATA_PASSWORD, and "NASA GESDISC DATA ARCHIVE" approved under
 Applications -> Authorized Apps in the Earthdata profile.
 Run: python pipeline/fetch_gpm.py   (months already saved are skipped, so run it again to resume)
@@ -16,6 +16,7 @@ import sys
 import threading
 import time
 import urllib.request
+from datetime import date
 
 from sites import points
 
@@ -28,7 +29,7 @@ URL = ("https://gpm1.gesdisc.eosdis.nasa.gov/opendap/GPM_L3/GPM_3IMERGM.07/{y}/"
 CLOUD_URL = ("https://opendap.earthdata.nasa.gov/collections/C2723754851-GES_DISC/granules/GPM_3IMERGM.07%3A"
              "3B-MO.MS.MRG.3IMERG.{y}{m:02d}01-S000000-E235959.{m:02d}.V07B.HDF5.dap.csv"
              "?dap4.ce=/Grid/precipitation%5B0:0%5D%5B{lo0}:{lo1}%5D%5B{la0}:{la1}%5D")
-YEARS = range(2000, 2026)
+YEARS = range(2000, date.today().year + 1)
 
 
 def cell(lon, lat):

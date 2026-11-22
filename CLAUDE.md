@@ -27,7 +27,7 @@ A static PWA for Mekong Delta rice farmers and extension officers (started at NA
   - `load.js`: loads data, registers `sw.js`, and holds `Farm`, the one saved field list shared by `app.js` and `dash.js`, and `Folds` (open state of each `<details class="fold" data-fold>` per type, key `mre-folds`).
 - `docs/sw.js` is the offline cache. When you add a file the app needs offline, add it to `PRECACHE`; `test_offline_precache` checks this.
 - `pipeline/build.py` merges everything. All salinity rules are in `pipeline/salinity.py`: call `salinity.at(point)` (pins and province points alike, always a typical/El Niño pair), `salinity.stations()` and `salinity.unknown()`; tests pass a modified `salinity.DATA` instead of patching globals. `pipeline/text.py` has the bilingual text helpers both use.
-- `data/raw/` holds the fetched inputs. NASA POWER is `power_<id>.json.gz` (Dec 2000 – Nov 2024 only); read it with `build.read_power(id)`. `salinity_stations.json` is the Sóc Trăng paper table plus `lower_bound` seasons. `kttv_stations.json` has the approximate OpenStreetMap coordinates of the stations.
+- `data/raw/` holds the fetched inputs. NASA POWER is `power_<id>.json.gz` (Dec 2000 – latest; averages use `build.PERIOD`, Dec 2000 – Nov 2024); read it with `build.read_power(id)`. `salinity_stations.json` is the Sóc Trăng paper table plus `lower_bound` seasons. `kttv_stations.json` has the approximate OpenStreetMap coordinates of the stations.
 - `research/` holds findings that did not become data (sources, values, dead ends). Read the relevant note before searching the web.
 - `plans/` holds plan files. `SOURCES.md` has the full methods and data detail. `CONTEXT.md` is the domain glossary: use its words.
 
@@ -36,7 +36,7 @@ A static PWA for Mekong Delta rice farmers and extension officers (started at NA
 
 ## Data rules (full detail in SOURCES.md)
 - Salinity at a point comes from the nearest KTTV station within 25 km. Beyond that there is no estimate, and the text names the station and its distance (past 100 km: "outside the area covered by KTTV").
-- The seasons used are 2017–2026. A season counts as El Niño when its Dec–Feb ONI is at least 0.5. A season is partial when it has no February or no March reading.
+- The seasons used are 2016–2026. A season counts as El Niño when its Dec–Feb ONI is at least 0.5. A season is partial when it has no February or no March reading.
 - Salt months are months that reached 4‰ or more in at least 2 seasons. If there are none, use any season's contiguous range. Months outside them show "< 4‰", never 0‰.
 - The app covers 6 provinces: the Mekong Delta's 5 and Tây Ninh (14 former provinces). To add more, extend `sites.PROVINCES`, run the fetchers, `make_outlines.py` and `build.py` (the map box and the stations inside the area follow), and update the one scope check in `test_provinces_table`.
 - The 6 new-province averages are always "unknown": they tell the user to pick a former province. Former Long An is scored (`sites.SCORED_PLACES`); former Tây Ninh is weather only.

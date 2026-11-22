@@ -1,0 +1,287 @@
+[
+ {
+  "key": "shrimp",
+  "value": 45.9,
+  "unit": "year",
+  "place": "Sóc Trăng province, 25 rice–shrimp households in cooperatives and cooperative groups (districts not named)",
+  "year": 2021,
+  "kind": "university",
+  "fallback": false,
+  "source": {
+   "title": "Nguyễn Thị Kim Quyên, Huỳnh Văn Hiền & Nguyễn Thị Vàng, Tạp chí Khoa học Trường Đại học Trà Vinh no. 45 (2021, online 30 Aug 2022), Phân tích hiệu quả kĩ thuật – tài chính và những lợi ích khi tham gia vào mô hình sản xuất kinh tế tập thể: trường hợp nghiên cứu mô hình nuôi tôm – lúa luân canh tại tỉnh Sóc Trăng",
+   "url": "https://journal.tvu.edu.vn/vi/index.php/tckh/article/view/92",
+   "note": "Checked. Abstract (the PDF link returns 404, so only the abstract was read): 'Nghiên cứu được thực hiện từ tháng 3 đến tháng 7/2021 thông qua phỏng vấn 45 hộ nuôi tôm – lúa bao gồm 25 hộ thuộc kinh tế tập thể và 20 hộ riêng lẻ tại tỉnh Sóc Trăng' ... '(năng suất tương ứng là 591,5 kg tôm và 6,36 tấn lúa/ha/vụ so với 385,1 kg tôm và 4,23 tấn lúa/ha/vụ)' ... '(lợi nhuận đạt 45,9 triệu đồng cho tôm và 54,1 triệu đồng/ha/vụ cho lúa, cao hơn gấp đôi so với hộ nuôi riêng lẻ)'. The figure is for the 25 cooperative/cooperative-group households only; individual households earned less than half. Districts and shrimp species are not named in the abstract. Survey Mar–Jul 2021; the season covered is not stated in the abstract.",
+   "verified": true
+  }
+ },
+ {
+  "key": "shrimp",
+  "value": 31.9,
+  "unit": "year",
+  "place": "Bạc Liêu (Hồng Dân, Phước Long, Giá Rai), 100 rice–shrimp households, dry-season tôm sú (Jan–Aug)",
+  "year": 2023,
+  "kind": "survey",
+  "fallback": false,
+  "source": {
+   "title": "Mirzabaev, Nguyen, Basnet & Ong (IRRI, March 2026), A Cost-Benefit and Optimization Analysis for Low-Emission Rice Production Systems in Bac Lieu, Mekong Delta, Viet Nam",
+   "url": "https://cgspace.cgiar.org/items/153aafa9-9534-4573-9e38-be0d3092351e",
+   "note": "Checked. Report text (CGSpace text bitstream of BacLieuReport.pdf): 'the rice–shrimp survey covered Hong Dan, Phuoc Long, and Gia Rai districts in 2023'; 'A total of 193 households were surveyed: 93 practicing triple-rice farming and 100 practicing rice–shrimp farming.' 'Table 3. Cost–benefit analysis of the rice–shrimp system (Unit: 1,000 VND/ha)': 'Dry 47,341 15,442 31,898 3.67 2.67' (revenue, cost, net income, BCR, rate of return); 'The dry-season standalone giant tiger shrimp activity (January–August) also performs strongly, with a BCR of 3.67'. Net income = revenue − cost, so it is profit after costs: 31.9 M₫/ha for the tiger-shrimp season.",
+   "verified": true
+  }
+ },
+ {
+  "key": "shrimp",
+  "value": 39.35,
+  "unit": "year",
+  "place": "Thạnh Phú district, Bến Tre, 61 households, tôm càng xanh grown in rice fields",
+  "year": 2021,
+  "kind": "university",
+  "fallback": false,
+  "source": {
+   "title": "Phan Thị Thanh Trúc, Huỳnh Kim Hường, Lê Thị Phương Mai & Trần Nguyễn Hải Nam, Tạp chí Khoa học Trường Đại học Trà Vinh vol. 13 special issue (5 Dec 2023), Đánh giá hiệu quả kĩ thuật và tài chính của mô hình nuôi tôm càng xanh (Macrobrachium rosenbergii) trong ruộng lúa tại huyện Thạnh Phú, tỉnh Bến Tre",
+   "url": "https://journal.tvu.edu.vn/vi/index.php/tckh/article/view/191",
+   "note": "Checked. Abstract (PDF link returns 404): 'Thông qua phỏng vấn trực tiếp 61hộ nuôi tôm càng xanh trong ruộng lúa tại huyện Thạnh Phú, tỉnh Bến Tre từ tháng 6 đến tháng 12 năm 2021' ... 'Sau thời gian nuôi gần 8 tháng, năng suất tôm đạt 459,35±109,36 kg/ha/vụ, lợi nhuận từ tôm đạt 39,35±11,91 triệu đồng/ha/vụ và với tỉ suất lợi nhuận là 1,54 lần.' One prawn crop of nearly 8 months a year, so per crop = per year. Freshwater prawn, not tôm sú.",
+   "verified": true
+  }
+ },
+ {
+  "key": "shrimp",
+  "value": 35,
+  "unit": "year",
+  "place": "Ba Đình general agricultural cooperative, Vĩnh Lộc, Hồng Dân, Bạc Liêu (30–40 per shrimp crop; tôm càng xanh with tôm sú and tôm thẻ)",
+  "year": 2023,
+  "kind": "cooperative",
+  "fallback": true,
+  "source": {
+   "title": "VietNamNet (17 Nov 2023), Phát triển bền vững mô hình lúa tôm tại một hợp tác xã ở Bạc Liêu",
+   "url": "https://vietnamnet.vn/phat-trien-ben-vung-mo-hinh-lua-tom-tai-mot-hop-tac-xa-o-bac-lieu-2234232.html",
+   "note": "Checked. Cooperative director: 'Riêng vụ tôm càng xanh, bà con có thể nuôi kết hợp với tôm sú, tôm thẻ chân trắng. Cách nuôi này giúp thành viên có nguồn thu nhập và tận dụng hết nguồn thức ăn trong ruộng nuôi. Sau khi trừ các khoản chi phí, lợi nhuận thu được khoảng 30 - 40 triệu đồng/ha/vụ từ nuôi tôm, Giám đốc Hợp tác xã Nông nghiệp tổng hợp Ba Đình nêu bật hiệu quả của mô hình.' Whole model: 'giúp nông dân thu lợi nhuận từ 60 – 100 triệu đồng/ha/năm'. (30 + 40) / 2 = 35, taken as one shrimp crop a year. Year of the figure not stated (the article cites the cooperative's 2022 results).",
+   "verified": true
+  }
+ },
+ {
+  "key": "shrimp",
+  "value": 32.1,
+  "unit": "year",
+  "place": "Hòa Tú 1 and Ngọc Đông, Mỹ Xuyên, Sóc Trăng, 30 rice–shrimp households, tôm sú (unit read as per ha)",
+  "year": 2024,
+  "kind": "university",
+  "fallback": true,
+  "source": {
+   "title": "Quách Ngọc Ngân Khánh et al., Tạp chí Nông nghiệp và Môi trường no. 21 (15 Nov 2024), Đặc điểm kỹ thuật, kinh tế, xã hội và môi trường của mô hình lúa - tôm và chuyên tôm tại huyện Mỹ Xuyên, tỉnh Sóc Trăng",
+   "url": "https://tapchikhoahoc.nnmt.net.vn/index.php/vjae/article/download/104/585",
+   "note": "Checked. Survey of 30 rice–shrimp and 30 shrimp-only households in Hòa Tú 1 and Ngọc Đông, Mỹ Xuyên, Mar–May 2024 (abstract: 'Nghiên cứu khảo sát 30 hộ canh tác mô hình lúa - tôm và 30 hộ canh tác chuyên tôm tại xã Hòa Tú 1 và Ngọc Đông, huyện Mỹ Xuyên, tỉnh Sóc Trăng được thực hiện từ tháng 3 đến tháng 5/2024'). PDF p. 7 (its text layer is garbled, so this is retyped from the page): 'Lợi nhuận của mô hình lúa - tôm đạt trung bình 38,22 triệu đồng/1.000 m2/năm (6,11 triệu đồng/vụ lúa và 32,11 triệu đồng/vụ tôm)'; Table 6, rice–shrimp: rice yield 900,0 and shrimp 558,0 'Kg/1.000 m2/năm', price 8,570 and 118,22 (thousand ₫/kg), cost 2,04 and 26,14, profit 6,11 and 32,11 'Triệu đồng/1.000 m2/năm'. Shrimp is tôm sú (the text compares its size with 'mô hình luân canh lúa - tôm sú'). Shrimp: read per 1,000 m² as printed, 32.11 M₫ would be 321 M₫/ha and 558 kg would be 5.6 t/ha, impossible for extensive rice–shrimp; 558 × 118,220 ₫ ≈ 66 M₫ minus cost 26 M₫ ≈ 40 M₫ only fits per ha. Used as 32.1 M₫/ha per year (one shrimp crop), so fallback: the printed unit is wrong for shrimp.",
+   "verified": true
+  }
+ },
+ {
+  "key": "shrimp",
+  "value": 45,
+  "unit": "year",
+  "place": "Coastal former Sóc Trăng (now Cần Thơ city), farmers' own estimate (40–50)",
+  "year": 2025,
+  "kind": "news",
+  "fallback": true,
+  "source": {
+   "title": "Nhân Dân (6 May 2026), Cần quy hoạch cụ thể vùng sản xuất tôm-lúa",
+   "url": "https://nhandan.vn/can-quy-hoach-cu-the-vung-san-xuat-tom-lua-post960415.html",
+   "note": "Checked. 'Theo tính toán của người dân, với mô hình sản xuất này, năng suất tôm nuôi bình quân đạt khoảng từ 380 đến 500 kg/ha, mức thu nhập từ nuôi tôm khoảng từ 40 đến 50 triệu đồng/ha/năm, nếu tính cả lúa là từ 80 tới 90 triệu đồng/ha/năm.' 'thu nhập' may mean income before costs; no named source or commune. (40 + 50) / 2 = 45. Year: the last shrimp season before May 2026.",
+   "verified": true
+  }
+ },
+ {
+  "key": "shrimp",
+  "value": 60,
+  "unit": "year",
+  "place": "An Biên, Kiên Giang (one farmer, tôm sú in rice–shrimp, 50–70)",
+  "year": 2024,
+  "kind": "farmer",
+  "fallback": true,
+  "source": {
+   "title": "Báo Sóc Trăng (29 Oct 2024), Khác biệt và lợi thế",
+   "url": "https://baosoctrang.org.vn/kinh-te/202410/khac-biet-va-loi-the-82e4f6f/",
+   "note": "Checked. Farmer Nguyễn Văn Mực, An Biên: 'Ở đây, tôi nuôi tôm sú theo mô hình tôm - lúa, nên gần như chỉ tốn tiền mua con giống và cải tạo mương bao. Do đó, chỉ cần năng suất tôm nuôi đạt 500 - 700kg/ha và tôm có giá thì lợi nhuận từ 50 - 70 triệu đồng, thậm chí là trên 100 triệu đồng.' The profit has no stated area; read as per ha from the yield in the same sentence. (50 + 70) / 2 = 60.",
+   "verified": true
+  }
+ },
+ {
+  "key": "shrimp",
+  "value": 40,
+  "unit": "year",
+  "place": "Vĩnh Bình commune, An Giang (former Kiên Giang, Cái Lớn river), one farmer, all-male tôm càng xanh rotated with rice, about 400 M₫ from about 10 ha",
+  "year": 2026,
+  "kind": "farmer",
+  "fallback": true,
+  "source": {
+   "title": "Nhân Dân (28 Oct 2026), Nuôi tôm càng xanh toàn đực: Tăng thu nhập trên đất lúa",
+   "url": "https://nhandan.vn/hieu-qua-tu-mo-hinh-nuoi-tom-toan-duc-post998639.html",
+   "note": "Checked. Farmer Lê Minh Giới: 'mạnh dạn chuyển sang nuôi tôm càng xanh toàn đực luân canh trên đất lúa. Ông Giới cho biết, với 100 công đất (khoảng 10 ha), mỗi năm gia đình xuất bán hàng chục tấn tôm, thu lãi khoảng 400 triệu đồng.' 400 / 10 = 40 M₫/ha/year (the article itself equates 100 công with about 10 ha).",
+   "verified": true
+  }
+ },
+ {
+  "key": "shrimp",
+  "value": 60,
+  "unit": "year",
+  "place": "Phong Thạnh A, Giá Rai, Bạc Liêu (one farmer, Thành Công 1 cooperative member; two shrimp crops a year at about 30 M₫/ha each)",
+  "year": 2023,
+  "kind": "farmer",
+  "fallback": true,
+  "source": {
+   "title": "VnEconomy (13 Nov 2023), Giải pháp cho vùng nhiễm mặn Bạc Liêu: Hiệu quả mô hình tôm – lúa",
+   "url": "https://vneconomy.vn/giai-phap-cho-vung-nhiem-man-bac-lieu-hieu-qua-mo-hinh-tom-lua.htm",
+   "note": "Checked. Farmer Đỗ Thị Điệp: 'Hiện nay với 4 ha tôm - lúa của gia đình tham gia mô hình, mỗi vụ thu về 160-200 triệu đồng tiền bán tôm, sau khi trừ đi các khoản chi phí, lợi nhuận còn khoảng 120 triệu đồng'. The commune 'phải chuyển đổi sang nuôi hai vụ tôm và trồng một vụ lúa'. 120 / 4 = 30 M₫/ha per shrimp crop; × 2 crops = 60 M₫/ha/year. Two shrimp crops, unlike the app's one-season calendar.",
+   "verified": true
+  }
+ },
+ {
+  "key": "rice_rs",
+  "value": 54.1,
+  "unit": "crop",
+  "place": "Sóc Trăng province, 25 rice–shrimp households in cooperatives and cooperative groups (districts not named)",
+  "year": 2021,
+  "kind": "university",
+  "fallback": false,
+  "source": {
+   "title": "Nguyễn Thị Kim Quyên, Huỳnh Văn Hiền & Nguyễn Thị Vàng, Tạp chí Khoa học Trường Đại học Trà Vinh no. 45 (2021, online 30 Aug 2022), Phân tích hiệu quả kĩ thuật – tài chính và những lợi ích khi tham gia vào mô hình sản xuất kinh tế tập thể: trường hợp nghiên cứu mô hình nuôi tôm – lúa luân canh tại tỉnh Sóc Trăng",
+   "url": "https://journal.tvu.edu.vn/vi/index.php/tckh/article/view/92",
+   "note": "Checked. Abstract (the PDF link returns 404, so only the abstract was read): 'Nghiên cứu được thực hiện từ tháng 3 đến tháng 7/2021 thông qua phỏng vấn 45 hộ nuôi tôm – lúa bao gồm 25 hộ thuộc kinh tế tập thể và 20 hộ riêng lẻ tại tỉnh Sóc Trăng' ... '(năng suất tương ứng là 591,5 kg tôm và 6,36 tấn lúa/ha/vụ so với 385,1 kg tôm và 4,23 tấn lúa/ha/vụ)' ... '(lợi nhuận đạt 45,9 triệu đồng cho tôm và 54,1 triệu đồng/ha/vụ cho lúa, cao hơn gấp đôi so với hộ nuôi riêng lẻ)'. The figure is for the 25 cooperative/cooperative-group households only; individual households earned less than half. Districts and shrimp species are not named in the abstract. Survey Mar–Jul 2021; the season covered is not stated in the abstract.",
+   "verified": true
+  }
+ },
+ {
+  "key": "rice_rs",
+  "value": 61.1,
+  "unit": "crop",
+  "place": "Hòa Tú 1 and Ngọc Đông, Mỹ Xuyên, Sóc Trăng, 30 rice–shrimp households (6.11 M₫ per 1,000 m²)",
+  "year": 2024,
+  "kind": "university",
+  "fallback": true,
+  "source": {
+   "title": "Quách Ngọc Ngân Khánh et al., Tạp chí Nông nghiệp và Môi trường no. 21 (15 Nov 2024), Đặc điểm kỹ thuật, kinh tế, xã hội và môi trường của mô hình lúa - tôm và chuyên tôm tại huyện Mỹ Xuyên, tỉnh Sóc Trăng",
+   "url": "https://tapchikhoahoc.nnmt.net.vn/index.php/vjae/article/download/104/585",
+   "note": "Checked. Survey of 30 rice–shrimp and 30 shrimp-only households in Hòa Tú 1 and Ngọc Đông, Mỹ Xuyên, Mar–May 2024 (abstract: 'Nghiên cứu khảo sát 30 hộ canh tác mô hình lúa - tôm và 30 hộ canh tác chuyên tôm tại xã Hòa Tú 1 và Ngọc Đông, huyện Mỹ Xuyên, tỉnh Sóc Trăng được thực hiện từ tháng 3 đến tháng 5/2024'). PDF p. 7 (its text layer is garbled, so this is retyped from the page): 'Lợi nhuận của mô hình lúa - tôm đạt trung bình 38,22 triệu đồng/1.000 m2/năm (6,11 triệu đồng/vụ lúa và 32,11 triệu đồng/vụ tôm)'; Table 6, rice–shrimp: rice yield 900,0 and shrimp 558,0 'Kg/1.000 m2/năm', price 8,570 and 118,22 (thousand ₫/kg), cost 2,04 and 26,14, profit 6,11 and 32,11 'Triệu đồng/1.000 m2/năm'. Shrimp is tôm sú (the text compares its size with 'mô hình luân canh lúa - tôm sú'). Rice: 6.11 M₫ per 1,000 m² = 61.1 M₫/ha per crop, but the rice numbers do not reconcile (9 t/ha × 8,570 ₫/kg = 77.1 M₫/ha revenue − 20.4 M₫ cost = 56.7, not 61.1), 9 t/ha is far above other rice–shrimp reports (5–6.5 t/ha), and the table's printed per-1,000 m² unit is wrong, the same reason its shrimp sibling 32.1 is fallback.",
+   "verified": true
+  }
+ },
+ {
+  "key": "rice_rs",
+  "value": 32.4,
+  "unit": "crop",
+  "place": "Sóc Trăng (255 interviews in Thạnh Trị, Mỹ Xuyên, Vĩnh Châu, Kế Sách); the paper's 'lúa 1 vụ' row, read as the rice crop of rice–shrimp land",
+  "year": 2023,
+  "kind": "university",
+  "fallback": true,
+  "source": {
+   "title": "Nguyễn Văn Hoàng Thanh, Nguyễn Thị Hồng Điệp, Nguyễn Trọng Nguyễn & Phan Kỳ Trung, Tạp chí Khoa học Đại học Cần Thơ vol. 61 special issue Môi trường và Biến đổi khí hậu (2025): 238-249, Phân tích đánh đổi phát thải khí nhà kính - hiệu quả kinh tế trên mô hình canh tác nông nghiệp tỉnh Sóc Trăng",
+   "url": "https://ctujsvn.ctu.edu.vn/index.php/ctujsvn/article/download/6979/4911/25076",
+   "note": "Checked. 'tổng số phiếu phỏng vấn được là 255 phiếu khảo sát tập trung tại huyện Thạnh Trị, Mỹ Xuyên, thị xã Vĩnh Châu và huyện Kế Sách tỉnh Sóc Trăng'; land-use classes include '(3) lúa tôm, (4) lúa 2 vụ, (5) lúa 3 vụ'; 'Đối với hiện trạng lúa – tôm luân canh, việc tính toán phát thải khí nhà kính được áp dụng cho vụ lúa đông xuân (từ tháng 12 đến tháng 3), nuôi trồng thủy sản không được bao gồm trong phạm vi nghiên cứu.' Table 8, 'Lợi nhuận (triệu đồng/ha/năm)': 'Lúa 1 vụ 32,41'. The paper never says in so many words that 'lúa 1 vụ' is the rice–shrimp rice crop; it is the only one-crop rice class and its flooding factor is for fields flooded over 180 days. One crop, so per year = per crop. Survey year not stated (2022 land-use map; received Jan 2025).",
+   "verified": true
+  }
+ },
+ {
+  "key": "rice_rs",
+  "value": 37.5,
+  "unit": "crop",
+  "place": "Cà Mau province, 88,252 ha of rice on shrimp land, average 2020–2025 (35–40)",
+  "year": 2025,
+  "kind": "government",
+  "fallback": false,
+  "source": {
+   "title": "Ministry of Agriculture and Environment (30 Sep 2026), Đột phá mô hình lúa - tôm thích ứng biến đổi khí hậu tại ĐBSCL",
+   "url": "https://mae.gov.vn/dot-pha-mo-hinh-lua--tom-thich-ung-bien-doi-khi-hau-tai-dbscl-23077.htm",
+   "note": "Checked. IRRI / Cà Mau Department of Agriculture and Environment field event: 'Tỉnh Cà Mau hiện có khoảng 90.000 ha lúa trên đất nuôi tôm. Giai đoạn 2020-2025, diện tích canh tác lúa - tôm của tỉnh tăng từ 77.266 ha lên 88.252 ha; năng suất lúa bình quân đạt khoảng 5,1 tấn/ha (tăng gần 26%), đem lại lợi nhuận bình quân 35-40 triệu đồng/ha.' The speaker is not named; the figure follows the Department's framing. (35 + 40) / 2 = 37.5.",
+   "verified": true
+  }
+ },
+ {
+  "key": "rice_rs",
+  "value": 40,
+  "unit": "crop",
+  "place": "Hòa Nhờ B, Hòa Tú, Cần Thơ city (former Mỹ Xuyên, Sóc Trăng), one farmer (nearly 40)",
+  "year": 2026,
+  "kind": "farmer",
+  "fallback": true,
+  "source": {
+   "title": "Nhân Dân (6 May 2026), Cần quy hoạch cụ thể vùng sản xuất tôm-lúa",
+   "url": "https://nhandan.vn/can-quy-hoach-cu-the-vung-san-xuat-tom-lua-post960415.html",
+   "note": "Checked. Farmer Đặng Thanh Phùng: 'chi phí trồng lúa trên đất nuôi tôm chỉ bằng từ 60-70% so với vùng chuyên lúa, lợi nhuận cũng cao hơn. Vụ sản xuất lúa trên đất nuôi tôm năm nay của gia đình ông đạt 6 tấn/ha, thu nhập hơn 70 triệu đồng/ha, sau khi trừ các khoản chi phí, lãi gần 40 triệu đồng/ha.'",
+   "verified": true
+  }
+ },
+ {
+  "key": "rice_rs",
+  "value": 35.2,
+  "unit": "crop",
+  "place": "Cà Mau peninsula rice–shrimp area, ST24/ST25 (an expert's calculation)",
+  "year": 2025,
+  "kind": "news",
+  "fallback": true,
+  "source": {
+   "title": "Nhân Dân (27 Aug 2025), Trồng lúa ST25 vùng tôm-lúa, nông dân sẽ đạt lợi nhuận gấp đôi",
+   "url": "https://nhandan.vn/trong-lua-st25-vung-tom-lua-nong-dan-se-dat-loi-nhuan-gap-doi-post904036.html",
+   "note": "Checked. Engineer Hồ Quang Cua: '“Trồng lúa ST24, ST25, lợi nhuận có thể đạt 35,2 triệu đồng/ha, trong khi đó, sản xuất lúa thường chỉ khoảng 17,2 triệu đồng/ha. Như vậy lợi nhuận chênh lệch giữa hai mô hình khoảng 18 triệu đồng/ha.' A calculation from assumed yield (about 6 t/ha) and price (9,200 ₫/kg), not a measured result.",
+   "verified": true
+  }
+ },
+ {
+  "key": "rice_rs",
+  "value": 63.5,
+  "unit": "crop",
+  "place": "Bạc Liêu (Hồng Dân, Phước Long, Giá Rai), 100 households, wet-season rice plus giant freshwater prawn (Sep–Dec)",
+  "year": 2023,
+  "kind": "survey",
+  "fallback": true,
+  "source": {
+   "title": "Mirzabaev, Nguyen, Basnet & Ong (IRRI, March 2026), A Cost-Benefit and Optimization Analysis for Low-Emission Rice Production Systems in Bac Lieu, Mekong Delta, Viet Nam",
+   "url": "https://cgspace.cgiar.org/items/153aafa9-9534-4573-9e38-be0d3092351e",
+   "note": "Checked. Table 3 (Unit: 1,000 VND/ha): 'Wet 94,641 31,163 63,478 3.04 2.04'; 'The wet-season integrated rice–freshwater prawn activity (September–December) – generates high net income with a BCR of 3.04, reflecting the combined revenue streams from both commodities on the same land area.' Survey 2023. Fallback only because it includes the prawn income, not rice alone.",
+   "verified": true
+  }
+ },
+ {
+  "key": "rice_rs",
+  "value": 60,
+  "unit": "crop",
+  "place": "An Biên, Kiên Giang (one farmer, ST25 rice plus tôm càng xanh, 50–70)",
+  "year": 2024,
+  "kind": "farmer",
+  "fallback": true,
+  "source": {
+   "title": "Báo Sóc Trăng (29 Oct 2024), Khác biệt và lợi thế",
+   "url": "https://baosoctrang.org.vn/kinh-te/202410/khac-biet-va-loi-the-82e4f6f/",
+   "note": "Checked. Farmer Nguyễn Văn Mực: 'Sau đó, mình lấp lại bằng vụ lúa ST25 và thả thêm tôm càng xanh cũng có thêm 50 - 70 triệu đồng nữa. Tính chung mô hình này mỗi năm kiếm khoảng 100 triệu đồng/ha là không khó nếu thời tiết và thị trường thuận lợi'. Includes prawn; area unit implied per ha. (50 + 70) / 2 = 60.",
+   "verified": true
+  }
+ },
+ {
+  "key": "mungbean",
+  "value": 3,
+  "unit": "crop",
+  "place": "Khánh Bình Tây, Trần Văn Thời, Cà Mau (dry-season third crop on rice land, drought year; 1.5 M₫ income − 1.2 M₫ cost per công)",
+  "year": 2020,
+  "kind": "farmer",
+  "fallback": true,
+  "source": {
+   "title": "Báo Cà Mau (3 Apr 2020), Nông dân thất mùa đậu xanh",
+   "url": "https://baocamau.vn/nong-dan-that-mua-dau-xanh-a3129.html",
+   "note": "Checked. Farmer Nguyễn Vĩnh Lộc: 'Với năng suất và giá đậu năm nay, nông dân thu nhập khoảng 1,5 triệu đồng/công, trong khi chi phí đầu tư khoảng 1,2 triệu đồng/công.' Computed: 1.5 − 1.2 = 0.3 M₫ per công; 1 công taken as 1,000 m² (the article does not say) → 3 M₫/ha. 2020 was a drought year: yield 'khoảng 100 kg/công' against the usual 250–300.",
+   "verified": true
+  }
+ },
+ {
+  "key": "mungbean",
+  "value": 35,
+  "unit": "crop",
+  "place": "Khánh Bình Tây and Khánh Hưng, Trần Văn Thời, Cà Mau (dry-season third crop on rice land, usual years before 2020; 3–4 M₫ per công)",
+  "year": 2019,
+  "kind": "news",
+  "fallback": true,
+  "source": {
+   "title": "Báo Cà Mau (3 Apr 2020), Nông dân thất mùa đậu xanh",
+   "url": "https://baocamau.vn/nong-dan-that-mua-dau-xanh-a3129.html",
+   "note": "Checked. Reporter, no named source: 'Mô hình trồng đậu xanh dưới ruộng được xem là vụ sản xuất thứ 3 trong năm của nông dân xã Khánh Bình Tây và Khánh Hưng. Nếu thời tiết và giá cả ổn định như mấy năm trước, sau khi trừ chi phí, trung bình mỗi công đậu người dân lợi nhuận từ 3-4 triệu đồng, cao gấp 2 lần so với sản xuất lúa.' 1 công taken as 1,000 m² → 30–40 M₫/ha, midpoint 35. The figure describes years before 2020, so it is outside the 2020–2026 window; year 2019 is approximate.",
+   "verified": true
+  }
+ }
+]
