@@ -1021,7 +1021,7 @@ if (!fm0.querySelector(".f-cong")) { const fa = fm0.querySelector(".f-actions");
 const fc = fm0.querySelector(".f-cong"); if (fc) fc.textContent = t("congNote");
 if (!fm0.querySelector("#fChecks")) { const fa = fm0.querySelector(".f-actions"); if (fa) fa.insertAdjacentHTML("beforebegin", fchk()) }
 const sb = fm0.querySelector("[type=submit]"); if (sb) { sb.removeAttribute("data-t"); sb.textContent = t(edit ? "fUpdate" : "fSave") }
-const ft = $("#fTry"); if (ft) { ft.hidden = !!edit; ft.textContent = t("fTry") }
+const ft = $("#fTry"); if (ft) { ft.hidden = true; ft.textContent = t("fTry") }   /* askField shows it: only the step 1 path offers "Xem thử" */
 const fn = fm0.querySelector(".f-note"); if (fn) fn.textContent = t("fNote");
 openModal("", "field", h ? h.id : null, "#fieldForm");
 if (preset) $("#fArea").value = preset;
@@ -1035,7 +1035,7 @@ openModal(`<form class="f-form" id="fieldForm"><h2 id="fH" tabindex="-1">${esc(t
 <fieldset class="f-seasons"><legend>${esc(t("fSeasons"))}</legend>${t("seasons").map(([nm, mo], i) => `<label class="f-seas"><span>${esc(nm)} <small>${esc(mo)}</small></span><select id="fS${i}">${SEAS_OPTS.map(o => `<option value="${o}">${esc(t("sCrop")[o])}</option>`).join("")}</select></label>`).join("")}</fieldset>
 <label><span>${t("fSize")}</span><input id="fSize" type="text" inputmode="decimal" autocomplete="off" placeholder="1,5"></label>
 <p class="f-cong">${esc(t("congNote"))}</p>${fchk()}
-<div class="f-actions"><button type="submit" class="go-btn">${t(edit ? "fUpdate" : "fSave")}</button><button type="button" class="ghost-btn" id="fTry"${edit ? " hidden" : ""}>${t("fTry")}</button><button type="button" class="ghost-btn" id="fCancel">${t("fCancel")}</button></div>
+<div class="f-actions"><button type="submit" class="go-btn">${t(edit ? "fUpdate" : "fSave")}</button><button type="button" class="ghost-btn" id="fTry" hidden>${t("fTry")}</button><button type="button" class="ghost-btn" id="fCancel">${t("fCancel")}</button></div>
 <p class="f-note">${t("fNote")}</p></form>`, "field", "fH");
 if (preset) $("#fArea").value = preset;
 if (edit) { $("#fName").value = edit.name; $("#fArea").value = edit.site; $("#fSize").value = edit.size || "" }
@@ -1152,7 +1152,7 @@ let p = fm.querySelector(".f-err");
 if (!p) { p = document.createElement("p"); p.className = "f-err"; p.setAttribute("role", "alert"); const fa = fm.querySelector(".f-actions"); fa ? fa.parentNode.insertBefore(p, fa) : fm.appendChild(p) }
 p.textContent = msg || ""; p.hidden = !msg;
 }
-function askField() { openFieldForm(site && site.id); pendingNext = true }
+function askField() { openFieldForm(site && site.id); pendingNext = true; const ft = document.querySelector("#fTry"); if (ft) ft.hidden = false }
 /* delete a field from the planner list; quiet = the dashboard asked, so don't call it back */
 function removeField(id, quiet) {
 const f = fields().find(x => x.id === id); if (!f) return;
