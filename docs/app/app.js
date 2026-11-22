@@ -68,8 +68,8 @@ Object.assign(STR.en, { howTap: "Tap how much each one matters. The options belo
 Object.assign(STR.vi, { howTap: "Chạm để chọn mức quan trọng của từng mục. Các phương án bên dưới xếp lại ngay, và phương án hợp nhất hiện ở cuối bước này.", sub3Tap: "Cho biết bạn trồng gì, sức làm và điều bạn coi trọng. Các phương án bên dưới xếp lại ngay." });
 Object.assign(STR.en, { fit4: "Very good", fit3: "Good", fit2: "Fair", fit1: "Poor", ppWA: "Very good fit", ppWB: "Good fit", ppWC: "Fair fit", ppWD: "Risky here" });
 Object.assign(STR.vi, { fit4: "Rất hợp", fit3: "Hợp", fit2: "Tạm được", fit1: "Kém", ppWA: "Rất hợp", ppWB: "Hợp", ppWC: "Tạm được", ppWD: "Rủi ro ở đây" });
-Object.assign(STR.en, { more15: n => `Show all ${n} options`, less15: "Show only the best 3", view15s: "Simple view: plain words, the best 3 options", view15a: "Advanced view: every number and source" });
-Object.assign(STR.vi, { more15: n => `Xem cả ${n} phương án`, less15: "Chỉ xem 3 phương án tốt nhất", view15s: "Đang xem Đơn giản: lời ngắn gọn, 3 phương án tốt nhất", view15a: "Đang xem Nâng cao: mọi số liệu và nguồn" });
+Object.assign(STR.en, { more15: n => `Show all ${n} options`, less15: "Show only the best 3" });
+Object.assign(STR.vi, { more15: n => `Xem cả ${n} phương án`, less15: "Chỉ xem 3 phương án tốt nhất" });
 Object.assign(STR.en, { sunL: "Sunlight: stronger contrast", ic15: { R: "Rice", T: "Rice", S: "Shrimp", U: "Upland crop", "-": "Rest" }, ic15salt: "Salt" });
 Object.assign(STR.vi, { sunL: "Nắng: tăng độ tương phản", ic15: { R: "Lúa", T: "Lúa", S: "Tôm", U: "Cây màu", "-": "Nghỉ" }, ic15salt: "Mặn" });
 Object.assign(STR.en, {
@@ -129,11 +129,10 @@ const mv = (fn, ...a) => { const m = MV(); if (m && typeof m[fn] === "function")
 const PL = () => (typeof Lab !== "undefined" ? Lab : null) || window.PlanLab || null;
 
 /* ---------- state (same names and defaults as Draft 3) ---------- */
-let lang = load("mre-lang") === "en" ? "en" : "vi", ui = "simple", mode = "typical", site = null, cur = "rice3", planId = null, upCrop = null;
-ui = "advanced";   /* one mode only: full detail (Simple view removed) */
+let lang = load("mre-lang") === "en" ? "en" : "vi", mode = "typical", site = null, cur = "rice3", planId = null, upCrop = null;
 const KEYS = ["water", "income", "soil", "salt", "pests"];
 const w = { water: 2, income: 2, soil: 2, salt: 2, pests: 2 };
-let step = 1, cmp = [], exOn = false, exGo = false, curPicked = false, wPicked = false;
+let step = 1, exOn = false, exGo = false, curPicked = false, wPicked = false;
 /* the farmer's fields: the shared list in load.js (Farm), without the dashboard's demo field */
 const fields = () => Farm.st.fields.filter(f => !f.demo && DATA.sites.some(s => s.id === f.site));
 let fieldId = null, editId = null, month = new Date().getMonth(), planText = [];
@@ -167,7 +166,7 @@ trash: '<path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/>',
 print: '<path d="M6 9V3h12v6M6 18H4v-7h16v7h-2"/><path d="M6 14h12v7H6z"/>',
 share: '<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/>',
 listen: '<path d="M11 5L6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/>',
-cmp: '<path d="M8 3v18M16 3v18M3 8h5M16 16h5"/>', edit: '<path d="M4 20h4L19 9l-4-4L4 16z"/>', x: '<path d="M6 6l12 12M18 6L6 18"/>',
+edit: '<path d="M4 20h4L19 9l-4-4L4 16z"/>', x: '<path d="M6 6l12 12M18 6L6 18"/>',
 cal: '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>', list: '<path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/>',
 plus: '<path d="M12 5v14M5 12h14"/>', arrow: '<path d="M5 12h14M13 6l6 6-6 6"/>', check: '<path d="M5 12l5 5L20 7"/>',
 tools: '<path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/>',
@@ -196,13 +195,13 @@ return out.map(([a, b]) => a === b ? t("monthsLong")[a] : `${t("monthsLong")[a]}
 /* ---------- Draft 3 text kept outside STR (nature parts 2, 4, 5), verbatim ---------- */
 const TT = {
 en: { size: "Text size",
-settings: "Settings", detail: "Detail", lang: "Language", text: "Text size", motion: "Motion", guide: "Guided tour", anim: "Animated", lite: "Lite", theme: "Colours", thLight: "Light", thDark: "Dark", thAuto: "Auto" },
+settings: "Settings", lang: "Language", text: "Text size", motion: "Motion", guide: "Guided tour", anim: "Animated", lite: "Lite", theme: "Colours", thLight: "Light", thDark: "Dark", thAuto: "Auto" },
 vi: { size: "Cỡ chữ",
-settings: "Cài đặt", detail: "Mức chi tiết", lang: "Ngôn ngữ", text: "Cỡ chữ", motion: "Chuyển động", theme: "Màu nền", thLight: "Sáng", thDark: "Tối", thAuto: "Tự động", guide: "Hướng dẫn từng bước", anim: "Sinh động", lite: "Nhẹ" }
+settings: "Cài đặt", lang: "Ngôn ngữ", text: "Cỡ chữ", motion: "Chuyển động", theme: "Màu nền", thLight: "Sáng", thDark: "Tối", thAuto: "Tự động", guide: "Hướng dẫn từng bước", anim: "Sinh động", lite: "Nhẹ" }
 };
 const tt = k => TT[lang][k];
 
-/* ---------- part 15: Simple view plain words (swapped into STR), verbatim ---------- */
+/* ---------- part 15: plain words, merged into STR once ---------- */
 const SIMPLE = {
 en: {
 wRain: (a, b) => a === b ? "All of its rice grows in the rainy months, so rain does most of the watering." : a * 2 >= b ? "Most of its rice grows in the rainy months." : "Most of its rice grows in the dry months, so it needs canal water.",
@@ -219,9 +218,7 @@ crops: n => (n = parseFloat(String(n).replace(",", "."))) >= 2.5 ? "Ruộng ở 
 recSalt: n => `Nước mặn thường vào đây trong mùa khô. Nếu mặn từng làm hại cây trồng, hãy tăng mục "Giảm rủi ro thời tiết & mặn".`
 }
 };
-const ORIG = { en: {}, vi: {} };
-["en", "vi"].forEach(l => Object.keys(SIMPLE[l]).forEach(k => ORIG[l][k] = STR[l][k]));
-const swap = () => { const s = ui === "simple"; ["en", "vi"].forEach(l => Object.keys(SIMPLE[l]).forEach(k => STR[l][k] = s ? SIMPLE[l][k] : ORIG[l][k])) };
+["en", "vi"].forEach(l => Object.assign(STR[l], SIMPLE[l]));
 const fitWord = s => t(s >= 4 ? "fit4" : s >= 3 ? "fit3" : s >= 2 ? "fit2" : "fit1");
 
 /* ---------- part 18: Simple view key steps, short (verbatim) ---------- */
@@ -303,8 +300,7 @@ $(id).insertAdjacentHTML("afterbegin", `<div class="pick-first"><p class="pf-t" 
 <div class="ex3-ban" role="status" hidden><span></span><button type="button" data-ex3back></button></div>`) });
 /* step 3: show-all button (Simple) and the way into the builder */
 if (has("#cards") && !has("#more15")) $("#cards").insertAdjacentHTML("afterend", `<button type="button" class="more15-btn" id="more15" aria-expanded="false"></button>`);
-if (has("#v3") && !has("#view15")) $("#v3").querySelector(".ex3-ban") ? $("#v3").querySelector(".ex3-ban").insertAdjacentHTML("afterend", `<p class="view15" id="view15"></p>`) : $("#v3").insertAdjacentHTML("afterbegin", `<p class="view15" id="view15"></p>`);
-if (has("#compare") && !has("#lab3")) $("#compare").insertAdjacentHTML("afterend", `<button type="button" class="lab3" id="lab3" data-golab>${ico("tools")}<span data-t="lab3"></span></button>`);
+if (has("#more15") && !has("#lab3")) $("#more15").insertAdjacentHTML("afterend", `<button type="button" class="lab3" id="lab3" data-golab>${ico("tools")}<span data-t="lab3"></span></button>`);
 /* step 4: tool labels, plan views, plan score link, per-công note, disclaimer */
 label("#printPlan", "printPlan", "print"); label("#sharePlan", "sharePlan", "share");
 if (has("#readPlan") && !has("#readL")) $("#readPlan").innerHTML = ico("listen") + `<span id="readL"></span>`;
@@ -317,8 +313,6 @@ if (has("#v4") && !$("#v4").querySelector(".disclaimer")) $("#v4").insertAdjacen
 if (has("#modeSeg") && !$("#modeSeg").querySelector("[data-mode]")) $("#modeSeg").innerHTML = `<button type="button" data-mode="typical"></button><button type="button" data-mode="latest"></button><button type="button" data-mode="elnino"></button>`;
 label("#modeSeg [data-mode=typical]", "modeTypical"); label("#modeSeg [data-mode=latest]", "modeLatest"); label("#modeSeg [data-mode=elnino]", "modeElnino");
 label("#addField", "addField", "plus");
-if (has("#uiPick") && !$("#uiPick").querySelector("[data-ui]")) $("#uiPick").innerHTML = `<span class="up-l" data-t="uiPickL"></span>
-<button type="button" data-ui="simple"><b data-t="uiSimple"></b><small data-t="uiSimpleD"></small></button><button type="button" data-ui="advanced"><b data-t="uiAdvanced"></b><small data-t="uiAdvancedD"></small></button>`;
 if (has("#heroCta") && !has("#ex3Btn") && siteById(EX_ID)) $("#heroCta").insertAdjacentHTML("afterend", `<button type="button" class="ex3-btn" id="ex3Btn">${ico("arrow")}<span></span></button>`);
 [["#heroEyebrow", "heroEyebrow"], ["#heroH", "heroH"], ["#heroP", "heroP"], ["#heroCta", "heroCta"], ["#aboutLink", "aboutLink"]].forEach(([s, k]) => { const el = document.querySelector(s); if (el && !el.matches("[data-t]") && !el.querySelector("[data-t]")) el.dataset.t = k });
 /* live regions, as in Draft 3 */
@@ -343,16 +337,15 @@ const seasons = runs.map(r => `<span class="${r.x ? "wet" : "dry"}" style="grid-
 const bars = ord.map((m, i) => { const r = v.rain[m], cls = v.salt.includes(m + 1) ? "salt" : wet[i] ? "wet" : "dry";
 return `<div class="${cls}" style="height:${Math.max(6, r / max * 100)}%;animation-delay:${i * 30}ms" title="${ML3(i)}: ${r} mm${rg3 ? ` (${rg3[0][m]}–${rg3[1][m]} mm)` : ""}"></div>` }).join("")
 + (rg3 ? `<span class="wh3" aria-hidden="true">${ord.map(m => `<b><i style="bottom:${(rg3[0][m] / max * 100).toFixed(1)}%;height:${(Math.max(0, rg3[1][m] - rg3[0][m]) / max * 100).toFixed(1)}%"></i></b>`).join("")}</span>` : "");
-const green = v.ndvi ? `<div class="green" aria-hidden="true">${ord.map(m => v.ndvi[m]).map((g, i) => `<i style="opacity:${Math.max(.15, Math.min(1, (g - .2) / .5)).toFixed(2)}" title="NDVI ${g}"></i>`).join("")}</div><div class="glab">${t("green")}${L3 ? " " + t("greenTyp3") : ""}${cite(DATA.chart_src)}</div>` : "";
-const lines = (v.latest ? `<li><span>${esc(t("ltRain")(v.rain.reduce((a, b) => a + b, 0), s.rain.reduce((a, b) => a + b, 0)))}${cite(DATA.chart_src)}</span></li>` : "") + v.summary.filter(x => v.latest ? x.salt : ui === "advanced" || x.salt).map(x => `<li class="${x.salt ? "s" : ""}"><span>${esc(pick(ui === "advanced" ? x.full : x))}${cite(x.src)}</span></li>`).join("") + (v.crops && ui === "simple" ? `<li>${esc(t("crops")(v.crops))}</li>` : "");
+const lines = (v.latest ? `<li><span>${esc(t("ltRain")(v.rain.reduce((a, b) => a + b, 0), s.rain.reduce((a, b) => a + b, 0)))}</span></li>` : "") + v.summary.filter(x => x.salt).map(x => `<li class="s"><span>${esc(pick(x))}</span></li>`).join("") + (v.crops ? `<li>${esc(t("crops")(v.crops))}</li>` : "");
+$("#areaFull").innerHTML = (v.latest ? `<li><span>${esc(t("ltRain")(v.rain.reduce((a, b) => a + b, 0), s.rain.reduce((a, b) => a + b, 0)))}${cite(DATA.chart_src)}</span></li>` : "") + v.summary.filter(x => !v.latest || x.salt).map(x => `<li class="${x.salt ? "s" : ""}"><span>${esc(pick(x.full))}${cite(x.src)}</span></li>`).join("");
 $("#year").innerHTML = `<div class="eyebrow">${mode === "latest" && EXTRA.latest[s.id] ? t("yearEyebrowLt")(EXTRA.latest[s.id]) : t(mode === "elnino" ? "yearEyebrowEl" : "yearEyebrow")}</div>
 <div class="seasons" aria-hidden="true">${seasons}</div>
 <div class="bars${rg3 ? " has-wh3" : ""}" role="img" aria-label="${esc(ord.map((m, i) => `${ML3(i)} ${v.rain[m]} mm${rg3 ? ` (${t("whA3")(rg3[0][m], rg3[1][m])})` : ""}`).join(", "))}">${bars}</div>
 <div class="mlab${L3 ? " lt3" : ""}">${ord.map((m, i) => `<span${L3 && st3 && i === 12 - st3 ? ' class="ny3"' : ""}>${t("months")[m]}</span>`).join("")}</div>
 ${L3 ? `<div class="yr3" aria-hidden="true"><span style="grid-column:1/${st3 ? 13 - st3 : 13}">${y3}</span>${st3 ? `<span class="ny3" style="grid-column:${13 - st3}/13">${y3 + 1}</span>` : ""}</div>` : ""}
-${green}
 <div class="ykey"><span><i class="k-wet"></i>${t("wet")}</span><span><i class="k-dry"></i>${t("dry")}</span><span><i class="k-salt"></i>${t("salt")}</span>${rg3 ? `<span class="wk3"><i class="wh3k" aria-hidden="true"></i>${esc(t(mode === "elnino" ? "whKeyEl3" : "whKey3"))}</span>` : ""}</div>
-<ul class="ylines">${lines}</ul><div class="src">${t("yearSrc")}${cite(DATA.salt_src)}</div><p class="scale3 scale3-y">${esc(t("scale3"))}</p>`;
+<ul class="ylines">${lines}</ul>`;
 }
 
 /* ---------- step 1: the area panel (year, modes, outlook, fresh/salt strip, fit, months, confirm) ---------- */
@@ -361,14 +354,14 @@ function renderArea() {
 const o = DATA.outlook;
 if (!site) {
 $("#areaHead").innerHTML = `<p class="hint1">${esc(t(coarse.matches ? "step1hintTap" : "step1hint"))}</p>${areaButtons()}`;
-$("#year").innerHTML = ""; $("#outlook").innerHTML = ""; $("#areaMore").innerHTML = ""; $("#modeSeg").hidden = true; typeof D5 !== "undefined" && D5.area(); return }
+$("#year").innerHTML = ""; $("#outlook").innerHTML = ""; $("#areaMore").innerHTML = ""; $("#areaFull").innerHTML = ""; $("#areaFold").hidden = true; $("#modeSeg").hidden = true; typeof D5 !== "undefined" && D5.area(); return }
 const v = V(site);
-$("#modeSeg").hidden = false;
+$("#areaFold").hidden = false; $("#modeSeg").hidden = false;
 $$("#modeSeg [data-mode]").forEach(b => b.setAttribute("aria-pressed", b.dataset.mode === mode));
-$("#areaHead").innerHTML = `<span class="rg-badge">${t("chosenArea")}</span>${nasaBadges()}`;   /* the area name is the drawer title */
+$("#areaHead").innerHTML = `<span class="rg-badge">${t("chosenArea")}</span>`; $("#areaNasa").innerHTML = nasaBadges();   /* the area name is the drawer title */
 renderYear(site);
-$("#outlook").innerHTML = (mode === "elnino" ? `<div class="mode-note">${t("modeNote")}${cite(DATA.elnino_src)}</div>` : mode === "latest" ? `<div class="mode-note">${t("modeNoteLt")}${cite(DATA.chart_src)}</div>` : "")
-+ (o.elnino ? `<div class="outlook"><b>${t("forecast")}:</b> ${esc(pick(o.text))}${cite(o.src)}</div>` : "");
+$("#outlook").innerHTML = (mode === "elnino" ? `<div class="mode-note">${t("modeNote")}</div>` : mode === "latest" ? `<div class="mode-note">${t("modeNoteLt")}</div>` : "")
++ (o.elnino ? `<div class="outlook"><b>${t("forecast")}:</b> ${esc(pick(o.text))}</div>` : "");
 /* part 8: fresh water and salt, and how the area fits what matters to you */
 const ML = t("monthsLong");
 const cells = v.rain.map((r, i) => { const c = v.salt.includes(i + 1) ? "salt" : r >= v.et0[i] ? "wet" : "dry";
@@ -384,7 +377,8 @@ $("#areaMore").innerHTML = `<section class="s8"><h4>${t("shFresh")}</h4>
 <button type="button" class="go-btn" data-sheetplan="${c.id}">${t("shPlan")}</button></li>`).join("")}</ol>
 <button type="button" class="ghost-btn" data-go="2">${t("shChange")}</button></section>
 <section class="s8 season" id="season"></section>
-<section class="s8 cf"><p class="cf-q">${t("cfTitle")}</p><div class="cf-row"><button type="button" class="ghost-btn" id="cfNo">${t("cfNo")}</button><button type="button" class="go-btn" id="cfYes">${ico("check")}<span>${t("cfYes")}</span></button></div></section>`;
+<section class="s8 cf"><p class="cf-q">${t("cfTitle")}</p><div class="cf-row"><button type="button" class="ghost-btn" id="cfNo">${t("cfNo")}</button><button type="button" class="go-btn" id="cfYes">${ico("check")}<span>${t("cfYes")}</span></button></div></section>
+<div class="src">${t("yearSrc")}${cite(DATA.salt_src)}${mode === "elnino" ? cite(DATA.elnino_src) : mode === "latest" ? cite(DATA.chart_src) : ""}${o.elnino ? cite(o.src) : ""}</div>`;
 renderSeason();
 typeof D5 !== "undefined" && D5.area();
 }
@@ -405,7 +399,7 @@ Object.assign(STR.en, {
   wfFewMach: "Few people but machines: rice can be done by machine; melon and chilli still need picking by hand.",
   wfPen: (p) => p > 0 ? `Other crops (melon, maize, chilli) need much hand work, so their scores drop by ${p.toFixed(1)} point (team estimate).` : "Enough hands for other crops: no score is taken off.",
   fSeasons: "What you grow in each season", setT: "Settings", fcH: "Checking what you entered:", poEye: "Your plan is:", s4H: "Your season path", s4Need: "What to get ready",
-  s4Rest: "Rest the field", s4Wait: "Wait for the next season (too late to sow)", s4Late: "sown late, short variety", s4Salt: "Salty water", s4SaltS: "Salt", sCropL: { R: "Rice", S: "Shrimp" }, s4Cost: "Money to put in", s4Profit: "Profit", s4Year: (h) => h ? `for ${h} ha, a year` : "for 1 ha, a year", s4Est: "Estimate from published figures.", poFit: "Fit with your priorities:", poWhy: "Why:", poOther: "Choose another option", poScore: "See the plan score", poNext: "Below: what to do each month, and what you need. Print it or share it with your family and extension officer.", szHow: ["Each row is one crop season of the year.", "In each row, tap what you grow then.", "Nothing grown that season? Tap “Nothing / rest”."], szQuick: "Quick pick:", szYear: "Your year:", szEx: [["3 rice crops", ["R","R","R"]], ["2 rice crops", ["R","R","-"]], ["1 rice crop", ["R","-","-"]], ["Shrimp, then rice", ["S","S","R"]], ["Rice + other crop", ["R","U","R"]]], savedPlan: "Plan saved as a text file. Send it on Zalo or keep it.", savedPrint: "Plan saved. Open the file: it asks to print or save as PDF."
+  s4Rest: "Rest the field", s4Wait: "Wait for the next season (too late to sow)", s4Late: "sown late, short variety", s4Salt: "Salty water", s4SaltS: "Salt", sCropL: { R: "Rice", S: "Shrimp" }, s4Cost: "Money to put in", s4Profit: "Profit", s4Year: (h) => h ? `for ${h} ha, a year` : "for 1 ha, a year", s4Est: "Estimate from published figures.", poFit: "Fit with your priorities:", poWhy: "Why:", poOther: "Choose another option", poScore: "See the plan score", szHow: ["Each row is one crop season of the year.", "In each row, tap what you grow then.", "Nothing grown that season? Tap “Nothing / rest”."], szQuick: "Quick pick:", szYear: "Your year:", szEx: [["3 rice crops", ["R","R","R"]], ["2 rice crops", ["R","R","-"]], ["1 rice crop", ["R","-","-"]], ["Shrimp, then rice", ["S","S","R"]], ["Rice + other crop", ["R","U","R"]]], savedPlan: "Plan saved as a text file. Send it on Zalo or keep it.", savedPrint: "Plan saved. Open the file: it asks to print or save as PDF."
 });
 Object.assign(STR.vi, {
   riceUpland: "Lúa + cây màu", seasH: "Bạn đang trồng gì? Chạm chọn cho từng vụ",
@@ -419,7 +413,7 @@ Object.assign(STR.vi, {
   wfFewMach: "Ít người nhưng có máy: lúa làm bằng máy được; dưa, ớt vẫn phải hái tay.",
   wfPen: (p) => p > 0 ? `Cây màu (dưa, bắp, ớt) cần nhiều công tay, nên điểm cây màu bị trừ ${p.toFixed(1).replace(".", ",")} điểm (ước tính của nhóm).` : "Đủ sức làm cây màu: không trừ điểm.",
   fSeasons: "Trồng gì trong từng vụ", setT: "Cài đặt", fcH: "Kiểm tra thông tin bạn nhập:", poEye: "Kế hoạch của bạn là:", s4H: "Đường mùa vụ của bạn", s4Need: "Cần chuẩn bị gì",
-  s4Rest: "Cho ruộng nghỉ", s4Wait: "Chờ vụ sau (không kịp sạ)", s4Late: "sạ muộn, giống ngắn ngày", s4Salt: "Nước mặn", s4SaltS: "Mặn", sCropL: { R: "Lúa", S: "Tôm" }, s4Cost: "Vốn cần có", s4Profit: "Tiền lời", s4Year: (h) => h ? `cho ${h} ha, mỗi năm` : "cho 1 ha, mỗi năm", s4Est: "Ước tính từ số liệu đã công bố.", poFit: "Mức hợp với ưu tiên của bạn:", poWhy: "Vì sao:", poOther: "Chọn phương án khác", poScore: "Xem điểm kế hoạch", poNext: "Bên dưới: việc cần làm mỗi tháng và những gì cần chuẩn bị. In ra hoặc gửi cho gia đình, cán bộ khuyến nông.", szHow: ["Mỗi hàng là một vụ trong năm.", "Ở mỗi hàng, chạm vào thứ bạn trồng vụ đó.", "Vụ nào không trồng gì thì chạm “Bỏ trống / nghỉ”."], szQuick: "Chọn nhanh:", szYear: "Năm của bạn:", szEx: [["3 vụ lúa", ["R","R","R"]], ["2 vụ lúa", ["R","R","-"]], ["1 vụ lúa", ["R","-","-"]], ["Tôm rồi lúa", ["S","S","R"]], ["Lúa + cây màu", ["R","U","R"]]], savedPlan: "Đã lưu kế hoạch thành tệp chữ. Gửi qua Zalo hoặc giữ lại.", savedPrint: "Đã lưu kế hoạch. Mở tệp ra: máy sẽ hỏi in hoặc lưu PDF."
+  s4Rest: "Cho ruộng nghỉ", s4Wait: "Chờ vụ sau (không kịp sạ)", s4Late: "sạ muộn, giống ngắn ngày", s4Salt: "Nước mặn", s4SaltS: "Mặn", sCropL: { R: "Lúa", S: "Tôm" }, s4Cost: "Vốn cần có", s4Profit: "Tiền lời", s4Year: (h) => h ? `cho ${h} ha, mỗi năm` : "cho 1 ha, mỗi năm", s4Est: "Ước tính từ số liệu đã công bố.", poFit: "Mức hợp với ưu tiên của bạn:", poWhy: "Vì sao:", poOther: "Chọn phương án khác", poScore: "Xem điểm kế hoạch", szHow: ["Mỗi hàng là một vụ trong năm.", "Ở mỗi hàng, chạm vào thứ bạn trồng vụ đó.", "Vụ nào không trồng gì thì chạm “Bỏ trống / nghỉ”."], szQuick: "Chọn nhanh:", szYear: "Năm của bạn:", szEx: [["3 vụ lúa", ["R","R","R"]], ["2 vụ lúa", ["R","R","-"]], ["1 vụ lúa", ["R","-","-"]], ["Tôm rồi lúa", ["S","S","R"]], ["Lúa + cây màu", ["R","U","R"]]], savedPlan: "Đã lưu kế hoạch thành tệp chữ. Gửi qua Zalo hoặc giữ lại.", savedPrint: "Đã lưu kế hoạch. Mở tệp ra: máy sẽ hỏi in hoặc lưu PDF."
 });
 const SEAS_OPTS = ["R", "S", "U", "-"];
 const SEAS_OF = { rice3: ["R", "R", "R"], rice2: ["R", "R", "-"], rice_shrimp: ["S", "S", "R"], rice_upland: ["R", "U", "R"] };
@@ -475,11 +469,13 @@ function sizeCheck(ha) {
   if (ha < 0.05) return { ok: false, t: vi ? `${num(ha)} ha chưa tới nửa công (500 m²). Nếu bạn tính bằng công, chia cho 10 để ra ha.` : `${num(ha)} ha is under half a công (500 m²). If you counted in công, divide by 10 to get ha.` };
   return { ok: true, t: vi ? `${num(ha)} ha = ${cong} công. Ứng dụng dùng số này để tính nước và lợi nhuận cho ruộng của bạn.` : `${num(ha)} ha = ${cong} công. The app uses it for your field's water and profit.` };
 }
+const fchk = () => `<details class="fold"${Folds.attrs("checks")}><summary>${esc(t("foldField"))}</summary><div id="fChecks" class="f-checks" aria-live="polite"></div></details>`;
 function formChecks() {
   const box = document.querySelector("#fChecks"); if (!box) return;
   const s = siteById((document.querySelector("#fArea") || {}).value), sz = [0, 1, 2].map(i => (document.querySelector("#fS" + i) || {}).value || "R");
   const ha = parseFloat(String((document.querySelector("#fSize") || {}).value || "").replace(",", ".")), sc = sizeCheck(ha);
   box.innerHTML = `<p class="fc-h">${esc(t("fcH"))}</p>` + checksHTML((sc ? [sc] : []).concat(seasonChecks(s, sz)));
+  if (box.querySelector(".no")) box.closest("details").open = true;   /* a warning must not hide in a closed fold (this also saves "checks" as open) */
 }
 function renderSeasons() {
   const g = document.querySelector("#growNow"); if (!g) return;
@@ -493,7 +489,7 @@ function renderSeasons() {
 <div class="sz-quick"><span>${esc(t("szQuick"))}</span><div>${exs}</div></div>` + S.map(([nm, mo], i) => `<fieldset class="sz-box"><legend><b><span class="sz-n">${i + 1}</span>${esc(nm)}</b><span>${esc(mo)}</span></legend>
 <div class="sz-opts">${SEAS_OPTS.map(o => `<button type="button" class="sz-o sz-${o === "-" ? "rest" : o}" data-season="${i}" data-sc="${o}" aria-pressed="${seasons[i] === o}" aria-label="${esc(C[o])}" title="${esc(C[o])}"><span class="sz-ic" aria-hidden="true">${ico({ R: "rice", S: "shrimp", U: "upland", "-": "fallow" }[o], 22)}</span><span class="sz-t" aria-hidden="true">${esc(t("sCropS")[o])}</span></button>`).join("")}</div></fieldset>`).join("") +
   `<div class="sz-year" aria-hidden="true"><span>${esc(t("szYear"))}</span><div class="sz-bar">${yr}</div></div><p class="sz-match" role="status">${esc(one ? t("sMatchOne") : t("sMatch")(curName(k)))}${!curPicked ? ` <span class="sz-guess">${esc(t("sGuess"))}</span>` : ""}</p>` +
-  `<div class="sz-why"><p class="fc-h">${esc(t("fcH"))}</p>${checksHTML(seasonChecks(site, seasons))}</div>`;
+  `<details class="fold sz-why"${Folds.attrs("checks")}><summary>${esc(t("foldChecks"))}</summary><p class="fc-h">${esc(t("fcH"))}</p>${checksHTML(seasonChecks(site, seasons))}</details>`;
 }
 function renderWorkforce() {
   const wrap = document.querySelector("#v2 .wf"); if (!wrap) return;
@@ -509,16 +505,18 @@ return `<span class="f-alert ${salt ? "salt" : wet ? "wet" : "dry"}">${t("months
 function renderSeason() {
 const box = document.querySelector("#season"), s = site; if (!box) return;
 if (!s) { box.innerHTML = `<h4>${t("seasonH0")}</h4><p class="s-empty">${t("seasonPick")}</p>`; return }
-const v = V(s), r = v.rain[month], e = v.et0[month], wet = r >= e, salt = v.salt.includes(month + 1), g = v.ndvi ? v.ndvi[month] : null, hv = harvestOf(s, cur, month), simple = ui === "simple";
+const v = V(s), r = v.rain[month], e = v.et0[month], wet = r >= e, salt = v.salt.includes(month + 1), g = v.ndvi ? v.ndvi[month] : null, hv = harvestOf(s, cur, month);
 box.innerHTML = `<h4>${t("seasonH")(esc(pick(s.name)))}</h4>
 <div class="months" role="group" aria-label="${t("monthPick")}">${t("months").map((m, i) => {
 const sw = v.rain[i] >= v.et0[i], ss = v.salt.includes(i + 1);
 return `<button type="button" data-month="${i}" aria-pressed="${i === month}" aria-label="${t("monthsLong")[i]}" class="${sw ? "w" : "d"}${ss ? " s" : ""}"><span>${m}</span><i style="height:${Math.max(10, Math.min(100, v.rain[i] / 3.5)).toFixed(0)}%"></i></button>` }).join("")}</div>
 <div class="s-now"><b>${t("monthsLong")[month]}</b><span class="s-chip ${wet ? "wet" : "dry"}">${wet ? ICON_DROP : ICON_SUN} ${t(wet ? "sRainy" : "sDry")}</span>${salt ? `<span class="s-chip salt">${t("sSalt")}</span>` : ""}${hv ? `<span class="s-chip hv">${t("sHarvest")}</span>` : ""}</div>
-<ul class="s-facts">${simple ? `<li>${t(wet ? "sWetP" : "sDryP")}</li>` : `<li>${t("sRain")(r, e)}</li>${g != null ? `<li>${t("sGreen")(num(g))}</li>` : ""}`}${salt ? `<li>${t("sSaltNote")}${cite(DATA.salt_src)}</li>` : ""}</ul>
-<p class="scale3">${esc(t(simple ? "scale3s" : "scale3"))}</p>
-<p class="s-src">${t(mode === "elnino" ? "modeElnino" : "modeTypical")} · ${t("srcWord")}${cite(DATA.chart_src)}</p>
-<div class="wk" id="wk"></div>
+<ul class="s-facts"><li>${t(wet ? "sWetP" : "sDryP")}</li>${salt ? `<li>${t("sSaltNote")}</li>` : ""}</ul>
+<p class="scale3">${esc(t("scale3s"))}</p>
+<details class="fold"${Folds.attrs("month")}><summary>${t("foldMonth")}</summary><ul class="s-facts"><li>${t("sRain")(r, e)}</li>${g != null ? `<li>${t("sGreen")(num(g))}</li>` : ""}</ul>
+${v.ndvi ? `<div class="green" aria-hidden="true">${v.ndvi.map((x, i) => `<i style="opacity:${Math.max(.15, Math.min(1, (x - .2) / .5)).toFixed(2)}" title="NDVI ${x}"></i>`).join("")}</div><div class="glab">${t("green")}${cite(DATA.chart_src)}</div>` : ""}
+<p class="s-src">${t(mode === "elnino" ? "modeElnino" : "modeTypical")} · ${t("srcWord")}${cite(DATA.chart_src)}${salt ? cite(DATA.salt_src) : ""}</p>
+<div class="wk" id="wk"></div></details>
 ${fieldId ? "" : `<button type="button" class="ghost-btn" id="saveArea">${ico("plus")}<span>${t("saveArea")}</span></button>`}`;
 loadWeather(s);
 }
@@ -655,9 +653,8 @@ if (chk("#noBrackish")) cs = cs.filter(c => !c.needs_brackish || c.id === cur);
 return cs.map(c => ({ c, s: scoreOf(c) })).sort((a, b) => (a.c.not_here - b.c.not_here) || (b.s - a.s));
 }
 const dots = v => `<span class="dots">${num(v.toFixed(1))} ${[1, 2, 3, 4, 5].map(i => `<i class="${v >= i - .5 ? "on" : ""}"></i>`).join("")}</span>`;
-/* score ring: big mono number; Simple adds the plain word (part 15) */
-const ring = (s, cls = "") => `<span class="ring ${cls}" style="--s:${(Math.max(0, s) / 5).toFixed(3)}"><b>${num(s.toFixed(1))}</b><small>${t("of5")}</small>${ui === "simple" ? `<em class="rw15">${esc(fitWord(s))} <span class="rw15n">${num(s.toFixed(1))}/5</span></em>` : ""}</span>`;
-const meter = s => `<div class="meter" role="img" aria-label="${ui === "simple" ? esc(fitWord(s) + " " + num(s.toFixed(1)) + "/5") : `${num(s.toFixed(1))} ${t("of5")}`}"><i style="width:${(s / 5 * 100).toFixed(0)}%"></i></div>`;
+/* score ring: the plain fit word and x/5 (part 15) */
+const ring = (s, cls = "") => `<span class="ring ${cls}" style="--s:${(Math.max(0, s) / 5).toFixed(3)}"><b>${num(s.toFixed(1))}</b><small>${t("of5")}</small><em class="rw15">${esc(fitWord(s))} <span class="rw15n">${num(s.toFixed(1))}/5</span></em></span>`;
 const waterOf = c => { const W = (EXTRA.water || {})[site.id] || {}; return W[c.id + ":" + c.crop] || W[c.id] || null };
 function whyLines(c) {   // part 8
 const v = mode === "latest" ? site : V(site), out = [];
@@ -713,7 +710,7 @@ const stepF = now => { const k = Math.min(1, (now - t0) / d), e = 1 - Math.pow(1
 requestAnimationFrame(stepF);
 }
 function renderCards(fresh) {
-if (!site) { $("#cards").innerHTML = ""; $("#common").hidden = true; $("#bestNow").innerHTML = ""; renderCompare(); return }
+if (!site) { $("#cards").innerHTML = ""; $("#common").hidden = true; $("#bestNow").innerHTML = ""; return }
 const v = V(site), vw = mode === "latest" ? site : v;
 const cards = ranked();
 if (!cards.length) return;
@@ -723,33 +720,32 @@ const common = cards.length > 1 ? all(cards[0]).filter(x => cards.every(k => all
 $("#common").hidden = !common.length; $("#common").textContent = common.length ? `${t("allOptions")} ${common.join(" ")}` : "";
 const before = {};
 if (!fresh && !calm()) $$("#cards .card").forEach(el => before[el.dataset.id] = el.getBoundingClientRect());
-const li = xs => xs.map(x => `<li>${esc(pick(x))}${ui === "advanced" ? cite(x.src) : ""}</li>`).join("");
+const li = xs => xs.map(x => `<li>${esc(pick(x))}${cite(x.src)}</li>`).join("");
 const labour = labourPen() > 0;
 $("#cards").innerHTML = cards.map(({ c, s }, i) => {
 const pickCrop = c.choices && c.choices.length > 1 ? `<div class="crop-pick" role="group" aria-label="${t("cropPick")}"><span>${t("cropPick")}</span>${c.choices.map(x => `<button type="button" data-crop="${x}" aria-pressed="${x === c.crop}">${esc(pick(DATA.resources[x].name))}</button>`).join("")}</div>` : "";
 const risks = c.risks.concat(c.gaps).filter(x => !common.includes(pick(x)));
 const fl = fieldLine(c), sc = Math.max(0, s);
-const before = ui === "simple" && c.id === plan.id && risks.length;   // Simple hides Details: the plan card's risks and gaps show open, before its plan button
+const before = c.id === plan.id && risks.length;   // the plan card's risks and gaps show on its face, before its plan button
 return `<article data-plan="${c.id}" class="card ${i === 0 && !c.not_here ? "best" : ""} ${c.id === plan.id ? "isplan" : ""} ${c.id === cur ? "isnow" : ""} ${c.not_here ? "nothere" : ""}" data-id="${c.id}">
-<div class="c-top"><span class="rank">#${i + 1}</span>${i === 0 && !c.not_here ? `<span class="ribbon">${t("best")}</span>` : ""}<span class="c-tags">${c.id === cur ? `<span class="tag now">${t("yourNow")}</span>` : ""}${c.not_here ? `<span class="tag warn">${t("notHere")}</span>` : ""}</span></div>
+<div class="c-top">${i === 0 && !c.not_here ? `<span class="ribbon">${t("best")}</span>` : ""}<span class="c-tags">${c.id === cur ? `<span class="tag now">${t("yourNow")}</span>` : ""}${c.not_here ? `<span class="tag warn">${t("notHere")}</span>` : ""}</span></div>
 <h3>${esc(pick(c.name))}</h3>
-<p class="cal">${esc(pick(c.calendar))}</p>
 ${vsNow(c, cards)}
-${strip15(c.months, ui === "simple" ? null : vw.rain.map((r, j) => r >= vw.et0[j] ? "wet" : "dry"))}
+${strip15(c.months, null)}
 ${pickCrop}
-<div class="match">${ring(sc)}<div class="match-txt"><span>${t("match")}</span>${meter(sc)}</div></div>
-<ul class="subs adv">${KEYS.map(x => `<li><span>${t("scoreNames")[x]}</span>${c.scores[x] == null ? `<span class="dots">${t("noScore")}</span>` : dots(c.scores[x])}</li>`).join("")}</ul>
+<div class="match">${ring(sc)}<div class="match-txt"><span>${t("match")}</span></div></div>
 <span class="conf">${t("confidence")}: ${t(c.confidence)}</span>
-${fl ? `<p class="field8">${ico("drop", 14)} <span>${esc(fl)}</span></p>` : ""}
 ${labour && c.upland ? `<span class="tag warn">${t("labourWarn")}</span>` : ""}
 <details class="why8"><summary>${t("why8")}</summary><ul>${whyLines(c).map(x => `<li>${esc(x)}</li>`).join("")}</ul></details>
-<details class="dt"><summary>${t(ui === "simple" ? "whyAdvice" : "details")}</summary>
+<details class="fold"${Folds.attrs("card")}><summary>${t("foldCard")}</summary>
+<ul class="subs">${KEYS.map(x => `<li><span>${t("scoreNames")[x]}</span>${c.scores[x] == null ? `<span class="dots">${t("noScore")}</span>` : dots(c.scores[x])}</li>`).join("")}</ul>
+${strip15(c.months, vw.rain.map((r, j) => r >= vw.et0[j] ? "wet" : "dry"))}
+${fl ? `<p class="field8">${ico("drop", 14)} <span>${esc(fl)}</span></p>` : ""}
 <b>${t("why")}</b><ul>${c.id === cur ? `<li>${t("isNow")}</li>` : ""}${li(c.why)}</ul>
 <b>${t("benefits")}</b><ul>${li(c.benefits)}</ul>${risks.length ? `<b>${t("risks")}</b><ul>${li(risks)}</ul>` : ""}
-<p class="adv c-src">${t("cardSrc")}${cite(c.src)}</p></details>
+<p class="c-src">${t("cardSrc")}${cite(c.src)}</p></details>
 ${before ? `<div class="before8"><b>${t("beforeChoose")}</b><ul>${li(risks)}</ul></div>` : ""}
 <div class="c-actions"><button type="button" class="plan-btn" data-plan="${c.id}" aria-pressed="${c.id === plan.id && planId === plan.id}">${t(c.id === plan.id ? (planId === plan.id ? "planOn" : "planAuto") : "planBtn")}</button>
-<button type="button" class="cmp-btn" data-cmp="${c.id}" aria-pressed="${cmp.includes(c.id)}">${ico("cmp")}<span>${t(cmp.includes(c.id) ? "cmpOn" : "cmpBtn")}</span></button>
 <button type="button" class="listen-btn" data-listen="${c.id}" aria-pressed="${speaking === c.id}">${ico("listen")}<span>${t(speaking === c.id ? "listenStop" : "listen")}</span></button></div>
 </article>`;
 }).join("");
@@ -765,12 +761,10 @@ requestAnimationFrame(() => { el.style.transition = ""; el.style.transform = "" 
 });
 if (!fresh && !calm()) { const c = $("#cards"); c.classList.remove("shimmer10"); void c.offsetWidth; c.classList.add("shimmer10") }
 renderBest(cards);
-renderCompare();
 renderPlan(plan);
 /* part 15: show-all button and the label of which view is on */
 const n = cards.length, open = document.body.classList.contains("more15"), b = document.querySelector("#more15");
 if (b) { b.hidden = n <= 3; b.textContent = open ? t("less15") : t("more15")(n); b.setAttribute("aria-expanded", open) }
-const vv = document.querySelector("#view15"); if (vv) vv.textContent = t(ui === "simple" ? "view15s" : "view15a");
 priTexts();
 }
 /* the best match now, in plain words */
@@ -779,39 +773,18 @@ const el = document.querySelector("#bestNow"); if (!el) return;
 if (!site || !list.length) { el.innerHTML = ""; return }
 const top = list.find(x => !x.c.not_here) || list[0], c = top.c;
 const ks = KEYS.filter(k => c.scores[k] != null).sort((a, b) => (w[b] * c.scores[b] - w[a] * c.scores[a]) || (c.scores[b] - c.scores[a])).slice(0, 2);
-const why = ks.map(k => `<b>${t("scoreNames")[k]}</b>${ui === "simple" ? "" : ` ${num(c.scores[k].toFixed(1))}`}`).join(` ${t("and")} `);
+const why = ks.map(k => `<b>${t("scoreNames")[k]}</b>`).join(` ${t("and")} `);
 const n = V(site).salt.length, rec = [];
 if (n >= 4 && w.salt < 2) rec.push(t("recSalt")(n));
 if (c.id !== cur) rec.push(t("recTalk"));
 el.innerHTML = `<div class="bn-head">${ring(Math.max(0, top.s), "lg")}
-<div><span class="bn-badge">${t("bestNow")}</span><h3>${esc(pick(c.name))}</h3><p class="bn-cal">${esc(pick(c.calendar))}</p>${strip15(c.months)}</div></div>
+<div><span class="bn-badge">${t("bestNow")}</span><h3>${esc(pick(c.name))}</h3>${strip15(c.months)}</div></div>
 <p class="bn-why">${t("bestWhy")(why)}</p>${rec.length ? `<ul class="bn-rec">${rec.map(r => `<li>${esc(r)}</li>`).join("")}</ul>` : ""}
 <div class="bn-act"><button type="button" class="go-btn" data-best="${c.id}">${t("planBtn")}</button><button type="button" class="ghost-btn" data-go="3">${t("seeAll")}</button></div>`;
 const bx = el.querySelector(".ring b"), v = Math.max(0, top.s);
 if (bx && !calm() && lastBest != null && Math.abs(v - lastBest) >= .1) countUp(bx, lastBest, v, 520);
 lastBest = v;
 }
-/* compare two options */
-function renderCompare() {
-const box = document.querySelector("#compare"); if (!box) return;
-if (!site) { box.hidden = true; return }
-const v = V(site), all = cardsOf(v); cmp = cmp.filter(id => all.some(c => c.id === id));
-if (!cmp.length) { box.hidden = true; box.innerHTML = ""; return }
-box.hidden = false;
-if (cmp.length < 2) { box.innerHTML = `<p class="cmp-hint">${t("cmpHint")}</p>`; return }
-const m0 = new Date().getMonth(), cols = cmp.map(id => all.find(c => c.id === id));
-const strip = c => Array.from({ length: 12 }, (_, i) => { const m = (m0 + i) % 12, k = (c.months[m] || "-")[0], salt = v.salt.includes(m + 1);
-return `<i class="m-${k}${salt ? " salt" : ""}" title="${t("monthsLong")[m]}"></i>` }).join("");
-const mlab = Array.from({ length: 12 }, (_, i) => `<span>${t("months")[(m0 + i) % 12]}</span>`).join("");
-box.innerHTML = `<div class="cmp-head"><h3>${t("cmpH")}</h3><button type="button" class="ghost-btn" id="cmpClear">${t("cmpClear")}</button></div>
-<div class="cmp-grid">${cols.map(c => `<div class="cmp-col"><h4>${esc(pick(c.name))}</h4>
-<div class="cmp-score">${ring(Math.max(0, scoreOf(c)), "sm")}<span>${t("match")}</span></div>
-<div class="cmp-months" role="img" aria-label="${t("cmpMonths")}: ${esc(pick(c.calendar))}">${strip(c)}</div><div class="cmp-mlab" aria-hidden="true">${mlab}</div>
-<p class="cmp-cal">${esc(pick(c.calendar))}</p></div>`).join("")}</div>
-<table class="cmp-table"><thead><tr><td></td>${cols.map(c => `<th scope="col">${esc(pick(c.name))}</th>`).join("")}</tr></thead>
-<tbody>${KEYS.map(k => `<tr><th scope="row">${t("scoreNames")[k]}</th>${cols.map(c => `<td>${c.scores[k] == null ? t("noScore") : dots(c.scores[k])}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
-}
-
 /* ---------- step 4: the 12-month plan (same month logic as docs/app.js) ---------- */
 function renderPlan(c0) {
 const now = new Date(), m0 = now.getMonth();
@@ -825,11 +798,10 @@ $("#planFor").textContent = `${t("planFor")}: ${pick(c.name)} · ${pick(site.nam
 { let ok = document.querySelector("#planOk"); if (!ok) { $("#planFor").insertAdjacentHTML("beforebegin", `<div id="planOk" class="plan-ok" role="status"></div>`); ok = document.querySelector("#planOk") }
 const sc = (ranked().find(x => x.c.id === c.id) || {}).s, why = (c.why || [])[0];
 ok.innerHTML = `<p class="po-eye">${ico("check", 16)}<span>${esc(t("poEye"))}</span></p><h3 class="po-name">${esc(pick(c.name))}</h3>
-<p class="po-where">${esc(pick(site.name))}${fieldId && !exOn ? " · " + esc((fields().find(f => f.id === fieldId) || {}).name || "") : ""}</p>
-<p class="po-cal">${esc(pick(c.calendar))}</p>${sc != null ? `<p class="po-fit">${esc(t("poFit"))} <b>${esc(fitWord(sc))}</b> (${num(Math.max(0, sc).toFixed(1))}/5)</p>` : ""}${why ? `<p class="po-why"><b>${esc(t("poWhy"))}</b> ${esc(pick(why))}</p>` : ""}
-<div class="po-act"><button type="button" class="ghost-btn" data-go="3">${esc(t("poOther"))}</button></div>
-<p class="po-next">${esc(t("poNext"))}</p>` }
-$("#planWarn").hidden = !DATA.outlook.elnino; $("#planWarn").innerHTML = DATA.outlook.elnino ? esc(t("planElnino")) + cite(DATA.outlook.src) : "";
+${sc != null ? `<p class="po-fit">${esc(t("poFit"))} <b>${esc(fitWord(sc))}</b> (${num(Math.max(0, sc).toFixed(1))}/5)</p>` : ""}${why ? `<p class="po-why"><b>${esc(t("poWhy"))}</b> ${esc(pick(why))}</p>` : ""}
+<div class="po-act"><button type="button" class="ghost-btn" data-go="3">${esc(t("poOther"))}</button></div>` }
+$("#planWarn").hidden = !DATA.outlook.elnino; $("#planWarn").innerHTML = DATA.outlook.elnino ? esc(t("planElnino")) : "";
+$("#planSrc").hidden = !DATA.outlook.elnino; $("#planSrc").innerHTML = DATA.outlook.elnino ? t("srcWord") + cite(DATA.outlook.src) : "";
 $("#strip").innerHTML = Array.from({ length: 12 }, (_, i) => { const m = code(i)[0], d = new Date(now.getFullYear(), m0 + i), yr = !i || !d.getMonth();
 return `<div><i class="m-${m}${isSalt(i) ? " salt" : ""}"></i><span class="${yr ? "yr" : ""}">${t("monthsLong")[d.getMonth()]}${yr ? `<br>${d.getFullYear()}` : ""}</span></div>` }).join("");
 $("#stripKey").innerHTML = t("stripKey").map((x, i) => `<span><i class="sk-${["R", "U", "S", "F", "salt"][i]}"></i>${esc(x)}</span>`).join("");
@@ -852,10 +824,7 @@ planText = runs.map(r => {
   const marks = [started ? t("planCont") : `${t(r.code === "S" ? "planStock" : "planSow")}: ${lab(r.from)}`, ends ? `${t("planHarvest")}: ${lab(r.to)}` : ""].filter(Boolean).join(", ");
   return `${span(r.from, r.to)}: ${nm[0].toUpperCase() + nm.slice(1)}. ${marks[0].toUpperCase() + marks.slice(1)}.${salt}`;
 });
-const first = ui === "simple" ? 2 : 12;
-$("#timeline").innerHTML = items.slice(0, first).join("");
-$("#timelineMore").innerHTML = items.slice(first).join("");
-$("#planMore").hidden = items.length <= first;
+$("#timeline").innerHTML = items.join("");
 $("#calendar").innerHTML = Array.from({ length: 12 }, (_, i) => {
 const k = code(i), m = k[0], d = new Date(now.getFullYear(), m0 + i), r = runs.find(x => i >= x.from && i <= x.to);
 let act, cls;
@@ -870,17 +839,11 @@ return `<div class="cal-m m-${m} ${cls}${i === 0 ? " now" : ""}">
 <div class="cal-act">${esc(act)}</div>${crop ? `<div class="cal-crop">${esc(crop[0].toUpperCase() + crop.slice(1))}</div>` : ""}
 ${isSalt(i) ? `<span class="cal-salt">${t("calSalt")}</span>` : ""}${i === 0 ? `<span class="cal-now">${t("calNow")}</span>` : ""}</div>` }).join("");
 const res = [...new Set(runs.filter(r => r.code !== "-").flatMap(r => c.plan[r.code].res))];
-if (ui === "simple") {   /* part 18: short key steps in Simple */
-const L = x => x[lang === "vi" ? 1 : 0], res18 = [...new Set(c.months.filter(m => m !== "-" && c.plan[m]).flatMap(m => c.plan[m].res))];
-$("#needs").innerHTML = res18.map(k => { const r = DATA.resources[k], s = SHORT[k]; if (!r || !s) return "";
-return `<div class="need need18"><h4>${esc(pick(r.name))}</h4><dl>
-${s.seed ? `<div><dt>${t("seed")}</dt><dd>${esc(L(s.seed))}</dd></div>` : ""}${s.fert ? `<div><dt>${t("fert")}</dt><dd>${esc(L(s.fert))}</dd></div>` : ""}
-<div><dt>${t("steps")}</dt><dd><ol>${s.steps.map(x => `<li>${esc(L(x))}</li>`).join("")}</ol></dd></div></dl></div>` }).join("");
-} else $("#needs").innerHTML = res.map(k => { const r = DATA.resources[k]; return `<div class="need"><h4>${esc(pick(r.name))}</h4><dl>
+$("#needs").innerHTML = res.map(k => { const r = DATA.resources[k]; return `<div class="need"><h4>${esc(pick(r.name))}</h4><dl>
 ${r.seed ? `<div><dt>${t("seed")}</dt><dd>${esc(pick(r.seed))}</dd></div>` : ""}${r.fertiliser ? `<div><dt>${t("fert")}</dt><dd>${esc(pick(r.fertiliser))}</dd></div>` : ""}
 ${r.steps && r.steps.length ? `<div><dt>${t("steps")}</dt><dd><ol>${r.steps.map(s => `<li>${esc(pick(s))}</li>`).join("")}</ol></dd></div>` : ""}</dl></div>` }).join("");
-typeof D5 !== "undefined" && D5.plan(c);
 renderPath(c, runs, lab, span, isSalt, SHORT, code, c0, isWait, isLate);
+typeof D5 !== "undefined" && D5.plan(c);
 }
 /* Simple view of step 4: one season path, a stop per crop (when, what to do, salt, what to get ready) and one money line.
    It stands in for the forecast, wheel, cost, calendar and needs boxes, which stay in Advanced. */
@@ -1012,9 +975,10 @@ openModal(`<div class="pp">
 <div class="pp-months" role="img" aria-label="${esc(months.map((m, i) => `${ML[i]}: ${t("ppLeg")[m[0]] || ""}`).join(", "))}">${months.map((m, i) =>
 `<div class="pp-m k-${m[0] === "-" ? "F" : m[0]}${v.salt.includes(i + 1) ? " salt" : ""}"><i></i><span>${MS[i]}</span></div>`).join("")}</div>
 <div class="pp-key">${used.map(k => `<span><i class="k-${k === "-" ? "F" : k}"></i>${esc(t("ppLeg")[k] || "")}</span>`).join("")}<span><i class="salt"></i>${esc(t("lgSalt"))}</span></div>
-${r ? `<div class="pp-score g-${r.g}"><div class="pp-num"><small>${esc(t("ppScore"))}</small><b>${r.p}</b><small>${esc(t("ppOf"))}</small></div>
-<div class="pp-grade"><span>${esc(t("ppGrade"))}</span><b>${r.g}</b></div><b class="pp-word">${esc(t("ppW" + r.g))}</b><p class="pp-say">${esc(t("ppGrade" + r.g))}</p></div>
-<ul class="pp-bars">${KEYS.map(bar).join("")}</ul>` : `<p class="pp-say">${esc(t("ppNoScore"))}</p>`}
+${r ? `<div class="pp-score g-${r.g}"><b class="pp-word">${esc(t("ppW" + r.g))}</b><p class="pp-say">${esc(t("ppGrade" + r.g))}</p>
+<details class="fold"${Folds.attrs("score")}><summary>${esc(t("foldScore"))}</summary><div class="pp-nums"><div class="pp-num"><small>${esc(t("ppScore"))}</small><b>${r.p}</b><small>${esc(t("ppOf"))}</small></div>
+<div class="pp-grade"><span>${esc(t("ppGrade"))}</span><b>${r.g}</b></div></div>
+<ul class="pp-bars">${KEYS.map(bar).join("")}</ul></details></div>` : `<p class="pp-say">${esc(t("ppNoScore"))}</p>`}
 <p class="pp-hint">${esc(t("ppHint"))}</p>
 <div class="pp-act"><button type="button" class="go-btn" id="ppKeep">${esc(t("ppKeep"))}</button>${ok ? `<button type="button" class="ghost-btn" id="ppChange">${ico("tools")}<span>${esc(t("ppChange"))}</span></button>` : ""}</div></div>`, "plan", "ppH");
 }
@@ -1053,7 +1017,7 @@ const fl = fm0.querySelector(".f-seasons legend"); if (fl) fl.textContent = t("f
 fm0.querySelectorAll(".f-seas").forEach((lb, i) => { const sp = lb.querySelector("span"); sp.innerHTML = `${esc(t("seasons")[i][0])} <small>${esc(t("seasons")[i][1])}</small>`; lb.querySelector("select").innerHTML = SEAS_OPTS.map(o => `<option value="${o}">${esc(t("sCrop")[o])}</option>`).join("") }) }
 if (!fm0.querySelector(".f-cong")) { const fa = fm0.querySelector(".f-actions"); if (fa) fa.insertAdjacentHTML("beforebegin", `<p class="f-cong"></p>`) }
 const fc = fm0.querySelector(".f-cong"); if (fc) fc.textContent = t("congNote");
-if (!fm0.querySelector("#fChecks")) { const fa = fm0.querySelector(".f-actions"); if (fa) fa.insertAdjacentHTML("beforebegin", `<div id="fChecks" class="f-checks" aria-live="polite"></div>`) }
+if (!fm0.querySelector("#fChecks")) { const fa = fm0.querySelector(".f-actions"); if (fa) fa.insertAdjacentHTML("beforebegin", fchk()) }
 const sb = fm0.querySelector("[type=submit]"); if (sb) { sb.removeAttribute("data-t"); sb.textContent = t(edit ? "fUpdate" : "fSave") }
 const fn = fm0.querySelector(".f-note"); if (fn) fn.textContent = t("fNote");
 openModal("", "field", h ? h.id : null, "#fieldForm");
@@ -1067,7 +1031,7 @@ openModal(`<form class="f-form" id="fieldForm"><h2 id="fH" tabindex="-1">${esc(t
 <label><span>${t("fArea")}</span><select id="fArea">${DATA.sites.map(s => `<option value="${s.id}">${esc(pick(s.name))}</option>`).join("")}</select></label>
 <fieldset class="f-seasons"><legend>${esc(t("fSeasons"))}</legend>${t("seasons").map(([nm, mo], i) => `<label class="f-seas"><span>${esc(nm)} <small>${esc(mo)}</small></span><select id="fS${i}">${SEAS_OPTS.map(o => `<option value="${o}">${esc(t("sCrop")[o])}</option>`).join("")}</select></label>`).join("")}</fieldset>
 <label><span>${t("fSize")}</span><input id="fSize" type="text" inputmode="decimal" autocomplete="off" placeholder="1,5"></label>
-<p class="f-cong">${esc(t("congNote"))}</p><div id="fChecks" class="f-checks" aria-live="polite"></div>
+<p class="f-cong">${esc(t("congNote"))}</p>${fchk()}
 <div class="f-actions"><button type="submit" class="go-btn">${t(edit ? "fUpdate" : "fSave")}</button><button type="button" class="ghost-btn" id="fCancel">${t("fCancel")}</button></div>
 <p class="f-note">${t("fNote")}</p></form>`, "field", "fH");
 if (preset) $("#fArea").value = preset;
@@ -1095,7 +1059,7 @@ const saveFields = () => Farm.save();
 /* ---------- ticker: outlook, your fields, selected area ---------- */
 function renderTicker() {
 const o = DATA.outlook;
-if (has("#tkOutlook")) $("#tkOutlook").innerHTML = `<p class="tk-t${o.elnino ? " risk" : ""}">${esc(pick(o.text))}${cite(o.src)}</p>`;
+if (has("#tkOutlook")) $("#tkOutlook").innerHTML = `<p class="tk-t${o.elnino ? " risk" : ""}">${esc(pick(o.text))}</p>`;
 renderFields();
 if (has("#tkArea")) {
 if (!site) { $("#tkArea").innerHTML = `<p class="tk-t tk-empty">${esc(t("tbPick"))}</p>`; return }
@@ -1238,7 +1202,6 @@ $("#setBody").innerHTML = `<p class="set-note">${esc(t("setNote"))}</p>
 ${dlApi && copyB64.length > 100 ? `<button type="button" class="ghost-btn" id="saveCopy">${esc(t("saveCopy"))}</button><span class="share-msg" id="saveMsg" role="status"></span>` : ""}
 <p class="copy4">${esc(t("copy4"))}</p>`;
 }
-const setUi = u => { ui = u; if (u === "simple" && mode !== "typical") mode = "typical"; save("mre-ui", u); applyAll() };
 const setLang = l => { lang = l; save("mre-lang", l); applyAll() };
 function setFm(m, banner) {
 fm = m; save("mre-fm", m); document.body.classList.toggle("field-mode", m === "wet");
@@ -1292,15 +1255,15 @@ if (window.claude && claude.use) { try { claude.use("downloads").then(d => { dlA
    one column, no buttons, printed from a hidden frame so the drawer's scroll boxes and columns never cut it. */
 function planDocHTML() {
   const v = document.querySelector("#v4"); if (!v) return "";
-  const shown = el => !!el && el.offsetHeight > 0;
-  const order = ["#planOk", "#s4", "#s4m", "#d5Cost", "#planWarn", "#calendar", "#v4 .pv-list", "#v4 h3[data-t='planNeed']", "#congNote", "#needs", "#v4 .disclaimer", "#v4 .copy4"];
-  const parts = order.map(q => document.querySelector(q)).filter(el => el && v.contains(el) && shown(el) && !el.closest(".plan-tools")).map(el => {
+  const shown = el => !!el && !el.hidden && (el.offsetHeight > 0 || !!el.closest("details.fold"));
+  const order = ["#planOk", "#s4", "#s4m", "#d5Cost", "#d5W4", "#d5Pred", "#planWarn", v.dataset.pv === "list" ? "#v4 .pv-list, #stripKey" : "#calendar", "#v4 h3[data-t='planNeed']", "#congNote", "#needs", "#planSrc", "#v4 .disclaimer", "#v4 .copy4"];
+  const parts = order.flatMap(q => [...document.querySelectorAll(q)]).filter(el => el && v.contains(el) && shown(el) && !el.closest(".plan-tools")).map(el => {
     const c = el.cloneNode(true);
     /* a folded part prints open, its summary as a plain title */
     c.querySelectorAll("details").forEach(d => { const box = document.createElement("div"); box.className = d.className; const sm = d.querySelector(":scope > summary");
       if (sm) { const h = document.createElement("p"); h.className = "pd-sub"; h.textContent = sm.textContent.trim(); box.appendChild(h); sm.remove() }
       while (d.firstChild) box.appendChild(d.firstChild); d.replaceWith(box) });
-    c.querySelectorAll("button, .po-act, .po-next, input, [data-cost-ha], .cs-ha").forEach(x => x.remove());
+    c.querySelectorAll("button, .po-act, input, [data-cost-ha], .cs-ha").forEach(x => x.remove());
     return c.outerHTML; }).join("\n");
   const f = fieldId && !exOn ? fields().find(x => x.id === fieldId) : null;
   const sub = [site ? pick(site.name) : "", f ? f.name + (f.size ? ` · ${num(f.size)} ha` : "") : "", new Date().toLocaleDateString(lang === "vi" ? "vi-VN" : "en-GB")].filter(Boolean).map(esc).join(" · ");
@@ -1320,8 +1283,9 @@ body { margin: 0; padding: 0; font-family: "Be Vietnam Pro", system-ui, sans-ser
 .pd .calendar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px }
 .pd #planWarn[hidden] { display: none }
 .pd .pd-sub { margin: 8px 0 6px; font-weight: 700; font-size: 11pt }
+.print-doc .pd .cite, .print-doc .pd .src, .print-doc .pd .s-src { display: revert !important }   /* sources show in the printed copy */
 .pd .disclaimer, .pd .copy4 { font-size: 8.5pt; color: #44564F }
-</style></head><body class="${document.body.className.split(" ").filter(c => /^ui-|^lang-/.test(c)).join(" ")} print-doc">
+</style></head><body class="${document.body.className.split(" ").filter(c => /^lang-/.test(c)).join(" ")} print-doc">
 <header class="pd-head"><h1>${esc(t("step5"))}</h1><p>${sub}</p></header><main id="v4" class="view on pd">${parts}</main></body></html>`;
 }
 function printPlanDoc() {
@@ -1392,13 +1356,11 @@ if (step === "lab" && drawerOpen()) { const L = PL(); if (L && L.refresh) { try 
 $$("#heroAreas [data-site], #areaHead [data-site]").forEach(b => b.setAttribute("aria-pressed", !!site && site.id === b.dataset.site));
 }
 function applyAll() {
-swap();
 document.documentElement.lang = lang;
 const b = document.body;
-b.classList.toggle("ui-simple", ui === "simple"); b.classList.toggle("ui-advanced", ui === "advanced"); b.classList.toggle("lang-vi", lang === "vi");
+b.classList.toggle("lang-vi", lang === "vi");
 fillT();
 $("#lEn").setAttribute("aria-pressed", lang === "en"); $("#lVi").setAttribute("aria-pressed", lang === "vi");
-$$("[data-ui]").forEach(x => x.setAttribute("aria-pressed", x.dataset.ui === ui));
 if (has("#ex3Btn")) setTxt($("#ex3Btn"), t("ex3Btn")(exName()));
 $$(".ex3-ban").forEach(x => { x.hidden = !exOn; x.querySelector("span").textContent = t("ex3Ban")(exName()); x.querySelector("button").textContent = t("ex3Back") });
 { let dock = document.querySelector("#areaDock");  // phones: one-tap area buttons above the bottom strip (map pins are small there)
@@ -1438,7 +1400,6 @@ if (c("#fCancel")) { pendingNext = false; return closeModal() }
 /* settings */
 if (c("#gearBtn")) { toggleSettings(!setOpen()); return }
 if (setOpen() && !c("#setPanel")) toggleSettings(false);
-if ((b = c("[data-ui]"))) { setUi(b.dataset.ui); return }
 if ((b = c("[data-fm]"))) { setFm(b.dataset.fm, true); return }
 if ((b = c("[data-size]"))) { setSize(b.dataset.size); return }
 if ((b = c("[data-motion]"))) { setCalm(b.dataset.motion === "lite", true); return }
@@ -1479,14 +1440,12 @@ if ((b = c("[data-tk]"))) { wPicked = true; const k = b.dataset.tk; setW(k, b.da
 if ((b = c("[data-best]"))) { planId = b.dataset.best; renderCards(false); setTimeout(() => go(4), 120); return }
 /* step 3 */
 if ((b = c("[data-listen]"))) { e.preventDefault(); listen(b.dataset.listen); return }
-if ((b = c("[data-cmp]"))) { const id = b.dataset.cmp; cmp = cmp.includes(id) ? cmp.filter(x => x !== id) : cmp.concat(id).slice(-2); renderCards(false); if (cmp.length === 2) setTimeout(() => $("#compare").scrollIntoView({ behavior: calm() ? "auto" : "smooth", block: "nearest" }), 30); return }
-if (c("#cmpClear")) { cmp = []; renderCards(false); return }
 if ((b = c("[data-crop]"))) { upCrop = b.dataset.crop; renderCards(false); return }
 if (c("#more15")) { document.body.classList.toggle("more15"); renderCards(false); return }
 if ((b = c("#cards .plan-btn"))) { planId = b.dataset.plan; renderCards(false); setTimeout(() => go(4), 120); return }
 if (!c("details, a, .cite, button") && (b = c("#cards [data-plan]"))) { planId = b.dataset.plan; renderCards(false); setTimeout(() => go(4), 120); return }
 /* step 4 */
-if (c("#printPlan")) { const pm = document.querySelector("#planMore"); if (pm) pm.open = true; document.querySelectorAll("#s4m details").forEach(d => { d.open = true }); if (dlApi) { printFile(); return } printPlanDoc(); return }
+if (c("#printPlan")) { if (dlApi) { printFile(); return } printPlanDoc(); return }
 if (c("#sharePlan")) { sharePlan(); return }
 if (c("#readPlan")) { readPlan(); return }
 if ((b = c("#planView [data-pv]"))) { setPv(b.dataset.pv); return }
@@ -1523,7 +1482,7 @@ if (e.shiftKey && document.activeElement === a) { e.preventDefault(); z.focus() 
 });
 
 /* ---------- start ---------- */
-window.App = { refresh: () => renderAll(), fieldId: () => fieldId, cur: () => cur, ranked, planId: () => planId, V, t, lang: () => lang, site: () => site, go, toast, mode: () => mode, weights: () => ({ ...w }), upCrop: () => upCrop, guide, openPanel, closePanel, ui: () => ui, setUi: u => { if (u !== ui) setUi(u) }, hasField: () => hasField(), example: () => exOn, askField: () => askField(),
+window.App = { refresh: () => renderAll(), fieldId: () => fieldId, cur: () => cur, ranked, planId: () => planId, V, t, lang: () => lang, site: () => site, go, toast, mode: () => mode, weights: () => ({ ...w }), upCrop: () => upCrop, guide, openPanel, closePanel, hasField: () => hasField(), example: () => exOn, askField: () => askField(),
   fields: () => fields(), removeField, planDoc: () => planDocHTML(), openField: id => openField(id), openFieldForm: siteId => openFieldForm(siteId) };
 function start() {
 ensureSkeleton(); buildExtras();
@@ -1554,7 +1513,7 @@ let rt = 0; addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout
 if (document.readyState === "loading" || AppReady.waiting()) AppReady.on(start); else start();
 })();
 
-addEventListener("beforeprint", () => { document.querySelectorAll("#s4m details, #planMore").forEach(d => { d.open = true }) });
+addEventListener("beforeprint", () => { document.querySelectorAll("#v4 details").forEach(d => { d.open = true }) });
 
 /* Narrow phones (about 360px and less): the top bar wraps to two rows. --top-h then follows its real height,
    so the dashboard, drawer and map controls start below it instead of under it. */

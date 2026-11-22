@@ -147,7 +147,7 @@ const D5 = (() => {
     if (!window.App) return;
     sync(); paintTheme(); if ($("#d5Range")) paintSlider();
     typeof Side !== "undefined" && Side.render && Side.render();   /* left info panel on the map page (side.js) */
-    const s = App.site(), el = host("d5W1", $("#year"));
+    const s = App.site(), el = host("d5W1", $("#areaFold > summary"));
     if (!s) { if (el) el.hidden = true; delete wheels.d5W1; return; }
     const best = App.ranked().find((r) => !r.c.not_here) || App.ranked()[0];
     el.hidden = false; wheels.d5W1 = best ? best.c.id : null;
@@ -159,7 +159,7 @@ const D5 = (() => {
     sync();
     const s = App.site(); if (!s || !c) return;
     planCard = c.id;
-    const w = host("d5W4", $("#planFor")); wheels.d5W4 = c.id; w.innerHTML = wheelHTML("d5W4", c.id);
+    const w = host("d5W4", $("#planFold > summary")); wheels.d5W4 = c.id; w.innerHTML = wheelHTML("d5W4", c.id);
     paintPred();
     typeof Cost !== "undefined" && Cost.plan(c);
   }

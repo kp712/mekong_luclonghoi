@@ -71,7 +71,6 @@
       <div id="setPanel" class="glass" role="group" aria-label="Settings">
         <p class="eyebrow">Settings</p>
         <div id="setBody">
-          <div class="seg" role="group" aria-label="View detail"><button type="button" id="uSimple" aria-pressed="false" data-t="uiSimple">Simple</button><button type="button" id="uAdv" aria-pressed="true" data-t="uiAdvanced">Advanced</button></div>
           <p class="set-note">Text size · calm motion · in the field · guide</p>
         </div>
       </div>
@@ -87,13 +86,6 @@
   <div class="hero-act">
     <button type="button" id="heroCta" class="btn gold"><span data-t="heroCta">Choose your area on the map</span><svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
     <a id="aboutLink" href="#about" data-t="aboutLink">About this app and the NASA data it uses</a>
-  </div>
-  <div class="hero-index">
-    <span id="uiPickL" class="eyebrow" data-t="uiPickL">How much detail do you want?</span>
-  </div>
-  <div id="uiPick" role="group" aria-labelledby="uiPickL">
-    <button type="button" class="pick brk" data-ui="simple"><span class="k">A</span><span><b data-t="uiSimple">Simple</b><small data-t="uiSimpleD">Plain words and big buttons: just what to do</small></span></button>
-    <button type="button" class="pick brk" data-ui="advanced"><span class="k">B</span><span><b data-t="uiAdvanced">Advanced</b><small data-t="uiAdvancedD">Numbers, sources, El Niño (drought) years and every score</small></span></button>
   </div>
 </section>
 
@@ -127,7 +119,12 @@
       </div>
       <div id="year" class="box" aria-live="polite"><p class="eyebrow" data-t="yearEyebrow">Your area's typical year (2000–2024)</p><p class="ph">12-month year box</p></div>
       <div id="outlook" class="box"><p class="ph">El Niño outlook</p></div>
-      <div id="areaMore"></div>
+      <details class="fold" data-fold="area" id="areaFold"><summary data-t="foldArea">See the area's numbers</summary>
+        <ul id="areaFull" class="ylines"></ul>
+        <div id="areaMore"></div>
+        <div id="areaNasa"></div>
+        <p class="scale3" data-t="scale3"></p>
+      </details>
     </section>
 
     <section class="view" id="v2" aria-label="Priorities">
@@ -143,7 +140,6 @@
     <section class="view" id="v3" aria-label="Rotations">
       <p id="common" hidden></p>
       <div id="cards" class="cards"><p class="ph">Rotation cards</p></div>
-      <div id="compare" aria-live="polite" hidden></div>
     </section>
 
     <section class="view" id="v4" aria-label="12-month plan" data-pv="cal">
@@ -155,6 +151,7 @@
         <span id="shareMsg" class="share-msg" role="status"></span>
       </div>
       <p id="planWarn" class="warn" hidden></p>
+      <details class="fold" data-fold="plan" id="planFold"><summary data-t="foldPlan">See the detailed calendar</summary>
       <div class="seg" id="planView" role="group" aria-label="Plan view">
         <button type="button" data-pv="cal" aria-pressed="true"><span data-t="calView">Calendar</span></button>
         <button type="button" data-pv="list" aria-pressed="false"><span data-t="listView">List</span></button>
@@ -162,9 +159,11 @@
       <div id="calendar" class="calendar"><p class="ph">Calendar</p></div>
       <div class="pv-list"><div id="strip" class="strip"></div></div>
       <div id="stripKey" class="strip-key"></div>
-      <div class="pv-list"><ol id="timeline" class="timeline"></ol><details id="planMore" class="plan-more" hidden><summary data-t="planMore">Rest of the year</summary><ol id="timelineMore" class="timeline"></ol></details></div>
+      <div class="pv-list"><ol id="timeline" class="timeline"></ol></div>
       <h3 class="eyebrow" data-t="planNeed">What you need for this plan</h3>
       <div id="needs" class="needs"></div>
+      <p id="planSrc" class="src" hidden></p>
+      </details>
       <p id="talk" class="talk" data-t="talk">Talk it over with your local agricultural extension officer before you change your rotation.</p>
     </section>
 

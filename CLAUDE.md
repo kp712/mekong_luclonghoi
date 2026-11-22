@@ -6,6 +6,7 @@ A static PWA for Mekong Delta rice farmers and extension officers (started at NA
 - Tests: `python3 pipeline/test_build.py` (plain `test_*` functions, no pytest; needs `pip install pdfplumber` because it imports the salinity fetcher). Run them after any change to `pipeline/` or `docs/data/`.
 - Rebuild data: `python3 pipeline/build.py` writes `docs/data/sites.json`, `docs/data/provinces.json` and `docs/app/builder.js`. It keeps the old `generated` date when nothing else changed, so any diff in `docs/data/` after a build is a real change: commit it.
 - Salinity bulletins: `python3 pipeline/fetch_salinity_vietnam.py` writes `data/raw/salinity_kttv_vietnam.json`. It writes nothing if any fetch fails.
+- Phone check: `node tools/ui_check.js` (folds, cards, steps, dashboard, old saved data, English, no sideways scroll, print). Exits 1 on any failure or page error.
 - Screenshots: `node tools/shot.js [page] [outdir]`. The default page is `index.html#vietnam`. It takes desktop and phone shots and exits 1 on page errors.
 - Serve by hand: `python3 -m http.server 8000 -d docs`.
 - Pins must be rice at 30 m (HLS peak >= 0.7, dip < 0.35, water <= 10%); `test_build.py` fails a pin that is not. `python3 pipeline/appeears.py find-hls <pin> [half]` searches a grid for rice; check candidates on Esri imagery before `--apply`.
@@ -23,7 +24,7 @@ A static PWA for Mekong Delta rice farmers and extension officers (started at NA
   - `score.js`: the card scores in JS (`Score.evaluate`, `ofCard`, `monthPest`) for the Plan Lab and the dashboard's pest card. `test_score_parity` checks it against `sites.json`: change a scoring rule in `build.py` and here together.
   - `strings.js`: EN/VI text.
   - `extra.js`: layout glue.
-  - `load.js`: loads data, registers `sw.js`, and holds `Farm`, the one saved field list shared by `app.js` and `dash.js`.
+  - `load.js`: loads data, registers `sw.js`, and holds `Farm`, the one saved field list shared by `app.js` and `dash.js`, and `Folds` (open state of each `<details class="fold" data-fold>` per type, key `mre-folds`).
 - `docs/sw.js` is the offline cache. When you add a file the app needs offline, add it to `PRECACHE`; `test_offline_precache` checks this.
 - `pipeline/build.py` merges everything. All salinity rules are in `pipeline/salinity.py`: call `salinity.at(point)` (pins and province points alike, always a typical/El Niño pair), `salinity.stations()` and `salinity.unknown()`; tests pass a modified `salinity.DATA` instead of patching globals. `pipeline/text.py` has the bilingual text helpers both use.
 - `data/raw/` holds the fetched inputs. NASA POWER is `power_<id>.json.gz` (Dec 2000 – Nov 2024 only); read it with `build.read_power(id)`. `salinity_stations.json` is the Sóc Trăng paper table plus `lower_bound` seasons. `kttv_stations.json` has the approximate OpenStreetMap coordinates of the stations.

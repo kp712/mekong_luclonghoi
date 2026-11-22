@@ -151,8 +151,7 @@ body.has-site #d5Month { right: auto; left: calc(var(--rail-w) + 20px) }
 .po-eye { margin: 0; display: flex; align-items: center; gap: 6px; font-weight: 700; color: var(--ok) }
 .po-eye svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.4 }
 .po-name { margin: 0; font-size: 1.375rem; line-height: 1.25; font-weight: 800 }
-.po-where, .po-cal, .po-fit, .po-why, .po-next { margin: 0; font-size: .9375rem }
-.po-where, .po-next { color: var(--ink-2) }
+.po-fit, .po-why { margin: 0; font-size: .9375rem }
 .po-act { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px }
 /* checks on what the farmer entered */
 .sz-why, .f-checks { display: grid; gap: 6px }
@@ -171,11 +170,6 @@ body.dv-on #d5Month { display: none !important }
 #v4 #planFor, #v4 #talk { display: none }   /* plan name is in the "Your plan is" card; the talk line repeats the disclaimer */
 
 /* ---------- step 4, Simple: one season path instead of five boxes ---------- */
-body.ui-advanced #s4, body.ui-advanced #s4m { display: none }
-body.ui-simple #v4 #d5Pred, body.ui-simple #v4 #d5W4, body.ui-simple #v4 #d5Cost, body.ui-simple #v4 #calendar,
-body.ui-simple #v4 #planView, body.ui-simple #v4 .pv-list, body.ui-simple #v4 #strip, body.ui-simple #v4 #stripKey,
-body.ui-simple #v4 h3[data-t="planNeed"], body.ui-simple #v4 #congNote, body.ui-simple #v4 #needs,
-body.ui-simple .plan-ok .po-where, body.ui-simple .plan-ok .po-cal, body.ui-simple .plan-ok .po-next { display: none }
 .s4 { margin: 12px 0; display: grid; gap: 10px }
 .s4-h { margin: 0; font-size: 1.125rem; font-weight: 800; line-height: 1.25 }
 /* one card, one even row per stage: icon · what to do · when */
@@ -208,7 +202,6 @@ body.ui-simple .plan-ok .po-where, body.ui-simple .plan-ok .po-cal, body.ui-simp
 .s4-st { height: 64px; min-height: 0 }
 .s4-b { align-content: center }
 /* step 1, Simple: the area chart already shows the 12 months; the rotation wheel waits for Advanced and step 4 */
-body.ui-simple #v1 #d5W1 { display: none }
 
 /* ---------- full screen (1000px+): the two columns scroll on their own, like two pages side by side ---------- */
 @media screen and (min-width: 1000px) {
@@ -217,7 +210,7 @@ body.ui-simple #v1 #d5W1 { display: none }
   body.drawer-full .view.fc.on > .fc-l, body.drawer-full .view.fc.on > .fc-r { position: static; max-height: 100%; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding-bottom: 2rem; scrollbar-gutter: stable }
   body.drawer-full .view.fc.on > .fc-l { padding-right: .5rem }
   body.drawer-full .view.fc > .fc-l > * + *, body.drawer-full .view.fc > .fc-r > * + * { margin-top: 1rem }
-  body.drawer-full.ui-simple #v4.fc.on > .fc-r { padding-top: 0 }
+  body.drawer-full #v4.fc.on > .fc-r { padding-top: 0 }
   body.drawer-full #s4m { margin-top: 0 }
 }
 

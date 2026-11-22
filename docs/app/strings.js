@@ -1,7 +1,7 @@
 const STR = {
 en: {
 title: "Mekong Rotation Explorer", tagline: "Plan your next 12 months of rice, shrimp or upland crops with NASA data.",
-uiSimple: "Simple", uiAdvanced: "Advanced",
+
 step1: "Pick your area", step1hint: "Hover over the map to see each area's typical year. Click to choose it.",
 hoverHint: "Hover an area, click to choose", tapHint: "Tap an area to choose it", legendT: "Usual salt months", lg3: "3 months", lg4: "4 months", lg5: "5 months",
 yearEyebrow: "Your area's typical year (2000–2024)", yearEyebrowEl: "Your area in an El Niño year (a dry year: salt comes earlier and further inland)",
@@ -21,20 +21,19 @@ allOptions: "For every option here:",
 yourNow: "Your rotation now", vsH: (n, guess) => guess ? `If you grow ${n} now:` : `Compared with ${n} (what you grow now):`, vsProfit: d => `profit about ${d} a year`, vsProfitSame: "profit about the same", vsProfitNone: "profit: no figure yet", vsCost: d => `cost about ${d} a year`, vsCostSame: "cost about the same", vsCostNone: "cost: not enough figures yet", vsSaltLess: n => `${n} fewer month(s) with crops in salty water`, vsSaltMore: n => `${n} more month(s) with crops in salty water`, vsSaltSame: "same months with crops in salty water", vsSrc: "(estimate from published figures)", notHere: "Needs brackish water", match: "Match with your priorities", of5: "/ 5",
 scoreNames: { water: "Water", income: "Income", soil: "Soil", salt: "Weather & salt", pests: "Pests" }, noScore: "no figure",
 confidence: "Confidence", high: "High", medium: "Medium", low: "Low",
-details: "Details", whyAdvice: "Why this advice?", beforeChoose: "Before you choose", why: "Why suggested", benefits: "Benefits", risks: "Risks and unknowns", cardSrc: "Sources for this card:",
+beforeChoose: "Before you choose", why: "Why suggested", benefits: "Benefits", risks: "Risks and unknowns", cardSrc: "Sources for this card:",
 isNow: "This is what you grow now, so it is the baseline to compare against.",
 cropPick: "Crop:", planBtn: "Make my plan from this", planOn: "Your plan uses this", labourWarn: "Upland crops need more work by hand.",
 step5: "Your plan for the next 12 months", openSub5: "Month by month, from now.", planFor: "Plan",
 planElnino: "NOAA expects El Niño (a dry year, salt comes earlier): watch salt warnings closely this dry season.",
-planSow: "Sow", planStock: "Stock shrimp", planHarvest: "Harvest", planCont: "already in the field", planMore: "Rest of the year",
+planSow: "Sow", planStock: "Stock shrimp", planHarvest: "Harvest", planCont: "already in the field",
 planRest: "Rest: leave fallow or grow a cover crop", planSalt: "Usual salt (estimate)", planNeed: "What you need for this plan",
 seed: "Seed", fert: "Fertiliser (per ha, one season)", steps: "Key steps",
 stripKey: ["Rice", "Upland crop", "Shrimp", "Rest", "Usual salt months (estimate)"],
 crops: n => `Satellite sees ≈ ${n} crops a year (NASA MODIS).`,
 talk: "Talk it over with your local agricultural extension officer before you change your rotation.",
-uiPickL: "How much detail do you want?", uiSimpleD: "Plain words and big buttons: just what to do", uiAdvancedD: "Numbers, sources, El Niño (drought) years and every score",
+
 fEdit: "Edit", fUpdate: "Save changes", sHarvest: "Rice harvest", sWetP: "More rain than crops use this month.", sDryP: "Less rain than crops use this month.",
-cmpBtn: "Compare", cmpOn: "Comparing ✓", cmpH: "Side by side", cmpHint: "Pick one more option to compare it with.", cmpClear: "Clear", cmpMonths: "Next 12 months",
 wkH: "Latest 7 days of data near this area", wkSrc: "NASA POWER daily data, near real time. The newest days can be missing.", wkOff: "Live weather could not load here (no network).", wkLoad: "Loading…",
 wkRain: "Rain (mm)", wkHot: "Max °C", readPlan: "Read aloud", readStop: "Stop reading", noVoice: "This device has no Vietnamese voice installed, so it cannot read the plan aloud.",
 tipOpen: "Click to open this area", tipReopen: "Click to open it again", closeArea: "Click anywhere else on the map to close",
@@ -66,7 +65,7 @@ months: ["J","F","M","A","M","J","J","A","S","O","N","D"], monthsLong: ["Jan","F
 },
 vi: {
 title: "Khám phá luân canh Mê Kông", tagline: "Lập kế hoạch 12 tháng tới cho lúa, tôm hoặc cây màu với dữ liệu NASA.",
-uiSimple: "Đơn giản", uiAdvanced: "Nâng cao",
+
 step1: "Chọn khu vực của bạn", step1hint: "Rê chuột trên bản đồ để xem một năm điển hình của từng khu vực. Bấm để chọn.",
 hoverHint: "Rê chuột lên khu vực, bấm để chọn", tapHint: "Chạm vào một khu vực để chọn", legendT: "Số tháng thường bị mặn", lg3: "3 tháng", lg4: "4 tháng", lg5: "5 tháng",
 yearEyebrow: "Một năm điển hình của khu vực (2000–2024)", yearEyebrowEl: "Khu vực của bạn trong năm El Niño (năm nắng hạn, mặn vào sớm và sâu hơn)",
@@ -86,20 +85,19 @@ allOptions: "Với mọi phương án ở đây:",
 yourNow: "Cách bạn đang làm", vsH: (n, guess) => guess ? `Nếu bạn đang trồng ${n}:` : `So với ${n} (bạn đang trồng):`, vsProfit: d => `lời khoảng ${d}/năm`, vsProfitSame: "lời gần như bằng", vsProfitNone: "lời: chưa có số liệu", vsCost: d => `vốn khoảng ${d}/năm`, vsCostSame: "vốn gần như bằng", vsCostNone: "vốn: chưa đủ số liệu", vsSaltLess: n => `ít hơn ${n} tháng cây bị mặn`, vsSaltMore: n => `nhiều hơn ${n} tháng cây bị mặn`, vsSaltSame: "số tháng cây bị mặn như nhau", vsSrc: "(ước tính từ số liệu đã công bố)", notHere: "Cần nước lợ", match: "Mức hợp với ưu tiên của bạn", of5: "/ 5",
 scoreNames: { water: "Nước", income: "Thu nhập", soil: "Đất", salt: "Thời tiết & mặn", pests: "Sâu bệnh" }, noScore: "chưa có số liệu",
 confidence: "Mức chắc chắn", high: "Cao", medium: "Trung bình", low: "Thấp",
-details: "Chi tiết", whyAdvice: "Vì sao gợi ý phương án này?", beforeChoose: "Trước khi chọn", why: "Vì sao đề xuất", benefits: "Lợi ích", risks: "Rủi ro và điều chưa biết", cardSrc: "Nguồn cho nội dung thẻ:",
+beforeChoose: "Trước khi chọn", why: "Vì sao đề xuất", benefits: "Lợi ích", risks: "Rủi ro và điều chưa biết", cardSrc: "Nguồn cho nội dung thẻ:",
 isNow: "Đây là cách bạn đang làm, nên được dùng làm mốc để so sánh.",
 cropPick: "Cây:", planBtn: "Lập kế hoạch theo phương án này", planOn: "Kế hoạch đang dùng phương án này", labourWarn: "Cây màu cần nhiều công tay hơn.",
 step5: "Kế hoạch 12 tháng tới của bạn", openSub5: "Từng tháng, tính từ bây giờ.", planFor: "Kế hoạch",
 planElnino: "NOAA dự báo năm nay có El Niño (nắng hạn, mặn vào sớm hơn): bà con theo dõi sát tin báo mặn trong mùa khô này.",
-planSow: "Gieo sạ", planStock: "Thả tôm", planHarvest: "Thu hoạch", planCont: "đang có trên ruộng", planMore: "Các tháng còn lại trong năm",
+planSow: "Gieo sạ", planStock: "Thả tôm", planHarvest: "Thu hoạch", planCont: "đang có trên ruộng",
 planRest: "Nghỉ: để đất nghỉ hoặc trồng cây phủ đất", planSalt: "Thường bị mặn (ước tính)", planNeed: "Bạn cần gì cho kế hoạch này",
 seed: "Giống", fert: "Phân bón (mỗi ha, một vụ)", steps: "Các bước chính",
 stripKey: ["Lúa", "Cây màu", "Tôm", "Nghỉ", "Tháng thường bị mặn (ước tính)"],
 crops: n => `Vệ tinh thấy khoảng ${String(n).replace(".", ",")} vụ mỗi năm (NASA MODIS).`,
 talk: "Hãy trao đổi với cán bộ khuyến nông địa phương trước khi thay đổi cách luân canh.",
-uiPickL: "Bạn muốn xem chi tiết đến đâu?", uiSimpleD: "Lời dễ hiểu, nút lớn: chỉ những việc cần làm", uiAdvancedD: "Số liệu, nguồn, năm El Niño (năm hạn mặn) và mọi điểm số",
+
 fEdit: "Sửa", fUpdate: "Lưu thay đổi", sHarvest: "Thu hoạch lúa", sWetP: "Tháng này mưa nhiều hơn lượng nước cây trồng dùng.", sDryP: "Tháng này mưa ít hơn lượng nước cây trồng dùng.",
-cmpBtn: "So sánh", cmpOn: "Đang so sánh ✓", cmpH: "Đặt cạnh nhau", cmpHint: "Chọn thêm một lựa chọn để so sánh.", cmpClear: "Bỏ chọn", cmpMonths: "12 tháng tới",
 wkH: "7 ngày dữ liệu gần nhất quanh khu vực này", wkSrc: "Dữ liệu ngày NASA POWER, gần thời gian thực. Vài ngày mới nhất có thể chưa có.", wkOff: "Không tải được thời tiết trực tiếp ở đây (không có mạng).", wkLoad: "Đang tải…",
 wkRain: "Mưa (mm)", wkHot: "Cao nhất °C", readPlan: "Đọc to", readStop: "Dừng đọc", noVoice: "Thiết bị này chưa cài giọng đọc tiếng Việt nên không đọc to kế hoạch được.",
 tipOpen: "Bấm để mở khu vực này", tipReopen: "Bấm để mở lại", closeArea: "Bấm chỗ khác trên bản đồ để đóng",
@@ -131,6 +129,7 @@ months: ["1","2","3","4","5","6","7","8","9","10","11","12"], monthsLong: ["T1",
 }
 };
 Object.assign(STR.en, {
+foldArea: "See the area's numbers", foldCard: "Why & sources", foldChecks: "Check the season plan", foldField: "Check my field", foldPlan: "See the detailed calendar", foldMonth: "See the numbers", foldScore: "See the numbers",
 modeLatest: "Latest 12 months", modeElnino: "El Niño (worst case)",
 yearEyebrowLt: o => `Your area, latest 12 months on record (${ymText(o.from)} – ${ymText(o.to)})`,
 modeNoteLt: "Rain: the newest 12 months of NASA GPM IMERG data. Salt months and all scores stay those of the typical year, because there are no newer station readings. Oct–Dec bars are from 2024, Jan–Sep from 2025.",
@@ -165,10 +164,11 @@ guideB: "How to use this app", guideS: "A short step-by-step tour",
 setNote: "Changes are saved on this device.",
 cap_fm: "How you use it", cap_sun: "Sunlight",
 h_fm: "At home, in the field with wet hands, or with one hand.", h_sun: "Stronger contrast for reading outdoors.",
-h_detail: "Simple shows fewer numbers; Advanced shows every score and source.", h_lang: "Switch all text between English and Vietnamese.",
+h_lang: "Switch all text between English and Vietnamese.",
 h_text: "Make text and boxes bigger (A+) or smaller (A−).", h_theme: "Auto follows your phone's light or dark setting.", h_motion: "Turn animations down to save battery on older phones."
 });
 Object.assign(STR.vi, {
+foldArea: "Xem số liệu khu vực", foldCard: "Vì sao & nguồn", foldChecks: "Kiểm tra lịch vụ", foldField: "Kiểm tra ruộng", foldPlan: "Xem lịch chi tiết", foldMonth: "Xem số đo", foldScore: "Xem số đo",
 modeLatest: "12 tháng gần nhất", modeElnino: "El Niño (xấu nhất)",
 yearEyebrowLt: o => `Khu vực của bạn, 12 tháng gần nhất có số liệu (${ymText(o.from)} – ${ymText(o.to)})`,
 modeNoteLt: "Mưa: 12 tháng mới nhất của dữ liệu NASA GPM IMERG. Tháng mặn và mọi điểm số vẫn theo năm điển hình, vì chưa có số liệu trạm đo mới hơn. Cột T10–T12 là năm 2024, T1–T9 là năm 2025.",
@@ -203,7 +203,7 @@ guideB: "Cách dùng ứng dụng", guideS: "Hướng dẫn ngắn từng bướ
 setNote: "Thay đổi được lưu trên thiết bị này.",
 cap_fm: "Cách bạn dùng", cap_sun: "Nắng",
 h_fm: "Ở nhà, ngoài ruộng khi tay ướt, hoặc dùng một tay.", h_sun: "Tăng độ tương phản để đọc ngoài trời.",
-h_detail: "Đơn giản hiện ít số hơn; Nâng cao hiện mọi điểm số và nguồn.", h_lang: "Chuyển toàn bộ chữ giữa tiếng Anh và tiếng Việt.",
+h_lang: "Chuyển toàn bộ chữ giữa tiếng Anh và tiếng Việt.",
 h_text: "Phóng to (A+) hoặc thu nhỏ (A−) chữ và các khung.", h_theme: "Tự động: theo nền sáng hoặc tối của điện thoại.", h_motion: "Giảm hiệu ứng động để tiết kiệm pin trên điện thoại cũ."
 });
 /* ---------- Draft 4 shell text ---------- */
