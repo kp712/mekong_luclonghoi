@@ -684,6 +684,20 @@ const fmt = x => Math.round(x / 10) * 10 >= 1000 ? (Math.round(x / 100) * 100).t
 const dh = f && f.size ? +f.size : parseFloat(load("mre-ha") || "");  /* draft5: the size typed above the cards counts too */
 return dh > 0 ? t("fieldHa")(num(dh), fmt(wt[0] * 10 * dh)) : t("fieldPer")(fmt(wt[0] * 10));
 }
+/* each other card against what the farmer grows now: profit and cost for their hectares, and salt months with a crop that salt hurts */
+function vsNow(c, list) {
+const now = (list.find(x => x.c.id === cur) || {}).c;
+if (!now || c.id === cur || typeof Cost === "undefined") return "";
+const ha = Cost.ha(), k = ha || 1, a = Cost.calc(c), b = Cost.calc(now);
+const amt = d => `${d > 0 ? "+" : "−"}${Cost.money(Math.abs(d))}${ha ? "" : "/ha"}`;
+// under 10% of the current figure is within the spread of the published figures: say "about the same"
+const diff = (x, y, key) => x == null || y == null ? t(key + "None") : Math.abs(x - y) < .1 * Math.abs(y) || !Math.round((x - y) * k) ? t(key + "Same") : t(key)(amt(Math.round((x - y) * k)));
+const salt = V(site).salt, hurt = m => salt.filter(i => /[RU]/.test((m.months[i - 1] || "-")[0])).length, ds = hurt(now) - hurt(c);
+const parts = [diff(a.profit, b.profit, "vsProfit"), diff(a.partial ? null : a.cost, b.partial ? null : b.cost, "vsCost")];
+if (salt.length) parts.push(ds ? t(ds > 0 ? "vsSaltLess" : "vsSaltMore")(num(Math.abs(ds))) : t("vsSaltSame"));
+const head = esc(t("vsH")(pick(now.name), !curPicked));
+return `<p class="vs-now">${curPicked ? `<b>${head}</b>` : `<button type="button" class="vs-ask" data-go="2">${head}</button>`} ${esc(parts.join(" · "))} <small>${esc(t("vsSrc"))}</small></p>`;
+}
 /* part 17: the 12 months as numbered tiles, coloured by crop (both views).
    water (Advanced only): one "wet" / "dry" per month, drawn as a thin bar under that month's tile */
 function strip15(months, water) {
@@ -716,10 +730,11 @@ const pickCrop = c.choices && c.choices.length > 1 ? `<div class="crop-pick" rol
 const risks = c.risks.concat(c.gaps).filter(x => !common.includes(pick(x)));
 const fl = fieldLine(c), sc = Math.max(0, s);
 const before = ui === "simple" && c.id === plan.id && risks.length;   // Simple hides Details: the plan card's risks and gaps show open, before its plan button
-return `<article data-plan="${c.id}" class="card ${i === 0 && !c.not_here ? "best" : ""} ${c.id === plan.id ? "isplan" : ""} ${c.not_here ? "nothere" : ""}" data-id="${c.id}">
+return `<article data-plan="${c.id}" class="card ${i === 0 && !c.not_here ? "best" : ""} ${c.id === plan.id ? "isplan" : ""} ${c.id === cur ? "isnow" : ""} ${c.not_here ? "nothere" : ""}" data-id="${c.id}">
 <div class="c-top"><span class="rank">#${i + 1}</span>${i === 0 && !c.not_here ? `<span class="ribbon">${t("best")}</span>` : ""}<span class="c-tags">${c.id === cur ? `<span class="tag now">${t("yourNow")}</span>` : ""}${c.not_here ? `<span class="tag warn">${t("notHere")}</span>` : ""}</span></div>
 <h3>${esc(pick(c.name))}</h3>
 <p class="cal">${esc(pick(c.calendar))}</p>
+${vsNow(c, cards)}
 ${strip15(c.months, ui === "simple" ? null : vw.rain.map((r, j) => r >= vw.et0[j] ? "wet" : "dry"))}
 ${pickCrop}
 <div class="match">${ring(sc)}<div class="match-txt"><span>${t("match")}</span>${meter(sc)}</div></div>

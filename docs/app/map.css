@@ -150,7 +150,7 @@ body.drawer-open .sg-legend { display: none; }
 /* ---- pin names: solid plates that read on the satellite image in both themes ----
    Name + salt level dot (high / medium / low: estimate from station reports, never satellite)
    + NASA MODIS crops a year. map.js places each plate right of its pin, or left (.sg-left) when
-   that side is taken; on phones under the pin, or above (.sg-above). */
+   that side is taken; on phones under the pin, or above (.sg-above), else beside it (.sg-side). */
 .sg-label-wrap { background: none; border: 0; }
 .sg-label {
   position: absolute; left: 20px; top: 0; transform: translateY(-50%);
@@ -190,6 +190,8 @@ body.drawer-open .sg-legend { display: none; }
 @media (max-width: 760px) {
   .sg-label { left: 0; top: 22px; transform: translateX(-50%); padding: 5px 11px 5px 9px; column-gap: 7px; }
   .sg-label.sg-above { top: auto; bottom: 22px; }
+  .sg-label.sg-side { left: 22px; top: 0; bottom: auto; transform: translateY(-50%); }
+  .sg-label.sg-side.sg-left { left: auto; right: 22px; }
   .sg-label small { display: none; }
   .sg-dot { grid-row: 1; width: 10px; height: 10px; }
 }
