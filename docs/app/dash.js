@@ -1288,6 +1288,7 @@ footer{margin-top:12px;font-size:10.5px;color:#444;border-top:1px solid #999;pad
   function toMap(field) {
     try { zoomClose() } catch (e) {}
     Sim.reset(); editing = field ? field.id : null; on = false;
+    try { window.App && App.startAdd && App.startAdd(!field) } catch (e) {}
     flowNow = field && Season.valid(field.now) ? { ...field.now, weeks: Season.growing(field.now) ? Season.weeksLeft(field.now) : 0, at: Date.now() } : null;
     closeSheet(); document.body.classList.remove("dv-on"); document.body.classList.add("dv-off"); lastSite = null;
     $("#dvBack").hidden = false; backLabel();
@@ -1296,7 +1297,7 @@ footer{margin-top:12px;font-size:10.5px;color:#444;border-top:1px solid #999;pad
     else { try { MapView.select(null); MapView.home() } catch (e) {} }
   }
   function backToDash() {
-    on = true; editing = null; lastSite = null; $("#dvBack").hidden = true; document.body.classList.add("dv-on"); document.body.classList.remove("dv-off");
+    on = true; editing = null; lastSite = null; try { window.App && App.startAdd && App.startAdd(false) } catch (e) {} $("#dvBack").hidden = true; document.body.classList.add("dv-on"); document.body.classList.remove("dv-off");
     try { if (window.App && App.closePanel) App.closePanel() } catch (e) {} view = "dash"; mapKey = "";
     if (location.hash) { try { history.replaceState(null, "", location.pathname + location.search) } catch (e) {} }
     render();

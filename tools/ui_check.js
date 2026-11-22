@@ -211,6 +211,24 @@ const CHECKS = [
     await page.locator('.nv-b', { hasText: 'Số liệu' }).click(); await page.locator('[data-zoomb="salt"]').first().click();
     await page.waitForSelector('#dvZoom:not([hidden])'); await check('the salt detail');
   } },
+  { name: 'add-existing', async run({ page, url }) {
+    // a second "Thêm ruộng" on an area that already has a field makes a new field and leaves the first untouched
+    const farm = () => page.evaluate(() => JSON.parse(localStorage.getItem('mre-farm')).fields);
+    const toSave = async () => { for (let i = 0; i < 6 && !(await page.locator('.dv-savefield:visible').count()); i++) { await page.locator('#dNext').click({ timeout: 1500 }).catch(() => {}); await page.waitForTimeout(300); }
+      await page.locator('.dv-savefield').click(); await page.waitForSelector('body.dv-on'); };
+    await toCards(page, url); await toSave();
+    const before = (await farm())[0];
+    await page.locator('.nv-b', { hasText: 'Ruộng' }).click(); await page.locator('[data-dv=add]:visible').first().click();   // Fields tab: Thêm ruộng
+    await page.locator('.sg-pin .sg-pin-btn').nth(1).evaluate(b => b.click()); await page.waitForSelector('#v1.on');
+    await page.locator('#dNext').click();
+    await page.waitForSelector('#fieldForm', { state: 'visible', timeout: 3000 });   // asks for the new field, not the old one
+    await page.locator('#fieldForm [type=submit]').click(); await page.waitForSelector('#v2.on');
+    await toSave();
+    const fs = await farm();
+    assert(fs.length === 2, 'expected 2 fields, got ' + fs.length);
+    assert(JSON.stringify(fs[0]) === JSON.stringify(before), 'first field changed');
+    assert(fs[1].name === 'Ruộng Trần Đề 2' && fs[1].site === 'tran_de', 'new field ' + JSON.stringify(fs[1].name));
+  } },
   { name: 'folds-no-storage', async run({ page, url, errs }) {
     await page.addInitScript(() => { const boom = () => { throw new Error('blocked') }; Storage.prototype.getItem = boom; Storage.prototype.setItem = boom; });
     await home(page, url);
