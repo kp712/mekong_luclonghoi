@@ -263,6 +263,19 @@ def test_income_score():
     assert build.yearly_profit(rots["rice_shrimp"], sal, True, False) <= build.yearly_profit(rots["rice_shrimp"], sal, False, False)  # typical losses (shrimp disease) also hit El Niño years
 
 
+def test_profit_figures_clean():
+    pf = json.loads((build.HERE / "profits.json").read_text(encoding="utf-8"))
+    figs = pf["figures"]
+    seen = [(f["key"], f["source"]["url"], f["value"]) for f in figs]
+    assert len(seen) == len(set(seen)), "duplicate profit figure"
+    for f in figs:
+        assert f["unit"] in ("crop", "year") and f["kind"] in ("survey", "government", "university", "cooperative", "farmer", "news")
+        if not f["fallback"]:
+            assert f["kind"] in ("survey", "government", "university", "cooperative") and 2020 <= f["year"] <= 2026, f["place"]
+            assert f["source"]["verified"], f["place"]
+    assert any(f["key"] == "mungbean" for f in figs) or "mungbean (no checked figure" in pf["_readme"]
+
+
 def test_profit_figures():
     pf = json.loads((build.HERE / "profits.json").read_text(encoding="utf-8"))
     rots = {r["id"]: r for r in json.loads((build.HERE / "rotations.json").read_text(encoding="utf-8"))["rotations"]}

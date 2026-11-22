@@ -793,8 +793,8 @@ def make_card(rot, clim, nd, sal, elnino=False):
                          "hi": yearly_profit(rot, sal, elnino, not_here, high_profit), "n": n}
     benefits = list(rot["benefits"])
     ratio = round(p / p3, 1)
-    why.append(sourced(line(f"Income {x}: estimated profit ≈ {p} vs {p3} M ₫/ha a year for 3 rice crops ({ratio}×; medians of {n} published figures, 2020–2025).",
-                            f"Thu nhập {vi_num(x)}: lợi nhuận ước tính ≈ {vi_num(p)} so với {vi_num(p3)} triệu đồng/ha/năm của 3 vụ lúa ({vi_num(ratio)}×; trung vị của {n} số liệu đã công bố, 2020–2025)."), psrc))
+    why.append(sourced(line(f"Income {x}: estimated profit ≈ {p} vs {p3} M ₫/ha a year for 3 rice crops ({ratio}×; medians of {n} published figures, 2020–2026).",
+                            f"Thu nhập {vi_num(x)}: lợi nhuận ước tính ≈ {vi_num(p)} so với {vi_num(p3)} triệu đồng/ha/năm của 3 vụ lúa ({vi_num(ratio)}×; trung vị của {n} số liệu đã công bố, 2020–2026)."), psrc))
 
     level, reasons = confidence(rot, nd, sal, not_here, elnino)
     return finish(c, rot, s, why + ev, risks + reasons, gaps, benefits, level, not_here)
