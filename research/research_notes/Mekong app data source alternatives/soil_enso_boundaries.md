@@ -1,0 +1,101 @@
+# Soil, ENSO and province boundaries: better sources? (research 2026-11-22)
+
+Scope: the app's soil input (SoilGrids 2.0), its ENSO input (CPC ONI + CPC ENSO Diagnostic Discussion text) and its province outlines (geoBoundaries gbHumanitarian VNM ADM1, 63 provinces, 2020). Some findings come from my own direct queries of the data files on 2026-11-22; these are marked "own check" and give the URL queried.
+
+## Soil: is there a more accurate, finer or Vietnam-validated source than SoilGrids 2.0?
+
+### Takeaway
+I found no published validation of SoilGrids 2.0 against Vietnamese or Mekong Delta profiles, and my own point checks show it is nearly flat across the Delta: it gives pH 5.5–6.5 at known acid-sulfate sites in Đồng Tháp Mười (Plain of Reeds), which ranks them less acid than alluvial Đồng Tháp. None of the global alternatives (HWSD v2.0 at 1 km, FAO GSASmap/GSNmap) is better for a point in the Delta. The only source with real soil-type classes (alluvial, acid sulfate, saline) is the Vietnamese provincial/regional soil map (SIAEP/Sub-NIAPP, 1:100,000 provincial compiled to 1:250,000 regional, WRB classes), but I found no open digital download.
+
+### Cited Findings
+- SoilGrids 2.0 global 10-fold cross-validation: models explain 56% (coarse fragments) to 83% (pH) of variation, average 61%. This is a global figure, not a Vietnam one. — [Poggio et al. 2021, SOIL 7:217](https://soil.copernicus.org/articles/7/217/2021/)
+- The SoilGrids authors note that accuracy is measured at known points while soils occur in spatial patterns. — [Poggio et al. 2021](https://soil.copernicus.org/articles/7/217/2021/soil-7-217-2021.pdf)
+- Earlier SoilGrids250m reported overestimation of low values, clearly visible for soil organic carbon. — [Hengl et al. 2017, PLoS ONE](https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0169748)
+- Search for a Vietnam/Mekong validation of SoilGrids found none; the closest is a study showing that global pedotransfer functions perform poorly on Vietnamese Mekong Delta soils and that region-specific ones are needed. — [AGRIS record, PTF evaluation for VMD soils](https://agris.fao.org/search/zh/records/65df8e74b766d82b180266e4)
+- Own check, SoilGrids REST (`https://rest.isric.org/soilgrids/v2.0/properties/query?lon=..&lat=..&property=phh2o&property=clay&property=soc&depth=0-5cm&depth=5-15cm&value=mean`), values 0–5 / 5–15 cm (pH ×10, clay g/kg, SOC dg/kg):
+  - Tân Phước, Đồng Tháp Mười acid-sulfate area (106.20, 10.47): pH 6.4/6.5, clay 41.7%, SOC 28.6/21.0 g/kg
+  - Mộc Hóa, Đồng Tháp Mười (105.93, 10.77): pH 6.0/6.0, clay 41.8%
+  - Hòn Đất, Long Xuyên Quadrangle (105.0, 10.35): pH 5.5/5.5, clay 36.6%
+  - Vĩnh Châu, Sóc Trăng coast (105.98, 9.33): pH 5.6/5.6, clay 40.0%
+  - Đồng Tháp alluvial (105.50, 10.70): pH 5.6/5.6, clay 37.9%
+  - Cần Thơ city (105.78, 10.03): all null (masked urban pixel)
+- Đồng Tháp Mười is a major acid-sulfate area: about 400,000 ha of the Delta's 1.6 million ha of acid sulfate soils lie in the Plain of Reeds, and all acid sulfate soils are (potentially) strongly acidic because of pyrite oxidation. — [Husson, AGRIS record "Water management for rice cultivation on acid sulphate soils in the Plain of Reeds"](https://agris.fao.org/search/zh/records/64745baf542a3f9f03b4dc35)
+- Acid sulfate soils cover about 1.6 million ha, over 40% of the Delta. — [Tạp chí Khoa học ĐH Cần Thơ, 2010 (DOAJ)](https://doaj.org/article/42728bb29df243959defa5c193014c80)
+- HWSD v2.0 (FAO/IIASA, 2023; revised v2.01 Sept 2023): 1 km (30 arc-second) raster linked to ~30,000 soil mapping units, 7 depth layers, FAO-90 legend correlated with WRB 2022. National databases added in v2.0 named in FAO's notes are Afghanistan, Ghana and Türkiye; Vietnam is not named. The v1.2 base for areas without new data was the 1:5,000,000 FAO-UNESCO Soil Map of the World plus SOTER/WISE. — [FAO Soils Portal, HWSD v2.0](https://www.fao.org/soils-portal/data-hub/soil-maps-and-databases/harmonized-world-soil-database-v20/en/)
+- FAO GSASmap Vietnam (`VN-GSAS-*-2021`, 1 km) is catalogued but its raster folder is empty; GSNmap Vietnam EC 2024 (~250 m) reads 8–11 dS/m everywhere, including Đà Lạt highlands, so it is not credible. — own check, recorded in `research/soil-salinity-maps.md` (FAO GLOSIS catalogue: https://data.apps.fao.org/gismgr/api/v2/catalog/workspaces/GLOSIS/mapsets/VN-GSNM-ECX-2024/rasters)
+- A 2024 review cites a revised and updated 2009 Mekong Delta soil map with ten major soil groups (WRB/FAO 1998); acid sulfate soils fall within Fluvisols and Gleysols. — [Indian J. Agric. Res. 58(3):369–379, 2024](https://arccjournals.com/journal/indian-journal-of-agricultural-research/AF-834)
+- Delta soil maps were made at 1:100,000 per province and compiled to 1:250,000 for the region. — [IAS Vietnam paper on soil change in the Delta](https://iasvn.org/upload/files/WAGKAUTF0Odanh%20gia%20su%20bien%20dong.pdf)
+- SIAEP (Phân viện Quy hoạch và Thiết kế Nông nghiệp miền Nam) supplies soil maps to researchers on request (e.g. a 2018 map used for Vĩnh Thuận, Kiên Giang); SIAEP authors classify Delta soils into 8 WRB reference groups including Fluvisols, Gleysols, Histosols and Solonchaks. — [CTU Journal (Vietnamese), soil map use and WRB conversion](https://ctujsvn.ctu.edu.vn/index.php/ctujsvn/article/download/6843/4885/24679)
+- A Mekong Delta Soil Fertility Capability Classification built from the WRB rice-soil map at 1:250,000 (35 fertility types) is on Zenodo as an article, not a shapefile. — [Zenodo 3256145](https://zenodo.org/records/3256145)
+- JICA reports classify Delta acid sulfate units as Thionic Fluvisols with sub-classes by sulfuric-horizon depth (e.g. actual ASS with a sulfuric horizon within 50 cm). — [JICA report](https://openjicareport.jica.go.jp/pdf/11597408_04.pdf)
+- The MRC Soil Map of the Lower Mekong Basin (FAO/UNESCO 1988 legend) is listed only as an internal SDE feature class, with no public download. — [MRC spatial metadata (archived)](https://archive.iwlearn.org/mrcmekong.org/spatial/meta_html/soil.htm)
+- The ICEM Mekong Delta DSF site lists an "Acid Sulphate Soils" map category; no download link was seen. — [ICEM Mekong Delta DSF](https://icem.com.au/DELTA/)
+
+### Inferences
+- SoilGrids is not usable to tell farmers whether their field is acid sulfate: at the five Delta pins it gives a narrow 5.5–6.5 pH range and puts two known acid-sulfate sites (Tân Phước, Mộc Hóa) at the high end. Clay is 37–42% everywhere, so the clay-based drainage note carries little information between pins. The app should keep calling it a model, or drop pH from the score.
+- HWSD v2.0 is not better: it is coarser (1 km), it is a polygon map with no Vietnam-specific update named, and it returns the dominant unit of a large polygon, not the field.
+- The real improvement would be the SIAEP Delta soil map (WRB classes, including Thionic Fluvisols / salic units). It gives a soil-type class at a point, but it is a 1:100,000–1:250,000 polygon map (about 100–250 m positional accuracy at best), it is not openly published, and the licence is unknown. Getting it means asking SIAEP or Cần Thơ University.
+- If nothing better is obtained, an honest option is to show soil type as "check locally" and use SoilGrids only for clay, with its source named.
+
+### Gaps
+- No peer-reviewed validation of SoilGrids 2.0 (or HWSD v2.0) against Vietnamese soil profiles was found. The search covered English and Vietnamese terms.
+- I did not confirm exact measured topsoil pH at Tân Phước or Mộc Hóa; the claim that those sites are acid is from the regional literature above, not a measured value at those coordinates.
+- Not checked: OpenLandMap (pH/clay at 250 m, also a global ML model, so likely the same issue); the FAO GSOCmap Vietnam submission; whether Vietnam's national digital soil mapping (e.g. under FAO GSP/SoilFER or the Ministry of Agriculture and Environment) has published open rasters; whether a 1:50,000 digital Sóc Trăng soil map exists. Vietnamese provincial government sites are unreachable from the sandbox.
+- HWSD v2.0 value at the pins was not queried (needs the 1 km raster + Access/SQLite database download).
+
+## ENSO: did CPC switch to RONI, how does it change the app's El Niño seasons, and is there a machine-readable probability?
+
+### Takeaway
+Yes. NOAA CPC made the Relative Oceanic Niño Index (RONI) its official ENSO index on 1 February 2026; ONI is still published. For the app's rule (Dec–Feb ≥ 0.5), switching from ONI to RONI changes only one season in 1997–2026: the 2020 dry season (DJF 2020) drops from El Niño (ONI 0.71) to not El Niño (RONI 0.14). RONI is a drop-in file (`RONI.ascii.txt`). For the outlook, no official machine-readable probability feed was found: CPC and IRI publish probabilities as images, BoM ended its ENSO outlooks in Dec 2024, and the IRI Data Library now requires sign-in. Text parsing of the CPC discussion stays the most reliable route, but the parse must pick the right sentence.
+
+### Cited Findings
+- NOAA Public Information Statement: CPC shifts to a Relative Oceanic Niño Index for official monitoring and prediction of ENSO, effective 1 February 2026; the ENSO Alert System reflects the relative index. — [NWS PNS 26-05](https://weather.gov/media/notification/pdf_2026/pns26-05_Relative_ONI.pdf); [CPC announcement](https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso/roni/announcement.php)
+- Method: RONI takes the Niño-3.4 anomaly, subtracts the tropical-mean (20°S–20°N) SST anomaly, then rescales to ONI's amplitude. Reason given: the 30-year-base ONI struggles to keep up with warming of tropical SST. Legacy Niño-3.4 and ONI files continue to be updated. — [NWS RONI fact sheet](https://www.weather.gov/media/climateservices/RONI.pdf); [CPC RONI page](https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso/roni/); method papers Huang et al. 2025, J. Climate 38(4) ([Part 1](https://journals.ametsoc.org/view/journals/clim/38/4/JCLI-D-23-0707.1.xml), [Part 2](https://journals.ametsoc.org/view/journals/clim/38/4/JCLI-D-24-0185.1.xml))
+- Effect on history (NWS): RONI removes three weak El Niño winters (1958–59, 2014–15, 2019–20) and adds one (1992–93); overall variance unchanged. — [NWS RONI fact sheet](https://www.weather.gov/media/climateservices/RONI.pdf). Drought.gov: RONI usually damps El Niños and amplifies La Niñas relative to ONI. — [drought.gov, 2026-03-11](https://www.drought.gov/index%2Ephp/news/new-noaa-el-nino-southern-oscillation-index-supports-drought-early-warning-2026-03-11)
+- CPC RONI page is updated by the 5th of each month; RONI values may change up to two months after first posting. — [CPC RONI page](https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso/roni/)
+- Own check: the data file is `https://www.cpc.ncep.noaa.gov/data/indices/RONI.ascii.txt` (HTTP 200, 14,752 bytes, columns `SEAS YR ANOM`, 1950 to ASO 2026). `oni.ascii.txt` is still live (columns `SEAS YR TOTAL ANOM`, to ASO 2026).
+- Own check, DJF values (ONI / RONI), seasons with ONI or RONI ≥ 0.5 marked: 1998 2.22/2.13; 2003 0.90/0.85; 2005 0.62/0.54; 2007 0.62/0.60; 2010 1.47/1.44; 2015 0.73/0.54; 2016 2.50/2.14; 2019 0.99/0.68; **2020 0.71/0.14 (El Niño under ONI only)**; 2024 1.84/1.13. All other seasons 1997–2026 are below 0.5 under both. Within the app's 2016–2026 window, only 2020 changes. 2015 (0.54) and 2005 (0.54) sit just above the line under RONI.
+- Current state (CPC ENSO Diagnostic Discussion, issued Nov 2026): "ENSO Alert System Status: El Niño Advisory"; "strong-to-very strong El Niño likely through January–March 2027 (remaining greater than a 79% chance)"; ~60% chance of a historic event (RONI ≥ +2.5 °C) for Oct–Dec and Nov–Jan; next discussion 10 December 2026. — [CPC ENSO Diagnostic Discussion](https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml)
+- Own check: latest 3-month values are ASO 2026 ONI 2.46, RONI 1.97.
+- CPC's probabilistic strength forecast page gives probabilities only as a PNG (`/archives/enso/roni/images/2026/enso-strengths-probs-current.png`); no text/CSV/JSON link on the page. — [CPC strengths page](https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso/roni/strengths/) (own check of its links)
+- IRI's ENSO Quick Look shows the official CPC probability forecast and the model-based CCSR/IRI forecast as figures; the two are updated about a week apart, and the CPC forecast starts on the previous season while IRI's starts on the current one. No CSV/JSON link found on the current page. — [IRI ENSO forecast, current](https://iri.columbia.edu/our-expertise/climate/forecasts/enso/current/) (own check of its links)
+- The IRI Data Library now requires all users to sign in (own check of `https://iridl.ldeo.columbia.edu/SOURCES/.IRI/.Analyses/.ENSO-Forecasts/`, redirected to a login page).
+- BoM stopped its ENSO Outlook Watch/Alert statements, the ENSO dial, fortnightly Climate Driver Updates and its international model summaries from December 2024. — [BoM media release](https://media.bom.gov.au/releases/1246/improving-how-climate-information-is-communicated-to-the-community); [BoM ENSO outlook page](https://www.bom.gov.au/climate/enso/outlook/)
+
+### Inferences
+- Switching `ONI_URL` to `RONI.ascii.txt` is a small, low-risk change that follows NOAA's official index. Its only visible effect in the app's 2016–2026 window is that 2020 stops counting as an El Niño season. The parser needs to handle 3 columns instead of 4. Note that RONI's recent months are revised for 2 months, so a build may change the latest values.
+- 2020 matters for the salt data: the 2019–20 dry season is often described as a record salinity year in the Delta (not sourced in this note; check the KTTV readings in `data/raw/`). Under RONI it would count as a typical season, which would likely raise the "typical" salt figure and change the El Niño one. Check the `build.py` output before switching.
+- The text "greater than a 79% chance" in the current discussion refers to *strong-to-very strong* El Niño, not El Niño at all. A parser that takes the first percentage could report the wrong event. The Alert System status line is the robust field to parse; the percentage should be shown with its own sentence.
+- For "chance of El Niño this dry season", the CPC discussion text is the most reliable freely reachable source, with IRI Quick Look as a cross-check by hand. No better machine-readable feed exists without a login.
+
+### Gaps
+- I did not find a published CPC probability table in text form (the old CPC "Figure 6" bar chart is an image). IRI's plume model data used to be downloadable; the old `~forecast/ensofcst/Data/` paths now return 404 and I found no replacement URL.
+- I did not check whether the IRI Data Library login is free or whether its ENSO-probability dataset is current.
+- The El Niño 2026–27 is ongoing; its DJF 2027 value is not yet known (expected around early March 2027).
+
+## Boundaries: sources for the 34 post-merger provinces, and which keep the 63 former provinces
+
+### Takeaway
+OCHA's HDX COD-AB Vietnam v02 (published 25 Sept 2025, file update 26 Jan 2026, source General Statistics Office) is the best source for the 34 new provinces: official source, Vietnamese names, P-codes, GeoJSON, CC BY-IGO. It has only the 34 new provinces. The 63 former provinces stay best served by the current geoBoundaries gbHumanitarian file (OCHA/Government 2020, CC BY 3.0 IGO). Because the 2025 merger joined whole provinces, the new Delta outlines match unions of the old ones (checked for Cần Thơ city). GADM 4.1 and geoBoundaries are still pre-merger. OSM status was not verified.
+
+### Cited Findings
+- HDX "Viet Nam – Subnational Administrative Boundaries", COD-AB version 02: one admin level, Admin 1 = 34 provinces; boundaries created by the source 1 July 2025; reviewed and published 25 September 2025; source General Statistics Office of Vietnam (GSO); licence Creative Commons Attribution for Intergovernmental Organisations (CC BY-IGO); files GDB, SHP, GeoJSON (zip), XLSX, last modified 2026-01-26. — [HDX cod-ab-vnm (API metadata)](https://data.humdata.org/dataset/cod-ab-vnm)
+- Own check of the GeoJSON zip (28 MB; `vnm_admin1.geojson` 48 MB unsimplified): 34 features, fields `adm1_name` (English), `adm1_name1` (Vietnamese, e.g. "Cần Thơ"), `adm1_pcode` (e.g. VN92 Cần Thơ, VN91 An Giang, VN82 Đồng Tháp), `adm1_type_vi` (Tỉnh / Thành phố), `area_sqkm`, `valid_on` 2025-09-25. No field records the former provinces. Also includes `vnm_adminpoints.geojson` (label points) and `vnm_adminlines.geojson`.
+- Own check: HDX Cần Thơ city area 6,360.82 km²; the old Cần Thơ, Hậu Giang and Sóc Trăng outlines in the app's `data/raw/adm1_vnm_2020.geojson` (simplified) sum to 1,447 + 1,629 + 3,320 = 6,396 km² (0.6% higher, consistent with simplification).
+- Resolution 202/2025/QH15 merges "the entire natural area and population" of provinces (e.g. Hà Giang into Tuyên Quang). — [Resolution 202/2025/QH15 (luatvietnam)](https://static3.luatvietnam.vn/uploaded/vietlawfile/2025/6/202_2025_qh15_130625135937.pdf)
+- 34 units = 28 provinces + 6 centrally-run cities, effective 1 July 2025. — [Vietnam News](https://vietnamnews.vn/politics-laws/1719423/parliament-passes-historic-resolution-to-cut-provinces-and-centrally-run-cities-from-63-to-34.html). A search summary of Wikipedia gave "25 provinces and 9 cities"; I did not verify this and it conflicts with the official count at 1 July 2025 (it may reflect later city designations). — [Wikipedia, Provinces of Vietnam](https://en.wikipedia.org/wiki/Provinces_of_Vietnam)
+- Own check, geoBoundaries API (`https://www.geoboundaries.org/api/current/gbHumanitarian/VNM/ADM1/`): gbHumanitarian VNM ADM1 = year 2020, 63 units, source Government of Viet Nam + HDX, CC BY 3.0 IGO, build Dec 12 2023. gbOpen VNM ADM1 = year 2008, 64 units, Public Domain. No 2025 release.
+- GADM's current version is 4.1 (own check of gadm.org); GADM's Vietnam layer reflects pre-July-2025 boundaries and GADM's licence restricts use to non-commercial purposes. — [gadm.org](https://gadm.org/download_country.html); [RPubs "Old provinces of Vietnam (before July 1, 2025)"](https://rstudio-pubs-static.s3.amazonaws.com/1322556_cefe3b4f59e74c7f91284ba122fe2f0c.html)
+- In March 2026 Vietnamese press reported Google Maps updating to the new boundaries and said OpenStreetMap and Apple Maps had not yet updated. — [Tuổi Trẻ News, March 2026](https://news.tuoitre.vn/google-maps-begins-updating-vietnams-new-administrative-boundaries-103260320101445277.htm); [Dân trí, 2026-03-18](https://dtinews.dantri.com.vn/vietnam-today/google-maps-updates-vietnams-administrative-boundaries-after-mergers-20260318154256239.htm)
+- OSM contributors were updating commune-level merges (e.g. Cao Bằng) in diaries. — [OSM user diary](https://api.openstreetmap.org/user/Ducminhduongcb/diary)
+- The Vietnamese government's national digital map was updated to the 34 provinces. — [VOV](https://english.vov.vn/en/society/vietnams-digital-map-updates-34-provincial-level-administrative-units-post1206804.vov)
+
+### Inferences
+- Best combination for the app: keep the 2020 OCHA/geoBoundaries 63-province file for the former provinces (the app's scoring unit) and add HDX COD-AB v02 for the 6 new provinces. Alternatively, skip the new download and dissolve the old outlines into the new provinces using a fixed 63→34 table, since the merger joined whole provinces; this keeps one source and guarantees the new outlines match the old ones exactly. The HDX file is better if the app needs official P-codes and names.
+- HDX's CC BY-IGO licence needs attribution to OCHA/GSO; it is free to use, like the current CC BY 3.0 IGO.
+- The HDX GeoJSON is 48 MB unsimplified; it must be simplified (the app's `make_outlines.py` already simplifies) before use.
+
+### Gaps
+- OSM admin_level=4 status for Vietnam in Nov 2026 is unverified: the Overpass API was unreachable from the sandbox, and the only report found (March 2026) says OSM had not updated then.
+- Whether geoBoundaries plans a 2025 VNM release, and whether HDX plans an ADM2 (commune) level, was not found.
+- Exact current number of provinces vs cities (28+6 vs 25+9) after possible 2026 re-designations was not confirmed; it does not change the outlines.
