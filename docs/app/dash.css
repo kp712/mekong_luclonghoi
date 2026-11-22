@@ -565,22 +565,11 @@ body.dv-zoomed { overflow:hidden }
 @media (max-width:420px) { .pg-l { font-size:.625rem } .pg-segs { gap:2px } .pg-fl .fl { width:17px; height:17px } }
 @media (prefers-reduced-motion: reduce) { .dv-name.in, .dv-rm.hot h3 .dv-i, .pg-tok::after { animation:none } .pg-walk { transition:none } }
 
-/* Simple / Advanced switch in the top bar, next to EN / VI */
-#uiSeg button { white-space:nowrap }
-/* phones: one switch ("Advanced" on/off) instead of two buttons, so the top bar stays one row */
-#uiSw { display:none }
 @media (max-width:760px) {
-  #uiSeg { display:none }
-  #uiSw { display:inline-flex; align-items:center; gap:4px; flex:none; height:40px; padding:0 5px; border-radius:10px; border:1px solid var(--line-2); background:var(--panel-solid); color:var(--ink); font:600 .6875rem/1 var(--font); cursor:pointer }
-  #uiSw i { position:relative; width:24px; height:16px; border-radius:8px; background:var(--line-2); transition:background-color .2s }
-  #uiSw i::after { content:""; position:absolute; top:2px; left:2px; width:12px; height:12px; border-radius:50%; background:var(--ink-2); transition:transform .2s cubic-bezier(.22, 1, .36, 1), background-color .2s }
-  #uiSw[aria-checked="true"] { border-color:var(--gold) } #uiSw[aria-checked="true"] i { background:var(--gold) } #uiSw[aria-checked="true"] i::after { transform:translateX(8px); background:#14110A }
-  #uiSw:focus-visible { outline:2px solid var(--water); outline-offset:2px }
   #langSeg button { min-width:32px; padding:.3rem .3rem }
   #brand b { font-size:.9375rem }
   #topbar .tools { gap:4px } #topbar { column-gap:4px }
 }
-@media (prefers-reduced-motion: reduce) { #uiSw i, #uiSw i::after { transition:none } }
 
 /* phones: the map stays bright and visible; the headline is a short strip with a light fade */
 @media (max-width:760px) {
@@ -689,7 +678,6 @@ body.dv-zoomed { overflow:hidden }
 @media (prefers-reduced-motion:reduce) { .bm-dot::after { animation:none; opacity:.5 } .dv-backmap .bm-ic { transition:none } }
 
 /* ---------- Simple view: less on the page, clearer calendar (critique) ---------- */
-body.dv-simple #hubBtn { display:none }                                  /* Tools is an Advanced feature */
 .s-cal .rb .mo { color:var(--ink) }
 body.lang-vi .s-cal .rb .mo, body.lang-vi .z-panel .rb:not(.sm) .mo { font-size:.9375rem; line-height:1.15 }   /* plain month numbers, readable outdoors */
 .rb li.now .mo { color:var(--gold) }
@@ -711,7 +699,6 @@ body.lang-vi .s-cal .rb .mo, body.lang-vi .z-panel .rb:not(.sm) .mo { font-size:
 }
 @media (max-width:760px) {
   body.dv-on:not(.dv-nofield) #topbar #langSeg { display:none }          /* language lives in Settings once a field exists */
-  body.dv-on:not(.dv-nofield) #uiSw { height:44px; padding:0 10px; gap:8px; font-size:.875rem }
 }
 
 /* ---------- Advanced view: job first, and the same month / colour / "this month" explanations as Simple ---------- */

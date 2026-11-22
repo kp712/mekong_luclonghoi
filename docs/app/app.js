@@ -129,8 +129,7 @@ const mv = (fn, ...a) => { const m = MV(); if (m && typeof m[fn] === "function")
 const PL = () => (typeof Lab !== "undefined" ? Lab : null) || window.PlanLab || null;
 
 /* ---------- state (same names and defaults as Draft 3) ---------- */
-let lang = load("mre-lang") === "en" ? "en" : "vi", ui = "simple", mode = "typical", site = null, cur = "rice3", planId = null, upCrop = null;
-ui = "advanced";   /* one mode only: full detail (Simple view removed) */
+let lang = load("mre-lang") === "en" ? "en" : "vi", mode = "typical", site = null, cur = "rice3", planId = null, upCrop = null;
 const KEYS = ["water", "income", "soil", "salt", "pests"];
 const w = { water: 2, income: 2, soil: 2, salt: 2, pests: 2 };
 let step = 1, exOn = false, exGo = false, curPicked = false, wPicked = false;
@@ -314,8 +313,6 @@ if (has("#v4") && !$("#v4").querySelector(".disclaimer")) $("#v4").insertAdjacen
 if (has("#modeSeg") && !$("#modeSeg").querySelector("[data-mode]")) $("#modeSeg").innerHTML = `<button type="button" data-mode="typical"></button><button type="button" data-mode="latest"></button><button type="button" data-mode="elnino"></button>`;
 label("#modeSeg [data-mode=typical]", "modeTypical"); label("#modeSeg [data-mode=latest]", "modeLatest"); label("#modeSeg [data-mode=elnino]", "modeElnino");
 label("#addField", "addField", "plus");
-if (has("#uiPick") && !$("#uiPick").querySelector("[data-ui]")) $("#uiPick").innerHTML = `<span class="up-l" data-t="uiPickL"></span>
-<button type="button" data-ui="simple"><b data-t="uiSimple"></b><small data-t="uiSimpleD"></small></button><button type="button" data-ui="advanced"><b data-t="uiAdvanced"></b><small data-t="uiAdvancedD"></small></button>`;
 if (has("#heroCta") && !has("#ex3Btn") && siteById(EX_ID)) $("#heroCta").insertAdjacentHTML("afterend", `<button type="button" class="ex3-btn" id="ex3Btn">${ico("arrow")}<span></span></button>`);
 [["#heroEyebrow", "heroEyebrow"], ["#heroH", "heroH"], ["#heroP", "heroP"], ["#heroCta", "heroCta"], ["#aboutLink", "aboutLink"]].forEach(([s, k]) => { const el = document.querySelector(s); if (el && !el.matches("[data-t]") && !el.querySelector("[data-t]")) el.dataset.t = k });
 /* live regions, as in Draft 3 */
@@ -1205,7 +1202,6 @@ $("#setBody").innerHTML = `<p class="set-note">${esc(t("setNote"))}</p>
 ${dlApi && copyB64.length > 100 ? `<button type="button" class="ghost-btn" id="saveCopy">${esc(t("saveCopy"))}</button><span class="share-msg" id="saveMsg" role="status"></span>` : ""}
 <p class="copy4">${esc(t("copy4"))}</p>`;
 }
-const setUi = u => { ui = u; save("mre-ui", u); applyAll() };
 const setLang = l => { lang = l; save("mre-lang", l); applyAll() };
 function setFm(m, banner) {
 fm = m; save("mre-fm", m); document.body.classList.toggle("field-mode", m === "wet");
@@ -1288,7 +1284,7 @@ body { margin: 0; padding: 0; font-family: "Be Vietnam Pro", system-ui, sans-ser
 .pd #planWarn[hidden] { display: none }
 .pd .pd-sub { margin: 8px 0 6px; font-weight: 700; font-size: 11pt }
 .pd .disclaimer, .pd .copy4 { font-size: 8.5pt; color: #44564F }
-</style></head><body class="${document.body.className.split(" ").filter(c => /^ui-|^lang-/.test(c)).join(" ")} print-doc">
+</style></head><body class="${document.body.className.split(" ").filter(c => /^lang-/.test(c)).join(" ")} print-doc">
 <header class="pd-head"><h1>${esc(t("step5"))}</h1><p>${sub}</p></header><main id="v4" class="view on pd">${parts}</main></body></html>`;
 }
 function printPlanDoc() {
@@ -1361,10 +1357,9 @@ $$("#heroAreas [data-site], #areaHead [data-site]").forEach(b => b.setAttribute(
 function applyAll() {
 document.documentElement.lang = lang;
 const b = document.body;
-b.classList.toggle("ui-simple", ui === "simple"); b.classList.toggle("ui-advanced", ui === "advanced"); b.classList.toggle("lang-vi", lang === "vi");
+b.classList.toggle("lang-vi", lang === "vi");
 fillT();
 $("#lEn").setAttribute("aria-pressed", lang === "en"); $("#lVi").setAttribute("aria-pressed", lang === "vi");
-$$("[data-ui]").forEach(x => x.setAttribute("aria-pressed", x.dataset.ui === ui));
 if (has("#ex3Btn")) setTxt($("#ex3Btn"), t("ex3Btn")(exName()));
 $$(".ex3-ban").forEach(x => { x.hidden = !exOn; x.querySelector("span").textContent = t("ex3Ban")(exName()); x.querySelector("button").textContent = t("ex3Back") });
 { let dock = document.querySelector("#areaDock");  // phones: one-tap area buttons above the bottom strip (map pins are small there)
@@ -1404,7 +1399,6 @@ if (c("#fCancel")) { pendingNext = false; return closeModal() }
 /* settings */
 if (c("#gearBtn")) { toggleSettings(!setOpen()); return }
 if (setOpen() && !c("#setPanel")) toggleSettings(false);
-if ((b = c("[data-ui]"))) { setUi(b.dataset.ui); return }
 if ((b = c("[data-fm]"))) { setFm(b.dataset.fm, true); return }
 if ((b = c("[data-size]"))) { setSize(b.dataset.size); return }
 if ((b = c("[data-motion]"))) { setCalm(b.dataset.motion === "lite", true); return }
@@ -1487,7 +1481,7 @@ if (e.shiftKey && document.activeElement === a) { e.preventDefault(); z.focus() 
 });
 
 /* ---------- start ---------- */
-window.App = { refresh: () => renderAll(), fieldId: () => fieldId, cur: () => cur, ranked, planId: () => planId, V, t, lang: () => lang, site: () => site, go, toast, mode: () => mode, weights: () => ({ ...w }), upCrop: () => upCrop, guide, openPanel, closePanel, ui: () => ui, setUi: u => { if (u !== ui) setUi(u) }, hasField: () => hasField(), example: () => exOn, askField: () => askField(),
+window.App = { refresh: () => renderAll(), fieldId: () => fieldId, cur: () => cur, ranked, planId: () => planId, V, t, lang: () => lang, site: () => site, go, toast, mode: () => mode, weights: () => ({ ...w }), upCrop: () => upCrop, guide, openPanel, closePanel, hasField: () => hasField(), example: () => exOn, askField: () => askField(),
   fields: () => fields(), removeField, planDoc: () => planDocHTML(), openField: id => openField(id), openFieldForm: siteId => openFieldForm(siteId) };
 function start() {
 ensureSkeleton(); buildExtras();

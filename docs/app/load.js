@@ -59,7 +59,7 @@ let SITES_JSON, DATA, COSTS, RESEARCH;
    Saves from before the merge (the planner's own "mre-fields", with ha) are moved in once, matched as before. */
 const Farm = (() => {
   const get = (k) => { try { return JSON.parse(localStorage.getItem(k) || "null") } catch (e) { return null } };
-  const st = get("mre-farm") || { fields: [], sel: null, ui: "simple" };
+  const st = get("mre-farm") || { fields: [], sel: null };
   if (!Array.isArray(st.fields)) st.fields = [];
   const save = () => { try { localStorage.setItem("mre-farm", JSON.stringify(st)) } catch (e) {} };
   const old = get("mre-fields");

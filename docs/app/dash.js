@@ -25,7 +25,7 @@ const Dash = (() => {
       kWhy: (n) => `(hiệu chỉnh bằng NASA MODIS: vệ tinh thấy ${n} vụ/năm, nên các vụ đó không mất mùa vì mặn năm thường).`,
       peakH: "Mặn cao nhất ở trạm", saltMs: "Tháng mặn", rainCmp: "Mưa từng tháng: năm thường và năm El Niño",
       delThis: "Xoá ruộng này", delH: (n) => `Xoá "${n}"?`, delP: "Kế hoạch của ruộng này sẽ bị xoá khỏi máy. Không lấy lại được.", delYes: "Xoá ruộng", cancel: "Không xoá", deleted: "Đã xoá ruộng",
-      modeH: "Giao diện", modeS: "Đơn giản: ít chữ, chỉ điều cần làm", modeA: "Nâng cao: thêm số liệu, thanh kéo và nguồn",
+      foldWhy: "Vì sao hợp",
       sNow: "Nước tháng này", sMoney: "Tiền lời", sTodo: "Việc tháng này",
       modeL: "Chế độ", addShort: "Thêm ruộng", welcome: "Chào mừng! Hãy tạo ruộng đầu tiên", welcomeP: "Bạn chưa có ruộng nào. Tạo ruộng để xem lịch làm, nước mặn và tiền lời của ruộng mình.",
       wsteps: ["Chọn khu vực của bạn trên bản đồ", "Trả lời vài câu về ruộng", "Chọn cách trồng và lưu lại"], create: "Tạo ruộng",
@@ -34,7 +34,7 @@ const Dash = (() => {
       nums: "Số liệu khu vực", cropsY: "Vụ/năm thấy từ vệ tinh", rainY: "Mưa cả năm", needY: "Cây cần nước cả năm", kL: "hệ số sông → ruộng", rankH: "Cách trồng hợp nhất", rankSrc: "Điểm 1–5 theo câu trả lời của bạn", ninoH: "El Niño năm nay",
       eyebrow: "Bờ biển Sóc Trăng · dữ liệu NASA", brand: "Ruộng của tôi", lead: "Các ruộng bạn đã lập kế hoạch. Chạm vào một ruộng để xem lại kế hoạch đã chọn.",
       add: "Thêm ruộng trên bản đồ", emptyP: "Chọn khu vực trên bản đồ, trả lời vài câu, rồi chọn cách luân canh. Kế hoạch sẽ được lưu ở đây.",
-      simple: "Đơn giản", adv: "Nâng cao", monthOn: (m) => `Tháng ${m} trên ruộng của bạn`, nextM: (m) => `Tháng ${m}`,
+      monthOn: (m) => `Tháng ${m} trên ruộng của bạn`, nextM: (m) => `Tháng ${m}`,
       saltIn: (a, b) => `Nước mặn từ tháng ${a} đến khoảng tháng ${b}`, saltNow: (lv, m) => `Nước đang ${lv}, đến khoảng tháng ${m}`, saltNone: "Ruộng không bị mặn trong năm (có cống ngăn mặn)",
       est: "Độ mặn là ước tính từ báo cáo trạm đo, không đo bằng vệ tinh", ribbonH: "Lịch 12 tháng", tapPlan: "Xem bảng kế hoạch 12 tháng",
       lv: { ngot: "Ngọt", lo: "Hơi mặn", man: "Mặn" }, lvL: { ngot: "ngọt", lo: "hơi mặn", man: "mặn" },
@@ -80,7 +80,7 @@ const Dash = (() => {
       kWhy: (n) => `(NASA MODIS calibration: the satellite sees ${n} crops a year, so those crops lose nothing to salt in a typical year).`,
       peakH: "Highest salt at the station", saltMs: "Salty months", rainCmp: "Rain by month: typical and El Niño years",
       delThis: "Delete this field", delH: (n) => `Delete "${n}"?`, delP: "This field's plan will be removed from this device. It cannot be undone.", delYes: "Delete field", cancel: "Keep it", deleted: "Field deleted",
-      modeH: "View", modeS: "Simple: few words, just what to do", modeA: "Advanced: more numbers, sliders and sources",
+      foldWhy: "Why it fits",
       sNow: "Water this month", sMoney: "Profit", sTodo: "This month's job",
       modeL: "Mode", addShort: "Add field", welcome: "Welcome! Please create your first field", welcomeP: "You have no fields yet. Create one to see your jobs, salty water and profit for your field.",
       wsteps: ["Pick your area on the map", "Answer a few questions about the field", "Choose a plan and save it"], create: "Create a field",
@@ -89,7 +89,7 @@ const Dash = (() => {
       nums: "Area numbers", cropsY: "Crops/year seen by satellite", rainY: "Rain in a year", needY: "Crop water need in a year", kL: "river → field factor", rankH: "Best-fitting plans", rankSrc: "Scores 1–5 from your answers", ninoH: "El Niño this year",
       eyebrow: "Sóc Trăng coast · NASA data", brand: "My fields", lead: "Fields you have planned. Tap one to see the plan you chose.",
       add: "Add a field on the map", emptyP: "Pick your area on the map, answer a few questions, then choose a rotation. The plan is saved here.",
-      simple: "Simple", adv: "Advanced", monthOn: (m) => `Month ${m} on your field`, nextM: (m) => `Month ${m}`,
+      monthOn: (m) => `Month ${m} on your field`, nextM: (m) => `Month ${m}`,
       saltIn: (a, b) => `Salty water from month ${a} to about month ${b}`, saltNow: (lv, m) => `Water is ${lv} now, until about month ${m}`, saltNone: "No salt in this field all year (sluice protected)",
       est: "Salt is an estimate from station reports, not measured by satellite", ribbonH: "12-month calendar", tapPlan: "See the 12-month plan table",
       lv: { ngot: "Fresh", lo: "Brackish", man: "Salty" }, lvL: { ngot: "fresh", lo: "brackish", man: "salty" },
@@ -210,7 +210,6 @@ const Dash = (() => {
   const st = Farm.st;   /* the one saved field list, shared with the planner (load.js) */
   const save = Farm.save;
   const fieldSel = () => st.fields.find((f) => f.id === st.sel) || st.fields[0] || null;
-  const adv = () => st.ui === "advanced";
   let view = "dash", tab = "salt", editing = null, on = false, sizeErr = "";
 
   /* ---------------- panel ---------------- */
@@ -243,7 +242,7 @@ const Dash = (() => {
       <span class="rb-key"><span class="rb-kh">${esc(T(small ? "rbKeyA" : "rbKey"))}</span>${crops.map((k) => `<span>${iconOf(k)}${esc(T("crop")[k])}</span>`).join("")}${["ngot", "lo", "man"].filter((k) => lvs.includes(k)).map((k) => `<span><i class="sb ${k}"></i>${esc(T("lv")[k])}</span>`).join("")}</span>`;
   }
   function fieldTabs() {
-    const f0 = fieldSel(); if (!adv() && st.fields.length < 2) return "";
+    const f0 = fieldSel(); if (st.fields.length < 2) return "";
     return `<div class="dv-ftabs" role="tablist" aria-label="${esc(T("brand"))}">${st.fields.map((f) => { const sel = !!(f0 && f.id === f0.id), lv = areaLv(f.site);
       return `<button type="button" role="tab" data-dvf="${f.id}" aria-selected="${sel}"><i class="sd-dot lv-${lv}" aria-hidden="true"></i><b>${esc(f.name)}</b><small>${esc(short(siteOf(f.site)))}</small></button>` }).join("")}</div>`;
   }
@@ -963,7 +962,7 @@ const Dash = (() => {
       <p class="t-plan"><span>${esc(T("planL"))}:</span> <b>${esc(L(c.name))}</b></p>
       ${planNo(f)}${ask}<div class="t-cols">${hero(f, c)}${todo(f, x)}
       <div class="s-card s-salt lv-${x.lv}"><span class="s-k">${ic("drop", 18)}${esc(T("waterNow"))}</span>
-        <div class="s-row"><span class="s-drop" aria-hidden="true">${ic("drop", 46)}</span><div><b class="s-word">${esc(T("lv")[x.lv])}${adv() ? ` <small>${nf(x.g, 1)}‰</small>` : ""}</b>
+        <div class="s-row"><span class="s-drop" aria-hidden="true">${ic("drop", 46)}</span><div><b class="s-word">${esc(T("lv")[x.lv])} <small>${nf(x.g, 1)}‰</small></b>
         <span class="s-light" aria-hidden="true"><i class="ngot"></i><i class="lo"></i><i class="man"></i></span></div></div>
         <span class="s-sub">${esc(x.sl.txt)}</span><small>${esc(T("est"))}</small></div>
       ${tiles(f, x)}${pestCard(f, x)}${remindCard(f)}${moneyCard(f, x)}</div>
@@ -1012,7 +1011,7 @@ const Dash = (() => {
           <button type="button" class="btn" data-dv="editmap">${ic("edit", 18)}<span>${esc(T("editField"))}</span></button>
           <button type="button" class="btn" data-dv="paper">${ic("print", 18)}<span>${esc(T("print"))}</span></button></div>
         <button type="button" class="btn dv-delrow" data-dv="delask">${ic("trash", 18)}<span>${esc(T("delThis"))}</span></button></section>` : ""}
-      <section class="t-card t-set" aria-labelledby="flSH"><h3 class="t-k" id="flSH">${ic("star", 18)}<span>${esc(T("setH"))}</span></h3>${modeSeg("dv-setmode")}${lang2}
+      <section class="t-card t-set" aria-labelledby="flSH"><h3 class="t-k" id="flSH">${ic("star", 18)}<span>${esc(T("setH"))}</span></h3>${lang2}
         <p class="sd-note"><button type="button" class="dv-link" data-open="sources">${esc(T("srcL"))}</button></p></section></div>`;
   }
 
@@ -1127,7 +1126,7 @@ const Dash = (() => {
     const nino = isNino(f), ML = (i) => (lang() === "vi" ? "Tháng " + (i + 1) : ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][i]);
     curSite = f.site; curNino = nino;
     return `<table class="dv-table"><thead><tr><th>${esc(T("tMonth"))}</th><th>${esc(T("tJob"))}</th><th>${esc(T("tSalt"))}</th></tr></thead><tbody>${[...Array(12)].map((_, k) => { const m = (W0(c) + k) % 12, code = c.months[m], g = fieldSalt(f.site, m, nino), lv = level(g);
-      return `<tr class="${m === CM ? "now" : ""}" data-dvm="${m}" tabindex="0"><th scope="row">${esc(ML(m))}</th><td><span class="dv-tc">${iconOf(code)}${esc(cropName(c, code))}</span>${esc(jobAt(c, m))}</td><td><span class="sd-dot lv-${LVC[lv]}"></span> ${esc(T("lv")[lv])}${adv() ? `<small> ${nf(g, 1)}‰</small>` : ""}</td></tr>` }).join("")}</tbody></table>`;
+      return `<tr class="${m === CM ? "now" : ""}" data-dvm="${m}" tabindex="0"><th scope="row">${esc(ML(m))}</th><td><span class="dv-tc">${iconOf(code)}${esc(cropName(c, code))}</span>${esc(jobAt(c, m))}</td><td><span class="sd-dot lv-${LVC[lv]}"></span> ${esc(T("lv")[lv])}<small> ${nf(g, 1)}‰</small></td></tr>` }).join("")}</tbody></table>`;
   }
   function panelPlan() {
     const f = fieldSel(), c = planOf(f), s = siteOf(f.site);
@@ -1246,7 +1245,7 @@ footer{margin-top:12px;font-size:10.5px;color:#444;border-top:1px solid #999;pad
   function chooseSheet() {
     const f = fieldSel(), r = rank(f), best = r.find((x) => !x.no), cur = r.find((x) => x.c.id === f.rot);
     sheet(`<div class="dv-sheethead"><h2>${esc(T("chooseH"))}</h2><button type="button" class="dv-shx" data-dv="close" aria-label="${esc(T("close"))}">${ic("x", 22)}</button></div><p class="sd-note dv-askline">${esc(T("ask"))}</p>${best && best.c.id !== f.rot && (!cur || nf(best.s, 1) !== nf(cur.s, 1)) ? `<p class="dv-best">${esc(T("bestFor")(L(best.c.name)))}</p>` : ""}<p class="sd-note">${esc(T("chooseP"))}</p>
-      <div class="dv-opts-list">${r.map(({ c, s, no }) => `<div class="dv-optc${c.id === f.rot ? " cur" : ""}${no ? " no" : ""}"><div class="dv-optt"><b>${esc(L(c.name))}</b>${no ? `<small class="a-no">${esc(T("notHere"))}</small>` : ""}<small>${esc(L(c.calendar))}</small><span class="sd-chip">${esc(T("fit"))} ${nf(s, 1)}/5</span>${adv() ? whyFit(c, f) : ""}</div>
+      <div class="dv-opts-list">${r.map(({ c, s, no }) => `<div class="dv-optc${c.id === f.rot ? " cur" : ""}${no ? " no" : ""}"><div class="dv-optt"><b>${esc(L(c.name))}</b>${no ? `<small class="a-no">${esc(T("notHere"))}</small>` : ""}<small>${esc(L(c.calendar))}</small><span class="sd-chip">${esc(T("fit"))} ${nf(s, 1)}/5</span><details class="fold"${Folds.attrs("why")}><summary>${esc(T("foldWhy"))}</summary>${whyFit(c, f)}</details></div>
         ${c.id === f.rot ? `<span class="sd-chip lv-low">${esc(T("current"))}</span>` : `<button type="button" class="btn gold" data-use="${c.id}">${esc(T("use"))}</button>`}</div>`).join("")}</div>`);
   }
   function optsSheet() {
@@ -1386,7 +1385,7 @@ footer{margin-top:12px;font-size:10.5px;color:#444;border-top:1px solid #999;pad
     setPanel(p, view === "plan" ? panelPlan() : view === "season" ? seasonPage(f) : view === "data" ? `${pageHead()}${fieldTabs()}${advPage(f)}` : view === "fields" ? fieldsPage() : panelDash());
     p.scrollTop = view === "plan" ? 0 : y;
     paintNav(); paintClock();
-    document.body.classList.toggle("dv-simple", !adv()); document.body.classList.toggle("dv-nofield", !fieldSel());
+    document.body.classList.toggle("dv-nofield", !fieldSel());
     p.classList.toggle("is-adv", view === "data" && !!fieldSel()); p.classList.toggle("is-simple", view !== "data" || !fieldSel()); p.dataset.view = view; document.body.dataset.dvView = view;
     const hn = p.querySelector("#dvH.dv-name"); if (hn) { if (lastName !== null && hn.dataset.k !== lastName) hn.classList.add("in"); lastName = hn.dataset.k }
     const tb = p.querySelector('.dv-ftabs [aria-selected="true"]'); if (tb) { const bar = tb.parentNode; bar.scrollLeft = Math.max(0, tb.offsetLeft - (bar.clientWidth - tb.offsetWidth) / 2) }
@@ -1407,9 +1406,8 @@ footer{margin-top:12px;font-size:10.5px;color:#444;border-top:1px solid #999;pad
     const zc = e.target.closest("[data-dvz]"); if (zc) return zoomClose();
     const zb = e.target.closest("[data-zoomb]"); if (zb) return zoomOpen(zb.dataset.zoomb, zb.closest("[data-zoom]"));
     const zt = e.target.closest("[data-zoom]"); if (zt && !e.target.closest("button, a, input, [data-dvm], [data-use], details")) return zoomOpen(zt.dataset.zoom, zt);
-    const a = e.target.closest("[data-dv],[data-dvf],[data-dvui],[data-use],[data-tab],[data-opt],[data-dvm]"); if (!a || a.matches("input")) return;
+    const a = e.target.closest("[data-dv],[data-dvf],[data-use],[data-tab],[data-opt],[data-dvm]"); if (!a || a.matches("input")) return;
     const d = a.dataset;
-    if (d.dvui) { st.ui = d.dvui; save(); paintModes(); render(); return refocus(`[data-dvui="${d.dvui}"]`) }
     if (d.dvf) { Sim.reset(); st.sel = d.dvf; save(); view = "dash"; selM = null; render(); $("#dvPanel").scrollTop = 0; return refocus(`[data-dvf="${d.dvf}"]`) }
     if (d.use) { const f = fieldSel(); f.rot = d.use; f.savedAt = Date.now(); save(); closeSheet(); render(); if (!zoomKey) $("#dvPanel").scrollTop = 0;
       try { window.App && App.toast && App.toast(T("usedT")(L(cardOf(f).name))) } catch (e) {} if (zoomKey) { const p = $("#dvZP"); p.innerHTML = zoomHTML(f) } return }
@@ -1455,40 +1453,25 @@ footer{margin-top:12px;font-size:10.5px;color:#444;border-top:1px solid #999;pad
   document.addEventListener("click", (e) => { if (e.target.closest("#lEn, #lVi")) setTimeout(() => { render(); backLabel() }, 30) });
   document.addEventListener("click", (e) => { if (e.target.closest("#brand") && $("#dv")) { e.preventDefault(); e.stopPropagation(); backToDash() } }, true);
 
-  /* one Simple / Advanced switch for the whole app: dashboard, Settings and the planner drawer */
-  const modeSeg = (cls) => `<div class="${cls}"><p class="dv-ml">${esc(T("modeH"))}</p><div class="seg" role="group" aria-label="${esc(T("modeH"))}"><button type="button" data-dvmode="simple" aria-pressed="${!adv()}">${esc(T("simple"))}</button><button type="button" data-dvmode="advanced" aria-pressed="${adv()}">${esc(T("adv"))}</button></div><p class="dv-mh">${esc(adv() ? T("modeA") : T("modeS"))}</p></div>`;
-  function paintModes() {
-    /* the switches below are rebuilt (also by the watcher further down): keep keyboard focus on the one in use */
-    const af = document.activeElement, box = af && af.closest && af.closest("#uiSw, #uiSeg, .dv-setmode");
-    const back = !box ? null : af.id ? "#" + af.id : `${box.id ? "#" + box.id : ".dv-setmode"} [data-dvmode="${af.dataset.dvmode}"]`;
+  /* the language switch inside Settings is rebuilt (also by the watcher in init): keep keyboard focus on it */
+  function paintLang() {
+    const af = document.activeElement, box = af && af.closest && af.closest(".dv-setlang");
+    const back = box ? `.dv-setlang [data-dvlang="${af.dataset.dvlang}"]` : null;
     const sb = document.getElementById("setBody");
-    if (sb) { let x = sb.querySelector(".dv-setmode"); const h = modeSeg("dv-setmode"); if (!x) sb.insertAdjacentHTML("afterbegin", h); else x.outerHTML = h;
-      const lg = sb.querySelector(".dv-setlang"), lh = `<div class="dv-setlang"><p class="dv-ml">${esc(T("langH"))}</p><div class="seg" role="group" aria-label="${esc(T("langH"))}"><button type="button" data-dvlang="vi" lang="vi" aria-pressed="${lang() === "vi"}">Tiếng Việt</button><button type="button" data-dvlang="en" lang="en" aria-pressed="${lang() === "en"}">English</button></div></div>`;
-      if (lg) lg.outerHTML = lh; else sb.querySelector(".dv-setmode").insertAdjacentHTML("afterend", lh) }
-    /* the switch lives in the top bar, next to EN / VI; the old copy inside the planner drawer is removed */
-    const db = document.querySelector("#drawer .d-body"), old = db && db.querySelector(":scope > .dv-modebar"); if (old) old.remove();
-    const tools = document.querySelector("#topbar .tools, .tools"), ls = document.getElementById("langSeg");
-    if (tools && ls) { const h = `<div class="seg" id="uiSeg" role="group" aria-label="${esc(T("modeH"))}"><button type="button" data-dvmode="simple" aria-pressed="${!adv()}">${esc(T("simple"))}</button><button type="button" data-dvmode="advanced" aria-pressed="${adv()}">${esc(T("adv"))}</button></div><button type="button" id="uiSw" role="switch" aria-checked="${adv()}" data-dvmode="${adv() ? "simple" : "advanced"}"><span>${esc(T("adv"))}</span><i aria-hidden="true"></i></button>`;
-      const sw = document.getElementById("uiSw"); if (sw) sw.remove();
-      const x = document.getElementById("uiSeg"); if (x) x.outerHTML = h; else ls.insertAdjacentHTML("afterend", h) }
-    document.body.classList.toggle("dv-simple", !adv()); document.body.classList.toggle("dv-adv", adv());
-    /* the planner (app.js) has its own detail switch: keep it the same, so Simple really shows less in the rotation cards */
-    try { if (window.App && App.setUi) App.setUi(adv() ? "advanced" : "simple"); if (typeof Cost !== "undefined") Cost.cards() } catch (e) {}
+    if (sb) { const lg = sb.querySelector(".dv-setlang"), lh = `<div class="dv-setlang"><p class="dv-ml">${esc(T("langH"))}</p><div class="seg" role="group" aria-label="${esc(T("langH"))}"><button type="button" data-dvlang="vi" lang="vi" aria-pressed="${lang() === "vi"}">Tiếng Việt</button><button type="button" data-dvlang="en" lang="en" aria-pressed="${lang() === "en"}">English</button></div></div>`;
+      if (lg) lg.outerHTML = lh; else sb.insertAdjacentHTML("afterbegin", lh) }
     if (back) refocus(back);
   }
-  /* render() and paintModes() rebuild the clicked control: put keyboard focus back on its new copy (or a heading) */
+  /* render() and paintLang() rebuild the clicked control: put keyboard focus back on its new copy (or a heading) */
   function refocus(sel) { const n = $(sel); if (!n) return; if (n.matches("h1,h2,h3")) n.tabIndex = -1; try { n.focus({ preventScroll: true }) } catch (e) {} }
-  document.addEventListener("click", (e) => { const b = e.target.closest("[data-dvmode]"); if (!b) return; st.ui = b.dataset.dvmode; save(); paintModes(); render() });
   document.addEventListener("click", (e) => { const b = e.target.closest("[data-dvlang]"); if (!b) return; const t = document.getElementById(b.dataset.dvlang === "en" ? "lEn" : "lVi"); if (t) t.click() });
   window.addEventListener("keydown", (e) => { const zz = $("#dvZoom"), sh = $("#dvSheet"); if (e.key === "Escape" && zz && !zz.hidden && (!sh || sh.hidden)) { e.preventDefault(); e.stopPropagation(); zoomClose() } }, true);
   function init() {
     shell();
-    setTimeout(paintModes, 0); document.addEventListener("click", (e) => { if (e.target.closest("#lEn, #lVi, #gearBtn")) setTimeout(paintModes, 40) });
-    /* Settings and the drawer are re-drawn by app.js: put the switch back whenever it goes missing */
-    let mq = 0; new MutationObserver(() => { if (mq) return; mq = setTimeout(() => { mq = 0; const sb = document.getElementById("setBody"), db = document.querySelector("#drawer .d-body");
-      if ((sb && !sb.querySelector(".dv-setmode")) || (db && db.querySelector(":scope > .dv-modebar")) || !document.getElementById("uiSeg")) paintModes() }, 50) }).observe(document.body, { childList: true, subtree: true });
+    setTimeout(paintLang, 0); document.addEventListener("click", (e) => { if (e.target.closest("#lEn, #lVi, #gearBtn")) setTimeout(paintLang, 40) });
+    /* Settings is re-drawn by app.js: put the language switch back whenever it goes missing */
+    let mq = 0; new MutationObserver(() => { if (mq) return; mq = setTimeout(() => { mq = 0; const sb = document.getElementById("setBody"); if (sb && !sb.querySelector(".dv-setlang")) paintLang() }, 50) }).observe(document.body, { childList: true, subtree: true });
     let hq = 0; new MutationObserver(() => { if (!hq) hq = setTimeout(() => { hq = 0; hookPlanOk() }, 30) }).observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ["class"] });
-    document.body.classList.toggle("dv-simple", !adv());
     if (location.hash === "#plan-lab") { document.body.classList.remove("dv-on"); document.body.classList.add("dv-off"); $("#dvBack").hidden = false; backLabel(); return }
     importPlanner(); on = true; document.body.classList.add("dv-on"); render();
     const ck = $("#dvClock"), setH = () => document.documentElement.style.setProperty("--ck-h", `${ck && !document.body.classList.contains("dv-noclock") ? ck.offsetHeight : 0}px`);

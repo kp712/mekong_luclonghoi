@@ -1,7 +1,7 @@
 const STR = {
 en: {
 title: "Mekong Rotation Explorer", tagline: "Plan your next 12 months of rice, shrimp or upland crops with NASA data.",
-uiSimple: "Simple", uiAdvanced: "Advanced",
+
 step1: "Pick your area", step1hint: "Hover over the map to see each area's typical year. Click to choose it.",
 hoverHint: "Hover an area, click to choose", tapHint: "Tap an area to choose it", legendT: "Usual salt months", lg3: "3 months", lg4: "4 months", lg5: "5 months",
 yearEyebrow: "Your area's typical year (2000–2024)", yearEyebrowEl: "Your area in an El Niño year (a dry year: salt comes earlier and further inland)",
@@ -32,7 +32,7 @@ seed: "Seed", fert: "Fertiliser (per ha, one season)", steps: "Key steps",
 stripKey: ["Rice", "Upland crop", "Shrimp", "Rest", "Usual salt months (estimate)"],
 crops: n => `Satellite sees ≈ ${n} crops a year (NASA MODIS).`,
 talk: "Talk it over with your local agricultural extension officer before you change your rotation.",
-uiPickL: "How much detail do you want?", uiSimpleD: "Plain words and big buttons: just what to do", uiAdvancedD: "Numbers, sources, El Niño (drought) years and every score",
+
 fEdit: "Edit", fUpdate: "Save changes", sHarvest: "Rice harvest", sWetP: "More rain than crops use this month.", sDryP: "Less rain than crops use this month.",
 wkH: "Latest 7 days of data near this area", wkSrc: "NASA POWER daily data, near real time. The newest days can be missing.", wkOff: "Live weather could not load here (no network).", wkLoad: "Loading…",
 wkRain: "Rain (mm)", wkHot: "Max °C", readPlan: "Read aloud", readStop: "Stop reading", noVoice: "This device has no Vietnamese voice installed, so it cannot read the plan aloud.",
@@ -65,7 +65,7 @@ months: ["J","F","M","A","M","J","J","A","S","O","N","D"], monthsLong: ["Jan","F
 },
 vi: {
 title: "Khám phá luân canh Mê Kông", tagline: "Lập kế hoạch 12 tháng tới cho lúa, tôm hoặc cây màu với dữ liệu NASA.",
-uiSimple: "Đơn giản", uiAdvanced: "Nâng cao",
+
 step1: "Chọn khu vực của bạn", step1hint: "Rê chuột trên bản đồ để xem một năm điển hình của từng khu vực. Bấm để chọn.",
 hoverHint: "Rê chuột lên khu vực, bấm để chọn", tapHint: "Chạm vào một khu vực để chọn", legendT: "Số tháng thường bị mặn", lg3: "3 tháng", lg4: "4 tháng", lg5: "5 tháng",
 yearEyebrow: "Một năm điển hình của khu vực (2000–2024)", yearEyebrowEl: "Khu vực của bạn trong năm El Niño (năm nắng hạn, mặn vào sớm và sâu hơn)",
@@ -96,7 +96,7 @@ seed: "Giống", fert: "Phân bón (mỗi ha, một vụ)", steps: "Các bước
 stripKey: ["Lúa", "Cây màu", "Tôm", "Nghỉ", "Tháng thường bị mặn (ước tính)"],
 crops: n => `Vệ tinh thấy khoảng ${String(n).replace(".", ",")} vụ mỗi năm (NASA MODIS).`,
 talk: "Hãy trao đổi với cán bộ khuyến nông địa phương trước khi thay đổi cách luân canh.",
-uiPickL: "Bạn muốn xem chi tiết đến đâu?", uiSimpleD: "Lời dễ hiểu, nút lớn: chỉ những việc cần làm", uiAdvancedD: "Số liệu, nguồn, năm El Niño (năm hạn mặn) và mọi điểm số",
+
 fEdit: "Sửa", fUpdate: "Lưu thay đổi", sHarvest: "Thu hoạch lúa", sWetP: "Tháng này mưa nhiều hơn lượng nước cây trồng dùng.", sDryP: "Tháng này mưa ít hơn lượng nước cây trồng dùng.",
 wkH: "7 ngày dữ liệu gần nhất quanh khu vực này", wkSrc: "Dữ liệu ngày NASA POWER, gần thời gian thực. Vài ngày mới nhất có thể chưa có.", wkOff: "Không tải được thời tiết trực tiếp ở đây (không có mạng).", wkLoad: "Đang tải…",
 wkRain: "Mưa (mm)", wkHot: "Cao nhất °C", readPlan: "Đọc to", readStop: "Dừng đọc", noVoice: "Thiết bị này chưa cài giọng đọc tiếng Việt nên không đọc to kế hoạch được.",
@@ -164,7 +164,7 @@ guideB: "How to use this app", guideS: "A short step-by-step tour",
 setNote: "Changes are saved on this device.",
 cap_fm: "How you use it", cap_sun: "Sunlight",
 h_fm: "At home, in the field with wet hands, or with one hand.", h_sun: "Stronger contrast for reading outdoors.",
-h_detail: "Simple shows fewer numbers; Advanced shows every score and source.", h_lang: "Switch all text between English and Vietnamese.",
+h_lang: "Switch all text between English and Vietnamese.",
 h_text: "Make text and boxes bigger (A+) or smaller (A−).", h_theme: "Auto follows your phone's light or dark setting.", h_motion: "Turn animations down to save battery on older phones."
 });
 Object.assign(STR.vi, {
@@ -203,7 +203,7 @@ guideB: "Cách dùng ứng dụng", guideS: "Hướng dẫn ngắn từng bướ
 setNote: "Thay đổi được lưu trên thiết bị này.",
 cap_fm: "Cách bạn dùng", cap_sun: "Nắng",
 h_fm: "Ở nhà, ngoài ruộng khi tay ướt, hoặc dùng một tay.", h_sun: "Tăng độ tương phản để đọc ngoài trời.",
-h_detail: "Đơn giản hiện ít số hơn; Nâng cao hiện mọi điểm số và nguồn.", h_lang: "Chuyển toàn bộ chữ giữa tiếng Anh và tiếng Việt.",
+h_lang: "Chuyển toàn bộ chữ giữa tiếng Anh và tiếng Việt.",
 h_text: "Phóng to (A+) hoặc thu nhỏ (A−) chữ và các khung.", h_theme: "Tự động: theo nền sáng hoặc tối của điện thoại.", h_motion: "Giảm hiệu ứng động để tiết kiệm pin trên điện thoại cũ."
 });
 /* ---------- Draft 4 shell text ---------- */

@@ -1237,6 +1237,16 @@ def test_write_dated_keeps_old_date():
     assert json.loads(p.read_text(encoding="utf-8"))["generated"] != "2000-01-01"
 
 
+def test_one_mode():
+    """One mode: no Simple/Advanced switch or branch is left in the app."""
+    import re
+    bad = re.compile(r"ui-simple|ui-advanced|dv-simple|dv-adv|\badv\(\)|\bui === |st\.ui|data-ui=|data-dvmode|data-dvui|uSimple|uAdv|uiPick|cmp-btn|renderCompare|App\.setUi")
+    root = build.ROOT / "docs"
+    hits = [(p.name, n) for p in [*root.glob("app/*.js"), *root.glob("app/*.css"), root / "index.html"]
+            for n, line in enumerate(p.read_text(encoding="utf-8").splitlines(), 1) if bad.search(line)]
+    assert not hits, hits
+
+
 if __name__ == "__main__":
     import sys
     # Windows uses cp1252 when output is redirected; Vietnamese text would crash print().

@@ -18,9 +18,14 @@ async function toCards(page, url) {
   await page.locator('.dv-welcome [data-dv=add]').click();
   await page.locator('.sg-pin').nth(1).click();
   await page.locator('#dNext').click(); await page.locator('#dNext').click();
-  await page.fill('#fName', 'Ruộng thử'); await page.fill('#fSize', '1,5');
+  // The form can re-draw between two fills and send text to the wrong input: fill until both values stick.
+  for (let i = 0; i < 5; i++) {
+    await page.fill('#fName', 'Ruộng thử'); await page.fill('#fSize', '1,5');
+    if (await page.inputValue('#fName') === 'Ruộng thử' && await page.inputValue('#fSize') === '1,5') break;
+  }
   await page.locator('#fieldForm [type=submit]').click();
-  for (let i = 0; i < 4 && !(await page.locator('#v3.on').count()); i++) { await page.locator('#dNext').click(); await page.waitForTimeout(300); }
+  for (let i = 0; i < 4 && !(await page.locator('#v3.on').count()); i++) { await page.locator('#dNext').click({ timeout: 1500 }).catch(() => {}); await page.waitForTimeout(300); } // #dNext hides once step 3 is on: a short timeout, not 30 s
+  await page.waitForSelector('#v3.on');
 }
 const toStep = async (page, n) => {
   if (await page.locator('body.dv-on').count()) { await page.locator('.nv-b', { hasText: 'Ruộng' }).click(); await page.locator('[data-dv=editmap]').first().click(); } // after a reload the dashboard shows: "edit on the map" opens the planner
@@ -29,6 +34,12 @@ const toStep = async (page, n) => {
   await page.waitForSelector(`#v${n}.on`);
 };
 
+// Click a fold's summary, then wait until mre-folds says "area" is open/closed (no fixed sleep).
+async function flip(page, f, want) {
+  const s = f.locator(':scope > summary'); await s.waitFor({ state: 'visible' }); await s.click();
+  await page.waitForFunction(w => { try { return !!(JSON.parse(localStorage.getItem('mre-folds')) || {}).area === (w === 'open') } catch (e) { return false } }, want);
+}
+
 const CHECKS = [
   { name: 'folds', async run({ page, url }) {
     await toCards(page, url); await toStep(page, 1);
@@ -36,9 +47,9 @@ const CHECKS = [
     assert(await f.count() === 1 && !(await f.evaluate(d => d.open)), 'area fold missing or open');
     assert(await f.locator('#areaMore').count() === 1, '#areaMore not in the fold');
     assert(await f.locator('#areaFull').count() === 1 && await f.locator('#d5W1').count() === 1, '#areaFull / #d5W1 not in the fold');
-    await f.locator(':scope > summary').click(); await page.waitForTimeout(200); await page.reload(); await toStep(page, 1);
+    await flip(page, f, 'open'); await page.reload(); await toStep(page, 1);
     assert(await f.evaluate(d => d.open), 'open state not remembered');
-    await f.locator(':scope > summary').click(); await page.waitForTimeout(200); await page.reload(); await toStep(page, 1);
+    await flip(page, f, 'closed'); await page.reload(); await toStep(page, 1);
     assert(!(await f.evaluate(d => d.open)), 'closed state not remembered');
   } },
   { name: 'cards', async run({ page, url }) {
@@ -95,6 +106,28 @@ const CHECKS = [
     assert(html.includes('class="calendar"') && html.includes('class="needs"'), 'calendar / needs missing from the print');
     assert(html.includes('id="d5W4"'), 'wheel missing from the print');
   } },
+  { name: 'dash', async run({ page, url }) {
+    await toCards(page, url); await page.reload(); await page.waitForSelector('body.dv-on');
+    await page.locator('#hubBtn').waitFor({ state: 'visible', timeout: 5000 }).catch(() => { throw new Error('#hubBtn hidden') }); // mentor.js adds it after load
+    assert(/‰/.test(await page.locator('.s-word').first().textContent()), 'no small ‰ next to the salt word');
+    assert(await page.locator('[data-dvmode], #uiSeg, #uSimple, #uiPick').count() === 0, 'mode switch still there');
+  } },
+  { name: 'old-data', async run({ page, url, errs }) {
+    await page.addInitScript(() => { try { localStorage.setItem('mre-ui', 'advanced'); localStorage.setItem('mre-farm', JSON.stringify({ fields: [], sel: null, ui: 'advanced' })); } catch (e) {} });
+    await toCards(page, url);
+    assert(await page.locator('body.ui-advanced, body.dv-adv').count() === 0, 'old mode class on body');
+    assert(await page.locator('#cards .card:visible').count() === 4, 'step 3 should show 4 cards');
+    assert(!errs.length, 'page errors: ' + errs.join(' | '));
+  } },
+  { name: 'english', async run({ page, url }) {
+    await toCards(page, url); await page.locator('#lEn').click();
+    for (const n of [1, 2, 3, 4]) {
+      await toStep(page, n);
+      const s = await page.evaluate(() => [...document.querySelectorAll('details.fold > summary')].map(x => x.textContent.trim()));
+      assert(s.length && s.every(x => x && !/undefined/.test(x)), 'bad fold summary on step ' + n + ': ' + JSON.stringify(s));
+    }
+    assert(!/undefined/.test(await page.evaluate(() => document.body.innerText)), 'undefined in the page text');
+  } },
   { name: 'folds-no-storage', fresh: true, async run({ page, url, errs }) {
     await page.addInitScript(() => { const boom = () => { throw new Error('blocked') }; Storage.prototype.getItem = boom; Storage.prototype.setItem = boom; });
     await home(page, url);
@@ -117,7 +150,7 @@ server.listen(0, async () => {
     const page = await ctx.newPage();
     page.on('pageerror', e => errs.push(e.message)); page.on('console', m => m.type() === 'error' && errs.push(m.text()));
     try { await c.run({ page, url, errs }); if (errs.length) throw new Error('page errors: ' + errs.join(' | ')); console.log('ok ' + c.name); }
-    catch (e) { bad++; console.log(`FAIL ${c.name}: ${e.message.split('\n')[0]}`); }
+    catch (e) { bad++; console.log(`FAIL ${c.name}: ${e.message.split('\n').slice(0, 4).join(' | ')}`); }
     await ctx.close();
   }
   await b.close(); server.close(); process.exit(bad ? 1 : 0);
