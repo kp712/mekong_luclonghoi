@@ -56,12 +56,22 @@ def test_month_names():
     assert build.month_names([1, 2, 3, 4, 5], "vi") == "T1–T5" and build.month_names([3], "en") == "Mar"
 
 
+def test_gpm_covers_period():
+    gpm = json.loads((build.RAW / "gpm.json").read_text(encoding="utf-8"))
+    need = {f"{y}-{m:02d}" for y in range(build.PERIOD[0].year, build.PERIOD[1].year + 1) for m in range(1, 13)
+            if build.PERIOD[0] <= date(y, m, 1) <= build.PERIOD[1]}
+    for pid, months in gpm.items():
+        assert need <= set(months), (pid, sorted(need - set(months))[:3])
+
+
 def test_elnino_year():
     site = next(s for s in build.SITES if s["id"] == "tran_de")
     power = build.read_power("tran_de")
     assert build.ELNINO == [2002, 2004, 2006, 2009, 2014, 2015, 2018, 2019, 2023], build.ELNINO  # from NOAA's Dec-Feb index >= 0.5
     assert build.in_elnino(date(2015, 12, 1)) and build.in_elnino(date(2016, 11, 30)) and not build.in_elnino(date(2016, 12, 1))
-    assert build.typical_year(date(2017, 6, 1)) and not build.typical_year(date(2016, 3, 1)) and not build.typical_year(date(2025, 3, 1))
+    assert build.typical_year(date(2017, 6, 1)) and not build.typical_year(date(2016, 3, 1))
+    assert not build.typical_year(date(2025, 3, 1))  # outside PERIOD
+    assert build.PERIOD[1] == date(2024, 11, 30) and build.RECENT[0] == date(2014, 12, 1)
     gpm = json.loads((build.RAW / "gpm.json").read_text(encoding="utf-8"))["tran_de"]
     typ, eln = (build.climate(power, site["lat"], keep, gpm) for keep in (build.typical_year, build.in_elnino))
     assert typ["rain_mm"] != build.climate(power, site["lat"], build.typical_year)["rain_mm"]  # rain comes from GPM, not POWER
