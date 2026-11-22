@@ -188,6 +188,16 @@ const CHECKS = [
     await again(2);   // another area asks again
     await again(1);   // and back on the first area too
   } },
+  { name: 'salt-text', async run({ page, url }) {
+    // sample field (Mỹ Xuyên): November is outside the salt months, so the model gives 0: show "< 4‰", never "0,0‰"
+    const check = async (where) => { const txt = await page.evaluate(() => document.body.innerText);
+      assert(!/(^|[^\d])0[,.]0\s*‰/.test(txt), 'a 0,0‰ reading on ' + where);
+      assert(txt.includes('< 4‰'), 'no "< 4‰" on ' + where); };
+    await home(page, url); await page.locator('.dv-welcome [data-dv=demo]').click(); await page.waitForSelector('.s-salt');
+    await check('Today');
+    await page.locator('.nv-b', { hasText: 'Số liệu' }).click(); await page.locator('[data-zoomb="salt"]').first().click();
+    await page.waitForSelector('#dvZoom:not([hidden])'); await check('the salt detail');
+  } },
   { name: 'folds-no-storage', async run({ page, url, errs }) {
     await page.addInitScript(() => { const boom = () => { throw new Error('blocked') }; Storage.prototype.getItem = boom; Storage.prototype.setItem = boom; });
     await home(page, url);

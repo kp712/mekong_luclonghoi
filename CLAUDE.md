@@ -6,7 +6,7 @@ A static PWA for Mekong Delta rice farmers and extension officers (started at NA
 - Tests: `python3 pipeline/test_build.py` (plain `test_*` functions, no pytest; needs `pip install pdfplumber` because it imports the salinity fetcher). Run them after any change to `pipeline/` or `docs/data/`.
 - Rebuild data: `python3 pipeline/build.py` writes `docs/data/sites.json`, `docs/data/provinces.json` and `docs/app/builder.js`. It keeps the old `generated` date when nothing else changed, so any diff in `docs/data/` after a build is a real change: commit it.
 - Salinity bulletins: `python3 pipeline/fetch_salinity_vietnam.py` writes `data/raw/salinity_kttv_vietnam.json`. It writes nothing if any fetch fails.
-- Phone check: `node tools/ui_check.js` (folds, cards, steps, dashboard, old saved data, English, no sideways scroll, print). Exits 1 on any failure or page error.
+- Phone check: `node tools/ui_check.js` (folds, cards, steps, dashboard, old saved data, English, no sideways scroll, print, field creation, Xem thử, salt text). Exits 1 on any failure or page error. Pass check names to run only those: `node tools/ui_check.js create try`.
 - Screenshots: `node tools/shot.js [page] [outdir]`. The default page is `index.html#vietnam`. It takes desktop and phone shots and exits 1 on page errors.
 - Serve by hand: `python3 -m http.server 8000 -d docs`.
 - Pins must be rice at 30 m (HLS peak >= 0.7, dip < 0.35, water <= 10%); `test_build.py` fails a pin that is not. `python3 pipeline/appeears.py find-hls <pin> [half]` searches a grid for rice; check candidates on Esri imagery before `--apply`.

@@ -181,6 +181,8 @@ const Dash = (() => {
   const fieldSalt = (id, m, nino) => { try { return RX.Model.saltAt(id, m, nino, true) || 0 } catch (e) { return 0 } };
   const riverSalt = (id, m, nino) => { try { return RX.Model.saltAt(id, m, nino, false) || 0 } catch (e) { return 0 } };
   const level = (g) => (g < 1 ? "ngot" : g < 2 ? "lo" : "man");
+  /* a salt figure: the model gives 0 outside the salt months, which reads "< 4‰", never "0,0‰" (as vn.js salTxt); small wraps the unit */
+  const ppt = (g, small) => (g > 0 ? nf(g, 1) + (small ? "<small>‰</small>" : "‰") : "< 4‰");
   const LVC = { ngot: "low", lo: "medium", man: "high" };
   const resKey = (c, code) => { const p = c.plan && c.plan[code]; if (p && p.res && p.res[0]) return p.res[0]; return code[0] === "S" ? "shrimp" : code[0] === "U" ? (c.crop || "watermelon") : c.id === "salt_tolerant" ? "rice_st" : "rice" };
   const cropName = (c, code) => { if (code === "-") return T("crop")["-"]; const p = c.plan && c.plan[code]; if (p && p.name) return L(p.name); const r = DATA.resources[resKey(c, code)]; return r ? L(r.name) : T("crop")[code[0]] };
@@ -291,7 +293,7 @@ const Dash = (() => {
   function gauge(g, big) {
     const max = 4, v = Math.min(g, max), ang = (a) => Math.PI * (1 - a / max), pt = (a, r) => `${(60 + r * Math.cos(ang(a))).toFixed(2)} ${(60 - r * Math.sin(ang(a))).toFixed(2)}`;
     const arc = (a, b, cls) => `<path class="${cls}" d="M${pt(a, 48)} A48 48 0 0 1 ${pt(b, 48)}"/>`;
-    return `<svg class="a-gauge${big ? " big" : ""}" viewBox="0 -4 120 76" role="img" aria-label="${nf(g, 1)}‰">${arc(0, 1, "z ngot")}${arc(1, 2, "z lo")}${arc(2, 4, "z man")}
+    return `<svg class="a-gauge${big ? " big" : ""}" viewBox="0 -4 120 76" role="img" aria-label="${ppt(g)}">${arc(0, 1, "z ngot")}${arc(1, 2, "z lo")}${arc(2, 4, "z man")}
       <line class="ndl" x1="60" y1="60" x2="${(60 + 40 * Math.cos(ang(v))).toFixed(2)}" y2="${(60 - 40 * Math.sin(ang(v))).toFixed(2)}"/><circle class="hub" cx="60" cy="60" r="4"/>
       <text x="8" y="71">0</text><text x="56" y="4">2</text><text x="104" y="71">4‰</text></svg>`;
   }
@@ -349,7 +351,7 @@ const Dash = (() => {
       <p class="a-tip">${ic("expand", 14)}${esc(T("tapTile"))}</p>
       <div class="a-grid">
         ${tile("job", "a-g5", esc(T("monthOn")(m + 1)), `<p class="a-job">${iconOf(c.months[m])}<b>${esc(d.job)}</b></p><p class="a-mut">${esc(T("nextM")(d.nm + 1))}: ${esc(jobAt(c, d.nm))}</p>`, "")}
-        ${tile("salt", "a-g1", `${esc(T("saltA"))} · ${esc(MS()[m])}`, `${gauge(d.g)}<p class="a-num">${nf(d.g, 1)}<small>‰</small></p><p class="a-mut lv-${d.lv}">${esc(T("lv")[d.lv])} · ${esc(T("lvD")[d.lv])}</p>`, T("est"))}
+        ${tile("salt", "a-g1", `${esc(T("saltA"))} · ${esc(MS()[m])}`, `${gauge(d.g)}<p class="a-num">${ppt(d.g, 1)}</p><p class="a-mut lv-${d.lv}">${esc(T("lv")[d.lv])} · ${esc(T("lvD")[d.lv])}</p>`, T("est"))}
         ${tile("chart", "a-g2", esc(T("chartH")), lineChart(f), lang() === "vi" ? "Mặn: trạm đo + NASA POWER (ước tính) · Mưa: NASA GPM IMERG · chạm một tháng để xem" : "Salt: stations + NASA POWER (estimate) · Rain: NASA GPM IMERG · tap a month to view it")}
         ${tile("safe", "a-g3", esc(T("safeH")), `${donut(d.safe, d.crop.length, T("safeL"))}<p class="a-mut">${cropM ? esc((level(fieldSalt(f.site, m, nino)) === "man" ? T("mBad") : T("mOk"))(MS()[m])) : esc(T("mRest")(MS()[m]))}</p>`, T("est"))}
         ${tile("money", "a-g4", esc(T("moneyH")), d.mon ? `<p class="a-num big">${d.mon.per}<small> ${esc(T("perCongS"))}</small></p>${d.shown ? rangeBar(d.shown) : ""}${two ? two.map((t) => `<p class="a-mut">${esc(t)}</p>`).join("") : d.mon.tot ? `<p class="a-mut">${esc(d.mon.tot)}</p>` : ""}` : `<p class="a-mut">${esc(T("noMoney"))}</p>`, T("moneySrc"))}
@@ -424,11 +426,11 @@ const Dash = (() => {
     const d = advData(f), { c, s, nino, m } = d, lvCell = (i) => { const lv = level(fieldSalt(f.site, i, nino)); return `<span class="z-lv lv-${lv}">${esc(T("lv")[lv])}</span>` };
     const cropCell = (i) => `<span class="z-crop">${iconOf(c.months[i])}${esc(cropName(c, c.months[i]))}</span>`;
     switch (key) {
-      case "salt": return `<div class="z-hero">${gauge(d.g, true)}<div><p class="a-num big">${nf(d.g, 1)}<small>‰</small></p><p class="z-lvw lv-${d.lv}">${esc(T("lv")[d.lv])}</p><p class="a-mut">${esc(T("lvD")[d.lv])}</p></div></div>
+      case "salt": return `<div class="z-hero">${gauge(d.g, true)}<div><p class="a-num big">${ppt(d.g, 1)}</p><p class="z-lvw lv-${d.lv}">${esc(T("lv")[d.lv])}</p><p class="a-mut">${esc(T("lvD")[d.lv])}</p></div></div>
         <ul class="z-scale">${["ngot", "lo", "man"].map((x) => `<li class="lv-${x}"><i></i><b>${esc(T("lv")[x])}</b><span>${esc(T("lvD")[x])}</span></li>`).join("")}</ul>
-        ${monthTable(f, d, [{ h: T("river"), v: (i) => nf(riverSalt(f.site, i, nino), 1) + "‰" }, { h: T("field"), v: (i) => nf(fieldSalt(f.site, i, nino), 1) + "‰" }, { h: T("tSalt"), v: lvCell }, { h: T("cropH"), v: cropCell }])}
+        ${monthTable(f, d, [{ h: T("river"), v: (i) => ppt(riverSalt(f.site, i, nino)) }, { h: T("field"), v: (i) => ppt(fieldSalt(f.site, i, nino)) }, { h: T("tSalt"), v: lvCell }, { h: T("cropH"), v: cropCell }])}
         <p class="a-mut">${lang() === "vi" ? "Trong ruộng = sông × " : "Field = river × "}<b>${d.k == null ? "–" : nf(d.k, 2)}</b> ${esc(T("kWhy")(nf(s.crops, 1)))}</p><p class="a-src">${esc(T("est"))}</p>`;
-      case "chart": return `${lineChart(f, true)}${monthTable(f, d, [{ h: T("rainM") + " mm", v: (i) => nf(Math.round(d.rainA[i] || 0), 0) }, { h: T("needH") + " mm", v: (i) => nf(Math.round(d.et0A[i] || 0), 0) }, { h: T("river"), v: (i) => nf(riverSalt(f.site, i, nino), 1) + "‰" }, { h: T("field"), v: (i) => nf(fieldSalt(f.site, i, nino), 1) + "‰" }])}
+      case "chart": return `${lineChart(f, true)}${monthTable(f, d, [{ h: T("rainM") + " mm", v: (i) => nf(Math.round(d.rainA[i] || 0), 0) }, { h: T("needH") + " mm", v: (i) => nf(Math.round(d.et0A[i] || 0), 0) }, { h: T("river"), v: (i) => ppt(riverSalt(f.site, i, nino)) }, { h: T("field"), v: (i) => ppt(fieldSalt(f.site, i, nino)) }])}
         <p class="a-src">${lang() === "vi" ? "Mưa: NASA GPM IMERG · Cây cần nước: NASA POWER (phương pháp FAO) · Mặn: ước tính từ báo cáo trạm đo, không đo bằng vệ tinh" : "Rain: NASA GPM IMERG · Crop water need: NASA POWER (FAO method) · Salt: estimate from station reports, not satellite"}</p>`;
       case "safe": return `<div class="z-hero">${donut(d.safe, d.crop.length, T("safeL"))}<p class="a-mut">${esc(T("safeWhy"))}</p></div>
         <ol class="z-cal">${[...Array(12)].map((_, i) => { const code = c.months[i], grow = code[0] === "R" || code[0] === "U", lv = level(fieldSalt(f.site, i, nino)), bad = grow && lv === "man";
@@ -455,7 +457,7 @@ const Dash = (() => {
       case "rib": return `${ribbon(f, c)}<p class="sd-note">${esc(T("tapMonth"))}</p>${planTable(f, c)}<p class="a-src">${esc(T("est"))}</p>`;
       case "nino": { const ty = d.t, tr = s.rain || [], er = (s.el && s.el.rain) || [], mr = Math.max(1, ...tr, ...er);
         return `${ninoPct()}<p class="a-mut">${esc(L(DATA.outlook && DATA.outlook.text))}</p>
-        ${ty && ty.nino ? `<dl class="a-kpi z-kpi"><div><dt>${esc(T("peakH"))} · ${esc(T("years").typical)}</dt><dd>${nf(ty.peak, 1)}<small>‰</small></dd></div><div><dt>${esc(T("peakH"))} · El Niño</dt><dd>${nf(ty.nino.peak, 1)}<small>‰</small></dd></div>
+        ${ty && ty.nino ? `<dl class="a-kpi z-kpi"><div><dt>${esc(T("peakH"))} · ${esc(T("years").typical)}</dt><dd>${ppt(ty.peak, 1)}</dd></div><div><dt>${esc(T("peakH"))} · El Niño</dt><dd>${ppt(ty.nino.peak, 1)}</dd></div>
           <div><dt>${esc(T("saltMs"))} · ${esc(T("years").typical)}</dt><dd class="sm">${(ty.salt || []).map((x) => "T" + x).join(", ") || "–"}</dd></div><div><dt>${esc(T("saltMs"))} · El Niño</dt><dd class="sm">${(ty.nino.salt || []).map((x) => "T" + x).join(", ") || "–"}</dd></div></dl>` : ""}
         <h5 class="z-h">${esc(T("rainCmp"))}</h5><div class="z-cmp">${MS().map((t, i) => `<div><i class="a" style="height:${((tr[i] || 0) / mr * 100).toFixed(0)}%"></i><i class="b" style="height:${((er[i] || 0) / mr * 100).toFixed(0)}%"></i><span>${t}</span></div>`).join("")}</div>
         <p class="a-key"><span><i class="k lr"></i>${esc(T("years").typical)}</span><span><i class="k th"></i>${esc(T("years").elnino)}</span></p><p class="a-src">NOAA CPC · NASA GPM IMERG · ${esc(T("est"))}</p>`; }
@@ -962,7 +964,7 @@ const Dash = (() => {
       <p class="t-plan"><span>${esc(T("planL"))}:</span> <b>${esc(L(c.name))}</b></p>
       ${planNo(f)}${ask}<div class="t-cols">${hero(f, c)}${todo(f, x)}
       <div class="s-card s-salt lv-${x.lv}"><span class="s-k">${ic("drop", 18)}${esc(T("waterNow"))}</span>
-        <div class="s-row"><span class="s-drop" aria-hidden="true">${ic("drop", 46)}</span><div><b class="s-word">${esc(T("lv")[x.lv])} <small>${nf(x.g, 1)}‰</small></b>
+        <div class="s-row"><span class="s-drop" aria-hidden="true">${ic("drop", 46)}</span><div><b class="s-word">${esc(T("lv")[x.lv])} <small>${ppt(x.g)}</small></b>
         <span class="s-light" aria-hidden="true"><i class="ngot"></i><i class="lo"></i><i class="man"></i></span></div></div>
         <span class="s-sub">${esc(x.sl.txt)}</span><small>${esc(T("est"))}</small></div>
       ${tiles(f, x)}${pestCard(f, x)}${remindCard(f)}${moneyCard(f, x)}</div>
@@ -1126,7 +1128,7 @@ const Dash = (() => {
     const nino = isNino(f), ML = (i) => (lang() === "vi" ? "Tháng " + (i + 1) : ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][i]);
     curSite = f.site; curNino = nino;
     return `<table class="dv-table"><thead><tr><th>${esc(T("tMonth"))}</th><th>${esc(T("tJob"))}</th><th>${esc(T("tSalt"))}</th></tr></thead><tbody>${[...Array(12)].map((_, k) => { const m = (W0(c) + k) % 12, code = c.months[m], g = fieldSalt(f.site, m, nino), lv = level(g);
-      return `<tr class="${m === CM ? "now" : ""}" data-dvm="${m}" tabindex="0"><th scope="row">${esc(ML(m))}</th><td><span class="dv-tc">${iconOf(code)}${esc(cropName(c, code))}</span>${esc(jobAt(c, m))}</td><td><span class="sd-dot lv-${LVC[lv]}"></span> ${esc(T("lv")[lv])}<small> ${nf(g, 1)}‰</small></td></tr>` }).join("")}</tbody></table>`;
+      return `<tr class="${m === CM ? "now" : ""}" data-dvm="${m}" tabindex="0"><th scope="row">${esc(ML(m))}</th><td><span class="dv-tc">${iconOf(code)}${esc(cropName(c, code))}</span>${esc(jobAt(c, m))}</td><td><span class="sd-dot lv-${LVC[lv]}"></span> ${esc(T("lv")[lv])}<small> ${ppt(g)}</small></td></tr>` }).join("")}</tbody></table>`;
   }
   function panelPlan() {
     const f = fieldSel(), c = planOf(f), s = siteOf(f.site);
