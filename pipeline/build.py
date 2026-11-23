@@ -71,6 +71,8 @@ def read_weather(pid):
 def whole_period(rain, weather):
     """(Dec 2000, 30 Nov Y): Y is the newest year where every point has CHIRPS rain for all 12 months Dec(Y-1)-Nov(Y) and ERA5 days through 30 Nov Y."""
     last = min(w["daily"]["time"][-1] for w in weather.values())
+    if any(w["daily"]["time"][0] > "2000-12-01" for w in weather.values()) or any("2000-12" not in r for r in rain.values()):
+        raise ValueError("a point's CHIRPS or ERA5 data starts after Dec 2000")
     for y in range(int(last[:4]), 2000, -1):
         months = [f"{y - 1}-12"] + [f"{y}-{m:02d}" for m in range(1, 12)]
         if last >= f"{y}-11-30" and all(set(months) <= set(r) for r in rain.values()):

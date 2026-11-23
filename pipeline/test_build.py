@@ -65,7 +65,14 @@ def test_whole_period():
     del rain["a"]["2025-10"]   # one missing rain month drops the whole 2024-25 season
     assert build.whole_period(rain, weather)[1] == date(2024, 11, 30)
     rain["a"]["2025-10"] = 1
-    weather["b"] = {"daily": {"time": ["2025-11-29"]}}   # one short weather file drops it too
+    for bad_rain, bad_wx in (({"a": {k: v for k, v in rain["a"].items() if k != "2000-12"}}, weather),
+                             (rain, {"a": {"daily": {"time": ["2001-01-01", "2025-11-30"]}}})):
+        try:
+            build.whole_period(bad_rain, bad_wx)
+            assert False, "expected ValueError when data starts after Dec 2000"
+        except ValueError:
+            pass
+    weather["b"] = {"daily": {"time": ["2000-12-01", "2025-11-29"]}}   # one short weather file drops it too
     assert build.whole_period(rain, weather)[1] == date(2024, 11, 30)
 
 
