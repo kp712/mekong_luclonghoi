@@ -70,7 +70,7 @@ The match is the average of the five, weighted by the farmer's priorities. Every
 - **Two rain sources agree.** CHIRPS and NASA GPM IMERG rain correlate at 0.93–0.94 month to month at every pin; CHIRPS's yearly totals are within −6% to +1% of IMERG's at the 5 pins and its Dec–Apr totals 5–14% lower. Against the one rain gauge we could read (Cà Mau, which CHIRPS itself uses, so not independent) CHIRPS is 13% wetter for the year and IMERG 23%.
 - **Methods reproduce their references.** Water demand matches FAO-56's worked example (3.88 vs 3.9 mm/day); canal water reproduces FAO Manual 3's rice example.
 - **The ranking survives our guesses.** Moving each team-estimate constant (salt tolerance, heat reference, brackish soil loss, soil and weather weights, pest break) by ±20% never changes the best rotation at any of the 5 areas (`python pipeline/sensitivity.py`; income and water are held at their built values).
-- **Every claim has a link,** and a source is marked checked only after the claim was found in it with a quote. 59 automated checks (`python pipeline/test_build.py`) cover the calculations and the data the app reads.
+- **Every claim has a link,** and a source is marked checked only after the claim was found in it with a quote. 69 automated checks (`python pipeline/test_build.py`) cover the calculations and the data the app reads.
 
 Details and numbers: [SOURCES.md](SOURCES.md#how-we-checked-it).
 
@@ -160,7 +160,7 @@ py pipeline/fetch_chirps.py     # CHIRPS v3.0 rain, the rain the app shows (no l
 py pipeline/fetch_gpm.py        # NASA GPM IMERG rain, only the cross-check of CHIRPS (needs Earthdata login, see below)
 py pipeline/fetch_salinity_vietnam.py  # KTTV 10-day salinity bulletins -> data/raw/salinity_kttv_vietnam.json (no login; writes nothing if any fetch fails or a bulletin on file would be lost)
 py pipeline/build.py            # combines everything into docs/data/ and docs/app/builder.js
-py pipeline/test_build.py       # expect 60 ok lines, the unknown-ID fixture warning, a rebuild message and any unverified sources
+py pipeline/test_build.py       # expect 69 ok lines, the unknown-ID fixture warning, a rebuild message and any unverified sources
 ```
 `build.py` also writes the Plan Lab's `docs/app/builder.js`; never edit it by hand. `build.py` needs only Python's standard library. `fetch_salinity_vietnam.py` needs `pdfplumber` to read the bulletin PDFs and `fetch_chirps.py` needs `tifffile` and `imagecodecs`: run `py -m pip install pdfplumber tifffile imagecodecs` once, before the tests (they load those scripts).
 **NASA Earthdata login** (free account at https://urs.earthdata.nasa.gov; for `fetch_gpm.py` also approve **NASA GESDISC DATA ARCHIVE** under Applications → Authorized Apps). Type these two lines in the same PowerShell window before running `appeears.py` or `fetch_gpm.py`, with your own details between the quotes. They only last until you close the window:
