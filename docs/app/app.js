@@ -87,11 +87,11 @@ wDefault: "Đang để sẵn: năm mục quan trọng như nhau. Chạm một m�
 congNote: "1 công = 1.000 m² = 1/10 ha. Số cho mỗi công là số mỗi ha chia 10."
 });
 Object.assign(STR.en, {
-whKey3: "Thin line: least to most rain this month has had in any year (NASA GPM IMERG, Dec 2000 – Nov 2024)",
-whKeyEl3: "Thin line: least to most rain this month has had in the El Niño years (NASA GPM IMERG)",
+whKey3: "Thin line: least to most rain this month has had in any year (CHIRPS, Dec 2000 – Nov 2024)",
+whKeyEl3: "Thin line: least to most rain this month has had in the El Niño years (CHIRPS)",
 whA3: (a, b) => `from ${a} to ${b} mm depending on the year`,
 greenTyp3: "(typical year)",
-scale3: "Rain is NASA GPM (about 10 km). Heat and crop water need are NASA POWER (about 50 km), so neighbouring areas show the same values. Greenness is NASA MODIS (250 m, for each area).",
+scale3: "Rain is CHIRPS v3.0 (about 5 km, satellite and rain-gauge estimate). Heat and crop water need are NASA POWER (about 50 km), so neighbouring areas show the same values. Greenness is NASA MODIS (250 m, for each area).",
 scale3s: "Crop water need comes from a coarse NASA grid (about 50 km), so nearby areas show the same value.",
 ex3Btn: n => `Try an example: ${n}`,
 ex3Ban: n => `Showing the ${n} example. Pick your own area on the map.`,
@@ -99,11 +99,11 @@ ex3Back: "Back to the map",
 lab3: "Arrange your own calendar and see its score"
 });
 Object.assign(STR.vi, {
-whKey3: "Vạch mảnh: tháng đó mưa ít nhất và nhiều nhất trong các năm 2000–2024 (NASA GPM IMERG)",
-whKeyEl3: "Vạch mảnh: tháng đó mưa ít nhất và nhiều nhất trong các năm El Niño (NASA GPM IMERG)",
+whKey3: "Vạch mảnh: tháng đó mưa ít nhất và nhiều nhất trong các năm 2000–2024 (CHIRPS)",
+whKeyEl3: "Vạch mảnh: tháng đó mưa ít nhất và nhiều nhất trong các năm El Niño (CHIRPS)",
 whA3: (a, b) => `tùy năm từ ${a} đến ${b} mm`,
 greenTyp3: "(năm điển hình)",
-scale3: "Mưa lấy từ NASA GPM (ô khoảng 10 km). Nắng nóng và nhu cầu nước của cây lấy từ NASA POWER (ô khoảng 50 km), nên các khu vực gần nhau có số giống nhau. Độ xanh của ruộng lấy từ NASA MODIS (250 m, riêng từng khu vực).",
+scale3: "Mưa lấy từ CHIRPS v3.0 (ô khoảng 5 km, ước tính từ vệ tinh và trạm đo mưa). Nắng nóng và nhu cầu nước của cây lấy từ NASA POWER (ô khoảng 50 km), nên các khu vực gần nhau có số giống nhau. Độ xanh của ruộng lấy từ NASA MODIS (250 m, riêng từng khu vực).",
 scale3s: "Nhu cầu nước của cây tính theo ô lớn của NASA (khoảng 50 km), nên các khu vực gần nhau có số giống nhau.",
 ex3Btn: n => `Xem thử ví dụ: ${n}`,
 ex3Ban: n => `Đang xem ví dụ ${n}. Chọn khu vực của bạn trên bản đồ.`,
@@ -179,7 +179,7 @@ salt: '<path d="M12 3l3 3-3 3-3-3zM6 10l3 3-3 3-3-3zM18 10l3 3-3 3-3-3z"/>', pin
 const ico = (n, s = 16) => `<svg class="ico" width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${IC[n] || ""}</svg>`;
 const ICON_SUN = ico("sun", 11), ICON_DROP = ico("drop", 11);
 const nasaBadges = () => `<div class="nasa8" role="list" aria-label="${esc(t("nasaL"))}">
-<span role="listitem" class="nb sat">${ico("sat", 12)}<b>NASA GPM IMERG</b> ${t("nbRain")}</span>
+<span role="listitem" class="nb sat">${ico("sat", 12)}<b>CHIRPS</b> ${t("nbRain")}</span>
 <span role="listitem" class="nb sat">${ico("sat", 12)}<b>NASA POWER</b> ${t("nbEt")}</span>
 <span role="listitem" class="nb sat">${ico("sat", 12)}<b>NASA MODIS</b> ${t("nbNdvi")}</span>
 <span role="listitem" class="nb est">${ico("salt", 12)}${t("nbSalt")}</span></div>`;
@@ -260,12 +260,12 @@ steps: [["Dry the platform and clean out the canals.", "Phơi trảng, sên vét
 /* ---------- about this app ---------- */
 const ABOUT = {
 en: [["What it is", "A phone-first tool for rice farmers in coastal Sóc Trăng (Mekong Delta). It compares the farmer's current rotation with local alternatives (rice–shrimp, rice with a dry-season upland crop, salt-tolerant rice with a rest), ranks them by what the farmer cares about, and turns the chosen one into a 12-month plan. English and Vietnamese."],
-["NASA data in the app", "Rain: NASA GPM IMERG monthly (~10 km, Dec 2000 – Nov 2024). Water demand (ET₀): FAO-56 Penman–Monteith from NASA POWER temperature, humidity, wind and sunlight. Field greenness and crops per year: NASA MODIS NDVI (MOD13Q1, 250 m) through NASA AppEEARS. Heat days: NASA POWER. The 7-day strip in the month panel reads NASA POWER daily data live."],
+["Data in the app", "Rain: CHIRPS v3.0 monthly (Climate Hazards Center, UC Santa Barbara; satellite and rain-gauge estimate, ~5 km, Dec 2000 – Nov 2024). NASA GPM IMERG is used only to cross-check it. Water demand (ET₀): FAO-56 Penman–Monteith from NASA POWER temperature, humidity, wind and sunlight. Field greenness and crops per year: NASA MODIS NDVI (MOD13Q1, 250 m) through NASA AppEEARS. Heat days: NASA POWER. The 7-day strip in the month panel reads NASA POWER daily data live."],
 ["Other data", "El Niño seasons and forecast: NOAA's Oceanic Niño Index and CPC outlook. Topsoil: SoilGrids 2.0 (ISRIC, not NASA). Salt: an estimate from provincial river-station records and public reports. Satellites cannot measure salt in rice fields. The 7-day rain forecast on the dashboard: Open-Meteo (not NASA)."],
 ["How the scores work", "Each option gets water, income, soil, pests and weather & salt scores from 1.0 to 5.0, computed at each area from the data above and published profit figures. Pests: rice pest pressure follows NASA POWER mean temperature (brown planthopper, Horgan et al. 2020), upland crop months count in full, shrimp months rise with hot and cold-snap days, and rest months and other crops break the rice pest cycle. The sliders set the weights; the match is the weighted average. Full formulas are in the project README under \"How the scores are set\"."],
 ["Limits", "The data describe the area, not one field, and the past, not a forecast. The plan is a starting point to talk over with a local agricultural extension officer."]],
 vi: [["Dự án là gì", "Công cụ ưu tiên điện thoại cho nông dân trồng lúa ven biển Sóc Trăng (Đồng bằng sông Cửu Long). Công cụ so sánh cách luân canh hiện tại với các lựa chọn tại chỗ (lúa – tôm, lúa luân canh với cây màu mùa khô, lúa chịu mặn có thời gian nghỉ), xếp hạng theo điều nông dân quan tâm và biến lựa chọn thành kế hoạch 12 tháng. Có tiếng Anh và tiếng Việt."],
-["Dữ liệu NASA trong ứng dụng", "Mưa: NASA GPM IMERG theo tháng (~10 km, 12/2000 – 11/2024). Nhu cầu nước (ET₀): phương pháp Penman–Monteith FAO-56 từ nhiệt độ, độ ẩm, gió và nắng của NASA POWER. Độ xanh của ruộng và số vụ mỗi năm: NASA MODIS NDVI (MOD13Q1, 250 m) qua NASA AppEEARS. Số ngày nắng nóng: NASA POWER. Dải 7 ngày trong phần từng tháng đọc trực tiếp dữ liệu ngày của NASA POWER."],
+["Dữ liệu trong ứng dụng", "Mưa: CHIRPS v3.0 theo tháng (Climate Hazards Center, Đại học California Santa Barbara; ước tính từ vệ tinh và trạm đo mưa, ~5 km, 12/2000 – 11/2024). NASA GPM IMERG chỉ dùng để đối chiếu. Nhu cầu nước (ET₀): phương pháp Penman–Monteith FAO-56 từ nhiệt độ, độ ẩm, gió và nắng của NASA POWER. Độ xanh của ruộng và số vụ mỗi năm: NASA MODIS NDVI (MOD13Q1, 250 m) qua NASA AppEEARS. Số ngày nắng nóng: NASA POWER. Dải 7 ngày trong phần từng tháng đọc trực tiếp dữ liệu ngày của NASA POWER."],
 ["Dữ liệu khác", "Các mùa El Niño và dự báo: chỉ số ONI và bản tin CPC của NOAA. Đất mặt: SoilGrids 2.0 (ISRIC, không phải NASA). Độ mặn: ước tính từ số liệu trạm đo trên sông của tỉnh và báo cáo công khai. Vệ tinh không đo được độ mặn trong ruộng lúa. Dự báo mưa 7 ngày trên trang chính: Open-Meteo (không phải NASA)."],
 ["Cách tính điểm", "Mỗi lựa chọn có điểm nước, thu nhập, đất, sâu bệnh và thời tiết & mặn từ 1,0 đến 5,0, tính cho từng khu vực từ dữ liệu trên và số liệu lợi nhuận đã công bố. Sâu bệnh: áp lực sâu hại lúa theo nhiệt độ trung bình của NASA POWER (rầy nâu, Horgan và cộng sự 2020), tháng trồng màu tính đủ, tháng nuôi tôm tăng theo số ngày nắng nóng và ngày lạnh đột ngột, còn tháng nghỉ và cây trồng khác cắt vòng đời sâu hại lúa. Thanh trượt đặt trọng số; mức hợp là trung bình có trọng số. Công thức đầy đủ có trong README của dự án, mục \"How the scores are set\"."],
 ["Giới hạn", "Dữ liệu mô tả cả khu vực, không phải một thửa ruộng, và mô tả quá khứ, không phải dự báo. Kế hoạch là điểm khởi đầu để trao đổi với cán bộ khuyến nông địa phương."]]

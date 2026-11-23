@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-22",
+ "generated": "2026-11-23",
  "bounds": {
   "w": 103.0,
   "e": 107.0,
@@ -408,8 +408,8 @@
    "verified": true
   },
   {
-   "title": "NASA GPM IMERG Final monthly v07 (GPM_3IMERGM), 0.1° (~10 km)",
-   "url": "https://disc.gsfc.nasa.gov/datasets/GPM_3IMERGM_07/summary",
+   "title": "CHIRPS v3.0 (Climate Hazards Center, UC Santa Barbara), 0.05° (~5 km)",
+   "url": "https://www.chc.ucsb.edu/data/chirps3",
    "verified": true
   },
   {
@@ -904,46 +904,46 @@
    },
    "climate": {
     "rain_mm": [
-     25,
-     13,
-     36,
-     74,
-     244,
-     255,
-     344,
-     257,
-     342,
-     264,
-     161,
-     59
+     18,
+     10,
+     28,
+     85,
+     239,
+     226,
+     291,
+     279,
+     288,
+     260,
+     162,
+     57
     ],
     "rain_min_mm": [
-     1,
-     1,
-     1,
-     8,
-     128,
-     144,
-     184,
-     136,
-     222,
-     161,
-     27,
+     0,
+     0,
+     0,
+     13,
+     150,
+     138,
+     133,
+     163,
+     200,
+     170,
+     12,
      8
     ],
     "rain_max_mm": [
-     91,
-     37,
-     144,
-     140,
-     421,
-     422,
-     597,
-     353,
-     488,
-     414,
-     243,
-     150
+     58,
+     45,
+     89,
+     173,
+     327,
+     319,
+     527,
+     350,
+     358,
+     436,
+     305,
+     140
     ],
     "et0_mm": [
      122,
@@ -1172,7 +1172,7 @@
       }
      ],
      "crops_per_year": 3,
-     "water_mm": 1868,
+     "water_mm": 1928,
      "water_saved": 0.0,
      "profit_range": {
       "lo": 79.9,
@@ -1189,8 +1189,8 @@
      },
      "why": [
       {
-       "en": "Water 1.0: ≈ 1868 mm of canal water a year, the most of all options here; the others are compared with it (NASA POWER + GPM, FAO method).",
-       "vi": "Nước 1,0: ≈ 1868 mm nước tưới từ kênh mỗi năm, nhiều nhất trong các phương án; các phương án khác được so với mức này (NASA POWER + GPM, phương pháp FAO).",
+       "en": "Water 1.0: ≈ 1928 mm of canal water a year, the most of all options here; the others are compared with it (NASA POWER + CHIRPS, FAO method).",
+       "vi": "Nước 1,0: ≈ 1928 mm nước tưới từ kênh mỗi năm, nhiều nhất trong các phương án; các phương án khác được so với mức này (NASA POWER + CHIRPS, phương pháp FAO).",
        "src": [
         0,
         1,
@@ -1199,8 +1199,8 @@
        ]
       },
       {
-       "en": "Weather & salt 2.3: crops in the field in 4 of 5 salt months (station average peak 15.4‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 1132 mm of canal water needed in salty months (NASA POWER + GPM).",
-       "vi": "Thời tiết & mặn 2,3: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 15,4‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 1132 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
+       "en": "Weather & salt 2.3: crops in the field in 4 of 5 salt months (station average peak 15.4‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 1138 mm of canal water needed in salty months (NASA POWER + CHIRPS).",
+       "vi": "Thời tiết & mặn 2,3: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 15,4‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 1138 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS).",
        "src": [
         4,
         5,
@@ -1357,8 +1357,8 @@
       }
      ],
      "crops_per_year": 2,
-     "water_mm": 1692,
-     "water_saved": 0.094,
+     "water_mm": 1726,
+     "water_saved": 0.105,
      "profit_range": {
       "lo": 52,
       "mid": 65.4,
@@ -1374,8 +1374,8 @@
      },
      "why": [
       {
-       "en": "Water 1.4: ≈ 1692 mm of canal water a year, 9% less than 3 rice crops (NASA POWER + GPM, FAO method).",
-       "vi": "Nước 1,4: ≈ 1692 mm nước tưới từ kênh mỗi năm, ít hơn 9% so với 3 vụ lúa (NASA POWER + GPM, phương pháp FAO).",
+       "en": "Water 1.4: ≈ 1726 mm of canal water a year, 10% less than 3 rice crops (NASA POWER + CHIRPS, FAO method).",
+       "vi": "Nước 1,4: ≈ 1726 mm nước tưới từ kênh mỗi năm, ít hơn 10% so với 3 vụ lúa (NASA POWER + CHIRPS, phương pháp FAO).",
        "src": [
         0,
         1,
@@ -1384,8 +1384,8 @@
        ]
       },
       {
-       "en": "Weather & salt 2.3: crops in the field in 4 of 5 salt months (station average peak 15.4‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 1132 mm of canal water needed in salty months (NASA POWER + GPM).",
-       "vi": "Thời tiết & mặn 2,3: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 15,4‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 1132 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
+       "en": "Weather & salt 2.3: crops in the field in 4 of 5 salt months (station average peak 15.4‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 1138 mm of canal water needed in salty months (NASA POWER + CHIRPS).",
+       "vi": "Thời tiết & mặn 2,3: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 15,4‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 1138 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS).",
        "src": [
         4,
         5,
@@ -1549,8 +1549,8 @@
       }
      ],
      "crops_per_year": null,
-     "water_mm": 340,
-     "water_saved": 0.818,
+     "water_mm": 368,
+     "water_saved": 0.809,
      "profit_range": {
       "lo": 56.5,
       "mid": 76.2,
@@ -1558,7 +1558,7 @@
       "n": 7
      },
      "scores": {
-      "water": 4.3,
+      "water": 4.2,
       "salt": 5.0,
       "soil": 1.4,
       "pests": 3.3,
@@ -1570,8 +1570,8 @@
        "vi": "Biến nước mặn mùa khô thành nguồn lợi thay vì mối đe dọa."
       },
       {
-       "en": "Water 4.3: ≈ 340 mm of canal water a year, 82% less than 3 rice crops (NASA POWER + GPM, FAO method).",
-       "vi": "Nước 4,3: ≈ 340 mm nước tưới từ kênh mỗi năm, ít hơn 82% so với 3 vụ lúa (NASA POWER + GPM, phương pháp FAO).",
+       "en": "Water 4.2: ≈ 368 mm of canal water a year, 81% less than 3 rice crops (NASA POWER + CHIRPS, FAO method).",
+       "vi": "Nước 4,2: ≈ 368 mm nước tưới từ kênh mỗi năm, ít hơn 81% so với 3 vụ lúa (NASA POWER + CHIRPS, phương pháp FAO).",
        "src": [
         0,
         1,
@@ -1580,8 +1580,8 @@
        ]
       },
       {
-       "en": "Weather & salt 5.0: crops in the field in 0 of 5 salt months (station average peak 15.4‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 0 mm of canal water needed in salty months (NASA POWER + GPM).",
-       "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 15,4‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 0 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
+       "en": "Weather & salt 5.0: crops in the field in 0 of 5 salt months (station average peak 15.4‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 0 mm of canal water needed in salty months (NASA POWER + CHIRPS).",
+       "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 15,4‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 0 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS).",
        "src": [
         4,
         5,
@@ -1788,8 +1788,8 @@
         }
        ],
        "crops_per_year": null,
-       "water_mm": 1164,
-       "water_saved": 0.377,
+       "water_mm": 1224,
+       "water_saved": 0.365,
        "profit_range": {
         "lo": 119.9,
         "mid": 155.4,
@@ -1809,8 +1809,8 @@
          "vi": "Cây màu như đậu xanh hay dưa hấu cần ít nước tưới hơn nhiều so với ruộng lúa ngập nước trong những tháng khô hạn nhất."
         },
         {
-         "en": "Water 2.5: ≈ 1164 mm of canal water a year, 38% less than 3 rice crops (NASA POWER + GPM, FAO method).",
-         "vi": "Nước 2,5: ≈ 1164 mm nước tưới từ kênh mỗi năm, ít hơn 38% so với 3 vụ lúa (NASA POWER + GPM, phương pháp FAO).",
+         "en": "Water 2.5: ≈ 1224 mm of canal water a year, 37% less than 3 rice crops (NASA POWER + CHIRPS, FAO method).",
+         "vi": "Nước 2,5: ≈ 1224 mm nước tưới từ kênh mỗi năm, ít hơn 37% so với 3 vụ lúa (NASA POWER + CHIRPS, phương pháp FAO).",
          "src": [
           0,
           1,
@@ -1819,8 +1819,8 @@
          ]
         },
         {
-         "en": "Weather & salt 2.5: crops in the field in 4 of 5 salt months (station average peak 15.4‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 871 mm of canal water needed in salty months (NASA POWER + GPM).",
-         "vi": "Thời tiết & mặn 2,5: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 15,4‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 871 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
+         "en": "Weather & salt 2.5: crops in the field in 4 of 5 salt months (station average peak 15.4‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 876 mm of canal water needed in salty months (NASA POWER + CHIRPS).",
+         "vi": "Thời tiết & mặn 2,5: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 15,4‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 876 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS).",
          "src": [
           4,
           5,
@@ -2022,8 +2022,8 @@
         }
        ],
        "crops_per_year": null,
-       "water_mm": 1141,
-       "water_saved": 0.389,
+       "water_mm": 1202,
+       "water_saved": 0.377,
        "profit_range": {
         "lo": 144.9,
         "mid": 155.4,
@@ -2031,7 +2031,7 @@
         "n": 8
        },
        "scores": {
-        "water": 2.6,
+        "water": 2.5,
         "salt": 2.5,
         "soil": 2.1,
         "pests": 2.8,
@@ -2043,8 +2043,8 @@
          "vi": "Cây màu như đậu xanh hay dưa hấu cần ít nước tưới hơn nhiều so với ruộng lúa ngập nước trong những tháng khô hạn nhất."
         },
         {
-         "en": "Water 2.6: ≈ 1141 mm of canal water a year, 39% less than 3 rice crops (NASA POWER + GPM, FAO method).",
-         "vi": "Nước 2,6: ≈ 1141 mm nước tưới từ kênh mỗi năm, ít hơn 39% so với 3 vụ lúa (NASA POWER + GPM, phương pháp FAO).",
+         "en": "Water 2.5: ≈ 1202 mm of canal water a year, 38% less than 3 rice crops (NASA POWER + CHIRPS, FAO method).",
+         "vi": "Nước 2,5: ≈ 1202 mm nước tưới từ kênh mỗi năm, ít hơn 38% so với 3 vụ lúa (NASA POWER + CHIRPS, phương pháp FAO).",
          "src": [
           0,
           1,
@@ -2053,8 +2053,8 @@
          ]
         },
         {
-         "en": "Weather & salt 2.5: crops in the field in 4 of 5 salt months (station average peak 15.4‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 859 mm of canal water needed in salty months (NASA POWER + GPM).",
-         "vi": "Thời tiết & mặn 2,5: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 15,4‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 859 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
+         "en": "Weather & salt 2.5: crops in the field in 4 of 5 salt months (station average peak 15.4‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 865 mm of canal water needed in salty months (NASA POWER + CHIRPS).",
+         "vi": "Thời tiết & mặn 2,5: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 15,4‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 865 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS).",
          "src": [
           4,
           5,
@@ -2256,10 +2256,10 @@
         }
        ],
        "crops_per_year": null,
-       "water_mm": 1134,
-       "water_saved": 0.393,
+       "water_mm": 1194,
+       "water_saved": 0.381,
        "scores": {
-        "water": 2.6,
+        "water": 2.5,
         "salt": 2.5,
         "soil": 3.9,
         "pests": 2.8,
@@ -2271,8 +2271,8 @@
          "vi": "Cây màu như đậu xanh hay dưa hấu cần ít nước tưới hơn nhiều so với ruộng lúa ngập nước trong những tháng khô hạn nhất."
         },
         {
-         "en": "Water 2.6: ≈ 1134 mm of canal water a year, 39% less than 3 rice crops (NASA POWER + GPM, FAO method).",
-         "vi": "Nước 2,6: ≈ 1134 mm nước tưới từ kênh mỗi năm, ít hơn 39% so với 3 vụ lúa (NASA POWER + GPM, phương pháp FAO).",
+         "en": "Water 2.5: ≈ 1194 mm of canal water a year, 38% less than 3 rice crops (NASA POWER + CHIRPS, FAO method).",
+         "vi": "Nước 2,5: ≈ 1194 mm nước tưới từ kênh mỗi năm, ít hơn 38% so với 3 vụ lúa (NASA POWER + CHIRPS, phương pháp FAO).",
          "src": [
           0,
           1,
@@ -2281,8 +2281,8 @@
          ]
         },
         {
-         "en": "Weather & salt 2.5: crops in the field in 4 of 5 salt months (station average peak 15.4‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 841 mm of canal water needed in salty months (NASA POWER + GPM).",
-         "vi": "Thời tiết & mặn 2,5: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 15,4‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 841 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
+         "en": "Weather & salt 2.5: crops in the field in 4 of 5 salt months (station average peak 15.4‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 846 mm of canal water needed in salty months (NASA POWER + CHIRPS).",
+         "vi": "Thời tiết & mặn 2,5: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 15,4‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 846 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS).",
          "src": [
           4,
           5,
@@ -2435,8 +2435,8 @@
       }
      ],
      "crops_per_year": null,
-     "water_mm": 1236,
-     "water_saved": 0.338,
+     "water_mm": 1287,
+     "water_saved": 0.332,
      "profit_range": {
       "lo": 89,
       "mid": 94.5,
@@ -2444,7 +2444,7 @@
       "n": 5
      },
      "scores": {
-      "water": 2.4,
+      "water": 2.3,
       "salt": 4.1,
       "soil": 2.8,
       "pests": 3.0,
@@ -2456,8 +2456,8 @@
        "vi": "Vẫn trồng lúa, nhưng giảm rủi ro mặn và cho đất nghỉ."
       },
       {
-       "en": "Water 2.4: ≈ 1236 mm of canal water a year, 34% less than 3 rice crops (NASA POWER + GPM, FAO method).",
-       "vi": "Nước 2,4: ≈ 1236 mm nước tưới từ kênh mỗi năm, ít hơn 34% so với 3 vụ lúa (NASA POWER + GPM, phương pháp FAO).",
+       "en": "Water 2.3: ≈ 1287 mm of canal water a year, 33% less than 3 rice crops (NASA POWER + CHIRPS, FAO method).",
+       "vi": "Nước 2,3: ≈ 1287 mm nước tưới từ kênh mỗi năm, ít hơn 33% so với 3 vụ lúa (NASA POWER + CHIRPS, phương pháp FAO).",
        "src": [
         0,
         1,
@@ -2466,8 +2466,8 @@
        ]
       },
       {
-       "en": "Weather & salt 4.1: crops in the field in 2 of 5 salt months (station average peak 15.4‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 574 mm of canal water needed in salty months (NASA POWER + GPM).",
-       "vi": "Thời tiết & mặn 4,1: có cây trồng trên ruộng trong 2/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 15,4‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 574 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
+       "en": "Weather & salt 4.1: crops in the field in 2 of 5 salt months (station average peak 15.4‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 574 mm of canal water needed in salty months (NASA POWER + CHIRPS).",
+       "vi": "Thời tiết & mặn 4,1: có cây trồng trên ruộng trong 2/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 15,4‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 574 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS).",
        "src": [
         4,
         5,
@@ -2550,8 +2550,8 @@
    ],
    "summary": [
     {
-     "en": "Winter–spring rice (Nov–Feb) needs ≈ 939 mm of canal water, field losses included (NASA POWER + GPM; FAO method).",
-     "vi": "Lúa Đông Xuân (T11–T2) cần ≈ 939 mm nước tưới từ kênh, kể cả thất thoát trên ruộng (NASA POWER + GPM; phương pháp FAO).",
+     "en": "Winter–spring rice (Nov–Feb) needs ≈ 944 mm of canal water, field losses included (NASA POWER + CHIRPS; FAO method).",
+     "vi": "Lúa Đông Xuân (T11–T2) cần ≈ 944 mm nước tưới từ kênh, kể cả thất thoát trên ruộng (NASA POWER + CHIRPS; phương pháp FAO).",
      "src": [
       0,
       1,
@@ -2559,8 +2559,8 @@
       3
      ],
      "plain": {
-      "en": "Winter–spring rice (Nov–Feb) needs ≈ 939 mm of canal water, field losses included.",
-      "vi": "Lúa Đông Xuân (T11–T2) cần ≈ 939 mm nước tưới từ kênh, kể cả thất thoát trên ruộng."
+      "en": "Winter–spring rice (Nov–Feb) needs ≈ 944 mm of canal water, field losses included.",
+      "vi": "Lúa Đông Xuân (T11–T2) cần ≈ 944 mm nước tưới từ kênh, kể cả thất thoát trên ruộng."
      }
     },
     {
@@ -2599,7 +2599,7 @@
      "sow_from": 6,
      "sow_by": 9,
      "harvest_by": 12,
-     "water_mm": 508,
+     "water_mm": 537,
      "hot_days": 0.0,
      "ok": true
     },
@@ -2607,11 +2607,11 @@
     "maize": null,
     "mungbean": null
    },
-   "gpm_check": {
-    "power_mm_yr": 1746,
-    "gpm_mm_yr": 2068,
-    "diff_pct": 18,
-    "monthly_r": 0.93,
+   "rain_check": {
+    "chirps_mm_yr": 1955,
+    "imerg_mm_yr": 2068,
+    "diff_pct": -5,
+    "monthly_r": 0.94,
     "months": 288
    },
    "hls_check": {
@@ -2665,46 +2665,46 @@
    "elnino": {
     "climate": {
      "rain_mm": [
-      26,
-      3,
-      12,
-      16,
-      190,
-      288,
-      313,
-      253,
-      359,
-      385,
-      175,
-      36
+      13,
+      0,
+      4,
+      19,
+      205,
+      276,
+      279,
+      281,
+      323,
+      381,
+      157,
+      32
      ],
      "rain_min_mm": [
-      2,
+      0,
+      0,
+      0,
       1,
-      0,
-      0,
-      62,
-      197,
-      158,
-      142,
-      230,
-      164,
-      127,
-      6
+      56,
+      213,
+      165,
+      178,
+      228,
+      177,
+      71,
+      0
      ],
      "rain_max_mm": [
-      113,
-      5,
-      47,
-      53,
-      290,
-      500,
-      502,
-      512,
-      438,
-      602,
-      335,
-      97
+      59,
+      0,
+      36,
+      71,
+      403,
+      364,
+      443,
+      386,
+      391,
+      566,
+      239,
+      91
      ],
      "et0_mm": [
       139,
@@ -2919,7 +2919,7 @@
        }
       ],
       "crops_per_year": 3,
-      "water_mm": 2006,
+      "water_mm": 2035,
       "water_saved": 0.0,
       "profit_range": {
        "lo": 74.7,
@@ -2936,8 +2936,8 @@
       },
       "why": [
        {
-        "en": "Water 1.0: ≈ 2006 mm of canal water a year, the most of all options here; the others are compared with it (NASA POWER + GPM, El Niño average, FAO method).",
-        "vi": "Nước 1,0: ≈ 2006 mm nước tưới từ kênh mỗi năm, nhiều nhất trong các phương án; các phương án khác được so với mức này (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
+        "en": "Water 1.0: ≈ 2035 mm of canal water a year, the most of all options here; the others are compared with it (NASA POWER + CHIRPS, El Niño average, FAO method).",
+        "vi": "Nước 1,0: ≈ 2035 mm nước tưới từ kênh mỗi năm, nhiều nhất trong các phương án; các phương án khác được so với mức này (NASA POWER + CHIRPS, trung bình El Niño, phương pháp FAO).",
         "src": [
          0,
          1,
@@ -2946,8 +2946,8 @@
         ]
        },
        {
-        "en": "Weather & salt 2.2: crops in the field in 4 of 5 salt months (station average peak 17.6‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1295 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 2,2: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,6‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1295 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 2.2: crops in the field in 4 of 5 salt months (station average peak 17.6‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1288 mm of canal water needed in salty months (NASA POWER + CHIRPS, El Niño average).",
+        "vi": "Thời tiết & mặn 2,2: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,6‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1288 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -3104,8 +3104,8 @@
        }
       ],
       "crops_per_year": 2,
-      "water_mm": 1837,
-      "water_saved": 0.084,
+      "water_mm": 1871,
+      "water_saved": 0.081,
       "profit_range": {
        "lo": 46.8,
        "mid": 58.9,
@@ -3121,8 +3121,8 @@
       },
       "why": [
        {
-        "en": "Water 1.3: ≈ 1837 mm of canal water a year, 8% less than 3 rice crops (NASA POWER + GPM, El Niño average, FAO method).",
-        "vi": "Nước 1,3: ≈ 1837 mm nước tưới từ kênh mỗi năm, ít hơn 8% so với 3 vụ lúa (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
+        "en": "Water 1.3: ≈ 1871 mm of canal water a year, 8% less than 3 rice crops (NASA POWER + CHIRPS, El Niño average, FAO method).",
+        "vi": "Nước 1,3: ≈ 1871 mm nước tưới từ kênh mỗi năm, ít hơn 8% so với 3 vụ lúa (NASA POWER + CHIRPS, trung bình El Niño, phương pháp FAO).",
         "src": [
          0,
          1,
@@ -3131,8 +3131,8 @@
         ]
        },
        {
-        "en": "Weather & salt 2.2: crops in the field in 4 of 5 salt months (station average peak 17.6‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1295 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 2,2: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,6‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1295 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 2.2: crops in the field in 4 of 5 salt months (station average peak 17.6‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1288 mm of canal water needed in salty months (NASA POWER + CHIRPS, El Niño average).",
+        "vi": "Thời tiết & mặn 2,2: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,6‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1288 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -3296,8 +3296,8 @@
        }
       ],
       "crops_per_year": null,
-      "water_mm": 257,
-      "water_saved": 0.872,
+      "water_mm": 268,
+      "water_saved": 0.868,
       "profit_range": {
        "lo": 56.5,
        "mid": 76.2,
@@ -3317,8 +3317,8 @@
         "vi": "Biến nước mặn mùa khô thành nguồn lợi thay vì mối đe dọa."
        },
        {
-        "en": "Water 4.5: ≈ 257 mm of canal water a year, 87% less than 3 rice crops (NASA POWER + GPM, El Niño average, FAO method).",
-        "vi": "Nước 4,5: ≈ 257 mm nước tưới từ kênh mỗi năm, ít hơn 87% so với 3 vụ lúa (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
+        "en": "Water 4.5: ≈ 268 mm of canal water a year, 87% less than 3 rice crops (NASA POWER + CHIRPS, El Niño average, FAO method).",
+        "vi": "Nước 4,5: ≈ 268 mm nước tưới từ kênh mỗi năm, ít hơn 87% so với 3 vụ lúa (NASA POWER + CHIRPS, trung bình El Niño, phương pháp FAO).",
         "src": [
          0,
          1,
@@ -3327,8 +3327,8 @@
         ]
        },
        {
-        "en": "Weather & salt 5.0: crops in the field in 0 of 5 salt months (station average peak 17.6‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 0 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,6‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 0 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 5.0: crops in the field in 0 of 5 salt months (station average peak 17.6‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 0 mm of canal water needed in salty months (NASA POWER + CHIRPS, El Niño average).",
+        "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,6‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 0 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -3535,8 +3535,8 @@
          }
         ],
         "crops_per_year": null,
-        "water_mm": 1299,
-        "water_saved": 0.352,
+        "water_mm": 1313,
+        "water_saved": 0.355,
         "profit_range": {
          "lo": 110.7,
          "mid": 142.9,
@@ -3556,8 +3556,8 @@
           "vi": "Cây màu như đậu xanh hay dưa hấu cần ít nước tưới hơn nhiều so với ruộng lúa ngập nước trong những tháng khô hạn nhất."
          },
          {
-          "en": "Water 2.4: ≈ 1299 mm of canal water a year, 35% less than 3 rice crops (NASA POWER + GPM, El Niño average, FAO method).",
-          "vi": "Nước 2,4: ≈ 1299 mm nước tưới từ kênh mỗi năm, ít hơn 35% so với 3 vụ lúa (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
+          "en": "Water 2.4: ≈ 1313 mm of canal water a year, 35% less than 3 rice crops (NASA POWER + CHIRPS, El Niño average, FAO method).",
+          "vi": "Nước 2,4: ≈ 1313 mm nước tưới từ kênh mỗi năm, ít hơn 35% so với 3 vụ lúa (NASA POWER + CHIRPS, trung bình El Niño, phương pháp FAO).",
           "src": [
            0,
            1,
@@ -3566,8 +3566,8 @@
           ]
          },
          {
-          "en": "Weather & salt 2.4: crops in the field in 4 of 5 salt months (station average peak 17.6‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1030 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 2,4: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,6‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1030 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 2.4: crops in the field in 4 of 5 salt months (station average peak 17.6‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1023 mm of canal water needed in salty months (NASA POWER + CHIRPS, El Niño average).",
+          "vi": "Thời tiết & mặn 2,4: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,6‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1023 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -3769,8 +3769,8 @@
          }
         ],
         "crops_per_year": null,
-        "water_mm": 1274,
-        "water_saved": 0.365,
+        "water_mm": 1289,
+        "water_saved": 0.367,
         "profit_range": {
          "lo": 133.2,
          "mid": 142.9,
@@ -3790,8 +3790,8 @@
           "vi": "Cây màu như đậu xanh hay dưa hấu cần ít nước tưới hơn nhiều so với ruộng lúa ngập nước trong những tháng khô hạn nhất."
          },
          {
-          "en": "Water 2.5: ≈ 1274 mm of canal water a year, 36% less than 3 rice crops (NASA POWER + GPM, El Niño average, FAO method).",
-          "vi": "Nước 2,5: ≈ 1274 mm nước tưới từ kênh mỗi năm, ít hơn 36% so với 3 vụ lúa (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
+          "en": "Water 2.5: ≈ 1289 mm of canal water a year, 37% less than 3 rice crops (NASA POWER + CHIRPS, El Niño average, FAO method).",
+          "vi": "Nước 2,5: ≈ 1289 mm nước tưới từ kênh mỗi năm, ít hơn 37% so với 3 vụ lúa (NASA POWER + CHIRPS, trung bình El Niño, phương pháp FAO).",
           "src": [
            0,
            1,
@@ -3800,8 +3800,8 @@
           ]
          },
          {
-          "en": "Weather & salt 2.4: crops in the field in 4 of 5 salt months (station average peak 17.6‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1018 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 2,4: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,6‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1018 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 2.4: crops in the field in 4 of 5 salt months (station average peak 17.6‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1011 mm of canal water needed in salty months (NASA POWER + CHIRPS, El Niño average).",
+          "vi": "Thời tiết & mặn 2,4: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,6‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1011 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -4003,8 +4003,8 @@
          }
         ],
         "crops_per_year": null,
-        "water_mm": 1266,
-        "water_saved": 0.369,
+        "water_mm": 1280,
+        "water_saved": 0.371,
         "scores": {
          "water": 2.5,
          "salt": 2.4,
@@ -4018,8 +4018,8 @@
           "vi": "Cây màu như đậu xanh hay dưa hấu cần ít nước tưới hơn nhiều so với ruộng lúa ngập nước trong những tháng khô hạn nhất."
          },
          {
-          "en": "Water 2.5: ≈ 1266 mm of canal water a year, 37% less than 3 rice crops (NASA POWER + GPM, El Niño average, FAO method).",
-          "vi": "Nước 2,5: ≈ 1266 mm nước tưới từ kênh mỗi năm, ít hơn 37% so với 3 vụ lúa (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
+          "en": "Water 2.5: ≈ 1280 mm of canal water a year, 37% less than 3 rice crops (NASA POWER + CHIRPS, El Niño average, FAO method).",
+          "vi": "Nước 2,5: ≈ 1280 mm nước tưới từ kênh mỗi năm, ít hơn 37% so với 3 vụ lúa (NASA POWER + CHIRPS, trung bình El Niño, phương pháp FAO).",
           "src": [
            0,
            1,
@@ -4028,8 +4028,8 @@
           ]
          },
          {
-          "en": "Weather & salt 2.4: crops in the field in 4 of 5 salt months (station average peak 17.6‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 997 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 2,4: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,6‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 997 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 2.4: crops in the field in 4 of 5 salt months (station average peak 17.6‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 990 mm of canal water needed in salty months (NASA POWER + CHIRPS, El Niño average).",
+          "vi": "Thời tiết & mặn 2,4: có cây trồng trên ruộng trong 4/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,6‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 990 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -4182,8 +4182,8 @@
        }
       ],
       "crops_per_year": null,
-      "water_mm": 1265,
-      "water_saved": 0.369,
+      "water_mm": 1292,
+      "water_saved": 0.365,
       "profit_range": {
        "lo": 84.5,
        "mid": 89.8,
@@ -4203,8 +4203,8 @@
         "vi": "Vẫn trồng lúa, nhưng giảm rủi ro mặn và cho đất nghỉ."
        },
        {
-        "en": "Water 2.5: ≈ 1265 mm of canal water a year, 37% less than 3 rice crops (NASA POWER + GPM, El Niño average, FAO method).",
-        "vi": "Nước 2,5: ≈ 1265 mm nước tưới từ kênh mỗi năm, ít hơn 37% so với 3 vụ lúa (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
+        "en": "Water 2.5: ≈ 1292 mm of canal water a year, 37% less than 3 rice crops (NASA POWER + CHIRPS, El Niño average, FAO method).",
+        "vi": "Nước 2,5: ≈ 1292 mm nước tưới từ kênh mỗi năm, ít hơn 37% so với 3 vụ lúa (NASA POWER + CHIRPS, trung bình El Niño, phương pháp FAO).",
         "src": [
          0,
          1,
@@ -4213,8 +4213,8 @@
         ]
        },
        {
-        "en": "Weather & salt 4.1: crops in the field in 2 of 5 salt months (station average peak 17.6‰, estimate from station reports); 0.4 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 679 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 4,1: có cây trồng trên ruộng trong 2/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,6‰, ước tính từ báo cáo trạm); 0,4 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 679 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 4.1: crops in the field in 2 of 5 salt months (station average peak 17.6‰, estimate from station reports); 0.4 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 671 mm of canal water needed in salty months (NASA POWER + CHIRPS, El Niño average).",
+        "vi": "Thời tiết & mặn 4,1: có cây trồng trên ruộng trong 2/5 tháng mặn (độ mặn cao nhất trung bình tại trạm 17,6‰, ước tính từ báo cáo trạm); 0,4 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 671 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -4297,8 +4297,8 @@
     ],
     "summary": [
      {
-      "en": "Winter–spring rice (Nov–Feb) needs ≈ 988 mm of canal water, field losses included (NASA POWER + GPM, El Niño average; FAO method).",
-      "vi": "Lúa Đông Xuân (T11–T2) cần ≈ 988 mm nước tưới từ kênh, kể cả thất thoát trên ruộng (NASA POWER + GPM, trung bình El Niño; phương pháp FAO).",
+      "en": "Winter–spring rice (Nov–Feb) needs ≈ 1011 mm of canal water, field losses included (NASA POWER + CHIRPS, El Niño average; FAO method).",
+      "vi": "Lúa Đông Xuân (T11–T2) cần ≈ 1011 mm nước tưới từ kênh, kể cả thất thoát trên ruộng (NASA POWER + CHIRPS, trung bình El Niño; phương pháp FAO).",
       "src": [
        0,
        1,
@@ -4306,8 +4306,8 @@
        3
       ],
       "plain": {
-       "en": "Winter–spring rice (Nov–Feb) needs ≈ 988 mm of canal water, field losses included.",
-       "vi": "Lúa Đông Xuân (T11–T2) cần ≈ 988 mm nước tưới từ kênh, kể cả thất thoát trên ruộng."
+       "en": "Winter–spring rice (Nov–Feb) needs ≈ 1011 mm of canal water, field losses included.",
+       "vi": "Lúa Đông Xuân (T11–T2) cần ≈ 1011 mm nước tưới từ kênh, kể cả thất thoát trên ruộng."
       }
      },
      {
@@ -4346,7 +4346,7 @@
       "sow_from": 6,
       "sow_by": 9,
       "harvest_by": 12,
-      "water_mm": 437,
+      "water_mm": 459,
       "hot_days": 0.0,
       "ok": true
      },
@@ -4366,46 +4366,46 @@
    },
    "climate": {
     "rain_mm": [
+     18,
+     10,
      25,
-     13,
-     33,
-     68,
-     227,
-     246,
-     336,
-     241,
-     326,
-     252,
-     155,
+     72,
+     220,
+     211,
+     275,
+     276,
+     288,
+     254,
+     156,
      58
     ],
     "rain_min_mm": [
-     1,
-     1,
-     1,
-     6,
-     115,
-     139,
-     183,
-     134,
-     211,
-     141,
-     23,
-     7
+     0,
+     0,
+     0,
+     9,
+     119,
+     131,
+     129,
+     184,
+     202,
+     155,
+     14,
+     4
     ],
     "rain_max_mm": [
-     104,
-     34,
-     135,
-     125,
-     366,
-     416,
-     592,
-     342,
-     489,
-     388,
-     236,
-     147
+     60,
+     35,
+     92,
+     153,
+     294,
+     300,
+     529,
+     356,
+     371,
+     424,
+     298,
+     153
     ],
     "et0_mm": [
      124,
@@ -4618,7 +4618,7 @@
       }
      ],
      "crops_per_year": 3,
-     "water_mm": 1992,
+     "water_mm": 2052,
      "water_saved": 0.0,
      "profit_range": {
       "lo": 79.9,
@@ -4635,8 +4635,8 @@
      },
      "why": [
       {
-       "en": "Water 1.0: ≈ 1992 mm of canal water a year, the most of all options here; the others are compared with it (NASA POWER + GPM, FAO method).",
-       "vi": "Nước 1,0: ≈ 1992 mm nước tưới từ kênh mỗi năm, nhiều nhất trong các phương án; các phương án khác được so với mức này (NASA POWER + GPM, phương pháp FAO).",
+       "en": "Water 1.0: ≈ 2052 mm of canal water a year, the most of all options here; the others are compared with it (NASA POWER + CHIRPS, FAO method).",
+       "vi": "Nước 1,0: ≈ 2052 mm nước tưới từ kênh mỗi năm, nhiều nhất trong các phương án; các phương án khác được so với mức này (NASA POWER + CHIRPS, phương pháp FAO).",
        "src": [
         0,
         1,
@@ -4645,8 +4645,8 @@
        ]
       },
       {
-       "en": "Weather & salt 2.4: crops in the field in 3 of 4 salt months (station average peak 20.9‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 914 mm of canal water needed in salty months (NASA POWER + GPM).",
-       "vi": "Thời tiết & mặn 2,4: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 20,9‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 914 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
+       "en": "Weather & salt 2.4: crops in the field in 3 of 4 salt months (station average peak 20.9‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 921 mm of canal water needed in salty months (NASA POWER + CHIRPS).",
+       "vi": "Thời tiết & mặn 2,4: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 20,9‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 921 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS).",
        "src": [
         4,
         5,
@@ -4789,8 +4789,8 @@
       }
      ],
      "crops_per_year": 2,
-     "water_mm": 1769,
-     "water_saved": 0.112,
+     "water_mm": 1826,
+     "water_saved": 0.11,
      "profit_range": {
       "lo": 52,
       "mid": 65.4,
@@ -4806,8 +4806,8 @@
      },
      "why": [
       {
-       "en": "Water 1.4: ≈ 1769 mm of canal water a year, 11% less than 3 rice crops (NASA POWER + GPM, FAO method).",
-       "vi": "Nước 1,4: ≈ 1769 mm nước tưới từ kênh mỗi năm, ít hơn 11% so với 3 vụ lúa (NASA POWER + GPM, phương pháp FAO).",
+       "en": "Water 1.4: ≈ 1826 mm of canal water a year, 11% less than 3 rice crops (NASA POWER + CHIRPS, FAO method).",
+       "vi": "Nước 1,4: ≈ 1826 mm nước tưới từ kênh mỗi năm, ít hơn 11% so với 3 vụ lúa (NASA POWER + CHIRPS, phương pháp FAO).",
        "src": [
         0,
         1,
@@ -4816,8 +4816,8 @@
        ]
       },
       {
-       "en": "Weather & salt 2.4: crops in the field in 3 of 4 salt months (station average peak 20.9‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 914 mm of canal water needed in salty months (NASA POWER + GPM).",
-       "vi": "Thời tiết & mặn 2,4: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 20,9‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 914 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
+       "en": "Weather & salt 2.4: crops in the field in 3 of 4 salt months (station average peak 20.9‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 921 mm of canal water needed in salty months (NASA POWER + CHIRPS).",
+       "vi": "Thời tiết & mặn 2,4: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 20,9‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 921 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS).",
        "src": [
         4,
         5,
@@ -4967,8 +4967,8 @@
       }
      ],
      "crops_per_year": null,
-     "water_mm": 404,
-     "water_saved": 0.797,
+     "water_mm": 410,
+     "water_saved": 0.8,
      "profit_range": {
       "lo": 56.5,
       "mid": 76.2,
@@ -4988,8 +4988,8 @@
        "vi": "Biến nước mặn mùa khô thành nguồn lợi thay vì mối đe dọa."
       },
       {
-       "en": "Water 4.2: ≈ 404 mm of canal water a year, 80% less than 3 rice crops (NASA POWER + GPM, FAO method).",
-       "vi": "Nước 4,2: ≈ 404 mm nước tưới từ kênh mỗi năm, ít hơn 80% so với 3 vụ lúa (NASA POWER + GPM, phương pháp FAO).",
+       "en": "Water 4.2: ≈ 410 mm of canal water a year, 80% less than 3 rice crops (NASA POWER + CHIRPS, FAO method).",
+       "vi": "Nước 4,2: ≈ 410 mm nước tưới từ kênh mỗi năm, ít hơn 80% so với 3 vụ lúa (NASA POWER + CHIRPS, phương pháp FAO).",
        "src": [
         0,
         1,
@@ -4998,8 +4998,8 @@
        ]
       },
       {
-       "en": "Weather & salt 5.0: crops in the field in 0 of 4 salt months (station average peak 20.9‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 0 mm of canal water needed in salty months (NASA POWER + GPM).",
-       "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 20,9‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 0 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
+       "en": "Weather & salt 5.0: crops in the field in 0 of 4 salt months (station average peak 20.9‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 0 mm of canal water needed in salty months (NASA POWER + CHIRPS).",
+       "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 20,9‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 0 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS).",
        "src": [
         4,
         5,
@@ -5185,8 +5185,8 @@
         }
        ],
        "crops_per_year": null,
-       "water_mm": 1283,
-       "water_saved": 0.356,
+       "water_mm": 1343,
+       "water_saved": 0.346,
        "profit_range": {
         "lo": 119.9,
         "mid": 155.4,
@@ -5214,8 +5214,8 @@
          ]
         },
         {
-         "en": "Water 2.4: ≈ 1283 mm of canal water a year, 36% less than 3 rice crops (NASA POWER + GPM, FAO method).",
-         "vi": "Nước 2,4: ≈ 1283 mm nước tưới từ kênh mỗi năm, ít hơn 36% so với 3 vụ lúa (NASA POWER + GPM, phương pháp FAO).",
+         "en": "Water 2.4: ≈ 1343 mm of canal water a year, 35% less than 3 rice crops (NASA POWER + CHIRPS, FAO method).",
+         "vi": "Nước 2,4: ≈ 1343 mm nước tưới từ kênh mỗi năm, ít hơn 35% so với 3 vụ lúa (NASA POWER + CHIRPS, phương pháp FAO).",
          "src": [
           0,
           1,
@@ -5224,8 +5224,8 @@
          ]
         },
         {
-         "en": "Weather & salt 2.5: crops in the field in 3 of 4 salt months (station average peak 20.9‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 801 mm of canal water needed in salty months (NASA POWER + GPM).",
-         "vi": "Thời tiết & mặn 2,5: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 20,9‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 801 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
+         "en": "Weather & salt 2.5: crops in the field in 3 of 4 salt months (station average peak 20.9‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 808 mm of canal water needed in salty months (NASA POWER + CHIRPS).",
+         "vi": "Thời tiết & mặn 2,5: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 20,9‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 808 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS).",
          "src": [
           4,
           5,
@@ -5406,8 +5406,8 @@
         }
        ],
        "crops_per_year": null,
-       "water_mm": 1259,
-       "water_saved": 0.368,
+       "water_mm": 1319,
+       "water_saved": 0.357,
        "profit_range": {
         "lo": 144.9,
         "mid": 155.4,
@@ -5415,7 +5415,7 @@
         "n": 8
        },
        "scores": {
-        "water": 2.5,
+        "water": 2.4,
         "salt": 2.5,
         "soil": 2.1,
         "pests": 2.8,
@@ -5435,8 +5435,8 @@
          ]
         },
         {
-         "en": "Water 2.5: ≈ 1259 mm of canal water a year, 37% less than 3 rice crops (NASA POWER + GPM, FAO method).",
-         "vi": "Nước 2,5: ≈ 1259 mm nước tưới từ kênh mỗi năm, ít hơn 37% so với 3 vụ lúa (NASA POWER + GPM, phương pháp FAO).",
+         "en": "Water 2.4: ≈ 1319 mm of canal water a year, 36% less than 3 rice crops (NASA POWER + CHIRPS, FAO method).",
+         "vi": "Nước 2,4: ≈ 1319 mm nước tưới từ kênh mỗi năm, ít hơn 36% so với 3 vụ lúa (NASA POWER + CHIRPS, phương pháp FAO).",
          "src": [
           0,
           1,
@@ -5445,8 +5445,8 @@
          ]
         },
         {
-         "en": "Weather & salt 2.5: crops in the field in 3 of 4 salt months (station average peak 20.9‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 763 mm of canal water needed in salty months (NASA POWER + GPM).",
-         "vi": "Thời tiết & mặn 2,5: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 20,9‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 763 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
+         "en": "Weather & salt 2.5: crops in the field in 3 of 4 salt months (station average peak 20.9‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 770 mm of canal water needed in salty months (NASA POWER + CHIRPS).",
+         "vi": "Thời tiết & mặn 2,5: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 20,9‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 770 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS).",
          "src": [
           4,
           5,
@@ -5627,10 +5627,10 @@
         }
        ],
        "crops_per_year": null,
-       "water_mm": 1251,
-       "water_saved": 0.372,
+       "water_mm": 1311,
+       "water_saved": 0.361,
        "scores": {
-        "water": 2.5,
+        "water": 2.4,
         "salt": 2.5,
         "soil": 3.9,
         "pests": 2.8,
@@ -5650,8 +5650,8 @@
          ]
         },
         {
-         "en": "Water 2.5: ≈ 1251 mm of canal water a year, 37% less than 3 rice crops (NASA POWER + GPM, FAO method).",
-         "vi": "Nước 2,5: ≈ 1251 mm nước tưới từ kênh mỗi năm, ít hơn 37% so với 3 vụ lúa (NASA POWER + GPM, phương pháp FAO).",
+         "en": "Water 2.4: ≈ 1311 mm of canal water a year, 36% less than 3 rice crops (NASA POWER + CHIRPS, FAO method).",
+         "vi": "Nước 2,4: ≈ 1311 mm nước tưới từ kênh mỗi năm, ít hơn 36% so với 3 vụ lúa (NASA POWER + CHIRPS, phương pháp FAO).",
          "src": [
           0,
           1,
@@ -5660,8 +5660,8 @@
          ]
         },
         {
-         "en": "Weather & salt 2.5: crops in the field in 3 of 4 salt months (station average peak 20.9‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 763 mm of canal water needed in salty months (NASA POWER + GPM).",
-         "vi": "Thời tiết & mặn 2,5: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 20,9‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 763 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
+         "en": "Weather & salt 2.5: crops in the field in 3 of 4 salt months (station average peak 20.9‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 770 mm of canal water needed in salty months (NASA POWER + CHIRPS).",
+         "vi": "Thời tiết & mặn 2,5: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 20,9‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 770 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS).",
          "src": [
           4,
           5,
@@ -5800,8 +5800,8 @@
       }
      ],
      "crops_per_year": null,
-     "water_mm": 1329,
-     "water_saved": 0.333,
+     "water_mm": 1383,
+     "water_saved": 0.326,
      "profit_range": {
       "lo": 89,
       "mid": 94.5,
@@ -5821,8 +5821,8 @@
        "vi": "Vẫn trồng lúa, nhưng giảm rủi ro mặn và cho đất nghỉ."
       },
       {
-       "en": "Water 2.3: ≈ 1329 mm of canal water a year, 33% less than 3 rice crops (NASA POWER + GPM, FAO method).",
-       "vi": "Nước 2,3: ≈ 1329 mm nước tưới từ kênh mỗi năm, ít hơn 33% so với 3 vụ lúa (NASA POWER + GPM, phương pháp FAO).",
+       "en": "Water 2.3: ≈ 1383 mm of canal water a year, 33% less than 3 rice crops (NASA POWER + CHIRPS, FAO method).",
+       "vi": "Nước 2,3: ≈ 1383 mm nước tưới từ kênh mỗi năm, ít hơn 33% so với 3 vụ lúa (NASA POWER + CHIRPS, phương pháp FAO).",
        "src": [
         0,
         1,
@@ -5831,8 +5831,8 @@
        ]
       },
       {
-       "en": "Weather & salt 4.4: crops in the field in 1 of 4 salt months (station average peak 20.9‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 390 mm of canal water needed in salty months (NASA POWER + GPM).",
-       "vi": "Thời tiết & mặn 4,4: có cây trồng trên ruộng trong 1/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 20,9‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 390 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
+       "en": "Weather & salt 4.4: crops in the field in 1 of 4 salt months (station average peak 20.9‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 393 mm of canal water needed in salty months (NASA POWER + CHIRPS).",
+       "vi": "Thời tiết & mặn 4,4: có cây trồng trên ruộng trong 1/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 20,9‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 393 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS).",
        "src": [
         4,
         5,
@@ -5915,8 +5915,8 @@
    ],
    "summary": [
     {
-     "en": "Winter–spring rice (Nov–Feb) needs ≈ 950 mm of canal water, field losses included (NASA POWER + GPM; FAO method).",
-     "vi": "Lúa Đông Xuân (T11–T2) cần ≈ 950 mm nước tưới từ kênh, kể cả thất thoát trên ruộng (NASA POWER + GPM; phương pháp FAO).",
+     "en": "Winter–spring rice (Nov–Feb) needs ≈ 954 mm of canal water, field losses included (NASA POWER + CHIRPS; FAO method).",
+     "vi": "Lúa Đông Xuân (T11–T2) cần ≈ 954 mm nước tưới từ kênh, kể cả thất thoát trên ruộng (NASA POWER + CHIRPS; phương pháp FAO).",
      "src": [
       0,
       1,
@@ -5924,8 +5924,8 @@
       3
      ],
      "plain": {
-      "en": "Winter–spring rice (Nov–Feb) needs ≈ 950 mm of canal water, field losses included.",
-      "vi": "Lúa Đông Xuân (T11–T2) cần ≈ 950 mm nước tưới từ kênh, kể cả thất thoát trên ruộng."
+      "en": "Winter–spring rice (Nov–Feb) needs ≈ 954 mm of canal water, field losses included.",
+      "vi": "Lúa Đông Xuân (T11–T2) cần ≈ 954 mm nước tưới từ kênh, kể cả thất thoát trên ruộng."
      }
     },
     {
@@ -5964,7 +5964,7 @@
      "sow_from": 6,
      "sow_by": 10,
      "harvest_by": 1,
-     "water_mm": 768,
+     "water_mm": 770,
      "hot_days": 0.0,
      "ok": true
     },
@@ -5972,10 +5972,10 @@
     "maize": null,
     "mungbean": null
    },
-   "gpm_check": {
-    "power_mm_yr": 1746,
-    "gpm_mm_yr": 1962,
-    "diff_pct": 12,
+   "rain_check": {
+    "chirps_mm_yr": 1862,
+    "imerg_mm_yr": 1962,
+    "diff_pct": -5,
     "monthly_r": 0.93,
     "months": 288
    },
@@ -6027,46 +6027,46 @@
    "elnino": {
     "climate": {
      "rain_mm": [
-      25,
-      2,
-      11,
       13,
-      175,
-      269,
-      303,
-      238,
-      335,
-      362,
-      162,
-      35
+      0,
+      6,
+      14,
+      189,
+      253,
+      264,
+      276,
+      310,
+      364,
+      138,
+      33
      ],
      "rain_min_mm": [
-      1,
-      1,
       0,
       0,
-      56,
-      176,
-      148,
-      124,
-      203,
-      156,
-      116,
-      4
+      0,
+      0,
+      61,
+      191,
+      166,
+      175,
+      206,
+      154,
+      67,
+      0
      ],
      "rain_max_mm": [
-      112,
-      4,
-      44,
-      50,
-      282,
-      503,
-      511,
-      485,
-      400,
-      568,
-      300,
-      88
+      54,
+      1,
+      49,
+      71,
+      392,
+      363,
+      411,
+      391,
+      367,
+      565,
+      229,
+      92
      ],
      "et0_mm": [
       140,
@@ -6266,7 +6266,7 @@
        }
       ],
       "crops_per_year": 3,
-      "water_mm": 2120,
+      "water_mm": 2166,
       "water_saved": 0.0,
       "profit_range": {
        "lo": 74.7,
@@ -6283,8 +6283,8 @@
       },
       "why": [
        {
-        "en": "Water 1.0: ≈ 2120 mm of canal water a year, the most of all options here; the others are compared with it (NASA POWER + GPM, El Niño average, FAO method).",
-        "vi": "Nước 1,0: ≈ 2120 mm nước tưới từ kênh mỗi năm, nhiều nhất trong các phương án; các phương án khác được so với mức này (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
+        "en": "Water 1.0: ≈ 2166 mm of canal water a year, the most of all options here; the others are compared with it (NASA POWER + CHIRPS, El Niño average, FAO method).",
+        "vi": "Nước 1,0: ≈ 2166 mm nước tưới từ kênh mỗi năm, nhiều nhất trong các phương án; các phương án khác được so với mức này (NASA POWER + CHIRPS, trung bình El Niño, phương pháp FAO).",
         "src": [
          0,
          1,
@@ -6293,8 +6293,8 @@
         ]
        },
        {
-        "en": "Weather & salt 2.4: crops in the field in 3 of 4 salt months (station average peak 23.9‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1047 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 2,4: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 23,9‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1047 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 2.4: crops in the field in 3 of 4 salt months (station average peak 23.9‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1036 mm of canal water needed in salty months (NASA POWER + CHIRPS, El Niño average).",
+        "vi": "Thời tiết & mặn 2,4: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 23,9‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1036 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -6437,8 +6437,8 @@
        }
       ],
       "crops_per_year": 2,
-      "water_mm": 1913,
-      "water_saved": 0.098,
+      "water_mm": 1970,
+      "water_saved": 0.09,
       "profit_range": {
        "lo": 46.8,
        "mid": 58.9,
@@ -6454,8 +6454,8 @@
       },
       "why": [
        {
-        "en": "Water 1.4: ≈ 1913 mm of canal water a year, 10% less than 3 rice crops (NASA POWER + GPM, El Niño average, FAO method).",
-        "vi": "Nước 1,4: ≈ 1913 mm nước tưới từ kênh mỗi năm, ít hơn 10% so với 3 vụ lúa (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
+        "en": "Water 1.4: ≈ 1970 mm of canal water a year, 9% less than 3 rice crops (NASA POWER + CHIRPS, El Niño average, FAO method).",
+        "vi": "Nước 1,4: ≈ 1970 mm nước tưới từ kênh mỗi năm, ít hơn 9% so với 3 vụ lúa (NASA POWER + CHIRPS, trung bình El Niño, phương pháp FAO).",
         "src": [
          0,
          1,
@@ -6464,8 +6464,8 @@
         ]
        },
        {
-        "en": "Weather & salt 2.4: crops in the field in 3 of 4 salt months (station average peak 23.9‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1047 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 2,4: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 23,9‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1047 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 2.4: crops in the field in 3 of 4 salt months (station average peak 23.9‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1036 mm of canal water needed in salty months (NASA POWER + CHIRPS, El Niño average).",
+        "vi": "Thời tiết & mặn 2,4: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 23,9‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1036 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -6615,8 +6615,8 @@
        }
       ],
       "crops_per_year": null,
-      "water_mm": 307,
-      "water_saved": 0.855,
+      "water_mm": 329,
+      "water_saved": 0.848,
       "profit_range": {
        "lo": 56.5,
        "mid": 76.2,
@@ -6636,8 +6636,8 @@
         "vi": "Biến nước mặn mùa khô thành nguồn lợi thay vì mối đe dọa."
        },
        {
-        "en": "Water 4.4: ≈ 307 mm of canal water a year, 86% less than 3 rice crops (NASA POWER + GPM, El Niño average, FAO method).",
-        "vi": "Nước 4,4: ≈ 307 mm nước tưới từ kênh mỗi năm, ít hơn 86% so với 3 vụ lúa (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
+        "en": "Water 4.4: ≈ 329 mm of canal water a year, 85% less than 3 rice crops (NASA POWER + CHIRPS, El Niño average, FAO method).",
+        "vi": "Nước 4,4: ≈ 329 mm nước tưới từ kênh mỗi năm, ít hơn 85% so với 3 vụ lúa (NASA POWER + CHIRPS, trung bình El Niño, phương pháp FAO).",
         "src": [
          0,
          1,
@@ -6646,8 +6646,8 @@
         ]
        },
        {
-        "en": "Weather & salt 5.0: crops in the field in 0 of 4 salt months (station average peak 23.9‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 0 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 23,9‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 0 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 5.0: crops in the field in 0 of 4 salt months (station average peak 23.9‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 0 mm of canal water needed in salty months (NASA POWER + CHIRPS, El Niño average).",
+        "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 23,9‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 0 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -6833,8 +6833,8 @@
          }
         ],
         "crops_per_year": null,
-        "water_mm": 1398,
-        "water_saved": 0.341,
+        "water_mm": 1425,
+        "water_saved": 0.342,
         "profit_range": {
          "lo": 110.7,
          "mid": 142.9,
@@ -6862,8 +6862,8 @@
           ]
          },
          {
-          "en": "Water 2.4: ≈ 1398 mm of canal water a year, 34% less than 3 rice crops (NASA POWER + GPM, El Niño average, FAO method).",
-          "vi": "Nước 2,4: ≈ 1398 mm nước tưới từ kênh mỗi năm, ít hơn 34% so với 3 vụ lúa (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
+          "en": "Water 2.4: ≈ 1425 mm of canal water a year, 34% less than 3 rice crops (NASA POWER + CHIRPS, El Niño average, FAO method).",
+          "vi": "Nước 2,4: ≈ 1425 mm nước tưới từ kênh mỗi năm, ít hơn 34% so với 3 vụ lúa (NASA POWER + CHIRPS, trung bình El Niño, phương pháp FAO).",
           "src": [
            0,
            1,
@@ -6872,8 +6872,8 @@
           ]
          },
          {
-          "en": "Weather & salt 2.5: crops in the field in 3 of 4 salt months (station average peak 23.9‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 934 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 2,5: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 23,9‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 934 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 2.5: crops in the field in 3 of 4 salt months (station average peak 23.9‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 923 mm of canal water needed in salty months (NASA POWER + CHIRPS, El Niño average).",
+          "vi": "Thời tiết & mặn 2,5: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 23,9‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 923 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -7054,8 +7054,8 @@
          }
         ],
         "crops_per_year": null,
-        "water_mm": 1372,
-        "water_saved": 0.353,
+        "water_mm": 1399,
+        "water_saved": 0.354,
         "profit_range": {
          "lo": 133.2,
          "mid": 142.9,
@@ -7083,8 +7083,8 @@
           ]
          },
          {
-          "en": "Water 2.4: ≈ 1372 mm of canal water a year, 35% less than 3 rice crops (NASA POWER + GPM, El Niño average, FAO method).",
-          "vi": "Nước 2,4: ≈ 1372 mm nước tưới từ kênh mỗi năm, ít hơn 35% so với 3 vụ lúa (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
+          "en": "Water 2.4: ≈ 1399 mm of canal water a year, 35% less than 3 rice crops (NASA POWER + CHIRPS, El Niño average, FAO method).",
+          "vi": "Nước 2,4: ≈ 1399 mm nước tưới từ kênh mỗi năm, ít hơn 35% so với 3 vụ lúa (NASA POWER + CHIRPS, trung bình El Niño, phương pháp FAO).",
           "src": [
            0,
            1,
@@ -7093,8 +7093,8 @@
           ]
          },
          {
-          "en": "Weather & salt 2.5: crops in the field in 3 of 4 salt months (station average peak 23.9‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 893 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 2,5: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 23,9‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 893 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 2.5: crops in the field in 3 of 4 salt months (station average peak 23.9‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 882 mm of canal water needed in salty months (NASA POWER + CHIRPS, El Niño average).",
+          "vi": "Thời tiết & mặn 2,5: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 23,9‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 882 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -7275,8 +7275,8 @@
          }
         ],
         "crops_per_year": null,
-        "water_mm": 1364,
-        "water_saved": 0.357,
+        "water_mm": 1391,
+        "water_saved": 0.358,
         "scores": {
          "water": 2.4,
          "salt": 2.5,
@@ -7298,8 +7298,8 @@
           ]
          },
          {
-          "en": "Water 2.4: ≈ 1364 mm of canal water a year, 36% less than 3 rice crops (NASA POWER + GPM, El Niño average, FAO method).",
-          "vi": "Nước 2,4: ≈ 1364 mm nước tưới từ kênh mỗi năm, ít hơn 36% so với 3 vụ lúa (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
+          "en": "Water 2.4: ≈ 1391 mm of canal water a year, 36% less than 3 rice crops (NASA POWER + CHIRPS, El Niño average, FAO method).",
+          "vi": "Nước 2,4: ≈ 1391 mm nước tưới từ kênh mỗi năm, ít hơn 36% so với 3 vụ lúa (NASA POWER + CHIRPS, trung bình El Niño, phương pháp FAO).",
           "src": [
            0,
            1,
@@ -7308,8 +7308,8 @@
           ]
          },
          {
-          "en": "Weather & salt 2.5: crops in the field in 3 of 4 salt months (station average peak 23.9‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 893 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 2,5: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 23,9‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 893 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 2.5: crops in the field in 3 of 4 salt months (station average peak 23.9‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 882 mm of canal water needed in salty months (NASA POWER + CHIRPS, El Niño average).",
+          "vi": "Thời tiết & mặn 2,5: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 23,9‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 882 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -7448,8 +7448,8 @@
        }
       ],
       "crops_per_year": null,
-      "water_mm": 1380,
-      "water_saved": 0.349,
+      "water_mm": 1406,
+      "water_saved": 0.351,
       "profit_range": {
        "lo": 86.5,
        "mid": 92.0,
@@ -7469,8 +7469,8 @@
         "vi": "Vẫn trồng lúa, nhưng giảm rủi ro mặn và cho đất nghỉ."
        },
        {
-        "en": "Water 2.4: ≈ 1380 mm of canal water a year, 35% less than 3 rice crops (NASA POWER + GPM, El Niño average, FAO method).",
-        "vi": "Nước 2,4: ≈ 1380 mm nước tưới từ kênh mỗi năm, ít hơn 35% so với 3 vụ lúa (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
+        "en": "Water 2.4: ≈ 1406 mm of canal water a year, 35% less than 3 rice crops (NASA POWER + CHIRPS, El Niño average, FAO method).",
+        "vi": "Nước 2,4: ≈ 1406 mm nước tưới từ kênh mỗi năm, ít hơn 35% so với 3 vụ lúa (NASA POWER + CHIRPS, trung bình El Niño, phương pháp FAO).",
         "src": [
          0,
          1,
@@ -7479,8 +7479,8 @@
         ]
        },
        {
-        "en": "Weather & salt 4.3: crops in the field in 1 of 4 salt months (station average peak 23.9‰, estimate from station reports); 0.4 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 477 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 4,3: có cây trồng trên ruộng trong 1/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 23,9‰, ước tính từ báo cáo trạm); 0,4 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 477 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 4.3: crops in the field in 1 of 4 salt months (station average peak 23.9‰, estimate from station reports); 0.4 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 466 mm of canal water needed in salty months (NASA POWER + CHIRPS, El Niño average).",
+        "vi": "Thời tiết & mặn 4,3: có cây trồng trên ruộng trong 1/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 23,9‰, ước tính từ báo cáo trạm); 0,4 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 466 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -7563,8 +7563,8 @@
     ],
     "summary": [
      {
-      "en": "Winter–spring rice (Nov–Feb) needs ≈ 1009 mm of canal water, field losses included (NASA POWER + GPM, El Niño average; FAO method).",
-      "vi": "Lúa Đông Xuân (T11–T2) cần ≈ 1009 mm nước tưới từ kênh, kể cả thất thoát trên ruộng (NASA POWER + GPM, trung bình El Niño; phương pháp FAO).",
+      "en": "Winter–spring rice (Nov–Feb) needs ≈ 1034 mm of canal water, field losses included (NASA POWER + CHIRPS, El Niño average; FAO method).",
+      "vi": "Lúa Đông Xuân (T11–T2) cần ≈ 1034 mm nước tưới từ kênh, kể cả thất thoát trên ruộng (NASA POWER + CHIRPS, trung bình El Niño; phương pháp FAO).",
       "src": [
        0,
        1,
@@ -7572,8 +7572,8 @@
        3
       ],
       "plain": {
-       "en": "Winter–spring rice (Nov–Feb) needs ≈ 1009 mm of canal water, field losses included.",
-       "vi": "Lúa Đông Xuân (T11–T2) cần ≈ 1009 mm nước tưới từ kênh, kể cả thất thoát trên ruộng."
+       "en": "Winter–spring rice (Nov–Feb) needs ≈ 1034 mm of canal water, field losses included.",
+       "vi": "Lúa Đông Xuân (T11–T2) cần ≈ 1034 mm nước tưới từ kênh, kể cả thất thoát trên ruộng."
       }
      },
      {
@@ -7612,7 +7612,7 @@
       "sow_from": 6,
       "sow_by": 10,
       "harvest_by": 1,
-      "water_mm": 714,
+      "water_mm": 737,
       "hot_days": 0.0,
       "ok": true
      },
@@ -7632,46 +7632,46 @@
    },
    "climate": {
     "rain_mm": [
-     25,
-     13,
-     35,
-     83,
-     257,
+     18,
+     9,
+     30,
+     98,
+     249,
+     241,
+     306,
+     287,
+     287,
      260,
-     353,
-     269,
-     361,
-     276,
-     170,
-     59
+     164,
+     57
     ],
     "rain_min_mm": [
-     1,
-     1,
-     1,
-     8,
-     142,
-     163,
-     188,
-     146,
-     249,
-     170,
-     32,
-     7
+     0,
+     0,
+     0,
+     23,
+     169,
+     137,
+     134,
+     180,
+     199,
+     173,
+     5,
+     6
     ],
     "rain_max_mm": [
-     73,
-     37,
-     140,
-     180,
-     428,
-     390,
-     597,
-     376,
-     506,
-     431,
-     255,
-     147
+     54,
+     41,
+     126,
+     217,
+     353,
+     331,
+     541,
+     365,
+     351,
+     435,
+     301,
+     135
     ],
     "et0_mm": [
      123,
@@ -7886,7 +7886,7 @@
       }
      ],
      "crops_per_year": 3,
-     "water_mm": 1794,
+     "water_mm": 1852,
      "water_saved": 0.0,
      "profit_range": {
       "lo": 79.9,
@@ -7903,8 +7903,8 @@
      },
      "why": [
       {
-       "en": "Water 1.0: ≈ 1794 mm of canal water a year, the most of all options here; the others are compared with it (NASA POWER + GPM, FAO method).",
-       "vi": "Nước 1,0: ≈ 1794 mm nước tưới từ kênh mỗi năm, nhiều nhất trong các phương án; các phương án khác được so với mức này (NASA POWER + GPM, phương pháp FAO).",
+       "en": "Water 1.0: ≈ 1852 mm of canal water a year, the most of all options here; the others are compared with it (NASA POWER + CHIRPS, FAO method).",
+       "vi": "Nước 1,0: ≈ 1852 mm nước tưới từ kênh mỗi năm, nhiều nhất trong các phương án; các phương án khác được so với mức này (NASA POWER + CHIRPS, phương pháp FAO).",
        "src": [
         0,
         1,
@@ -7913,8 +7913,8 @@
        ]
       },
       {
-       "en": "Weather & salt 3.0: crops in the field in 3 of 4 salt months (station average peak 6.4‰, estimate from station reports); 17.1 days at or above 35 °C while crops grow (NASA POWER); 863 mm of canal water needed in salty months (NASA POWER + GPM).",
-       "vi": "Thời tiết & mặn 3,0: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 6,4‰, ước tính từ báo cáo trạm); 17,1 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 863 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
+       "en": "Weather & salt 3.0: crops in the field in 3 of 4 salt months (station average peak 6.4‰, estimate from station reports); 17.1 days at or above 35 °C while crops grow (NASA POWER); 860 mm of canal water needed in salty months (NASA POWER + CHIRPS).",
+       "vi": "Thời tiết & mặn 3,0: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 6,4‰, ước tính từ báo cáo trạm); 17,1 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 860 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS).",
        "src": [
         4,
         5,
@@ -8057,8 +8057,8 @@
       }
      ],
      "crops_per_year": 2,
-     "water_mm": 1641,
-     "water_saved": 0.085,
+     "water_mm": 1676,
+     "water_saved": 0.095,
      "profit_range": {
       "lo": 52,
       "mid": 65.4,
@@ -8066,7 +8066,7 @@
       "n": 7
      },
      "scores": {
-      "water": 1.3,
+      "water": 1.4,
       "salt": 3.0,
       "soil": 2.0,
       "pests": 3.0,
@@ -8074,8 +8074,8 @@
      },
      "why": [
       {
-       "en": "Water 1.3: ≈ 1641 mm of canal water a year, 9% less than 3 rice crops (NASA POWER + GPM, FAO method).",
-       "vi": "Nước 1,3: ≈ 1641 mm nước tưới từ kênh mỗi năm, ít hơn 9% so với 3 vụ lúa (NASA POWER + GPM, phương pháp FAO).",
+       "en": "Water 1.4: ≈ 1676 mm of canal water a year, 10% less than 3 rice crops (NASA POWER + CHIRPS, FAO method).",
+       "vi": "Nước 1,4: ≈ 1676 mm nước tưới từ kênh mỗi năm, ít hơn 10% so với 3 vụ lúa (NASA POWER + CHIRPS, phương pháp FAO).",
        "src": [
         0,
         1,
@@ -8084,8 +8084,8 @@
        ]
       },
       {
-       "en": "Weather & salt 3.0: crops in the field in 3 of 4 salt months (station average peak 6.4‰, estimate from station reports); 17.1 days at or above 35 °C while crops grow (NASA POWER); 863 mm of canal water needed in salty months (NASA POWER + GPM).",
-       "vi": "Thời tiết & mặn 3,0: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 6,4‰, ước tính từ báo cáo trạm); 17,1 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 863 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
+       "en": "Weather & salt 3.0: crops in the field in 3 of 4 salt months (station average peak 6.4‰, estimate from station reports); 17.1 days at or above 35 °C while crops grow (NASA POWER); 860 mm of canal water needed in salty months (NASA POWER + CHIRPS).",
+       "vi": "Thời tiết & mặn 3,0: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 6,4‰, ước tính từ báo cáo trạm); 17,1 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 860 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS).",
        "src": [
         4,
         5,
@@ -8235,8 +8235,8 @@
       }
      ],
      "crops_per_year": null,
-     "water_mm": 291,
-     "water_saved": 0.838,
+     "water_mm": 332,
+     "water_saved": 0.821,
      "profit_range": {
       "lo": 56.5,
       "mid": 76.2,
@@ -8244,7 +8244,7 @@
       "n": 7
      },
      "scores": {
-      "water": 4.4,
+      "water": 4.3,
       "salt": 5.0,
       "soil": 1.4,
       "pests": 3.2,
@@ -8256,8 +8256,8 @@
        "vi": "Biến nước mặn mùa khô thành nguồn lợi thay vì mối đe dọa."
       },
       {
-       "en": "Water 4.4: ≈ 291 mm of canal water a year, 84% less than 3 rice crops (NASA POWER + GPM, FAO method).",
-       "vi": "Nước 4,4: ≈ 291 mm nước tưới từ kênh mỗi năm, ít hơn 84% so với 3 vụ lúa (NASA POWER + GPM, phương pháp FAO).",
+       "en": "Water 4.3: ≈ 332 mm of canal water a year, 82% less than 3 rice crops (NASA POWER + CHIRPS, FAO method).",
+       "vi": "Nước 4,3: ≈ 332 mm nước tưới từ kênh mỗi năm, ít hơn 82% so với 3 vụ lúa (NASA POWER + CHIRPS, phương pháp FAO).",
        "src": [
         0,
         1,
@@ -8266,8 +8266,8 @@
        ]
       },
       {
-       "en": "Weather & salt 5.0: crops in the field in 0 of 4 salt months (station average peak 6.4‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 0 mm of canal water needed in salty months (NASA POWER + GPM).",
-       "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 6,4‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 0 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
+       "en": "Weather & salt 5.0: crops in the field in 0 of 4 salt months (station average peak 6.4‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 0 mm of canal water needed in salty months (NASA POWER + CHIRPS).",
+       "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 6,4‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 0 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS).",
        "src": [
         4,
         5,
@@ -8439,8 +8439,8 @@
         }
        ],
        "crops_per_year": null,
-       "water_mm": 1111,
-       "water_saved": 0.381,
+       "water_mm": 1164,
+       "water_saved": 0.371,
        "profit_range": {
         "lo": 119.9,
         "mid": 155.4,
@@ -8468,8 +8468,8 @@
          ]
         },
         {
-         "en": "Water 2.5: ≈ 1111 mm of canal water a year, 38% less than 3 rice crops (NASA POWER + GPM, FAO method).",
-         "vi": "Nước 2,5: ≈ 1111 mm nước tưới từ kênh mỗi năm, ít hơn 38% so với 3 vụ lúa (NASA POWER + GPM, phương pháp FAO).",
+         "en": "Water 2.5: ≈ 1164 mm of canal water a year, 37% less than 3 rice crops (NASA POWER + CHIRPS, FAO method).",
+         "vi": "Nước 2,5: ≈ 1164 mm nước tưới từ kênh mỗi năm, ít hơn 37% so với 3 vụ lúa (NASA POWER + CHIRPS, phương pháp FAO).",
          "src": [
           0,
           1,
@@ -8478,8 +8478,8 @@
          ]
         },
         {
-         "en": "Weather & salt 3.1: crops in the field in 3 of 4 salt months (station average peak 6.4‰, estimate from station reports); 17.1 days at or above 35 °C while crops grow (NASA POWER); 750 mm of canal water needed in salty months (NASA POWER + GPM).",
-         "vi": "Thời tiết & mặn 3,1: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 6,4‰, ước tính từ báo cáo trạm); 17,1 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 750 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
+         "en": "Weather & salt 3.1: crops in the field in 3 of 4 salt months (station average peak 6.4‰, estimate from station reports); 17.1 days at or above 35 °C while crops grow (NASA POWER); 747 mm of canal water needed in salty months (NASA POWER + CHIRPS).",
+         "vi": "Thời tiết & mặn 3,1: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 6,4‰, ước tính từ báo cáo trạm); 17,1 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 747 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS).",
          "src": [
           4,
           5,
@@ -8667,8 +8667,8 @@
         }
        ],
        "crops_per_year": null,
-       "water_mm": 1086,
-       "water_saved": 0.395,
+       "water_mm": 1139,
+       "water_saved": 0.385,
        "profit_range": {
         "lo": 144.9,
         "mid": 155.4,
@@ -8676,7 +8676,7 @@
         "n": 8
        },
        "scores": {
-        "water": 2.6,
+        "water": 2.5,
         "salt": 3.1,
         "soil": 2.1,
         "pests": 2.8,
@@ -8696,8 +8696,8 @@
          ]
         },
         {
-         "en": "Water 2.6: ≈ 1086 mm of canal water a year, 39% less than 3 rice crops (NASA POWER + GPM, FAO method).",
-         "vi": "Nước 2,6: ≈ 1086 mm nước tưới từ kênh mỗi năm, ít hơn 39% so với 3 vụ lúa (NASA POWER + GPM, phương pháp FAO).",
+         "en": "Water 2.5: ≈ 1139 mm of canal water a year, 38% less than 3 rice crops (NASA POWER + CHIRPS, FAO method).",
+         "vi": "Nước 2,5: ≈ 1139 mm nước tưới từ kênh mỗi năm, ít hơn 38% so với 3 vụ lúa (NASA POWER + CHIRPS, phương pháp FAO).",
          "src": [
           0,
           1,
@@ -8706,8 +8706,8 @@
          ]
         },
         {
-         "en": "Weather & salt 3.1: crops in the field in 3 of 4 salt months (station average peak 6.4‰, estimate from station reports); 17.1 days at or above 35 °C while crops grow (NASA POWER); 710 mm of canal water needed in salty months (NASA POWER + GPM).",
-         "vi": "Thời tiết & mặn 3,1: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 6,4‰, ước tính từ báo cáo trạm); 17,1 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 710 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
+         "en": "Weather & salt 3.1: crops in the field in 3 of 4 salt months (station average peak 6.4‰, estimate from station reports); 17.1 days at or above 35 °C while crops grow (NASA POWER); 707 mm of canal water needed in salty months (NASA POWER + CHIRPS).",
+         "vi": "Thời tiết & mặn 3,1: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 6,4‰, ước tính từ báo cáo trạm); 17,1 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 707 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS).",
          "src": [
           4,
           5,
@@ -8895,8 +8895,8 @@
         }
        ],
        "crops_per_year": null,
-       "water_mm": 1077,
-       "water_saved": 0.4,
+       "water_mm": 1130,
+       "water_saved": 0.39,
        "scores": {
         "water": 2.6,
         "salt": 3.1,
@@ -8918,8 +8918,8 @@
          ]
         },
         {
-         "en": "Water 2.6: ≈ 1077 mm of canal water a year, 40% less than 3 rice crops (NASA POWER + GPM, FAO method).",
-         "vi": "Nước 2,6: ≈ 1077 mm nước tưới từ kênh mỗi năm, ít hơn 40% so với 3 vụ lúa (NASA POWER + GPM, phương pháp FAO).",
+         "en": "Water 2.6: ≈ 1130 mm of canal water a year, 39% less than 3 rice crops (NASA POWER + CHIRPS, FAO method).",
+         "vi": "Nước 2,6: ≈ 1130 mm nước tưới từ kênh mỗi năm, ít hơn 39% so với 3 vụ lúa (NASA POWER + CHIRPS, phương pháp FAO).",
          "src": [
           0,
           1,
@@ -8928,8 +8928,8 @@
          ]
         },
         {
-         "en": "Weather & salt 3.1: crops in the field in 3 of 4 salt months (station average peak 6.4‰, estimate from station reports); 17.1 days at or above 35 °C while crops grow (NASA POWER); 710 mm of canal water needed in salty months (NASA POWER + GPM).",
-         "vi": "Thời tiết & mặn 3,1: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 6,4‰, ước tính từ báo cáo trạm); 17,1 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 710 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
+         "en": "Weather & salt 3.1: crops in the field in 3 of 4 salt months (station average peak 6.4‰, estimate from station reports); 17.1 days at or above 35 °C while crops grow (NASA POWER); 707 mm of canal water needed in salty months (NASA POWER + CHIRPS).",
+         "vi": "Thời tiết & mặn 3,1: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 6,4‰, ước tính từ báo cáo trạm); 17,1 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 707 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS).",
          "src": [
           4,
           5,
@@ -9075,8 +9075,8 @@
       }
      ],
      "crops_per_year": null,
-     "water_mm": 1133,
-     "water_saved": 0.368,
+     "water_mm": 1180,
+     "water_saved": 0.363,
      "profit_range": {
       "lo": 89,
       "mid": 94.5,
@@ -9096,8 +9096,8 @@
        "vi": "Vẫn trồng lúa, nhưng giảm rủi ro mặn và cho đất nghỉ."
       },
       {
-       "en": "Water 2.5: ≈ 1133 mm of canal water a year, 37% less than 3 rice crops (NASA POWER + GPM, FAO method).",
-       "vi": "Nước 2,5: ≈ 1133 mm nước tưới từ kênh mỗi năm, ít hơn 37% so với 3 vụ lúa (NASA POWER + GPM, phương pháp FAO).",
+       "en": "Water 2.5: ≈ 1180 mm of canal water a year, 36% less than 3 rice crops (NASA POWER + CHIRPS, FAO method).",
+       "vi": "Nước 2,5: ≈ 1180 mm nước tưới từ kênh mỗi năm, ít hơn 36% so với 3 vụ lúa (NASA POWER + CHIRPS, phương pháp FAO).",
        "src": [
         0,
         1,
@@ -9106,8 +9106,8 @@
        ]
       },
       {
-       "en": "Weather & salt 4.5: crops in the field in 1 of 4 salt months (station average peak 6.4‰, estimate from station reports); 3.3 days at or above 35 °C while crops grow (NASA POWER); 342 mm of canal water needed in salty months (NASA POWER + GPM).",
-       "vi": "Thời tiết & mặn 4,5: có cây trồng trên ruộng trong 1/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 6,4‰, ước tính từ báo cáo trạm); 3,3 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 342 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
+       "en": "Weather & salt 4.5: crops in the field in 1 of 4 salt months (station average peak 6.4‰, estimate from station reports); 3.3 days at or above 35 °C while crops grow (NASA POWER); 336 mm of canal water needed in salty months (NASA POWER + CHIRPS).",
+       "vi": "Thời tiết & mặn 4,5: có cây trồng trên ruộng trong 1/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 6,4‰, ước tính từ báo cáo trạm); 3,3 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 336 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS).",
        "src": [
         4,
         5,
@@ -9197,8 +9197,8 @@
    ],
    "summary": [
     {
-     "en": "Winter–spring rice (Nov–Feb) needs ≈ 925 mm of canal water, field losses included (NASA POWER + GPM; FAO method).",
-     "vi": "Lúa Đông Xuân (T11–T2) cần ≈ 925 mm nước tưới từ kênh, kể cả thất thoát trên ruộng (NASA POWER + GPM; phương pháp FAO).",
+     "en": "Winter–spring rice (Nov–Feb) needs ≈ 935 mm of canal water, field losses included (NASA POWER + CHIRPS; FAO method).",
+     "vi": "Lúa Đông Xuân (T11–T2) cần ≈ 935 mm nước tưới từ kênh, kể cả thất thoát trên ruộng (NASA POWER + CHIRPS; phương pháp FAO).",
      "src": [
       0,
       1,
@@ -9206,8 +9206,8 @@
       3
      ],
      "plain": {
-      "en": "Winter–spring rice (Nov–Feb) needs ≈ 925 mm of canal water, field losses included.",
-      "vi": "Lúa Đông Xuân (T11–T2) cần ≈ 925 mm nước tưới từ kênh, kể cả thất thoát trên ruộng."
+      "en": "Winter–spring rice (Nov–Feb) needs ≈ 935 mm of canal water, field losses included.",
+      "vi": "Lúa Đông Xuân (T11–T2) cần ≈ 935 mm nước tưới từ kênh, kể cả thất thoát trên ruộng."
      }
     },
     {
@@ -9246,7 +9246,7 @@
      "sow_from": 6,
      "sow_by": 10,
      "harvest_by": 1,
-     "water_mm": 705,
+     "water_mm": 727,
      "hot_days": 0.0,
      "ok": true
     },
@@ -9254,11 +9254,11 @@
     "maize": null,
     "mungbean": null
    },
-   "gpm_check": {
-    "power_mm_yr": 1817,
-    "gpm_mm_yr": 2158,
-    "diff_pct": 19,
-    "monthly_r": 0.93,
+   "rain_check": {
+    "chirps_mm_yr": 2028,
+    "imerg_mm_yr": 2158,
+    "diff_pct": -6,
+    "monthly_r": 0.94,
     "months": 288
    },
    "hls_check": {
@@ -9310,46 +9310,46 @@
    "elnino": {
     "climate": {
      "rain_mm": [
-      25,
-      3,
-      12,
-      17,
-      206,
-      301,
-      329,
-      260,
-      373,
-      401,
-      188,
-      38
+      13,
+      0,
+      5,
+      23,
+      222,
+      289,
+      300,
+      292,
+      334,
+      392,
+      162,
+      36
      ],
      "rain_min_mm": [
+      0,
+      0,
+      0,
       2,
-      1,
-      0,
-      0,
-      71,
-      189,
-      169,
-      124,
-      246,
-      171,
-      118,
-      6
+      90,
+      245,
+      170,
+      178,
+      224,
+      180,
+      84,
+      0
      ],
      "rain_max_mm": [
-      115,
-      6,
-      47,
-      56,
-      336,
-      534,
-      542,
-      535,
-      445,
-      642,
-      395,
-      101
+      58,
+      1,
+      35,
+      73,
+      420,
+      373,
+      472,
+      412,
+      426,
+      580,
+      263,
+      96
      ],
      "et0_mm": [
       144,
@@ -9549,7 +9549,7 @@
        }
       ],
       "crops_per_year": 3,
-      "water_mm": 1974,
+      "water_mm": 1969,
       "water_saved": 0.0,
       "profit_range": {
        "lo": 74.7,
@@ -9566,8 +9566,8 @@
       },
       "why": [
        {
-        "en": "Water 1.0: ≈ 1974 mm of canal water a year, the most of all options here; the others are compared with it (NASA POWER + GPM, El Niño average, FAO method).",
-        "vi": "Nước 1,0: ≈ 1974 mm nước tưới từ kênh mỗi năm, nhiều nhất trong các phương án; các phương án khác được so với mức này (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
+        "en": "Water 1.0: ≈ 1969 mm of canal water a year, the most of all options here; the others are compared with it (NASA POWER + CHIRPS, El Niño average, FAO method).",
+        "vi": "Nước 1,0: ≈ 1969 mm nước tưới từ kênh mỗi năm, nhiều nhất trong các phương án; các phương án khác được so với mức này (NASA POWER + CHIRPS, trung bình El Niño, phương pháp FAO).",
         "src": [
          0,
          1,
@@ -9576,8 +9576,8 @@
         ]
        },
        {
-        "en": "Weather & salt 2.1: crops in the field in 3 of 4 salt months (station average peak 11.1‰, estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1029 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 2,1: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 11,1‰, ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1029 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 2.1: crops in the field in 3 of 4 salt months (station average peak 11.1‰, estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1012 mm of canal water needed in salty months (NASA POWER + CHIRPS, El Niño average).",
+        "vi": "Thời tiết & mặn 2,1: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 11,1‰, ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1012 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -9720,8 +9720,8 @@
        }
       ],
       "crops_per_year": 2,
-      "water_mm": 1818,
-      "water_saved": 0.079,
+      "water_mm": 1838,
+      "water_saved": 0.067,
       "profit_range": {
        "lo": 46.8,
        "mid": 58.9,
@@ -9737,8 +9737,8 @@
       },
       "why": [
        {
-        "en": "Water 1.3: ≈ 1818 mm of canal water a year, 8% less than 3 rice crops (NASA POWER + GPM, El Niño average, FAO method).",
-        "vi": "Nước 1,3: ≈ 1818 mm nước tưới từ kênh mỗi năm, ít hơn 8% so với 3 vụ lúa (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
+        "en": "Water 1.3: ≈ 1838 mm of canal water a year, 7% less than 3 rice crops (NASA POWER + CHIRPS, El Niño average, FAO method).",
+        "vi": "Nước 1,3: ≈ 1838 mm nước tưới từ kênh mỗi năm, ít hơn 7% so với 3 vụ lúa (NASA POWER + CHIRPS, trung bình El Niño, phương pháp FAO).",
         "src": [
          0,
          1,
@@ -9747,8 +9747,8 @@
         ]
        },
        {
-        "en": "Weather & salt 2.1: crops in the field in 3 of 4 salt months (station average peak 11.1‰, estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1029 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 2,1: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 11,1‰, ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1029 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 2.1: crops in the field in 3 of 4 salt months (station average peak 11.1‰, estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 1012 mm of canal water needed in salty months (NASA POWER + CHIRPS, El Niño average).",
+        "vi": "Thời tiết & mặn 2,1: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 11,1‰, ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 1012 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -9898,8 +9898,8 @@
        }
       ],
       "crops_per_year": null,
-      "water_mm": 227,
-      "water_saved": 0.885,
+      "water_mm": 223,
+      "water_saved": 0.887,
       "profit_range": {
        "lo": 56.5,
        "mid": 76.2,
@@ -9919,8 +9919,8 @@
         "vi": "Biến nước mặn mùa khô thành nguồn lợi thay vì mối đe dọa."
        },
        {
-        "en": "Water 4.5: ≈ 227 mm of canal water a year, 89% less than 3 rice crops (NASA POWER + GPM, El Niño average, FAO method).",
-        "vi": "Nước 4,5: ≈ 227 mm nước tưới từ kênh mỗi năm, ít hơn 89% so với 3 vụ lúa (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
+        "en": "Water 4.5: ≈ 223 mm of canal water a year, 89% less than 3 rice crops (NASA POWER + CHIRPS, El Niño average, FAO method).",
+        "vi": "Nước 4,5: ≈ 223 mm nước tưới từ kênh mỗi năm, ít hơn 89% so với 3 vụ lúa (NASA POWER + CHIRPS, trung bình El Niño, phương pháp FAO).",
         "src": [
          0,
          1,
@@ -9929,8 +9929,8 @@
         ]
        },
        {
-        "en": "Weather & salt 5.0: crops in the field in 0 of 4 salt months (station average peak 11.1‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 0 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 11,1‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 0 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 5.0: crops in the field in 0 of 4 salt months (station average peak 11.1‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 0 mm of canal water needed in salty months (NASA POWER + CHIRPS, El Niño average).",
+        "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 11,1‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 0 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -10102,8 +10102,8 @@
          }
         ],
         "crops_per_year": null,
-        "water_mm": 1287,
-        "water_saved": 0.348,
+        "water_mm": 1262,
+        "water_saved": 0.359,
         "profit_range": {
          "lo": 110.7,
          "mid": 142.9,
@@ -10131,8 +10131,8 @@
           ]
          },
          {
-          "en": "Water 2.4: ≈ 1287 mm of canal water a year, 35% less than 3 rice crops (NASA POWER + GPM, El Niño average, FAO method).",
-          "vi": "Nước 2,4: ≈ 1287 mm nước tưới từ kênh mỗi năm, ít hơn 35% so với 3 vụ lúa (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
+          "en": "Water 2.4: ≈ 1262 mm of canal water a year, 36% less than 3 rice crops (NASA POWER + CHIRPS, El Niño average, FAO method).",
+          "vi": "Nước 2,4: ≈ 1262 mm nước tưới từ kênh mỗi năm, ít hơn 36% so với 3 vụ lúa (NASA POWER + CHIRPS, trung bình El Niño, phương pháp FAO).",
           "src": [
            0,
            1,
@@ -10141,8 +10141,8 @@
           ]
          },
          {
-          "en": "Weather & salt 2.2: crops in the field in 3 of 4 salt months (station average peak 11.1‰, estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 916 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 2,2: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 11,1‰, ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 916 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 2.2: crops in the field in 3 of 4 salt months (station average peak 11.1‰, estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 899 mm of canal water needed in salty months (NASA POWER + CHIRPS, El Niño average).",
+          "vi": "Thời tiết & mặn 2,2: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 11,1‰, ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 899 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -10330,8 +10330,8 @@
          }
         ],
         "crops_per_year": null,
-        "water_mm": 1259,
-        "water_saved": 0.362,
+        "water_mm": 1233,
+        "water_saved": 0.374,
         "profit_range": {
          "lo": 133.2,
          "mid": 142.9,
@@ -10339,7 +10339,7 @@
          "n": 8
         },
         "scores": {
-         "water": 2.4,
+         "water": 2.5,
          "salt": 2.2,
          "soil": 2.1,
          "pests": 2.9,
@@ -10359,8 +10359,8 @@
           ]
          },
          {
-          "en": "Water 2.4: ≈ 1259 mm of canal water a year, 36% less than 3 rice crops (NASA POWER + GPM, El Niño average, FAO method).",
-          "vi": "Nước 2,4: ≈ 1259 mm nước tưới từ kênh mỗi năm, ít hơn 36% so với 3 vụ lúa (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
+          "en": "Water 2.5: ≈ 1233 mm of canal water a year, 37% less than 3 rice crops (NASA POWER + CHIRPS, El Niño average, FAO method).",
+          "vi": "Nước 2,5: ≈ 1233 mm nước tưới từ kênh mỗi năm, ít hơn 37% so với 3 vụ lúa (NASA POWER + CHIRPS, trung bình El Niño, phương pháp FAO).",
           "src": [
            0,
            1,
@@ -10369,8 +10369,8 @@
           ]
          },
          {
-          "en": "Weather & salt 2.2: crops in the field in 3 of 4 salt months (station average peak 11.1‰, estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 870 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 2,2: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 11,1‰, ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 870 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 2.2: crops in the field in 3 of 4 salt months (station average peak 11.1‰, estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 853 mm of canal water needed in salty months (NASA POWER + CHIRPS, El Niño average).",
+          "vi": "Thời tiết & mặn 2,2: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 11,1‰, ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 853 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -10558,8 +10558,8 @@
          }
         ],
         "crops_per_year": null,
-        "water_mm": 1248,
-        "water_saved": 0.368,
+        "water_mm": 1223,
+        "water_saved": 0.379,
         "scores": {
          "water": 2.5,
          "salt": 2.2,
@@ -10581,8 +10581,8 @@
           ]
          },
          {
-          "en": "Water 2.5: ≈ 1248 mm of canal water a year, 37% less than 3 rice crops (NASA POWER + GPM, El Niño average, FAO method).",
-          "vi": "Nước 2,5: ≈ 1248 mm nước tưới từ kênh mỗi năm, ít hơn 37% so với 3 vụ lúa (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
+          "en": "Water 2.5: ≈ 1223 mm of canal water a year, 38% less than 3 rice crops (NASA POWER + CHIRPS, El Niño average, FAO method).",
+          "vi": "Nước 2,5: ≈ 1223 mm nước tưới từ kênh mỗi năm, ít hơn 38% so với 3 vụ lúa (NASA POWER + CHIRPS, trung bình El Niño, phương pháp FAO).",
           "src": [
            0,
            1,
@@ -10591,8 +10591,8 @@
           ]
          },
          {
-          "en": "Weather & salt 2.2: crops in the field in 3 of 4 salt months (station average peak 11.1‰, estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 870 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 2,2: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 11,1‰, ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 870 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 2.2: crops in the field in 3 of 4 salt months (station average peak 11.1‰, estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 853 mm of canal water needed in salty months (NASA POWER + CHIRPS, El Niño average).",
+          "vi": "Thời tiết & mặn 2,2: có cây trồng trên ruộng trong 3/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 11,1‰, ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 853 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -10738,8 +10738,8 @@
        }
       ],
       "crops_per_year": null,
-      "water_mm": 1153,
-      "water_saved": 0.416,
+      "water_mm": 1180,
+      "water_saved": 0.401,
       "profit_range": {
        "lo": 86.5,
        "mid": 92.0,
@@ -10747,8 +10747,8 @@
        "n": 5
       },
       "scores": {
-       "water": 2.7,
-       "salt": 4.1,
+       "water": 2.6,
+       "salt": 4.2,
        "soil": 2.8,
        "pests": 3.0,
        "income": 3.1
@@ -10759,8 +10759,8 @@
         "vi": "Vẫn trồng lúa, nhưng giảm rủi ro mặn và cho đất nghỉ."
        },
        {
-        "en": "Water 2.7: ≈ 1153 mm of canal water a year, 42% less than 3 rice crops (NASA POWER + GPM, El Niño average, FAO method).",
-        "vi": "Nước 2,7: ≈ 1153 mm nước tưới từ kênh mỗi năm, ít hơn 42% so với 3 vụ lúa (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
+        "en": "Water 2.6: ≈ 1180 mm of canal water a year, 40% less than 3 rice crops (NASA POWER + CHIRPS, El Niño average, FAO method).",
+        "vi": "Nước 2,6: ≈ 1180 mm nước tưới từ kênh mỗi năm, ít hơn 40% so với 3 vụ lúa (NASA POWER + CHIRPS, trung bình El Niño, phương pháp FAO).",
         "src": [
          0,
          1,
@@ -10769,8 +10769,8 @@
         ]
        },
        {
-        "en": "Weather & salt 4.1: crops in the field in 1 of 4 salt months (station average peak 11.1‰, estimate from station reports); 10.8 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 442 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 4,1: có cây trồng trên ruộng trong 1/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 11,1‰, ước tính từ báo cáo trạm); 10,8 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 442 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 4.2: crops in the field in 1 of 4 salt months (station average peak 11.1‰, estimate from station reports); 10.8 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 425 mm of canal water needed in salty months (NASA POWER + CHIRPS, El Niño average).",
+        "vi": "Thời tiết & mặn 4,2: có cây trồng trên ruộng trong 1/4 tháng mặn (độ mặn cao nhất trung bình tại trạm 11,1‰, ước tính từ báo cáo trạm); 10,8 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 425 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -10860,8 +10860,8 @@
     ],
     "summary": [
      {
-      "en": "Winter–spring rice (Nov–Feb) needs ≈ 984 mm of canal water, field losses included (NASA POWER + GPM, El Niño average; FAO method).",
-      "vi": "Lúa Đông Xuân (T11–T2) cần ≈ 984 mm nước tưới từ kênh, kể cả thất thoát trên ruộng (NASA POWER + GPM, trung bình El Niño; phương pháp FAO).",
+      "en": "Winter–spring rice (Nov–Feb) needs ≈ 1011 mm of canal water, field losses included (NASA POWER + CHIRPS, El Niño average; FAO method).",
+      "vi": "Lúa Đông Xuân (T11–T2) cần ≈ 1011 mm nước tưới từ kênh, kể cả thất thoát trên ruộng (NASA POWER + CHIRPS, trung bình El Niño; phương pháp FAO).",
       "src": [
        0,
        1,
@@ -10869,8 +10869,8 @@
        3
       ],
       "plain": {
-       "en": "Winter–spring rice (Nov–Feb) needs ≈ 984 mm of canal water, field losses included.",
-       "vi": "Lúa Đông Xuân (T11–T2) cần ≈ 984 mm nước tưới từ kênh, kể cả thất thoát trên ruộng."
+       "en": "Winter–spring rice (Nov–Feb) needs ≈ 1011 mm of canal water, field losses included.",
+       "vi": "Lúa Đông Xuân (T11–T2) cần ≈ 1011 mm nước tưới từ kênh, kể cả thất thoát trên ruộng."
       }
      },
      {
@@ -10909,7 +10909,7 @@
       "sow_from": 6,
       "sow_by": 10,
       "harvest_by": 1,
-      "water_mm": 630,
+      "water_mm": 664,
       "hot_days": 0.2,
       "ok": true
      },
@@ -10929,46 +10929,46 @@
    },
    "climate": {
     "rain_mm": [
-     24,
-     11,
-     32,
-     86,
-     229,
-     218,
-     286,
-     234,
-     328,
-     255,
-     146,
-     54
+     16,
+     8,
+     27,
+     84,
+     228,
+     227,
+     283,
+     275,
+     289,
+     261,
+     155,
+     56
     ],
     "rain_min_mm": [
-     1,
-     1,
      0,
-     10,
-     127,
-     112,
-     156,
-     107,
-     230,
-     174,
-     22,
+     0,
+     0,
+     11,
+     140,
+     128,
+     136,
+     183,
+     215,
+     177,
+     18,
      7
     ],
     "rain_max_mm": [
-     100,
-     30,
-     133,
-     186,
-     344,
-     294,
-     474,
-     324,
-     523,
-     377,
-     301,
-     120
+     57,
+     34,
+     85,
+     168,
+     338,
+     313,
+     478,
+     368,
+     351,
+     403,
+     308,
+     147
     ],
     "et0_mm": [
      124,
@@ -11179,7 +11179,7 @@
       }
      ],
      "crops_per_year": 3,
-     "water_mm": 2023,
+     "water_mm": 2012,
      "water_saved": 0.0,
      "profit_range": {
       "lo": 79.9,
@@ -11196,8 +11196,8 @@
      },
      "why": [
       {
-       "en": "Water 1.0: ≈ 2023 mm of canal water a year, the most of all options here; the others are compared with it (NASA POWER + GPM, FAO method).",
-       "vi": "Nước 1,0: ≈ 2023 mm nước tưới từ kênh mỗi năm, nhiều nhất trong các phương án; các phương án khác được so với mức này (NASA POWER + GPM, phương pháp FAO).",
+       "en": "Water 1.0: ≈ 2012 mm of canal water a year, the most of all options here; the others are compared with it (NASA POWER + CHIRPS, FAO method).",
+       "vi": "Nước 1,0: ≈ 2012 mm nước tưới từ kênh mỗi năm, nhiều nhất trong các phương án; các phương án khác được so với mức này (NASA POWER + CHIRPS, phương pháp FAO).",
        "src": [
         0,
         1,
@@ -11206,8 +11206,8 @@
        ]
       },
       {
-       "en": "Weather & salt 2.6: crops in the field in 2 of 3 salt months (station average peak 16.8‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 759 mm of canal water needed in salty months (NASA POWER + GPM).",
-       "vi": "Thời tiết & mặn 2,6: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 16,8‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 759 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
+       "en": "Weather & salt 2.6: crops in the field in 2 of 3 salt months (station average peak 16.8‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 763 mm of canal water needed in salty months (NASA POWER + CHIRPS).",
+       "vi": "Thời tiết & mặn 2,6: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 16,8‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 763 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS).",
        "src": [
         4,
         5,
@@ -11350,7 +11350,7 @@
       }
      ],
      "crops_per_year": 2,
-     "water_mm": 1796,
+     "water_mm": 1787,
      "water_saved": 0.112,
      "profit_range": {
       "lo": 52,
@@ -11367,8 +11367,8 @@
      },
      "why": [
       {
-       "en": "Water 1.4: ≈ 1796 mm of canal water a year, 11% less than 3 rice crops (NASA POWER + GPM, FAO method).",
-       "vi": "Nước 1,4: ≈ 1796 mm nước tưới từ kênh mỗi năm, ít hơn 11% so với 3 vụ lúa (NASA POWER + GPM, phương pháp FAO).",
+       "en": "Water 1.4: ≈ 1787 mm of canal water a year, 11% less than 3 rice crops (NASA POWER + CHIRPS, FAO method).",
+       "vi": "Nước 1,4: ≈ 1787 mm nước tưới từ kênh mỗi năm, ít hơn 11% so với 3 vụ lúa (NASA POWER + CHIRPS, phương pháp FAO).",
        "src": [
         0,
         1,
@@ -11377,8 +11377,8 @@
        ]
       },
       {
-       "en": "Weather & salt 2.6: crops in the field in 2 of 3 salt months (station average peak 16.8‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 759 mm of canal water needed in salty months (NASA POWER + GPM).",
-       "vi": "Thời tiết & mặn 2,6: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 16,8‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 759 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
+       "en": "Weather & salt 2.6: crops in the field in 2 of 3 salt months (station average peak 16.8‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 763 mm of canal water needed in salty months (NASA POWER + CHIRPS).",
+       "vi": "Thời tiết & mặn 2,6: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 16,8‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 763 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS).",
        "src": [
         4,
         5,
@@ -11528,8 +11528,8 @@
       }
      ],
      "crops_per_year": null,
-     "water_mm": 413,
-     "water_saved": 0.796,
+     "water_mm": 399,
+     "water_saved": 0.802,
      "profit_range": {
       "lo": 56.5,
       "mid": 76.2,
@@ -11549,8 +11549,8 @@
        "vi": "Biến nước mặn mùa khô thành nguồn lợi thay vì mối đe dọa."
       },
       {
-       "en": "Water 4.2: ≈ 413 mm of canal water a year, 80% less than 3 rice crops (NASA POWER + GPM, FAO method).",
-       "vi": "Nước 4,2: ≈ 413 mm nước tưới từ kênh mỗi năm, ít hơn 80% so với 3 vụ lúa (NASA POWER + GPM, phương pháp FAO).",
+       "en": "Water 4.2: ≈ 399 mm of canal water a year, 80% less than 3 rice crops (NASA POWER + CHIRPS, FAO method).",
+       "vi": "Nước 4,2: ≈ 399 mm nước tưới từ kênh mỗi năm, ít hơn 80% so với 3 vụ lúa (NASA POWER + CHIRPS, phương pháp FAO).",
        "src": [
         0,
         1,
@@ -11559,8 +11559,8 @@
        ]
       },
       {
-       "en": "Weather & salt 5.0: crops in the field in 0 of 3 salt months (station average peak 16.8‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 0 mm of canal water needed in salty months (NASA POWER + GPM).",
-       "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 16,8‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 0 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
+       "en": "Weather & salt 5.0: crops in the field in 0 of 3 salt months (station average peak 16.8‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 0 mm of canal water needed in salty months (NASA POWER + CHIRPS).",
+       "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 16,8‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 0 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS).",
        "src": [
         4,
         5,
@@ -11746,8 +11746,8 @@
         }
        ],
        "crops_per_year": null,
-       "water_mm": 1307,
-       "water_saved": 0.354,
+       "water_mm": 1303,
+       "water_saved": 0.352,
        "profit_range": {
         "lo": 119.9,
         "mid": 155.4,
@@ -11774,8 +11774,8 @@
          ]
         },
         {
-         "en": "Water 2.4: ≈ 1307 mm of canal water a year, 35% less than 3 rice crops (NASA POWER + GPM, FAO method).",
-         "vi": "Nước 2,4: ≈ 1307 mm nước tưới từ kênh mỗi năm, ít hơn 35% so với 3 vụ lúa (NASA POWER + GPM, phương pháp FAO).",
+         "en": "Water 2.4: ≈ 1303 mm of canal water a year, 35% less than 3 rice crops (NASA POWER + CHIRPS, FAO method).",
+         "vi": "Nước 2,4: ≈ 1303 mm nước tưới từ kênh mỗi năm, ít hơn 35% so với 3 vụ lúa (NASA POWER + CHIRPS, phương pháp FAO).",
          "src": [
           0,
           1,
@@ -11784,8 +11784,8 @@
          ]
         },
         {
-         "en": "Weather & salt 2.7: crops in the field in 2 of 3 salt months (station average peak 16.8‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 646 mm of canal water needed in salty months (NASA POWER + GPM).",
-         "vi": "Thời tiết & mặn 2,7: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 16,8‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 646 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
+         "en": "Weather & salt 2.7: crops in the field in 2 of 3 salt months (station average peak 16.8‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 650 mm of canal water needed in salty months (NASA POWER + CHIRPS).",
+         "vi": "Thời tiết & mặn 2,7: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 16,8‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 650 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS).",
          "src": [
           4,
           5,
@@ -11973,8 +11973,8 @@
         }
        ],
        "crops_per_year": null,
-       "water_mm": 1282,
-       "water_saved": 0.366,
+       "water_mm": 1279,
+       "water_saved": 0.364,
        "profit_range": {
         "lo": 144.9,
         "mid": 155.4,
@@ -12001,8 +12001,8 @@
          ]
         },
         {
-         "en": "Water 2.5: ≈ 1282 mm of canal water a year, 37% less than 3 rice crops (NASA POWER + GPM, FAO method).",
-         "vi": "Nước 2,5: ≈ 1282 mm nước tưới từ kênh mỗi năm, ít hơn 37% so với 3 vụ lúa (NASA POWER + GPM, phương pháp FAO).",
+         "en": "Water 2.5: ≈ 1279 mm of canal water a year, 36% less than 3 rice crops (NASA POWER + CHIRPS, FAO method).",
+         "vi": "Nước 2,5: ≈ 1279 mm nước tưới từ kênh mỗi năm, ít hơn 36% so với 3 vụ lúa (NASA POWER + CHIRPS, phương pháp FAO).",
          "src": [
           0,
           1,
@@ -12011,8 +12011,8 @@
          ]
         },
         {
-         "en": "Weather & salt 2.8: crops in the field in 2 of 3 salt months (station average peak 16.8‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 608 mm of canal water needed in salty months (NASA POWER + GPM).",
-         "vi": "Thời tiết & mặn 2,8: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 16,8‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 608 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
+         "en": "Weather & salt 2.8: crops in the field in 2 of 3 salt months (station average peak 16.8‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 612 mm of canal water needed in salty months (NASA POWER + CHIRPS).",
+         "vi": "Thời tiết & mặn 2,8: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 16,8‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 612 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS).",
          "src": [
           4,
           5,
@@ -12200,8 +12200,8 @@
         }
        ],
        "crops_per_year": null,
-       "water_mm": 1275,
-       "water_saved": 0.37,
+       "water_mm": 1271,
+       "water_saved": 0.368,
        "scores": {
         "water": 2.5,
         "salt": 2.8,
@@ -12222,8 +12222,8 @@
          ]
         },
         {
-         "en": "Water 2.5: ≈ 1275 mm of canal water a year, 37% less than 3 rice crops (NASA POWER + GPM, FAO method).",
-         "vi": "Nước 2,5: ≈ 1275 mm nước tưới từ kênh mỗi năm, ít hơn 37% so với 3 vụ lúa (NASA POWER + GPM, phương pháp FAO).",
+         "en": "Water 2.5: ≈ 1271 mm of canal water a year, 37% less than 3 rice crops (NASA POWER + CHIRPS, FAO method).",
+         "vi": "Nước 2,5: ≈ 1271 mm nước tưới từ kênh mỗi năm, ít hơn 37% so với 3 vụ lúa (NASA POWER + CHIRPS, phương pháp FAO).",
          "src": [
           0,
           1,
@@ -12232,8 +12232,8 @@
          ]
         },
         {
-         "en": "Weather & salt 2.8: crops in the field in 2 of 3 salt months (station average peak 16.8‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 608 mm of canal water needed in salty months (NASA POWER + GPM).",
-         "vi": "Thời tiết & mặn 2,8: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 16,8‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 608 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
+         "en": "Weather & salt 2.8: crops in the field in 2 of 3 salt months (station average peak 16.8‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 612 mm of canal water needed in salty months (NASA POWER + CHIRPS).",
+         "vi": "Thời tiết & mặn 2,8: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 16,8‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 612 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS).",
          "src": [
           4,
           5,
@@ -12379,8 +12379,8 @@
       }
      ],
      "crops_per_year": null,
-     "water_mm": 1390,
-     "water_saved": 0.313,
+     "water_mm": 1346,
+     "water_saved": 0.331,
      "profit_range": {
       "lo": 89,
       "mid": 94.5,
@@ -12400,8 +12400,8 @@
        "vi": "Vẫn trồng lúa, nhưng giảm rủi ro mặn và cho đất nghỉ."
       },
       {
-       "en": "Water 2.3: ≈ 1390 mm of canal water a year, 31% less than 3 rice crops (NASA POWER + GPM, FAO method).",
-       "vi": "Nước 2,3: ≈ 1390 mm nước tưới từ kênh mỗi năm, ít hơn 31% so với 3 vụ lúa (NASA POWER + GPM, phương pháp FAO).",
+       "en": "Water 2.3: ≈ 1346 mm of canal water a year, 33% less than 3 rice crops (NASA POWER + CHIRPS, FAO method).",
+       "vi": "Nước 2,3: ≈ 1346 mm nước tưới từ kênh mỗi năm, ít hơn 33% so với 3 vụ lúa (NASA POWER + CHIRPS, phương pháp FAO).",
        "src": [
         0,
         1,
@@ -12410,8 +12410,8 @@
        ]
       },
       {
-       "en": "Weather & salt 4.8: crops in the field in 0 of 3 salt months (station average peak 16.8‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 156 mm of canal water needed in salty months (NASA POWER + GPM).",
-       "vi": "Thời tiết & mặn 4,8: có cây trồng trên ruộng trong 0/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 16,8‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 156 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
+       "en": "Weather & salt 4.8: crops in the field in 0 of 3 salt months (station average peak 16.8‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 158 mm of canal water needed in salty months (NASA POWER + CHIRPS).",
+       "vi": "Thời tiết & mặn 4,8: có cây trồng trên ruộng trong 0/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 16,8‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 158 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS).",
        "src": [
         4,
         5,
@@ -12501,8 +12501,8 @@
    ],
    "summary": [
     {
-     "en": "Winter–spring rice (Nov–Feb) needs ≈ 960 mm of canal water, field losses included (NASA POWER + GPM; FAO method).",
-     "vi": "Lúa Đông Xuân (T11–T2) cần ≈ 960 mm nước tưới từ kênh, kể cả thất thoát trên ruộng (NASA POWER + GPM; phương pháp FAO).",
+     "en": "Winter–spring rice (Nov–Feb) needs ≈ 956 mm of canal water, field losses included (NASA POWER + CHIRPS; FAO method).",
+     "vi": "Lúa Đông Xuân (T11–T2) cần ≈ 956 mm nước tưới từ kênh, kể cả thất thoát trên ruộng (NASA POWER + CHIRPS; phương pháp FAO).",
      "src": [
       0,
       1,
@@ -12510,8 +12510,8 @@
       3
      ],
      "plain": {
-      "en": "Winter–spring rice (Nov–Feb) needs ≈ 960 mm of canal water, field losses included.",
-      "vi": "Lúa Đông Xuân (T11–T2) cần ≈ 960 mm nước tưới từ kênh, kể cả thất thoát trên ruộng."
+      "en": "Winter–spring rice (Nov–Feb) needs ≈ 956 mm of canal water, field losses included.",
+      "vi": "Lúa Đông Xuân (T11–T2) cần ≈ 956 mm nước tưới từ kênh, kể cả thất thoát trên ruộng."
      }
     },
     {
@@ -12550,7 +12550,7 @@
      "sow_from": 5,
      "sow_by": 10,
      "harvest_by": 1,
-     "water_mm": 775,
+     "water_mm": 766,
      "hot_days": 0.0,
      "ok": true
     },
@@ -12558,10 +12558,10 @@
     "maize": null,
     "mungbean": null
    },
-   "gpm_check": {
-    "power_mm_yr": 1746,
-    "gpm_mm_yr": 1893,
-    "diff_pct": 8,
+   "rain_check": {
+    "chirps_mm_yr": 1910,
+    "imerg_mm_yr": 1893,
+    "diff_pct": 1,
     "monthly_r": 0.93,
     "months": 288
    },
@@ -12609,45 +12609,45 @@
    "elnino": {
     "climate": {
      "rain_mm": [
-      24,
-      2,
-      10,
       14,
-      195,
-      257,
-      288,
-      220,
-      332,
-      361,
-      141,
-      34
+      0,
+      4,
+      17,
+      200,
+      261,
+      289,
+      284,
+      306,
+      366,
+      133,
+      37
      ],
      "rain_min_mm": [
-      1,
-      1,
-      1,
       0,
-      66,
-      152,
-      121,
-      118,
+      0,
+      0,
+      1,
+      77,
+      190,
+      181,
+      174,
       201,
-      167,
-      106,
-      3
+      130,
+      61,
+      0
      ],
      "rain_max_mm": [
-      101,
-      5,
-      41,
-      44,
-      312,
-      408,
-      449,
-      473,
-      430,
-      562,
-      212,
+      57,
+      3,
+      38,
+      70,
+      380,
+      384,
+      429,
+      414,
+      384,
+      572,
+      234,
       96
      ],
      "et0_mm": [
@@ -12847,7 +12847,7 @@
        }
       ],
       "crops_per_year": 3,
-      "water_mm": 2160,
+      "water_mm": 2130,
       "water_saved": 0.0,
       "profit_range": {
        "lo": 74.7,
@@ -12864,8 +12864,8 @@
       },
       "why": [
        {
-        "en": "Water 1.0: ≈ 2160 mm of canal water a year, the most of all options here; the others are compared with it (NASA POWER + GPM, El Niño average, FAO method).",
-        "vi": "Nước 1,0: ≈ 2160 mm nước tưới từ kênh mỗi năm, nhiều nhất trong các phương án; các phương án khác được so với mức này (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
+        "en": "Water 1.0: ≈ 2130 mm of canal water a year, the most of all options here; the others are compared with it (NASA POWER + CHIRPS, El Niño average, FAO method).",
+        "vi": "Nước 1,0: ≈ 2130 mm nước tưới từ kênh mỗi năm, nhiều nhất trong các phương án; các phương án khác được so với mức này (NASA POWER + CHIRPS, trung bình El Niño, phương pháp FAO).",
         "src": [
          0,
          1,
@@ -12874,8 +12874,8 @@
         ]
        },
        {
-        "en": "Weather & salt 2.6: crops in the field in 2 of 3 salt months (station average peak 19.6‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 846 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 2,6: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 19,6‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 846 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 2.6: crops in the field in 2 of 3 salt months (station average peak 19.6‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 845 mm of canal water needed in salty months (NASA POWER + CHIRPS, El Niño average).",
+        "vi": "Thời tiết & mặn 2,6: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 19,6‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 845 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -13019,7 +13019,7 @@
       ],
       "crops_per_year": 2,
       "water_mm": 1936,
-      "water_saved": 0.104,
+      "water_saved": 0.091,
       "profit_range": {
        "lo": 46.8,
        "mid": 58.9,
@@ -13035,8 +13035,8 @@
       },
       "why": [
        {
-        "en": "Water 1.4: ≈ 1936 mm of canal water a year, 10% less than 3 rice crops (NASA POWER + GPM, El Niño average, FAO method).",
-        "vi": "Nước 1,4: ≈ 1936 mm nước tưới từ kênh mỗi năm, ít hơn 10% so với 3 vụ lúa (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
+        "en": "Water 1.4: ≈ 1936 mm of canal water a year, 9% less than 3 rice crops (NASA POWER + CHIRPS, El Niño average, FAO method).",
+        "vi": "Nước 1,4: ≈ 1936 mm nước tưới từ kênh mỗi năm, ít hơn 9% so với 3 vụ lúa (NASA POWER + CHIRPS, trung bình El Niño, phương pháp FAO).",
         "src": [
          0,
          1,
@@ -13045,8 +13045,8 @@
         ]
        },
        {
-        "en": "Weather & salt 2.6: crops in the field in 2 of 3 salt months (station average peak 19.6‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 846 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 2,6: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 19,6‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 846 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 2.6: crops in the field in 2 of 3 salt months (station average peak 19.6‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 845 mm of canal water needed in salty months (NASA POWER + CHIRPS, El Niño average).",
+        "vi": "Thời tiết & mặn 2,6: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 19,6‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 845 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -13196,8 +13196,8 @@
        }
       ],
       "crops_per_year": null,
-      "water_mm": 341,
-      "water_saved": 0.842,
+      "water_mm": 317,
+      "water_saved": 0.851,
       "profit_range": {
        "lo": 56.5,
        "mid": 76.2,
@@ -13217,8 +13217,8 @@
         "vi": "Biến nước mặn mùa khô thành nguồn lợi thay vì mối đe dọa."
        },
        {
-        "en": "Water 4.4: ≈ 341 mm of canal water a year, 84% less than 3 rice crops (NASA POWER + GPM, El Niño average, FAO method).",
-        "vi": "Nước 4,4: ≈ 341 mm nước tưới từ kênh mỗi năm, ít hơn 84% so với 3 vụ lúa (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
+        "en": "Water 4.4: ≈ 317 mm of canal water a year, 85% less than 3 rice crops (NASA POWER + CHIRPS, El Niño average, FAO method).",
+        "vi": "Nước 4,4: ≈ 317 mm nước tưới từ kênh mỗi năm, ít hơn 85% so với 3 vụ lúa (NASA POWER + CHIRPS, trung bình El Niño, phương pháp FAO).",
         "src": [
          0,
          1,
@@ -13227,8 +13227,8 @@
         ]
        },
        {
-        "en": "Weather & salt 5.0: crops in the field in 0 of 3 salt months (station average peak 19.6‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 0 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 19,6‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 0 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 5.0: crops in the field in 0 of 3 salt months (station average peak 19.6‰, estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 0 mm of canal water needed in salty months (NASA POWER + CHIRPS, El Niño average).",
+        "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 19,6‰, ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 0 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -13414,8 +13414,8 @@
          }
         ],
         "crops_per_year": null,
-        "water_mm": 1421,
-        "water_saved": 0.342,
+        "water_mm": 1384,
+        "water_saved": 0.35,
         "profit_range": {
          "lo": 110.7,
          "mid": 142.9,
@@ -13442,8 +13442,8 @@
           ]
          },
          {
-          "en": "Water 2.4: ≈ 1421 mm of canal water a year, 34% less than 3 rice crops (NASA POWER + GPM, El Niño average, FAO method).",
-          "vi": "Nước 2,4: ≈ 1421 mm nước tưới từ kênh mỗi năm, ít hơn 34% so với 3 vụ lúa (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
+          "en": "Water 2.4: ≈ 1384 mm of canal water a year, 35% less than 3 rice crops (NASA POWER + CHIRPS, El Niño average, FAO method).",
+          "vi": "Nước 2,4: ≈ 1384 mm nước tưới từ kênh mỗi năm, ít hơn 35% so với 3 vụ lúa (NASA POWER + CHIRPS, trung bình El Niño, phương pháp FAO).",
           "src": [
            0,
            1,
@@ -13452,8 +13452,8 @@
           ]
          },
          {
-          "en": "Weather & salt 2.7: crops in the field in 2 of 3 salt months (station average peak 19.6‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 733 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 2,7: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 19,6‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 733 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 2.7: crops in the field in 2 of 3 salt months (station average peak 19.6‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 732 mm of canal water needed in salty months (NASA POWER + CHIRPS, El Niño average).",
+          "vi": "Thời tiết & mặn 2,7: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 19,6‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 732 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -13641,8 +13641,8 @@
          }
         ],
         "crops_per_year": null,
-        "water_mm": 1396,
-        "water_saved": 0.354,
+        "water_mm": 1359,
+        "water_saved": 0.362,
         "profit_range": {
          "lo": 133.2,
          "mid": 142.9,
@@ -13669,8 +13669,8 @@
           ]
          },
          {
-          "en": "Water 2.4: ≈ 1396 mm of canal water a year, 35% less than 3 rice crops (NASA POWER + GPM, El Niño average, FAO method).",
-          "vi": "Nước 2,4: ≈ 1396 mm nước tưới từ kênh mỗi năm, ít hơn 35% so với 3 vụ lúa (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
+          "en": "Water 2.4: ≈ 1359 mm of canal water a year, 36% less than 3 rice crops (NASA POWER + CHIRPS, El Niño average, FAO method).",
+          "vi": "Nước 2,4: ≈ 1359 mm nước tưới từ kênh mỗi năm, ít hơn 36% so với 3 vụ lúa (NASA POWER + CHIRPS, trung bình El Niño, phương pháp FAO).",
           "src": [
            0,
            1,
@@ -13679,8 +13679,8 @@
           ]
          },
          {
-          "en": "Weather & salt 2.7: crops in the field in 2 of 3 salt months (station average peak 19.6‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 692 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 2,7: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 19,6‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 692 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 2.7: crops in the field in 2 of 3 salt months (station average peak 19.6‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 691 mm of canal water needed in salty months (NASA POWER + CHIRPS, El Niño average).",
+          "vi": "Thời tiết & mặn 2,7: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 19,6‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 691 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -13868,10 +13868,10 @@
          }
         ],
         "crops_per_year": null,
-        "water_mm": 1387,
-        "water_saved": 0.358,
+        "water_mm": 1350,
+        "water_saved": 0.366,
         "scores": {
-         "water": 2.4,
+         "water": 2.5,
          "salt": 2.7,
          "soil": 3.9,
          "pests": 2.8,
@@ -13890,8 +13890,8 @@
           ]
          },
          {
-          "en": "Water 2.4: ≈ 1387 mm of canal water a year, 36% less than 3 rice crops (NASA POWER + GPM, El Niño average, FAO method).",
-          "vi": "Nước 2,4: ≈ 1387 mm nước tưới từ kênh mỗi năm, ít hơn 36% so với 3 vụ lúa (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
+          "en": "Water 2.5: ≈ 1350 mm of canal water a year, 37% less than 3 rice crops (NASA POWER + CHIRPS, El Niño average, FAO method).",
+          "vi": "Nước 2,5: ≈ 1350 mm nước tưới từ kênh mỗi năm, ít hơn 37% so với 3 vụ lúa (NASA POWER + CHIRPS, trung bình El Niño, phương pháp FAO).",
           "src": [
            0,
            1,
@@ -13900,8 +13900,8 @@
           ]
          },
          {
-          "en": "Weather & salt 2.7: crops in the field in 2 of 3 salt months (station average peak 19.6‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 692 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 2,7: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 19,6‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 692 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 2.7: crops in the field in 2 of 3 salt months (station average peak 19.6‰, estimate from station reports); 1.2 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 691 mm of canal water needed in salty months (NASA POWER + CHIRPS, El Niño average).",
+          "vi": "Thời tiết & mặn 2,7: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 19,6‰, ước tính từ báo cáo trạm); 1,2 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 691 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -14047,8 +14047,8 @@
        }
       ],
       "crops_per_year": null,
-      "water_mm": 1420,
-      "water_saved": 0.343,
+      "water_mm": 1366,
+      "water_saved": 0.359,
       "profit_range": {
        "lo": 89,
        "mid": 94.5,
@@ -14068,8 +14068,8 @@
         "vi": "Vẫn trồng lúa, nhưng giảm rủi ro mặn và cho đất nghỉ."
        },
        {
-        "en": "Water 2.4: ≈ 1420 mm of canal water a year, 34% less than 3 rice crops (NASA POWER + GPM, El Niño average, FAO method).",
-        "vi": "Nước 2,4: ≈ 1420 mm nước tưới từ kênh mỗi năm, ít hơn 34% so với 3 vụ lúa (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
+        "en": "Water 2.4: ≈ 1366 mm of canal water a year, 36% less than 3 rice crops (NASA POWER + CHIRPS, El Niño average, FAO method).",
+        "vi": "Nước 2,4: ≈ 1366 mm nước tưới từ kênh mỗi năm, ít hơn 36% so với 3 vụ lúa (NASA POWER + CHIRPS, trung bình El Niño, phương pháp FAO).",
         "src": [
          0,
          1,
@@ -14078,8 +14078,8 @@
         ]
        },
        {
-        "en": "Weather & salt 4.8: crops in the field in 0 of 3 salt months (station average peak 19.6‰, estimate from station reports); 0.4 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 200 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 4,8: có cây trồng trên ruộng trong 0/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 19,6‰, ước tính từ báo cáo trạm); 0,4 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 200 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 4.8: crops in the field in 0 of 3 salt months (station average peak 19.6‰, estimate from station reports); 0.4 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 200 mm of canal water needed in salty months (NASA POWER + CHIRPS, El Niño average).",
+        "vi": "Thời tiết & mặn 4,8: có cây trồng trên ruộng trong 0/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 19,6‰, ước tính từ báo cáo trạm); 0,4 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 200 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -14169,8 +14169,8 @@
     ],
     "summary": [
      {
-      "en": "Winter–spring rice (Nov–Feb) needs ≈ 1027 mm of canal water, field losses included (NASA POWER + GPM, El Niño average; FAO method).",
-      "vi": "Lúa Đông Xuân (T11–T2) cần ≈ 1027 mm nước tưới từ kênh, kể cả thất thoát trên ruộng (NASA POWER + GPM, trung bình El Niño; phương pháp FAO).",
+      "en": "Winter–spring rice (Nov–Feb) needs ≈ 1036 mm of canal water, field losses included (NASA POWER + CHIRPS, El Niño average; FAO method).",
+      "vi": "Lúa Đông Xuân (T11–T2) cần ≈ 1036 mm nước tưới từ kênh, kể cả thất thoát trên ruộng (NASA POWER + CHIRPS, trung bình El Niño; phương pháp FAO).",
       "src": [
        0,
        1,
@@ -14178,8 +14178,8 @@
        3
       ],
       "plain": {
-       "en": "Winter–spring rice (Nov–Feb) needs ≈ 1027 mm of canal water, field losses included.",
-       "vi": "Lúa Đông Xuân (T11–T2) cần ≈ 1027 mm nước tưới từ kênh, kể cả thất thoát trên ruộng."
+       "en": "Winter–spring rice (Nov–Feb) needs ≈ 1036 mm of canal water, field losses included.",
+       "vi": "Lúa Đông Xuân (T11–T2) cần ≈ 1036 mm nước tưới từ kênh, kể cả thất thoát trên ruộng."
       }
      },
      {
@@ -14218,7 +14218,7 @@
       "sow_from": 5,
       "sow_by": 10,
       "harvest_by": 1,
-      "water_mm": 733,
+      "water_mm": 738,
       "hot_days": 0.0,
       "ok": true
      },
@@ -14238,46 +14238,46 @@
    },
    "climate": {
     "rain_mm": [
-     26,
-     16,
-     39,
-     109,
-     250,
-     235,
-     353,
-     291,
-     383,
-     289,
-     198,
-     72
+     23,
+     12,
+     34,
+     105,
+     257,
+     278,
+     377,
+     303,
+     343,
+     277,
+     179,
+     60
     ],
     "rain_min_mm": [
-     1,
-     1,
-     1,
-     11,
-     145,
-     122,
-     179,
-     169,
-     235,
-     169,
-     49,
-     12
+     0,
+     0,
+     0,
+     28,
+     181,
+     177,
+     188,
+     178,
+     257,
+     202,
+     41,
+     4
     ],
     "rain_max_mm": [
-     76,
-     46,
-     176,
-     203,
-     331,
-     320,
-     632,
-     388,
-     538,
-     440,
-     303,
-     143
+     63,
+     52,
+     174,
+     227,
+     354,
+     363,
+     582,
+     407,
+     415,
+     441,
+     325,
+     137
     ],
     "et0_mm": [
      123,
@@ -14490,7 +14490,7 @@
       }
      ],
      "crops_per_year": 3,
-     "water_mm": 1740,
+     "water_mm": 1729,
      "water_saved": 0.0,
      "profit_range": {
       "lo": 79.9,
@@ -14507,8 +14507,8 @@
      },
      "why": [
       {
-       "en": "Water 1.0: ≈ 1740 mm of canal water a year, the most of all options here; the others are compared with it (NASA POWER + GPM, FAO method).",
-       "vi": "Nước 1,0: ≈ 1740 mm nước tưới từ kênh mỗi năm, nhiều nhất trong các phương án; các phương án khác được so với mức này (NASA POWER + GPM, phương pháp FAO).",
+       "en": "Water 1.0: ≈ 1729 mm of canal water a year, the most of all options here; the others are compared with it (NASA POWER + CHIRPS, FAO method).",
+       "vi": "Nước 1,0: ≈ 1729 mm nước tưới từ kênh mỗi năm, nhiều nhất trong các phương án; các phương án khác được so với mức này (NASA POWER + CHIRPS, phương pháp FAO).",
        "src": [
         0,
         1,
@@ -14517,8 +14517,8 @@
        ]
       },
       {
-       "en": "Weather & salt 3.3: crops in the field in 2 of 3 salt months (station average peak 9.4‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 17.1 days at or above 35 °C while crops grow (NASA POWER); 625 mm of canal water needed in salty months (NASA POWER + GPM).",
-       "vi": "Thời tiết & mặn 3,3: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 9,4‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 17,1 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 625 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
+       "en": "Weather & salt 3.3: crops in the field in 2 of 3 salt months (station average peak 9.4‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 17.1 days at or above 35 °C while crops grow (NASA POWER); 625 mm of canal water needed in salty months (NASA POWER + CHIRPS).",
+       "vi": "Thời tiết & mặn 3,3: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 9,4‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 17,1 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 625 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS).",
        "src": [
         4,
         5,
@@ -14661,8 +14661,8 @@
       }
      ],
      "crops_per_year": 2,
-     "water_mm": 1609,
-     "water_saved": 0.075,
+     "water_mm": 1603,
+     "water_saved": 0.073,
      "profit_range": {
       "lo": 52,
       "mid": 65.4,
@@ -14678,8 +14678,8 @@
      },
      "why": [
       {
-       "en": "Water 1.3: ≈ 1609 mm of canal water a year, 8% less than 3 rice crops (NASA POWER + GPM, FAO method).",
-       "vi": "Nước 1,3: ≈ 1609 mm nước tưới từ kênh mỗi năm, ít hơn 8% so với 3 vụ lúa (NASA POWER + GPM, phương pháp FAO).",
+       "en": "Water 1.3: ≈ 1603 mm of canal water a year, 7% less than 3 rice crops (NASA POWER + CHIRPS, FAO method).",
+       "vi": "Nước 1,3: ≈ 1603 mm nước tưới từ kênh mỗi năm, ít hơn 7% so với 3 vụ lúa (NASA POWER + CHIRPS, phương pháp FAO).",
        "src": [
         0,
         1,
@@ -14688,8 +14688,8 @@
        ]
       },
       {
-       "en": "Weather & salt 3.3: crops in the field in 2 of 3 salt months (station average peak 9.4‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 17.1 days at or above 35 °C while crops grow (NASA POWER); 625 mm of canal water needed in salty months (NASA POWER + GPM).",
-       "vi": "Thời tiết & mặn 3,3: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 9,4‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 17,1 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 625 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
+       "en": "Weather & salt 3.3: crops in the field in 2 of 3 salt months (station average peak 9.4‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 17.1 days at or above 35 °C while crops grow (NASA POWER); 625 mm of canal water needed in salty months (NASA POWER + CHIRPS).",
+       "vi": "Thời tiết & mặn 3,3: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 9,4‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 17,1 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 625 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS).",
        "src": [
         4,
         5,
@@ -14839,8 +14839,8 @@
       }
      ],
      "crops_per_year": null,
-     "water_mm": 240,
-     "water_saved": 0.862,
+     "water_mm": 256,
+     "water_saved": 0.852,
      "profit_range": {
       "lo": 27.5,
       "mid": 37.5,
@@ -14860,8 +14860,8 @@
        "vi": "Biến nước mặn mùa khô thành nguồn lợi thay vì mối đe dọa."
       },
       {
-       "en": "Water 4.4: ≈ 240 mm of canal water a year, 86% less than 3 rice crops (NASA POWER + GPM, FAO method).",
-       "vi": "Nước 4,4: ≈ 240 mm nước tưới từ kênh mỗi năm, ít hơn 86% so với 3 vụ lúa (NASA POWER + GPM, phương pháp FAO).",
+       "en": "Water 4.4: ≈ 256 mm of canal water a year, 85% less than 3 rice crops (NASA POWER + CHIRPS, FAO method).",
+       "vi": "Nước 4,4: ≈ 256 mm nước tưới từ kênh mỗi năm, ít hơn 85% so với 3 vụ lúa (NASA POWER + CHIRPS, phương pháp FAO).",
        "src": [
         0,
         1,
@@ -14870,8 +14870,8 @@
        ]
       },
       {
-       "en": "Weather & salt 5.0: crops in the field in 0 of 3 salt months (station average peak 9.4‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 0 mm of canal water needed in salty months (NASA POWER + GPM).",
-       "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 9,4‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 0 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
+       "en": "Weather & salt 5.0: crops in the field in 0 of 3 salt months (station average peak 9.4‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER); 0 mm of canal water needed in salty months (NASA POWER + CHIRPS).",
+       "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 9,4‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 0 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS).",
        "src": [
         4,
         5,
@@ -15025,8 +15025,8 @@
         }
        ],
        "crops_per_year": null,
-       "water_mm": 1079,
-       "water_saved": 0.38,
+       "water_mm": 1052,
+       "water_saved": 0.392,
        "profit_range": {
         "lo": 119.9,
         "mid": 155.4,
@@ -15034,7 +15034,7 @@
         "n": 12
        },
        "scores": {
-        "water": 2.5,
+        "water": 2.6,
         "salt": 3.3,
         "soil": 2.1,
         "pests": 2.8,
@@ -15053,8 +15053,8 @@
          ]
         },
         {
-         "en": "Water 2.5: ≈ 1079 mm of canal water a year, 38% less than 3 rice crops (NASA POWER + GPM, FAO method).",
-         "vi": "Nước 2,5: ≈ 1079 mm nước tưới từ kênh mỗi năm, ít hơn 38% so với 3 vụ lúa (NASA POWER + GPM, phương pháp FAO).",
+         "en": "Water 2.6: ≈ 1052 mm of canal water a year, 39% less than 3 rice crops (NASA POWER + CHIRPS, FAO method).",
+         "vi": "Nước 2,6: ≈ 1052 mm nước tưới từ kênh mỗi năm, ít hơn 39% so với 3 vụ lúa (NASA POWER + CHIRPS, phương pháp FAO).",
          "src": [
           0,
           1,
@@ -15063,8 +15063,8 @@
          ]
         },
         {
-         "en": "Weather & salt 3.3: crops in the field in 2 of 3 salt months (station average peak 9.4‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 17.1 days at or above 35 °C while crops grow (NASA POWER); 625 mm of canal water needed in salty months (NASA POWER + GPM).",
-         "vi": "Thời tiết & mặn 3,3: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 9,4‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 17,1 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 625 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
+         "en": "Weather & salt 3.3: crops in the field in 2 of 3 salt months (station average peak 9.4‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 17.1 days at or above 35 °C while crops grow (NASA POWER); 625 mm of canal water needed in salty months (NASA POWER + CHIRPS).",
+         "vi": "Thời tiết & mặn 3,3: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 9,4‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 17,1 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 625 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS).",
          "src": [
           4,
           5,
@@ -15240,8 +15240,8 @@
         }
        ],
        "crops_per_year": null,
-       "water_mm": 1056,
-       "water_saved": 0.393,
+       "water_mm": 1027,
+       "water_saved": 0.406,
        "profit_range": {
         "lo": 144.9,
         "mid": 155.4,
@@ -15268,8 +15268,8 @@
          ]
         },
         {
-         "en": "Water 2.6: ≈ 1056 mm of canal water a year, 39% less than 3 rice crops (NASA POWER + GPM, FAO method).",
-         "vi": "Nước 2,6: ≈ 1056 mm nước tưới từ kênh mỗi năm, ít hơn 39% so với 3 vụ lúa (NASA POWER + GPM, phương pháp FAO).",
+         "en": "Water 2.6: ≈ 1027 mm of canal water a year, 41% less than 3 rice crops (NASA POWER + CHIRPS, FAO method).",
+         "vi": "Nước 2,6: ≈ 1027 mm nước tưới từ kênh mỗi năm, ít hơn 41% so với 3 vụ lúa (NASA POWER + CHIRPS, phương pháp FAO).",
          "src": [
           0,
           1,
@@ -15278,8 +15278,8 @@
          ]
         },
         {
-         "en": "Weather & salt 3.3: crops in the field in 2 of 3 salt months (station average peak 9.4‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 17.1 days at or above 35 °C while crops grow (NASA POWER); 625 mm of canal water needed in salty months (NASA POWER + GPM).",
-         "vi": "Thời tiết & mặn 3,3: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 9,4‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 17,1 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 625 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
+         "en": "Weather & salt 3.3: crops in the field in 2 of 3 salt months (station average peak 9.4‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 17.1 days at or above 35 °C while crops grow (NASA POWER); 625 mm of canal water needed in salty months (NASA POWER + CHIRPS).",
+         "vi": "Thời tiết & mặn 3,3: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 9,4‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 17,1 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 625 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS).",
          "src": [
           4,
           5,
@@ -15455,8 +15455,8 @@
         }
        ],
        "crops_per_year": null,
-       "water_mm": 1046,
-       "water_saved": 0.399,
+       "water_mm": 1018,
+       "water_saved": 0.411,
        "scores": {
         "water": 2.6,
         "salt": 3.3,
@@ -15477,8 +15477,8 @@
          ]
         },
         {
-         "en": "Water 2.6: ≈ 1046 mm of canal water a year, 40% less than 3 rice crops (NASA POWER + GPM, FAO method).",
-         "vi": "Nước 2,6: ≈ 1046 mm nước tưới từ kênh mỗi năm, ít hơn 40% so với 3 vụ lúa (NASA POWER + GPM, phương pháp FAO).",
+         "en": "Water 2.6: ≈ 1018 mm of canal water a year, 41% less than 3 rice crops (NASA POWER + CHIRPS, FAO method).",
+         "vi": "Nước 2,6: ≈ 1018 mm nước tưới từ kênh mỗi năm, ít hơn 41% so với 3 vụ lúa (NASA POWER + CHIRPS, phương pháp FAO).",
          "src": [
           0,
           1,
@@ -15487,8 +15487,8 @@
          ]
         },
         {
-         "en": "Weather & salt 3.3: crops in the field in 2 of 3 salt months (station average peak 9.4‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 17.1 days at or above 35 °C while crops grow (NASA POWER); 625 mm of canal water needed in salty months (NASA POWER + GPM).",
-         "vi": "Thời tiết & mặn 3,3: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 9,4‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 17,1 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 625 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
+         "en": "Weather & salt 3.3: crops in the field in 2 of 3 salt months (station average peak 9.4‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 17.1 days at or above 35 °C while crops grow (NASA POWER); 625 mm of canal water needed in salty months (NASA POWER + CHIRPS).",
+         "vi": "Thời tiết & mặn 3,3: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 9,4‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 17,1 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 625 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS).",
          "src": [
           4,
           5,
@@ -15634,8 +15634,8 @@
       }
      ],
      "crops_per_year": null,
-     "water_mm": 1081,
-     "water_saved": 0.379,
+     "water_mm": 1078,
+     "water_saved": 0.377,
      "profit_range": {
       "lo": 89,
       "mid": 94.5,
@@ -15655,8 +15655,8 @@
        "vi": "Vẫn trồng lúa, nhưng giảm rủi ro mặn và cho đất nghỉ."
       },
       {
-       "en": "Water 2.5: ≈ 1081 mm of canal water a year, 38% less than 3 rice crops (NASA POWER + GPM, FAO method).",
-       "vi": "Nước 2,5: ≈ 1081 mm nước tưới từ kênh mỗi năm, ít hơn 38% so với 3 vụ lúa (NASA POWER + GPM, phương pháp FAO).",
+       "en": "Water 2.5: ≈ 1078 mm of canal water a year, 38% less than 3 rice crops (NASA POWER + CHIRPS, FAO method).",
+       "vi": "Nước 2,5: ≈ 1078 mm nước tưới từ kênh mỗi năm, ít hơn 38% so với 3 vụ lúa (NASA POWER + CHIRPS, phương pháp FAO).",
        "src": [
         0,
         1,
@@ -15665,8 +15665,8 @@
        ]
       },
       {
-       "en": "Weather & salt 4.4: crops in the field in 1 of 3 salt months (station average peak 9.4‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 3.3 days at or above 35 °C while crops grow (NASA POWER); 327 mm of canal water needed in salty months (NASA POWER + GPM).",
-       "vi": "Thời tiết & mặn 4,4: có cây trồng trên ruộng trong 1/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 9,4‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 3,3 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 327 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM).",
+       "en": "Weather & salt 4.4: crops in the field in 1 of 3 salt months (station average peak 9.4‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 3.3 days at or above 35 °C while crops grow (NASA POWER); 324 mm of canal water needed in salty months (NASA POWER + CHIRPS).",
+       "vi": "Thời tiết & mặn 4,4: có cây trồng trên ruộng trong 1/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 9,4‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 3,3 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER); cần 324 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS).",
        "src": [
         4,
         5,
@@ -15756,8 +15756,8 @@
    ],
    "summary": [
     {
-     "en": "Winter–spring rice (Nov–Feb) needs ≈ 894 mm of canal water, field losses included (NASA POWER + GPM; FAO method).",
-     "vi": "Lúa Đông Xuân (T11–T2) cần ≈ 894 mm nước tưới từ kênh, kể cả thất thoát trên ruộng (NASA POWER + GPM; phương pháp FAO).",
+     "en": "Winter–spring rice (Nov–Feb) needs ≈ 919 mm of canal water, field losses included (NASA POWER + CHIRPS; FAO method).",
+     "vi": "Lúa Đông Xuân (T11–T2) cần ≈ 919 mm nước tưới từ kênh, kể cả thất thoát trên ruộng (NASA POWER + CHIRPS; phương pháp FAO).",
      "src": [
       0,
       1,
@@ -15765,8 +15765,8 @@
       3
      ],
      "plain": {
-      "en": "Winter–spring rice (Nov–Feb) needs ≈ 894 mm of canal water, field losses included.",
-      "vi": "Lúa Đông Xuân (T11–T2) cần ≈ 894 mm nước tưới từ kênh, kể cả thất thoát trên ruộng."
+      "en": "Winter–spring rice (Nov–Feb) needs ≈ 919 mm of canal water, field losses included.",
+      "vi": "Lúa Đông Xuân (T11–T2) cần ≈ 919 mm nước tưới từ kênh, kể cả thất thoát trên ruộng."
      }
     },
     {
@@ -15805,7 +15805,7 @@
      "sow_from": 6,
      "sow_by": 11,
      "harvest_by": 2,
-     "water_mm": 894,
+     "water_mm": 922,
      "hot_days": 0.9,
      "ok": true
     },
@@ -15813,11 +15813,11 @@
     "maize": null,
     "mungbean": null
    },
-   "gpm_check": {
-    "power_mm_yr": 1817,
-    "gpm_mm_yr": 2275,
-    "diff_pct": 25,
-    "monthly_r": 0.93,
+   "rain_check": {
+    "chirps_mm_yr": 2283,
+    "imerg_mm_yr": 2275,
+    "diff_pct": 0,
+    "monthly_r": 0.94,
     "months": 288
    },
    "hls_check": {
@@ -15868,46 +15868,46 @@
    "elnino": {
     "climate": {
      "rain_mm": [
-      23,
-      4,
-      15,
-      28,
-      223,
-      274,
-      322,
-      280,
-      406,
-      431,
-      240,
-      50
+      13,
+      2,
+      6,
+      29,
+      231,
+      321,
+      378,
+      317,
+      379,
+      419,
+      201,
+      41
      ],
      "rain_min_mm": [
-      2,
-      1,
-      2,
-      4,
-      79,
-      194,
-      173,
-      149,
-      240,
-      229,
-      155,
-      13
+      0,
+      0,
+      0,
+      6,
+      130,
+      258,
+      245,
+      193,
+      272,
+      208,
+      130,
+      0
      ],
      "rain_max_mm": [
-      94,
-      11,
-      55,
-      73,
-      349,
-      454,
-      492,
-      583,
-      564,
-      690,
-      420,
-      136
+      60,
+      13,
+      42,
+      81,
+      337,
+      392,
+      533,
+      472,
+      542,
+      569,
+      287,
+      104
      ],
      "et0_mm": [
       144,
@@ -16106,7 +16106,7 @@
        }
       ],
       "crops_per_year": 3,
-      "water_mm": 1912,
+      "water_mm": 1877,
       "water_saved": 0.0,
       "profit_range": {
        "lo": 78.2,
@@ -16123,8 +16123,8 @@
       },
       "why": [
        {
-        "en": "Water 1.0: ≈ 1912 mm of canal water a year, the most of all options here; the others are compared with it (NASA POWER + GPM, El Niño average, FAO method).",
-        "vi": "Nước 1,0: ≈ 1912 mm nước tưới từ kênh mỗi năm, nhiều nhất trong các phương án; các phương án khác được so với mức này (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
+        "en": "Water 1.0: ≈ 1877 mm of canal water a year, the most of all options here; the others are compared with it (NASA POWER + CHIRPS, El Niño average, FAO method).",
+        "vi": "Nước 1,0: ≈ 1877 mm nước tưới từ kênh mỗi năm, nhiều nhất trong các phương án; các phương án khác được so với mức này (NASA POWER + CHIRPS, trung bình El Niño, phương pháp FAO).",
         "src": [
          0,
          1,
@@ -16133,8 +16133,8 @@
         ]
        },
        {
-        "en": "Weather & salt 3.0: crops in the field in 2 of 3 salt months (station average peak 10.7‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 772 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 3,0: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 10,7‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 772 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 3.0: crops in the field in 2 of 3 salt months (station average peak 10.7‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 764 mm of canal water needed in salty months (NASA POWER + CHIRPS, El Niño average).",
+        "vi": "Thời tiết & mặn 3,0: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 10,7‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 764 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -16277,8 +16277,8 @@
        }
       ],
       "crops_per_year": 2,
-      "water_mm": 1772,
-      "water_saved": 0.073,
+      "water_mm": 1766,
+      "water_saved": 0.059,
       "profit_range": {
        "lo": 50.3,
        "mid": 62.9,
@@ -16286,7 +16286,7 @@
        "n": 7
       },
       "scores": {
-       "water": 1.3,
+       "water": 1.2,
        "salt": 3.0,
        "soil": 2.0,
        "pests": 3.1,
@@ -16294,8 +16294,8 @@
       },
       "why": [
        {
-        "en": "Water 1.3: ≈ 1772 mm of canal water a year, 7% less than 3 rice crops (NASA POWER + GPM, El Niño average, FAO method).",
-        "vi": "Nước 1,3: ≈ 1772 mm nước tưới từ kênh mỗi năm, ít hơn 7% so với 3 vụ lúa (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
+        "en": "Water 1.2: ≈ 1766 mm of canal water a year, 6% less than 3 rice crops (NASA POWER + CHIRPS, El Niño average, FAO method).",
+        "vi": "Nước 1,2: ≈ 1766 mm nước tưới từ kênh mỗi năm, ít hơn 6% so với 3 vụ lúa (NASA POWER + CHIRPS, trung bình El Niño, phương pháp FAO).",
         "src": [
          0,
          1,
@@ -16304,8 +16304,8 @@
         ]
        },
        {
-        "en": "Weather & salt 3.0: crops in the field in 2 of 3 salt months (station average peak 10.7‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 772 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 3,0: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 10,7‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 772 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 3.0: crops in the field in 2 of 3 salt months (station average peak 10.7‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 764 mm of canal water needed in salty months (NASA POWER + CHIRPS, El Niño average).",
+        "vi": "Thời tiết & mặn 3,0: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 10,7‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 764 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -16455,8 +16455,8 @@
        }
       ],
       "crops_per_year": null,
-      "water_mm": 170,
-      "water_saved": 0.911,
+      "water_mm": 172,
+      "water_saved": 0.908,
       "profit_range": {
        "lo": 27.5,
        "mid": 37.5,
@@ -16476,8 +16476,8 @@
         "vi": "Biến nước mặn mùa khô thành nguồn lợi thay vì mối đe dọa."
        },
        {
-        "en": "Water 4.6: ≈ 170 mm of canal water a year, 91% less than 3 rice crops (NASA POWER + GPM, El Niño average, FAO method).",
-        "vi": "Nước 4,6: ≈ 170 mm nước tưới từ kênh mỗi năm, ít hơn 91% so với 3 vụ lúa (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
+        "en": "Water 4.6: ≈ 172 mm of canal water a year, 91% less than 3 rice crops (NASA POWER + CHIRPS, El Niño average, FAO method).",
+        "vi": "Nước 4,6: ≈ 172 mm nước tưới từ kênh mỗi năm, ít hơn 91% so với 3 vụ lúa (NASA POWER + CHIRPS, trung bình El Niño, phương pháp FAO).",
         "src": [
          0,
          1,
@@ -16486,8 +16486,8 @@
         ]
        },
        {
-        "en": "Weather & salt 5.0: crops in the field in 0 of 3 salt months (station average peak 10.7‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 0 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 10,7‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 0 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 5.0: crops in the field in 0 of 3 salt months (station average peak 10.7‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 0 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 0 mm of canal water needed in salty months (NASA POWER + CHIRPS, El Niño average).",
+        "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 10,7‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 0 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -16641,8 +16641,8 @@
          }
         ],
         "crops_per_year": null,
-        "water_mm": 1267,
-        "water_saved": 0.337,
+        "water_mm": 1202,
+        "water_saved": 0.36,
         "profit_range": {
          "lo": 118.2,
          "mid": 152.9,
@@ -16650,7 +16650,7 @@
          "n": 12
         },
         "scores": {
-         "water": 2.3,
+         "water": 2.4,
          "salt": 3.0,
          "soil": 2.1,
          "pests": 2.9,
@@ -16669,8 +16669,8 @@
           ]
          },
          {
-          "en": "Water 2.3: ≈ 1267 mm of canal water a year, 34% less than 3 rice crops (NASA POWER + GPM, El Niño average, FAO method).",
-          "vi": "Nước 2,3: ≈ 1267 mm nước tưới từ kênh mỗi năm, ít hơn 34% so với 3 vụ lúa (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
+          "en": "Water 2.4: ≈ 1202 mm of canal water a year, 36% less than 3 rice crops (NASA POWER + CHIRPS, El Niño average, FAO method).",
+          "vi": "Nước 2,4: ≈ 1202 mm nước tưới từ kênh mỗi năm, ít hơn 36% so với 3 vụ lúa (NASA POWER + CHIRPS, trung bình El Niño, phương pháp FAO).",
           "src": [
            0,
            1,
@@ -16679,8 +16679,8 @@
           ]
          },
          {
-          "en": "Weather & salt 3.0: crops in the field in 2 of 3 salt months (station average peak 10.7‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 772 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 3,0: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 10,7‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 772 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 3.0: crops in the field in 2 of 3 salt months (station average peak 10.7‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 764 mm of canal water needed in salty months (NASA POWER + CHIRPS, El Niño average).",
+          "vi": "Thời tiết & mặn 3,0: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 10,7‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 764 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -16856,8 +16856,8 @@
          }
         ],
         "crops_per_year": null,
-        "water_mm": 1238,
-        "water_saved": 0.353,
+        "water_mm": 1173,
+        "water_saved": 0.375,
         "profit_range": {
          "lo": 143.2,
          "mid": 152.9,
@@ -16865,7 +16865,7 @@
          "n": 8
         },
         "scores": {
-         "water": 2.4,
+         "water": 2.5,
          "salt": 3.0,
          "soil": 2.1,
          "pests": 2.9,
@@ -16884,8 +16884,8 @@
           ]
          },
          {
-          "en": "Water 2.4: ≈ 1238 mm of canal water a year, 35% less than 3 rice crops (NASA POWER + GPM, El Niño average, FAO method).",
-          "vi": "Nước 2,4: ≈ 1238 mm nước tưới từ kênh mỗi năm, ít hơn 35% so với 3 vụ lúa (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
+          "en": "Water 2.5: ≈ 1173 mm of canal water a year, 38% less than 3 rice crops (NASA POWER + CHIRPS, El Niño average, FAO method).",
+          "vi": "Nước 2,5: ≈ 1173 mm nước tưới từ kênh mỗi năm, ít hơn 38% so với 3 vụ lúa (NASA POWER + CHIRPS, trung bình El Niño, phương pháp FAO).",
           "src": [
            0,
            1,
@@ -16894,8 +16894,8 @@
           ]
          },
          {
-          "en": "Weather & salt 3.0: crops in the field in 2 of 3 salt months (station average peak 10.7‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 772 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 3,0: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 10,7‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 772 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 3.0: crops in the field in 2 of 3 salt months (station average peak 10.7‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 764 mm of canal water needed in salty months (NASA POWER + CHIRPS, El Niño average).",
+          "vi": "Thời tiết & mặn 3,0: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 10,7‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 764 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -17071,10 +17071,10 @@
          }
         ],
         "crops_per_year": null,
-        "water_mm": 1228,
-        "water_saved": 0.358,
+        "water_mm": 1163,
+        "water_saved": 0.38,
         "scores": {
-         "water": 2.4,
+         "water": 2.5,
          "salt": 3.0,
          "soil": 3.9,
          "pests": 2.9,
@@ -17093,8 +17093,8 @@
           ]
          },
          {
-          "en": "Water 2.4: ≈ 1228 mm of canal water a year, 36% less than 3 rice crops (NASA POWER + GPM, El Niño average, FAO method).",
-          "vi": "Nước 2,4: ≈ 1228 mm nước tưới từ kênh mỗi năm, ít hơn 36% so với 3 vụ lúa (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
+          "en": "Water 2.5: ≈ 1163 mm of canal water a year, 38% less than 3 rice crops (NASA POWER + CHIRPS, El Niño average, FAO method).",
+          "vi": "Nước 2,5: ≈ 1163 mm nước tưới từ kênh mỗi năm, ít hơn 38% so với 3 vụ lúa (NASA POWER + CHIRPS, trung bình El Niño, phương pháp FAO).",
           "src": [
            0,
            1,
@@ -17103,8 +17103,8 @@
           ]
          },
          {
-          "en": "Weather & salt 3.0: crops in the field in 2 of 3 salt months (station average peak 10.7‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 772 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-          "vi": "Thời tiết & mặn 3,0: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 10,7‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 772 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+          "en": "Weather & salt 3.0: crops in the field in 2 of 3 salt months (station average peak 10.7‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 41.9 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 764 mm of canal water needed in salty months (NASA POWER + CHIRPS, El Niño average).",
+          "vi": "Thời tiết & mặn 3,0: có cây trồng trên ruộng trong 2/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 10,7‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 41,9 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 764 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS, trung bình El Niño).",
           "src": [
            4,
            5,
@@ -17250,8 +17250,8 @@
        }
       ],
       "crops_per_year": null,
-      "water_mm": 1072,
-      "water_saved": 0.439,
+      "water_mm": 1050,
+      "water_saved": 0.441,
       "profit_range": {
        "lo": 86.5,
        "mid": 92.0,
@@ -17271,8 +17271,8 @@
         "vi": "Vẫn trồng lúa, nhưng giảm rủi ro mặn và cho đất nghỉ."
        },
        {
-        "en": "Water 2.8: ≈ 1072 mm of canal water a year, 44% less than 3 rice crops (NASA POWER + GPM, El Niño average, FAO method).",
-        "vi": "Nước 2,8: ≈ 1072 mm nước tưới từ kênh mỗi năm, ít hơn 44% so với 3 vụ lúa (NASA POWER + GPM, trung bình El Niño, phương pháp FAO).",
+        "en": "Water 2.8: ≈ 1050 mm of canal water a year, 44% less than 3 rice crops (NASA POWER + CHIRPS, El Niño average, FAO method).",
+        "vi": "Nước 2,8: ≈ 1050 mm nước tưới từ kênh mỗi năm, ít hơn 44% so với 3 vụ lúa (NASA POWER + CHIRPS, trung bình El Niño, phương pháp FAO).",
         "src": [
          0,
          1,
@@ -17281,8 +17281,8 @@
         ]
        },
        {
-        "en": "Weather & salt 4.2: crops in the field in 1 of 3 salt months (station average peak 10.7‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 10.8 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 421 mm of canal water needed in salty months (NASA POWER + GPM, El Niño average).",
-        "vi": "Thời tiết & mặn 4,2: có cây trồng trên ruộng trong 1/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 10,7‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 10,8 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 421 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + GPM, trung bình El Niño).",
+        "en": "Weather & salt 4.2: crops in the field in 1 of 3 salt months (station average peak 10.7‰, but rated low here: sluices keep salt out of the fields; estimate from station reports); 10.8 days at or above 35 °C while crops grow (NASA POWER, El Niño average); 415 mm of canal water needed in salty months (NASA POWER + CHIRPS, El Niño average).",
+        "vi": "Thời tiết & mặn 4,2: có cây trồng trên ruộng trong 1/3 tháng mặn (độ mặn cao nhất trung bình tại trạm 10,7‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm); 10,8 ngày từ 35 °C trở lên khi cây đang sinh trưởng (NASA POWER, trung bình El Niño); cần 415 mm nước tưới từ kênh trong các tháng mặn (NASA POWER + CHIRPS, trung bình El Niño).",
         "src": [
          4,
          5,
@@ -17372,8 +17372,8 @@
     ],
     "summary": [
      {
-      "en": "Winter–spring rice (Nov–Feb) needs ≈ 936 mm of canal water, field losses included (NASA POWER + GPM, El Niño average; FAO method).",
-      "vi": "Lúa Đông Xuân (T11–T2) cần ≈ 936 mm nước tưới từ kênh, kể cả thất thoát trên ruộng (NASA POWER + GPM, trung bình El Niño; phương pháp FAO).",
+      "en": "Winter–spring rice (Nov–Feb) needs ≈ 976 mm of canal water, field losses included (NASA POWER + CHIRPS, El Niño average; FAO method).",
+      "vi": "Lúa Đông Xuân (T11–T2) cần ≈ 976 mm nước tưới từ kênh, kể cả thất thoát trên ruộng (NASA POWER + CHIRPS, trung bình El Niño; phương pháp FAO).",
       "src": [
        0,
        1,
@@ -17381,8 +17381,8 @@
        3
       ],
       "plain": {
-       "en": "Winter–spring rice (Nov–Feb) needs ≈ 936 mm of canal water, field losses included.",
-       "vi": "Lúa Đông Xuân (T11–T2) cần ≈ 936 mm nước tưới từ kênh, kể cả thất thoát trên ruộng."
+       "en": "Winter–spring rice (Nov–Feb) needs ≈ 976 mm of canal water, field losses included.",
+       "vi": "Lúa Đông Xuân (T11–T2) cần ≈ 976 mm nước tưới từ kênh, kể cả thất thoát trên ruộng."
       }
      },
      {
@@ -17421,7 +17421,7 @@
       "sow_from": 6,
       "sow_by": 11,
       "harvest_by": 2,
-      "water_mm": 936,
+      "water_mm": 976,
       "hot_days": 6.0,
       "ok": true
      },

@@ -3,8 +3,9 @@
 A static PWA for Mekong Delta rice farmers and extension officers (started at NASA Space Apps 2026). Sóc Trăng farmers first; readers are farmers, extension officers, officials and researchers. This repo replaces `luclonghoi_jsc`.
 
 ## Commands
-- Tests: `python3 pipeline/test_build.py` (plain `test_*` functions, no pytest; needs `pip install pdfplumber` because it imports the salinity fetcher). Run them after any change to `pipeline/` or `docs/data/`.
+- Tests: `python3 pipeline/test_build.py` (plain `test_*` functions, no pytest; needs `pip install pdfplumber tifffile imagecodecs` because it imports the salinity and CHIRPS fetchers). Run them after any change to `pipeline/` or `docs/data/`.
 - Rebuild data: `python3 pipeline/build.py` writes `docs/data/sites.json`, `docs/data/provinces.json` and `docs/app/builder.js`. It keeps the old `generated` date when nothing else changed, so any diff in `docs/data/` after a build is a real change: commit it.
+- Rain: `python3 pipeline/fetch_chirps.py` writes `data/raw/chirps.json` (CHIRPS v3.0, no login; skips saved months, saves after each, exits 1 if an older month fails; the newest month may 404 until CHC publishes it). `fetch_gpm.py` (IMERG) only feeds `rain_check`.
 - Salinity bulletins: `python3 pipeline/fetch_salinity_vietnam.py` writes `data/raw/salinity_kttv_vietnam.json`. It writes nothing if any fetch fails.
 - Phone check: `node tools/ui_check.js` (folds, cards, steps, dashboard, old saved data, English, no sideways scroll, print, field creation, Xem thử, salt text). Exits 1 on any failure or page error. Pass check names to run only those: `node tools/ui_check.js create try`.
 - Screenshots: `node tools/shot.js [page] [outdir]`. The default page is `index.html#vietnam`. It takes desktop and phone shots and exits 1 on page errors.

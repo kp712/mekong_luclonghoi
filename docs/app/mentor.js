@@ -76,7 +76,7 @@ const Hub = (() => {
     ["--shrimp", { vi: "Tôm", en: "Shrimp" }, { vi: "Tháng nuôi tôm", en: "Months with shrimp" }],
     ["--rest", { vi: "Nghỉ", en: "Rest" }, { vi: "Đất nghỉ, không trồng", en: "Land rests, no crop" }],
     ["--salt", { vi: "Mặn / rủi ro", en: "Salt / risk" }, { vi: "Mặn cao hoặc thiệt hại có thể xảy ra", en: "High salt or possible loss" }],
-    ["--rain", { vi: "Mưa", en: "Rain" }, { vi: "Lượng mưa tháng (NASA GPM)", en: "Monthly rain (NASA GPM)" }],
+    ["--rain", { vi: "Mưa", en: "Rain" }, { vi: "Lượng mưa tháng (CHIRPS)", en: "Monthly rain (CHIRPS)" }],
     ["--gold", { vi: "Vàng", en: "Gold" }, { vi: "Điểm nhấn: chọn hoặc chú ý", en: "Highlight: selected or look here" }],
     ["--ok", { vi: "Ổn", en: "OK" }, { vi: "Điều kiện đạt", en: "Check passed" }]
   ];
