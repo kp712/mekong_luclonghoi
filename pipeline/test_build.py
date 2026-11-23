@@ -1042,15 +1042,35 @@ def station_at(name, dlat_km=0.0):
 
 
 def test_salt_window():
-    assert salinity.SALT_SEASONS == (2016, 2026)
+    assert salinity.SALT_SEASONS == (1999, 2026)
     assert salinity.salt_elnino(2024) and not salinity.salt_elnino(2025) and not salinity.salt_elnino(2026)
     assert salinity.salt_elnino(2016) and not salinity.salt_elnino(2017)  # straight from roni.txt, not limited to PERIOD
-    _, first, last, _ = salinity.station_salt(salinity.DATA, "tran_de", False)
-    assert first == 2017 and last >= 2025, (first, last)
-    _, first, last, n = salinity.station_salt(salinity.DATA, "tran_de", True)
-    assert (first, last, n) == (2016, 2024, 3)  # El Niño dry seasons 2016, 2019, 2024 (RONI: 2020 is 0.14)
+    # Trần Đề, checked by hand against salinity_stations.json (1999-2025) and roni.txt: El Niño (Dec-Feb RONI >= 0.5) dry seasons in 1999-2026 are 2003, 2005, 2007, 2010, 2015, 2016, 2019, 2024
+    assert salinity.station_salt(salinity.DATA, "tran_de", False) == (24.5, 1999, 2025, 19)
+    assert salinity.station_salt(salinity.DATA, "tran_de", True) == (27.0, 2003, 2024, 8)
     s = {x["id"]: x for x in json.loads((build.ROOT / "docs/data/sites.json").read_text(encoding="utf-8"))["sites"]}
     assert s["nga_nam"]["salinity"]["level"] == "low" and s["nga_nam"]["elnino"]["salinity"]["level"] == "low"
+
+
+def test_open_series():
+    o = json.loads((build.RAW / "salinity_open_series.json").read_text(encoding="utf-8"))["stations"]
+    assert set(o) == {"Trà Vinh", "Cầu Quan", "Sơn Đốc"} and all("1999" <= y <= "2016" for s in o.values() for y in s)
+    assert all(len(s) == 18 for s in o.values())
+    assert all(v["month"] is None for n in ("Trà Vinh", "Cầu Quan") for v in o[n].values())  # annual maxima: no month
+    assert all(v["month"] in range(1, 13) and isinstance(v["partial"], bool) for v in o["Sơn Đốc"].values())
+    db = salinity.DATA
+    rec = salinity.station_record(db, "Trà Vinh")
+    assert rec[1999] == (9.0, None, False) and min(rec) == 1999 and max(rec) >= 2024
+    assert salinity.station_record(db, "Sơn Đốc")[2016] == (27.4, 2, False)
+    # a no-month season counts toward the level but never toward salt months
+    fake = dict(db, open={"Trà Vinh": {str(y): {"ppt": 20.0, "month": None, "src": "mendeley"} for y in range(1999, 2010)}}, bulletins={})
+    assert salinity.salt_months(fake, "Trà Vinh") == []
+    assert salinity.station_views(fake, "Trà Vinh")[0][1999] == (20.0, None, False)
+    # a season with a month does count; a KTTV bulletin season of the same year wins over the open one
+    fake["open"] = {"Sơn Đốc": {str(y): {"ppt": 9.0, "month": 3, "partial": False, "src": "gfz"} for y in (2000, 2001)}}
+    assert salinity.salt_months(fake, "Sơn Đốc") == [3]
+    fake["bulletins"] = {"2000-03-05": {"readings": {"Sơn Đốc": 1.0}}}
+    assert salinity.station_record(fake, "Sơn Đốc")[2000][0] == 1.0
 
 
 def test_station_record_merge():
@@ -1076,7 +1096,7 @@ def test_kttv_nearest():
     assert t["station"] == e["station"] == "Sông Đốc" and t["km"] == 25.0
     assert point_salinity(*station_at("Sông Đốc", 25.5))[0]["level"] == build.UNKNOWN
     t, _ = point_salinity(*station_at("Trần Đề"))
-    assert t["station"] == "Trần Đề" and t["km"] == 0 and t["seasons"] == 10 and t["last_year"] == 2025  # the table's long record
+    assert t["station"] == "Trần Đề" and t["km"] == 0 and t["seasons"] == 27 and t["last_year"] == 2025  # the table's whole record, 1999-2025 (2026 is partial, left out)
 
 
 def test_kttv_salt_months():

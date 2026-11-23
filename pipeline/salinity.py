@@ -19,8 +19,8 @@ from text import km_text, line, vi_num
 
 RAW = pathlib.Path(__file__).resolve().parent.parent / "data" / "raw"
 SALT_HIGH, SALT_MED = 15, 4  # ‰ cut-offs of the salinity level rule (see salinity.json _readme)
-# Salinity has its own window: dry seasons by the year they end, 2016-2026, so 2015-16, the last very strong El Niño, and the KTTV bulletins (2024-2026) fall inside it.
-SALT_SEASONS = (2016, 2026)
+# Salinity has its own window: dry seasons by the year they end, 1999-2026: the Sóc Trăng table starts in 1999, two open series (Mendeley, GFZ) give 1999-2016 for 3 KTTV stations, and the KTTV bulletins (2024-2026) end it.
+SALT_SEASONS = (1999, 2026)
 SALT_KM = 25  # a province point takes its nearest KTTV station's salinity only this close (km, team rule); else no estimate
 UNKNOWN = "unknown"  # salinity level of a place with no salinity estimate (the province averages): salt is not assessed there# The 24 full Dec-Nov seasons where NASA POWER, NASA GPM and NASA MODIS all have data; data/raw holds longer records.
 SALT_ELNINO = {int(r[1]) for r in (ln.split() for ln in (RAW / "roni.txt").read_text(encoding="utf-8").splitlines())
@@ -39,6 +39,7 @@ def load():
     g = json.loads(text[text.index("{"):text.rindex("}") + 1])
     return {"bulletins": json.loads((RAW / "salinity_kttv_vietnam.json").read_text(encoding="utf-8"))["bulletins"],
             "stations": json.loads((RAW / "kttv_stations.json").read_text(encoding="utf-8"))["stations"],
+            "open": json.loads((RAW / "salinity_open_series.json").read_text(encoding="utf-8"))["stations"],
             "table": json.loads((RAW / "salinity_stations.json").read_text(encoding="utf-8"))["stations"],
             "pins": json.loads((pathlib.Path(__file__).resolve().parent / "salinity.json").read_text(encoding="utf-8")),
             # the Sóc Trăng table (salinity_stations.json ids) and the KTTV bulletins name the same 5 stations differently
@@ -110,12 +111,14 @@ def kttv_seasons(db, name):
 
 def station_record(db, name):
     """{dry season: (max_ppt, month, partial)} of a KTTV station: the Sóc Trăng table's rows first (whole seasons, partial
-    False), then the bulletin seasons the table lacks. At a table station a partial bulletin season is left out: its peak
-    may be missing, and it would pull a whole-season record down."""
+    False), then the bulletin seasons the table lacks, then the open series' seasons (db["open"], 1999-2016) neither has. At a
+    table station a partial bulletin season is left out: its peak may be missing, and it would pull a whole-season record down.
+    An open season with no month (Mendeley) has month None: it counts toward the level, never toward salt months."""
     sid = next((k for k, v in db["links"].items() if v == name), None)
     rows = db["table"][sid]["yearly_max"] if sid else {}
     table = {int(y): (v[0], v[1], False) for y, v in rows.items()}
-    return {**{y: r for y, r in kttv_seasons(db, name).items() if not (sid and r[2])}, **table}
+    opened = {int(y): (v["ppt"], v["month"], v.get("partial", False)) for y, v in db.get("open", {}).get(name, {}).items()}
+    return {**opened, **{y: r for y, r in kttv_seasons(db, name).items() if not (sid and r[2])}, **table}
 
 
 def km_between(lat1, lon1, lat2, lon2):
@@ -127,7 +130,8 @@ def km_between(lat1, lon1, lat2, lon2):
 
 def salt_months(db, name, seasons=None, need=2):
     """Months that reached SALT_MED (4‰) at the station in at least `need` dry seasons (of `seasons` if given, else of
-    SALT_SEASONS): its KTTV bulletin readings, and at a Sóc Trăng table station also each table row's peak, at its month."""
+    SALT_SEASONS): its KTTV bulletin readings, at a Sóc Trăng table station also each table row's peak, at its month, and each open-series
+    season that has a month (GFZ Sơn Đốc)."""
     seen = defaultdict(set)
     want = lambda y: y in seasons if seasons else in_salt_seasons(y)
     for d, b in db["bulletins"].items():
@@ -135,6 +139,9 @@ def salt_months(db, name, seasons=None, need=2):
         y = day.year + (day.month == 12)
         if b["readings"].get(name, 0) >= SALT_MED and want(y):
             seen[day.month].add(y)
+    for y, v in db.get("open", {}).get(name, {}).items():  # open series: only a season with a month, and not one the bulletins cover
+        if v["month"] and v["ppt"] >= SALT_MED and want(int(y)) and int(y) not in kttv_seasons(db, name):
+            seen[v["month"]].add(int(y))
     sid = next((k for k, v in db["links"].items() if v == name), None)
     for y, (ppt, m) in (db["table"][sid]["yearly_max"].items() if sid else ()):
         if ppt >= SALT_MED and want(int(y)):
