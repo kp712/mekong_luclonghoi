@@ -182,7 +182,8 @@ def test_soilgrids_topsoil():
                 "depths": [{"range": {"top_depth": 0, "bottom_depth": 5}, "values": {"mean": top}},
                            {"range": {"top_depth": 5, "bottom_depth": 15}, "values": {"mean": sub}}]}
     raw = {"layers": [layer("clay", 10, 400, 430), layer("soc", 10, 300, 150), layer("phh2o", 10, 50, 47)]}
-    assert build.topsoil(raw) == {"clay_pct": 42.0, "soc_g_kg": 20.0, "ph": 4.8}  # 5 cm + 10 cm weighted
+    t = build.topsoil(raw)
+    assert t == {"clay_pct": 42.0, "soc_g_kg": 20.0} and "ph" not in t  # 5 cm + 10 cm weighted; pH is not shown (acid-sulfate soils)
     raw["layers"][1]["depths"][0]["values"]["mean"] = None  # water/town pixel
     assert build.topsoil(raw) is None
 

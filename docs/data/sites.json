@@ -467,7 +467,7 @@
    "verified": true
   },
   {
-   "title": "SoilGrids 2.0 (ISRIC): modelled soil clay, organic carbon, pH, 250 m (not NASA)",
+   "title": "SoilGrids 2.0 (ISRIC): modelled soil clay and organic carbon, 250 m",
    "url": "https://soilgrids.org/",
    "verified": true
   },
@@ -1072,8 +1072,7 @@
    },
    "soil": {
     "clay_pct": 38.6,
-    "soc_g_kg": 30.6,
-    "ph": 5.7
+    "soc_g_kg": 30.6
    },
    "cards": [
     {
@@ -4545,8 +4544,7 @@
    },
    "soil": {
     "clay_pct": 34.5,
-    "soc_g_kg": 26.6,
-    "ph": 5.8
+    "soc_g_kg": 26.6
    },
    "cards": [
     {
@@ -7783,8 +7781,7 @@
    },
    "soil": {
     "clay_pct": 35.2,
-    "soc_g_kg": 28.8,
-    "ph": 5.7
+    "soc_g_kg": 28.8
    },
    "cards": [
     {
@@ -11047,8 +11044,7 @@
    },
    "soil": {
     "clay_pct": 40.5,
-    "soc_g_kg": 36.6,
-    "ph": 6.0
+    "soc_g_kg": 36.6
    },
    "cards": [
     {
@@ -14328,8 +14324,7 @@
    },
    "soil": {
     "clay_pct": 39.0,
-    "soc_g_kg": 41.0,
-    "ph": 5.8
+    "soc_g_kg": 41.0
    },
    "cards": [
     {

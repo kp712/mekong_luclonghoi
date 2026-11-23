@@ -71,7 +71,7 @@
    "verified": true
   },
   {
-   "title": "SoilGrids 2.0 (ISRIC): modelled soil clay, organic carbon, pH, 250 m (not NASA)",
+   "title": "SoilGrids 2.0 (ISRIC): modelled soil clay and organic carbon, 250 m",
    "url": "https://soilgrids.org/",
    "verified": true
   },
@@ -566,8 +566,7 @@
    },
    "soil": {
     "clay_pct": 33.5,
-    "soc_g_kg": 21.1,
-    "ph": 5.8
+    "soc_g_kg": 21.1
    },
    "salinity": {
     "months": [],
@@ -895,8 +894,7 @@
    },
    "soil": {
     "clay_pct": 38.0,
-    "soc_g_kg": 26.1,
-    "ph": 5.8
+    "soc_g_kg": 26.1
    },
    "salinity": {
     "months": [],
@@ -3755,8 +3753,7 @@
    },
    "soil": {
     "clay_pct": 36.3,
-    "soc_g_kg": 24.0,
-    "ph": 5.7
+    "soc_g_kg": 24.0
    },
    "salinity": {
     "months": [],
@@ -6627,8 +6624,7 @@
    },
    "soil": {
     "clay_pct": 37.7,
-    "soc_g_kg": 25.5,
-    "ph": 6.3
+    "soc_g_kg": 25.5
    },
    "salinity": {
     "months": [],
@@ -9505,8 +9501,7 @@
    },
    "soil": {
     "clay_pct": 36.3,
-    "soc_g_kg": 40.6,
-    "ph": 5.8
+    "soc_g_kg": 40.6
    },
    "salinity": {
     "months": [],
@@ -12365,8 +12360,7 @@
    },
    "soil": {
     "clay_pct": 40.4,
-    "soc_g_kg": 31.6,
-    "ph": 5.5
+    "soc_g_kg": 31.6
    },
    "salinity": {
     "months": [],
@@ -15238,7 +15232,6 @@
    "soil": {
     "clay_pct": 28.8,
     "soc_g_kg": 20.4,
-    "ph": 5.4,
     "km": 3
    },
    "salinity": {
@@ -15531,7 +15524,6 @@
    "soil": {
     "clay_pct": 38.3,
     "soc_g_kg": 21.8,
-    "ph": 6.3,
     "km": 3
    },
    "salinity": {
@@ -18722,7 +18714,6 @@
    "soil": {
     "clay_pct": 38.3,
     "soc_g_kg": 20.9,
-    "ph": 5.6,
     "km": 3
    },
    "salinity": {
@@ -21546,7 +21537,6 @@
    "soil": {
     "clay_pct": 37.7,
     "soc_g_kg": 31.3,
-    "ph": 6.1,
     "km": 3
    },
    "salinity": {
@@ -24737,7 +24727,6 @@
    "soil": {
     "clay_pct": 36.9,
     "soc_g_kg": 21.8,
-    "ph": 5.9,
     "km": 3
    },
    "salinity": {
@@ -27561,7 +27550,6 @@
    "soil": {
     "clay_pct": 35.8,
     "soc_g_kg": 26.2,
-    "ph": 5.5,
     "km": 3
    },
    "salinity": {
@@ -30444,7 +30432,6 @@
    "soil": {
     "clay_pct": 42.9,
     "soc_g_kg": 21.5,
-    "ph": 6.3,
     "km": 3
    },
    "salinity": {
@@ -33268,7 +33255,6 @@
    "soil": {
     "clay_pct": 33.8,
     "soc_g_kg": 26.5,
-    "ph": 6.2,
     "km": 3
    },
    "salinity": {
@@ -36400,7 +36386,6 @@
    "soil": {
     "clay_pct": 36.4,
     "soc_g_kg": 28.5,
-    "ph": 6.3,
     "km": 3
    },
    "salinity": {
@@ -39587,8 +39572,7 @@
    },
    "soil": {
     "clay_pct": 37.2,
-    "soc_g_kg": 36.0,
-    "ph": 5.9
+    "soc_g_kg": 36.0
    },
    "salinity": {
     "months": [],
@@ -42377,7 +42361,6 @@
    "soil": {
     "clay_pct": 34.5,
     "soc_g_kg": 51.8,
-    "ph": 5.6,
     "km": 3
    },
    "salinity": {
@@ -45307,7 +45290,6 @@
    "soil": {
     "clay_pct": 37.2,
     "soc_g_kg": 34.0,
-    "ph": 5.9,
     "km": 3
    },
    "salinity": {
@@ -48508,7 +48490,6 @@
    "soil": {
     "clay_pct": 38.5,
     "soc_g_kg": 32.4,
-    "ph": 5.4,
     "km": 3
    },
    "salinity": {
@@ -51332,7 +51313,6 @@
    "soil": {
     "clay_pct": 42.3,
     "soc_g_kg": 30.8,
-    "ph": 5.5,
     "km": 3
    },
    "salinity": {

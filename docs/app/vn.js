@@ -27,7 +27,7 @@ const VnMap = (() => {
     avgNote: ["Average of the province's points, one per former province.", "Trung bình các điểm của tỉnh, mỗi tỉnh cũ một điểm."],
     ptNote: ["Data at this point: the former provincial capital (weather ~50 km grid, rain ~10 km grid).", "Số liệu tại điểm này: tỉnh lỵ cũ (thời tiết lưới ~50 km, mưa lưới ~10 km)."],
     rainY: ["Rain a year", "Mưa cả năm"], et0Y: ["Crop water need a year", "Nhu cầu nước cả năm"], hot: ["Days ≥ 35 °C a year", "Ngày ≥ 35 °C mỗi năm"],
-    clay: ["Topsoil clay", "Sét tầng mặt"], ph: ["pH", "pH"], crops: ["Crops a year seen by MODIS", "Số vụ/năm MODIS thấy"],
+    clay: ["Topsoil clay", "Sét tầng mặt"], crops: ["Crops a year seen by MODIS", "Số vụ/năm MODIS thấy"],
     ndviAt: ["NASA MODIS NDVI, the 250 m pixel at the pin", "NASA MODIS NDVI, ô 250 m tại điểm ghim"],
     ndviTown: ["The MODIS pixel at the pin is a town or water (never greener than 0.5), so it is not used", "Ô MODIS tại điểm ghim là đô thị hoặc mặt nước (độ xanh luôn dưới 0,5), nên không dùng"],
     nosoil: ["No soil data (town or water pixel)", "Chưa có số liệu đất (điểm ở đô thị hoặc mặt nước)"],
@@ -578,7 +578,7 @@ ${green}${heat}
       [t("rainY"), num(sum(c.rain_mm)) + " mm", "CHIRPS", D.chart_src.slice(1, 2)],
       [t("et0Y"), num(sum(c.et0_mm)) + " mm", "ERA5 · FAO-56", D.chart_src.slice(0, 1).concat(D.chart_src.slice(2))],
       [t("hot"), num(sum(c.hot_days), 0), "ERA5-Land", D.chart_src.slice(0, 1)],
-      soil ? [t("clay"), num(soil.clay_pct, 1) + "% · pH " + num(soil.ph, 1), soilSub || "SoilGrids", D.soil_src] : [t("clay"), "—", t("nosoil"), D.soil_src],
+      soil ? [t("clay"), num(soil.clay_pct, 1) + "%", soilSub || "SoilGrids", D.soil_src] : [t("clay"), "—", t("nosoil"), D.soil_src],
       !avg && o.ndvi ? (o.ndvi.farmland ? [t("crops"), num(o.ndvi.crops_per_year, 1), t("ndviAt"), D.ndvi_src] : [t("crops"), "—", t("ndviTown"), D.ndvi_src]) : null
     ].filter(Boolean).map(([k, v, s, src]) => `<div class="vn-tile"><span>${esc(k)}</span><b>${esc(v)}</b><small>${esc(s)}${cite(src)}</small></div>`).join("");
     const sm = (yr === "elnino" ? o.elnino.summary : o.summary) || [];
