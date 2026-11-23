@@ -144,7 +144,7 @@ FAO29_SRC = {"title": "Ayers & Westcot (1985), Water quality for agriculture, FA
 FAO48_SRC = {"title": "Rhoades, Kandiah & Mashali (1992), The use of saline waters for crop production, FAO Irrigation and Drainage Paper 48 (conversion factors)",
              "url": "https://www.fao.org/4/t0667e/t0667e02.htm", "verified": True,
              "note": "Checked. Box 'Useful conversion factors and formulas': 'TDS (mg/l) » EC (dS/m) × 640' 'for EC between 0.1 and 5.0 dS/m'. So maize's 1.1 dS/m ≈ 0.7‰, and 4‰ is about 5 dS/m or more."}
-SOIL_SRC = {"title": "SoilGrids 2.0 (ISRIC): modelled soil clay, organic carbon, pH, 250 m (not NASA)", "url": "https://soilgrids.org/", "verified": True}
+SOIL_SRC = {"title": "SoilGrids 2.0 (ISRIC): modelled soil clay and organic carbon, 250 m", "url": "https://soilgrids.org/", "verified": True}
 
 
 def in_period(day):
@@ -199,15 +199,15 @@ def climate(weather, keep=None, rain=None):
 
 
 def topsoil(raw):
-    """SoilGrids layers -> {"clay_pct", "soc_g_kg", "ph"} for 0-15 cm (depth-weighted); None if the pixel has no data."""
+    """SoilGrids layers -> {"clay_pct", "soc_g_kg"} for 0-15 cm (depth-weighted); None if the pixel has no data."""
     out = {}
     for layer in raw["layers"]:
         ds = [(d["range"]["bottom_depth"] - d["range"]["top_depth"], d["values"]["mean"]) for d in layer["depths"]]
         if any(v is None for _, v in ds):  # water or town pixel: SoilGrids has no soil there
             return None
-        # stored as integers; dividing by d_factor gives %, g/kg and pH
+        # stored as integers; dividing by d_factor gives % and g/kg
         out[layer["name"]] = round(sum(w * v for w, v in ds) / sum(w for w, _ in ds) / layer["unit_measure"]["d_factor"], 1)
-    return {"clay_pct": out["clay"], "soc_g_kg": out["soc"], "ph": out["phh2o"]}
+    return {"clay_pct": out["clay"], "soc_g_kg": out["soc"]}
 
 
 def corr(a, b):
@@ -814,7 +814,7 @@ def mean_soil(ids):
     got = [(i, v) for i, v in ((i, point_soil(i)) for i in ids) if v]
     if not got:
         return None, []
-    return {k: round(sum(v[k] for _, v in got) / len(got), 1) for k in ("clay_pct", "soc_g_kg", "ph")}, [i for i, _ in got]
+    return {k: round(sum(v[k] for _, v in got) / len(got), 1) for k in ("clay_pct", "soc_g_kg")}, [i for i, _ in got]
 
 
 FARM_NDVI = 0.5  # a pixel whose greenest month stays under this is a town, water or bare ground, not a crop field (team rule)

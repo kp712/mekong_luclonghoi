@@ -1,4 +1,4 @@
-"""Download SoilGrids topsoil clay, organic carbon and pH for every point of sites.points() -> data/raw/soil_<id>.json.
+"""Download SoilGrids topsoil clay and organic carbon for every point of sites.points() -> data/raw/soil_<id>.json.
 SoilGrids 2.0 (ISRIC): free API, no login, 250 m modelled soil maps. NOT a NASA dataset.
 Run: python pipeline/fetch_soil.py
 The API is often slow (and allows about 5 calls a minute). Pins already saved are skipped, so just run it again later.
@@ -20,7 +20,7 @@ from sites import points
 RAW = pathlib.Path(__file__).resolve().parent.parent / "data" / "raw"
 URL = ("https://rest.isric.org/soilgrids/v2.0/properties/query"
        "?lon={lon}&lat={lat}&property={prop}&depth=0-5cm&depth=5-15cm&value=mean")
-PROPS = ["clay", "soc", "phh2o"]  # one property per request: asking for all three at once often times out
+PROPS = ["clay", "soc"]  # one property per request: asking for all at once often times out (pH is not shown: see SOURCES.md)
 
 
 WAIT = 13  # seconds between calls: SoilGrids' fair-use limit is about 5 calls a minute
