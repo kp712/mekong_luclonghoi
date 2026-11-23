@@ -3,8 +3,9 @@
 A static PWA for Mekong Delta rice farmers and extension officers (started at NASA Space Apps 2026). Sóc Trăng farmers first; readers are farmers, extension officers, officials and researchers. This repo replaces `luclonghoi_jsc`.
 
 ## Commands
-- Tests: `python3 pipeline/test_build.py` (plain `test_*` functions, no pytest; needs `pip install pdfplumber` because it imports the salinity fetcher). Run them after any change to `pipeline/` or `docs/data/`.
+- Tests: `python3 pipeline/test_build.py` (plain `test_*` functions, no pytest; needs `pip install pdfplumber tifffile imagecodecs` because it imports the salinity and CHIRPS fetchers). Run them after any change to `pipeline/` or `docs/data/`.
 - Rebuild data: `python3 pipeline/build.py` writes `docs/data/sites.json`, `docs/data/provinces.json` and `docs/app/builder.js`. It keeps the old `generated` date when nothing else changed, so any diff in `docs/data/` after a build is a real change: commit it.
+- Rain: `python3 pipeline/fetch_chirps.py` writes `data/raw/chirps.json` (CHIRPS v3.0, no login; skips saved months, saves after each, exits 1 if an older month fails; the newest month may 404 until CHC publishes it). `fetch_gpm.py` (IMERG) only feeds `rain_check`.
 - Salinity bulletins: `python3 pipeline/fetch_salinity_vietnam.py` writes `data/raw/salinity_kttv_vietnam.json`. It writes nothing if any fetch fails.
 - Phone check: `node tools/ui_check.js` (folds, cards, steps, dashboard, old saved data, English, no sideways scroll, print, field creation, Xem thử, salt text). Exits 1 on any failure or page error. Pass check names to run only those: `node tools/ui_check.js create try`.
 - Screenshots: `node tools/shot.js [page] [outdir]`. The default page is `index.html#vietnam`. It takes desktop and phone shots and exits 1 on page errors.
@@ -27,7 +28,7 @@ A static PWA for Mekong Delta rice farmers and extension officers (started at NA
   - `load.js`: loads data, registers `sw.js`, and holds `Farm`, the one saved field list shared by `app.js` and `dash.js`, and `Folds` (open state of each `<details class="fold" data-fold>` per type, key `mre-folds`).
 - `docs/sw.js` is the offline cache. When you add a file the app needs offline, add it to `PRECACHE`; `test_offline_precache` checks this.
 - `pipeline/build.py` merges everything. All salinity rules are in `pipeline/salinity.py`: call `salinity.at(point)` (pins and province points alike, always a typical/El Niño pair), `salinity.stations()` and `salinity.unknown()`; tests pass a modified `salinity.DATA` instead of patching globals. `pipeline/text.py` has the bilingual text helpers both use.
-- `data/raw/` holds the fetched inputs. NASA POWER is `power_<id>.json.gz` (Dec 2000 – latest; averages use `build.PERIOD`, Dec 2000 – Nov 2024); read it with `build.read_power(id)`. `salinity_stations.json` is the Sóc Trăng paper table plus `lower_bound` seasons. `kttv_stations.json` has the approximate OpenStreetMap coordinates of the stations.
+- `data/raw/` holds the fetched inputs. NASA POWER is `power_<id>.json.gz` (Dec 2000 – latest; averages use `build.PERIOD`, Dec 2000 – Nov 2024); read it with `build.read_power(id)`. `chirps.json` is CHIRPS v3.0 monthly rain (`pipeline/fetch_chirps.py`; IMERG `gpm.json` is now a cross-check only). `salinity_stations.json` is the Sóc Trăng paper table plus `lower_bound` seasons. `kttv_stations.json` has the approximate OpenStreetMap coordinates of the stations.
 - `research/` holds findings that did not become data (sources, values, dead ends). Read the relevant note before searching the web.
 - `plans/` holds plan files. `SOURCES.md` has the full methods and data detail. `CONTEXT.md` is the domain glossary: use its words.
 

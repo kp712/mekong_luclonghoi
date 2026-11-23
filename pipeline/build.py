@@ -111,6 +111,7 @@ def outlook(o):
 
 
 OUTLOOK = outlook(json.loads((RAW / "enso_outlook.json").read_text(encoding="utf-8")))
+CHIRPS_SRC = {"title": "CHIRPS v3.0 (Climate Hazards Center, UC Santa Barbara), 0.05° (~5 km)", "url": "https://www.chc.ucsb.edu/data/chirps3", "verified": True}
 GPM_SRC = {"title": "NASA GPM IMERG Final monthly v07 (GPM_3IMERGM), 0.1° (~10 km)", "url": "https://disc.gsfc.nasa.gov/datasets/GPM_3IMERGM_07/summary", "verified": True}
 POWER_SRC = {"title": "NASA POWER daily API (MERRA-2 based)", "url": "https://power.larc.nasa.gov/", "verified": True}
 MODIS_SRC = {"title": "NASA MODIS MOD13Q1 v6.1 NDVI, 250 m", "url": "https://lpdaac.usgs.gov/products/mod13q1v061/", "verified": True}
@@ -174,26 +175,26 @@ def typical_year(day):
     return in_period(day) and not in_elnino(day)
 
 
-def climate(power, lat, keep=None, gpm=None):
+def climate(power, lat, keep=None, rain=None):
     """Typical year per calendar month over PERIOD, or only over days where keep(day) is True.
-    Rain comes from gpm ({"YYYY-MM": mm}, NASA GPM, 10 km) when given, else from NASA POWER (50 km)."""
+    Rain comes from rain ({"YYYY-MM": mm}, CHIRPS v3.0, 5 km) when given, else from NASA POWER (50 km)."""
     p = power["parameter"]
     sums = defaultdict(lambda: defaultdict(float))  # (year, month) -> totals
     prev = None  # (day, T2M_MIN) of the last valid day; a cold snap needs it to be the day before
-    for d, rain in sorted(p["PRECTOTCORR"].items()):
+    for d, power_rain in sorted(p["PRECTOTCORR"].items()):
         day = date(int(d[:4]), int(d[4:6]), int(d[6:]))
         if not in_period(day) or (keep and not keep(day)):
             continue
-        # check GPM coverage for every kept month, before fill days can drop it from sums
-        if gpm is not None and f"{day.year}-{day.month:02d}" not in gpm:
-            raise ValueError(f"missing GPM month {day.year}-{day.month:02d} (run pipeline/fetch_gpm.py)")
+        # check rain coverage for every kept month, before fill days can drop it from sums
+        if rain is not None and f"{day.year}-{day.month:02d}" not in rain:
+            raise ValueError(f"missing rain month {day.year}-{day.month:02d} (run pipeline/fetch_chirps.py)")
         tmax, tmin, rh, u2, rs = (p[k][d] for k in ("T2M_MAX", "T2M_MIN", "RH2M", "WS2M", "ALLSKY_SFC_SW_DWN"))
-        if -999 in (rain, tmax, tmin, rh, u2, rs):
+        if -999 in (power_rain, tmax, tmin, rh, u2, rs):
             continue
         cold = prev is not None and prev[0] == day - timedelta(days=1) and prev[1] - tmin >= PESTS["shrimp"]["cold_drop_c"]
         prev = (day, tmin)
         s = sums[(day.year, day.month)]
-        s["rain"] += rain
+        s["rain"] += power_rain
         s["et0"] += et0_penman(day, lat, tmax, tmin, rh, u2, rs)
         s["tmax"] += tmax
         s["hot"] += tmax >= 35
@@ -201,8 +202,8 @@ def climate(power, lat, keep=None, gpm=None):
         s["cold"] += cold
         s["n"] += 1
     for (y, m), s in sums.items():
-        if gpm is not None:
-            s["rain"] = gpm[f"{y}-{m:02d}"]
+        if rain is not None:
+            s["rain"] = rain[f"{y}-{m:02d}"]
     out = {"rain_mm": [], "rain_min_mm": [], "rain_max_mm": [], "et0_mm": [], "tmax_c": [], "hot_days": [], "tmean_c": [], "cold_days": []}
     for m in range(1, 13):
         ys = [v for (y, mm), v in sums.items() if mm == m]
@@ -272,18 +273,15 @@ def hls_check(series, modis_bare=()):
             "peak": round(peak, 3), "low": round(low, 3), "rice_like": hls.is_rice(peak, low)}
 
 
-def gpm_check(power, gpm_months):
-    """Compare NASA POWER monthly rain with NASA GPM IMERG for the same months: yearly averages, % apart, correlation."""
-    p, totals = power["parameter"]["PRECTOTCORR"], defaultdict(float)
-    for d, rain in p.items():
-        if rain != -999 and in_period(date(int(d[:4]), int(d[4:6]), int(d[6:]))):
-            totals[f"{d[:4]}-{d[4:6]}"] += rain
-    keys = sorted(k for k in gpm_months if k in totals)
+def rain_check(chirps_months, imerg_months):
+    """Compare CHIRPS v3.0 monthly rain (what the app uses) with NASA GPM IMERG for the months both have inside PERIOD:
+    yearly averages, % apart, correlation. IMERG is only the cross-check; the two are never mixed into one series."""
+    keys = sorted(k for k in chirps_months if k in imerg_months and PERIOD[0] <= date(int(k[:4]), int(k[5:]), 1) <= PERIOD[1])
     if len(keys) < 24:  # too little overlap to say anything
         return None
-    a, b = [totals[k] for k in keys], [gpm_months[k] for k in keys]
-    pw, gp = sum(a) * 12 / len(keys), sum(b) * 12 / len(keys)
-    return {"power_mm_yr": round(pw), "gpm_mm_yr": round(gp), "diff_pct": round(100 * (gp - pw) / pw),
+    a, b = [chirps_months[k] for k in keys], [imerg_months[k] for k in keys]
+    ch, im = sum(a) * 12 / len(keys), sum(b) * 12 / len(keys)
+    return {"chirps_mm_yr": round(ch), "imerg_mm_yr": round(im), "diff_pct": round(100 * (ch - im) / im),
             "monthly_r": round(corr(a, b), 2), "months": len(keys)}
 
 
@@ -411,7 +409,7 @@ def score_weather_salt(rot, clim, sal):
     """Weather & salt safety 1.0-5.0 = WS_W-weighted mix of three parts, each 1 + 4 x (1 - risk share):
     salt: share of the pin's salt months with a crop in the field (tolerant rice counts TOL) x station salt level (15‰ = 1);
     heat: NASA POWER days at or above 35 °C in months with rice or upland crops / HEAT_REF;
-    canal: canal water needed in the salt months / what 3 rice crops need then (FAO method, NASA POWER + GPM)."""
+    canal: canal water needed in the salt months / what 3 rice crops need then (FAO method, NASA POWER + CHIRPS)."""
     hot = sum(clim["hot_days"][i] for i in range(12) if rot["months"][i][0] in "RU")
     if sal["level"] == UNKNOWN:  # no salinity estimate: the salt and canal parts need the salt months, so no score
         return None, dict(salt_k=0, salt_n=0, ppt=None, hot_days=round(hot, 1), canal_mm=None,
@@ -564,8 +562,8 @@ def summary(clim, nd, sal, elnino=False):
                     f"{when[1]}, mức {LEVEL_VI[lvl]}{at[1]} (ước tính từ báo cáo công khai, không đo bằng vệ tinh).")
         if sal.get("caveat"):
             salt = line(salt["en"] + sal["caveat"]["en"], salt["vi"] + sal["caveat"]["vi"])
-    out = [dict(sourced(line(f"{water['en']} (NASA POWER + GPM{', El Niño average' if elnino else ''}; FAO method).",
-                             f"{water['vi']} (NASA POWER + GPM{', trung bình El Niño' if elnino else ''}; phương pháp FAO)."), POWER_SRC, GPM_SRC, FAO_SRCS),
+    out = [dict(sourced(line(f"{water['en']} (NASA POWER + CHIRPS{', El Niño average' if elnino else ''}; FAO method).",
+                             f"{water['vi']} (NASA POWER + CHIRPS{', trung bình El Niño' if elnino else ''}; phương pháp FAO)."), POWER_SRC, CHIRPS_SRC, FAO_SRCS),
                 plain=line(water["en"] + ".", water["vi"] + ".")),
            dict(sourced(salt, *([] if lvl == UNKNOWN else [salinity.SOURCES])), salt=True, plain=dict(salt))]
     if nd:
@@ -698,22 +696,22 @@ def make_card(rot, clim, nd, sal, elnino=False):
     why, ev = list(rot["why"]), []
     risks, gaps = list(rot["risks"]), list(rot["gaps"])
 
-    # NASA POWER + GPM: the water score is the share of 3 rice crops' canal water this calendar saves (FAO method)
+    # NASA POWER + CHIRPS: the water score is the share of 3 rice crops' canal water this calendar saves (FAO method)
     need, base = sum(water_need(rot["months"], clim, rot.get("kc_u"))), sum(water_need(BASE, clim))
     saved = max(1 - need / base, 0) if base else 0
     pw = line("NASA POWER, El Niño average", "NASA POWER, trung bình El Niño") if elnino else line("NASA POWER", "NASA POWER")
-    wsrc = line(pw["en"].replace("NASA POWER", "NASA POWER + GPM"), pw["vi"].replace("NASA POWER", "NASA POWER + GPM"))  # rain is GPM
+    wsrc = line(pw["en"].replace("NASA POWER", "NASA POWER + CHIRPS"), pw["vi"].replace("NASA POWER", "NASA POWER + CHIRPS"))  # rain is CHIRPS
     s["water"] = x = score_water(saved)
     c.update(water_mm=need, water_saved=round(saved, 3))
     pct = round(100 * saved)
     if rot["id"] == "rice3":
         why.append(sourced(line(f"Water {x}: ≈ {need} mm of canal water a year, the most of all options here; the others are compared with it ({wsrc['en']}, FAO method).",
-                        f"Nước {vi_num(x)}: ≈ {need} mm nước tưới từ kênh mỗi năm, nhiều nhất trong các phương án; các phương án khác được so với mức này ({wsrc['vi']}, phương pháp FAO)."), POWER_SRC, GPM_SRC, FAO_SRCS))
+                        f"Nước {vi_num(x)}: ≈ {need} mm nước tưới từ kênh mỗi năm, nhiều nhất trong các phương án; các phương án khác được so với mức này ({wsrc['vi']}, phương pháp FAO)."), POWER_SRC, CHIRPS_SRC, FAO_SRCS))
     else:
         why.append(sourced(line(f"Water {x}: ≈ {need} mm of canal water a year, {pct}% less than 3 rice crops ({wsrc['en']}, FAO method).",
-                        f"Nước {vi_num(x)}: ≈ {need} mm nước tưới từ kênh mỗi năm, ít hơn {pct}% so với 3 vụ lúa ({wsrc['vi']}, phương pháp FAO)."), POWER_SRC, GPM_SRC, FAO_SRCS))
+                        f"Nước {vi_num(x)}: ≈ {need} mm nước tưới từ kênh mỗi năm, ít hơn {pct}% so với 3 vụ lúa ({wsrc['vi']}, phương pháp FAO)."), POWER_SRC, CHIRPS_SRC, FAO_SRCS))
 
-    # Weather & salt: salt months from station reports (estimate, never satellite), heat and canal water from NASA POWER + GPM
+    # Weather & salt: salt months from station reports (estimate, never satellite), heat and canal water from NASA POWER + CHIRPS
     x, w = score_weather_salt(rot, clim, sal)
     s["salt"] = x
     if x is None:
@@ -730,7 +728,7 @@ def make_card(rot, clim, nd, sal, elnino=False):
             peak_en = f"station average peak {w['ppt']}‰, but rated low here: sluices keep salt out of the fields; estimate from station reports"
             peak_vi = f"độ mặn cao nhất trung bình tại trạm {vi_num(w['ppt'])}‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm"
         why.append(sourced(line(f"Weather & salt {x}: crops in the field in {w['salt_k']} of {w['salt_n']} salt months ({peak_en}); {whole(w['hot_days'])} days at or above 35 °C while crops grow ({pw['en']}); {w['canal_mm']} mm of canal water needed in salty months ({wsrc['en']}).",
-                        f"Thời tiết & mặn {vi_num(x)}: có cây trồng trên ruộng trong {w['salt_k']}/{w['salt_n']} tháng mặn ({peak_vi}); {vi_num(whole(w['hot_days']))} ngày từ 35 °C trở lên khi cây đang sinh trưởng ({pw['vi']}); cần {w['canal_mm']} mm nước tưới từ kênh trong các tháng mặn ({wsrc['vi']})."), salinity.SOURCES, POWER_SRC, HEAT_SRC, GPM_SRC))
+                        f"Thời tiết & mặn {vi_num(x)}: có cây trồng trên ruộng trong {w['salt_k']}/{w['salt_n']} tháng mặn ({peak_vi}); {vi_num(whole(w['hot_days']))} ngày từ 35 °C trở lên khi cây đang sinh trưởng ({pw['vi']}); cần {w['canal_mm']} mm nước tưới từ kênh trong các tháng mặn ({wsrc['vi']})."), salinity.SOURCES, POWER_SRC, HEAT_SRC, CHIRPS_SRC))
 
     # Soil: counted on the calendar (legume months, optional cover crop, dry months, rice months, brackish months), no satellite data
     x, o = score_soil(rot)
@@ -854,25 +852,25 @@ def place_summary(clim, nd, sal, scored, elnino=False):
     return out if scored else out[1:]
 
 
-def point_rain(gpm, pid):
-    if pid not in gpm:
-        raise ValueError(f"missing GPM data for {pid} (run pipeline/fetch_gpm.py)")
-    return gpm[pid]
+def point_rain(chirps, pid):
+    if pid not in chirps:
+        raise ValueError(f"missing CHIRPS data for {pid} (run pipeline/fetch_chirps.py)")
+    return chirps[pid]
 
 
 NOT_SCORED = line("Rotation cards are not scored here: the rotations and their published profit figures all come from the Mekong Delta.",
                   "Chưa chấm điểm các phương án luân canh ở đây: các phương án và số liệu lợi nhuận đã công bố đều lấy từ Đồng bằng sông Cửu Long.")
 
 
-def province(pr, rotations, gpm):
+def province(pr, rotations, chirps, imerg):
     """One of the provinces (sites.PROVINCES): the climate of each former province's point (its own NASA POWER weather,
-    NASA GPM rain and latitude for FAO-56 water demand), averaged month by month; SoilGrids topsoil averaged over the
+    CHIRPS rain and latitude for FAO-56 water demand), averaged month by month; SoilGrids topsoil averaged over the
     points with soil. No salinity estimate (UNKNOWN: salt is shown per former province), no MODIS. Rotation cards only in SCORED_REGIONS."""
     ids = [f["id"] for f in pr["former"]]
-    rain_ids = [i for i in ids if point_rain(gpm, i)]
+    rain_ids = [i for i in ids if point_rain(chirps, i)]
     powers = {i: read_power(i) for i in ids}
-    clim = mean_climate([climate(powers[f["id"]], f["lat"], typical_year, gpm[f["id"]]) for f in pr["former"]])
-    clim_e = mean_climate([climate(powers[f["id"]], f["lat"], in_elnino, gpm[f["id"]]) for f in pr["former"]])
+    clim = mean_climate([climate(powers[f["id"]], f["lat"], typical_year, chirps[f["id"]]) for f in pr["former"]])
+    clim_e = mean_climate([climate(powers[f["id"]], f["lat"], in_elnino, chirps[f["id"]]) for f in pr["former"]])
     soil, soil_ids = mean_soil(ids)
     sal = dict(salinity.unknown(), note=line(
         f"No single salinity estimate for the whole province: salt is shown per former province, from its nearest KTTV station where one lies within {SALT_KM} km.",
@@ -884,21 +882,21 @@ def province(pr, rotations, gpm):
     cards_e = [card(r, clim_e, None, sal, elnino=True, soil=soil, site=pr["id"]) for r in rotations] if scored else []
     out = {k: pr[k] for k in ("id", "name", "lat", "lon", "region")}
     out.update(region_name=REGIONS[pr["region"]], former=[{k: f[k] for k in ("id", "name", "lat", "lon")} for f in pr["former"]],
-               areas=pr.get("areas", []), points={"power": ids, "gpm": rain_ids, "soil": soil_ids},
+               areas=pr.get("areas", []), points={"power": ids, "rain": rain_ids, "soil": soil_ids},
                climate=clim, soil=soil, salinity=sal, scored=scored, not_scored=None if scored else NOT_SCORED,
                cards=cards, summary=place_summary(clim, None, sal, scored),
-               gpm_check=dict(gpm_check(powers[pr["id"]], gpm[pr["id"]]) or {}, point=pr["id"]),
+               rain_check=dict(rain_check(chirps[pr["id"]], imerg[pr["id"]]) or {}, point=pr["id"]),
                elnino={"climate": clim_e, "salinity": sal, "cards": cards_e, "summary": place_summary(clim_e, None, sal, scored, elnino=True)})
     return out
 
 
-def place(f, pr, rotations, gpm):
+def place(f, pr, rotations, chirps, imerg):
     """One province point on its own (a former province's capital, or the new province's own pin): the same engine as a
-    Sóc Trăng pin with its own NASA POWER weather, NASA GPM rain and SoilGrids topsoil, MODIS greenness where
+    Sóc Trăng pin with its own NASA POWER weather, CHIRPS rain and SoilGrids topsoil, MODIS greenness where
     data/raw/ndvi_<id>.json exists (39 points for now) and the pixel looks like farmland (farmland()), and salinity from
     the nearest KTTV station within SALT_KM (kttv_salinity), else none (UNKNOWN). Cards only in SCORED_REGIONS."""
     power = read_power(f["id"])
-    rain = point_rain(gpm, f["id"])
+    rain = point_rain(chirps, f["id"])
     clim, clim_e = climate(power, f["lat"], typical_year, rain), climate(power, f["lat"], in_elnino, rain)
     nd = None
     ndvi_file = RAW / f"ndvi_{f['id']}.json"
@@ -919,7 +917,7 @@ def place(f, pr, rotations, gpm):
     return dict({k: f[k] for k in ("id", "name", "lat", "lon")}, province=pr["id"], region=pr["region"],
                 own=f["id"] == pr["id"], climate=clim, ndvi=nd, soil=soil, salinity=sal, scored=scored,
                 not_scored=None if scored else NOT_SCORED, cards=cards, summary=place_summary(clim, use, sal, scored),
-                gpm_check=gpm_check(power, rain),
+                rain_check=rain_check(rain, imerg[f["id"]]),
                 elnino={"climate": clim_e, "salinity": sal_e, "cards": cards_e, "summary": place_summary(clim_e, use, sal_e, scored, elnino=True)})
 
 
@@ -935,7 +933,7 @@ def write_dated(path, data):
     path.write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
 
 
-def write_builder(rot_file, sites, gpm):
+def write_builder(rot_file, sites, chirps):
     """docs/app/builder.js: the Plan Lab's model constants (BUILDER) and the latest-12-months rain and canal-water view (EXTRA),
     all from the pipeline, so the Plan Lab can never drift from sites.json."""
     rots = rot_file["rotations"]
@@ -966,8 +964,8 @@ def write_builder(rot_file, sites, gpm):
                 need = sum(water_need(r["months"], s["climate"], kc))
                 w[f"{r['id']}:{u}" if u else r["id"]] = [round(need), round(1 - need / base, 3) if base else 0]
         water[s["id"]] = w
-        last = sorted(gpm[s["id"]])[-12:]
-        latest[s["id"]] = {"from": last[0], "to": last[-1], "rain": [round(gpm[s["id"]][k]) for k in sorted(last, key=lambda k: int(k[5:]))]}
+        last = sorted(chirps[s["id"]])[-12:]
+        latest[s["id"]] = {"from": last[0], "to": last[-1], "rain": [round(chirps[s["id"]][k]) for k in sorted(last, key=lambda k: int(k[5:]))]}
     text = ("/* builder.js: the Plan Lab's model constants (BUILDER) and the latest-12-months rain and canal-water view (EXTRA).\n"
             "   Written by pipeline/build.py (write_builder): do not edit. Everything else is read live from docs/data/sites.json. */\n"
             f"const BUILDER = {json.dumps(b, ensure_ascii=False, separators=(',', ':'))};\n"
@@ -979,18 +977,17 @@ def build():
     rot_file = json.loads((HERE / "rotations.json").read_text(encoding="utf-8"))
     rotations = rot_file["rotations"]
     SOURCES.clear()
-    area = {"chart_src": cite(POWER_SRC, GPM_SRC, FAO_SRCS, salinity.SOURCES, MODIS_SRC), "salt_src": cite(salinity.SOURCES),
+    area = {"chart_src": cite(POWER_SRC, CHIRPS_SRC, FAO_SRCS, salinity.SOURCES, MODIS_SRC), "salt_src": cite(salinity.SOURCES),
             "soil_src": cite(SOIL_SRC)}
     pest_rule = {"rice_points": PESTS["rice"]["points"], "break_weight": PESTS["break_weight"], "shrimp_floor": PESTS["shrimp"]["floor"],
                  "cold_drop_c": PESTS["shrimp"]["cold_drop_c"], "hot_c": PESTS["shrimp"]["hot_c"], "upland_pressure": 1}
     outlook_src, area["elnino_src"] = cite(OUTLOOK["source"]), cite(ONI_SRC)  # area-wide first: numbers climb down the page
-    gpm = json.loads((RAW / "gpm.json").read_text(encoding="utf-8"))
+    chirps = json.loads((RAW / "chirps.json").read_text(encoding="utf-8"))
+    imerg = json.loads((RAW / "gpm.json").read_text(encoding="utf-8"))  # cross-check only, never mixed into the rain series
     sites = []
     for s in SITES:
-        if s["id"] not in gpm:
-            raise ValueError(f"missing GPM data for {s['id']} (run pipeline/fetch_gpm.py)")
+        rain = point_rain(chirps, s["id"])
         power = read_power(s["id"])
-        rain = gpm[s["id"]]
         clim, clim_e = climate(power, s["lat"], typical_year, rain), climate(power, s["lat"], in_elnino, rain)
         ndvi_file = RAW / f"ndvi_{s['id']}.json"
         nd = nd_e = None
@@ -1014,7 +1011,7 @@ def build():
         cards_e = [card(r, clim_e, nd, sal_e, elnino=True, soil=soil, site=s['id']) for r in rotations]
         sites.append(dict(s, climate=clim, ndvi=nd, salinity=sal, soil=soil, cards=cards, summary=summary(clim, nd, sal),
                           seed_check=seed_check(clim, sal),
-                          gpm_check=gpm_check(power, gpm[s["id"]]) if s["id"] in gpm else None,
+                          rain_check=rain_check(rain, imerg[s["id"]]) if s["id"] in imerg else None,
                           hls_check=hls_result,
                           elnino={"climate": clim_e, "ndvi": nd_e, "salinity": sal_e, "cards": cards_e,
                                   "summary": summary(clim_e, nd, sal_e, elnino=True), "seed_check": seed_check(clim_e, sal_e)}))
@@ -1025,13 +1022,13 @@ def build():
                       "outlook": dict({k: OUTLOOK[k] for k in ("elnino", "pct", "text")}, src=outlook_src), "resources": resources, "pest_rule": pest_rule,
                       **area, "sources": [v for _, v in sorted(SOURCES.values(), key=lambda x: x[0])], "sites": sites})
     print("wrote", OUT, len(sites), "sites")
-    write_builder(rot_file, sites, gpm)
+    write_builder(rot_file, sites, chirps)
     # The provinces go to their own file with its own numbered source list, so the file every phone downloads stays small
     SOURCES.clear()
-    head = {"chart_src": cite(POWER_SRC, GPM_SRC, FAO_SRCS), "soil_src": cite(SOIL_SRC), "region_src": cite(REGION_SRC),
+    head = {"chart_src": cite(POWER_SRC, CHIRPS_SRC, FAO_SRCS), "rain_check_src": cite(GPM_SRC), "soil_src": cite(SOIL_SRC), "region_src": cite(REGION_SRC),
             "elnino_src": cite(ONI_SRC), "ndvi_src": cite(MODIS_SRC), "outline_src": cite(OUTLINE_SRC)}
-    provinces = [province(pr, rotations, gpm) for pr in PROVINCES]
-    places = [place(f, pr, rotations, gpm) for pr in PROVINCES for f in pr["former"]]
+    provinces = [province(pr, rotations, chirps, imerg) for pr in PROVINCES]
+    places = [place(f, pr, rotations, chirps, imerg) for pr in PROVINCES for f in pr["former"]]
     # the 5 Sóc Trăng areas, drawn inside the Vietnam map like the main map: salt peak at the nearest station (estimate from
     # public reports, never satellite) and MODIS crops a year; the full planner lives in sites.json
     head["salt_src"] = cite(salinity.SOURCES)

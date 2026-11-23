@@ -18,7 +18,7 @@ const VnMap = (() => {
     nomap: ["The map library did not load, so only the province list works.", "Không tải được thư viện bản đồ, chỉ dùng được danh sách tỉnh."],
     show: ["Map colour shows:", "Màu trên bản đồ là:"], rain: ["Rain", "Mưa"], bal: ["Rain minus water need", "Mưa trừ nhu cầu nước"],
     year: ["Whole year", "Cả năm"], typical: ["Typical year", "Năm thường"], elnino: ["El Niño years", "Năm El Niño"],
-    rainH: ["Rain, NASA GPM IMERG (mm)", "Lượng mưa, NASA GPM IMERG (mm)"],
+    rainH: ["Rain, CHIRPS (mm)", "Lượng mưa, CHIRPS (mm)"],
     balH: ["Rain minus crop water need (ET₀, NASA POWER + FAO-56), mm", "Mưa trừ nhu cầu nước của cây (ET₀, NASA POWER + FAO-56), mm"],
     dry: ["drier", "khô hơn"], wet: ["wetter", "ẩm hơn"], less: ["less", "ít"], more: ["more", "nhiều"],
     keyPill: ["Map key", "Chú thích"], hide: ["Hide", "Thu gọn"], close: ["Close", "Đóng"],
@@ -34,8 +34,8 @@ const VnMap = (() => {
     soilKm: ["nearest farmland, {k} km from the pin", "vùng đất nông nghiệp gần nhất, cách điểm ghim {k} km"],
     soilAvg: ["average of {n} of {m} points", "trung bình {n}/{m} điểm"],
     salt: ["Salt", "Độ mặn"], chart: ["Rain and crop water need by month", "Mưa và nhu cầu nước theo tháng"],
-    lgRain: ["Rain (NASA GPM)", "Mưa (NASA GPM)"], lgEt0: ["Water need ET₀", "Nhu cầu nước ET₀"],
-    check: ["Rain check: NASA POWER gives {p} mm a year against GPM's {g} mm ({d}%), month-by-month match r = {r}.", "Kiểm tra mưa: NASA POWER cho {p} mm/năm so với {g} mm của GPM ({d}%), tương quan theo tháng r = {r}."],
+    lgRain: ["Rain (CHIRPS)", "Mưa (CHIRPS)"], lgEt0: ["Water need ET₀", "Nhu cầu nước ET₀"],
+    check: ["Rain check: CHIRPS gives {p} mm a year against NASA GPM IMERG's {g} mm ({d}%), month-by-month match r = {r}. IMERG is only a cross-check; the app uses CHIRPS.", "Kiểm tra mưa: CHIRPS cho {p} mm/năm so với {g} mm của NASA GPM IMERG ({d}%), tương quan theo tháng r = {r}. IMERG chỉ để đối chiếu; ứng dụng dùng CHIRPS."],
     cards: ["Rotation options (Mekong Delta only)", "Phương án luân canh (chỉ ĐBSCL)"], summary: ["What the data says", "Số liệu cho thấy"],
     sc: { water: ["Water", "Nước"], income: ["Income", "Thu nhập"], soil: ["Soil", "Đất"], pests: ["Pests", "Sâu bệnh"], salt: ["Weather & salt", "Thời tiết & mặn"] },
     conf: { low: ["Low confidence", "Độ tin cậy thấp"], medium: ["Medium confidence", "Độ tin cậy vừa"], high: ["High confidence", "Độ tin cậy cao"] },
@@ -63,7 +63,7 @@ const VnMap = (() => {
     sAvg: ["Average {a} mm · wettest {n} {m} mm", "Trung bình {a} mm · mưa nhiều nhất {n} {m} mm"],
     sBal: ["{n} of {t} points get more rain than crops need", "{n}/{t} điểm có mưa nhiều hơn cây cần"],
     sSalt: ["{n} of {t} points with an estimate reach 4‰", "{n}/{t} điểm có ước tính lên 4‰"],
-    srcRain: ["Rain: NASA GPM IMERG", "Mưa: NASA GPM IMERG"], srcBal: ["Rain: NASA GPM IMERG · water need: NASA POWER (FAO-56)", "Mưa: NASA GPM IMERG · nhu cầu nước: NASA POWER (FAO-56)"]
+    srcRain: ["Rain: CHIRPS", "Mưa: CHIRPS"], srcBal: ["Rain: CHIRPS · water need: NASA POWER (FAO-56)", "Mưa: CHIRPS · nhu cầu nước: NASA POWER (FAO-56)"]
   };
   const t = (k, sub) => { let s = (sub ? T[k][sub] : T[k])[lang === "vi" ? 1 : 0]; return s; };
   const fill = (s, o) => s.replace(/\{(\w)\}/g, (_, k) => o[k]);
@@ -453,9 +453,9 @@ ${green}${heat}
     Object.values(pins).forEach((p) => {
       const o = p.o, pr = P[o.province];
       let small = "";
-      // what the satellites saw there, as on the Sóc Trăng plates: MODIS crops a year on farmland, else GPM rain a year
+      // what the satellites saw there, as on the Sóc Trăng plates: MODIS crops a year on farmland, else CHIRPS rain a year
       if (o.ndvi && o.ndvi.farmland) small = `MODIS · ${num(o.ndvi.crops_per_year, 1)} ${lang === "vi" ? "vụ/năm" : "crops/yr"}`;
-      else small = `GPM · ${num(sum(climOf(o).rain_mm))} ${lang === "vi" ? "mm mưa/năm" : "mm rain/yr"}`;
+      else small = `CHIRPS · ${num(sum(climOf(o).rain_mm))} ${lang === "vi" ? "mm mưa/năm" : "mm rain/yr"}`;
       const name = nm(o.name);
       p.lab.innerHTML = `<i class="sg-dot vn-dot-${esc(pr.region)}" aria-hidden="true"></i><b>${esc(name)}</b>${small ? `<small>${esc(small)}</small>` : ""}`;
       p.btn.setAttribute("aria-label", name);
@@ -575,7 +575,7 @@ ${green}${heat}
     const soil = o.soil;
     const soilSub = !soil ? "" : avg ? fill(t("soilAvg"), { n: p.points.soil.length, m: p.former.length }) : soil.km ? fill(t("soilKm"), { k: num(soil.km) }) : "";
     const tiles = [
-      [t("rainY"), num(sum(c.rain_mm)) + " mm", "NASA GPM IMERG", D.chart_src.slice(1, 2)],
+      [t("rainY"), num(sum(c.rain_mm)) + " mm", "CHIRPS", D.chart_src.slice(1, 2)],
       [t("et0Y"), num(sum(c.et0_mm)) + " mm", "NASA POWER · FAO-56", D.chart_src.slice(0, 1).concat(D.chart_src.slice(2))],
       [t("hot"), num(sum(c.hot_days), 0), "NASA POWER", D.chart_src.slice(0, 1)],
       soil ? [t("clay"), num(soil.clay_pct, 1) + "% · pH " + num(soil.ph, 1), soilSub || "SoilGrids", D.soil_src] : [t("clay"), "—", t("nosoil"), D.soil_src],
@@ -583,7 +583,7 @@ ${green}${heat}
     ].filter(Boolean).map(([k, v, s, src]) => `<div class="vn-tile"><span>${esc(k)}</span><b>${esc(v)}</b><small>${esc(s)}${cite(src)}</small></div>`).join("");
     const sm = (yr === "elnino" ? o.elnino.summary : o.summary) || [];
     const cards = (yr === "elnino" ? o.elnino.cards : o.cards) || [];
-    const chkAt = view === "avg" ? p.id : view, chk = PL[chkAt].gpm_check;
+    const chkAt = view === "avg" ? p.id : view, chk = PL[chkAt].rain_check;
     const cardHTML = (c0) => {
       const cd = c0.variants ? c0.variants[c0.crop_default] || Object.values(c0.variants)[0] : c0;  // upland: the default crop, as the main app shows
       const s = cd.scores;
@@ -602,7 +602,7 @@ ${tabs}
 <div class="vn-tiles">${tiles}</div>
 ${chart(c)}
 <p class="vn-salt">${esc(nm(sm.find((x) => x.salt) || { en: "", vi: "" }))}</p>
-${chk && chk.gpm_mm_yr ? `<p class="vn-note">${esc(fill(t("check"), { p: num(chk.power_mm_yr), g: num(chk.gpm_mm_yr), d: (chk.diff_pct > 0 ? "+" : "") + num(chk.diff_pct), r: num(chk.monthly_r, 2) }))} (${esc(t("pt"))}: ${esc(nm(PL[chkAt].name))})${cite(D.chart_src.slice(0, 2))}</p>` : ""}
+${chk && chk.chirps_mm_yr ? `<p class="vn-note">${esc(fill(t("check"), { p: num(chk.chirps_mm_yr), g: num(chk.imerg_mm_yr), d: (chk.diff_pct > 0 ? "+" : "") + num(chk.diff_pct), r: num(chk.monthly_r, 2) }))} (${esc(t("pt"))}: ${esc(nm(PL[chkAt].name))})${cite([...D.chart_src.slice(1, 2), ...D.rain_check_src])}</p>` : ""}
 <h3>${esc(t("summary"))}</h3><ul class="vn-lines">${sm.filter((x) => !x.salt).map(lineHTML).join("")}</ul>
 ${o.scored ? `<h3>${esc(t("cards"))}</h3><p class="vn-note">${esc(t("order"))}</p><ul class="vn-cards">${cards.map(cardHTML).join("")}</ul>` : `<p class="vn-notscored">${esc(nm(o.not_scored))}</p>`}
 ${(p.areas || []).length ? `<button type="button" class="vn-golink" data-home>${esc(t("open"))} →</button>` : ""}

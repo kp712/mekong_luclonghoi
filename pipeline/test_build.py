@@ -10,6 +10,7 @@ from datetime import date, timedelta
 
 import appeears
 import build
+import fetch_chirps
 import fetch_gpm
 import fetch_power
 import fetch_salinity_vietnam
@@ -56,8 +57,8 @@ def test_month_names():
     assert build.month_names([1, 2, 3, 4, 5], "vi") == "T1–T5" and build.month_names([3], "en") == "Mar"
 
 
-def test_gpm_covers_period():
-    gpm = json.loads((build.RAW / "gpm.json").read_text(encoding="utf-8"))
+def test_rain_covers_period():
+    gpm = json.loads((build.RAW / "chirps.json").read_text(encoding="utf-8"))
     need = {f"{y}-{m:02d}" for y in range(build.PERIOD[0].year, build.PERIOD[1].year + 1) for m in range(1, 13)
             if build.PERIOD[0] <= date(y, m, 1) <= build.PERIOD[1]}
     for pid, months in gpm.items():
@@ -72,13 +73,13 @@ def test_elnino_year():
     assert build.typical_year(date(2017, 6, 1)) and not build.typical_year(date(2016, 3, 1))
     assert not build.typical_year(date(2025, 3, 1))  # outside PERIOD
     assert build.PERIOD[1] == date(2024, 11, 30) and build.RECENT[0] == date(2014, 12, 1)
-    gpm = json.loads((build.RAW / "gpm.json").read_text(encoding="utf-8"))["tran_de"]
+    gpm = json.loads((build.RAW / "chirps.json").read_text(encoding="utf-8"))["tran_de"]
     typ, eln = (build.climate(power, site["lat"], keep, gpm) for keep in (build.typical_year, build.in_elnino))
-    assert typ["rain_mm"] != build.climate(power, site["lat"], build.typical_year)["rain_mm"]  # rain comes from GPM, not POWER
+    assert typ["rain_mm"] != build.climate(power, site["lat"], build.typical_year)["rain_mm"]  # rain comes from CHIRPS, not POWER
     for ym, keep in (("2022-11", build.typical_year), ("2024-11", build.in_elnino)):
         try:
             build.climate(power, site["lat"], keep, {k: v for k, v in gpm.items() if k != ym})
-            assert False, f"expected ValueError on missing GPM month {ym}"
+            assert False, f"expected ValueError on missing rain month {ym}"
         except ValueError as e:
             assert ym in str(e)
     # same check when every POWER day of the missing month is a fill value (-999): the month must not just vanish
@@ -88,7 +89,7 @@ def test_elnino_year():
             filled["parameter"]["T2M_MAX"][d] = -999
     try:
         build.climate(filled, site["lat"], build.typical_year, {k: v for k, v in gpm.items() if k != "2022-11"})
-        assert False, "expected ValueError on missing GPM month 2022-11 with POWER fill days"
+        assert False, "expected ValueError on missing rain month 2022-11 with POWER fill days"
     except ValueError as e:
         assert "2022-11" in str(e)
     assert len(build.climate(filled, site["lat"], build.typical_year)["rain_mm"]) == 12  # gpm=None: POWER-only helper still works
@@ -376,39 +377,42 @@ def test_salinity_station_data():
     assert same >= 9, same
 
 
-def test_gpm_cross_check():
+def test_chirps_cell():
+    # the v3 COG geotransform, read from its tags: top-left corner (-180, 60 N), 0.05 degree cells
+    geo = (-180.0, 0.05, 60.0, 0.05)
+    # half-open cells: a point on an edge belongs to the cell east of it (longitude) and south of it (latitude)
+    assert fetch_chirps.cell(105.95, 9.55, geo) == (5719, 1009)
+    assert fetch_chirps.cell(105.9499, 9.5501, geo) == (5718, 1008)
+
+
+def test_rain_cross_check():
     assert fetch_gpm.cell(105.96, 9.365) == (2859, 993)        # old Vĩnh Châu pin -> cell centred 105.95 E, 9.35 N
     assert fetch_gpm.mm_per_month(0.01, 2016, 1) == 7.4        # 0.01 mm/hr x 744 hours
     text = "Dataset: x\nprecipitation[0][0], 0.5, 0.25\nprecipitation[0][1], 0, -9999.9\nlat, 9.25, 9.35"
     assert fetch_gpm.parse(text) == [[0.5, 0.25], [0.0, -9999.9]]
     assert fetch_gpm.parse(text.replace("precipitation[", "/Grid/precipitation[")) == [[0.5, 0.25], [0.0, -9999.9]]  # cloud DAP4 CSV
-    days = {f"2020{m:02d}{d:02d}": float(m) for m in range(1, 13) for d in (1, 2)} | \
-           {f"2021{m:02d}{d:02d}": float(13 - m) for m in range(1, 13) for d in (1, 2)}
-    power = {"parameter": {"PRECTOTCORR": days}}
-    same = {f"{k[:4]}-{k[4:6]}": 2 * v for k, v in days.items()}  # monthly totals (2 days each) = POWER exactly
-    g = build.gpm_check(power, same)
-    assert g["diff_pct"] == 0 and g["monthly_r"] == 1.0 and g["months"] == 24, g
-    const = {k: 5.0 for k in same}
-    for fn in (lambda: build.gpm_check(power, const),):
-        try:
-            fn()
-            assert False, "expected StatisticsError on constant series"
-        except build.statistics.StatisticsError:
-            pass
+    imerg = {f"{y}-{m:02d}": float(m if y == 2020 else 13 - m) for y in (2020, 2021) for m in range(1, 13)}
+    chirps = {k: v / 2 for k, v in imerg.items()}
+    g = build.rain_check(chirps, imerg)
+    assert g["diff_pct"] == -50 and g["monthly_r"] == 1.0 and g["months"] == 24 and g["chirps_mm_yr"] == 39 and g["imerg_mm_yr"] == 78, g
+    const = {k: 5.0 for k in imerg}
     orig = getattr(build.statistics, "correlation", None)
     try:
-        if orig:
-            delattr(build.statistics, "correlation")
-        assert build.gpm_check(power, same) == g  # Python 3.8–3.9 fallback matches statistics.correlation
-        try:
-            build.gpm_check(power, const)
-            assert False, "expected StatisticsError on constant series in fallback"
-        except build.statistics.StatisticsError:
-            pass
+        for fallback in (False, True):
+            if fallback and orig:
+                delattr(build.statistics, "correlation")  # Python 3.8-3.9 fallback must agree
+            assert build.rain_check(chirps, imerg) == g
+            try:
+                build.rain_check(const, imerg)
+                assert False, "expected StatisticsError on constant series"
+            except build.statistics.StatisticsError:
+                pass
     finally:
         if orig:
             build.statistics.correlation = orig
-    assert build.gpm_check(power, dict(list(same.items())[:10])) is None   # too few months to compare
+    assert build.rain_check(dict(list(chirps.items())[:10]), imerg) is None   # too few months to compare
+    outside = {**chirps, "1990-01": 9.0, "2025-06": 9.0}   # months outside PERIOD are not compared
+    assert build.rain_check(outside, {**imerg, "1990-01": 1.0, "2025-06": 1.0}) == g
 
 
 def test_noaa_outlook():
@@ -458,8 +462,8 @@ def test_sites_json_contract():
             assert all(1 <= m <= 12 for m in h["bare_months"] + h["unknown_months"]) and not set(h["bare_months"]) & set(h["unknown_months"])
             assert len(h["years_covered_per_month"]) == 12 and all(0 <= n <= 10 for n in h["years_covered_per_month"])
             assert h["modis_bare_months"] == (s["ndvi"]["bare_months"] if s["ndvi"] else [])
-        if s["gpm_check"]:
-            assert -100 < s["gpm_check"]["diff_pct"] < 100 and -1 <= s["gpm_check"]["monthly_r"] <= 1
+        if s["rain_check"]:
+            assert -100 < s["rain_check"]["diff_pct"] < 100 and -1 <= s["rain_check"]["monthly_r"] <= 1
         for sm in (s["summary"], s["elnino"]["summary"]):
             assert all(x["en"] and x["vi"] for x in sm) and "NASA POWER" in sm[0]["en"]
             assert [x for x in sm if x.get("salt")] == [sm[1]] and "estimate" in sm[1]["en"] and "ước tính" in sm[1]["vi"]  # salinity always labelled
@@ -505,7 +509,7 @@ def test_sites_json_contract():
     rot_file = json.loads((build.HERE / "rotations.json").read_text(encoding="utf-8"))
     inputs = [x for r in rot_file["rotations"] for x in r["sources"] + r["calendar_sources"]] + [x for r in rot_file["rotations"] for v in r.get("local", {}).values() for x in v["sources"]] + [x for h in rot_file["soil_help"] for x in h["sources"]] \
         + [x for r in build.RESOURCES.values() for x in r["sources"]] + salinity.SOURCES + [build.PESTS["rice"]["source"]] + build.PESTS["shrimp"]["sources"] + [v["source"] for v in build.PESTS["upland"].values()] \
-        + [build.POWER_SRC, build.GPM_SRC, build.MODIS_SRC, build.HEAT_SRC, build.SOIL_SRC, build.ONI_SRC, build.OUTLOOK["source"], build.FAO29_SRC, build.FAO48_SRC]
+        + [build.POWER_SRC, build.CHIRPS_SRC, build.MODIS_SRC, build.HEAT_SRC, build.SOIL_SRC, build.ONI_SRC, build.OUTLOOK["source"], build.FAO29_SRC, build.FAO48_SRC]
     assert {x["title"] for x in inputs} <= set(titles), {x["title"] for x in inputs} - set(titles)
     assert "url" not in json.dumps(d["sites"]) and "data_sources" not in d   # no source lists left anywhere else
     unverified |= {x["title"] for x in S if not x["verified"]}
@@ -797,11 +801,11 @@ def test_province_helpers():
     b = {"rain_mm": [11] * 12, "et0_mm": [103] * 12, "tmax_c": [31.5] * 12}
     m = build.mean_climate([a, b])
     assert m["rain_mm"][0] == 10 and m["et0_mm"][0] == 102 and m["tmax_c"][0] == 30.8 and isinstance(m["et0_mm"][0], int), m
-    # every point needs its own GPM rain: a missing one stops the build instead of borrowing a neighbour's
+    # every point needs its own CHIRPS rain: a missing one stops the build instead of borrowing a neighbour's
     assert build.point_rain({"x": {"2001-01": 10}}, "x") == {"2001-01": 10}
     try:
         build.point_rain({}, "z")
-        raise AssertionError("missing GPM must raise")
+        raise AssertionError("missing rain must raise")
     except ValueError:
         pass
     # soil re-sampled near a town pin says how far away it is; soil at the pin itself has no distance
@@ -838,13 +842,13 @@ def test_provinces_output():
     assert d["sources"][d["region_src"][0]]["title"] == sites.REGION_SRC["title"]
     # its own numbered source list: every source cited, every citation real
     text = build.PROV_OUT.read_text(encoding="utf-8")
-    refs = [i for m in re.finditer(r'"(?:src|cal_src|chart_src|soil_src|region_src|elnino_src|ndvi_src|outline_src|salt_src)": \[([^\]]*)\]', text) for i in json.loads("[" + m.group(1) + "]")]
+    refs = [i for m in re.finditer(r'"(?:src|cal_src|chart_src|soil_src|region_src|elnino_src|ndvi_src|outline_src|salt_src|rain_check_src)": \[([^\]]*)\]', text) for i in json.loads("[" + m.group(1) + "]")]
     assert set(refs) == set(range(len(d["sources"]))) and "url" not in json.dumps(d["provinces"]) + json.dumps(d["places"])
     vi = re.findall(r'"vi": "((?:[^"\\]|\\.)*)"', text)
     assert vi and not [v for v in vi if re.search(r"\d\.\d(?!\d\d(?!\d))", v)], "Vietnamese text must use decimal commas"
     for p in d["provinces"]:
         assert len(p["climate"]["rain_mm"]) == 12 and len(p["elnino"]["climate"]["rain_mm"]) == 12
-        assert p["points"]["power"] == p["points"]["gpm"] == [f["id"] for f in p["former"]] and set(p["points"]["soil"]) <= set(p["points"]["power"])
+        assert p["points"]["power"] == p["points"]["rain"] == [f["id"] for f in p["former"]] and set(p["points"]["soil"]) <= set(p["points"]["power"])
         assert p["salinity"]["level"] == "unknown" and p["salinity"]["estimate"] is True
         assert (p["soil"] is None) == (not p["points"]["soil"])
         assert p["scored"] == (p["region"] == "mekong_delta") and bool(p["cards"]) == p["scored"] and bool(p["elnino"]["cards"]) == p["scored"]
@@ -865,7 +869,7 @@ def test_provinces_output():
     region = {p["id"]: p["region"] for p in sites.PROVINCES}
     for x in places:
         assert x["region"] == region[x["province"]] and x["own"] == (x["id"] == x["province"]), x["id"]
-        assert len(x["climate"]["rain_mm"]) == 12 and len(x["elnino"]["climate"]["rain_mm"]) == 12 and x["gpm_check"]
+        assert len(x["climate"]["rain_mm"]) == 12 and len(x["elnino"]["climate"]["rain_mm"]) == 12 and x["rain_check"]
         assert (x["ndvi"] is not None) == (build.RAW / f"ndvi_{x['id']}.json").exists(), x["id"]
         if x["ndvi"]:  # a town or water pixel is kept for display but never feeds the summary or the cards
             assert x["ndvi"]["farmland"] == (max(x["ndvi"]["monthly"]) >= build.FARM_NDVI)
@@ -919,7 +923,7 @@ def test_no_orphans():
     ids = {p["id"] for p in sites.points()}
     per_point = [f for f in build.RAW.iterdir() if re.match(r"(power|soil|ndvi|hls)_", f.name)]
     assert not [f.name for f in per_point if f.name.split("_", 1)[1].split(".")[0] not in ids]
-    assert set(json.loads((build.RAW / "gpm.json").read_text(encoding="utf-8"))) == ids
+    assert set(json.loads((build.RAW / "chirps.json").read_text(encoding="utf-8"))) == ids
     js = (build.ROOT / "docs" / "app" / "tiles.js").read_text(encoding="utf-8")
     tiles = json.loads(js[js.index("{"):js.rindex("}") + 1])
     base = build.ROOT / "docs" / tiles["path"] / "sat"

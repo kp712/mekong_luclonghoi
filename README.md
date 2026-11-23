@@ -8,10 +8,10 @@
 
 | Trên điện thoại (tiếng Việt) | Trên máy tính (tiếng Anh) |
 |---|---|
-| <img src="media/phone.jpg" alt="Ứng dụng trên điện thoại, tiếng Việt: ngày hôm nay, ruộng mẫu ở Mỹ Xuyên, kế hoạch 3 vụ lúa, vụ lúa đang ở ngày 53 trên 95, còn 42 ngày tới gặt, và thanh dưới: Hôm nay, Mùa vụ, Kế hoạch, Số liệu, Ruộng" width="300"> | <img src="media/desktop.jpg" alt="The app on a computer in English: the sample field's current rice crop with days to harvest and the next step, this month's rain (NASA GPM IMERG), crop water need (NASA POWER) and greenness (NASA MODIS NDVI), and this month's pest level for brown planthopper" width="500"> |
+| <img src="media/phone.jpg" alt="Ứng dụng trên điện thoại, tiếng Việt: ngày hôm nay, ruộng mẫu ở Mỹ Xuyên, kế hoạch 3 vụ lúa, vụ lúa đang ở ngày 53 trên 95, còn 42 ngày tới gặt, và thanh dưới: Hôm nay, Mùa vụ, Kế hoạch, Số liệu, Ruộng" width="300"> | <img src="media/desktop.jpg" alt="The app on a computer in English: the sample field's current rice crop with days to harvest and the next step, this month's rain (CHIRPS), crop water need (NASA POWER) and greenness (NASA MODIS NDVI), and this month's pest level for brown planthopper" width="500"> |
 
 **Dành cho bà con và cán bộ khuyến nông**
-- **Số liệu từ đâu.** Mưa, nắng nóng và độ xanh của ruộng lấy từ vệ tinh NASA (2000–2024). Độ mặn là **ước tính** từ trạm đo trên sông (bản tin của Trung tâm Dự báo KTTV quốc gia và báo cáo đã công bố), không phải đo trong ruộng. Mỗi con số trong ứng dụng đều ghi nguồn.
+- **Số liệu từ đâu.** Mưa lấy từ CHIRPS (Trung tâm Khí hậu của Đại học California Santa Barbara, ước tính từ vệ tinh và trạm đo mưa); nắng nóng và độ xanh của ruộng lấy từ vệ tinh NASA (2000–2024). Độ mặn là **ước tính** từ trạm đo trên sông (bản tin của Trung tâm Dự báo KTTV quốc gia và báo cáo đã công bố), không phải đo trong ruộng. Mỗi con số trong ứng dụng đều ghi nguồn.
 - **Không có sóng vẫn dùng được.** Lần đầu mở, điện thoại tự lưu ứng dụng và số liệu (khoảng 0,8 MB). Sau đó mở được khi không có mạng. Chọn "Thêm vào Màn hình chính" để có biểu tượng như một ứng dụng.
 - **Một cách xem cho mọi người.** Lời dễ hiểu, nút lớn; chạm **Vì sao & nguồn** (và các mục gập khác) để xem mọi con số, điểm và nguồn.
 - **So với cách đang làm.** Mỗi cách luân canh ghi rõ so với cách bạn đang trồng: tiền lời và tiền vốn hơn kém bao nhiêu cho diện tích ruộng của bạn, và số tháng cây bị mặn nhiều hay ít hơn (ước tính từ số liệu đã công bố).
@@ -35,7 +35,7 @@ Rice farmers in coastal Sóc Trăng, in Vietnam's Mekong Delta, grow two or thre
 ### What it does
 1. **Pick your area and say what you grow.** Five areas of the former Sóc Trăng province, from the coast (Vĩnh Châu, Trần Đề) to inland (Ngã Năm). The farmer enters each field: its size and what is in it now.
 2. **Compare rotations.** **Plan (+)** ranks the options for that area by five priorities: save water, more income, better soil, lower weather & salt risk, fewer pests. Each card shows its calendar, its scores, why it is suggested, its benefits and its risks, with numbered sources. Each card also says how it differs from what the farmer grows now: profit and cost for their own hectares, and months with crops in salty water (estimates from published figures); the current rotation always stays on screen. The upland option lets the farmer choose watermelon, maize or mung bean. A typical year and an El Niño year can be compared; the app opens on El Niño while NOAA forecasts one.
-3. **Follow the field day by day.** **Today** shows the crop in the field (a drawn field scene, days to harvest, the next job), this month's rain against what the crop needs, field greenness and this month's pest level, each with the NASA dataset it comes from. The date bar plays the coming 1, 2 or 3 years.
+3. **Follow the field day by day.** **Today** shows the crop in the field (a drawn field scene, days to harvest, the next job), this month's rain against what the crop needs, field greenness and this month's pest level, each with the dataset it comes from. The date bar plays the coming 1, 2 or 3 years.
 4. **See the season and the evidence.** **Season** is the 12-month calendar. **Data** shows salt in the field and over 12 months, the months a crop is safe from salt, estimated profit, the five scores, the El Niño outlook, sowing and harvest reminders, and a multi-year view.
 5. **Several fields, one phone.** **Fields** keeps each field's area, crops, priorities and plan, saved on that phone only.
 
@@ -44,7 +44,8 @@ One view for everyone: plain words and big buttons; tap **Why & sources** (and t
 ### NASA data it uses
 | Dataset | What it gives the app | Resolution, period |
 |---|---|---|
-| [NASA GPM IMERG Final monthly v07](https://disc.gsfc.nasa.gov/datasets/GPM_3IMERGM_07/summary) | Rain each month | ~10 km, Dec 2000 – Nov 2024 |
+| [NASA GPM IMERG Final monthly v07](https://disc.gsfc.nasa.gov/datasets/GPM_3IMERGM_07/summary) | Only a cross-check of the rain below | ~10 km, Dec 2000 – Nov 2024 |
+| [CHIRPS v3.0](https://www.chc.ucsb.edu/data/chirps3) (Climate Hazards Center, UC Santa Barbara; not NASA) | Rain each month (satellite and rain-gauge estimate) | ~5 km, Dec 2000 – Nov 2024 |
 | [NASA POWER daily API](https://power.larc.nasa.gov/) (MERRA-2 based) | Temperature, humidity, wind and sunlight → crop water demand (FAO-56 Penman–Monteith ET₀); days at or above 35 °C; mean temperature for pest pressure | ~50 km, Dec 2000 – Nov 2024 |
 | [NASA MODIS MOD13Q1 v6.1 NDVI](https://lpdaac.usgs.gov/products/mod13q1v061/) via [NASA AppEEARS](https://appeears.earthdatacloud.nasa.gov/) | Field greenness, crops per year, months fields are usually bare | 250 m, 16-day, 2000–2025 |
 
@@ -55,7 +56,7 @@ Each rotation gets five scores from 1.0 to 5.0 (higher is better), computed for 
 
 | Score | In one line |
 |---|---|
-| Water | Share of three rice crops' yearly canal water the rotation saves (FAO method, NASA POWER + GPM). |
+| Water | Share of three rice crops' yearly canal water the rotation saves (FAO method, NASA POWER + CHIRPS). |
 | Income | Yearly profit against three rice crops, from the median of published profit figures for each crop. Not scored for mung bean, which has no checked figure. |
 | Soil | Legume months, an optional cover crop and dry breaks help; brackish shrimp months leave salt. |
 | Weather & salt | Crops in the field during the area's salt months, hot days and canal water needed when water is salty. |
@@ -65,18 +66,18 @@ The match is the average of the five, weighted by the farmer's priorities. Every
 
 ### How we know it holds up
 - **Pins sit on rice.** Each area's pin must look like rice in NASA MODIS (250 m) and NASA HLS (30 m) greenness. The 30 m check moved the Vĩnh Châu pin off shrimp ponds and the Ngã Năm pin off garden land in November 2026. The pins show 1.9–2.4 crops a year over the last 10 seasons.
-- **NASA data finds the known droughts.** Ranked by dry-season water shortfall, 4 of the 5 driest seasons since 2000 at Trần Đề are El Niño seasons, including 2015–16 and 2019–20, the worst droughts in Vietnamese reports.
-- **Two NASA rain sources agree.** GPM and POWER rain correlate at 0.93 month to month at every pin.
+- **NASA data finds the known droughts.** Ranked by dry-season water shortfall, 4 of the 5 driest seasons since 2000 at Trần Đề are El Niño seasons, including 2019–20, one of the worst droughts in Vietnamese reports (2015–16 ranks seventh with CHIRPS rain).
+- **Two rain sources agree.** CHIRPS and NASA GPM IMERG rain correlate at 0.93–0.94 month to month at every pin; CHIRPS's yearly totals are within −6% to +1% of IMERG's at the 5 pins and its Dec–Apr totals 5–14% lower. Against the one rain gauge we could read (Cà Mau, which CHIRPS itself uses, so not independent) CHIRPS is 13% wetter for the year and IMERG 23%.
 - **Methods reproduce their references.** Water demand matches FAO-56's worked example (3.88 vs 3.9 mm/day); canal water reproduces FAO Manual 3's rice example.
 - **The ranking survives our guesses.** Moving each team-estimate constant (salt tolerance, heat reference, brackish soil loss, soil and weather weights, pest break) by ±20% never changes the best rotation at any of the 5 areas (`python pipeline/sensitivity.py`; income and water are held at their built values).
-- **Every claim has a link,** and a source is marked checked only after the claim was found in it with a quote. 59 automated checks (`python pipeline/test_build.py`) cover the calculations and the data the app reads.
+- **Every claim has a link,** and a source is marked checked only after the claim was found in it with a quote. 69 automated checks (`python pipeline/test_build.py`) cover the calculations and the data the app reads.
 
 Details and numbers: [SOURCES.md](SOURCES.md#how-we-checked-it).
 
 ### Limitations
 - Five preset areas, not any field: weather describes a 10–50 km area and greenness one 250 m pixel. The method extends to the whole Delta ([how](SOURCES.md#using-it-anywhere-in-the-delta)); salinity records and crop calendars are the local work.
 - Typical and El Niño weather and rain are averages of 2000–2024, not forecasts; salt uses the dry seasons 2016–2026.
-- The data also covers 6 southern provinces (the Mekong Delta's 5 and Tây Ninh, 14 former provinces) on the app's one map: zoom out from the Sóc Trăng areas, or tap **ĐBSCL** in the top bar. NASA weather and rain for all; rotation scores in the 12 Mekong Delta former provinces and former Long An; a salinity estimate only where a KTTV station lies within 25 km (6 of the 14 points), so elsewhere weather & salt is not scored and confidence is mostly Low ([details](SOURCES.md#the-6-provinces)). We cover the south first and will add more provinces once it is refined.
+- The data also covers 6 southern provinces (the Mekong Delta's 5 and Tây Ninh, 14 former provinces) on the app's one map: zoom out from the Sóc Trăng areas, or tap **ĐBSCL** in the top bar. NASA weather and CHIRPS rain for all; rotation scores in the 12 Mekong Delta former provinces and former Long An; a salinity estimate only where a KTTV station lies within 25 km (6 of the 14 points), so elsewhere weather & salt is not scored and confidence is mostly Low ([details](SOURCES.md#the-6-provinces)). We cover the south first and will add more provinces once it is refined.
 - Salinity comes from river and canal stations, not fields. Each Sóc Trăng typical-year average rests on 4–6 dry seasons and each El Niño average on 3–4; the other provinces rest on 1–3 seasons of 10-day bulletins, and the El Niño view on one season (2024).
 - Scores are our rules from published sources, not calibrated against farm yields; profits are medians of published figures from other places and years. Some constants are team estimates, and each one lowers the card's confidence.
 - Pest pressure for rice comes from a lab temperature curve and is nearly flat across months here; upland and shrimp pests follow the calendar.
@@ -155,12 +156,13 @@ You don't need this to use the app. The data in the download is already complete
 py pipeline/fetch_power.py      # NASA POWER rain + temperature, NOAA El Niño index + forecast -> data/raw/ (no login)
 py pipeline/appeears.py ndvi    # NASA MODIS greenness via AppEEARS (needs Earthdata login, see below; can take hours)
 py pipeline/fetch_soil.py       # SoilGrids topsoil (slow website: if it stops, run it again to continue)
-py pipeline/fetch_gpm.py        # NASA GPM rain, the rain the app shows (needs Earthdata login, see below)
+py pipeline/fetch_chirps.py     # CHIRPS v3.0 rain, the rain the app shows (no login; needs tifffile and imagecodecs)
+py pipeline/fetch_gpm.py        # NASA GPM IMERG rain, only the cross-check of CHIRPS (needs Earthdata login, see below)
 py pipeline/fetch_salinity_vietnam.py  # KTTV 10-day salinity bulletins -> data/raw/salinity_kttv_vietnam.json (no login; writes nothing if any fetch fails or a bulletin on file would be lost)
 py pipeline/build.py            # combines everything into docs/data/ and docs/app/builder.js
-py pipeline/test_build.py       # expect 60 ok lines, the unknown-ID fixture warning, a rebuild message and any unverified sources
+py pipeline/test_build.py       # expect 69 ok lines, the unknown-ID fixture warning, a rebuild message and any unverified sources
 ```
-`build.py` also writes the Plan Lab's `docs/app/builder.js`; never edit it by hand. The tests and `build.py` need only Python's standard library. `fetch_salinity_vietnam.py` also needs `pdfplumber` to read the bulletin PDFs: run `py -m pip install pdfplumber` once, before the tests (they load that script).
+`build.py` also writes the Plan Lab's `docs/app/builder.js`; never edit it by hand. `build.py` needs only Python's standard library. `fetch_salinity_vietnam.py` needs `pdfplumber` to read the bulletin PDFs and `fetch_chirps.py` needs `tifffile` and `imagecodecs`: run `py -m pip install pdfplumber tifffile imagecodecs` once, before the tests (they load those scripts).
 **NASA Earthdata login** (free account at https://urs.earthdata.nasa.gov; for `fetch_gpm.py` also approve **NASA GESDISC DATA ARCHIVE** under Applications → Authorized Apps). Type these two lines in the same PowerShell window before running `appeears.py` or `fetch_gpm.py`, with your own details between the quotes. They only last until you close the window:
 ```
 $env:EARTHDATA_USERNAME = "your-username"

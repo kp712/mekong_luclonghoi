@@ -7,7 +7,7 @@ PROVINCES: the 6 southern provinces the app covers (the Mekong Delta's 5 plus TÃ
 Vietnam's 34 since 1 July 2025 (National Assembly Resolution 202/2025/QH15: 63 -> 34), each in its socio-economic region (Government Resolution 306/NQ-CP, 5 Oct 2025, which
 adjusts the National Master Plan 2021-2030). `former` lists the pre-July-2025 provinces each one now covers, with one
 data point per former province (its former capital). A province's own lat/lon is the former point with the same id.
-Data files are per point: data/raw/power_<point id>.json, soil_<point id>.json, and gpm.json[<point id>].
+Data files are per point: data/raw/power_<point id>.json, soil_<point id>.json, and chirps.json[<point id>] (gpm.json is the cross-check).
 build.py averages a province's points; `points()` is the list the fetch scripts download.
 """
 

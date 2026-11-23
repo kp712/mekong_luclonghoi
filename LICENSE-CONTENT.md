@@ -6,6 +6,7 @@
 
 **Third-party data keeps its own terms.** This licence does not cover them; see [SOURCES.md](SOURCES.md) for each source:
 - NASA POWER, GPM IMERG, MODIS and HLS data: NASA open data, no restrictions on use; credit NASA.
+- CHIRPS v3.0 rain: Climate Hazards Center, UC Santa Barbara, which has waived copyright and related rights; credit CHC (Funk et al., Scientific Data 2026, doi:10.1038/s41597-026-07096-4).
 - Satellite imagery tiles (`docs/app/tiles/`): © Esri, Maxar, Earthstar Geographics, under Esri's terms of use.
 - Province outlines: geoBoundaries / OCHA, CC BY 3.0 IGO.
 - Station positions: OpenStreetMap contributors, ODbL.

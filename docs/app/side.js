@@ -2,7 +2,7 @@
    for the drawer.
    - #side: before an area is picked, the 5 areas (salt level, usual salt months), the month
      slider (#d5Month from extra.js, moved in here on desktop) and a salt legend; after a pick,
-     a short summary of the area for the slider's month (NASA GPM rain, NASA POWER water need,
+     a short summary of the area for the slider's month (CHIRPS rain, NASA POWER water need,
      salt estimate, NASA MODIS crops a year).
    - #dFull in the drawer head toggles body.drawer-full (drawer over the whole map; the phone
      sheet at full height). Esc leaves full screen before app.js closes the drawer.
@@ -114,7 +114,7 @@ const Side = (() => {
           <dd><b>${nf(rain)} mm</b><span>${esc(L(T.need))} ~${nf(need)} mm</span></dd>
           <dd class="sd-bars" aria-hidden="true"><i class="r" style="width:${(100 * rain / top).toFixed(1)}%"></i><i class="n" style="width:${(100 * need / top).toFixed(1)}%"></i></dd>
           <dd class="sd-say">${esc(L(rain >= need ? T.rainUp : T.rainDown))}</dd>
-          <dd class="sd-src">NASA GPM IMERG · NASA POWER</dd></div>
+          <dd class="sd-src">CHIRPS · NASA POWER</dd></div>
         <div class="sd-stat"><dt>${esc(L(T.salt))}</dt>
           <dd${salty ? ' class="risk"' : ""}><b>${esc(L(salty ? T.yes : T.no))}</b>${salty ? `<span>${esc(lvName(r).toLowerCase())}</span>` : ""}</dd>
           <dd class="sd-src">${esc(L(T.saltSrc))}</dd></div>
