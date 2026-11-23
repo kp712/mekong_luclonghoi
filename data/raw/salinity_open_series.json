@@ -1,0 +1,311 @@
+{
+ "_readme": "Older salinity seasons (1999-2016) of three KTTV stations from two open datasets, so the salt window starts in 1999. Trà Vinh and Cầu Quan: Mendeley Data 10.17632/fm996rrfyz.1 (Doan Van Binh et al., CC BY 4.0), the yearly maximum, g/l read as ‰ (house convention), no month, so a season counts toward the level and never toward salt months. Mendeley's station named 'Trà Vinh' is ASSUMED to be KTTV's 'Trà Vinh' (unconfirmed). Sơn Đốc: GFZ 10.5880/GFZ.4.4.2024.004 (Apel et al., data from SRHMC, CC BY 4.0), the highest 2-hourly reading of each Oct-Jun season and its month (GFZ's site is 3.5 km from KTTV's approximate Sơn Đốc position); partial = no reading in February or none in March. Coverage is patchy, so a maximum can understate the season. In the Mendeley sheet itself, 1999 and 2000 are identical at the two stations (the other years differ): kept as published, possibly a fill. Where a KTTV bulletin season covers the same station and year, the KTTV value wins (none before 2024).",
+ "sources": {
+  "mendeley": {
+   "doi": "10.17632/fm996rrfyz.1",
+   "licence": "CC BY 4.0",
+   "url": "https://data.mendeley.com/public-files/datasets/fm996rrfyz/files/ab873959-0e6c-4db0-8b87-d32334eca66d/file_downloaded"
+  },
+  "gfz": {
+   "doi": "10.5880/GFZ.4.4.2024.004",
+   "licence": "CC BY 4.0",
+   "url": "https://datapub.gfz.de/download/10.5880.GFZ.4.4.2024.004-QWn/2024-004_Apel_salinity_SONDOC_1996-2016.csv"
+  }
+ },
+ "stations": {
+  "Trà Vinh": {
+   "1999": {
+    "ppt": 9.0,
+    "month": null,
+    "src": "mendeley"
+   },
+   "2000": {
+    "ppt": 6.4,
+    "month": null,
+    "src": "mendeley"
+   },
+   "2001": {
+    "ppt": 7.6,
+    "month": null,
+    "src": "mendeley"
+   },
+   "2002": {
+    "ppt": 7.9,
+    "month": null,
+    "src": "mendeley"
+   },
+   "2003": {
+    "ppt": 11.3,
+    "month": null,
+    "src": "mendeley"
+   },
+   "2004": {
+    "ppt": 8.3,
+    "month": null,
+    "src": "mendeley"
+   },
+   "2005": {
+    "ppt": 10.8,
+    "month": null,
+    "src": "mendeley"
+   },
+   "2006": {
+    "ppt": 9.0,
+    "month": null,
+    "src": "mendeley"
+   },
+   "2007": {
+    "ppt": 9.5,
+    "month": null,
+    "src": "mendeley"
+   },
+   "2008": {
+    "ppt": 9.9,
+    "month": null,
+    "src": "mendeley"
+   },
+   "2009": {
+    "ppt": 9.9,
+    "month": null,
+    "src": "mendeley"
+   },
+   "2010": {
+    "ppt": 10.7,
+    "month": null,
+    "src": "mendeley"
+   },
+   "2011": {
+    "ppt": 11.1,
+    "month": null,
+    "src": "mendeley"
+   },
+   "2012": {
+    "ppt": 9.1,
+    "month": null,
+    "src": "mendeley"
+   },
+   "2013": {
+    "ppt": 12.8,
+    "month": null,
+    "src": "mendeley"
+   },
+   "2014": {
+    "ppt": 6.0,
+    "month": null,
+    "src": "mendeley"
+   },
+   "2015": {
+    "ppt": 11.1,
+    "month": null,
+    "src": "mendeley"
+   },
+   "2016": {
+    "ppt": 14.6,
+    "month": null,
+    "src": "mendeley"
+   }
+  },
+  "Cầu Quan": {
+   "1999": {
+    "ppt": 9.0,
+    "month": null,
+    "src": "mendeley"
+   },
+   "2000": {
+    "ppt": 6.4,
+    "month": null,
+    "src": "mendeley"
+   },
+   "2001": {
+    "ppt": 6.0,
+    "month": null,
+    "src": "mendeley"
+   },
+   "2002": {
+    "ppt": 6.3,
+    "month": null,
+    "src": "mendeley"
+   },
+   "2003": {
+    "ppt": 7.9,
+    "month": null,
+    "src": "mendeley"
+   },
+   "2004": {
+    "ppt": 10.5,
+    "month": null,
+    "src": "mendeley"
+   },
+   "2005": {
+    "ppt": 10.9,
+    "month": null,
+    "src": "mendeley"
+   },
+   "2006": {
+    "ppt": 9.7,
+    "month": null,
+    "src": "mendeley"
+   },
+   "2007": {
+    "ppt": 8.9,
+    "month": null,
+    "src": "mendeley"
+   },
+   "2008": {
+    "ppt": 10.0,
+    "month": null,
+    "src": "mendeley"
+   },
+   "2009": {
+    "ppt": 6.3,
+    "month": null,
+    "src": "mendeley"
+   },
+   "2010": {
+    "ppt": 11.8,
+    "month": null,
+    "src": "mendeley"
+   },
+   "2011": {
+    "ppt": 8.3,
+    "month": null,
+    "src": "mendeley"
+   },
+   "2012": {
+    "ppt": 8.4,
+    "month": null,
+    "src": "mendeley"
+   },
+   "2013": {
+    "ppt": 12.0,
+    "month": null,
+    "src": "mendeley"
+   },
+   "2014": {
+    "ppt": 9.5,
+    "month": null,
+    "src": "mendeley"
+   },
+   "2015": {
+    "ppt": 10.1,
+    "month": null,
+    "src": "mendeley"
+   },
+   "2016": {
+    "ppt": 16.5,
+    "month": null,
+    "src": "mendeley"
+   }
+  },
+  "Sơn Đốc": {
+   "1999": {
+    "ppt": 10.5,
+    "month": 2,
+    "partial": false,
+    "src": "gfz"
+   },
+   "2000": {
+    "ppt": 8.7,
+    "month": 4,
+    "partial": false,
+    "src": "gfz"
+   },
+   "2001": {
+    "ppt": 10.0,
+    "month": 3,
+    "partial": false,
+    "src": "gfz"
+   },
+   "2002": {
+    "ppt": 9.0,
+    "month": 4,
+    "partial": false,
+    "src": "gfz"
+   },
+   "2003": {
+    "ppt": 10.3,
+    "month": 3,
+    "partial": false,
+    "src": "gfz"
+   },
+   "2004": {
+    "ppt": 16.7,
+    "month": 3,
+    "partial": false,
+    "src": "gfz"
+   },
+   "2005": {
+    "ppt": 24.1,
+    "month": 4,
+    "partial": false,
+    "src": "gfz"
+   },
+   "2006": {
+    "ppt": 13.7,
+    "month": 3,
+    "partial": false,
+    "src": "gfz"
+   },
+   "2007": {
+    "ppt": 14.5,
+    "month": 4,
+    "partial": false,
+    "src": "gfz"
+   },
+   "2008": {
+    "ppt": 8.5,
+    "month": 4,
+    "partial": false,
+    "src": "gfz"
+   },
+   "2009": {
+    "ppt": 11.8,
+    "month": 4,
+    "partial": false,
+    "src": "gfz"
+   },
+   "2010": {
+    "ppt": 17.6,
+    "month": 3,
+    "partial": false,
+    "src": "gfz"
+   },
+   "2011": {
+    "ppt": 14.5,
+    "month": 3,
+    "partial": false,
+    "src": "gfz"
+   },
+   "2012": {
+    "ppt": 13.1,
+    "month": 4,
+    "partial": false,
+    "src": "gfz"
+   },
+   "2013": {
+    "ppt": 19.3,
+    "month": 3,
+    "partial": false,
+    "src": "gfz"
+   },
+   "2014": {
+    "ppt": 9.1,
+    "month": 3,
+    "partial": false,
+    "src": "gfz"
+   },
+   "2015": {
+    "ppt": 15.8,
+    "month": 3,
+    "partial": false,
+    "src": "gfz"
+   },
+   "2016": {
+    "ppt": 27.4,
+    "month": 2,
+    "partial": false,
+    "src": "gfz"
+   }
+  }
+ }
+}

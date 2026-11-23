@@ -1,0 +1,1840 @@
+{
+ "_readme": "Raw values for research/provincial-salinity-bulletins.md. Probed 2026-11-23 from the cloud sandbox. Units: bulletin permille; Mendeley and GFZ g/l (treated as permille).",
+ "vilo_url_pattern": "https://thanhduc.vinhlong.gov.vn/Portals/1216/VILO_XMAN_<YYYYMMDD>_<HHMM>.pdf",
+ "vilo_hits_200": [
+  "20260402_1700",
+  "20260416_1700",
+  "20260507_1700",
+  "20260514_1700"
+ ],
+ "vilo_probe": {
+  "2026-01-01..2026-06-30": "all days x times 1500,1530,1600,1630,1700,1730: 4 hits (above), 1082 x 404",
+  "2024-01-01..2025-12-31": "all days x 1700,1600: 0 hits, 1462 x 404",
+  "2026-07-01..2026-11-22": "all days x 1700,1600: 0 hits, 290 x 404"
+ },
+ "vilo_quote": "Độ mặn cao nhất tại các trạm: Sông | Trạm | Cách Cửa sông | Smax (‰) | Ngày xuất hiện | Cùng kỳ năm 2025",
+ "vilo_issues": {
+  "20260402": {
+   "meta": {
+    "number": "XMAN-11/17h00/VILO",
+    "period": "02/04 đến ngày 11/04/2026",
+    "issued": "02 tháng 4 năm 2026"
+   },
+   "rows": [
+    {
+     "river": "Cửa Đại",
+     "station": "Bình Đại",
+     "km": 8.0,
+     "smax": 19.2,
+     "days": "27",
+     "last_year": null
+    },
+    {
+     "river": "Cửa Đại",
+     "station": "Lộc Thuận",
+     "km": 21.0,
+     "smax": 10.8,
+     "days": "30",
+     "last_year": null
+    },
+    {
+     "river": "Cửa Đại",
+     "station": "Giao Hòa",
+     "km": 39.0,
+     "smax": 1.9,
+     "days": "26",
+     "last_year": 5.2
+    },
+    {
+     "river": "Cửa Đại",
+     "station": "Quới Sơn",
+     "km": 48.0,
+     "smax": 0.6,
+     "days": "26",
+     "last_year": 1.7
+    },
+    {
+     "river": "Cửa Đại",
+     "station": "An Khánh",
+     "km": 56.0,
+     "smax": 0.1,
+     "days": "26/3-2/4",
+     "last_year": 0.6
+    },
+    {
+     "river": "Cửa Đại",
+     "station": "Phú Túc",
+     "km": 64.0,
+     "smax": 0.1,
+     "days": "26/3-2/4",
+     "last_year": 0.3
+    },
+    {
+     "river": "Sông Ba lai",
+     "station": "Long Hòa",
+     "km": 46.0,
+     "smax": 0.8,
+     "days": "26;28",
+     "last_year": 2.9
+    },
+    {
+     "river": "Sông Ba lai",
+     "station": "Ba Lai 1",
+     "km": 54.0,
+     "smax": 0.5,
+     "days": "26;27",
+     "last_year": 1.5
+    },
+    {
+     "river": "Sông Ba lai",
+     "station": "Tân Phú",
+     "km": 72.0,
+     "smax": 0.1,
+     "days": "26/3-2/4",
+     "last_year": 0.3
+    },
+    {
+     "river": "Hàm Luông",
+     "station": "An Thuận",
+     "km": 6.0,
+     "smax": 18.5,
+     "days": "27",
+     "last_year": null
+    },
+    {
+     "river": "Hàm Luông",
+     "station": "Sơn Đốc",
+     "km": 23.0,
+     "smax": 8.1,
+     "days": "27",
+     "last_year": null
+    },
+    {
+     "river": "Hàm Luông",
+     "station": "Phú Khánh",
+     "km": 24.0,
+     "smax": 7.2,
+     "days": "26;29",
+     "last_year": 16.4
+    },
+    {
+     "river": "Hàm Luông",
+     "station": "Vàm Cái Quao",
+     "km": 34.0,
+     "smax": 4.4,
+     "days": "26",
+     "last_year": 12.0
+    },
+    {
+     "river": "Hàm Luông",
+     "station": "Vàm Thủ Cửu",
+     "km": 37.0,
+     "smax": 2.4,
+     "days": "26",
+     "last_year": 9.2
+    },
+    {
+     "river": "Hàm Luông",
+     "station": "Vàm Nước Trong",
+     "km": 43.0,
+     "smax": 1.6,
+     "days": "26",
+     "last_year": 8.0
+    },
+    {
+     "river": "Hàm Luông",
+     "station": "Mỹ Hóa",
+     "km": 48.0,
+     "smax": 1.0,
+     "days": "26",
+     "last_year": 6.7
+    },
+    {
+     "river": "Hàm Luông",
+     "station": "Thanh Tân",
+     "km": 54.0,
+     "smax": 0.4,
+     "days": "26",
+     "last_year": 4.8
+    },
+    {
+     "river": "Hàm Luông",
+     "station": "An Hiệp",
+     "km": 56.0,
+     "smax": 0.3,
+     "days": "26/3-1/4",
+     "last_year": 4.4
+    },
+    {
+     "river": "Hàm Luông",
+     "station": "Vàm Mơn",
+     "km": 64.0,
+     "smax": 0.1,
+     "days": "26/3-2/4",
+     "last_year": 2.2
+    },
+    {
+     "river": "Hàm Luông",
+     "station": "Hòa Nghĩa",
+     "km": 72.0,
+     "smax": 0.1,
+     "days": "26/3-2/4",
+     "last_year": 0.3
+    },
+    {
+     "river": "Sông Tiền",
+     "station": "Chợ Lách",
+     "km": 78.0,
+     "smax": 0.1,
+     "days": "26/3-2/4",
+     "last_year": 0.2
+    },
+    {
+     "river": "Sông Tiền",
+     "station": "Cái Muối",
+     "km": 90.0,
+     "smax": 0.1,
+     "days": "26/3-2/4",
+     "last_year": 0.1
+    },
+    {
+     "river": "Sông Tiền",
+     "station": "Đồng Phú",
+     "km": 93.0,
+     "smax": 0.1,
+     "days": "26/3-2/4",
+     "last_year": 0.1
+    },
+    {
+     "river": "Cổ Chiên",
+     "station": "Bến Trại",
+     "km": 11.0,
+     "smax": 19.7,
+     "days": "28",
+     "last_year": null
+    },
+    {
+     "river": "Cổ Chiên",
+     "station": "Hưng Mỹ",
+     "km": 20.0,
+     "smax": 6.1,
+     "days": "30",
+     "last_year": 14.8
+    },
+    {
+     "river": "Cổ Chiên",
+     "station": "Hương Mỹ",
+     "km": 29.0,
+     "smax": 3.7,
+     "days": "01",
+     "last_year": null
+    },
+    {
+     "river": "Cổ Chiên",
+     "station": "Trà Vinh",
+     "km": 33.0,
+     "smax": 2.9,
+     "days": "01",
+     "last_year": 11.2
+    },
+    {
+     "river": "Cổ Chiên",
+     "station": "Cẩm Sơn",
+     "km": 36.0,
+     "smax": 2.2,
+     "days": "31;01",
+     "last_year": 9.3
+    },
+    {
+     "river": "Cổ Chiên",
+     "station": "Láng Thé",
+     "km": 39.0,
+     "smax": 1.9,
+     "days": "01",
+     "last_year": 6.6
+    },
+    {
+     "river": "Cổ Chiên",
+     "station": "Đức Mỹ",
+     "km": 46.0,
+     "smax": 1.3,
+     "days": "01",
+     "last_year": 5.5
+    },
+    {
+     "river": "Cổ Chiên",
+     "station": "Vàm Thom",
+     "km": 47.0,
+     "smax": 1.0,
+     "days": "01",
+     "last_year": 8.9
+    },
+    {
+     "river": "Cổ Chiên",
+     "station": "Thanh Bình",
+     "km": 48.0,
+     "smax": 0.5,
+     "days": "29-31",
+     "last_year": 6.2
+    },
+    {
+     "river": "Cổ Chiên",
+     "station": "Nàng Âm",
+     "km": 52.0,
+     "smax": 0.3,
+     "days": "29-31",
+     "last_year": 6.0
+    },
+    {
+     "river": "Cổ Chiên",
+     "station": "Nhuận Phú Tân",
+     "km": 55.5,
+     "smax": 0.2,
+     "days": "29-31",
+     "last_year": 3.9
+    },
+    {
+     "river": "Cổ Chiên",
+     "station": "Quới An",
+     "km": 63.0,
+     "smax": 0.1,
+     "days": "26/3-2/4",
+     "last_year": 4.8
+    },
+    {
+     "river": "Cổ Chiên",
+     "station": "Tân Thiềng",
+     "km": 65.0,
+     "smax": 0.1,
+     "days": "26/3-2/4",
+     "last_year": 2.8
+    },
+    {
+     "river": "Cổ Chiên",
+     "station": "Vĩnh Bình",
+     "km": 77.0,
+     "smax": 0.1,
+     "days": "26/3-2/4",
+     "last_year": 0.6
+    },
+    {
+     "river": "Long Toàn",
+     "station": "Long Toàn",
+     "km": 12.5,
+     "smax": 16.1,
+     "days": "01",
+     "last_year": 17.0
+    },
+    {
+     "river": "Hậu",
+     "station": "Trà Kha",
+     "km": 17.0,
+     "smax": 8.8,
+     "days": "26;31",
+     "last_year": 15.4
+    },
+    {
+     "river": "Hậu",
+     "station": "Cầu Quan",
+     "km": 37.0,
+     "smax": 3.0,
+     "days": "29;30",
+     "last_year": 10.1
+    },
+    {
+     "river": "Hậu",
+     "station": "Đường Đức",
+     "km": 46.0,
+     "smax": 1.4,
+     "days": "30",
+     "last_year": 7.3
+    },
+    {
+     "river": "Hậu",
+     "station": "Trà Ôn",
+     "km": 68.0,
+     "smax": 0.1,
+     "days": "26/3-2/4",
+     "last_year": 0.3
+    },
+    {
+     "river": "Nội đồng",
+     "station": "Ngã Tư",
+     "km": null,
+     "smax": 0.2,
+     "days": "29/3-1/4",
+     "last_year": null
+    }
+   ]
+  },
+  "20260416": {
+   "meta": {
+    "number": "XMAN-14/17h00/VILO",
+    "period": "16/04 đến ngày 25/04/2026",
+    "issued": "16 tháng 4 năm 2026"
+   },
+   "rows": [
+    {
+     "river": "Cửa Đại",
+     "station": "Bình Đại",
+     "km": 8.0,
+     "smax": null,
+     "days": "(Không đo: 11-16)",
+     "last_year": null
+    },
+    {
+     "river": "Cửa Đại",
+     "station": "Lộc Thuận",
+     "km": 21.0,
+     "smax": 13.5,
+     "days": "14",
+     "last_year": null
+    },
+    {
+     "river": "Cửa Đại",
+     "station": "Giao Hòa",
+     "km": 39.0,
+     "smax": 4.2,
+     "days": "13;14",
+     "last_year": 3.2
+    },
+    {
+     "river": "Cửa Đại",
+     "station": "Quới Sơn",
+     "km": 48.0,
+     "smax": 0.6,
+     "days": "13",
+     "last_year": 0.6
+    },
+    {
+     "river": "Cửa Đại",
+     "station": "An Khánh",
+     "km": 56.0,
+     "smax": 0.1,
+     "days": "09-16",
+     "last_year": 0.2
+    },
+    {
+     "river": "Cửa Đại",
+     "station": "Phú Túc",
+     "km": 64.0,
+     "smax": 0.1,
+     "days": "09-16",
+     "last_year": 0.2
+    },
+    {
+     "river": "Sông Ba lai",
+     "station": "Long Hòa",
+     "km": 46.0,
+     "smax": 1.8,
+     "days": "13",
+     "last_year": 1.3
+    },
+    {
+     "river": "Sông Ba lai",
+     "station": "Ba Lai 1",
+     "km": 54.0,
+     "smax": 0.3,
+     "days": "12-16",
+     "last_year": 0.5
+    },
+    {
+     "river": "Sông Ba lai",
+     "station": "Tân Phú",
+     "km": 72.0,
+     "smax": 0.1,
+     "days": "09-16",
+     "last_year": 0.1
+    },
+    {
+     "river": "Hàm Luông",
+     "station": "An Thuận",
+     "km": 6.0,
+     "smax": null,
+     "days": "(Không đo: 11-16)",
+     "last_year": null
+    },
+    {
+     "river": "Hàm Luông",
+     "station": "Sơn Đốc",
+     "km": 23.0,
+     "smax": null,
+     "days": "(Không đo: 11-16)",
+     "last_year": null
+    },
+    {
+     "river": "Hàm Luông",
+     "station": "Phú Khánh",
+     "km": 24.0,
+     "smax": 9.3,
+     "days": "15",
+     "last_year": 11.4
+    },
+    {
+     "river": "Hàm Luông",
+     "station": "Vàm Cái Quao",
+     "km": 34.0,
+     "smax": 5.9,
+     "days": "15",
+     "last_year": 7.9
+    },
+    {
+     "river": "Hàm Luông",
+     "station": "Vàm Thủ Cửu",
+     "km": 37.0,
+     "smax": 4.6,
+     "days": "15",
+     "last_year": 6.3
+    },
+    {
+     "river": "Hàm Luông",
+     "station": "Vàm Nước Trong",
+     "km": 43.0,
+     "smax": 3.2,
+     "days": "14;15",
+     "last_year": 4.6
+    },
+    {
+     "river": "Hàm Luông",
+     "station": "Mỹ Hóa",
+     "km": 48.0,
+     "smax": 2.2,
+     "days": "15",
+     "last_year": 3.5
+    },
+    {
+     "river": "Hàm Luông",
+     "station": "Thanh Tân",
+     "km": 54.0,
+     "smax": 0.6,
+     "days": "14",
+     "last_year": 1.8
+    },
+    {
+     "river": "Hàm Luông",
+     "station": "An Hiệp",
+     "km": 56.0,
+     "smax": 0.6,
+     "days": "14",
+     "last_year": 1.6
+    },
+    {
+     "river": "Hàm Luông",
+     "station": "Vàm Mơn",
+     "km": 64.0,
+     "smax": 0.1,
+     "days": "09-16",
+     "last_year": 0.3
+    },
+    {
+     "river": "Hàm Luông",
+     "station": "Hòa Nghĩa",
+     "km": 72.0,
+     "smax": 0.1,
+     "days": "09-16",
+     "last_year": 0.1
+    },
+    {
+     "river": "Sông Tiền",
+     "station": "Chợ Lách",
+     "km": 78.0,
+     "smax": 0.1,
+     "days": "09-16",
+     "last_year": 0.1
+    },
+    {
+     "river": "Sông Tiền",
+     "station": "Cái Muối",
+     "km": 90.0,
+     "smax": 0.1,
+     "days": "09-16",
+     "last_year": 0.1
+    },
+    {
+     "river": "Sông Tiền",
+     "station": "Đồng Phú",
+     "km": 93.0,
+     "smax": 0.1,
+     "days": "09-16",
+     "last_year": 0.1
+    },
+    {
+     "river": "Cổ Chiên",
+     "station": "Bến Trại",
+     "km": 11.0,
+     "smax": null,
+     "days": "(Không đo: 11-16)",
+     "last_year": null
+    },
+    {
+     "river": "Cổ Chiên",
+     "station": "Hưng Mỹ",
+     "km": 20.0,
+     "smax": 9.6,
+     "days": "15",
+     "last_year": 9.7
+    },
+    {
+     "river": "Cổ Chiên",
+     "station": "Hương Mỹ",
+     "km": 29.0,
+     "smax": 5.9,
+     "days": "15",
+     "last_year": null
+    },
+    {
+     "river": "Cổ Chiên",
+     "station": "Trà Vinh",
+     "km": 33.0,
+     "smax": 5.6,
+     "days": "15",
+     "last_year": 5.5
+    },
+    {
+     "river": "Cổ Chiên",
+     "station": "Cẩm Sơn",
+     "km": 36.0,
+     "smax": 4.4,
+     "days": "16",
+     "last_year": 4.4
+    },
+    {
+     "river": "Cổ Chiên",
+     "station": "Láng Thé",
+     "km": 39.0,
+     "smax": 4.5,
+     "days": "16",
+     "last_year": 2.8
+    },
+    {
+     "river": "Cổ Chiên",
+     "station": "Đức Mỹ",
+     "km": 46.0,
+     "smax": 3.8,
+     "days": "16",
+     "last_year": 2.5
+    },
+    {
+     "river": "Cổ Chiên",
+     "station": "Vàm Thom",
+     "km": 47.0,
+     "smax": 2.9,
+     "days": "15",
+     "last_year": 3.7
+    },
+    {
+     "river": "Cổ Chiên",
+     "station": "Thanh Bình",
+     "km": 48.0,
+     "smax": 2.6,
+     "days": "16",
+     "last_year": 2.3
+    },
+    {
+     "river": "Cổ Chiên",
+     "station": "Nàng Âm",
+     "km": 52.0,
+     "smax": 1.5,
+     "days": "15;16",
+     "last_year": 1.8
+    },
+    {
+     "river": "Cổ Chiên",
+     "station": "Nhuận Phú Tân",
+     "km": 55.5,
+     "smax": 1.0,
+     "days": "15",
+     "last_year": 0.4
+    },
+    {
+     "river": "Cổ Chiên",
+     "station": "Quới An",
+     "km": 63.0,
+     "smax": 0.4,
+     "days": "15;16",
+     "last_year": 0.4
+    },
+    {
+     "river": "Cổ Chiên",
+     "station": "Tân Thiềng",
+     "km": 65.0,
+     "smax": 0.1,
+     "days": "09-16",
+     "last_year": 0.1
+    },
+    {
+     "river": "Cổ Chiên",
+     "station": "Vĩnh Bình",
+     "km": 77.0,
+     "smax": 0.1,
+     "days": "09-16",
+     "last_year": 0.1
+    },
+    {
+     "river": "Long Toàn",
+     "station": "Long Toàn",
+     "km": 12.5,
+     "smax": 15.8,
+     "days": "16",
+     "last_year": 15.2
+    },
+    {
+     "river": "Hậu",
+     "station": "Trà Kha",
+     "km": 17.0,
+     "smax": 8.2,
+     "days": "15",
+     "last_year": 12.6
+    },
+    {
+     "river": "Hậu",
+     "station": "Cầu Quan",
+     "km": 37.0,
+     "smax": 3.1,
+     "days": "15",
+     "last_year": 4.4
+    },
+    {
+     "river": "Hậu",
+     "station": "Đường Đức",
+     "km": 46.0,
+     "smax": 1.8,
+     "days": "15",
+     "last_year": 2.2
+    },
+    {
+     "river": "Hậu",
+     "station": "Trà Ôn",
+     "km": 68.0,
+     "smax": 0.2,
+     "days": "14-16",
+     "last_year": 0.1
+    },
+    {
+     "river": "Nội đồng",
+     "station": "Ngã Tư",
+     "km": null,
+     "smax": 0.3,
+     "days": "14-16",
+     "last_year": 0.3
+    }
+   ]
+  },
+  "20260507": {
+   "meta": {
+    "number": "XMAN-17/17h00/VILO",
+    "period": "07/05 đến ngày 16/05/2026",
+    "issued": "07 tháng 5 năm 2026"
+   },
+   "rows": [
+    {
+     "river": "Cửa Đại",
+     "station": "Bình Đại",
+     "km": 8.0,
+     "smax": 22.8,
+     "days": "03",
+     "last_year": null
+    },
+    {
+     "river": "Cửa Đại",
+     "station": "Lộc Thuận",
+     "km": 21.0,
+     "smax": 12.2,
+     "days": "05",
+     "last_year": null
+    },
+    {
+     "river": "Cửa Đại",
+     "station": "Giao Hòa",
+     "km": 39.0,
+     "smax": 2.8,
+     "days": "01;02;05",
+     "last_year": 5.4
+    },
+    {
+     "river": "Cửa Đại",
+     "station": "Quới Sơn",
+     "km": 48.0,
+     "smax": 0.9,
+     "days": "01-06",
+     "last_year": 1.5
+    },
+    {
+     "river": "Cửa Đại",
+     "station": "An Khánh",
+     "km": 56.0,
+     "smax": 0.2,
+     "days": "01-06",
+     "last_year": 0.4
+    },
+    {
+     "river": "Cửa Đại",
+     "station": "Phú Túc",
+     "km": 64.0,
+     "smax": 0.1,
+     "days": "30/4-07/5",
+     "last_year": 0.1
+    },
+    {
+     "river": "Sông Ba lai",
+     "station": "Long Hòa",
+     "km": 46.0,
+     "smax": 1.4,
+     "days": "02;03;05;06",
+     "last_year": 2.7
+    },
+    {
+     "river": "Sông Ba lai",
+     "station": "Ba Lai 1",
+     "km": 54.0,
+     "smax": 0.6,
+     "days": "04",
+     "last_year": 0.8
+    },
+    {
+     "river": "Sông Ba lai",
+     "station": "Tân Phú",
+     "km": 72.0,
+     "smax": 0.1,
+     "days": "30/4-07/5",
+     "last_year": 0.1
+    },
+    {
+     "river": "Hàm Luông",
+     "station": "An Thuận",
+     "km": 6.0,
+     "smax": 21.5,
+     "days": "03",
+     "last_year": null
+    },
+    {
+     "river": "Hàm Luông",
+     "station": "Sơn Đốc",
+     "km": 23.0,
+     "smax": 9.5,
+     "days": "03",
+     "last_year": null
+    },
+    {
+     "river": "Hàm Luông",
+     "station": "Phú Khánh",
+     "km": 24.0,
+     "smax": 8.3,
+     "days": "01;05",
+     "last_year": 9.5
+    },
+    {
+     "river": "Hàm Luông",
+     "station": "Vàm Cái Quao",
+     "km": 34.0,
+     "smax": 4.2,
+     "days": "01",
+     "last_year": 5.2
+    },
+    {
+     "river": "Hàm Luông",
+     "station": "Vàm Thủ Cửu",
+     "km": 37.0,
+     "smax": 4.0,
+     "days": "01",
+     "last_year": 3.6
+    },
+    {
+     "river": "Hàm Luông",
+     "station": "Vàm Nước Trong",
+     "km": 43.0,
+     "smax": 2.7,
+     "days": "30;01",
+     "last_year": 2.8
+    },
+    {
+     "river": "Hàm Luông",
+     "station": "Mỹ Hóa",
+     "km": 48.0,
+     "smax": 2.3,
+     "days": "01",
+     "last_year": 2.3
+    },
+    {
+     "river": "Hàm Luông",
+     "station": "Thanh Tân",
+     "km": 54.0,
+     "smax": 0.7,
+     "days": "01;02",
+     "last_year": 1.0
+    },
+    {
+     "river": "Hàm Luông",
+     "station": "An Hiệp",
+     "km": 56.0,
+     "smax": 0.4,
+     "days": "30-04;06",
+     "last_year": 0.8
+    },
+    {
+     "river": "Hàm Luông",
+     "station": "Vàm Mơn",
+     "km": 64.0,
+     "smax": 0.1,
+     "days": "30/4-07/5",
+     "last_year": 0.2
+    },
+    {
+     "river": "Hàm Luông",
+     "station": "Hòa Nghĩa",
+     "km": 72.0,
+     "smax": 0.1,
+     "days": "30/4-07/5",
+     "last_year": 0.1
+    },
+    {
+     "river": "Sông Tiền",
+     "station": "Chợ Lách",
+     "km": 78.0,
+     "smax": 0.1,
+     "days": "30/4-07/5",
+     "last_year": 0.1
+    },
+    {
+     "river": "Sông Tiền",
+     "station": "Cái Muối",
+     "km": 90.0,
+     "smax": null,
+     "days": "Nghỉ đo",
+     "last_year": null
+    },
+    {
+     "river": "Sông Tiền",
+     "station": "Đồng Phú",
+     "km": 93.0,
+     "smax": null,
+     "days": "Nghỉ đo",
+     "last_year": null
+    },
+    {
+     "river": "Cổ Chiên",
+     "station": "Bến Trại",
+     "km": 11.0,
+     "smax": 18.2,
+     "days": "03",
+     "last_year": null
+    },
+    {
+     "river": "Cổ Chiên",
+     "station": "Hưng Mỹ",
+     "km": 20.0,
+     "smax": 7.9,
+     "days": "01",
+     "last_year": 8.1
+    },
+    {
+     "river": "Cổ Chiên",
+     "station": "Hương Mỹ",
+     "km": 29.0,
+     "smax": 4.8,
+     "days": "30;01",
+     "last_year": null
+    },
+    {
+     "river": "Cổ Chiên",
+     "station": "Trà Vinh",
+     "km": 33.0,
+     "smax": 4.6,
+     "days": "30",
+     "last_year": 3.0
+    },
+    {
+     "river": "Cổ Chiên",
+     "station": "Cẩm Sơn",
+     "km": 36.0,
+     "smax": 3.8,
+     "days": "01;02",
+     "last_year": 2.6
+    },
+    {
+     "river": "Cổ Chiên",
+     "station": "Láng Thé",
+     "km": 39.0,
+     "smax": 4.0,
+     "days": "01",
+     "last_year": 0.9
+    },
+    {
+     "river": "Cổ Chiên",
+     "station": "Đức Mỹ",
+     "km": 46.0,
+     "smax": 3.2,
+     "days": "01",
+     "last_year": 0.5
+    },
+    {
+     "river": "Cổ Chiên",
+     "station": "Vàm Thom",
+     "km": 47.0,
+     "smax": 1.9,
+     "days": "30",
+     "last_year": 0.5
+    },
+    {
+     "river": "Cổ Chiên",
+     "station": "Thanh Bình",
+     "km": 48.0,
+     "smax": 1.8,
+     "days": "30",
+     "last_year": 0.3
+    },
+    {
+     "river": "Cổ Chiên",
+     "station": "Nàng Âm",
+     "km": 52.0,
+     "smax": 1.4,
+     "days": "30",
+     "last_year": 0.2
+    },
+    {
+     "river": "Cổ Chiên",
+     "station": "Nhuận Phú Tân",
+     "km": 55.5,
+     "smax": 0.3,
+     "days": "30;01",
+     "last_year": 0.2
+    },
+    {
+     "river": "Cổ Chiên",
+     "station": "Quới An",
+     "km": 63.0,
+     "smax": 0.4,
+     "days": "30;01",
+     "last_year": 0.1
+    },
+    {
+     "river": "Cổ Chiên",
+     "station": "Tân Thiềng",
+     "km": 65.0,
+     "smax": 0.1,
+     "days": "30/4-07/5",
+     "last_year": 0.1
+    },
+    {
+     "river": "Cổ Chiên",
+     "station": "Vĩnh Bình",
+     "km": 77.0,
+     "smax": 0.1,
+     "days": "30/4-07/5",
+     "last_year": 0.1
+    },
+    {
+     "river": "Long Toàn",
+     "station": "Long Toàn",
+     "km": 12.5,
+     "smax": 16.6,
+     "days": "30",
+     "last_year": 16.5
+    },
+    {
+     "river": "Hậu",
+     "station": "Trà Kha",
+     "km": 17.0,
+     "smax": 11.0,
+     "days": "06",
+     "last_year": 12.1
+    },
+    {
+     "river": "Hậu",
+     "station": "Cầu Quan",
+     "km": 37.0,
+     "smax": 5.6,
+     "days": "30",
+     "last_year": 3.7
+    },
+    {
+     "river": "Hậu",
+     "station": "Đường Đức",
+     "km": 46.0,
+     "smax": 3.0,
+     "days": "30",
+     "last_year": 2.2
+    },
+    {
+     "river": "Hậu",
+     "station": "Trà Ôn",
+     "km": 68.0,
+     "smax": 0.1,
+     "days": "30/4-07/5",
+     "last_year": 0.1
+    },
+    {
+     "river": "Nội đồng",
+     "station": "Ngã Tư",
+     "km": null,
+     "smax": 0.3,
+     "days": "30/4-02/5",
+     "last_year": null
+    }
+   ]
+  },
+  "20260514": {
+   "meta": {
+    "number": "XMAN-18/17h00/VILO",
+    "period": "14/05 đến ngày 23/05/2026",
+    "issued": "14 tháng 5 năm 2026"
+   },
+   "rows": [
+    {
+     "river": "Cửa Đại",
+     "station": "Bình Đại",
+     "km": 8.0,
+     "smax": 22.3,
+     "days": "10",
+     "last_year": null
+    },
+    {
+     "river": "Cửa Đại",
+     "station": "Lộc Thuận",
+     "km": 21.0,
+     "smax": 12.4,
+     "days": "10",
+     "last_year": null
+    },
+    {
+     "river": "Cửa Đại",
+     "station": "Giao Hòa",
+     "km": 39.0,
+     "smax": 2.3,
+     "days": "07;10",
+     "last_year": 4.7
+    },
+    {
+     "river": "Cửa Đại",
+     "station": "Quới Sơn",
+     "km": 48.0,
+     "smax": 0.8,
+     "days": "07",
+     "last_year": 0.5
+    },
+    {
+     "river": "Cửa Đại",
+     "station": "An Khánh",
+     "km": 56.0,
+     "smax": 0.2,
+     "days": "07",
+     "last_year": 0.1
+    },
+    {
+     "river": "Cửa Đại",
+     "station": "Phú Túc",
+     "km": 64.0,
+     "smax": 0.1,
+     "days": "07-14",
+     "last_year": 0.1
+    },
+    {
+     "river": "Sông Ba lai",
+     "station": "Long Hòa",
+     "km": 46.0,
+     "smax": 1.2,
+     "days": "07",
+     "last_year": 1.4
+    },
+    {
+     "river": "Sông Ba lai",
+     "station": "Ba Lai 1",
+     "km": 54.0,
+     "smax": 0.4,
+     "days": "07",
+     "last_year": 0.5
+    },
+    {
+     "river": "Sông Ba lai",
+     "station": "Tân Phú",
+     "km": 72.0,
+     "smax": 0.1,
+     "days": "07-14",
+     "last_year": 0.1
+    },
+    {
+     "river": "Hàm Luông",
+     "station": "An Thuận",
+     "km": 6.0,
+     "smax": 23.0,
+     "days": "10",
+     "last_year": null
+    },
+    {
+     "river": "Hàm Luông",
+     "station": "Sơn Đốc",
+     "km": 23.0,
+     "smax": 9.7,
+     "days": "10",
+     "last_year": null
+    },
+    {
+     "river": "Hàm Luông",
+     "station": "Phú Khánh",
+     "km": 24.0,
+     "smax": 8.2,
+     "days": "10",
+     "last_year": 8.3
+    },
+    {
+     "river": "Hàm Luông",
+     "station": "Vàm Cái Quao",
+     "km": 34.0,
+     "smax": 4.9,
+     "days": "10",
+     "last_year": 4.3
+    },
+    {
+     "river": "Hàm Luông",
+     "station": "Vàm Thủ Cửu",
+     "km": 37.0,
+     "smax": 3.6,
+     "days": "10;11",
+     "last_year": 2.6
+    },
+    {
+     "river": "Hàm Luông",
+     "station": "Vàm Nước Trong",
+     "km": 43.0,
+     "smax": 2.6,
+     "days": "10-12",
+     "last_year": 1.7
+    },
+    {
+     "river": "Hàm Luông",
+     "station": "Mỹ Hóa",
+     "km": 48.0,
+     "smax": 2.3,
+     "days": "11",
+     "last_year": 0.8
+    },
+    {
+     "river": "Hàm Luông",
+     "station": "Thanh Tân",
+     "km": 54.0,
+     "smax": 0.7,
+     "days": "10",
+     "last_year": 0.3
+    },
+    {
+     "river": "Hàm Luông",
+     "station": "An Hiệp",
+     "km": 56.0,
+     "smax": 0.4,
+     "days": "07;08;10-13",
+     "last_year": 0.3
+    },
+    {
+     "river": "Hàm Luông",
+     "station": "Vàm Mơn",
+     "km": 64.0,
+     "smax": 0.1,
+     "days": "07-14",
+     "last_year": 0.1
+    },
+    {
+     "river": "Hàm Luông",
+     "station": "Hòa Nghĩa",
+     "km": 72.0,
+     "smax": 0.1,
+     "days": "07-14",
+     "last_year": 0.1
+    },
+    {
+     "river": "Sông Tiền",
+     "station": "Chợ Lách",
+     "km": 78.0,
+     "smax": 0.1,
+     "days": "07-14",
+     "last_year": 0.1
+    },
+    {
+     "river": "Sông Tiền",
+     "station": "Cái Muối",
+     "km": 90.0,
+     "smax": null,
+     "days": "Nghỉ đo",
+     "last_year": null
+    },
+    {
+     "river": "Sông Tiền",
+     "station": "Đồng Phú",
+     "km": 93.0,
+     "smax": null,
+     "days": "Nghỉ đo",
+     "last_year": null
+    },
+    {
+     "river": "0.8Cổ Chiên",
+     "station": "Bến Trại",
+     "km": 11.0,
+     "smax": 18.8,
+     "days": "10",
+     "last_year": null
+    },
+    {
+     "river": "0.8Cổ Chiên",
+     "station": "Hưng Mỹ",
+     "km": 20.0,
+     "smax": 7.5,
+     "days": "10",
+     "last_year": 8.8
+    },
+    {
+     "river": "0.8Cổ Chiên",
+     "station": "Hương Mỹ",
+     "km": 29.0,
+     "smax": 4.5,
+     "days": "10",
+     "last_year": null
+    },
+    {
+     "river": "0.8Cổ Chiên",
+     "station": "Trà Vinh",
+     "km": 33.0,
+     "smax": 3.2,
+     "days": "14",
+     "last_year": 4.8
+    },
+    {
+     "river": "0.8Cổ Chiên",
+     "station": "Cẩm Sơn",
+     "km": 36.0,
+     "smax": 2.9,
+     "days": "13",
+     "last_year": 3.2
+    },
+    {
+     "river": "0.8Cổ Chiên",
+     "station": "Láng Thé",
+     "km": 39.0,
+     "smax": 1.9,
+     "days": "10",
+     "last_year": 2.8
+    },
+    {
+     "river": "0.8Cổ Chiên",
+     "station": "Đức Mỹ",
+     "km": 46.0,
+     "smax": 1.5,
+     "days": "13",
+     "last_year": 1.4
+    },
+    {
+     "river": "0.8Cổ Chiên",
+     "station": "Vàm Thom",
+     "km": 47.0,
+     "smax": 1.7,
+     "days": "13",
+     "last_year": 2.7
+    },
+    {
+     "river": "0.8Cổ Chiên",
+     "station": "Thanh Bình",
+     "km": 48.0,
+     "smax": 1.3,
+     "days": "13;14",
+     "last_year": 1.8
+    },
+    {
+     "river": "0.8Cổ Chiên",
+     "station": "Nàng Âm",
+     "km": 52.0,
+     "smax": 1.0,
+     "days": "14",
+     "last_year": 0.8
+    },
+    {
+     "river": "0.8Cổ Chiên",
+     "station": "Nhuận Phú Tân",
+     "km": 55.5,
+     "smax": 0.3,
+     "days": "13",
+     "last_year": 0.2
+    },
+    {
+     "river": "0.8Cổ Chiên",
+     "station": "Quới An",
+     "km": 63.0,
+     "smax": 0.4,
+     "days": "14",
+     "last_year": 0.2
+    },
+    {
+     "river": "0.8Cổ Chiên",
+     "station": "Tân Thiềng",
+     "km": 65.0,
+     "smax": 0.1,
+     "days": "07-14",
+     "last_year": 0.1
+    },
+    {
+     "river": "0.8Cổ Chiên",
+     "station": "Vĩnh Bình",
+     "km": 77.0,
+     "smax": 0.1,
+     "days": "07-14",
+     "last_year": 0.1
+    },
+    {
+     "river": "Long Toàn",
+     "station": "Long Toàn",
+     "km": 12.5,
+     "smax": 15.0,
+     "days": "18",
+     "last_year": 15.3
+    },
+    {
+     "river": "Hậu",
+     "station": "Trà Kha",
+     "km": 17.0,
+     "smax": 11.5,
+     "days": "07",
+     "last_year": 8.0
+    },
+    {
+     "river": "Hậu",
+     "station": "Cầu Quan",
+     "km": 37.0,
+     "smax": 3.5,
+     "days": "07",
+     "last_year": 1.8
+    },
+    {
+     "river": "Hậu",
+     "station": "Đường Đức",
+     "km": 46.0,
+     "smax": 2.0,
+     "days": "13",
+     "last_year": 0.5
+    },
+    {
+     "river": "Hậu",
+     "station": "Trà Ôn",
+     "km": 68.0,
+     "smax": 0.1,
+     "days": "07-14",
+     "last_year": 0.1
+    },
+    {
+     "river": "Nội đồng",
+     "station": "Ngã Tư",
+     "km": null,
+     "smax": 0.1,
+     "days": "07-14",
+     "last_year": null
+    }
+   ]
+  }
+ },
+ "mendeley": {
+  "doi": "10.17632/fm996rrfyz.1",
+  "file": "Long-term discharges, water level, salinity concentrations, and precipitation in the Mekong River basin.xlsx",
+  "download": "https://data.mendeley.com/public-files/datasets/fm996rrfyz/files/ab873959-0e6c-4db0-8b87-d32334eca66d/file_downloaded",
+  "listing_api": "https://data.mendeley.com/api/datasets/fm996rrfyz/files?folder_id=root&version=1",
+  "sheet": "Max. salinity",
+  "annual_max_gl": {
+   "1991": {
+    "TraVinh": 7.2,
+    "CauQuan": 7.2
+   },
+   "1992": {
+    "TraVinh": 6.5,
+    "CauQuan": 6.5
+   },
+   "1993": {
+    "TraVinh": 4.5,
+    "CauQuan": 8.7
+   },
+   "1994": {
+    "TraVinh": 8.3,
+    "CauQuan": 8.3
+   },
+   "1995": {
+    "TraVinh": 8.4,
+    "CauQuan": 8.4
+   },
+   "1996": {
+    "TraVinh": 7,
+    "CauQuan": 7
+   },
+   "1997": {
+    "TraVinh": 4.5,
+    "CauQuan": 4.5
+   },
+   "1998": {
+    "TraVinh": 10.5,
+    "CauQuan": 11.6
+   },
+   "1999": {
+    "TraVinh": 9,
+    "CauQuan": 9
+   },
+   "2000": {
+    "TraVinh": 6.4,
+    "CauQuan": 6.4
+   },
+   "2001": {
+    "TraVinh": 7.6,
+    "CauQuan": 6
+   },
+   "2002": {
+    "TraVinh": 7.9,
+    "CauQuan": 6.3
+   },
+   "2003": {
+    "TraVinh": 11.3,
+    "CauQuan": 7.9
+   },
+   "2004": {
+    "TraVinh": 8.3,
+    "CauQuan": 10.5
+   },
+   "2005": {
+    "TraVinh": 10.8,
+    "CauQuan": 10.9
+   },
+   "2006": {
+    "TraVinh": 9,
+    "CauQuan": 9.7
+   },
+   "2007": {
+    "TraVinh": 9.5,
+    "CauQuan": 8.9
+   },
+   "2008": {
+    "TraVinh": 9.9,
+    "CauQuan": 10
+   },
+   "2009": {
+    "TraVinh": 9.9,
+    "CauQuan": 6.3
+   },
+   "2010": {
+    "TraVinh": 10.7,
+    "CauQuan": 11.8
+   },
+   "2011": {
+    "TraVinh": 11.1,
+    "CauQuan": 8.3
+   },
+   "2012": {
+    "TraVinh": 9.1,
+    "CauQuan": 8.4
+   },
+   "2013": {
+    "TraVinh": 12.8,
+    "CauQuan": 12
+   },
+   "2014": {
+    "TraVinh": 6,
+    "CauQuan": 9.5
+   },
+   "2015": {
+    "TraVinh": 11.1,
+    "CauQuan": 10.1
+   },
+   "2016": {
+    "TraVinh": 14.6,
+    "CauQuan": 16.5
+   }
+  }
+ },
+ "gfz": {
+  "doi": "10.5880/GFZ.4.4.2024.004",
+  "landing_says": "The dataset is not available for automated download. Please fill in the request form",
+  "open_dir": "https://datapub.gfz.de/download/10.5880.GFZ.4.4.2024.004-QWn/",
+  "file": "2024-004_Apel_salinity_SONDOC_1996-2016.csv",
+  "coords_from_description_pdf": [
+   10.06425,
+   106.45747
+  ],
+  "licence": "CC BY 4.0",
+  "season_max_gl": {
+   "1996": {
+    "n": 1812,
+    "max": 10.5,
+    "max_date": "1996-02-22",
+    "months": [
+     2,
+     3,
+     4,
+     5,
+     6
+    ],
+    "days": 151
+   },
+   "1997": {
+    "n": 696,
+    "max": 10.1,
+    "max_date": "1997-04-09",
+    "months": [
+     2,
+     3,
+     4,
+     5,
+     6
+    ],
+    "days": 58
+   },
+   "1998": {
+    "n": 828,
+    "max": 18.0,
+    "max_date": "1998-04-14",
+    "months": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "days": 69
+   },
+   "1999": {
+    "n": 648,
+    "max": 10.5,
+    "max_date": "1999-02-27",
+    "months": [
+     2,
+     3,
+     4,
+     5,
+     6
+    ],
+    "days": 54
+   },
+   "2000": {
+    "n": 709,
+    "max": 8.7,
+    "max_date": "2000-04-08",
+    "months": [
+     2,
+     3,
+     4,
+     5,
+     6
+    ],
+    "days": 60
+   },
+   "2001": {
+    "n": 576,
+    "max": 10.0,
+    "max_date": "2001-03-11",
+    "months": [
+     2,
+     3,
+     4,
+     5
+    ],
+    "days": 48
+   },
+   "2002": {
+    "n": 887,
+    "max": 9.0,
+    "max_date": "2002-04-14",
+    "months": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "days": 74
+   },
+   "2003": {
+    "n": 900,
+    "max": 10.3,
+    "max_date": "2003-03-25",
+    "months": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "days": 75
+   },
+   "2004": {
+    "n": 288,
+    "max": 16.7,
+    "max_date": "2004-03-08",
+    "months": [
+     2,
+     3
+    ],
+    "days": 24
+   },
+   "2005": {
+    "n": 828,
+    "max": 24.1,
+    "max_date": "2005-04-04",
+    "months": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "days": 69
+   },
+   "2006": {
+    "n": 900,
+    "max": 13.7,
+    "max_date": "2006-03-02",
+    "months": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "days": 75
+   },
+   "2007": {
+    "n": 720,
+    "max": 14.5,
+    "max_date": "2007-04-12",
+    "months": [
+     2,
+     3,
+     4,
+     5,
+     6
+    ],
+    "days": 60
+   },
+   "2008": {
+    "n": 720,
+    "max": 8.475,
+    "max_date": "2008-04-28",
+    "months": [
+     2,
+     3,
+     4,
+     5,
+     6
+    ],
+    "days": 59
+   },
+   "2009": {
+    "n": 876,
+    "max": 11.8,
+    "max_date": "2009-04-04",
+    "months": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "days": 73
+   },
+   "2010": {
+    "n": 924,
+    "max": 17.55,
+    "max_date": "2010-03-31",
+    "months": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     11,
+     12
+    ],
+    "days": 77
+   },
+   "2011": {
+    "n": 900,
+    "max": 14.525,
+    "max_date": "2011-03-28",
+    "months": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "days": 75
+   },
+   "2012": {
+    "n": 900,
+    "max": 13.1,
+    "max_date": "2012-04-10",
+    "months": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "days": 75
+   },
+   "2013": {
+    "n": 900,
+    "max": 19.3,
+    "max_date": "2013-03-06",
+    "months": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "days": 75
+   },
+   "2014": {
+    "n": 1032,
+    "max": 9.1,
+    "max_date": "2014-03-24",
+    "months": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ],
+    "days": 86
+   },
+   "2015": {
+    "n": 1140,
+    "max": 15.775,
+    "max_date": "2015-03-28",
+    "months": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ],
+    "days": 95
+   },
+   "2016": {
+    "n": 1140,
+    "max": 27.4,
+    "max_date": "2016-02-08",
+    "months": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ],
+    "days": 95
+   }
+  }
+ }
+}

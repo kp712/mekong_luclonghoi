@@ -1,5 +1,5 @@
 {
-  "_readme": "Salinity CANNOT be measured by satellite in paddies; these are ESTIMATES from river and canal station readings in public reports. station = the pin's nearest station in data/raw/salinity_stations.json (yearly highest readings, Nguyễn Trọng Khanh et al. 2025). build.py averages that station's highest reading of each dry season over the dry seasons ending 2016-2026 (SALT_SEASONS), separately for typical and El Niño seasons (El Niño: NOAA's Dec-Feb ONI of the year the season ends is 0.5 or more), and sets the level: high >= 15‰ (near-sea water; the team's cut-off), medium 4-15‰ (above 4‰ rice is clearly damaged; see the SGGP source), low < 4‰. level (optional) overrides that rule for a pin, with the reason in its note. note = the pin's text; build.py appends the station averages. Fields behind sluices are often less salty than the river. months: when salt usually comes, from public reports; build.py adds any month in which the station had its highest reading in at least 2 of those dry seasons. verified = true once the claim has been found in the source, with a short quote in the note.",
+  "_readme": "Salinity CANNOT be measured by satellite in paddies; these are ESTIMATES from river and canal station readings in public reports. station = the pin's nearest station in data/raw/salinity_stations.json (yearly highest readings, Nguyễn Trọng Khanh et al. 2025). build.py averages that station's highest reading of each dry season over the dry seasons ending 1999-2026 (SALT_SEASONS), separately for typical and El Niño seasons (El Niño: NOAA's Dec-Feb ONI of the year the season ends is 0.5 or more), and sets the level: high >= 15‰ (near-sea water; the team's cut-off), medium 4-15‰ (above 4‰ rice is clearly damaged; see the SGGP source), low < 4‰. level (optional) overrides that rule for a pin, with the reason in its note. note = the pin's text; build.py appends the station averages. Fields behind sluices are often less salty than the river. months: when salt usually comes, from public reports; build.py adds any month in which the station had its highest reading in at least 2 of those dry seasons. verified = true once the claim has been found in the source, with a short quote in the note.",
   "sites": {
     "vinh_chau": {
       "station": "khanh_hoa",
@@ -112,6 +112,18 @@
       "title": "Nguyễn Trọng Khanh et al. (2025), Phân tích xu thế xâm nhập mặn trên hệ thống sông, kênh Tỉnh Sóc Trăng (cũ), Tạp chí Khoa học Biến đổi khí hậu 36, Table 4",
       "url": "https://vjol.info.vn/TCKHBDKH/article/view/121694",
       "note": "Checked (full text). Table 4: highest salinity of each dry season and its month at 8 Sóc Trăng river and canal stations, 1999–2025, typed into data/raw/salinity_stations.json and checked against the paper's Table 2; data from the provincial hydro-met station (ref. 12, Đài KTTV Tỉnh Sóc Trăng 2025). Smax 'phần lớn xuất hiện vào tháng 2 đến tháng 4' (mostly Feb–Apr). Significant rising trend at Long Phú and An Lạc Tây and falling trend at Thạnh Phú and Trần Đề (Mann–Kendall, α < 0.1); sluices at Mỹ Tú and Ngã Năm and the Ninh Quới lock 'đã ngăn mặn phần nào đến khu vực trạm Thạnh Phú'.",
+      "verified": true
+    },
+    {
+      "title": "Doan Van Binh et al., Mendeley Data: Mekong River flow, water level and maximum salinity at Trà Vinh and Cầu Quan, 1991–2016 (doi 10.17632/fm996rrfyz.1)",
+      "url": "https://doi.org/10.17632/fm996rrfyz.1",
+      "note": "Checked. Licence CC BY 4.0. Sheet 'Max. salinity': one yearly maximum per station (g/l, read here as ‰); used for 1999–2016 at KTTV's Trà Vinh and Cầu Quan stations, with no month. Mendeley's 'Trà Vinh' is assumed to be KTTV's Trà Vinh station.",
+      "verified": true
+    },
+    {
+      "title": "Apel (2024), GFZ Data Services: Surface water salinity at Son Doc, Ben Tre province, 1996–2016 (doi 10.5880/GFZ.4.4.2024.004)",
+      "url": "https://doi.org/10.5880/GFZ.4.4.2024.004",
+      "note": "Checked. Licence CC BY 4.0, data from SRHMC. Salinity every 2 hours in the dry season (g/l, read here as ‰); used for 1999–2016 at KTTV's Sơn Đốc station: each season's highest reading and its month. Coverage is patchy, so a season's peak can be understated.",
       "verified": true
     }
   ]

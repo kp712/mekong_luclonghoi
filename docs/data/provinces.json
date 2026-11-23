@@ -42,7 +42,9 @@
   70,
   71,
   72,
-  73
+  73,
+  74,
+  75
  ],
  "sources": [
   {
@@ -412,6 +414,16 @@
   {
    "title": "Nguyễn Trọng Khanh et al. (2025), Phân tích xu thế xâm nhập mặn trên hệ thống sông, kênh Tỉnh Sóc Trăng (cũ), Tạp chí Khoa học Biến đổi khí hậu 36, Table 4",
    "url": "https://vjol.info.vn/TCKHBDKH/article/view/121694",
+   "verified": true
+  },
+  {
+   "title": "Doan Van Binh et al., Mendeley Data: Mekong River flow, water level and maximum salinity at Trà Vinh and Cầu Quan, 1991–2016 (doi 10.17632/fm996rrfyz.1)",
+   "url": "https://doi.org/10.17632/fm996rrfyz.1",
+   "verified": true
+  },
+  {
+   "title": "Apel (2024), GFZ Data Services: Surface water salinity at Son Doc, Ben Tre province, 1996–2016 (doi 10.5880/GFZ.4.4.2024.004)",
+   "url": "https://doi.org/10.5880/GFZ.4.4.2024.004",
    "verified": true
   }
  ],
@@ -15626,7 +15638,9 @@
         70,
         71,
         72,
-        73
+        73,
+        74,
+        75
        ]
       },
       {
@@ -15683,6 +15697,8 @@
         71,
         72,
         73,
+        74,
+        75,
         0,
         10,
         1
@@ -15819,7 +15835,9 @@
         70,
         71,
         72,
-        73
+        73,
+        74,
+        75
        ]
       },
       {
@@ -15872,6 +15890,8 @@
         71,
         72,
         73,
+        74,
+        75,
         0,
         10,
         1
@@ -16010,7 +16030,9 @@
         70,
         71,
         72,
-        73
+        73,
+        74,
+        75
        ]
       },
       {
@@ -16071,6 +16093,8 @@
         71,
         72,
         73,
+        74,
+        75,
         0,
         10,
         1
@@ -16211,7 +16235,9 @@
           70,
           71,
           72,
-          73
+          73,
+          74,
+          75
          ]
         },
         {
@@ -16275,6 +16301,8 @@
           71,
           72,
           73,
+          74,
+          75,
           0,
           10,
           1
@@ -16423,7 +16451,9 @@
           70,
           71,
           72,
-          73
+          73,
+          74,
+          75
          ]
         },
         {
@@ -16487,6 +16517,8 @@
           71,
           72,
           73,
+          74,
+          75,
           0,
           10,
           1
@@ -16639,7 +16671,9 @@
           70,
           71,
           72,
-          73
+          73,
+          74,
+          75
          ]
         },
         {
@@ -16693,6 +16727,8 @@
           71,
           72,
           73,
+          74,
+          75,
           0,
           10,
           1
@@ -16818,7 +16854,9 @@
         70,
         71,
         72,
-        73
+        73,
+        74,
+        75
        ]
       },
       {
@@ -16875,6 +16913,8 @@
         71,
         72,
         73,
+        74,
+        75,
         0,
         10,
         1
@@ -16965,7 +17005,9 @@
       70,
       71,
       72,
-      73
+      73,
+      74,
+      75
      ],
      "salt": true,
      "plain": {
@@ -17184,7 +17226,9 @@
          70,
          71,
          72,
-         73
+         73,
+         74,
+         75
         ]
        },
        {
@@ -17241,6 +17285,8 @@
          71,
          72,
          73,
+         74,
+         75,
          0,
          10,
          1
@@ -17377,7 +17423,9 @@
          70,
          71,
          72,
-         73
+         73,
+         74,
+         75
         ]
        },
        {
@@ -17430,6 +17478,8 @@
          71,
          72,
          73,
+         74,
+         75,
          0,
          10,
          1
@@ -17572,7 +17622,9 @@
          70,
          71,
          72,
-         73
+         73,
+         74,
+         75
         ]
        },
        {
@@ -17629,6 +17681,8 @@
          71,
          72,
          73,
+         74,
+         75,
          0,
          10,
          1
@@ -17775,7 +17829,9 @@
            70,
            71,
            72,
-           73
+           73,
+           74,
+           75
           ]
          },
          {
@@ -17839,6 +17895,8 @@
            71,
            72,
            73,
+           74,
+           75,
            0,
            10,
            1
@@ -17987,7 +18045,9 @@
            70,
            71,
            72,
-           73
+           73,
+           74,
+           75
           ]
          },
          {
@@ -18051,6 +18111,8 @@
            71,
            72,
            73,
+           74,
+           75,
            0,
            10,
            1
@@ -18203,7 +18265,9 @@
            70,
            71,
            72,
-           73
+           73,
+           74,
+           75
           ]
          },
          {
@@ -18257,6 +18321,8 @@
            71,
            72,
            73,
+           74,
+           75,
            0,
            10,
            1
@@ -18382,7 +18448,9 @@
          70,
          71,
          72,
-         73
+         73,
+         74,
+         75
         ]
        },
        {
@@ -18439,6 +18507,8 @@
          71,
          72,
          73,
+         74,
+         75,
          0,
          10,
          1
@@ -18529,7 +18599,9 @@
        70,
        71,
        72,
-       73
+       73,
+       74,
+       75
       ],
       "salt": true,
       "plain": {
@@ -21641,7 +21713,9 @@
         70,
         71,
         72,
-        73
+        73,
+        74,
+        75
        ]
       },
       {
@@ -21698,6 +21772,8 @@
         71,
         72,
         73,
+        74,
+        75,
         0,
         10,
         1
@@ -21834,7 +21910,9 @@
         70,
         71,
         72,
-        73
+        73,
+        74,
+        75
        ]
       },
       {
@@ -21887,6 +21965,8 @@
         71,
         72,
         73,
+        74,
+        75,
         0,
         10,
         1
@@ -22025,7 +22105,9 @@
         70,
         71,
         72,
-        73
+        73,
+        74,
+        75
        ]
       },
       {
@@ -22086,6 +22168,8 @@
         71,
         72,
         73,
+        74,
+        75,
         0,
         10,
         1
@@ -22226,7 +22310,9 @@
           70,
           71,
           72,
-          73
+          73,
+          74,
+          75
          ]
         },
         {
@@ -22290,6 +22376,8 @@
           71,
           72,
           73,
+          74,
+          75,
           0,
           10,
           1
@@ -22438,7 +22526,9 @@
           70,
           71,
           72,
-          73
+          73,
+          74,
+          75
          ]
         },
         {
@@ -22502,6 +22592,8 @@
           71,
           72,
           73,
+          74,
+          75,
           0,
           10,
           1
@@ -22654,7 +22746,9 @@
           70,
           71,
           72,
-          73
+          73,
+          74,
+          75
          ]
         },
         {
@@ -22708,6 +22802,8 @@
           71,
           72,
           73,
+          74,
+          75,
           0,
           10,
           1
@@ -22833,7 +22929,9 @@
         70,
         71,
         72,
-        73
+        73,
+        74,
+        75
        ]
       },
       {
@@ -22890,6 +22988,8 @@
         71,
         72,
         73,
+        74,
+        75,
         0,
         10,
         1
@@ -22980,7 +23080,9 @@
       70,
       71,
       72,
-      73
+      73,
+      74,
+      75
      ],
      "salt": true,
      "plain": {
@@ -23197,7 +23299,9 @@
          70,
          71,
          72,
-         73
+         73,
+         74,
+         75
         ]
        },
        {
@@ -23254,6 +23358,8 @@
          71,
          72,
          73,
+         74,
+         75,
          0,
          10,
          1
@@ -23390,7 +23496,9 @@
          70,
          71,
          72,
-         73
+         73,
+         74,
+         75
         ]
        },
        {
@@ -23443,6 +23551,8 @@
          71,
          72,
          73,
+         74,
+         75,
          0,
          10,
          1
@@ -23585,7 +23695,9 @@
          70,
          71,
          72,
-         73
+         73,
+         74,
+         75
         ]
        },
        {
@@ -23642,6 +23754,8 @@
          71,
          72,
          73,
+         74,
+         75,
          0,
          10,
          1
@@ -23788,7 +23902,9 @@
            70,
            71,
            72,
-           73
+           73,
+           74,
+           75
           ]
          },
          {
@@ -23852,6 +23968,8 @@
            71,
            72,
            73,
+           74,
+           75,
            0,
            10,
            1
@@ -24000,7 +24118,9 @@
            70,
            71,
            72,
-           73
+           73,
+           74,
+           75
           ]
          },
          {
@@ -24064,6 +24184,8 @@
            71,
            72,
            73,
+           74,
+           75,
            0,
            10,
            1
@@ -24216,7 +24338,9 @@
            70,
            71,
            72,
-           73
+           73,
+           74,
+           75
           ]
          },
          {
@@ -24270,6 +24394,8 @@
            71,
            72,
            73,
+           74,
+           75,
            0,
            10,
            1
@@ -24395,7 +24521,9 @@
          70,
          71,
          72,
-         73
+         73,
+         74,
+         75
         ]
        },
        {
@@ -24452,6 +24580,8 @@
          71,
          72,
          73,
+         74,
+         75,
          0,
          10,
          1
@@ -24542,7 +24672,9 @@
        70,
        71,
        72,
-       73
+       73,
+       74,
+       75
       ],
       "salt": true,
       "plain": {
@@ -33359,7 +33491,9 @@
         70,
         71,
         72,
-        73
+        73,
+        74,
+        75
        ]
       },
       {
@@ -33416,6 +33550,8 @@
         71,
         72,
         73,
+        74,
+        75,
         0,
         10,
         1
@@ -33552,7 +33688,9 @@
         70,
         71,
         72,
-        73
+        73,
+        74,
+        75
        ]
       },
       {
@@ -33605,6 +33743,8 @@
         71,
         72,
         73,
+        74,
+        75,
         0,
         10,
         1
@@ -33743,7 +33883,9 @@
         70,
         71,
         72,
-        73
+        73,
+        74,
+        75
        ]
       },
       {
@@ -33804,6 +33946,8 @@
         71,
         72,
         73,
+        74,
+        75,
         0,
         10,
         1
@@ -33944,7 +34088,9 @@
           70,
           71,
           72,
-          73
+          73,
+          74,
+          75
          ]
         },
         {
@@ -34008,6 +34154,8 @@
           71,
           72,
           73,
+          74,
+          75,
           0,
           10,
           1
@@ -34156,7 +34304,9 @@
           70,
           71,
           72,
-          73
+          73,
+          74,
+          75
          ]
         },
         {
@@ -34220,6 +34370,8 @@
           71,
           72,
           73,
+          74,
+          75,
           0,
           10,
           1
@@ -34372,7 +34524,9 @@
           70,
           71,
           72,
-          73
+          73,
+          74,
+          75
          ]
         },
         {
@@ -34426,6 +34580,8 @@
           71,
           72,
           73,
+          74,
+          75,
           0,
           10,
           1
@@ -34551,7 +34707,9 @@
         70,
         71,
         72,
-        73
+        73,
+        74,
+        75
        ]
       },
       {
@@ -34608,6 +34766,8 @@
         71,
         72,
         73,
+        74,
+        75,
         0,
         10,
         1
@@ -34698,7 +34858,9 @@
       70,
       71,
       72,
-      73
+      73,
+      74,
+      75
      ],
      "salt": true,
      "plain": {
@@ -34915,7 +35077,9 @@
          70,
          71,
          72,
-         73
+         73,
+         74,
+         75
         ]
        },
        {
@@ -34972,6 +35136,8 @@
          71,
          72,
          73,
+         74,
+         75,
          0,
          10,
          1
@@ -35108,7 +35274,9 @@
          70,
          71,
          72,
-         73
+         73,
+         74,
+         75
         ]
        },
        {
@@ -35161,6 +35329,8 @@
          71,
          72,
          73,
+         74,
+         75,
          0,
          10,
          1
@@ -35303,7 +35473,9 @@
          70,
          71,
          72,
-         73
+         73,
+         74,
+         75
         ]
        },
        {
@@ -35360,6 +35532,8 @@
          71,
          72,
          73,
+         74,
+         75,
          0,
          10,
          1
@@ -35506,7 +35680,9 @@
            70,
            71,
            72,
-           73
+           73,
+           74,
+           75
           ]
          },
          {
@@ -35570,6 +35746,8 @@
            71,
            72,
            73,
+           74,
+           75,
            0,
            10,
            1
@@ -35718,7 +35896,9 @@
            70,
            71,
            72,
-           73
+           73,
+           74,
+           75
           ]
          },
          {
@@ -35782,6 +35962,8 @@
            71,
            72,
            73,
+           74,
+           75,
            0,
            10,
            1
@@ -35934,7 +36116,9 @@
            70,
            71,
            72,
-           73
+           73,
+           74,
+           75
           ]
          },
          {
@@ -35988,6 +36172,8 @@
            71,
            72,
            73,
+           74,
+           75,
            0,
            10,
            1
@@ -36113,7 +36299,9 @@
          70,
          71,
          72,
-         73
+         73,
+         74,
+         75
         ]
        },
        {
@@ -36170,6 +36358,8 @@
          71,
          72,
          73,
+         74,
+         75,
          0,
          10,
          1
@@ -36260,7 +36450,9 @@
        70,
        71,
        72,
-       73
+       73,
+       74,
+       75
       ],
       "salt": true,
       "plain": {
@@ -36395,15 +36587,15 @@
      5
     ],
     "note": {
-     "en": "Nearest KTTV salinity station: Trà Vinh, 0.4 km away (station position approximate). Highest reading of each typical dry season there: 9.4‰ on average (2025, 2026). Dry season 2026: highest in the bulletins found; may miss an earlier peak. Salt months: months that reached 4‰ there in at least 2 dry seasons.",
-     "vi": "Trạm đo mặn KTTV gần nhất: Trà Vinh, cách 0,4 km (vị trí trạm gần đúng). Độ mặn cao nhất mỗi mùa khô năm thường tại trạm: trung bình 9,4‰ (2025, 2026). Mùa khô 2026: cao nhất trong các bản tin tìm được; có thể bỏ sót đỉnh mặn sớm hơn. Tháng mặn: các tháng độ mặn tại trạm đạt 4‰ trong ít nhất 2 mùa khô."
+     "en": "Nearest KTTV salinity station: Trà Vinh, 0.4 km away (station position approximate). Highest reading of each typical dry season there: 9.0‰ on average (1999, 2000, 2001, 2002, 2004, 2006, 2008, 2009, 2011, 2012, 2013, 2014, 2025, 2026). Dry season 2026: highest in the bulletins found; may miss an earlier peak. Salt months: months that reached 4‰ there in at least 2 dry seasons.",
+     "vi": "Trạm đo mặn KTTV gần nhất: Trà Vinh, cách 0,4 km (vị trí trạm gần đúng). Độ mặn cao nhất mỗi mùa khô năm thường tại trạm: trung bình 9,0‰ (1999, 2000, 2001, 2002, 2004, 2006, 2008, 2009, 2011, 2012, 2013, 2014, 2025, 2026). Mùa khô 2026: cao nhất trong các bản tin tìm được; có thể bỏ sót đỉnh mặn sớm hơn. Tháng mặn: các tháng độ mặn tại trạm đạt 4‰ trong ít nhất 2 mùa khô."
     },
-    "station_ppt": 9.4,
+    "station_ppt": 9.0,
     "estimate": true,
-    "seasons": 3,
+    "seasons": 21,
     "last_year": 2026,
     "level": "medium",
-    "max_ppt": 9.4,
+    "max_ppt": 9.0,
     "station": "Trà Vinh",
     "km": 0.4,
     "partial": true,
@@ -36482,20 +36674,6 @@
        "vi": "Chưa có dữ liệu độ xanh vệ tinh (NDVI) cho điểm này."
       },
       {
-       "en": "The salinity station has few recent readings (last: 2026).",
-       "vi": "Trạm đo mặn có ít số liệu gần đây (gần nhất: năm 2026).",
-       "src": [
-        66,
-        67,
-        68,
-        69,
-        70,
-        71,
-        72,
-        73
-       ]
-      },
-      {
        "en": "Uses team estimates: soil score weights and dry-break months; break credit for pests.",
        "vi": "Dùng ước tính của nhóm: trọng số điểm đất và số tháng ruộng khô; mức giảm sâu bệnh nhờ cắt vụ."
       }
@@ -36538,8 +36716,8 @@
        ]
       },
       {
-       "en": "Weather & salt 3.2: crops in the field in 2 of 3 salt months (Trà Vinh station 0.4 km away, average peak 9.4‰; highest in the bulletins found; may miss an earlier peak; estimate from station reports); 0.8 days at or above 35 °C while crops grow (ERA5); 715 mm of canal water needed in salty months (ERA5 + CHIRPS).",
-       "vi": "Thời tiết & mặn 3,2: có cây trồng trên ruộng trong 2/3 tháng mặn (trạm Trà Vinh cách 0,4 km, độ mặn cao nhất trung bình 9,4‰; cao nhất trong các bản tin tìm được, có thể bỏ sót đỉnh mặn sớm hơn; ước tính từ báo cáo trạm); 0,8 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5); cần 715 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS).",
+       "en": "Weather & salt 3.2: crops in the field in 2 of 3 salt months (Trà Vinh station 0.4 km away, average peak 9.0‰; highest in the bulletins found; may miss an earlier peak; estimate from station reports); 0.8 days at or above 35 °C while crops grow (ERA5); 715 mm of canal water needed in salty months (ERA5 + CHIRPS).",
+       "vi": "Thời tiết & mặn 3,2: có cây trồng trên ruộng trong 2/3 tháng mặn (trạm Trà Vinh cách 0,4 km, độ mặn cao nhất trung bình 9,0‰; cao nhất trong các bản tin tìm được, có thể bỏ sót đỉnh mặn sớm hơn; ước tính từ báo cáo trạm); 0,8 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5); cần 715 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS).",
        "src": [
         66,
         67,
@@ -36549,6 +36727,8 @@
         71,
         72,
         73,
+        74,
+        75,
         0,
         10,
         1
@@ -36675,20 +36855,6 @@
        "vi": "Chưa có dữ liệu độ xanh vệ tinh (NDVI) cho điểm này."
       },
       {
-       "en": "The salinity station has few recent readings (last: 2026).",
-       "vi": "Trạm đo mặn có ít số liệu gần đây (gần nhất: năm 2026).",
-       "src": [
-        66,
-        67,
-        68,
-        69,
-        70,
-        71,
-        72,
-        73
-       ]
-      },
-      {
        "en": "Uses team estimates: soil score weights and dry-break months; break credit for pests.",
        "vi": "Dùng ước tính của nhóm: trọng số điểm đất và số tháng ruộng khô; mức giảm sâu bệnh nhờ cắt vụ."
       }
@@ -36727,8 +36893,8 @@
        ]
       },
       {
-       "en": "Weather & salt 3.2: crops in the field in 2 of 3 salt months (Trà Vinh station 0.4 km away, average peak 9.4‰; highest in the bulletins found; may miss an earlier peak; estimate from station reports); 0.8 days at or above 35 °C while crops grow (ERA5); 715 mm of canal water needed in salty months (ERA5 + CHIRPS).",
-       "vi": "Thời tiết & mặn 3,2: có cây trồng trên ruộng trong 2/3 tháng mặn (trạm Trà Vinh cách 0,4 km, độ mặn cao nhất trung bình 9,4‰; cao nhất trong các bản tin tìm được, có thể bỏ sót đỉnh mặn sớm hơn; ước tính từ báo cáo trạm); 0,8 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5); cần 715 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS).",
+       "en": "Weather & salt 3.2: crops in the field in 2 of 3 salt months (Trà Vinh station 0.4 km away, average peak 9.0‰; highest in the bulletins found; may miss an earlier peak; estimate from station reports); 0.8 days at or above 35 °C while crops grow (ERA5); 715 mm of canal water needed in salty months (ERA5 + CHIRPS).",
+       "vi": "Thời tiết & mặn 3,2: có cây trồng trên ruộng trong 2/3 tháng mặn (trạm Trà Vinh cách 0,4 km, độ mặn cao nhất trung bình 9,0‰; cao nhất trong các bản tin tìm được, có thể bỏ sót đỉnh mặn sớm hơn; ước tính từ báo cáo trạm); 0,8 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5); cần 715 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS).",
        "src": [
         66,
         67,
@@ -36738,6 +36904,8 @@
         71,
         72,
         73,
+        74,
+        75,
         0,
         10,
         1
@@ -36870,20 +37038,6 @@
        "vi": "Chưa có dữ liệu độ xanh vệ tinh (NDVI) cho điểm này."
       },
       {
-       "en": "The salinity station has few recent readings (last: 2026).",
-       "vi": "Trạm đo mặn có ít số liệu gần đây (gần nhất: năm 2026).",
-       "src": [
-        66,
-        67,
-        68,
-        69,
-        70,
-        71,
-        72,
-        73
-       ]
-      },
-      {
        "en": "Uses team estimates: soil score weights and dry-break months; salt left by the shrimp phase; break credit for pests; shrimp disease floor.",
        "vi": "Dùng ước tính của nhóm: trọng số điểm đất và số tháng ruộng khô; muối còn lại sau vụ tôm; mức giảm sâu bệnh nhờ cắt vụ; mức rủi ro bệnh tôm tối thiểu."
       }
@@ -36926,8 +37080,8 @@
        ]
       },
       {
-       "en": "Weather & salt 5.0: crops in the field in 0 of 3 salt months (Trà Vinh station 0.4 km away, average peak 9.4‰; highest in the bulletins found; may miss an earlier peak; estimate from station reports); 0 days at or above 35 °C while crops grow (ERA5); 0 mm of canal water needed in salty months (ERA5 + CHIRPS).",
-       "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/3 tháng mặn (trạm Trà Vinh cách 0,4 km, độ mặn cao nhất trung bình 9,4‰; cao nhất trong các bản tin tìm được, có thể bỏ sót đỉnh mặn sớm hơn; ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5); cần 0 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS).",
+       "en": "Weather & salt 5.0: crops in the field in 0 of 3 salt months (Trà Vinh station 0.4 km away, average peak 9.0‰; highest in the bulletins found; may miss an earlier peak; estimate from station reports); 0 days at or above 35 °C while crops grow (ERA5); 0 mm of canal water needed in salty months (ERA5 + CHIRPS).",
+       "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/3 tháng mặn (trạm Trà Vinh cách 0,4 km, độ mặn cao nhất trung bình 9,0‰; cao nhất trong các bản tin tìm được, có thể bỏ sót đỉnh mặn sớm hơn; ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5); cần 0 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS).",
        "src": [
         66,
         67,
@@ -36937,6 +37091,8 @@
         71,
         72,
         73,
+        74,
+        75,
         0,
         10,
         1
@@ -37073,20 +37229,6 @@
          "vi": "Chưa có dữ liệu độ xanh vệ tinh (NDVI) cho điểm này."
         },
         {
-         "en": "The salinity station has few recent readings (last: 2026).",
-         "vi": "Trạm đo mặn có ít số liệu gần đây (gần nhất: năm 2026).",
-         "src": [
-          66,
-          67,
-          68,
-          69,
-          70,
-          71,
-          72,
-          73
-         ]
-        },
-        {
          "en": "Uses team estimates: soil score weights and dry-break months; break credit for pests; pest timing for upland crops.",
          "vi": "Dùng ước tính của nhóm: trọng số điểm đất và số tháng ruộng khô; mức giảm sâu bệnh nhờ cắt vụ; thời điểm sâu hại cây màu."
         }
@@ -37136,8 +37278,8 @@
          ]
         },
         {
-         "en": "Weather & salt 3.2: crops in the field in 2 of 3 salt months (Trà Vinh station 0.4 km away, average peak 9.4‰; highest in the bulletins found; may miss an earlier peak; estimate from station reports); 0.8 days at or above 35 °C while crops grow (ERA5); 715 mm of canal water needed in salty months (ERA5 + CHIRPS).",
-         "vi": "Thời tiết & mặn 3,2: có cây trồng trên ruộng trong 2/3 tháng mặn (trạm Trà Vinh cách 0,4 km, độ mặn cao nhất trung bình 9,4‰; cao nhất trong các bản tin tìm được, có thể bỏ sót đỉnh mặn sớm hơn; ước tính từ báo cáo trạm); 0,8 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5); cần 715 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS).",
+         "en": "Weather & salt 3.2: crops in the field in 2 of 3 salt months (Trà Vinh station 0.4 km away, average peak 9.0‰; highest in the bulletins found; may miss an earlier peak; estimate from station reports); 0.8 days at or above 35 °C while crops grow (ERA5); 715 mm of canal water needed in salty months (ERA5 + CHIRPS).",
+         "vi": "Thời tiết & mặn 3,2: có cây trồng trên ruộng trong 2/3 tháng mặn (trạm Trà Vinh cách 0,4 km, độ mặn cao nhất trung bình 9,0‰; cao nhất trong các bản tin tìm được, có thể bỏ sót đỉnh mặn sớm hơn; ước tính từ báo cáo trạm); 0,8 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5); cần 715 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS).",
          "src": [
           66,
           67,
@@ -37147,6 +37289,8 @@
           71,
           72,
           73,
+          74,
+          75,
           0,
           10,
           1
@@ -37285,20 +37429,6 @@
          "vi": "Chưa có dữ liệu độ xanh vệ tinh (NDVI) cho điểm này."
         },
         {
-         "en": "The salinity station has few recent readings (last: 2026).",
-         "vi": "Trạm đo mặn có ít số liệu gần đây (gần nhất: năm 2026).",
-         "src": [
-          66,
-          67,
-          68,
-          69,
-          70,
-          71,
-          72,
-          73
-         ]
-        },
-        {
          "en": "Uses team estimates: soil score weights and dry-break months; break credit for pests; pest timing for upland crops.",
          "vi": "Dùng ước tính của nhóm: trọng số điểm đất và số tháng ruộng khô; mức giảm sâu bệnh nhờ cắt vụ; thời điểm sâu hại cây màu."
         }
@@ -37348,8 +37478,8 @@
          ]
         },
         {
-         "en": "Weather & salt 3.2: crops in the field in 2 of 3 salt months (Trà Vinh station 0.4 km away, average peak 9.4‰; highest in the bulletins found; may miss an earlier peak; estimate from station reports); 0.8 days at or above 35 °C while crops grow (ERA5); 715 mm of canal water needed in salty months (ERA5 + CHIRPS).",
-         "vi": "Thời tiết & mặn 3,2: có cây trồng trên ruộng trong 2/3 tháng mặn (trạm Trà Vinh cách 0,4 km, độ mặn cao nhất trung bình 9,4‰; cao nhất trong các bản tin tìm được, có thể bỏ sót đỉnh mặn sớm hơn; ước tính từ báo cáo trạm); 0,8 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5); cần 715 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS).",
+         "en": "Weather & salt 3.2: crops in the field in 2 of 3 salt months (Trà Vinh station 0.4 km away, average peak 9.0‰; highest in the bulletins found; may miss an earlier peak; estimate from station reports); 0.8 days at or above 35 °C while crops grow (ERA5); 715 mm of canal water needed in salty months (ERA5 + CHIRPS).",
+         "vi": "Thời tiết & mặn 3,2: có cây trồng trên ruộng trong 2/3 tháng mặn (trạm Trà Vinh cách 0,4 km, độ mặn cao nhất trung bình 9,0‰; cao nhất trong các bản tin tìm được, có thể bỏ sót đỉnh mặn sớm hơn; ước tính từ báo cáo trạm); 0,8 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5); cần 715 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS).",
          "src": [
           66,
           67,
@@ -37359,6 +37489,8 @@
           71,
           72,
           73,
+          74,
+          75,
           0,
           10,
           1
@@ -37501,20 +37633,6 @@
          "vi": "Chưa có dữ liệu độ xanh vệ tinh (NDVI) cho điểm này."
         },
         {
-         "en": "The salinity station has few recent readings (last: 2026).",
-         "vi": "Trạm đo mặn có ít số liệu gần đây (gần nhất: năm 2026).",
-         "src": [
-          66,
-          67,
-          68,
-          69,
-          70,
-          71,
-          72,
-          73
-         ]
-        },
-        {
          "en": "Uses team estimates: soil score weights and dry-break months; break credit for pests; pest timing for upland crops.",
          "vi": "Dùng ước tính của nhóm: trọng số điểm đất và số tháng ruộng khô; mức giảm sâu bệnh nhờ cắt vụ; thời điểm sâu hại cây màu."
         }
@@ -37554,8 +37672,8 @@
          ]
         },
         {
-         "en": "Weather & salt 3.2: crops in the field in 2 of 3 salt months (Trà Vinh station 0.4 km away, average peak 9.4‰; highest in the bulletins found; may miss an earlier peak; estimate from station reports); 0.8 days at or above 35 °C while crops grow (ERA5); 715 mm of canal water needed in salty months (ERA5 + CHIRPS).",
-         "vi": "Thời tiết & mặn 3,2: có cây trồng trên ruộng trong 2/3 tháng mặn (trạm Trà Vinh cách 0,4 km, độ mặn cao nhất trung bình 9,4‰; cao nhất trong các bản tin tìm được, có thể bỏ sót đỉnh mặn sớm hơn; ước tính từ báo cáo trạm); 0,8 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5); cần 715 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS).",
+         "en": "Weather & salt 3.2: crops in the field in 2 of 3 salt months (Trà Vinh station 0.4 km away, average peak 9.0‰; highest in the bulletins found; may miss an earlier peak; estimate from station reports); 0.8 days at or above 35 °C while crops grow (ERA5); 715 mm of canal water needed in salty months (ERA5 + CHIRPS).",
+         "vi": "Thời tiết & mặn 3,2: có cây trồng trên ruộng trong 2/3 tháng mặn (trạm Trà Vinh cách 0,4 km, độ mặn cao nhất trung bình 9,0‰; cao nhất trong các bản tin tìm được, có thể bỏ sót đỉnh mặn sớm hơn; ước tính từ báo cáo trạm); 0,8 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5); cần 715 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS).",
          "src": [
           66,
           67,
@@ -37565,6 +37683,8 @@
           71,
           72,
           73,
+          74,
+          75,
           0,
           10,
           1
@@ -37680,20 +37800,6 @@
        "vi": "Chưa có dữ liệu độ xanh vệ tinh (NDVI) cho điểm này."
       },
       {
-       "en": "The salinity station has few recent readings (last: 2026).",
-       "vi": "Trạm đo mặn có ít số liệu gần đây (gần nhất: năm 2026).",
-       "src": [
-        66,
-        67,
-        68,
-        69,
-        70,
-        71,
-        72,
-        73
-       ]
-      },
-      {
        "en": "Uses team estimates: salt-tolerant rice counted as half a rice month in salt months; soil score weights and dry-break months; break credit for pests.",
        "vi": "Dùng ước tính của nhóm: lúa chịu mặn được tính bằng nửa tháng lúa trong các tháng mặn; trọng số điểm đất và số tháng ruộng khô; mức giảm sâu bệnh nhờ cắt vụ."
       }
@@ -37736,8 +37842,8 @@
        ]
       },
       {
-       "en": "Weather & salt 4.3: crops in the field in 1 of 3 salt months (Trà Vinh station 0.4 km away, average peak 9.4‰; highest in the bulletins found; may miss an earlier peak; estimate from station reports); 0.4 days at or above 35 °C while crops grow (ERA5); 426 mm of canal water needed in salty months (ERA5 + CHIRPS).",
-       "vi": "Thời tiết & mặn 4,3: có cây trồng trên ruộng trong 1/3 tháng mặn (trạm Trà Vinh cách 0,4 km, độ mặn cao nhất trung bình 9,4‰; cao nhất trong các bản tin tìm được, có thể bỏ sót đỉnh mặn sớm hơn; ước tính từ báo cáo trạm); 0,4 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5); cần 426 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS).",
+       "en": "Weather & salt 4.3: crops in the field in 1 of 3 salt months (Trà Vinh station 0.4 km away, average peak 9.0‰; highest in the bulletins found; may miss an earlier peak; estimate from station reports); 0.4 days at or above 35 °C while crops grow (ERA5); 426 mm of canal water needed in salty months (ERA5 + CHIRPS).",
+       "vi": "Thời tiết & mặn 4,3: có cây trồng trên ruộng trong 1/3 tháng mặn (trạm Trà Vinh cách 0,4 km, độ mặn cao nhất trung bình 9,0‰; cao nhất trong các bản tin tìm được, có thể bỏ sót đỉnh mặn sớm hơn; ước tính từ báo cáo trạm); 0,4 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5); cần 426 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS).",
        "src": [
         66,
         67,
@@ -37747,6 +37853,8 @@
         71,
         72,
         73,
+        74,
+        75,
         0,
         10,
         1
@@ -37837,7 +37945,9 @@
       70,
       71,
       72,
-      73
+      73,
+      74,
+      75
      ],
      "salt": true,
      "plain": {
@@ -37961,15 +38071,15 @@
       5
      ],
      "note": {
-      "en": "Nearest KTTV salinity station: Trà Vinh, 0.4 km away (station position approximate). Highest reading of the one El Niño dry season in the bulletins: 10.7‰ (2024); one season only, so a rough guide. Dry season 2024: highest in the bulletins found; may miss an earlier peak. Salt months: months that reached 4‰ there in at least 2 dry seasons.",
-      "vi": "Trạm đo mặn KTTV gần nhất: Trà Vinh, cách 0,4 km (vị trí trạm gần đúng). Độ mặn cao nhất của mùa khô năm El Niño duy nhất có trong bản tin: 10,7‰ (2024); chỉ một mùa nên chỉ để tham khảo. Mùa khô 2024: cao nhất trong các bản tin tìm được; có thể bỏ sót đỉnh mặn sớm hơn. Tháng mặn: các tháng độ mặn tại trạm đạt 4‰ trong ít nhất 2 mùa khô."
+      "en": "Nearest KTTV salinity station: Trà Vinh, 0.4 km away (station position approximate). Highest reading of each El Niño dry season there: 11.2‰ on average (2003, 2005, 2007, 2010, 2015, 2016, 2024). Dry season 2024: highest in the bulletins found; may miss an earlier peak. Salt months: months that reached 4‰ there in at least 2 dry seasons.",
+      "vi": "Trạm đo mặn KTTV gần nhất: Trà Vinh, cách 0,4 km (vị trí trạm gần đúng). Độ mặn cao nhất mỗi mùa khô năm El Niño tại trạm: trung bình 11,2‰ (2003, 2005, 2007, 2010, 2015, 2016, 2024). Mùa khô 2024: cao nhất trong các bản tin tìm được; có thể bỏ sót đỉnh mặn sớm hơn. Tháng mặn: các tháng độ mặn tại trạm đạt 4‰ trong ít nhất 2 mùa khô."
      },
-     "station_ppt": 10.7,
+     "station_ppt": 11.2,
      "estimate": true,
-     "seasons": 3,
+     "seasons": 21,
      "last_year": 2026,
      "level": "medium",
-     "max_ppt": 10.7,
+     "max_ppt": 11.2,
      "station": "Trà Vinh",
      "km": 0.4,
      "partial": true,
@@ -38046,20 +38156,6 @@
         "vi": "Chưa có dữ liệu độ xanh vệ tinh (NDVI) cho điểm này."
        },
        {
-        "en": "The salinity station has few recent readings (last: 2026).",
-        "vi": "Trạm đo mặn có ít số liệu gần đây (gần nhất: năm 2026).",
-        "src": [
-         66,
-         67,
-         68,
-         69,
-         70,
-         71,
-         72,
-         73
-        ]
-       },
-       {
         "en": "Uses team estimates: soil score weights and dry-break months; break credit for pests; El Niño crop-loss share.",
         "vi": "Dùng ước tính của nhóm: trọng số điểm đất và số tháng ruộng khô; mức giảm sâu bệnh nhờ cắt vụ; tỷ lệ thiệt hại mùa vụ năm El Niño."
        }
@@ -38102,8 +38198,8 @@
         ]
        },
        {
-        "en": "Weather & salt 2.9: crops in the field in 2 of 3 salt months (Trà Vinh station 0.4 km away, average peak 10.7‰; highest in the bulletins found; may miss an earlier peak; estimate from station reports); 5 days at or above 35 °C while crops grow (ERA5, El Niño average); 776 mm of canal water needed in salty months (ERA5 + CHIRPS, El Niño average).",
-        "vi": "Thời tiết & mặn 2,9: có cây trồng trên ruộng trong 2/3 tháng mặn (trạm Trà Vinh cách 0,4 km, độ mặn cao nhất trung bình 10,7‰; cao nhất trong các bản tin tìm được, có thể bỏ sót đỉnh mặn sớm hơn; ước tính từ báo cáo trạm); 5 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5, trung bình El Niño); cần 776 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS, trung bình El Niño).",
+        "en": "Weather & salt 2.9: crops in the field in 2 of 3 salt months (Trà Vinh station 0.4 km away, average peak 11.2‰; highest in the bulletins found; may miss an earlier peak; estimate from station reports); 5 days at or above 35 °C while crops grow (ERA5, El Niño average); 776 mm of canal water needed in salty months (ERA5 + CHIRPS, El Niño average).",
+        "vi": "Thời tiết & mặn 2,9: có cây trồng trên ruộng trong 2/3 tháng mặn (trạm Trà Vinh cách 0,4 km, độ mặn cao nhất trung bình 11,2‰; cao nhất trong các bản tin tìm được, có thể bỏ sót đỉnh mặn sớm hơn; ước tính từ báo cáo trạm); 5 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5, trung bình El Niño); cần 776 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS, trung bình El Niño).",
         "src": [
          66,
          67,
@@ -38113,6 +38209,8 @@
          71,
          72,
          73,
+         74,
+         75,
          0,
          10,
          1
@@ -38239,20 +38337,6 @@
         "vi": "Chưa có dữ liệu độ xanh vệ tinh (NDVI) cho điểm này."
        },
        {
-        "en": "The salinity station has few recent readings (last: 2026).",
-        "vi": "Trạm đo mặn có ít số liệu gần đây (gần nhất: năm 2026).",
-        "src": [
-         66,
-         67,
-         68,
-         69,
-         70,
-         71,
-         72,
-         73
-        ]
-       },
-       {
         "en": "Uses team estimates: soil score weights and dry-break months; break credit for pests; El Niño crop-loss share.",
         "vi": "Dùng ước tính của nhóm: trọng số điểm đất và số tháng ruộng khô; mức giảm sâu bệnh nhờ cắt vụ; tỷ lệ thiệt hại mùa vụ năm El Niño."
        }
@@ -38291,8 +38375,8 @@
         ]
        },
        {
-        "en": "Weather & salt 2.9: crops in the field in 2 of 3 salt months (Trà Vinh station 0.4 km away, average peak 10.7‰; highest in the bulletins found; may miss an earlier peak; estimate from station reports); 5 days at or above 35 °C while crops grow (ERA5, El Niño average); 776 mm of canal water needed in salty months (ERA5 + CHIRPS, El Niño average).",
-        "vi": "Thời tiết & mặn 2,9: có cây trồng trên ruộng trong 2/3 tháng mặn (trạm Trà Vinh cách 0,4 km, độ mặn cao nhất trung bình 10,7‰; cao nhất trong các bản tin tìm được, có thể bỏ sót đỉnh mặn sớm hơn; ước tính từ báo cáo trạm); 5 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5, trung bình El Niño); cần 776 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS, trung bình El Niño).",
+        "en": "Weather & salt 2.9: crops in the field in 2 of 3 salt months (Trà Vinh station 0.4 km away, average peak 11.2‰; highest in the bulletins found; may miss an earlier peak; estimate from station reports); 5 days at or above 35 °C while crops grow (ERA5, El Niño average); 776 mm of canal water needed in salty months (ERA5 + CHIRPS, El Niño average).",
+        "vi": "Thời tiết & mặn 2,9: có cây trồng trên ruộng trong 2/3 tháng mặn (trạm Trà Vinh cách 0,4 km, độ mặn cao nhất trung bình 11,2‰; cao nhất trong các bản tin tìm được, có thể bỏ sót đỉnh mặn sớm hơn; ước tính từ báo cáo trạm); 5 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5, trung bình El Niño); cần 776 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS, trung bình El Niño).",
         "src": [
          66,
          67,
@@ -38302,6 +38386,8 @@
          71,
          72,
          73,
+         74,
+         75,
          0,
          10,
          1
@@ -38434,20 +38520,6 @@
         "vi": "Chưa có dữ liệu độ xanh vệ tinh (NDVI) cho điểm này."
        },
        {
-        "en": "The salinity station has few recent readings (last: 2026).",
-        "vi": "Trạm đo mặn có ít số liệu gần đây (gần nhất: năm 2026).",
-        "src": [
-         66,
-         67,
-         68,
-         69,
-         70,
-         71,
-         72,
-         73
-        ]
-       },
-       {
         "en": "Uses team estimates: soil score weights and dry-break months; salt left by the shrimp phase; break credit for pests; shrimp disease floor.",
         "vi": "Dùng ước tính của nhóm: trọng số điểm đất và số tháng ruộng khô; muối còn lại sau vụ tôm; mức giảm sâu bệnh nhờ cắt vụ; mức rủi ro bệnh tôm tối thiểu."
        }
@@ -38490,8 +38562,8 @@
         ]
        },
        {
-        "en": "Weather & salt 5.0: crops in the field in 0 of 3 salt months (Trà Vinh station 0.4 km away, average peak 10.7‰; highest in the bulletins found; may miss an earlier peak; estimate from station reports); 0 days at or above 35 °C while crops grow (ERA5, El Niño average); 0 mm of canal water needed in salty months (ERA5 + CHIRPS, El Niño average).",
-        "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/3 tháng mặn (trạm Trà Vinh cách 0,4 km, độ mặn cao nhất trung bình 10,7‰; cao nhất trong các bản tin tìm được, có thể bỏ sót đỉnh mặn sớm hơn; ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5, trung bình El Niño); cần 0 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS, trung bình El Niño).",
+        "en": "Weather & salt 5.0: crops in the field in 0 of 3 salt months (Trà Vinh station 0.4 km away, average peak 11.2‰; highest in the bulletins found; may miss an earlier peak; estimate from station reports); 0 days at or above 35 °C while crops grow (ERA5, El Niño average); 0 mm of canal water needed in salty months (ERA5 + CHIRPS, El Niño average).",
+        "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/3 tháng mặn (trạm Trà Vinh cách 0,4 km, độ mặn cao nhất trung bình 11,2‰; cao nhất trong các bản tin tìm được, có thể bỏ sót đỉnh mặn sớm hơn; ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5, trung bình El Niño); cần 0 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS, trung bình El Niño).",
         "src": [
          66,
          67,
@@ -38501,6 +38573,8 @@
          71,
          72,
          73,
+         74,
+         75,
          0,
          10,
          1
@@ -38637,20 +38711,6 @@
           "vi": "Chưa có dữ liệu độ xanh vệ tinh (NDVI) cho điểm này."
          },
          {
-          "en": "The salinity station has few recent readings (last: 2026).",
-          "vi": "Trạm đo mặn có ít số liệu gần đây (gần nhất: năm 2026).",
-          "src": [
-           66,
-           67,
-           68,
-           69,
-           70,
-           71,
-           72,
-           73
-          ]
-         },
-         {
           "en": "Uses team estimates: soil score weights and dry-break months; break credit for pests; pest timing for upland crops; El Niño crop-loss share.",
           "vi": "Dùng ước tính của nhóm: trọng số điểm đất và số tháng ruộng khô; mức giảm sâu bệnh nhờ cắt vụ; thời điểm sâu hại cây màu; tỷ lệ thiệt hại mùa vụ năm El Niño."
          }
@@ -38700,8 +38760,8 @@
           ]
          },
          {
-          "en": "Weather & salt 2.9: crops in the field in 2 of 3 salt months (Trà Vinh station 0.4 km away, average peak 10.7‰; highest in the bulletins found; may miss an earlier peak; estimate from station reports); 5 days at or above 35 °C while crops grow (ERA5, El Niño average); 776 mm of canal water needed in salty months (ERA5 + CHIRPS, El Niño average).",
-          "vi": "Thời tiết & mặn 2,9: có cây trồng trên ruộng trong 2/3 tháng mặn (trạm Trà Vinh cách 0,4 km, độ mặn cao nhất trung bình 10,7‰; cao nhất trong các bản tin tìm được, có thể bỏ sót đỉnh mặn sớm hơn; ước tính từ báo cáo trạm); 5 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5, trung bình El Niño); cần 776 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS, trung bình El Niño).",
+          "en": "Weather & salt 2.9: crops in the field in 2 of 3 salt months (Trà Vinh station 0.4 km away, average peak 11.2‰; highest in the bulletins found; may miss an earlier peak; estimate from station reports); 5 days at or above 35 °C while crops grow (ERA5, El Niño average); 776 mm of canal water needed in salty months (ERA5 + CHIRPS, El Niño average).",
+          "vi": "Thời tiết & mặn 2,9: có cây trồng trên ruộng trong 2/3 tháng mặn (trạm Trà Vinh cách 0,4 km, độ mặn cao nhất trung bình 11,2‰; cao nhất trong các bản tin tìm được, có thể bỏ sót đỉnh mặn sớm hơn; ước tính từ báo cáo trạm); 5 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5, trung bình El Niño); cần 776 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS, trung bình El Niño).",
           "src": [
            66,
            67,
@@ -38711,6 +38771,8 @@
            71,
            72,
            73,
+           74,
+           75,
            0,
            10,
            1
@@ -38849,20 +38911,6 @@
           "vi": "Chưa có dữ liệu độ xanh vệ tinh (NDVI) cho điểm này."
          },
          {
-          "en": "The salinity station has few recent readings (last: 2026).",
-          "vi": "Trạm đo mặn có ít số liệu gần đây (gần nhất: năm 2026).",
-          "src": [
-           66,
-           67,
-           68,
-           69,
-           70,
-           71,
-           72,
-           73
-          ]
-         },
-         {
           "en": "Uses team estimates: soil score weights and dry-break months; break credit for pests; pest timing for upland crops; El Niño crop-loss share.",
           "vi": "Dùng ước tính của nhóm: trọng số điểm đất và số tháng ruộng khô; mức giảm sâu bệnh nhờ cắt vụ; thời điểm sâu hại cây màu; tỷ lệ thiệt hại mùa vụ năm El Niño."
          }
@@ -38912,8 +38960,8 @@
           ]
          },
          {
-          "en": "Weather & salt 2.9: crops in the field in 2 of 3 salt months (Trà Vinh station 0.4 km away, average peak 10.7‰; highest in the bulletins found; may miss an earlier peak; estimate from station reports); 5 days at or above 35 °C while crops grow (ERA5, El Niño average); 776 mm of canal water needed in salty months (ERA5 + CHIRPS, El Niño average).",
-          "vi": "Thời tiết & mặn 2,9: có cây trồng trên ruộng trong 2/3 tháng mặn (trạm Trà Vinh cách 0,4 km, độ mặn cao nhất trung bình 10,7‰; cao nhất trong các bản tin tìm được, có thể bỏ sót đỉnh mặn sớm hơn; ước tính từ báo cáo trạm); 5 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5, trung bình El Niño); cần 776 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS, trung bình El Niño).",
+          "en": "Weather & salt 2.9: crops in the field in 2 of 3 salt months (Trà Vinh station 0.4 km away, average peak 11.2‰; highest in the bulletins found; may miss an earlier peak; estimate from station reports); 5 days at or above 35 °C while crops grow (ERA5, El Niño average); 776 mm of canal water needed in salty months (ERA5 + CHIRPS, El Niño average).",
+          "vi": "Thời tiết & mặn 2,9: có cây trồng trên ruộng trong 2/3 tháng mặn (trạm Trà Vinh cách 0,4 km, độ mặn cao nhất trung bình 11,2‰; cao nhất trong các bản tin tìm được, có thể bỏ sót đỉnh mặn sớm hơn; ước tính từ báo cáo trạm); 5 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5, trung bình El Niño); cần 776 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS, trung bình El Niño).",
           "src": [
            66,
            67,
@@ -38923,6 +38971,8 @@
            71,
            72,
            73,
+           74,
+           75,
            0,
            10,
            1
@@ -39065,20 +39115,6 @@
           "vi": "Chưa có dữ liệu độ xanh vệ tinh (NDVI) cho điểm này."
          },
          {
-          "en": "The salinity station has few recent readings (last: 2026).",
-          "vi": "Trạm đo mặn có ít số liệu gần đây (gần nhất: năm 2026).",
-          "src": [
-           66,
-           67,
-           68,
-           69,
-           70,
-           71,
-           72,
-           73
-          ]
-         },
-         {
           "en": "Uses team estimates: soil score weights and dry-break months; break credit for pests; pest timing for upland crops; El Niño crop-loss share.",
           "vi": "Dùng ước tính của nhóm: trọng số điểm đất và số tháng ruộng khô; mức giảm sâu bệnh nhờ cắt vụ; thời điểm sâu hại cây màu; tỷ lệ thiệt hại mùa vụ năm El Niño."
          }
@@ -39118,8 +39154,8 @@
           ]
          },
          {
-          "en": "Weather & salt 2.9: crops in the field in 2 of 3 salt months (Trà Vinh station 0.4 km away, average peak 10.7‰; highest in the bulletins found; may miss an earlier peak; estimate from station reports); 5 days at or above 35 °C while crops grow (ERA5, El Niño average); 776 mm of canal water needed in salty months (ERA5 + CHIRPS, El Niño average).",
-          "vi": "Thời tiết & mặn 2,9: có cây trồng trên ruộng trong 2/3 tháng mặn (trạm Trà Vinh cách 0,4 km, độ mặn cao nhất trung bình 10,7‰; cao nhất trong các bản tin tìm được, có thể bỏ sót đỉnh mặn sớm hơn; ước tính từ báo cáo trạm); 5 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5, trung bình El Niño); cần 776 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS, trung bình El Niño).",
+          "en": "Weather & salt 2.9: crops in the field in 2 of 3 salt months (Trà Vinh station 0.4 km away, average peak 11.2‰; highest in the bulletins found; may miss an earlier peak; estimate from station reports); 5 days at or above 35 °C while crops grow (ERA5, El Niño average); 776 mm of canal water needed in salty months (ERA5 + CHIRPS, El Niño average).",
+          "vi": "Thời tiết & mặn 2,9: có cây trồng trên ruộng trong 2/3 tháng mặn (trạm Trà Vinh cách 0,4 km, độ mặn cao nhất trung bình 11,2‰; cao nhất trong các bản tin tìm được, có thể bỏ sót đỉnh mặn sớm hơn; ước tính từ báo cáo trạm); 5 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5, trung bình El Niño); cần 776 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS, trung bình El Niño).",
           "src": [
            66,
            67,
@@ -39129,6 +39165,8 @@
            71,
            72,
            73,
+           74,
+           75,
            0,
            10,
            1
@@ -39244,20 +39282,6 @@
         "vi": "Chưa có dữ liệu độ xanh vệ tinh (NDVI) cho điểm này."
        },
        {
-        "en": "The salinity station has few recent readings (last: 2026).",
-        "vi": "Trạm đo mặn có ít số liệu gần đây (gần nhất: năm 2026).",
-        "src": [
-         66,
-         67,
-         68,
-         69,
-         70,
-         71,
-         72,
-         73
-        ]
-       },
-       {
         "en": "Uses team estimates: salt-tolerant rice counted as half a rice month in salt months; soil score weights and dry-break months; break credit for pests; El Niño crop-loss share.",
         "vi": "Dùng ước tính của nhóm: lúa chịu mặn được tính bằng nửa tháng lúa trong các tháng mặn; trọng số điểm đất và số tháng ruộng khô; mức giảm sâu bệnh nhờ cắt vụ; tỷ lệ thiệt hại mùa vụ năm El Niño."
        }
@@ -39279,7 +39303,7 @@
       },
       "scores": {
        "water": 2.2,
-       "salt": 4.2,
+       "salt": 4.1,
        "soil": 2.8,
        "pests": 3.0,
        "income": 3.0
@@ -39300,8 +39324,8 @@
         ]
        },
        {
-        "en": "Weather & salt 4.2: crops in the field in 1 of 3 salt months (Trà Vinh station 0.4 km away, average peak 10.7‰; highest in the bulletins found; may miss an earlier peak; estimate from station reports); 2.8 days at or above 35 °C while crops grow (ERA5, El Niño average); 463 mm of canal water needed in salty months (ERA5 + CHIRPS, El Niño average).",
-        "vi": "Thời tiết & mặn 4,2: có cây trồng trên ruộng trong 1/3 tháng mặn (trạm Trà Vinh cách 0,4 km, độ mặn cao nhất trung bình 10,7‰; cao nhất trong các bản tin tìm được, có thể bỏ sót đỉnh mặn sớm hơn; ước tính từ báo cáo trạm); 2,8 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5, trung bình El Niño); cần 463 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS, trung bình El Niño).",
+        "en": "Weather & salt 4.1: crops in the field in 1 of 3 salt months (Trà Vinh station 0.4 km away, average peak 11.2‰; highest in the bulletins found; may miss an earlier peak; estimate from station reports); 2.8 days at or above 35 °C while crops grow (ERA5, El Niño average); 463 mm of canal water needed in salty months (ERA5 + CHIRPS, El Niño average).",
+        "vi": "Thời tiết & mặn 4,1: có cây trồng trên ruộng trong 1/3 tháng mặn (trạm Trà Vinh cách 0,4 km, độ mặn cao nhất trung bình 11,2‰; cao nhất trong các bản tin tìm được, có thể bỏ sót đỉnh mặn sớm hơn; ước tính từ báo cáo trạm); 2,8 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5, trung bình El Niño); cần 463 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS, trung bình El Niño).",
         "src": [
          66,
          67,
@@ -39311,6 +39335,8 @@
          71,
          72,
          73,
+         74,
+         75,
          0,
          10,
          1
@@ -39401,7 +39427,9 @@
        70,
        71,
        72,
-       73
+       73,
+       74,
+       75
       ],
       "salt": true,
       "plain": {
@@ -42365,18 +42393,19 @@
    },
    "salinity": {
     "months": [
+     3,
      4
     ],
     "note": {
-     "en": "Nearest KTTV salinity station: Sóc Trăng, 2.0 km away (station position approximate). Highest reading of each typical dry season there: 3.9‰ on average (2017, 2018, 2020, 2021, 2022, 2023, 2025). Salt months: months that reached 4‰ there in at least 2 dry seasons.",
-     "vi": "Trạm đo mặn KTTV gần nhất: Sóc Trăng, cách 2,0 km (vị trí trạm gần đúng). Độ mặn cao nhất mỗi mùa khô năm thường tại trạm: trung bình 3,9‰ (2017, 2018, 2020, 2021, 2022, 2023, 2025). Tháng mặn: các tháng độ mặn tại trạm đạt 4‰ trong ít nhất 2 mùa khô."
+     "en": "Nearest KTTV salinity station: Sóc Trăng, 2.0 km away (station position approximate). Highest reading of each typical dry season there: 3.2‰ on average (2000, 2001, 2002, 2004, 2006, 2008, 2009, 2011, 2012, 2014, 2017, 2018, 2020, 2021, 2022, 2023, 2025). Salt months: months that reached 4‰ there in at least 2 dry seasons.",
+     "vi": "Trạm đo mặn KTTV gần nhất: Sóc Trăng, cách 2,0 km (vị trí trạm gần đúng). Độ mặn cao nhất mỗi mùa khô năm thường tại trạm: trung bình 3,2‰ (2000, 2001, 2002, 2004, 2006, 2008, 2009, 2011, 2012, 2014, 2017, 2018, 2020, 2021, 2022, 2023, 2025). Tháng mặn: các tháng độ mặn tại trạm đạt 4‰ trong ít nhất 2 mùa khô."
     },
-    "station_ppt": 3.9,
+    "station_ppt": 3.2,
     "estimate": true,
-    "seasons": 10,
+    "seasons": 24,
     "last_year": 2025,
     "level": "low",
-    "max_ppt": 3.9,
+    "max_ppt": 3.2,
     "station": "Sóc Trăng",
     "km": 2.0,
     "partial": false,
@@ -42477,7 +42506,7 @@
      },
      "scores": {
       "water": 1.0,
-      "salt": 3.6,
+      "salt": 3.9,
       "soil": 1.3,
       "pests": 1.8,
       "income": 3.0
@@ -42494,8 +42523,8 @@
        ]
       },
       {
-       "en": "Weather & salt 3.6: crops in the field in 1 of 1 salt months (Sóc Trăng station 2.0 km away, average peak 3.9‰; estimate from station reports); 0.7 days at or above 35 °C while crops grow (ERA5); 311 mm of canal water needed in salty months (ERA5 + CHIRPS).",
-       "vi": "Thời tiết & mặn 3,6: có cây trồng trên ruộng trong 1/1 tháng mặn (trạm Sóc Trăng cách 2,0 km, độ mặn cao nhất trung bình 3,9‰; ước tính từ báo cáo trạm); 0,7 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5); cần 311 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS).",
+       "en": "Weather & salt 3.9: crops in the field in 1 of 2 salt months (Sóc Trăng station 2.0 km away, average peak 3.2‰; estimate from station reports); 0.7 days at or above 35 °C while crops grow (ERA5); 503 mm of canal water needed in salty months (ERA5 + CHIRPS).",
+       "vi": "Thời tiết & mặn 3,9: có cây trồng trên ruộng trong 1/2 tháng mặn (trạm Sóc Trăng cách 2,0 km, độ mặn cao nhất trung bình 3,2‰; ước tính từ báo cáo trạm); 0,7 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5); cần 503 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS).",
        "src": [
         66,
         67,
@@ -42505,6 +42534,8 @@
         71,
         72,
         73,
+        74,
+        75,
         0,
         10,
         1
@@ -42652,7 +42683,7 @@
      },
      "scores": {
       "water": 1.4,
-      "salt": 3.6,
+      "salt": 3.9,
       "soil": 2.0,
       "pests": 3.0,
       "income": 1.9
@@ -42669,8 +42700,8 @@
        ]
       },
       {
-       "en": "Weather & salt 3.6: crops in the field in 1 of 1 salt months (Sóc Trăng station 2.0 km away, average peak 3.9‰; estimate from station reports); 0.7 days at or above 35 °C while crops grow (ERA5); 311 mm of canal water needed in salty months (ERA5 + CHIRPS).",
-       "vi": "Thời tiết & mặn 3,6: có cây trồng trên ruộng trong 1/1 tháng mặn (trạm Sóc Trăng cách 2,0 km, độ mặn cao nhất trung bình 3,9‰; ước tính từ báo cáo trạm); 0,7 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5); cần 311 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS).",
+       "en": "Weather & salt 3.9: crops in the field in 1 of 2 salt months (Sóc Trăng station 2.0 km away, average peak 3.2‰; estimate from station reports); 0.7 days at or above 35 °C while crops grow (ERA5); 503 mm of canal water needed in salty months (ERA5 + CHIRPS).",
+       "vi": "Thời tiết & mặn 3,9: có cây trồng trên ruộng trong 1/2 tháng mặn (trạm Sóc Trăng cách 2,0 km, độ mặn cao nhất trung bình 3,2‰; ước tính từ báo cáo trạm); 0,7 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5); cần 503 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS).",
        "src": [
         66,
         67,
@@ -42680,6 +42711,8 @@
         71,
         72,
         73,
+        74,
+        75,
         0,
         10,
         1
@@ -42854,8 +42887,8 @@
        ]
       },
       {
-       "en": "Weather & salt 5.0: crops in the field in 0 of 1 salt months (Sóc Trăng station 2.0 km away, average peak 3.9‰; estimate from station reports); 0 days at or above 35 °C while crops grow (ERA5); 0 mm of canal water needed in salty months (ERA5 + CHIRPS).",
-       "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/1 tháng mặn (trạm Sóc Trăng cách 2,0 km, độ mặn cao nhất trung bình 3,9‰; ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5); cần 0 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS).",
+       "en": "Weather & salt 5.0: crops in the field in 0 of 2 salt months (Sóc Trăng station 2.0 km away, average peak 3.2‰; estimate from station reports); 0 days at or above 35 °C while crops grow (ERA5); 0 mm of canal water needed in salty months (ERA5 + CHIRPS).",
+       "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/2 tháng mặn (trạm Sóc Trăng cách 2,0 km, độ mặn cao nhất trung bình 3,2‰; ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5); cần 0 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS).",
        "src": [
         66,
         67,
@@ -42865,6 +42898,8 @@
         71,
         72,
         73,
+        74,
+        75,
         0,
         10,
         1
@@ -43023,7 +43058,7 @@
        },
        "scores": {
         "water": 2.6,
-        "salt": 3.6,
+        "salt": 3.9,
         "soil": 2.1,
         "pests": 2.8,
         "income": 4.4
@@ -43044,8 +43079,8 @@
          ]
         },
         {
-         "en": "Weather & salt 3.6: crops in the field in 1 of 1 salt months (Sóc Trăng station 2.0 km away, average peak 3.9‰; estimate from station reports); 0.7 days at or above 35 °C while crops grow (ERA5); 311 mm of canal water needed in salty months (ERA5 + CHIRPS).",
-         "vi": "Thời tiết & mặn 3,6: có cây trồng trên ruộng trong 1/1 tháng mặn (trạm Sóc Trăng cách 2,0 km, độ mặn cao nhất trung bình 3,9‰; ước tính từ báo cáo trạm); 0,7 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5); cần 311 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS).",
+         "en": "Weather & salt 3.9: crops in the field in 1 of 2 salt months (Sóc Trăng station 2.0 km away, average peak 3.2‰; estimate from station reports); 0.7 days at or above 35 °C while crops grow (ERA5); 503 mm of canal water needed in salty months (ERA5 + CHIRPS).",
+         "vi": "Thời tiết & mặn 3,9: có cây trồng trên ruộng trong 1/2 tháng mặn (trạm Sóc Trăng cách 2,0 km, độ mặn cao nhất trung bình 3,2‰; ước tính từ báo cáo trạm); 0,7 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5); cần 503 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS).",
          "src": [
           66,
           67,
@@ -43055,6 +43090,8 @@
           71,
           72,
           73,
+          74,
+          75,
           0,
           10,
           1
@@ -43221,7 +43258,7 @@
        },
        "scores": {
         "water": 2.6,
-        "salt": 3.6,
+        "salt": 3.9,
         "soil": 2.1,
         "pests": 2.8,
         "income": 4.4
@@ -43242,8 +43279,8 @@
          ]
         },
         {
-         "en": "Weather & salt 3.6: crops in the field in 1 of 1 salt months (Sóc Trăng station 2.0 km away, average peak 3.9‰; estimate from station reports); 0.7 days at or above 35 °C while crops grow (ERA5); 311 mm of canal water needed in salty months (ERA5 + CHIRPS).",
-         "vi": "Thời tiết & mặn 3,6: có cây trồng trên ruộng trong 1/1 tháng mặn (trạm Sóc Trăng cách 2,0 km, độ mặn cao nhất trung bình 3,9‰; ước tính từ báo cáo trạm); 0,7 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5); cần 311 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS).",
+         "en": "Weather & salt 3.9: crops in the field in 1 of 2 salt months (Sóc Trăng station 2.0 km away, average peak 3.2‰; estimate from station reports); 0.7 days at or above 35 °C while crops grow (ERA5); 503 mm of canal water needed in salty months (ERA5 + CHIRPS).",
+         "vi": "Thời tiết & mặn 3,9: có cây trồng trên ruộng trong 1/2 tháng mặn (trạm Sóc Trăng cách 2,0 km, độ mặn cao nhất trung bình 3,2‰; ước tính từ báo cáo trạm); 0,7 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5); cần 503 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS).",
          "src": [
           66,
           67,
@@ -43253,6 +43290,8 @@
           71,
           72,
           73,
+          74,
+          75,
           0,
           10,
           1
@@ -43413,7 +43452,7 @@
        "water_saved": 0.406,
        "scores": {
         "water": 2.6,
-        "salt": 3.6,
+        "salt": 3.9,
         "soil": 3.9,
         "pests": 2.8,
         "income": null
@@ -43434,8 +43473,8 @@
          ]
         },
         {
-         "en": "Weather & salt 3.6: crops in the field in 1 of 1 salt months (Sóc Trăng station 2.0 km away, average peak 3.9‰; estimate from station reports); 0.7 days at or above 35 °C while crops grow (ERA5); 311 mm of canal water needed in salty months (ERA5 + CHIRPS).",
-         "vi": "Thời tiết & mặn 3,6: có cây trồng trên ruộng trong 1/1 tháng mặn (trạm Sóc Trăng cách 2,0 km, độ mặn cao nhất trung bình 3,9‰; ước tính từ báo cáo trạm); 0,7 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5); cần 311 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS).",
+         "en": "Weather & salt 3.9: crops in the field in 1 of 2 salt months (Sóc Trăng station 2.0 km away, average peak 3.2‰; estimate from station reports); 0.7 days at or above 35 °C while crops grow (ERA5); 503 mm of canal water needed in salty months (ERA5 + CHIRPS).",
+         "vi": "Thời tiết & mặn 3,9: có cây trồng trên ruộng trong 1/2 tháng mặn (trạm Sóc Trăng cách 2,0 km, độ mặn cao nhất trung bình 3,2‰; ước tính từ báo cáo trạm); 0,7 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5); cần 503 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS).",
          "src": [
           66,
           67,
@@ -43445,6 +43484,8 @@
           71,
           72,
           73,
+          74,
+          75,
           0,
           10,
           1
@@ -43581,7 +43622,7 @@
      },
      "scores": {
       "water": 2.4,
-      "salt": 4.6,
+      "salt": 4.8,
       "soil": 2.8,
       "pests": 3.0,
       "income": 3.0
@@ -43602,8 +43643,8 @@
        ]
       },
       {
-       "en": "Weather & salt 4.6: crops in the field in 0 of 1 salt months (Sóc Trăng station 2.0 km away, average peak 3.9‰; estimate from station reports); 0.5 days at or above 35 °C while crops grow (ERA5); 138 mm of canal water needed in salty months (ERA5 + CHIRPS).",
-       "vi": "Thời tiết & mặn 4,6: có cây trồng trên ruộng trong 0/1 tháng mặn (trạm Sóc Trăng cách 2,0 km, độ mặn cao nhất trung bình 3,9‰; ước tính từ báo cáo trạm); 0,5 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5); cần 138 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS).",
+       "en": "Weather & salt 4.8: crops in the field in 0 of 2 salt months (Sóc Trăng station 2.0 km away, average peak 3.2‰; estimate from station reports); 0.5 days at or above 35 °C while crops grow (ERA5); 138 mm of canal water needed in salty months (ERA5 + CHIRPS).",
+       "vi": "Thời tiết & mặn 4,8: có cây trồng trên ruộng trong 0/2 tháng mặn (trạm Sóc Trăng cách 2,0 km, độ mặn cao nhất trung bình 3,2‰; ước tính từ báo cáo trạm); 0,5 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5); cần 138 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS).",
        "src": [
         66,
         67,
@@ -43613,6 +43654,8 @@
         71,
         72,
         73,
+        74,
+        75,
         0,
         10,
         1
@@ -43693,8 +43736,8 @@
      }
     },
     {
-     "en": "Salt usually Apr: low at Sóc Trăng station, 2.0 km away (estimate from public reports, not satellite).",
-     "vi": "Mặn thường vào T4, mức thấp tại trạm Sóc Trăng, cách 2,0 km (ước tính từ báo cáo công khai, không đo bằng vệ tinh).",
+     "en": "Salt usually Mar–Apr: low at Sóc Trăng station, 2.0 km away (estimate from public reports, not satellite).",
+     "vi": "Mặn thường vào T3–T4, mức thấp tại trạm Sóc Trăng, cách 2,0 km (ước tính từ báo cáo công khai, không đo bằng vệ tinh).",
      "src": [
       66,
       67,
@@ -43703,12 +43746,14 @@
       70,
       71,
       72,
-      73
+      73,
+      74,
+      75
      ],
      "salt": true,
      "plain": {
-      "en": "Salt usually Apr: low at Sóc Trăng station, 2.0 km away (estimate from public reports, not satellite).",
-      "vi": "Mặn thường vào T4, mức thấp tại trạm Sóc Trăng, cách 2,0 km (ước tính từ báo cáo công khai, không đo bằng vệ tinh)."
+      "en": "Salt usually Mar–Apr: low at Sóc Trăng station, 2.0 km away (estimate from public reports, not satellite).",
+      "vi": "Mặn thường vào T3–T4, mức thấp tại trạm Sóc Trăng, cách 2,0 km (ước tính từ báo cáo công khai, không đo bằng vệ tinh)."
      }
     }
    ],
@@ -43822,18 +43867,19 @@
     },
     "salinity": {
      "months": [
+      3,
       4
      ],
      "note": {
-      "en": "Nearest KTTV salinity station: Sóc Trăng, 2.0 km away (station position approximate). Highest reading of each El Niño dry season there: 7.6‰ on average (2016, 2019, 2024). Salt months: months that reached 4‰ there in at least 2 dry seasons.",
-      "vi": "Trạm đo mặn KTTV gần nhất: Sóc Trăng, cách 2,0 km (vị trí trạm gần đúng). Độ mặn cao nhất mỗi mùa khô năm El Niño tại trạm: trung bình 7,6‰ (2016, 2019, 2024). Tháng mặn: các tháng độ mặn tại trạm đạt 4‰ trong ít nhất 2 mùa khô."
+      "en": "Nearest KTTV salinity station: Sóc Trăng, 2.0 km away (station position approximate). Highest reading of each El Niño dry season there: 5.8‰ on average (2003, 2005, 2007, 2010, 2016, 2019, 2024). Salt months: months that reached 4‰ there in at least 2 dry seasons.",
+      "vi": "Trạm đo mặn KTTV gần nhất: Sóc Trăng, cách 2,0 km (vị trí trạm gần đúng). Độ mặn cao nhất mỗi mùa khô năm El Niño tại trạm: trung bình 5,8‰ (2003, 2005, 2007, 2010, 2016, 2019, 2024). Tháng mặn: các tháng độ mặn tại trạm đạt 4‰ trong ít nhất 2 mùa khô."
      },
-     "station_ppt": 7.6,
+     "station_ppt": 5.8,
      "estimate": true,
-     "seasons": 10,
+     "seasons": 24,
      "last_year": 2025,
      "level": "medium",
-     "max_ppt": 7.6,
+     "max_ppt": 5.8,
      "station": "Sóc Trăng",
      "km": 2.0,
      "partial": false,
@@ -43932,7 +43978,7 @@
       },
       "scores": {
        "water": 1.0,
-       "salt": 2.9,
+       "salt": 3.6,
        "soil": 1.3,
        "pests": 1.8,
        "income": 3.0
@@ -43949,8 +43995,8 @@
         ]
        },
        {
-        "en": "Weather & salt 2.9: crops in the field in 1 of 1 salt months (Sóc Trăng station 2.0 km away, average peak 7.6‰; estimate from station reports); 4.3 days at or above 35 °C while crops grow (ERA5, El Niño average); 385 mm of canal water needed in salty months (ERA5 + CHIRPS, El Niño average).",
-        "vi": "Thời tiết & mặn 2,9: có cây trồng trên ruộng trong 1/1 tháng mặn (trạm Sóc Trăng cách 2,0 km, độ mặn cao nhất trung bình 7,6‰; ước tính từ báo cáo trạm); 4,3 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5, trung bình El Niño); cần 385 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS, trung bình El Niño).",
+        "en": "Weather & salt 3.6: crops in the field in 1 of 2 salt months (Sóc Trăng station 2.0 km away, average peak 5.8‰; estimate from station reports); 4.3 days at or above 35 °C while crops grow (ERA5, El Niño average); 585 mm of canal water needed in salty months (ERA5 + CHIRPS, El Niño average).",
+        "vi": "Thời tiết & mặn 3,6: có cây trồng trên ruộng trong 1/2 tháng mặn (trạm Sóc Trăng cách 2,0 km, độ mặn cao nhất trung bình 5,8‰; ước tính từ báo cáo trạm); 4,3 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5, trung bình El Niño); cần 585 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS, trung bình El Niño).",
         "src": [
          66,
          67,
@@ -43960,6 +44006,8 @@
          71,
          72,
          73,
+         74,
+         75,
          0,
          10,
          1
@@ -44107,7 +44155,7 @@
       },
       "scores": {
        "water": 1.3,
-       "salt": 2.9,
+       "salt": 3.6,
        "soil": 2.0,
        "pests": 3.0,
        "income": 1.9
@@ -44124,8 +44172,8 @@
         ]
        },
        {
-        "en": "Weather & salt 2.9: crops in the field in 1 of 1 salt months (Sóc Trăng station 2.0 km away, average peak 7.6‰; estimate from station reports); 4.3 days at or above 35 °C while crops grow (ERA5, El Niño average); 385 mm of canal water needed in salty months (ERA5 + CHIRPS, El Niño average).",
-        "vi": "Thời tiết & mặn 2,9: có cây trồng trên ruộng trong 1/1 tháng mặn (trạm Sóc Trăng cách 2,0 km, độ mặn cao nhất trung bình 7,6‰; ước tính từ báo cáo trạm); 4,3 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5, trung bình El Niño); cần 385 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS, trung bình El Niño).",
+        "en": "Weather & salt 3.6: crops in the field in 1 of 2 salt months (Sóc Trăng station 2.0 km away, average peak 5.8‰; estimate from station reports); 4.3 days at or above 35 °C while crops grow (ERA5, El Niño average); 585 mm of canal water needed in salty months (ERA5 + CHIRPS, El Niño average).",
+        "vi": "Thời tiết & mặn 3,6: có cây trồng trên ruộng trong 1/2 tháng mặn (trạm Sóc Trăng cách 2,0 km, độ mặn cao nhất trung bình 5,8‰; ước tính từ báo cáo trạm); 4,3 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5, trung bình El Niño); cần 585 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS, trung bình El Niño).",
         "src": [
          66,
          67,
@@ -44135,6 +44183,8 @@
          71,
          72,
          73,
+         74,
+         75,
          0,
          10,
          1
@@ -44309,8 +44359,8 @@
         ]
        },
        {
-        "en": "Weather & salt 5.0: crops in the field in 0 of 1 salt months (Sóc Trăng station 2.0 km away, average peak 7.6‰; estimate from station reports); 0 days at or above 35 °C while crops grow (ERA5, El Niño average); 0 mm of canal water needed in salty months (ERA5 + CHIRPS, El Niño average).",
-        "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/1 tháng mặn (trạm Sóc Trăng cách 2,0 km, độ mặn cao nhất trung bình 7,6‰; ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5, trung bình El Niño); cần 0 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS, trung bình El Niño).",
+        "en": "Weather & salt 5.0: crops in the field in 0 of 2 salt months (Sóc Trăng station 2.0 km away, average peak 5.8‰; estimate from station reports); 0 days at or above 35 °C while crops grow (ERA5, El Niño average); 0 mm of canal water needed in salty months (ERA5 + CHIRPS, El Niño average).",
+        "vi": "Thời tiết & mặn 5,0: có cây trồng trên ruộng trong 0/2 tháng mặn (trạm Sóc Trăng cách 2,0 km, độ mặn cao nhất trung bình 5,8‰; ước tính từ báo cáo trạm); 0 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5, trung bình El Niño); cần 0 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS, trung bình El Niño).",
         "src": [
          66,
          67,
@@ -44320,6 +44370,8 @@
          71,
          72,
          73,
+         74,
+         75,
          0,
          10,
          1
@@ -44484,7 +44536,7 @@
         },
         "scores": {
          "water": 2.5,
-         "salt": 2.9,
+         "salt": 3.6,
          "soil": 2.1,
          "pests": 2.8,
          "income": 4.4
@@ -44505,8 +44557,8 @@
           ]
          },
          {
-          "en": "Weather & salt 2.9: crops in the field in 1 of 1 salt months (Sóc Trăng station 2.0 km away, average peak 7.6‰; estimate from station reports); 4.3 days at or above 35 °C while crops grow (ERA5, El Niño average); 385 mm of canal water needed in salty months (ERA5 + CHIRPS, El Niño average).",
-          "vi": "Thời tiết & mặn 2,9: có cây trồng trên ruộng trong 1/1 tháng mặn (trạm Sóc Trăng cách 2,0 km, độ mặn cao nhất trung bình 7,6‰; ước tính từ báo cáo trạm); 4,3 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5, trung bình El Niño); cần 385 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS, trung bình El Niño).",
+          "en": "Weather & salt 3.6: crops in the field in 1 of 2 salt months (Sóc Trăng station 2.0 km away, average peak 5.8‰; estimate from station reports); 4.3 days at or above 35 °C while crops grow (ERA5, El Niño average); 585 mm of canal water needed in salty months (ERA5 + CHIRPS, El Niño average).",
+          "vi": "Thời tiết & mặn 3,6: có cây trồng trên ruộng trong 1/2 tháng mặn (trạm Sóc Trăng cách 2,0 km, độ mặn cao nhất trung bình 5,8‰; ước tính từ báo cáo trạm); 4,3 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5, trung bình El Niño); cần 585 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS, trung bình El Niño).",
           "src": [
            66,
            67,
@@ -44516,6 +44568,8 @@
            71,
            72,
            73,
+           74,
+           75,
            0,
            10,
            1
@@ -44682,7 +44736,7 @@
         },
         "scores": {
          "water": 2.5,
-         "salt": 2.9,
+         "salt": 3.6,
          "soil": 2.1,
          "pests": 2.8,
          "income": 4.4
@@ -44703,8 +44757,8 @@
           ]
          },
          {
-          "en": "Weather & salt 2.9: crops in the field in 1 of 1 salt months (Sóc Trăng station 2.0 km away, average peak 7.6‰; estimate from station reports); 4.3 days at or above 35 °C while crops grow (ERA5, El Niño average); 385 mm of canal water needed in salty months (ERA5 + CHIRPS, El Niño average).",
-          "vi": "Thời tiết & mặn 2,9: có cây trồng trên ruộng trong 1/1 tháng mặn (trạm Sóc Trăng cách 2,0 km, độ mặn cao nhất trung bình 7,6‰; ước tính từ báo cáo trạm); 4,3 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5, trung bình El Niño); cần 385 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS, trung bình El Niño).",
+          "en": "Weather & salt 3.6: crops in the field in 1 of 2 salt months (Sóc Trăng station 2.0 km away, average peak 5.8‰; estimate from station reports); 4.3 days at or above 35 °C while crops grow (ERA5, El Niño average); 585 mm of canal water needed in salty months (ERA5 + CHIRPS, El Niño average).",
+          "vi": "Thời tiết & mặn 3,6: có cây trồng trên ruộng trong 1/2 tháng mặn (trạm Sóc Trăng cách 2,0 km, độ mặn cao nhất trung bình 5,8‰; ước tính từ báo cáo trạm); 4,3 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5, trung bình El Niño); cần 585 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS, trung bình El Niño).",
           "src": [
            66,
            67,
@@ -44714,6 +44768,8 @@
            71,
            72,
            73,
+           74,
+           75,
            0,
            10,
            1
@@ -44874,7 +44930,7 @@
         "water_saved": 0.39,
         "scores": {
          "water": 2.6,
-         "salt": 2.9,
+         "salt": 3.6,
          "soil": 3.9,
          "pests": 2.8,
          "income": null
@@ -44895,8 +44951,8 @@
           ]
          },
          {
-          "en": "Weather & salt 2.9: crops in the field in 1 of 1 salt months (Sóc Trăng station 2.0 km away, average peak 7.6‰; estimate from station reports); 4.3 days at or above 35 °C while crops grow (ERA5, El Niño average); 385 mm of canal water needed in salty months (ERA5 + CHIRPS, El Niño average).",
-          "vi": "Thời tiết & mặn 2,9: có cây trồng trên ruộng trong 1/1 tháng mặn (trạm Sóc Trăng cách 2,0 km, độ mặn cao nhất trung bình 7,6‰; ước tính từ báo cáo trạm); 4,3 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5, trung bình El Niño); cần 385 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS, trung bình El Niño).",
+          "en": "Weather & salt 3.6: crops in the field in 1 of 2 salt months (Sóc Trăng station 2.0 km away, average peak 5.8‰; estimate from station reports); 4.3 days at or above 35 °C while crops grow (ERA5, El Niño average); 585 mm of canal water needed in salty months (ERA5 + CHIRPS, El Niño average).",
+          "vi": "Thời tiết & mặn 3,6: có cây trồng trên ruộng trong 1/2 tháng mặn (trạm Sóc Trăng cách 2,0 km, độ mặn cao nhất trung bình 5,8‰; ước tính từ báo cáo trạm); 4,3 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5, trung bình El Niño); cần 585 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS, trung bình El Niño).",
           "src": [
            66,
            67,
@@ -44906,6 +44962,8 @@
            71,
            72,
            73,
+           74,
+           75,
            0,
            10,
            1
@@ -45042,7 +45100,7 @@
       },
       "scores": {
        "water": 2.6,
-       "salt": 4.5,
+       "salt": 4.7,
        "soil": 2.8,
        "pests": 3.0,
        "income": 3.0
@@ -45063,8 +45121,8 @@
         ]
        },
        {
-        "en": "Weather & salt 4.5: crops in the field in 0 of 1 salt months (Sóc Trăng station 2.0 km away, average peak 7.6‰; estimate from station reports); 2.5 days at or above 35 °C while crops grow (ERA5, El Niño average); 192 mm of canal water needed in salty months (ERA5 + CHIRPS, El Niño average).",
-        "vi": "Thời tiết & mặn 4,5: có cây trồng trên ruộng trong 0/1 tháng mặn (trạm Sóc Trăng cách 2,0 km, độ mặn cao nhất trung bình 7,6‰; ước tính từ báo cáo trạm); 2,5 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5, trung bình El Niño); cần 192 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS, trung bình El Niño).",
+        "en": "Weather & salt 4.7: crops in the field in 0 of 2 salt months (Sóc Trăng station 2.0 km away, average peak 5.8‰; estimate from station reports); 2.5 days at or above 35 °C while crops grow (ERA5, El Niño average); 192 mm of canal water needed in salty months (ERA5 + CHIRPS, El Niño average).",
+        "vi": "Thời tiết & mặn 4,7: có cây trồng trên ruộng trong 0/2 tháng mặn (trạm Sóc Trăng cách 2,0 km, độ mặn cao nhất trung bình 5,8‰; ước tính từ báo cáo trạm); 2,5 ngày từ 35 °C trở lên khi cây đang sinh trưởng (ERA5, trung bình El Niño); cần 192 mm nước tưới từ kênh trong các tháng mặn (ERA5 + CHIRPS, trung bình El Niño).",
         "src": [
          66,
          67,
@@ -45074,6 +45132,8 @@
          71,
          72,
          73,
+         74,
+         75,
          0,
          10,
          1
@@ -45154,8 +45214,8 @@
       }
      },
      {
-      "en": "Salt usually Apr: medium at Sóc Trăng station, 2.0 km away (estimate from public reports, not satellite).",
-      "vi": "Mặn thường vào T4, mức trung bình tại trạm Sóc Trăng, cách 2,0 km (ước tính từ báo cáo công khai, không đo bằng vệ tinh).",
+      "en": "Salt usually Mar–Apr: medium at Sóc Trăng station, 2.0 km away (estimate from public reports, not satellite).",
+      "vi": "Mặn thường vào T3–T4, mức trung bình tại trạm Sóc Trăng, cách 2,0 km (ước tính từ báo cáo công khai, không đo bằng vệ tinh).",
       "src": [
        66,
        67,
@@ -45164,12 +45224,14 @@
        70,
        71,
        72,
-       73
+       73,
+       74,
+       75
       ],
       "salt": true,
       "plain": {
-       "en": "Salt usually Apr: medium at Sóc Trăng station, 2.0 km away (estimate from public reports, not satellite).",
-       "vi": "Mặn thường vào T4, mức trung bình tại trạm Sóc Trăng, cách 2,0 km (ước tính từ báo cáo công khai, không đo bằng vệ tinh)."
+       "en": "Salt usually Mar–Apr: medium at Sóc Trăng station, 2.0 km away (estimate from public reports, not satellite).",
+       "vi": "Mặn thường vào T3–T4, mức trung bình tại trạm Sóc Trăng, cách 2,0 km (ước tính từ báo cáo công khai, không đo bằng vệ tinh)."
       }
      }
     ]
@@ -45396,7 +45458,9 @@
         70,
         71,
         72,
-        73
+        73,
+        74,
+        75
        ]
       },
       {
@@ -45453,6 +45517,8 @@
         71,
         72,
         73,
+        74,
+        75,
         0,
         10,
         1
@@ -45589,7 +45655,9 @@
         70,
         71,
         72,
-        73
+        73,
+        74,
+        75
        ]
       },
       {
@@ -45642,6 +45710,8 @@
         71,
         72,
         73,
+        74,
+        75,
         0,
         10,
         1
@@ -45784,7 +45854,9 @@
         70,
         71,
         72,
-        73
+        73,
+        74,
+        75
        ]
       },
       {
@@ -45841,6 +45913,8 @@
         71,
         72,
         73,
+        74,
+        75,
         0,
         10,
         1
@@ -45987,7 +46061,9 @@
           70,
           71,
           72,
-          73
+          73,
+          74,
+          75
          ]
         },
         {
@@ -46051,6 +46127,8 @@
           71,
           72,
           73,
+          74,
+          75,
           0,
           10,
           1
@@ -46199,7 +46277,9 @@
           70,
           71,
           72,
-          73
+          73,
+          74,
+          75
          ]
         },
         {
@@ -46263,6 +46343,8 @@
           71,
           72,
           73,
+          74,
+          75,
           0,
           10,
           1
@@ -46415,7 +46497,9 @@
           70,
           71,
           72,
-          73
+          73,
+          74,
+          75
          ]
         },
         {
@@ -46469,6 +46553,8 @@
           71,
           72,
           73,
+          74,
+          75,
           0,
           10,
           1
@@ -46594,7 +46680,9 @@
         70,
         71,
         72,
-        73
+        73,
+        74,
+        75
        ]
       },
       {
@@ -46651,6 +46739,8 @@
         71,
         72,
         73,
+        74,
+        75,
         0,
         10,
         1
@@ -46741,7 +46831,9 @@
       70,
       71,
       72,
-      73
+      73,
+      74,
+      75
      ],
      "salt": true,
      "plain": {
@@ -46960,7 +47052,9 @@
          70,
          71,
          72,
-         73
+         73,
+         74,
+         75
         ]
        },
        {
@@ -47017,6 +47111,8 @@
          71,
          72,
          73,
+         74,
+         75,
          0,
          10,
          1
@@ -47153,7 +47249,9 @@
          70,
          71,
          72,
-         73
+         73,
+         74,
+         75
         ]
        },
        {
@@ -47206,6 +47304,8 @@
          71,
          72,
          73,
+         74,
+         75,
          0,
          10,
          1
@@ -47348,7 +47448,9 @@
          70,
          71,
          72,
-         73
+         73,
+         74,
+         75
         ]
        },
        {
@@ -47405,6 +47507,8 @@
          71,
          72,
          73,
+         74,
+         75,
          0,
          10,
          1
@@ -47551,7 +47655,9 @@
            70,
            71,
            72,
-           73
+           73,
+           74,
+           75
           ]
          },
          {
@@ -47615,6 +47721,8 @@
            71,
            72,
            73,
+           74,
+           75,
            0,
            10,
            1
@@ -47763,7 +47871,9 @@
            70,
            71,
            72,
-           73
+           73,
+           74,
+           75
           ]
          },
          {
@@ -47827,6 +47937,8 @@
            71,
            72,
            73,
+           74,
+           75,
            0,
            10,
            1
@@ -47979,7 +48091,9 @@
            70,
            71,
            72,
-           73
+           73,
+           74,
+           75
           ]
          },
          {
@@ -48033,6 +48147,8 @@
            71,
            72,
            73,
+           74,
+           75,
            0,
            10,
            1
@@ -48158,7 +48274,9 @@
          70,
          71,
          72,
-         73
+         73,
+         74,
+         75
         ]
        },
        {
@@ -48215,6 +48333,8 @@
          71,
          72,
          73,
+         74,
+         75,
          0,
          10,
          1
@@ -48305,7 +48425,9 @@
        70,
        71,
        72,
-       73
+       73,
+       74,
+       75
       ],
       "salt": true,
       "plain": {
@@ -54040,7 +54162,7 @@
      4,
      5
     ],
-    "max_ppt": 17.0,
+    "max_ppt": 15.1,
     "elnino_max_ppt": 13.9,
     "estimate": true
    },
@@ -54057,13 +54179,15 @@
    "salt": {
     "level": "high",
     "months": [
+     1,
      2,
      3,
      4,
-     5
+     5,
+     6
     ],
-    "max_ppt": 21.6,
-    "elnino_max_ppt": 23.1,
+    "max_ppt": 24.5,
+    "elnino_max_ppt": 27.0,
     "estimate": true
    },
    "crops": 2.0
@@ -54084,8 +54208,8 @@
      4,
      5
     ],
-    "max_ppt": 7.4,
-    "elnino_max_ppt": 10.3,
+    "max_ppt": 8.5,
+    "elnino_max_ppt": 12.5,
     "estimate": true
    },
    "crops": 2.0
@@ -54105,8 +54229,8 @@
      3,
      4
     ],
-    "max_ppt": 17.5,
-    "elnino_max_ppt": 18.9,
+    "max_ppt": 16.1,
+    "elnino_max_ppt": 18.7,
     "estimate": true
    },
    "crops": 2.4
@@ -54438,7 +54562,7 @@
    "lon": 106.1279465,
    "typical": {
     "level": "medium",
-    "max_ppt": 10.2,
+    "max_ppt": 8.8,
     "months": [
      3,
      4,
@@ -54461,7 +54585,7 @@
    },
    "elnino": {
     "level": "medium",
-    "max_ppt": 10.2,
+    "max_ppt": 10.9,
     "months": [
      3,
      4,
@@ -54744,7 +54868,7 @@
    "lon": 106.1256345,
    "typical": {
     "level": "high",
-    "max_ppt": 17.5,
+    "max_ppt": 16.1,
     "months": [
      2,
      3,
@@ -54768,7 +54892,7 @@
    },
    "elnino": {
     "level": "high",
-    "max_ppt": 18.9,
+    "max_ppt": 18.7,
     "months": [
      2,
      3,
@@ -54874,8 +54998,9 @@
    "lon": 105.9914705,
    "typical": {
     "level": "low",
-    "max_ppt": 3.9,
+    "max_ppt": 3.2,
     "months": [
+     3,
      4
     ],
     "monthly": [
@@ -54895,8 +55020,9 @@
    },
    "elnino": {
     "level": "medium",
-    "max_ppt": 7.6,
+    "max_ppt": 5.8,
     "months": [
+     3,
      4
     ],
     "monthly": [
@@ -54972,8 +55098,9 @@
    "lon": 106.47333,
    "typical": {
     "level": "medium",
-    "max_ppt": 14.1,
+    "max_ppt": 12.4,
     "months": [
+     2,
      3,
      4,
      5
@@ -54995,8 +55122,9 @@
    },
    "elnino": {
     "level": "high",
-    "max_ppt": 19.6,
+    "max_ppt": 18.5,
     "months": [
+     2,
      3,
      4,
      5
@@ -55023,8 +55151,9 @@
    "lon": 105.8509572,
    "typical": {
     "level": "medium",
-    "max_ppt": 7.4,
+    "max_ppt": 8.5,
     "months": [
+     3,
      4,
      5
     ],
@@ -55045,8 +55174,9 @@
    },
    "elnino": {
     "level": "medium",
-    "max_ppt": 10.3,
+    "max_ppt": 12.5,
     "months": [
+     3,
      4,
      5
     ],
@@ -55123,7 +55253,7 @@
    "lon": 106.3416458,
    "typical": {
     "level": "medium",
-    "max_ppt": 9.4,
+    "max_ppt": 9.0,
     "months": [
      3,
      4,
@@ -55146,7 +55276,7 @@
    },
    "elnino": {
     "level": "medium",
-    "max_ppt": 10.7,
+    "max_ppt": 11.2,
     "months": [
      3,
      4,
@@ -55174,12 +55304,14 @@
    "lon": 106.2027891,
    "typical": {
     "level": "high",
-    "max_ppt": 21.6,
+    "max_ppt": 24.5,
     "months": [
+     1,
      2,
      3,
      4,
-     5
+     5,
+     6
     ],
     "monthly": [
      16.9,
@@ -55198,12 +55330,14 @@
    },
    "elnino": {
     "level": "high",
-    "max_ppt": 23.1,
+    "max_ppt": 27.0,
     "months": [
+     1,
      2,
      3,
      4,
-     5
+     5,
+     6
     ],
     "monthly": [
      null,
@@ -55417,7 +55551,7 @@
    "lon": 106.073944,
    "typical": {
     "level": "medium",
-    "max_ppt": 9.4,
+    "max_ppt": 9.3,
     "months": [
      2,
      3,
@@ -55440,7 +55574,7 @@
    },
    "elnino": {
     "level": "medium",
-    "max_ppt": 9.4,
+    "max_ppt": 10.0,
     "months": [
      2,
      3,

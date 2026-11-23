@@ -37,7 +37,7 @@ A static PWA for Mekong Delta rice farmers and extension officers (started at NA
 
 ## Data rules (full detail in SOURCES.md)
 - Salinity at a point comes from the nearest KTTV station within 25 km. Beyond that there is no estimate, and the text names the station and its distance (past 100 km: "outside the area covered by KTTV").
-- The seasons used are 2016–2026. A season counts as El Niño when its Dec–Feb RONI (NOAA's Relative Oceanic Niño Index, not ONI) is at least 0.5. A season is partial when it has no February or no March reading.
+- The seasons used are 1999–2026 (`salinity.SALT_SEASONS`; the Sóc Trăng table starts in 1999, and two open series give 1999–2016 for the KTTV stations Trà Vinh, Cầu Quan and Sơn Đốc, `data/raw/salinity_open_series.json`, from `pipeline/fetch_salinity_open.py`; a Mendeley season has no month, so it counts toward the level and never toward salt months). A season counts as El Niño when its Dec–Feb RONI (NOAA's Relative Oceanic Niño Index, not ONI) is at least 0.5. A season is partial when it has no February or no March reading.
 - Salt months are months that reached 4‰ or more in at least 2 seasons. If there are none, use any season's contiguous range. Months outside them show "< 4‰", never 0‰.
 - The app covers 6 provinces: the Mekong Delta's 5 and Tây Ninh (14 former provinces). To add more, extend `sites.PROVINCES`, run the fetchers, `make_outlines.py` and `build.py` (the map box and the stations inside the area follow), and update the one scope check in `test_provinces_table`.
 - The 6 new-province averages are always "unknown": they tell the user to pick a former province. Former Long An is scored (`sites.SCORED_PLACES`); former Tây Ninh is weather only.
