@@ -67,7 +67,7 @@ function monthPest(kind, cl, i) {  // one month's pest pressure 0..1 for a crop 
 const R = SITES_JSON.pest_rule, k = kind[0];
 if (isRice(k)) return ricePressure(cl.tmean_c[i], R.rice_points);  // T (salt-tolerant rice) is rice here too
 if (k === "U") return R.upland_pressure;
-if (k === "S") return R.shrimp_floor + (1 - R.shrimp_floor) * Math.min(((cl.hot_days[i] || 0) + (cl.cold_days[i] || 0)) / MONTH_DAYS[i], 1);
+if (k === "S") return R.shrimp_floor + (1 - R.shrimp_floor) * Math.min((cl.hot_days[i] || 0) / MONTH_DAYS[i], 1);
 return 0;
 }
 function pestScore(siteId, view, months, rest, nonrice) {

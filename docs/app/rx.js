@@ -20,7 +20,7 @@ const Core = (() => {
     est: { vi: "ước tính từ báo cáo công khai, không đo bằng vệ tinh", en: "estimate from public reports, not satellite" },
     disclaimer: { vi: "Công cụ này chỉ để tham khảo, không thay thế kinh nghiệm của bà con hay lời khuyên của cán bộ khuyến nông địa phương.",
                   en: "This tool helps you think. It does not replace your own judgement or advice from your local extension officer." },
-    src: { rain: "CHIRPS", et0: "NASA POWER", ndvi: "NASA MODIS", soil: "SoilGrids" },
+    src: { rain: "CHIRPS", et0: "ERA5", ndvi: "NASA MODIS", soil: "SoilGrids" },
     crops: { vi: "vụ/năm (vệ tinh MODIS thấy)", en: "crops/yr (seen by MODIS)" },
     mm: "mm"
   };

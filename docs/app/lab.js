@@ -43,7 +43,7 @@ plView: { typical: "Typical year", elnino: "El Niño year" }, plLevel: { low: "S
 plHowH: "How this score works",
 plHow: [
 "The five scores are the app's published card rules (the same formulas as the rotation cards), applied to the calendar you paint. Your plan score is their average, weighted by your priorities, turned into 0–100 as (score − 1) ÷ 4 × 100. Grades: A from 80, B from 65, C from 50, D below 50.",
-"Data: rain from CHIRPS; crop water demand (ET₀), hot days, mean temperature and sudden cold nights from NASA POWER; salt months and salinity are estimates from public station reports, not satellite; profit is the median of published figures (2020–2026, million ₫ per ha).",
+"Data: rain from CHIRPS; crop water demand (ET₀), hot days (ERA5-Land) and mean temperature (ERA5); salt months and salinity are estimates from public station reports, not satellite; profit is the median of published figures (2020–2026, million ₫ per ha).",
 "Each run of the same crop is one season. A season shorter than its crop needs earns no harvest: rice 3 months (90–100 days), upland crops 3 months and shrimp 6 months (the shortest seasons in the app's own calendars). Painted rice is matched to winter–spring, summer–autumn or autumn–winter rice by the month it starts.",
 "This is a planning aid, not advice for your exact field. Talk it over with your local extension officer before you change your calendar."
 ]
@@ -85,7 +85,7 @@ plView: { typical: "Năm bình thường", elnino: "Năm El Niño" }, plLevel: {
 plHowH: "Cách tính điểm này",
 plHow: [
 "Năm điểm số dùng đúng quy tắc chấm thẻ đã công bố của ứng dụng (cùng công thức với các thẻ luân canh), áp dụng cho lịch bạn tô. Điểm kế hoạch là trung bình của năm điểm, có trọng số theo ưu tiên của bạn, đổi sang thang 0–100 bằng (điểm − 1) ÷ 4 × 100. Hạng: A từ 80, B từ 65, C từ 50, D dưới 50.",
-"Dữ liệu: mưa từ CHIRPS; nhu cầu nước của cây (ET₀), số ngày nắng nóng, nhiệt độ trung bình và đêm lạnh đột ngột từ NASA POWER; tháng mặn và độ mặn là ước tính từ báo cáo công khai của các trạm đo, không đo bằng vệ tinh; lợi nhuận là mức giữa của các số liệu đã công bố (2020–2026, triệu đồng/ha).",
+"Dữ liệu: mưa từ CHIRPS; nhu cầu nước của cây (ET₀), số ngày nắng nóng (ERA5-Land) và nhiệt độ trung bình (ERA5); tháng mặn và độ mặn là ước tính từ báo cáo công khai của các trạm đo, không đo bằng vệ tinh; lợi nhuận là mức giữa của các số liệu đã công bố (2020–2026, triệu đồng/ha).",
 "Mỗi chuỗi tháng liền nhau cùng một cây là một vụ. Vụ ngắn hơn thời gian cây cần thì không được tính thu hoạch: lúa 3 tháng (90–100 ngày), cây màu 3 tháng và tôm 6 tháng (các vụ ngắn nhất trong lịch của chính ứng dụng). Lúa bạn tô được xếp vào vụ Đông Xuân, Hè Thu hoặc Thu Đông theo tháng bắt đầu.",
 "Đây là công cụ hỗ trợ lập kế hoạch, không phải lời khuyên cho đúng thửa ruộng của bạn. Hãy trao đổi với cán bộ khuyến nông địa phương trước khi đổi lịch mùa vụ."
 ]

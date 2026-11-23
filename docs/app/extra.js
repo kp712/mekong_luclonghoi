@@ -118,7 +118,7 @@ const D5 = (() => {
       <dl class="d5-mon"><dt>${C.monthsLong()[mon]}</dt><dd></dd>
         <dt>${L(T.grow)}</dt><dd>${C.esc(L(C.codeOf(m)))}${m.length > 1 ? " · " + (C.lang === "vi" ? "vụ " : "crop ") + m[1] : ""}</dd>
         <dt>${L(T.salty)}</dt><dd class="${salty ? "risk" : ""}">${L(salty ? T.yes : T.no)}${salty ? " (" + L(C.UI.salt[s.level]).toLowerCase() + ")" : ""}</dd>
-        <dt>${L(T.rain)}</dt><dd>${s.rain[mon]} mm · ${L(T.need)} ~${s.et0[mon]} mm <span class="src">(CHIRPS, POWER)</span></dd></dl>`;
+        <dt>${L(T.rain)}</dt><dd>${s.rain[mon]} mm · ${L(T.need)} ~${s.et0[mon]} mm <span class="src">(CHIRPS, ERA5)</span></dd></dl>`;
   }
   const fmtN = (n) => C.lang === "vi" ? n.toFixed(1).replace(".", ",") : n.toFixed(1);
   function host(id, after) {
