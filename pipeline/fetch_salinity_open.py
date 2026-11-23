@@ -28,7 +28,7 @@ README = ("Older salinity seasons (1999-2016) of three KTTV stations from two op
           "is ASSUMED to be KTTV's 'Trà Vinh' (unconfirmed). Sơn Đốc: GFZ 10.5880/GFZ.4.4.2024.004 (Apel et al., data from SRHMC, CC BY 4.0), the "
           "highest 2-hourly reading of each Oct-Jun season and its month (GFZ's site is 3.5 km from KTTV's approximate Sơn Đốc position); "
           "partial = no reading in February or none in March. Coverage is patchy, so a maximum can understate the season. "
-          "Where a KTTV bulletin season covers the same station and year, the KTTV value wins (none before 2024).")
+          "In the Mendeley sheet itself, 1999 and 2000 are identical at the two stations (the other years differ): kept as published, possibly a fill. Where a KTTV bulletin season covers the same station and year, the KTTV value wins (none before 2024).")
 
 
 def get(url):

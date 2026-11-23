@@ -368,7 +368,7 @@ def test_salinity_station_data():
     assert typ["level"] == eln["level"] == "low" and typ["max_ppt"] is None and typ["station_ppt"] > 4  # override: severity 4/15
     typ, eln = salinity.at({"id": "long_phu"})
     assert typ["level"] == salinity.salt_level(typ["max_ppt"]) and "‰" in typ["note"]["en"] and "," in typ["note"]["vi"]
-    assert salinity.at({"id": "my_xuyen"})[0]["months"] == [2, 3, 4, 5]  # Thạnh Phú peaked in May in 5 of 10 recent seasons (2016-2025)
+    assert salinity.at({"id": "my_xuyen"})[0]["months"] == [2, 3, 4, 5]  # Thạnh Phú's yearly peak fell in April in 11 and in May in 8 of the 25 table seasons 1999-2025
     assert typ["seasons"] >= 5 and typ["last_year"] >= 2023  # confidence station rule reads these
     st = json.loads((build.RAW / "salinity_stations.json").read_text(encoding="utf-8"))["stations"]
     # our typing of the paper's Table 4 must reproduce its Table 2: years, min, max, mean (‰) per station
