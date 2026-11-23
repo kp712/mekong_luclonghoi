@@ -69,7 +69,7 @@ const Dash = (() => {
       tabs: { salt: "Mặn", money: "Tiền", soil: "Đất & nước" }, river: "Sông (trạm đo)", field: "Trong ruộng (ước tính)",
       seen: (n) => `Vệ tinh NASA MODIS thấy khoảng ${n} vụ/năm`, rain: (n) => `Mưa cả năm khoảng ${n} mm (CHIRPS)`, clay: "Đất sét", range: (a, b, c) => `${a}–${c} triệu/công (giữa ${b})`,
       areaSalt: { high: "Mặn cao", medium: "Mặn vừa", low: "Mặn thấp" }, conf: "Độ tin cậy", confL: { high: "cao", medium: "vừa", low: "thấp" },
-      scSrc: "Nước: NASA POWER + CHIRPS · Mặn: trạm đo + NASA POWER · Thu nhập: lợi nhuận đã công bố · Sâu bệnh: nhiệt độ NASA POWER (đường cong rầy nâu, Horgan và cộng sự 2020)", why: "Vì sao"
+      scSrc: "Nước: ERA5 + CHIRPS · Mặn: trạm đo + ERA5 · Thu nhập: lợi nhuận đã công bố · Sâu bệnh: nhiệt độ ERA5 (đường cong rầy nâu, Horgan và cộng sự 2020)", why: "Vì sao"
     },
     en: {
       viewing: "Viewing", nowTag: "(this month)", resetM: "Back to this month", pickM: "Pick a month to view", tapTile: "Tap a tile to open it large with details. Tap a month to view that month.", open: "Open",
@@ -124,7 +124,7 @@ const Dash = (() => {
       tabs: { salt: "Salt", money: "Money", soil: "Soil & water" }, river: "River (station)", field: "In the field (estimate)",
       seen: (n) => `NASA MODIS sees about ${n} crops a year`, rain: (n) => `Rain about ${n} mm a year (CHIRPS)`, clay: "Clay", range: (a, b, c) => `${a}–${c} M₫/công (middle ${b})`,
       areaSalt: { high: "High salt", medium: "Medium salt", low: "Low salt" }, conf: "Confidence", confL: { high: "high", medium: "medium", low: "low" },
-      scSrc: "Water: NASA POWER + CHIRPS · Salt: stations + NASA POWER · Income: published profit · Pests: NASA POWER temperature (brown planthopper curve, Horgan et al. 2020)", why: "Why"
+      scSrc: "Water: ERA5 + CHIRPS · Salt: stations + ERA5 · Income: published profit · Pests: ERA5 temperature (brown planthopper curve, Horgan et al. 2020)", why: "Why"
     }
   };
   const T = (k) => W[lang()][k];
@@ -352,12 +352,12 @@ const Dash = (() => {
       <div class="a-grid">
         ${tile("job", "a-g5", esc(T("monthOn")(m + 1)), `<p class="a-job">${iconOf(c.months[m])}<b>${esc(d.job)}</b></p><p class="a-mut">${esc(T("nextM")(d.nm + 1))}: ${esc(jobAt(c, d.nm))}</p>`, "")}
         ${tile("salt", "a-g1", `${esc(T("saltA"))} · ${esc(MS()[m])}`, `${gauge(d.g)}<p class="a-num">${ppt(d.g, 1)}</p><p class="a-mut lv-${d.lv}">${esc(T("lv")[d.lv])} · ${esc(T("lvD")[d.lv])}</p>`, T("est"))}
-        ${tile("chart", "a-g2", esc(T("chartH")), lineChart(f), lang() === "vi" ? "Mặn: trạm đo + NASA POWER (ước tính) · Mưa: CHIRPS · chạm một tháng để xem" : "Salt: stations + NASA POWER (estimate) · Rain: CHIRPS · tap a month to view it")}
+        ${tile("chart", "a-g2", esc(T("chartH")), lineChart(f), lang() === "vi" ? "Mặn: trạm đo + ERA5 (ước tính) · Mưa: CHIRPS · chạm một tháng để xem" : "Salt: stations + ERA5 (estimate) · Rain: CHIRPS · tap a month to view it")}
         ${tile("safe", "a-g3", esc(T("safeH")), `${donut(d.safe, d.crop.length, T("safeL"))}<p class="a-mut">${cropM ? esc((level(fieldSalt(f.site, m, nino)) === "man" ? T("mBad") : T("mOk"))(MS()[m])) : esc(T("mRest")(MS()[m]))}</p>`, T("est"))}
         ${tile("money", "a-g4", esc(T("moneyH")), d.mon ? `<p class="a-num big">${d.mon.per}<small> ${esc(T("perCongS"))}</small></p>${d.shown ? rangeBar(d.shown) : ""}${two ? two.map((t) => `<p class="a-mut">${esc(t)}</p>`).join("") : d.mon.tot ? `<p class="a-mut">${esc(d.mon.tot)}</p>` : ""}` : `<p class="a-mut">${esc(T("noMoney"))}</p>`, T("moneySrc"))}
         ${tile("scores", "a-g6", esc(T("scoreH")), `<div class="a-bars">${SK.map((q) => { const v = c.scores[q]; return `<div><span>${esc(T("sc")[q])}</span><i><b style="width:${v == null ? 0 : (v - 1) / 4 * 100}%"></b></i><em>${v == null ? "–" : nf(v, 1)}</em></div>` }).join("")}</div>${c.confidence ? `<p class="a-mut">${esc(T("conf"))}: ${esc(T("confL")[c.confidence] || c.confidence)}</p>` : ""}`, T("scSrc"))}
         ${tile("nums", "a-g7", `${esc(T("nums"))} · ${esc(MS()[m])}`, `<dl class="a-kpi"><div><dt>${esc(T("rainMo"))}</dt><dd>${nf(Math.round(d.rainA[m] || 0), 0)}<small> mm</small><small class="a-kn">CHIRPS</small></dd></div>
-          <div><dt>${esc(T("needMo"))}</dt><dd>${nf(Math.round(d.et0A[m] || 0), 0)}<small> mm</small><small class="a-kn">NASA POWER</small></dd></div>
+          <div><dt>${esc(T("needMo"))}</dt><dd>${nf(Math.round(d.et0A[m] || 0), 0)}<small> mm</small><small class="a-kn">ERA5</small></dd></div>
           <div><dt>${esc(T("cropsY"))}</dt><dd>${typeof s.crops === "number" ? nf(s.crops, 1) : "–"}<small class="a-kn">NASA MODIS NDVI</small></dd></div>
           <div><dt>${esc(T("rainY"))}</dt><dd>${nf(Math.round(rain), 0)}<small> mm</small><small class="a-kn">${esc(T("needY"))}: ${nf(Math.round(et0), 0)} mm</small></dd></div></dl>`, "")}
         ${tile("rank", "a-g8", esc(T("rankH")), `<ol class="a-rank">${d.r.slice(0, 5).map(({ c: y, s: sc, no }) => `<li class="${y.id === f.rot ? "cur" : ""}${no ? " no" : ""}"><span>${esc(L(y.name))}${no ? `<small class="a-no">${esc(T("notHere"))}</small>` : ""}</span><i><b style="width:${((sc - 1) / 4 * 100).toFixed(0)}%"></b></i><em>${nf(sc, 1)}</em></li>`).join("")}</ol>${best && best.c.id !== f.rot && (!cur || nf(best.s, 1) !== nf(cur.s, 1)) ? `<p class="a-mut">${esc(T("bestFor")(L(best.c.name)))}</p>` : ""}`, T("rankSrc"))}
@@ -431,7 +431,7 @@ const Dash = (() => {
         ${monthTable(f, d, [{ h: T("river"), v: (i) => ppt(riverSalt(f.site, i, nino)) }, { h: T("field"), v: (i) => ppt(fieldSalt(f.site, i, nino)) }, { h: T("tSalt"), v: lvCell }, { h: T("cropH"), v: cropCell }])}
         <p class="a-mut">${lang() === "vi" ? "Trong ruộng = sông × " : "Field = river × "}<b>${d.k == null ? "–" : nf(d.k, 2)}</b> ${esc(T("kWhy")(nf(s.crops, 1)))}</p><p class="a-src">${esc(T("est"))}</p>`;
       case "chart": return `${lineChart(f, true)}${monthTable(f, d, [{ h: T("rainM") + " mm", v: (i) => nf(Math.round(d.rainA[i] || 0), 0) }, { h: T("needH") + " mm", v: (i) => nf(Math.round(d.et0A[i] || 0), 0) }, { h: T("river"), v: (i) => ppt(riverSalt(f.site, i, nino)) }, { h: T("field"), v: (i) => ppt(fieldSalt(f.site, i, nino)) }])}
-        <p class="a-src">${lang() === "vi" ? "Mưa: CHIRPS · Cây cần nước: NASA POWER (phương pháp FAO) · Mặn: ước tính từ báo cáo trạm đo, không đo bằng vệ tinh" : "Rain: CHIRPS · Crop water need: NASA POWER (FAO method) · Salt: estimate from station reports, not satellite"}</p>`;
+        <p class="a-src">${lang() === "vi" ? "Mưa: CHIRPS · Cây cần nước: ERA5 (phương pháp FAO) · Mặn: ước tính từ báo cáo trạm đo, không đo bằng vệ tinh" : "Rain: CHIRPS · Crop water need: ERA5 (FAO method) · Salt: estimate from station reports, not satellite"}</p>`;
       case "safe": return `<div class="z-hero">${donut(d.safe, d.crop.length, T("safeL"))}<p class="a-mut">${esc(T("safeWhy"))}</p></div>
         <ol class="z-cal">${[...Array(12)].map((_, i) => { const code = c.months[i], grow = code[0] === "R" || code[0] === "U", lv = level(fieldSalt(f.site, i, nino)), bad = grow && lv === "man";
           return `<li class="${bad ? "bad" : grow ? "ok" : "rest"}${i === m ? " on" : ""}" data-dvsel="${i}"><b>${MS()[i]}</b>${iconOf(code)}<span>${esc(cropName(c, code))}</span><em>${grow ? esc(bad ? T("zBad") : T("zOk")) : esc(T("crop")[code[0] === "S" ? "S" : "-"])}</em></li>` }).join("")}</ol>
@@ -450,7 +450,7 @@ const Dash = (() => {
         <h5 class="z-h">${esc(T("whyScores"))}</h5><ul class="z-why">${(c.why || []).map((x) => `<li>${esc(L(x))}</li>`).join("")}</ul>${whyFit(c, f)}<p class="a-src">${esc(T("scSrc"))}</p>`;
       case "nums": { const nd = (nino && s.el && s.el.ndvi) || s.ndvi || [], mr = Math.max(1, ...d.rainA, ...d.et0A);
         return `<h5 class="z-h">${esc(T("rainNeed"))}</h5><div class="z-rn">${[...Array(12)].map((_, i) => `<button type="button" class="${i === m ? "on" : ""}" data-dvsel="${i}" aria-label="${esc(MLONG(i))}"><i class="r" style="height:${(d.rainA[i] / mr * 100).toFixed(0)}%"></i><i class="n" style="bottom:${(d.et0A[i] / mr * 100).toFixed(0)}%"></i><span>${MS()[i]}</span></button>`).join("")}</div>
-        <p class="a-key"><span><i class="k rn"></i>${esc(T("rainM"))} (CHIRPS)</span><span><i class="k lf"></i>${esc(T("needH"))} (NASA POWER)</span></p>
+        <p class="a-key"><span><i class="k rn"></i>${esc(T("rainM"))} (CHIRPS)</span><span><i class="k lf"></i>${esc(T("needH"))} (ERA5)</span></p>
         ${nd.length ? `<h5 class="z-h">${esc(T("ndviH"))}</h5><div class="z-nd">${nd.map((v, i) => `<i class="${i === m ? "on" : ""}" style="height:${(Math.max(0, v) * 100).toFixed(0)}%" title="${MS()[i]}: ${nf(v, 2)}"></i>`).join("")}</div><p class="a-mut">${esc(T("seen")(nf(s.crops, 1)))}</p>` : ""}`; }
       case "rank": return `<div class="dv-opts-list">${d.r.map(({ c: y, s: sc, no }) => `<div class="dv-optc${y.id === f.rot ? " cur" : ""}${no ? " no" : ""}"><div class="dv-optt"><b>${esc(L(y.name))}</b>${no ? `<small class="a-no">${esc(T("notHere"))}</small>` : ""}<small>${esc(L(y.calendar))}</small><span class="sd-chip">${esc(T("fit"))} ${nf(sc, 1)}/5</span>${whyFit(y, f)}</div>
         ${y.id === f.rot ? `<span class="sd-chip lv-low">${esc(T("current"))}</span>` : `<button type="button" class="btn gold" data-use="${y.id}">${esc(T("use"))}</button>`}</div>`).join("")}</div><p class="a-src">${esc(T("rankSrc"))}</p>`;
@@ -707,10 +707,10 @@ const Dash = (() => {
     mk: { top1: "Bón thúc lần 1", top2: "Bón thúc lần 2", top3: "Bón thúc lần 3", drain: "Rút nước trước khi gặt" },
     todoH: "Việc cần làm", todoNow: (m) => `Tháng ${m}`, todoNext: (m) => `Tháng ${m}`, planL: "Kế hoạch",
     pestH: "Sâu bệnh tháng này", pestLv: { lo: "Thấp", mid: "Vừa", hi: "Cao" }, pestWord: (l) => `Áp lực sâu bệnh: ${l}`,
-    pestWho: { R: "Rầy nâu trên lúa", S: "Bệnh tôm khi trời nóng hoặc lạnh", U: "Sâu hại cây màu", "-": "Ruộng nghỉ" },
-    pestWhy: { R: (t) => `Nhiệt độ trung bình ${t} °C. Rầy nâu phát triển đủ ở 25–30 °C, không lớn được ở 20 °C và 35 °C.`, S: (h, c) => `${h} ngày từ 35 °C trở lên, ${c} ngày lạnh đột ngột trong tháng. Không có ngày nào thì vẫn tính mức nền (ước tính của nhóm).`, U: "Chưa có số liệu sâu cây màu theo nhiệt độ, nên tính ở mức cao.", "-": "Không có lúa trong ruộng: vòng đời rầy nâu bị cắt." },
+    pestWho: { R: "Rầy nâu trên lúa", S: "Bệnh tôm khi trời nóng", U: "Sâu hại cây màu", "-": "Ruộng nghỉ" },
+    pestWhy: { R: (t) => `Nhiệt độ trung bình ${t} °C. Rầy nâu phát triển đủ ở 25–30 °C, không lớn được ở 20 °C và 35 °C.`, S: (h) => `${h} ngày từ 35 °C trở lên trong tháng. Không có ngày nào thì vẫn tính mức nền (ước tính của nhóm).`, U: "Chưa có số liệu sâu cây màu theo nhiệt độ, nên tính ở mức cao.", "-": "Không có lúa trong ruộng: vòng đời rầy nâu bị cắt." },
     pestYr: "12 tháng tới", pestScore: (x) => `Điểm ít sâu bệnh của kế hoạch: ${x}/5`, pestBreak: (n) => `${n} tháng nghỉ hoặc cây khác cắt vòng đời rầy.`,
-    pestSrc: "Nhiệt độ: NASA POWER · đường cong rầy nâu: Horgan và cộng sự 2020 · trung bình nhiều năm, không phải dự báo.", pestSrcN: "Nhiệt độ: NASA POWER · đường cong rầy nâu: Horgan và cộng sự 2020 · năm El Niño.",
+    pestSrc: "Nhiệt độ: ERA5 · đường cong rầy nâu: Horgan và cộng sự 2020 · trung bình nhiều năm, không phải dự báo.", pestSrcN: "Nhiệt độ: ERA5 · đường cong rầy nâu: Horgan và cộng sự 2020 · năm El Niño.",
     tilesH: "Nước và cây tháng này", tRain: "Mưa", tNeed: "Cây cần", tGreen: "Độ xanh", tShort: (n) => `thiếu ${n} mm`, tOk: "mưa đủ", tNd: "0 đến 1, cao là xanh",
     tAvg: (y) => `Trung bình nhiều năm${y ? " · năm El Niño" : ""}. Không phải dự báo.`,
     nowQ: "Ruộng đang có gì bây giờ?", nowWhy: "Kế hoạch 12 tháng bắt đầu từ hôm nay và từ vụ đang có trên ruộng.",
@@ -746,10 +746,10 @@ const Dash = (() => {
     mk: { top1: "First top-dressing", top2: "Second top-dressing", top3: "Third top-dressing", drain: "Drain before harvest" },
     todoH: "What to do", todoNow: (m) => MLONG(m - 1), todoNext: (m) => MLONG(m - 1), planL: "Plan",
     pestH: "Pests this month", pestLv: { lo: "Low", mid: "Medium", hi: "High" }, pestWord: (l) => `Pest pressure: ${l}`,
-    pestWho: { R: "Brown planthopper on rice", S: "Shrimp disease in hot or cold spells", U: "Upland crop pests", "-": "Field resting" },
-    pestWhy: { R: (t) => `Mean temperature ${t} °C. Brown planthoppers develop fully at 25–30 °C and fail to grow at 20 °C and 35 °C.`, S: (h, c) => `${h} days at or above 35 °C and ${c} sudden cold days this month. With none, a base level still counts (team estimate).`, U: "No temperature data for upland pests yet, so it counts as high.", "-": "No rice in the field: the brown planthopper cycle is broken." },
+    pestWho: { R: "Brown planthopper on rice", S: "Shrimp disease in hot spells", U: "Upland crop pests", "-": "Field resting" },
+    pestWhy: { R: (t) => `Mean temperature ${t} °C. Brown planthoppers develop fully at 25–30 °C and fail to grow at 20 °C and 35 °C.`, S: (h) => `${h} days at or above 35 °C this month. With none, a base level still counts (team estimate).`, U: "No temperature data for upland pests yet, so it counts as high.", "-": "No rice in the field: the brown planthopper cycle is broken." },
     pestYr: "Next 12 months", pestScore: (x) => `Plan's fewer-pests score: ${x}/5`, pestBreak: (n) => `${n} rest or other-crop months break the planthopper cycle.`,
-    pestSrc: "Temperature: NASA POWER · planthopper curve: Horgan et al. 2020 · long-term average, not a forecast.", pestSrcN: "Temperature: NASA POWER · planthopper curve: Horgan et al. 2020 · El Niño year.",
+    pestSrc: "Temperature: ERA5 · planthopper curve: Horgan et al. 2020 · long-term average, not a forecast.", pestSrcN: "Temperature: ERA5 · planthopper curve: Horgan et al. 2020 · El Niño year.",
     tilesH: "Water and crops this month", tRain: "Rain", tNeed: "Crops need", tGreen: "Greenness", tShort: (n) => `${n} mm short`, tOk: "rain is enough", tNd: "0 to 1, high is green",
     tAvg: (y) => `Long-term average${y ? " · El Niño year" : ""}. Not a forecast.`,
     nowQ: "What is in the field now?", nowWhy: "The 12-month plan starts today, from the crop in your field now.",
@@ -844,7 +844,7 @@ const Dash = (() => {
   });
 
   /* ---------- Today ---------- */
-  /* a small drawn paddy at the top of the crop card: the sky follows this month's rain (CHIRPS) against crop need (POWER),
+  /* a small drawn paddy at the top of the crop card: the sky follows this month's rain (CHIRPS) against crop need (ERA5),
      the water turns amber in salty months (estimate), and the plants grow with the season (seedling → tillers → panicle → ripe) */
   function scene(k, frac, wet, salty) {
     const W = 640, G = 84, n = 18, out = [], fx = (v) => v.toFixed(1);
@@ -919,7 +919,7 @@ const Dash = (() => {
     const tl = (ico, h, v, u, sub, src, cls, mt) => `<div class="t-tile ${cls || ""}"><span class="t-th"><span class="t-tic" aria-hidden="true">${ic(ico, 14)}</span>${esc(h)}</span><b class="t-tv">${v}<small>${esc(u)}</small></b>${mt || ""}<span class="t-ts">${esc(sub)}</span><span class="t-src">${esc(src)}</span></div>`;
     return `<section class="t-card t-tiles" aria-labelledby="tTlH"><h3 class="t-k" id="tTlH">${ic("drop", 18)}<span>${esc(T("tilesH"))} · ${esc(MLONG(m))}</span></h3>
       <div class="t-grid">${r != null ? tl("drop", T("tRain"), big(r), "mm", short > 0 ? T("tShort")(short) : T("tOk"), "CHIRPS", short > 0 ? "tc-dry" : "tc-wet", meter(e ? r / e : 1, "m-rain")) : ""}
-        ${e != null ? tl("sun", T("tNeed"), big(e), "mm", "ET₀", "NASA POWER", "tc-need", meter(1, "m-sun")) : ""}
+        ${e != null ? tl("sun", T("tNeed"), big(e), "mm", "ET₀", "ERA5", "tc-need", meter(1, "m-sun")) : ""}
         ${g != null ? tl("rice", T("tGreen"), nf(g, 2), "", T("tNd"), "NASA MODIS NDVI", "tc-green", meter(g, "m-green")) : ""}</div>
       <p class="t-note">${esc(T("tAvg")(nino))}</p></section>`;
   }
@@ -929,14 +929,14 @@ const Dash = (() => {
     if (!raw) return null;
     const cl = (isNino(f) && raw.elnino && raw.elnino.climate) || raw.climate, p = Score.monthPest(k, cl, m);
     if (k === "R" || k === "T") return { p, t: cl.tmean_c[m], k: "R" };
-    if (k === "S") return { p, h: cl.hot_days[m] || 0, c: cl.cold_days[m] || 0, k: "S" };
+    if (k === "S") return { p, h: cl.hot_days[m] || 0, k: "S" };
     return { p, k: k === "U" ? "U" : "-" };
   }
   const pestLv = (p) => (p >= 0.67 ? "hi" : p >= 0.34 ? "mid" : "lo");
   function pestCard(f, x) {
     const { c } = x, cells = c.cells || [], k0 = (c.months[CM] || "-")[0], now = pestAt(f, k0, CM);
     if (!now) return "";
-    const lv = pestLv(now.p), why = T("pestWhy")[now.k], whyT = typeof why === "function" ? (now.k === "R" ? why(nf(now.t, 1)) : why(nf(now.h), nf(now.c))) : why;
+    const lv = pestLv(now.p), why = T("pestWhy")[now.k], whyT = typeof why === "function" ? (now.k === "R" ? why(nf(now.t, 1)) : why(nf(now.h))) : why;
     const bars = cells.map((cl, i) => { const q = pestAt(f, cl.code[0], cl.m) || { p: 0 }, l = pestLv(q.p);
       return `<span class="pb pl-${cl.code === "-" ? "rest" : l}${i === 0 ? " now" : ""}" title="${esc(MS()[cl.m])}: ${esc(T("pestLv")[l])}"><i style="height:${Math.max(6, Math.round(q.p * 100))}%"></i><small>${esc(MS()[cl.m])}</small></span>` }).join("");
     const brk = cells.filter((cl) => cl.code === "-" || "SU".includes(cl.code[0])).length, sc = c.scores && c.scores.pests;
@@ -1197,7 +1197,7 @@ const Dash = (() => {
         <span class="w ngot">${pic("drop", 12)}${esc(P.fresh)}</span><span class="w lo">${pic("drop", 12)}${esc(P.brack)}</span><span class="w man">${pic("drop", 12)}${esc(P.salty)}</span></p>
       <p class="tip">${esc(P.tip)}</p>
       <div class="boxes">${boxes}</div>
-      <footer><p>${lang() === "vi" ? "Dữ liệu: CHIRPS (mưa), NASA POWER (nhiệt độ, nhu cầu nước), NASA MODIS NDVI (số vụ), NOAA (El Niño), SoilGrids (đất). Độ mặn: ước tính từ báo cáo trạm đo công khai, không đo bằng vệ tinh. Giống, phân bón và các bước: tài liệu khuyến nông đã công bố." : "Data: CHIRPS (rain), NASA POWER (heat, water need), NASA MODIS NDVI (crop count), NOAA (El Niño), SoilGrids (soil). Salinity: estimate from public station reports, not satellite. Seed, fertiliser and steps: published extension guides."}</p><p><b>${esc(T("ask"))}</b></p></footer></div>`;
+      <footer><p>${lang() === "vi" ? "Dữ liệu: CHIRPS (mưa), ERA5 / ERA5-Land (nhiệt độ, nhu cầu nước), NASA MODIS NDVI (số vụ), NOAA (El Niño), SoilGrids (đất). Độ mặn: ước tính từ báo cáo trạm đo công khai, không đo bằng vệ tinh. Giống, phân bón và các bước: tài liệu khuyến nông đã công bố." : "Data: CHIRPS (rain), ERA5 / ERA5-Land (heat, water need), NASA MODIS NDVI (crop count), NOAA (El Niño), SoilGrids (soil). Salinity: estimate from public station reports, not satellite. Seed, fertiliser and steps: published extension guides."}</p><p><b>${esc(T("ask"))}</b></p></footer></div>`;
   }
   const PAPER_CSS = `*{box-sizing:border-box}body{margin:0;background:#fff;color:#1a1a1a;font:13px/1.45 "Be Vietnam Pro",Arial,sans-serif}
 .paper{max-width:820px;margin:0 auto;padding:22px}.pi{display:inline-block;vertical-align:-.2em;flex:none}

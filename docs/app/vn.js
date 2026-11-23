@@ -19,7 +19,7 @@ const VnMap = (() => {
     show: ["Map colour shows:", "Màu trên bản đồ là:"], rain: ["Rain", "Mưa"], bal: ["Rain minus water need", "Mưa trừ nhu cầu nước"],
     year: ["Whole year", "Cả năm"], typical: ["Typical year", "Năm thường"], elnino: ["El Niño years", "Năm El Niño"],
     rainH: ["Rain, CHIRPS (mm)", "Lượng mưa, CHIRPS (mm)"],
-    balH: ["Rain minus crop water need (ET₀, NASA POWER + FAO-56), mm", "Mưa trừ nhu cầu nước của cây (ET₀, NASA POWER + FAO-56), mm"],
+    balH: ["Rain minus crop water need (ET₀, ERA5 + FAO-56), mm", "Mưa trừ nhu cầu nước của cây (ET₀, ERA5 + FAO-56), mm"],
     dry: ["drier", "khô hơn"], wet: ["wetter", "ẩm hơn"], less: ["less", "ít"], more: ["more", "nhiều"],
     keyPill: ["Map key", "Chú thích"], hide: ["Hide", "Thu gọn"], close: ["Close", "Đóng"],
     formed: ["Since 1 July 2025, joined from", "Từ 1/7/2025, sáp nhập từ"], kept: ["Since 1 July 2025: unchanged", "Từ 1/7/2025: giữ nguyên"],
@@ -63,7 +63,7 @@ const VnMap = (() => {
     sAvg: ["Average {a} mm · wettest {n} {m} mm", "Trung bình {a} mm · mưa nhiều nhất {n} {m} mm"],
     sBal: ["{n} of {t} points get more rain than crops need", "{n}/{t} điểm có mưa nhiều hơn cây cần"],
     sSalt: ["{n} of {t} points with an estimate reach 4‰", "{n}/{t} điểm có ước tính lên 4‰"],
-    srcRain: ["Rain: CHIRPS", "Mưa: CHIRPS"], srcBal: ["Rain: CHIRPS · water need: NASA POWER (FAO-56)", "Mưa: CHIRPS · nhu cầu nước: NASA POWER (FAO-56)"]
+    srcRain: ["Rain: CHIRPS", "Mưa: CHIRPS"], srcBal: ["Rain: CHIRPS · water need: ERA5 (FAO-56)", "Mưa: CHIRPS · nhu cầu nước: ERA5 (FAO-56)"]
   };
   const t = (k, sub) => { let s = (sub ? T[k][sub] : T[k])[lang === "vi" ? 1 : 0]; return s; };
   const fill = (s, o) => s.replace(/\{(\w)\}/g, (_, k) => o[k]);
@@ -369,7 +369,7 @@ const VnMap = (() => {
      where there is a farmland pixel) and hot days (≥ 35 °C), then this month in words. */
   const canHover = () => window.matchMedia && matchMedia("(hover: hover) and (pointer: fine)").matches;
   const HC = {
-    green: ["Greenness of the fields (NASA MODIS)", "Độ xanh của ruộng (NASA MODIS)"], heat: ["Hot days ≥ 35 °C (NASA POWER)", "Ngày nóng ≥ 35 °C (NASA POWER)"],
+    green: ["Greenness of the fields (NASA MODIS)", "Độ xanh của ruộng (NASA MODIS)"], heat: ["Hot days ≥ 35 °C (ERA5-Land)", "Ngày nóng ≥ 35 °C (ERA5-Land)"],
     wet: ["Rain above crop water use", "Mưa nhiều hơn cây cần"], dry: ["Drier than crops need", "Khô hơn cây cần"], range: ["Driest–wettest year", "Năm khô nhất–ẩm nhất"],
     salt: ["Salt", "Mặn"], lvl: { low: ["low", "thấp"], medium: ["medium", "vừa"], high: ["high", "cao"] }, noSalt: ["no estimate here yet", "chưa có ước tính ở đây"], seeF: ["See each former province", "Xem từng tỉnh cũ"], tip: ["Click for full details", "Bấm để xem đầy đủ"],
     now: ["{m}: {r} mm rain, crops need {e} mm", "{m}: mưa {r} mm, cây cần {e} mm"], surplus: ["{v} mm to spare", "dư {v} mm"], deficit: ["short by {v} mm", "thiếu {v} mm"],
@@ -393,7 +393,7 @@ ${!o && p.former.length > 1 ? `<p class="vn-hc-sub">${esc(fill(ht("avgOf"), { n:
 ${green}${heat}
 <p class="vn-hc-now"><b>${esc(fill(ht("now"), { m: MONL[lang][m], r: num(r), e: num(e) }))}</b><span class="${d >= 0 ? "up" : "down"}">${esc(fill(ht(d >= 0 ? "surplus" : "deficit"), { v: num(Math.abs(d)) }))}</span>${hot >= .5 ? `<span class="hot">${esc(fill(ht("hotN"), { n: num(hot) }))}</span>` : ""}</p>
 <p class="hc-salt"><span class="k-salt vn-k-none"></span>${esc(ht("salt"))}: <b>${sv == null ? esc(ht(!o && p.former.length > 1 ? "seeF" : "noSalt")) : `${esc(HC.lvl[salOf(x).level][lang === "vi" ? 1 : 0])} · ${esc(salTxt(sv))}`}</b></p>
-<p class="hc-key"><span><i class="k-wet"></i>${esc(ht("wet"))}</span><span><i class="k-dry"></i>${esc(ht("dry"))}</span><span><i class="k-e"></i>ET₀ NASA POWER</span><span><i class="vn-k-w"></i>${esc(ht("range"))}</span></p>
+<p class="hc-key"><span><i class="k-wet"></i>${esc(ht("wet"))}</span><span><i class="k-dry"></i>${esc(ht("dry"))}</span><span><i class="k-e"></i>ET₀ ERA5</span><span><i class="vn-k-w"></i>${esc(ht("range"))}</span></p>
 <small class="hc-tip">${esc(ht("tip"))}</small>`;
   }
   let hcOn = false;
@@ -576,8 +576,8 @@ ${green}${heat}
     const soilSub = !soil ? "" : avg ? fill(t("soilAvg"), { n: p.points.soil.length, m: p.former.length }) : soil.km ? fill(t("soilKm"), { k: num(soil.km) }) : "";
     const tiles = [
       [t("rainY"), num(sum(c.rain_mm)) + " mm", "CHIRPS", D.chart_src.slice(1, 2)],
-      [t("et0Y"), num(sum(c.et0_mm)) + " mm", "NASA POWER · FAO-56", D.chart_src.slice(0, 1).concat(D.chart_src.slice(2))],
-      [t("hot"), num(sum(c.hot_days), 0), "NASA POWER", D.chart_src.slice(0, 1)],
+      [t("et0Y"), num(sum(c.et0_mm)) + " mm", "ERA5 · FAO-56", D.chart_src.slice(0, 1).concat(D.chart_src.slice(2))],
+      [t("hot"), num(sum(c.hot_days), 0), "ERA5-Land", D.chart_src.slice(0, 1)],
       soil ? [t("clay"), num(soil.clay_pct, 1) + "% · pH " + num(soil.ph, 1), soilSub || "SoilGrids", D.soil_src] : [t("clay"), "—", t("nosoil"), D.soil_src],
       !avg && o.ndvi ? (o.ndvi.farmland ? [t("crops"), num(o.ndvi.crops_per_year, 1), t("ndviAt"), D.ndvi_src] : [t("crops"), "—", t("ndviTown"), D.ndvi_src]) : null
     ].filter(Boolean).map(([k, v, s, src]) => `<div class="vn-tile"><span>${esc(k)}</span><b>${esc(v)}</b><small>${esc(s)}${cite(src)}</small></div>`).join("");

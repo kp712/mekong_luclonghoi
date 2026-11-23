@@ -1,5 +1,5 @@
 {
-  "_readme": "Inputs for the Pests score (1.0-5.0, higher = less pest pressure). Rice: pressure is the brown planthopper (Nilaparvata lugens) temperature curve in `points` [temp_c, pressure 0-1], interpolated linearly: no development at 20 C or below, full pressure 25-30 C, none again at 35 C (Horgan et al. 2020, checked). Pressure is flat across the Mekong pins here (monthly means are 25.8-30.1 C in a typical year, April 0.98, and 26.3-31.6 C in an El Niño year, April 0.68 at Mỹ Xuyên and Ngã Năm), so rice does not separate sites; the score separates crops and months, and that is a decision, not an omission. Three constants have no numeric source and are team estimates (they cost one confidence level): shrimp `floor` (0.5, the lowest shrimp-phase pressure), shrimp `cold_drop_c` (4.2 C, from the 4.2-4.5 C pond swings in the Global Seafood Alliance review) and `break_weight` (0.5, the share of the rice pest cycle credited to a break crop). `hot_c` (35 C) is the existing heat rule, backed by the Kien Giang report. Upland pests are named per crop, with no numeric curve.",
+  "_readme": "Inputs for the Pests score (1.0-5.0, higher = less pest pressure). Rice: pressure is the brown planthopper (Nilaparvata lugens) temperature curve in `points` [temp_c, pressure 0-1], interpolated linearly: no development at 20 C or below, full pressure 25-30 C, none again at 35 C (Horgan et al. 2020, checked). Pressure is flat across the Mekong pins here (monthly means are 25.8-30.1 C in a typical year, April 0.98, and 26.3-31.6 C in an El Niño year, April 0.68 at Mỹ Xuyên and Ngã Năm), so rice does not separate sites; the score separates crops and months, and that is a decision, not an omission. Two constants have no numeric source and are team estimates (they cost one confidence level): shrimp `floor` (0.5, the lowest shrimp-phase pressure) and `break_weight` (0.5, the share of the rice pest cycle credited to a break crop). `hot_c` (35 C) is the existing heat rule, backed by the Kien Giang report; shrimp pressure = floor + (1 - floor) x min(hot days / days in the month, 1). There is no cold-snap rule: no source gives a drop or range that daily gridded data can count (research/cold-snap-shrimp.md). Upland pests are named per crop, with no numeric curve.",
   "rice": {
     "points": [[20, 0], [25, 1], [30, 1], [35, 0]],
     "source": {
@@ -11,7 +11,6 @@
   },
   "shrimp": {
     "floor": 0.5,
-    "cold_drop_c": 4.2,
     "hot_c": 35,
     "sources": [
       {
@@ -24,12 +23,6 @@
         "title": "Nông nghiệp Việt Nam: Hot weather causes disease outbreaks on farmed shrimp",
         "url": "https://vietnamagriculture.nongnghiep.vn/hot-weather-causes-disease-outbreaks-on-farmed-shrimp-d350105.html",
         "note": "Rice-shrimp losses in Kiên Giang in heat above 35°C. Not yet checked: quote the sentence and the loss figure.",
-        "verified": false
-      },
-      {
-        "title": "Global Seafood Alliance: review of temperature and shrimp disease",
-        "url": "https://www.globalseafood.org/?p=54173",
-        "note": "Review reports 4.2-4.5 °C pond temperature swings after storms linked to outbreaks. Not yet checked: quote the sentence and confirm it concerns shrimp ponds.",
         "verified": false
       }
     ]

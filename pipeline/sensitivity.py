@@ -18,9 +18,8 @@ def baseline():
     rots = {r["id"]: r for r in json.loads((build.HERE / "rotations.json").read_text(encoding="utf-8"))["rotations"]}
     inputs = []
     for s in sites:
-        power = build.read_power(s["id"])
         rain = json.loads((build.RAW / "chirps.json").read_text(encoding="utf-8"))[s["id"]]
-        clim = build.climate(power, s["lat"], build.typical_year, rain)
+        clim = build.climate(build.read_weather(s["id"]), build.typical_year, rain)
         sal, _ = salinity.at(s)
         rows = []
         for c in s["cards"]:

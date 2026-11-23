@@ -12,20 +12,13 @@ import appeears
 import build
 import fetch_chirps
 import fetch_gpm
-import fetch_power
+import fetch_enso
+import fetch_era5
 import fetch_salinity_vietnam
 import hls
 import salinity
 import ndvi
 import ndvi_from_appeears
-
-
-def test_et0_penman_monteith():
-    # FAO-56 Example 18 (Brussels, 6 July): lat 50.80 N, 100 m, Tmax 21.5, Tmin 12.3, ea 1.409 kPa, u2 2.078 m/s, Rs 22.07 -> ET0 3.9 mm/day
-    rh = 1.409 / ((build.e0(21.5) + build.e0(12.3)) / 2) * 100
-    assert abs(build.et0_penman(date(2001, 7, 6), 50.8, 21.5, 12.3, rh, 2.078, 22.07, z=100) - 3.9) < 0.05
-    v = build.et0_penman(date(2024, 3, 15), 9.5, 33, 25, 75, 2.5, 21)
-    assert 4 < v < 6, v  # Mekong dry season is ~4-5 mm/day
 
 
 def test_ndvi_counts_three_crops():
@@ -46,9 +39,9 @@ def test_year_to_year_ranges():
     assert (lo[0], hi[0]) == (0.2, 0.6) and lo[5] is None and hi[5] is None, (lo, hi)
     # bare months: each year checked on its own; Jan bare (0.2) in 1 of 2 years isn't "usually", in 2 of 3 it is
     assert ndvi.bare_months(series) == [] and ndvi.bare_months(dict(series, **{"2022-01-01": 0.2, "2022-01-17": 0.2})) == [1]
-    # rain: driest <= average <= wettest, every month, real NASA POWER file
+    # rain: driest <= average <= wettest, every month, real CHIRPS and ERA5 files
     site = build.SITES[0]
-    c = build.climate(build.read_power(site["id"]), site["lat"])
+    c = build.climate(build.read_weather(site["id"]), None, json.loads((build.RAW / "chirps.json").read_text(encoding="utf-8"))[site["id"]])
     assert all(a <= m <= b for a, m, b in zip(c["rain_min_mm"], c["rain_mm"], c["rain_max_mm"])), c
 
 
@@ -67,34 +60,37 @@ def test_rain_covers_period():
 
 def test_elnino_year():
     site = next(s for s in build.SITES if s["id"] == "tran_de")
-    power = build.read_power("tran_de")
+    weather = build.read_weather("tran_de")
     assert build.ELNINO == [2002, 2004, 2006, 2009, 2014, 2015, 2018, 2019, 2023], build.ELNINO  # from NOAA's Dec-Feb index >= 0.5
     assert build.in_elnino(date(2015, 12, 1)) and build.in_elnino(date(2016, 11, 30)) and not build.in_elnino(date(2016, 12, 1))
     assert build.typical_year(date(2017, 6, 1)) and not build.typical_year(date(2016, 3, 1))
     assert not build.typical_year(date(2025, 3, 1))  # outside PERIOD
     assert build.PERIOD[1] == date(2024, 11, 30) and build.RECENT[0] == date(2014, 12, 1)
     gpm = json.loads((build.RAW / "chirps.json").read_text(encoding="utf-8"))["tran_de"]
-    typ, eln = (build.climate(power, site["lat"], keep, gpm) for keep in (build.typical_year, build.in_elnino))
-    assert typ["rain_mm"] != build.climate(power, site["lat"], build.typical_year)["rain_mm"]  # rain comes from CHIRPS, not POWER
+    typ, eln = (build.climate(weather, keep, gpm) for keep in (build.typical_year, build.in_elnino))
     for ym, keep in (("2022-11", build.typical_year), ("2024-11", build.in_elnino)):
         try:
-            build.climate(power, site["lat"], keep, {k: v for k, v in gpm.items() if k != ym})
+            build.climate(weather, keep, {k: v for k, v in gpm.items() if k != ym})
             assert False, f"expected ValueError on missing rain month {ym}"
         except ValueError as e:
             assert ym in str(e)
-    # same check when every POWER day of the missing month is a fill value (-999): the month must not just vanish
-    filled = json.loads(json.dumps(power))
-    for d in filled["parameter"]["T2M_MAX"]:
-        if d.startswith("202211"):
-            filled["parameter"]["T2M_MAX"][d] = -999
+    # same check when every ERA5 day of the missing month is null: the month must not just vanish
+    nulled = json.loads(json.dumps(weather))
+    for i, d in enumerate(nulled["daily"]["time"]):
+        if d.startswith("2022-11"):
+            nulled["daily"]["tmax"][i] = None
     try:
-        build.climate(filled, site["lat"], build.typical_year, {k: v for k, v in gpm.items() if k != "2022-11"})
-        assert False, "expected ValueError on missing rain month 2022-11 with POWER fill days"
+        build.climate(nulled, build.typical_year, {k: v for k, v in gpm.items() if k != "2022-11"})
+        assert False, "expected ValueError on missing rain month 2022-11 with null ERA5 days"
     except ValueError as e:
         assert "2022-11" in str(e)
-    assert len(build.climate(filled, site["lat"], build.typical_year)["rain_mm"]) == 12  # gpm=None: POWER-only helper still works
+    try:
+        build.climate(weather, build.typical_year)
+        assert False, "expected ValueError: no rain given"
+    except ValueError:
+        pass
     ws = lambda c: build.winter_spring(c)[0]
-    assert ws(typ) < ws(build.climate(power, site["lat"], None, gpm)) < ws(eln)  # typical leaves the El Niño seasons out
+    assert ws(typ) < ws(build.climate(weather, None, gpm)) < ws(eln)  # typical leaves the El Niño seasons out
     nd = json.loads((build.RAW / "ndvi_tran_de.json").read_text(encoding="utf-8"))
     assert ndvi.monthly_mean(nd, build.in_elnino) != ndvi.monthly_mean(nd, build.typical_year)  # greenness splits by season too
     assert all(len(eln[k]) == 12 for k in eln)
@@ -148,7 +144,7 @@ def test_appeears_pin_finder():
 
 def test_card_with_ndvi_and_low_salinity():
     rot = next(r for r in json.loads((build.HERE / "rotations.json").read_text(encoding="utf-8"))["rotations"] if r["id"] == "rice_shrimp")
-    clim = {"rain_mm": [10] * 12, "et0_mm": [100] * 12, "hot_days": [0] * 12, "cold_days": [0] * 12, "tmean_c": [27.0] * 12}
+    clim = {"rain_mm": [10] * 12, "et0_mm": [100] * 12, "hot_days": [0] * 12, "tmean_c": [27.0] * 12}
     nd = {"crops_per_year": 2.9, "bare_months": [3]}
     c = build.make_card(rot, clim, nd, {"level": "low", "months": [3], "station_ppt": 2.0, "max_ppt": 2.0, "seasons": 9, "last_year": 2024})
     assert c["scores"]["income"] < build.make_card(rot, clim, nd, {"level": "high", "months": [3], "station_ppt": 20.0, "max_ppt": 20.0, "seasons": 9, "last_year": 2024})["scores"]["income"] and c["not_here"]
@@ -175,7 +171,7 @@ def test_soilgrids_topsoil():
 
 def test_score_rules():
     rots = {r["id"]: r for r in json.loads((build.HERE / "rotations.json").read_text(encoding="utf-8"))["rotations"]}
-    clim = lambda et0: {"rain_mm": [0] * 12, "et0_mm": [et0] * 12, "hot_days": [0] * 12, "cold_days": [0] * 12, "tmean_c": [27.0] * 12}  # Dec-Apr need = 5 x 1.1 x et0
+    clim = lambda et0: {"rain_mm": [0] * 12, "et0_mm": [et0] * 12, "hot_days": [0] * 12, "tmean_c": [27.0] * 12}  # Dec-Apr need = 5 x 1.1 x et0
     assert build.effective_rain(100) == 55 and build.effective_rain(50) == 20 and build.effective_rain(10) == 0  # FAO Manual 3
     # FAO Manual 3 section 4.4 worked example (April): ET0 180 mm, Kc 1.1, seepage 150 mm, water layer 100 mm, effective rain 135 mm -> 313 mm
     assert build.month_need(180, 1.1, 200, perc=150, wl=100) == 313
@@ -221,7 +217,7 @@ def test_confidence():
     allr = build.confidence(rots["rice_upland"], None, dict(good, seasons=3), True)[1] + build.confidence(rots["rice_shrimp"], None, good, True, True)[1]
     assert all(" and " not in x["vi"] for x in allr)                     # Vietnamese reasons use "và"
     assert [x["en"] for x in build.confidence(rots["rice_shrimp"], nd, good, True)[1]].count("Inland freshwater area: brackish water is not normally available here.") == 1
-    site = build.make_card(rots["rice3"], {"rain_mm": [0] * 12, "et0_mm": [100] * 12, "hot_days": [0] * 12, "cold_days": [0] * 12, "tmean_c": [27.0] * 12}, None, good)
+    site = build.make_card(rots["rice3"], {"rain_mm": [0] * 12, "et0_mm": [100] * 12, "hot_days": [0] * 12, "tmean_c": [27.0] * 12}, None, good)
     assert site["scores"]["pests"] is not None and any("break credit for pests" in r["en"] for r in site["risks"])
     assert all(1 <= v <= 5 for v in site["scores"].values())          # no NDVI still scores
 
@@ -242,7 +238,7 @@ def test_soil_score():
 
 def test_pests_score():
     rots = {r["id"]: r for r in build.ROTATIONS}
-    flat = dict(tmean_c=[27.0] * 12, hot_days=[0.0] * 12, cold_days=[0.0] * 12)
+    flat = dict(tmean_c=[27.0] * 12, hot_days=[0.0] * 12)
     assert build.rice_pressure(27.0) == 1 and build.rice_pressure(32.5) == 0.5 and build.rice_pressure(20.0) == 0 and build.rice_pressure(36) == 0
     got = {k: build.score_pests(r, flat)[0] for k, r in rots.items()}
     assert got == {"rice3": 1.8, "rice2": 3.0, "rice_shrimp": 3.3, "rice_upland": 2.8, "salt_tolerant": 3.0}, got
@@ -313,7 +309,7 @@ def test_rotation_calendars():
 
 def test_clay_note():
     rot = next(r for r in json.loads((build.HERE / "rotations.json").read_text(encoding="utf-8"))["rotations"] if r["id"] == "rice_upland")
-    clim = {"rain_mm": [0] * 12, "et0_mm": [100] * 12, "hot_days": [0] * 12, "cold_days": [0] * 12, "tmean_c": [27.0] * 12}
+    clim = {"rain_mm": [0] * 12, "et0_mm": [100] * 12, "hot_days": [0] * 12, "tmean_c": [27.0] * 12}
     med = {"level": "medium", "months": [3], "station_ppt": 8.0, "max_ppt": 8.0, "seasons": 9, "last_year": 2024}
     c = build.card(rot, clim, None, med, soil={"clay_pct": 40.6})
     gaps = [g["en"] for g in c["variants"][c["crop_default"]]["gaps"]]
@@ -323,7 +319,7 @@ def test_clay_note():
 
 def test_weather_salt():
     rots = {r["id"]: r for r in json.loads((build.HERE / "rotations.json").read_text(encoding="utf-8"))["rotations"]}
-    clim = {"rain_mm": [0] * 12, "et0_mm": [100] * 12, "hot_days": [0, 0, 0, 15] + [0] * 8, "cold_days": [0] * 12, "tmean_c": [27.0] * 12}
+    clim = {"rain_mm": [0] * 12, "et0_mm": [100] * 12, "hot_days": [0, 0, 0, 15] + [0] * 8, "tmean_c": [27.0] * 12}
     sal = {"months": [1, 2], "station_ppt": 15.0, "max_ppt": 15.0, "seasons": 9, "last_year": 2024, "level": "high"}
     ws = lambda r, s=sal: build.score_weather_salt(rots[r], clim, s)
     assert ws("rice2")[1]["parts"] == {"salt": 1.0, "heat": 3.0, "canal": 1.0} and ws("rice2")[0] == 1.4   # Jan-Feb rice, 15 hot days in Apr (R2)
@@ -420,7 +416,7 @@ def test_noaa_outlook():
 <strong>ENSO Alert System Status: </font><span style="color:red">El Ni&ntilde;o Advisory</span></strong>
 <u>Synopsis:</u>&nbsp;<strong>El Ni&ntilde;o continues to strengthen, with a strong-to-very strong El Ni&ntilde;o likely
  through January-March 2027 (remaining greater than an 83&#37; chance).</strong> El Niño strengthened further."""
-    o = dict(fetch_power.parse_enso(page), url="u")
+    o = dict(fetch_enso.parse_enso(page), url="u")
     assert o["issued"] == "2026-10-08" and o["status"] == "El Niño Advisory" and o["synopsis"].endswith("83% chance)."), o
     out = build.outlook(o)
     assert "Fetched" not in out["source"]["note"], out["source"]["note"]
@@ -465,11 +461,11 @@ def test_sites_json_contract():
         if s["rain_check"]:
             assert -100 < s["rain_check"]["diff_pct"] < 100 and -1 <= s["rain_check"]["monthly_r"] <= 1
         for sm in (s["summary"], s["elnino"]["summary"]):
-            assert all(x["en"] and x["vi"] for x in sm) and "NASA POWER" in sm[0]["en"]
+            assert all(x["en"] and x["vi"] for x in sm) and "ERA5" in sm[0]["en"]
             assert [x for x in sm if x.get("salt")] == [sm[1]] and "estimate" in sm[1]["en"] and "ước tính" in sm[1]["vi"]  # salinity always labelled
             for x in sm:  # Simple view: `plain` drops the source bracket only (#60)
                 assert x["plain"]["en"] and x["plain"]["vi"] and x["plain"]["en"].endswith(".") and x["plain"]["vi"].endswith("."), x
-                assert not [w for w in ("GPM", "POWER", "MODIS", "FAO", "ET₀", "Penman", "El Niño average") if w in x["plain"]["en"] + x["plain"]["vi"]], x
+                assert not [w for w in ("GPM", "ERA5", "MODIS", "FAO", "ET₀", "Penman", "El Niño average") if w in x["plain"]["en"] + x["plain"]["vi"]], x
                 assert x["src"] and set(x["plain"]) == {"en", "vi"} and "src" not in x["plain"]  # the line's `src` serves both texts
             assert len(sm[0]["plain"]["en"]) < len(sm[0]["en"]) and len(sm[0]["plain"]["vi"]) < len(sm[0]["vi"])
             salt = sm[1]  # the salt line keeps its estimate label (claude-pro2's condition on #57)
@@ -493,7 +489,7 @@ def test_sites_json_contract():
             for k in ("why", "benefits", "gaps", "risks", "src", "cal_src"):
                 assert c[k], (s["id"], c["id"], k)
             assert all(x["en"] and x["vi"] for k in ("why", "benefits", "gaps", "risks") for x in c[k])
-    assert d["pest_rule"] == {"rice_points": build.PESTS["rice"]["points"], "break_weight": 0.5, "shrimp_floor": 0.5, "cold_drop_c": 4.2, "hot_c": 35, "upland_pressure": 1}
+    assert d["pest_rule"] == {"rice_points": build.PESTS["rice"]["points"], "break_weight": 0.5, "shrimp_floor": 0.5, "hot_c": 35, "upland_pressure": 1}
     for s in d["sites"]:
         if s["id"] == "my_xuyen":
             pe = lambda v: next(c for c in v["cards"] if c["id"] == "rice3")["scores"]["pests"]
@@ -509,7 +505,7 @@ def test_sites_json_contract():
     rot_file = json.loads((build.HERE / "rotations.json").read_text(encoding="utf-8"))
     inputs = [x for r in rot_file["rotations"] for x in r["sources"] + r["calendar_sources"]] + [x for r in rot_file["rotations"] for v in r.get("local", {}).values() for x in v["sources"]] + [x for h in rot_file["soil_help"] for x in h["sources"]] \
         + [x for r in build.RESOURCES.values() for x in r["sources"]] + salinity.SOURCES + [build.PESTS["rice"]["source"]] + build.PESTS["shrimp"]["sources"] + [v["source"] for v in build.PESTS["upland"].values()] \
-        + [build.POWER_SRC, build.CHIRPS_SRC, build.MODIS_SRC, build.HEAT_SRC, build.SOIL_SRC, build.ONI_SRC, build.OUTLOOK["source"], build.FAO29_SRC, build.FAO48_SRC]
+        + [build.ERA5_SRC, build.CHIRPS_SRC, build.MODIS_SRC, build.HEAT_SRC, build.SOIL_SRC, build.ONI_SRC, build.OUTLOOK["source"], build.FAO29_SRC, build.FAO48_SRC]
     assert {x["title"] for x in inputs} <= set(titles), {x["title"] for x in inputs} - set(titles)
     assert "url" not in json.dumps(d["sites"]) and "data_sources" not in d   # no source lists left anywhere else
     unverified |= {x["title"] for x in S if not x["verified"]}
@@ -753,7 +749,7 @@ def test_profit_range():
 def test_pest_sources():
     P = build.PESTS
     assert P["rice"]["points"] == [[20, 0], [25, 1], [30, 1], [35, 0]]
-    assert P["shrimp"]["floor"] == 0.5 and P["shrimp"]["cold_drop_c"] == 4.2 and P["shrimp"]["hot_c"] == 35
+    assert P["shrimp"]["floor"] == 0.5 and "cold_drop_c" not in P["shrimp"] and P["shrimp"]["hot_c"] == 35
     assert P["break_weight"] == 0.5 and set(P["upland"]) == {"watermelon", "maize", "mungbean"}
     srcs = [P["rice"]["source"], *P["shrimp"]["sources"], *(u["source"] for u in P["upland"].values())]
     assert all(s["title"] and s["url"].startswith("http") and s["note"] for s in srcs)
@@ -761,20 +757,52 @@ def test_pest_sources():
     assert all(u["pest"]["en"] and u["pest"]["vi"] for u in P["upland"].values())
 
 
-def test_climate_pest_inputs():
-    ks = ("PRECTOTCORR", "T2M_MAX", "T2M_MIN", "RH2M", "WS2M", "ALLSKY_SFC_SW_DWN")
-    power = {"parameter": {k: {} for k in ks}}
-    day = date(2000, 12, 1)
-    while day <= date(2001, 11, 30):
-        d = day.strftime("%Y%m%d")
-        tmin = {date(2000, 12, 1): 10, date(2001, 1, 15): 19.5, date(2001, 1, 16): -999}.get(day, 24)
-        for k, v in zip(ks, (5, 30, tmin, 80, 2, 18)):
-            power["parameter"][k][d] = v
-        day += timedelta(days=1)
-    c = build.climate(power, 9.5)
-    assert c["tmean_c"][6] == 27.0                      # July: (30 + 24) / 2
-    assert c["cold_days"][0] == 1.0                     # 15 Jan only; the -999 day and its neighbour are not compared
-    assert c["cold_days"][11] == 0.0                    # first record day has no previous day
+def weather_fixture(tmax=30, tmin=24, et0=4, land=30):
+    """Two seasons (Dec 2000 - Nov 2001, Dec 2001 - Nov 2002) of constant ERA5 days, in fetch_era5's file layout."""
+    days = [date(2000, 12, 1) + timedelta(days=i) for i in range(730)]
+    return {"daily": {"time": [d.isoformat() for d in days], "tmax": [tmax] * 730, "tmin": [tmin] * 730, "et0": [et0] * 730, "tmax_land": [land] * 730}}
+
+
+def test_era5_climate():
+    rain = {f"{y}-{m:02d}": 100 for y in (2000, 2001, 2002) for m in range(1, 13)}
+    w = weather_fixture()
+    d = w["daily"]
+    i = d["time"].index("2001-07-10")          # July 2001: 3 hot ERA5-Land days, one of them ERA5-Land null in July 2002
+    for k in range(i, i + 3):
+        d["tmax_land"][k] = 35.0
+    d["tmax"][i] = 40.0                         # ERA5 tmax alone never makes a heat day
+    d["tmax_land"][d["time"].index("2002-07-10")] = None
+    d["tmax_land"][d["time"].index("2002-07-11")] = 35.0
+    c = build.climate(w, None, rain)
+    assert c["et0_mm"][6] == 124 and c["et0_mm"][1] == 112 and c["et0_mm"][0] == 124   # 4 mm x days in the month
+    assert c["hot_days"][6] == 2.0              # (3 + 1 days) / 2 seasons; a null ERA5-Land day is not counted, not filled from ERA5
+    assert c["hot_days"][0] == 0.0 and c["tmean_c"][0] == 27.0   # (30 + 24) / 2
+    assert c["tmax_c"][6] == 30.2               # mean of (30 x 30 + 40) / 31 and 30
+    assert set(c) == {"rain_mm", "rain_min_mm", "rain_max_mm", "et0_mm", "tmax_c", "hot_days", "tmean_c"}   # no cold_days: the rule is gone
+    d["et0"][d["time"].index("2001-07-12")] = None                     # a day missing ERA5 values is skipped
+    assert build.climate(w, None, rain)["et0_mm"][6] == round((30 * 4 + 31 * 4) / 2)
+
+
+def test_weather_files_complete():
+    import sites
+    for p in sites.points():
+        w = build.read_weather(p["id"])
+        d = w["daily"]
+        assert w["source"]["title"] == "ERA5 / ERA5-Land (Copernicus Climate Change Service, ECMWF) via Open-Meteo"
+        assert d["time"][0] == "2000-12-01" and d["time"][-1] >= "2024-11-30", (p["id"], d["time"][0], d["time"][-1])
+        assert all(len(d[k]) == len(d["time"]) for k in ("tmax", "tmin", "et0", "tmax_land"))
+        for k in ("tmax", "tmin", "et0", "tmax_land"):   # a sea cell has no ERA5-Land: it must fail here, not be filled from ERA5
+            assert any(v is not None for v in d[k]), (p["id"], k, "series is empty")
+        period = [i for i, t in enumerate(d["time"]) if "2000-12-01" <= t <= "2024-11-30"]
+        assert all(d[k][i] is not None for k in ("tmax", "tmin", "et0", "tmax_land") for i in period), p["id"]
+
+
+def test_shrimp_pressure_has_no_cold_rule():
+    clim = {"tmean_c": [27.0] * 12, "hot_days": [0.0, 15.5] + [0.0] * 10}
+    rot = {"months": ["S"] * 12}
+    pr = build.pest_pressure(rot, clim)
+    assert pr[0] == 0.5 and abs(pr[1] - (0.5 + 0.5 * 15.5 / 28)) < 1e-9   # floor + (1 - floor) x hot days / days in the month
+    assert "cold_days" not in build.climate(weather_fixture(), None, {f"{y}-{m:02d}": 1 for y in (2000, 2001, 2002) for m in range(1, 13)})
 
 
 def test_provinces_table():
@@ -848,7 +876,7 @@ def test_provinces_output():
     assert vi and not [v for v in vi if re.search(r"\d\.\d(?!\d\d(?!\d))", v)], "Vietnamese text must use decimal commas"
     for p in d["provinces"]:
         assert len(p["climate"]["rain_mm"]) == 12 and len(p["elnino"]["climate"]["rain_mm"]) == 12
-        assert p["points"]["power"] == p["points"]["rain"] == [f["id"] for f in p["former"]] and set(p["points"]["soil"]) <= set(p["points"]["power"])
+        assert p["points"]["weather"] == p["points"]["rain"] == [f["id"] for f in p["former"]] and set(p["points"]["soil"]) <= set(p["points"]["weather"])
         assert p["salinity"]["level"] == "unknown" and p["salinity"]["estimate"] is True
         assert (p["soil"] is None) == (not p["points"]["soil"])
         assert p["scored"] == (p["region"] == "mekong_delta") and bool(p["cards"]) == p["scored"] and bool(p["elnino"]["cards"]) == p["scored"]
@@ -921,7 +949,7 @@ def test_no_orphans():
     import math
     import sites
     ids = {p["id"] for p in sites.points()}
-    per_point = [f for f in build.RAW.iterdir() if re.match(r"(power|soil|ndvi|hls)_", f.name)]
+    per_point = [f for f in build.RAW.iterdir() if re.match(r"(era5|soil|ndvi|hls)_", f.name)]
     assert not [f.name for f in per_point if f.name.split("_", 1)[1].split(".")[0] not in ids]
     assert set(json.loads((build.RAW / "chirps.json").read_text(encoding="utf-8"))) == ids
     js = (build.ROOT / "docs" / "app" / "tiles.js").read_text(encoding="utf-8")

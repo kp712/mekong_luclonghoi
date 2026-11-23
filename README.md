@@ -8,7 +8,7 @@
 
 | Trên điện thoại (tiếng Việt) | Trên máy tính (tiếng Anh) |
 |---|---|
-| <img src="media/phone.jpg" alt="Ứng dụng trên điện thoại, tiếng Việt: ngày hôm nay, ruộng mẫu ở Mỹ Xuyên, kế hoạch 3 vụ lúa, vụ lúa đang ở ngày 53 trên 95, còn 42 ngày tới gặt, và thanh dưới: Hôm nay, Mùa vụ, Kế hoạch, Số liệu, Ruộng" width="300"> | <img src="media/desktop.jpg" alt="The app on a computer in English: the sample field's current rice crop with days to harvest and the next step, this month's rain (CHIRPS), crop water need (NASA POWER) and greenness (NASA MODIS NDVI), and this month's pest level for brown planthopper" width="500"> |
+| <img src="media/phone.jpg" alt="Ứng dụng trên điện thoại, tiếng Việt: ngày hôm nay, ruộng mẫu ở Mỹ Xuyên, kế hoạch 3 vụ lúa, vụ lúa đang ở ngày 53 trên 95, còn 42 ngày tới gặt, và thanh dưới: Hôm nay, Mùa vụ, Kế hoạch, Số liệu, Ruộng" width="300"> | <img src="media/desktop.jpg" alt="The app on a computer in English: the sample field's current rice crop with days to harvest and the next step, this month's rain (CHIRPS), crop water need (ERA5) and greenness (NASA MODIS NDVI), and this month's pest level for brown planthopper" width="500"> |
 
 **Dành cho bà con và cán bộ khuyến nông**
 - **Số liệu từ đâu.** Mưa lấy từ CHIRPS (Trung tâm Khí hậu của Đại học California Santa Barbara, ước tính từ vệ tinh và trạm đo mưa); nắng nóng và độ xanh của ruộng lấy từ vệ tinh NASA (2000–2024). Độ mặn là **ước tính** từ trạm đo trên sông (bản tin của Trung tâm Dự báo KTTV quốc gia và báo cáo đã công bố), không phải đo trong ruộng. Mỗi con số trong ứng dụng đều ghi nguồn.
@@ -46,7 +46,7 @@ One view for everyone: plain words and big buttons; tap **Why & sources** (and t
 |---|---|---|
 | [NASA GPM IMERG Final monthly v07](https://disc.gsfc.nasa.gov/datasets/GPM_3IMERGM_07/summary) | Only a cross-check of the rain below | ~10 km, Dec 2000 – Nov 2024 |
 | [CHIRPS v3.0](https://www.chc.ucsb.edu/data/chirps3) (Climate Hazards Center, UC Santa Barbara; not NASA) | Rain each month (satellite and rain-gauge estimate) | ~5 km, Dec 2000 – Nov 2024 |
-| [NASA POWER daily API](https://power.larc.nasa.gov/) (MERRA-2 based) | Temperature, humidity, wind and sunlight → crop water demand (FAO-56 Penman–Monteith ET₀); days at or above 35 °C; mean temperature for pest pressure | ~50 km, Dec 2000 – Nov 2024 |
+| [ERA5 / ERA5-Land (Copernicus Climate Change Service, ECMWF) via Open-Meteo](https://open-meteo.com/en/docs/historical-weather-api) (CC BY 4.0) | ERA5: daily maximum and minimum temperature (mean temperature for pest pressure) and the FAO-56 reference evapotranspiration (ET₀) that Open-Meteo computes; ERA5-Land: days at or above 35 °C | ERA5 ~25 km, ERA5-Land ~10 km, Dec 2000 – Nov 2024 |
 | [NASA MODIS MOD13Q1 v6.1 NDVI](https://lpdaac.usgs.gov/products/mod13q1v061/) via [NASA AppEEARS](https://appeears.earthdatacloud.nasa.gov/) | Field greenness, crops per year, months fields are usually bare | 250 m, 16-day, 2000–2025 |
 
 Other data, not NASA: SoilGrids 2.0 topsoil (a model, not a soil test); NOAA's El Niño index and monthly forecast; salinity from river and canal station records in published reports. **Salinity is never measured by satellite here: the app always labels it an estimate.** Every number in the app names its source, and every source is listed with a link. Full table, caveats and what we chose not to use: [SOURCES.md](SOURCES.md#where-each-number-comes-from).
@@ -56,11 +56,11 @@ Each rotation gets five scores from 1.0 to 5.0 (higher is better), computed for 
 
 | Score | In one line |
 |---|---|
-| Water | Share of three rice crops' yearly canal water the rotation saves (FAO method, NASA POWER + CHIRPS). |
+| Water | Share of three rice crops' yearly canal water the rotation saves (FAO method, ERA5 + CHIRPS). |
 | Income | Yearly profit against three rice crops, from the median of published profit figures for each crop. Not scored for mung bean, which has no checked figure. |
 | Soil | Legume months, an optional cover crop and dry breaks help; brackish shrimp months leave salt. |
 | Weather & salt | Crops in the field during the area's salt months, hot days and canal water needed when water is salty. |
-| Pests | Monthly pest pressure on each crop (brown planthopper on rice from NASA POWER temperature), lowered by rest and non-rice months that break the pest cycle. |
+| Pests | Monthly pest pressure on each crop (brown planthopper on rice from ERA5 temperature), lowered by rest and non-rice months that break the pest cycle. |
 
 The match is the average of the five, weighted by the farmer's priorities. Every card states **High, Medium or Low confidence**, worked out from the evidence behind it: thin profit figures, a salinity station with few recent readings, or a team estimate each lower it, and the reasons are listed on the card. Formulas, constants and the published profit table: [SOURCES.md](SOURCES.md#how-the-scores-are-set).
 
@@ -77,6 +77,7 @@ Details and numbers: [SOURCES.md](SOURCES.md#how-we-checked-it).
 ### Limitations
 - Five preset areas, not any field: weather describes a 10–50 km area and greenness one 250 m pixel. The method extends to the whole Delta ([how](SOURCES.md#using-it-anywhere-in-the-delta)); salinity records and crop calendars are the local work.
 - Typical and El Niño weather and rain are averages of 2000–2024, not forecasts; salt uses the dry seasons 2016–2026.
+- ERA5 temperature and ET₀ are 0.25° (~28 km) model cells: Vĩnh Châu, Trần Đề, Mỹ Xuyên and Long Phú share one cell and get identical temperature and ET₀. Heat days come from ERA5-Land (0.1°) and are rare in a typical year (0.1–3 days), so the heat part of the weather & salt score is small. These are model values, not station readings.
 - The data also covers 6 southern provinces (the Mekong Delta's 5 and Tây Ninh, 14 former provinces) on the app's one map: zoom out from the Sóc Trăng areas, or tap **ĐBSCL** in the top bar. NASA weather and CHIRPS rain for all; rotation scores in the 12 Mekong Delta former provinces and former Long An; a salinity estimate only where a KTTV station lies within 25 km (6 of the 14 points), so elsewhere weather & salt is not scored and confidence is mostly Low ([details](SOURCES.md#the-6-provinces)). We cover the south first and will add more provinces once it is refined.
 - Salinity comes from river and canal stations, not fields. Each Sóc Trăng typical-year average rests on 4–6 dry seasons and each El Niño average on 3–4; the other provinces rest on 1–3 seasons of 10-day bulletins, and the El Niño view on one season (2024).
 - Scores are our rules from published sources, not calibrated against farm yields; profits are medians of published figures from other places and years. Some constants are team estimates, and each one lowers the card's confidence.
@@ -153,7 +154,8 @@ Click on the PowerShell window and press **Ctrl** + **C**, then close the window
 
 You don't need this to use the app. The data in the download is already complete. Run these from the project folder in PowerShell (see Step 3, point 1 of the Windows guide), one line at a time:
 ```
-py pipeline/fetch_power.py      # NASA POWER rain + temperature, NOAA El Niño index + forecast -> data/raw/ (no login)
+py pipeline/fetch_era5.py       # ERA5 / ERA5-Land weather via Open-Meteo -> data/raw/ (no login)
+py pipeline/fetch_enso.py       # NOAA El Niño index + forecast -> data/raw/ (no login)
 py pipeline/appeears.py ndvi    # NASA MODIS greenness via AppEEARS (needs Earthdata login, see below; can take hours)
 py pipeline/fetch_soil.py       # SoilGrids topsoil (slow website: if it stops, run it again to continue)
 py pipeline/fetch_chirps.py     # CHIRPS v3.0 rain, the rain the app shows (no login; needs tifffile and imagecodecs)
@@ -168,7 +170,7 @@ py pipeline/test_build.py       # expect 69 ok lines, the unknown-ID fixture war
 $env:EARTHDATA_USERNAME = "your-username"
 $env:EARTHDATA_PASSWORD = "your-password"
 ```
-NOAA publishes a new El Niño forecast on the 2nd Thursday of each month. To refresh only that, without downloading the NASA data again: `py pipeline/fetch_power.py enso`, then `build.py` and `test_build.py`.
+NOAA publishes a new El Niño forecast on the 2nd Thursday of each month. To refresh only that, without downloading the weather again: `py pipeline/fetch_enso.py enso`, then `build.py` and `test_build.py`.
 
 **Fixing a pin that isn't on rice** (its crops per year are below about 1.8, or its greenness never passes 0.6):
 1. `py pipeline/appeears.py find <pin_id> --apply` moves the pin to the nearest rice-like pixel in a 7×7 grid (~5 km).

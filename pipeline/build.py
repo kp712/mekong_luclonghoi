@@ -8,7 +8,7 @@ import pathlib
 import re
 import statistics
 from collections import defaultdict
-from datetime import date, timedelta
+from datetime import date
 
 import hls
 import ndvi
@@ -80,7 +80,7 @@ ONI_SRC = {"title": f"NOAA CPC Oceanic Niño Index (ONI): {len(ELNINO)} El Niño
            "url": "https://www.cpc.ncep.noaa.gov/data/indices/oni.ascii.txt",
            "note": "Dec–Feb ONI 0.5 or more: " + ", ".join(f"{y}–{(y + 1) % 100:02d} ({v})" for y, v in ONI.items())
                    + f". Saved in data/raw/oni.txt; checked against NOAA's live file: Dec–Feb values {PERIOD[0].year + 1}–{PERIOD[1].year} identical.", "verified": True}
-# NOAA CPC's latest ENSO status (data/raw/enso_outlook.json, from pipeline/fetch_power.py): the app opens on the El Niño view
+# NOAA CPC's latest ENSO status (data/raw/enso_outlook.json, from pipeline/fetch_enso.py): the app opens on the El Niño view
 # while NOAA says El Niño is here or coming (Advisory = present, Watch = favoured within 6 months).
 ENSO_VI = {"El Niño Advisory": "đang có El Niño", "El Niño Watch": "El Niño có thể hình thành",
            "La Niña Advisory": "đang có La Niña", "La Niña Watch": "La Niña có thể hình thành",
@@ -105,7 +105,7 @@ def outlook(o):
         text = {"en": f"NOAA El Niño status ({when['en']}): {o['status']}.",
                 "vi": f"Tình trạng El Niño theo NOAA ({when['vi']}): {ENSO_VI.get(o['status'], o['status'])}."}
     src = {"title": f"NOAA CPC ENSO Diagnostic Discussion, {when['en']}: {o['status']}", "url": o["url"],
-           "note": f"Synopsis: \"{o['synopsis']}\" Saved by pipeline/fetch_power.py (data/raw/enso_outlook.json).", "verified": True}
+           "note": f"Synopsis: \"{o['synopsis']}\" Saved by pipeline/fetch_enso.py (data/raw/enso_outlook.json).", "verified": True}
     return {"elnino": o["status"] in ("El Niño Advisory", "El Niño Watch"), "pct": int(m[6]) if m and m[2] == "El Niño" else None,
             "text": text, "source": src}
 
@@ -113,11 +113,12 @@ def outlook(o):
 OUTLOOK = outlook(json.loads((RAW / "enso_outlook.json").read_text(encoding="utf-8")))
 CHIRPS_SRC = {"title": "CHIRPS v3.0 (Climate Hazards Center, UC Santa Barbara), 0.05° (~5 km)", "url": "https://www.chc.ucsb.edu/data/chirps3", "verified": True}
 GPM_SRC = {"title": "NASA GPM IMERG Final monthly v07 (GPM_3IMERGM), 0.1° (~10 km)", "url": "https://disc.gsfc.nasa.gov/datasets/GPM_3IMERGM_07/summary", "verified": True}
-POWER_SRC = {"title": "NASA POWER daily API (MERRA-2 based)", "url": "https://power.larc.nasa.gov/", "verified": True}
+ERA5_SRC = {"title": "ERA5 / ERA5-Land (Copernicus Climate Change Service, ECMWF) via Open-Meteo", "url": "https://open-meteo.com/en/docs/historical-weather-api",
+            "note": "Reanalysis model values (not station readings), CC BY 4.0. ERA5 (0.25°, ~25 km): daily maximum and minimum temperature and the FAO-56 reference evapotranspiration (ET₀) Open-Meteo computes. ERA5-Land (0.1°, ~10 km): daily maximum temperature, used only for days at or above 35 °C.", "verified": True}
 MODIS_SRC = {"title": "NASA MODIS MOD13Q1 v6.1 NDVI, 250 m", "url": "https://lpdaac.usgs.gov/products/mod13q1v061/", "verified": True}
 HLS_SRC = {"title": "NASA HLS v2.0 NDVI (Landsat 8/9 + Sentinel-2), 30 m, cloud-free dates", "url": "https://lpdaac.usgs.gov/products/hlsl30v002/", "verified": True}
 HEAT_SRC = {"title": "Yoshida S. (1981), Fundamentals of Rice Crop Science, IRRI (heat at flowering)", "url": "http://books.irri.org/9711040522_content.pdf",
-            "note": "Checked. Section 2.3.6, p. 81: 'High percentages of spikelet sterility occur if temperatures exceed 35°C at anthesis and last for more than 1 hour.' Table 2.4 (p. 72) gives 35 °C as the critical high temperature at anthesis (as a daily mean). Whereas Yoshida measures exposure at flowering (anthesis), our daily-maximum proxy counts NASA POWER days whose daily maximum reaches or exceeds 35 °C across the months a crop is in the field.", "verified": True}
+            "note": "Checked. Section 2.3.6, p. 81: 'High percentages of spikelet sterility occur if temperatures exceed 35°C at anthesis and last for more than 1 hour.' Table 2.4 (p. 72) gives 35 °C as the critical high temperature at anthesis (as a daily mean). Whereas Yoshida measures exposure at flowering (anthesis), our daily-maximum proxy counts ERA5-Land days whose daily maximum reaches or exceeds 35 °C across the months a crop is in the field.", "verified": True}
 FAO29_SRC = {"title": "Ayers & Westcot (1985), Water quality for agriculture, FAO Irrigation and Drainage Paper 29 Rev. 1, Table 4 and 5",
              "url": "https://www.fao.org/4/t0234e/T0234E03.htm", "verified": True,
              "note": "Checked. Table 4 (irrigation water salinity ECw, dS/m, at 100% and 90% yield potential): 'Corn (maize) (Zea mays) 1.7 1.1 2.5 1.7'; 'Rice (paddy) (Oriza sativa) 3.0 2.0 3.8 2.6'. Watermelon has no number; Table 5 lists it as moderately sensitive. Mung bean is not listed."}
@@ -127,38 +128,9 @@ FAO48_SRC = {"title": "Rhoades, Kandiah & Mashali (1992), The use of saline wate
 SOIL_SRC = {"title": "SoilGrids 2.0 (ISRIC): modelled soil clay, organic carbon, pH, 250 m (not NASA)", "url": "https://soilgrids.org/", "verified": True}
 
 
-def ra(day, lat):
-    """Extraterrestrial radiation (MJ/m²/day), FAO-56 eq. 21."""
-    j = day.timetuple().tm_yday
-    phi = math.radians(lat)
-    dr = 1 + 0.033 * math.cos(2 * math.pi * j / 365)
-    dec = 0.409 * math.sin(2 * math.pi * j / 365 - 1.39)
-    ws = math.acos(-math.tan(phi) * math.tan(dec))
-    return 24 * 60 / math.pi * 0.082 * dr * (ws * math.sin(phi) * math.sin(dec) + math.cos(phi) * math.cos(dec) * math.sin(ws))
-
-
-def e0(t):
-    """Saturation vapour pressure (kPa) at t °C, FAO-56 eq. 11."""
-    return 0.6108 * math.exp(17.27 * t / (t + 237.3))
-
-
-def et0_penman(day, lat, tmax, tmin, rh, u2, rs, z=2):
-    """Reference evapotranspiration (mm/day), FAO-56 Penman-Monteith eq. 6: water a grass field would lose.
-    rh = mean relative humidity (%), u2 = wind at 2 m (m/s), rs = sunlight reaching the ground (MJ/m²/day), z = height (m)."""
-    t = (tmax + tmin) / 2
-    es = (e0(tmax) + e0(tmin)) / 2
-    ea = rh / 100 * es  # eq. 19
-    delta = 4098 * e0(t) / (t + 237.3) ** 2
-    gamma = 0.665e-3 * 101.3 * ((293 - 0.0065 * z) / 293) ** 5.26
-    rso = (0.75 + 2e-5 * z) * ra(day, lat)
-    rnl = 4.903e-9 * ((tmax + 273.16) ** 4 + (tmin + 273.16) ** 4) / 2 * (0.34 - 0.14 * math.sqrt(ea)) * (1.35 * min(rs / rso, 1) - 0.35)
-    rn = 0.77 * rs - rnl  # grass albedo 0.23; soil heat flux ~0 for a day
-    return (0.408 * delta * rn + gamma * 900 / (t + 273) * u2 * (es - ea)) / (delta + gamma * (1 + 0.34 * u2))
-
-
-def read_power(pid):
-    """data/raw/power_<id>.json.gz (fetch_power.py): NASA POWER daily values over PERIOD."""
-    return json.loads(gzip.decompress((RAW / f"power_{pid}.json.gz").read_bytes()))
+def read_weather(pid):
+    """data/raw/era5_<id>.json.gz (fetch_era5.py): ERA5 / ERA5-Land daily values, {"source", "daily": {time, tmax, tmin, et0, tmax_land}}; nulls stay null."""
+    return json.loads(gzip.decompress((RAW / f"era5_{pid}.json.gz").read_bytes()))
 
 
 def in_period(day):
@@ -175,36 +147,31 @@ def typical_year(day):
     return in_period(day) and not in_elnino(day)
 
 
-def climate(power, lat, keep=None, rain=None):
+def climate(weather, keep=None, rain=None):
     """Typical year per calendar month over PERIOD, or only over days where keep(day) is True.
-    Rain comes from rain ({"YYYY-MM": mm}, CHIRPS v3.0, 5 km) when given, else from NASA POWER (50 km)."""
-    p = power["parameter"]
+    Rain comes from rain ({"YYYY-MM": mm}, CHIRPS v3.0, 5 km) and is required for every kept month. Temperature and ET₀ come from ERA5
+    (daily tmax, tmin, FAO-56 et0; a day missing any of them is skipped); heat days count ERA5-Land tmax_land >= 35 °C, never filled from ERA5."""
+    w = weather["daily"]
     sums = defaultdict(lambda: defaultdict(float))  # (year, month) -> totals
-    prev = None  # (day, T2M_MIN) of the last valid day; a cold snap needs it to be the day before
-    for d, power_rain in sorted(p["PRECTOTCORR"].items()):
-        day = date(int(d[:4]), int(d[4:6]), int(d[6:]))
+    for i, d in enumerate(w["time"]):
+        day = date.fromisoformat(d)
         if not in_period(day) or (keep and not keep(day)):
             continue
-        # check rain coverage for every kept month, before fill days can drop it from sums
-        if rain is not None and f"{day.year}-{day.month:02d}" not in rain:
+        # check rain coverage for every kept month, before null days can drop it from sums
+        if f"{day.year}-{day.month:02d}" not in (rain or {}):
             raise ValueError(f"missing rain month {day.year}-{day.month:02d} (run pipeline/fetch_chirps.py)")
-        tmax, tmin, rh, u2, rs = (p[k][d] for k in ("T2M_MAX", "T2M_MIN", "RH2M", "WS2M", "ALLSKY_SFC_SW_DWN"))
-        if -999 in (power_rain, tmax, tmin, rh, u2, rs):
+        tmax, tmin, et0, land = (w[k][i] for k in ("tmax", "tmin", "et0", "tmax_land"))
+        if None in (tmax, tmin, et0):
             continue
-        cold = prev is not None and prev[0] == day - timedelta(days=1) and prev[1] - tmin >= PESTS["shrimp"]["cold_drop_c"]
-        prev = (day, tmin)
         s = sums[(day.year, day.month)]
-        s["rain"] += power_rain
-        s["et0"] += et0_penman(day, lat, tmax, tmin, rh, u2, rs)
+        s["et0"] += et0
         s["tmax"] += tmax
-        s["hot"] += tmax >= 35
+        s["hot"] += land is not None and land >= PESTS["shrimp"]["hot_c"]
         s["tmean"] += (tmax + tmin) / 2
-        s["cold"] += cold
         s["n"] += 1
     for (y, m), s in sums.items():
-        if rain is not None:
-            s["rain"] = rain[f"{y}-{m:02d}"]
-    out = {"rain_mm": [], "rain_min_mm": [], "rain_max_mm": [], "et0_mm": [], "tmax_c": [], "hot_days": [], "tmean_c": [], "cold_days": []}
+        s["rain"] = rain[f"{y}-{m:02d}"]
+    out = {"rain_mm": [], "rain_min_mm": [], "rain_max_mm": [], "et0_mm": [], "tmax_c": [], "hot_days": [], "tmean_c": []}
     for m in range(1, 13):
         ys = [v for (y, mm), v in sums.items() if mm == m]
         out["rain_mm"].append(round(sum(v["rain"] for v in ys) / len(ys)))
@@ -214,7 +181,6 @@ def climate(power, lat, keep=None, rain=None):
         out["tmax_c"].append(round(sum(v["tmax"] / v["n"] for v in ys) / len(ys), 1))
         out["hot_days"].append(round(sum(v["hot"] for v in ys) / len(ys), 1))
         out["tmean_c"].append(round(sum(v["tmean"] / v["n"] for v in ys) / len(ys), 1))
-        out["cold_days"].append(round(sum(v["cold"] for v in ys) / len(ys), 1))
     return out
 
 
@@ -408,8 +374,8 @@ def score_water(saved):
 def score_weather_salt(rot, clim, sal):
     """Weather & salt safety 1.0-5.0 = WS_W-weighted mix of three parts, each 1 + 4 x (1 - risk share):
     salt: share of the pin's salt months with a crop in the field (tolerant rice counts TOL) x station salt level (15‰ = 1);
-    heat: NASA POWER days at or above 35 °C in months with rice or upland crops / HEAT_REF;
-    canal: canal water needed in the salt months / what 3 rice crops need then (FAO method, NASA POWER + CHIRPS)."""
+    heat: ERA5-Land days at or above 35 °C in months with rice or upland crops / HEAT_REF;
+    canal: canal water needed in the salt months / what 3 rice crops need then (FAO method, ERA5 + CHIRPS)."""
     hot = sum(clim["hot_days"][i] for i in range(12) if rot["months"][i][0] in "RU")
     if sal["level"] == UNKNOWN:  # no salinity estimate: the salt and canal parts need the salt months, so no score
         return None, dict(salt_k=0, salt_n=0, ppt=None, hot_days=round(hot, 1), canal_mm=None,
@@ -456,7 +422,7 @@ def rice_pressure(t):
 
 
 def pest_pressure(rot, clim):
-    """12 monthly pest pressures 0-1: rice from mean temperature, upland 1, shrimp from hot+cold days, rest 0."""
+    """12 monthly pest pressures 0-1: rice from mean temperature, upland 1, shrimp from hot days, rest 0."""
     floor, out = PESTS["shrimp"]["floor"], []
     for i, c in enumerate(rot["months"]):
         k = c[0]
@@ -465,7 +431,7 @@ def pest_pressure(rot, clim):
         elif k == "U":
             out.append(1.0)
         elif k == "S":
-            out.append(floor + (1 - floor) * min((clim["hot_days"][i] + clim["cold_days"][i]) / MONTH_DAYS[i], 1))
+            out.append(floor + (1 - floor) * min(clim["hot_days"][i] / MONTH_DAYS[i], 1))
         else:
             out.append(0.0)
     return out
@@ -562,8 +528,8 @@ def summary(clim, nd, sal, elnino=False):
                     f"{when[1]}, mức {LEVEL_VI[lvl]}{at[1]} (ước tính từ báo cáo công khai, không đo bằng vệ tinh).")
         if sal.get("caveat"):
             salt = line(salt["en"] + sal["caveat"]["en"], salt["vi"] + sal["caveat"]["vi"])
-    out = [dict(sourced(line(f"{water['en']} (NASA POWER + CHIRPS{', El Niño average' if elnino else ''}; FAO method).",
-                             f"{water['vi']} (NASA POWER + CHIRPS{', trung bình El Niño' if elnino else ''}; phương pháp FAO)."), POWER_SRC, CHIRPS_SRC, FAO_SRCS),
+    out = [dict(sourced(line(f"{water['en']} (ERA5 + CHIRPS{', El Niño average' if elnino else ''}; FAO method).",
+                             f"{water['vi']} (ERA5 + CHIRPS{', trung bình El Niño' if elnino else ''}; phương pháp FAO)."), ERA5_SRC, CHIRPS_SRC, FAO_SRCS),
                 plain=line(water["en"] + ".", water["vi"] + ".")),
            dict(sourced(salt, *([] if lvl == UNKNOWN else [salinity.SOURCES])), salt=True, plain=dict(salt))]
     if nd:
@@ -673,7 +639,7 @@ def confidence(rot, nd, sal, not_here, elnino=False):
     if "U" in m:
         est.append(("pest timing for upland crops", "thời điểm sâu hại cây màu"))
     if "S" in m:
-        est.append(("shrimp disease floor and cold-snap rule", "mức rủi ro bệnh tôm tối thiểu và quy tắc trời lạnh đột ngột"))
+        est.append(("shrimp disease floor", "mức rủi ro bệnh tôm tối thiểu"))
     for l in PROFITS["loss"]:
         months = {i + 1 for code, key in rot["profit"].items() if key == l["key"] for i, m in enumerate(rot["months"]) if m == code}
         if l["estimate"] and l["view"] in views and months and (l["applies"] == "all" or months & set(sal["months"])):
@@ -696,27 +662,27 @@ def make_card(rot, clim, nd, sal, elnino=False):
     why, ev = list(rot["why"]), []
     risks, gaps = list(rot["risks"]), list(rot["gaps"])
 
-    # NASA POWER + CHIRPS: the water score is the share of 3 rice crops' canal water this calendar saves (FAO method)
+    # ERA5 + CHIRPS: the water score is the share of 3 rice crops' canal water this calendar saves (FAO method)
     need, base = sum(water_need(rot["months"], clim, rot.get("kc_u"))), sum(water_need(BASE, clim))
     saved = max(1 - need / base, 0) if base else 0
-    pw = line("NASA POWER, El Niño average", "NASA POWER, trung bình El Niño") if elnino else line("NASA POWER", "NASA POWER")
-    wsrc = line(pw["en"].replace("NASA POWER", "NASA POWER + CHIRPS"), pw["vi"].replace("NASA POWER", "NASA POWER + CHIRPS"))  # rain is CHIRPS
+    pw = line("ERA5, El Niño average", "ERA5, trung bình El Niño") if elnino else line("ERA5", "ERA5")
+    wsrc = line(pw["en"].replace("ERA5", "ERA5 + CHIRPS"), pw["vi"].replace("ERA5", "ERA5 + CHIRPS"))  # rain is CHIRPS
     s["water"] = x = score_water(saved)
     c.update(water_mm=need, water_saved=round(saved, 3))
     pct = round(100 * saved)
     if rot["id"] == "rice3":
         why.append(sourced(line(f"Water {x}: ≈ {need} mm of canal water a year, the most of all options here; the others are compared with it ({wsrc['en']}, FAO method).",
-                        f"Nước {vi_num(x)}: ≈ {need} mm nước tưới từ kênh mỗi năm, nhiều nhất trong các phương án; các phương án khác được so với mức này ({wsrc['vi']}, phương pháp FAO)."), POWER_SRC, CHIRPS_SRC, FAO_SRCS))
+                        f"Nước {vi_num(x)}: ≈ {need} mm nước tưới từ kênh mỗi năm, nhiều nhất trong các phương án; các phương án khác được so với mức này ({wsrc['vi']}, phương pháp FAO)."), ERA5_SRC, CHIRPS_SRC, FAO_SRCS))
     else:
         why.append(sourced(line(f"Water {x}: ≈ {need} mm of canal water a year, {pct}% less than 3 rice crops ({wsrc['en']}, FAO method).",
-                        f"Nước {vi_num(x)}: ≈ {need} mm nước tưới từ kênh mỗi năm, ít hơn {pct}% so với 3 vụ lúa ({wsrc['vi']}, phương pháp FAO)."), POWER_SRC, CHIRPS_SRC, FAO_SRCS))
+                        f"Nước {vi_num(x)}: ≈ {need} mm nước tưới từ kênh mỗi năm, ít hơn {pct}% so với 3 vụ lúa ({wsrc['vi']}, phương pháp FAO)."), ERA5_SRC, CHIRPS_SRC, FAO_SRCS))
 
-    # Weather & salt: salt months from station reports (estimate, never satellite), heat and canal water from NASA POWER + CHIRPS
+    # Weather & salt: salt months from station reports (estimate, never satellite), heat and canal water from ERA5 + CHIRPS
     x, w = score_weather_salt(rot, clim, sal)
     s["salt"] = x
     if x is None:
         why.append(sourced(line(f"Weather & salt not scored: no salinity estimate for this area yet. {whole(w['hot_days'])} days at or above 35 °C while crops grow ({pw['en']}).",
-                                f"Chưa chấm điểm Thời tiết & mặn: chưa có ước tính độ mặn cho khu vực này. {vi_num(whole(w['hot_days']))} ngày từ 35 °C trở lên khi cây đang sinh trưởng ({pw['vi']})."), POWER_SRC, HEAT_SRC))
+                                f"Chưa chấm điểm Thời tiết & mặn: chưa có ước tính độ mặn cho khu vực này. {vi_num(whole(w['hot_days']))} ngày từ 35 °C trở lên khi cây đang sinh trưởng ({pw['vi']})."), ERA5_SRC, HEAT_SRC))
     else:
         if "station" in sal:  # a province point: its nearest KTTV station
             part = ("; highest in the bulletins found; may miss an earlier peak", "; cao nhất trong các bản tin tìm được, có thể bỏ sót đỉnh mặn sớm hơn") if sal["partial"] else ("", "")
@@ -728,7 +694,7 @@ def make_card(rot, clim, nd, sal, elnino=False):
             peak_en = f"station average peak {w['ppt']}‰, but rated low here: sluices keep salt out of the fields; estimate from station reports"
             peak_vi = f"độ mặn cao nhất trung bình tại trạm {vi_num(w['ppt'])}‰, nhưng được xếp mức thấp ở đây: cống ngăn mặn giữ cho ruộng không bị mặn; ước tính từ báo cáo trạm"
         why.append(sourced(line(f"Weather & salt {x}: crops in the field in {w['salt_k']} of {w['salt_n']} salt months ({peak_en}); {whole(w['hot_days'])} days at or above 35 °C while crops grow ({pw['en']}); {w['canal_mm']} mm of canal water needed in salty months ({wsrc['en']}).",
-                        f"Thời tiết & mặn {vi_num(x)}: có cây trồng trên ruộng trong {w['salt_k']}/{w['salt_n']} tháng mặn ({peak_vi}); {vi_num(whole(w['hot_days']))} ngày từ 35 °C trở lên khi cây đang sinh trưởng ({pw['vi']}); cần {w['canal_mm']} mm nước tưới từ kênh trong các tháng mặn ({wsrc['vi']})."), salinity.SOURCES, POWER_SRC, HEAT_SRC, CHIRPS_SRC))
+                        f"Thời tiết & mặn {vi_num(x)}: có cây trồng trên ruộng trong {w['salt_k']}/{w['salt_n']} tháng mặn ({peak_vi}); {vi_num(whole(w['hot_days']))} ngày từ 35 °C trở lên khi cây đang sinh trưởng ({pw['vi']}); cần {w['canal_mm']} mm nước tưới từ kênh trong các tháng mặn ({wsrc['vi']})."), salinity.SOURCES, ERA5_SRC, HEAT_SRC, CHIRPS_SRC))
 
     # Soil: counted on the calendar (legume months, optional cover crop, dry months, rice months, brackish months), no satellite data
     x, o = score_soil(rot)
@@ -737,19 +703,19 @@ def make_card(rot, clim, nd, sal, elnino=False):
     why.append(line(f"Soil {x}: {lg} legume month{'' if lg == 1 else 's'}; {o['dry']} month{'' if o['dry'] == 1 else 's'} when the flooded soil dries out; rice in {o['rice']} of 12 months{'; cover crop optional: more if you sow one' if cv else ''}{'; brackish months leave salt in the soil' if br else ''}.",
                     f"Đất {vi_num(x)}: {lg} tháng cây họ đậu; {o['dry']} tháng đất ruộng được khô; có lúa {o['rice']}/12 tháng{'; cây che phủ không bắt buộc: điểm cao hơn nếu bạn gieo' if cv else ''}{'; các tháng nước lợ để lại muối trong đất' if br else ''}."))
 
-    # Pests: rice planthopper pressure from NASA POWER temperature, upland and shrimp pests named, rest months break the cycle
+    # Pests: rice planthopper pressure from ERA5 temperature, upland and shrimp pests named, rest months break the cycle
     x, o = score_pests(rot, clim)
     s["pests"] = x
-    why.append(sourced(line(f"Pests {x}: rice in {o['rice']} months; NASA POWER temperatures here suit the brown planthopper all year (Horgan et al. 2020), so rest months that break its cycle matter most; {o['rest']} rest month(s).",
-                            f"Sâu bệnh {vi_num(x)}: có lúa trong {o['rice']} tháng; nhiệt độ NASA POWER ở đây thuận lợi cho rầy nâu quanh năm (Horgan và cộng sự 2020), nên các tháng nghỉ cắt vòng đời rầy là quan trọng nhất; {o['rest']} tháng nghỉ."), POWER_SRC, PESTS["rice"]["source"]))
+    why.append(sourced(line(f"Pests {x}: rice in {o['rice']} months; ERA5 temperatures here suit the brown planthopper all year (Horgan et al. 2020), so rest months that break its cycle matter most; {o['rest']} rest month(s).",
+                            f"Sâu bệnh {vi_num(x)}: có lúa trong {o['rice']} tháng; nhiệt độ ERA5 ở đây thuận lợi cho rầy nâu quanh năm (Horgan và cộng sự 2020), nên các tháng nghỉ cắt vòng đời rầy là quan trọng nhất; {o['rest']} tháng nghỉ."), ERA5_SRC, PESTS["rice"]["source"]))
     if o["upland"] and rot.get("crop") in PESTS["upland"]:
         up = PESTS["upland"][rot["crop"]]
         cen, cvi = {"watermelon": ("watermelon", "dưa hấu"), "maize": ("maize", "bắp"), "mungbean": ("mung bean", "đậu xanh")}[rot["crop"]]
         risks.append(sourced(line(f"{cen.capitalize()} here faces {up['pest']['en']} in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
                                   f"{cvi.capitalize()} ở đây bị {up['pest']['vi']} gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh."), up["source"]))
     if o["shrimp"]:
-        risks.append(sourced(line("Shrimp months count as at least half the pest risk of a rice month (white spot disease recurs), and more with days at or above 35 °C or a sudden cold night (NASA POWER).",
-                                  "Các tháng nuôi tôm được tính ít nhất bằng một nửa rủi ro sâu bệnh của tháng lúa (bệnh đốm trắng hay tái phát), và cao hơn khi có ngày từ 35 °C trở lên hoặc đêm lạnh đột ngột (NASA POWER)."), POWER_SRC, PESTS["shrimp"]["sources"]))
+        risks.append(sourced(line("Shrimp months count as at least half the pest risk of a rice month (white spot disease recurs), and more with days at or above 35 °C (ERA5-Land).",
+                                  "Các tháng nuôi tôm được tính ít nhất bằng một nửa rủi ro sâu bệnh của tháng lúa (bệnh đốm trắng hay tái phát), và cao hơn khi có ngày từ 35 °C trở lên (ERA5-Land)."), ERA5_SRC, PESTS["shrimp"]["sources"]))
 
     # MODIS NDVI evidence: bare windows (confidence itself is computed in confidence())
     if nd and nd["bare_months"] and rot["id"] in ("rice_upland", "salt_tolerant"):
@@ -863,14 +829,14 @@ NOT_SCORED = line("Rotation cards are not scored here: the rotations and their p
 
 
 def province(pr, rotations, chirps, imerg):
-    """One of the provinces (sites.PROVINCES): the climate of each former province's point (its own NASA POWER weather,
-    CHIRPS rain and latitude for FAO-56 water demand), averaged month by month; SoilGrids topsoil averaged over the
+    """One of the provinces (sites.PROVINCES): the climate of each former province's point (its own ERA5 weather and
+    CHIRPS rain), averaged month by month; SoilGrids topsoil averaged over the
     points with soil. No salinity estimate (UNKNOWN: salt is shown per former province), no MODIS. Rotation cards only in SCORED_REGIONS."""
     ids = [f["id"] for f in pr["former"]]
     rain_ids = [i for i in ids if point_rain(chirps, i)]
-    powers = {i: read_power(i) for i in ids}
-    clim = mean_climate([climate(powers[f["id"]], f["lat"], typical_year, chirps[f["id"]]) for f in pr["former"]])
-    clim_e = mean_climate([climate(powers[f["id"]], f["lat"], in_elnino, chirps[f["id"]]) for f in pr["former"]])
+    weather = {i: read_weather(i) for i in ids}
+    clim = mean_climate([climate(weather[f["id"]], typical_year, chirps[f["id"]]) for f in pr["former"]])
+    clim_e = mean_climate([climate(weather[f["id"]], in_elnino, chirps[f["id"]]) for f in pr["former"]])
     soil, soil_ids = mean_soil(ids)
     sal = dict(salinity.unknown(), note=line(
         f"No single salinity estimate for the whole province: salt is shown per former province, from its nearest KTTV station where one lies within {SALT_KM} km.",
@@ -882,7 +848,7 @@ def province(pr, rotations, chirps, imerg):
     cards_e = [card(r, clim_e, None, sal, elnino=True, soil=soil, site=pr["id"]) for r in rotations] if scored else []
     out = {k: pr[k] for k in ("id", "name", "lat", "lon", "region")}
     out.update(region_name=REGIONS[pr["region"]], former=[{k: f[k] for k in ("id", "name", "lat", "lon")} for f in pr["former"]],
-               areas=pr.get("areas", []), points={"power": ids, "rain": rain_ids, "soil": soil_ids},
+               areas=pr.get("areas", []), points={"weather": ids, "rain": rain_ids, "soil": soil_ids},
                climate=clim, soil=soil, salinity=sal, scored=scored, not_scored=None if scored else NOT_SCORED,
                cards=cards, summary=place_summary(clim, None, sal, scored),
                rain_check=dict(rain_check(chirps[pr["id"]], imerg[pr["id"]]) or {}, point=pr["id"]),
@@ -892,12 +858,12 @@ def province(pr, rotations, chirps, imerg):
 
 def place(f, pr, rotations, chirps, imerg):
     """One province point on its own (a former province's capital, or the new province's own pin): the same engine as a
-    Sóc Trăng pin with its own NASA POWER weather, CHIRPS rain and SoilGrids topsoil, MODIS greenness where
+    Sóc Trăng pin with its own ERA5 weather, CHIRPS rain and SoilGrids topsoil, MODIS greenness where
     data/raw/ndvi_<id>.json exists (39 points for now) and the pixel looks like farmland (farmland()), and salinity from
     the nearest KTTV station within SALT_KM (kttv_salinity), else none (UNKNOWN). Cards only in SCORED_REGIONS."""
-    power = read_power(f["id"])
+    weather = read_weather(f["id"])
     rain = point_rain(chirps, f["id"])
-    clim, clim_e = climate(power, f["lat"], typical_year, rain), climate(power, f["lat"], in_elnino, rain)
+    clim, clim_e = climate(weather, typical_year, rain), climate(weather, in_elnino, rain)
     nd = None
     ndvi_file = RAW / f"ndvi_{f['id']}.json"
     if ndvi_file.exists():
@@ -977,18 +943,18 @@ def build():
     rot_file = json.loads((HERE / "rotations.json").read_text(encoding="utf-8"))
     rotations = rot_file["rotations"]
     SOURCES.clear()
-    area = {"chart_src": cite(POWER_SRC, CHIRPS_SRC, FAO_SRCS, salinity.SOURCES, MODIS_SRC), "salt_src": cite(salinity.SOURCES),
+    area = {"chart_src": cite(ERA5_SRC, CHIRPS_SRC, FAO_SRCS, salinity.SOURCES, MODIS_SRC), "salt_src": cite(salinity.SOURCES),
             "soil_src": cite(SOIL_SRC)}
     pest_rule = {"rice_points": PESTS["rice"]["points"], "break_weight": PESTS["break_weight"], "shrimp_floor": PESTS["shrimp"]["floor"],
-                 "cold_drop_c": PESTS["shrimp"]["cold_drop_c"], "hot_c": PESTS["shrimp"]["hot_c"], "upland_pressure": 1}
+                 "hot_c": PESTS["shrimp"]["hot_c"], "upland_pressure": 1}
     outlook_src, area["elnino_src"] = cite(OUTLOOK["source"]), cite(ONI_SRC)  # area-wide first: numbers climb down the page
     chirps = json.loads((RAW / "chirps.json").read_text(encoding="utf-8"))
     imerg = json.loads((RAW / "gpm.json").read_text(encoding="utf-8"))  # cross-check only, never mixed into the rain series
     sites = []
     for s in SITES:
         rain = point_rain(chirps, s["id"])
-        power = read_power(s["id"])
-        clim, clim_e = climate(power, s["lat"], typical_year, rain), climate(power, s["lat"], in_elnino, rain)
+        weather = read_weather(s["id"])
+        clim, clim_e = climate(weather, typical_year, rain), climate(weather, in_elnino, rain)
         ndvi_file = RAW / f"ndvi_{s['id']}.json"
         nd = nd_e = None
         if ndvi_file.exists():
@@ -1025,7 +991,7 @@ def build():
     write_builder(rot_file, sites, chirps)
     # The provinces go to their own file with its own numbered source list, so the file every phone downloads stays small
     SOURCES.clear()
-    head = {"chart_src": cite(POWER_SRC, CHIRPS_SRC, FAO_SRCS), "rain_check_src": cite(GPM_SRC), "soil_src": cite(SOIL_SRC), "region_src": cite(REGION_SRC),
+    head = {"chart_src": cite(ERA5_SRC, CHIRPS_SRC, FAO_SRCS), "rain_check_src": cite(GPM_SRC), "soil_src": cite(SOIL_SRC), "region_src": cite(REGION_SRC),
             "elnino_src": cite(ONI_SRC), "ndvi_src": cite(MODIS_SRC), "outline_src": cite(OUTLINE_SRC)}
     provinces = [province(pr, rotations, chirps, imerg) for pr in PROVINCES]
     places = [place(f, pr, rotations, chirps, imerg) for pr in PROVINCES for f in pr["former"]]
