@@ -23,12 +23,12 @@ SALT_HIGH, SALT_MED = 15, 4  # ‰ cut-offs of the salinity level rule (see sali
 SALT_SEASONS = (2016, 2026)
 SALT_KM = 25  # a province point takes its nearest KTTV station's salinity only this close (km, team rule); else no estimate
 UNKNOWN = "unknown"  # salinity level of a place with no salinity estimate (the province averages): salt is not assessed there# The 24 full Dec-Nov seasons where NASA POWER, NASA GPM and NASA MODIS all have data; data/raw holds longer records.
-SALT_ELNINO = {int(r[1]) for r in (ln.split() for ln in (RAW / "oni.txt").read_text(encoding="utf-8").splitlines())
-               if r[:1] == ["DJF"] and float(r[3]) >= 0.5}
+SALT_ELNINO = {int(r[1]) for r in (ln.split() for ln in (RAW / "roni.txt").read_text(encoding="utf-8").splitlines())
+               if r[:1] == ["DJF"] and float(r[2]) >= 0.5}
 
 
 def salt_elnino(y):
-    """True if the dry season ending in year y is an El Niño one: NOAA's Dec-Feb ONI of year y is 0.5 or more (any year in oni.txt)."""
+    """True if the dry season ending in year y is an El Niño one: NOAA's Dec-Feb RONI of year y is 0.5 or more (any year in roni.txt)."""
     return y in SALT_ELNINO
 
 

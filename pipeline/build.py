@@ -16,6 +16,7 @@ from make_outlines import SRC as OUTLINE_SRC
 import salinity
 from salinity import SALT_KM, UNKNOWN
 from text import MONTHS, km_text, line, month_names, vi_num, whole
+import sites
 from sites import PROVINCES, REGION_SRC, REGIONS, SCORED_PLACES, SCORED_REGIONS, SITES
 
 HERE = pathlib.Path(__file__).resolve().parent
@@ -62,24 +63,40 @@ RESOURCES = {c["id"]: c for c in json.loads((HERE / "resources.json").read_text(
 PESTS = json.loads((HERE / "pests.json").read_text(encoding="utf-8"))
 LEVELS = ["low", "medium", "high"]
 LEVEL_VI = {"low": "thấp", "medium": "trung bình", "high": "cao"}
-PERIOD = (date(2000, 12, 1), date(2024, 11, 30))
+def read_weather(pid):
+    """data/raw/era5_<id>.json.gz (fetch_era5.py): ERA5 / ERA5-Land daily values, {"source", "daily": {time, tmax, tmin, et0, tmax_land}}; nulls stay null."""
+    return json.loads(gzip.decompress((RAW / f"era5_{pid}.json.gz").read_bytes()))
+
+
+def whole_period(rain, weather):
+    """(Dec 2000, 30 Nov Y): Y is the newest year where every point has CHIRPS rain for all 12 months Dec(Y-1)-Nov(Y) and ERA5 days through 30 Nov Y."""
+    last = min(w["daily"]["time"][-1] for w in weather.values())
+    for y in range(int(last[:4]), 2000, -1):
+        months = [f"{y - 1}-12"] + [f"{y}-{m:02d}" for m in range(1, 12)]
+        if last >= f"{y}-11-30" and all(set(months) <= set(r) for r in rain.values()):
+            return date(2000, 12, 1), date(y, 11, 30)
+    raise ValueError("no whole Dec-Nov season in the rain and weather files")
+
+
+# averages roll: Dec 2000 to the newest whole Dec-Nov season both the CHIRPS rain and the ERA5 weather files cover
+PERIOD = whole_period(json.loads((RAW / "chirps.json").read_text(encoding="utf-8")), {p["id"]: read_weather(p["id"]) for p in sites.points()})
 # The newest 10 of those seasons: crops per year and bare months describe today's farm calendar, which changed at some pins.
 RECENT = (date(PERIOD[1].year - 10, 12, 1), PERIOD[1])
 
 
 def elnino_seasons():
-    """{start year of a Dec-Nov season in PERIOD: its Dec-Feb NOAA Oceanic Niño Index}, for El Niño seasons (index >= 0.5)."""
-    rows = [ln.split() for ln in (RAW / "oni.txt").read_text(encoding="utf-8").splitlines()]
-    return {int(r[1]) - 1: float(r[3]) for r in rows
-            if r[:1] == ["DJF"] and PERIOD[0].year <= int(r[1]) - 1 < PERIOD[1].year and float(r[3]) >= 0.5}
+    """{start year of a Dec-Nov season in PERIOD: its Dec-Feb NOAA Relative Oceanic Niño Index (RONI)}, for El Niño seasons (index >= 0.5)."""
+    rows = [ln.split() for ln in (RAW / "roni.txt").read_text(encoding="utf-8").splitlines()]
+    return {int(r[1]) - 1: float(r[2]) for r in rows
+            if r[:1] == ["DJF"] and PERIOD[0].year <= int(r[1]) - 1 < PERIOD[1].year and float(r[2]) >= 0.5}
 
 
-ONI = elnino_seasons()
-ELNINO = sorted(ONI)  # each number is the year the season starts in December
-ONI_SRC = {"title": f"NOAA CPC Oceanic Niño Index (ONI): {len(ELNINO)} El Niño winters, Dec {PERIOD[0].year} – Nov {PERIOD[1].year}",
-           "url": "https://www.cpc.ncep.noaa.gov/data/indices/oni.ascii.txt",
-           "note": "Dec–Feb ONI 0.5 or more: " + ", ".join(f"{y}–{(y + 1) % 100:02d} ({v})" for y, v in ONI.items())
-                   + f". Saved in data/raw/oni.txt; checked against NOAA's live file: Dec–Feb values {PERIOD[0].year + 1}–{PERIOD[1].year} identical.", "verified": True}
+RONI = elnino_seasons()
+ELNINO = sorted(RONI)  # each number is the year the season starts in December
+RONI_SRC = {"title": "NOAA CPC Relative Oceanic Niño Index (RONI)",
+            "url": "https://www.cpc.ncep.noaa.gov/data/indices/RONI.ascii.txt",
+            "note": f"{len(ELNINO)} El Niño winters, Dec {PERIOD[0].year} – Nov {PERIOD[1].year}: Dec–Feb RONI 0.5 or more: " + ", ".join(f"{y}–{(y + 1) % 100:02d} ({v})" for y, v in RONI.items())
+                    + ". Saved in data/raw/roni.txt (the latest months are revised for up to two months).", "verified": True}
 # NOAA CPC's latest ENSO status (data/raw/enso_outlook.json, from pipeline/fetch_enso.py): the app opens on the El Niño view
 # while NOAA says El Niño is here or coming (Advisory = present, Watch = favoured within 6 months).
 ENSO_VI = {"El Niño Advisory": "đang có El Niño", "El Niño Watch": "El Niño có thể hình thành",
@@ -126,11 +143,6 @@ FAO48_SRC = {"title": "Rhoades, Kandiah & Mashali (1992), The use of saline wate
              "url": "https://www.fao.org/4/t0667e/t0667e02.htm", "verified": True,
              "note": "Checked. Box 'Useful conversion factors and formulas': 'TDS (mg/l) » EC (dS/m) × 640' 'for EC between 0.1 and 5.0 dS/m'. So maize's 1.1 dS/m ≈ 0.7‰, and 4‰ is about 5 dS/m or more."}
 SOIL_SRC = {"title": "SoilGrids 2.0 (ISRIC): modelled soil clay, organic carbon, pH, 250 m (not NASA)", "url": "https://soilgrids.org/", "verified": True}
-
-
-def read_weather(pid):
-    """data/raw/era5_<id>.json.gz (fetch_era5.py): ERA5 / ERA5-Land daily values, {"source", "daily": {time, tmax, tmin, et0, tmax_land}}; nulls stay null."""
-    return json.loads(gzip.decompress((RAW / f"era5_{pid}.json.gz").read_bytes()))
 
 
 def in_period(day):
@@ -947,7 +959,7 @@ def build():
             "soil_src": cite(SOIL_SRC)}
     pest_rule = {"rice_points": PESTS["rice"]["points"], "break_weight": PESTS["break_weight"], "shrimp_floor": PESTS["shrimp"]["floor"],
                  "hot_c": PESTS["shrimp"]["hot_c"], "upland_pressure": 1}
-    outlook_src, area["elnino_src"] = cite(OUTLOOK["source"]), cite(ONI_SRC)  # area-wide first: numbers climb down the page
+    outlook_src, area["elnino_src"] = cite(OUTLOOK["source"]), cite(RONI_SRC)  # area-wide first: numbers climb down the page
     chirps = json.loads((RAW / "chirps.json").read_text(encoding="utf-8"))
     imerg = json.loads((RAW / "gpm.json").read_text(encoding="utf-8"))  # cross-check only, never mixed into the rain series
     sites = []
@@ -992,7 +1004,7 @@ def build():
     # The provinces go to their own file with its own numbered source list, so the file every phone downloads stays small
     SOURCES.clear()
     head = {"chart_src": cite(ERA5_SRC, CHIRPS_SRC, FAO_SRCS), "rain_check_src": cite(GPM_SRC), "soil_src": cite(SOIL_SRC), "region_src": cite(REGION_SRC),
-            "elnino_src": cite(ONI_SRC), "ndvi_src": cite(MODIS_SRC), "outline_src": cite(OUTLINE_SRC)}
+            "elnino_src": cite(RONI_SRC), "ndvi_src": cite(MODIS_SRC), "outline_src": cite(OUTLINE_SRC)}
     provinces = [province(pr, rotations, chirps, imerg) for pr in PROVINCES]
     places = [place(f, pr, rotations, chirps, imerg) for pr in PROVINCES for f in pr["former"]]
     # the 5 Sóc Trăng areas, drawn inside the Vietnam map like the main map: salt peak at the nearest station (estimate from
