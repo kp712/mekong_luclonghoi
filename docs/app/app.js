@@ -260,12 +260,12 @@ steps: [["Dry the platform and clean out the canals.", "Phơi trảng, sên vét
 /* ---------- about this app ---------- */
 const ABOUT = {
 en: [["What it is", "A phone-first tool for rice farmers in coastal Sóc Trăng (Mekong Delta). It compares the farmer's current rotation with local alternatives (rice–shrimp, rice with a dry-season upland crop, salt-tolerant rice with a rest), ranks them by what the farmer cares about, and turns the chosen one into a 12-month plan. English and Vietnamese."],
-["Data in the app", "Rain: CHIRPS v3.0 monthly (Climate Hazards Center, UC Santa Barbara; satellite and rain-gauge estimate, ~5 km, Dec 2000 – Nov 2024). NASA GPM IMERG is used only to cross-check it. Water demand (ET₀): FAO-56 reference evapotranspiration computed by Open-Meteo from ERA5 (Copernicus / ECMWF). Field greenness and crops per year: NASA MODIS NDVI (MOD13Q1, 250 m) through NASA AppEEARS. Heat days: ERA5-Land daily maximum. The 7-day strip in the month panel reads NASA POWER daily data live."],
+["Data in the app", "Rain: CHIRPS v3.0 monthly (Climate Hazards Center, UC Santa Barbara; satellite and rain-gauge estimate, ~5 km, Dec 2000 – Nov 2024). NASA GPM IMERG is used only to cross-check it. Water demand (ET₀): FAO-56 reference evapotranspiration computed by Open-Meteo from ERA5 (Copernicus / ECMWF). Field greenness and crops per year: NASA MODIS NDVI (MOD13Q1, 250 m) through NASA AppEEARS. Heat days: ERA5-Land daily maximum. The 7-day strip in the month panel reads Open-Meteo's forecast API (past 7 days) live."],
 ["Other data", "El Niño seasons and forecast: NOAA's Oceanic Niño Index and CPC outlook. Topsoil: SoilGrids 2.0 (ISRIC, not NASA). Salt: an estimate from provincial river-station records and public reports. Satellites cannot measure salt in rice fields. The 7-day rain forecast on the dashboard: Open-Meteo (not NASA)."],
 ["How the scores work", "Each option gets water, income, soil, pests and weather & salt scores from 1.0 to 5.0, computed at each area from the data above and published profit figures. Pests: rice pest pressure follows ERA5 mean temperature (brown planthopper, Horgan et al. 2020), upland crop months count in full, shrimp months rise with hot days, and rest months and other crops break the rice pest cycle. The sliders set the weights; the match is the weighted average. Full formulas are in the project README under \"How the scores are set\"."],
 ["Limits", "The data describe the area, not one field, and the past, not a forecast. The plan is a starting point to talk over with a local agricultural extension officer."]],
 vi: [["Dự án là gì", "Công cụ ưu tiên điện thoại cho nông dân trồng lúa ven biển Sóc Trăng (Đồng bằng sông Cửu Long). Công cụ so sánh cách luân canh hiện tại với các lựa chọn tại chỗ (lúa – tôm, lúa luân canh với cây màu mùa khô, lúa chịu mặn có thời gian nghỉ), xếp hạng theo điều nông dân quan tâm và biến lựa chọn thành kế hoạch 12 tháng. Có tiếng Anh và tiếng Việt."],
-["Dữ liệu trong ứng dụng", "Mưa: CHIRPS v3.0 theo tháng (Climate Hazards Center, Đại học California Santa Barbara; ước tính từ vệ tinh và trạm đo mưa, ~5 km, 12/2000 – 11/2024). NASA GPM IMERG chỉ dùng để đối chiếu. Nhu cầu nước (ET₀): phương pháp FAO-56 do Open-Meteo tính từ ERA5 (Copernicus / ECMWF). Độ xanh của ruộng và số vụ mỗi năm: NASA MODIS NDVI (MOD13Q1, 250 m) qua NASA AppEEARS. Số ngày nắng nóng: ERA5-Land. Dải 7 ngày trong phần từng tháng đọc trực tiếp dữ liệu ngày của NASA POWER."],
+["Dữ liệu trong ứng dụng", "Mưa: CHIRPS v3.0 theo tháng (Climate Hazards Center, Đại học California Santa Barbara; ước tính từ vệ tinh và trạm đo mưa, ~5 km, 12/2000 – 11/2024). NASA GPM IMERG chỉ dùng để đối chiếu. Nhu cầu nước (ET₀): phương pháp FAO-56 do Open-Meteo tính từ ERA5 (Copernicus / ECMWF). Độ xanh của ruộng và số vụ mỗi năm: NASA MODIS NDVI (MOD13Q1, 250 m) qua NASA AppEEARS. Số ngày nắng nóng: ERA5-Land. Dải 7 ngày trong phần từng tháng đọc trực tiếp API dự báo của Open-Meteo (7 ngày vừa qua)."],
 ["Dữ liệu khác", "Các mùa El Niño và dự báo: chỉ số ONI và bản tin CPC của NOAA. Đất mặt: SoilGrids 2.0 (ISRIC, không phải NASA). Độ mặn: ước tính từ số liệu trạm đo trên sông của tỉnh và báo cáo công khai. Vệ tinh không đo được độ mặn trong ruộng lúa. Dự báo mưa 7 ngày trên trang chính: Open-Meteo (không phải NASA)."],
 ["Cách tính điểm", "Mỗi lựa chọn có điểm nước, thu nhập, đất, sâu bệnh và thời tiết & mặn từ 1,0 đến 5,0, tính cho từng khu vực từ dữ liệu trên và số liệu lợi nhuận đã công bố. Sâu bệnh: áp lực sâu hại lúa theo nhiệt độ trung bình của ERA5 (rầy nâu, Horgan và cộng sự 2020), tháng trồng màu tính đủ, tháng nuôi tôm tăng theo số ngày nắng nóng, còn tháng nghỉ và cây trồng khác cắt vòng đời sâu hại lúa. Thanh trượt đặt trọng số; mức hợp là trung bình có trọng số. Công thức đầy đủ có trong README của dự án, mục \"How the scores are set\"."],
 ["Giới hạn", "Dữ liệu mô tả cả khu vực, không phải một thửa ruộng, và mô tả quá khứ, không phải dự báo. Kế hoạch là điểm khởi đầu để trao đổi với cán bộ khuyến nông địa phương."]]
@@ -521,7 +521,7 @@ ${v.ndvi ? `<div class="green" aria-hidden="true">${v.ndvi.map((x, i) => `<i sty
 ${fieldId ? "" : `<button type="button" class="ghost-btn" id="saveArea">${ico("plus")}<span>${t("saveArea")}</span></button>`}`;
 loadWeather(s);
 }
-/* weather this week: NASA POWER daily, near real time */
+/* weather this week: Open-Meteo forecast API (its past 7 days), near real time */
 const wkCache = {};
 function loadWeather(s) {
 if (!has("#wk")) return;
@@ -536,12 +536,11 @@ el.innerHTML = `<h4>${t("wkH")}</h4><div class="wk-days">${d.map(x => `<div clas
 };
 if (s.id in wkCache) return paint(wkCache[s.id]);
 paint("load");
-const day = n => { const d = new Date(Date.now() - n * 864e5); return d.toISOString().slice(0, 10).replace(/-/g, "") };
-const url = `https://power.larc.nasa.gov/api/temporal/daily/point?parameters=PRECTOTCORR,T2M_MAX&community=AG&longitude=${s.lon}&latitude=${s.lat}&start=${day(12)}&end=${day(1)}&format=JSON`;
+const url = `https://api.open-meteo.com/v1/forecast?latitude=${s.lat}&longitude=${s.lon}&daily=precipitation_sum,temperature_2m_max&past_days=7&forecast_days=0&timezone=Asia%2FBangkok`;
 const ac = typeof AbortController === "function" ? new AbortController() : null; if (ac) setTimeout(() => ac.abort(), 9000);
 fetch(url, ac ? { signal: ac.signal } : {}).then(r => r.ok ? r.json() : Promise.reject()).then(j => {
-const p = j.properties.parameter, rain = p.PRECTOTCORR, hot = p.T2M_MAX;
-const days = Object.keys(rain).filter(k => rain[k] > -900).slice(-7).map(k => ({ d: new Date(+k.slice(0, 4), +k.slice(4, 6) - 1, +k.slice(6, 8)), rain: rain[k], hot: hot && hot[k] > -900 ? hot[k] : null }));
+const t0 = j.daily.time, rain = j.daily.precipitation_sum, hot = j.daily.temperature_2m_max;
+const days = t0.map((k, i) => ({ d: new Date(+k.slice(0, 4), +k.slice(5, 7) - 1, +k.slice(8, 10)), rain: rain[i], hot: hot[i] })).filter(x => x.rain != null).slice(-7);
 wkCache[s.id] = days.length ? days : null; paint(wkCache[s.id]);
 }).catch(() => { wkCache[s.id] = null; paint(null) });
 }

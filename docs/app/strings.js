@@ -34,7 +34,7 @@ crops: n => `Satellite sees ≈ ${n} crops a year (NASA MODIS).`,
 talk: "Talk it over with your local agricultural extension officer before you change your rotation.",
 
 fEdit: "Edit", fUpdate: "Save changes", sHarvest: "Rice harvest", sWetP: "More rain than crops use this month.", sDryP: "Less rain than crops use this month.",
-wkH: "Latest 7 days of data near this area", wkSrc: "NASA POWER daily data, near real time. The newest days can be missing.", wkOff: "Live weather could not load here (no network).", wkLoad: "Loading…",
+wkH: "Latest 7 days of data near this area", wkSrc: "Open-Meteo forecast API, past 7 days (model values, not station readings). The newest days can change.", wkOff: "Live weather could not load here (no network).", wkLoad: "Loading…",
 wkRain: "Rain (mm)", wkHot: "Max °C", readPlan: "Read aloud", readStop: "Stop reading", noVoice: "This device has no Vietnamese voice installed, so it cannot read the plan aloud.",
 tipOpen: "Click to open this area", tipReopen: "Click to open it again", closeArea: "Click anywhere else on the map to close",
 calView: "Calendar", listView: "List", calGrow: "Growing", calRest: "Rest", calSalt: "Salt (estimate)", calNow: "This month",
@@ -98,7 +98,7 @@ crops: n => `Vệ tinh thấy khoảng ${String(n).replace(".", ",")} vụ mỗi
 talk: "Hãy trao đổi với cán bộ khuyến nông địa phương trước khi thay đổi cách luân canh.",
 
 fEdit: "Sửa", fUpdate: "Lưu thay đổi", sHarvest: "Thu hoạch lúa", sWetP: "Tháng này mưa nhiều hơn lượng nước cây trồng dùng.", sDryP: "Tháng này mưa ít hơn lượng nước cây trồng dùng.",
-wkH: "7 ngày dữ liệu gần nhất quanh khu vực này", wkSrc: "Dữ liệu ngày NASA POWER, gần thời gian thực. Vài ngày mới nhất có thể chưa có.", wkOff: "Không tải được thời tiết trực tiếp ở đây (không có mạng).", wkLoad: "Đang tải…",
+wkH: "7 ngày dữ liệu gần nhất quanh khu vực này", wkSrc: "API dự báo của Open-Meteo, 7 ngày vừa qua (số liệu mô hình, không phải đo tại trạm). Vài ngày mới nhất có thể thay đổi.", wkOff: "Không tải được thời tiết trực tiếp ở đây (không có mạng).", wkLoad: "Đang tải…",
 wkRain: "Mưa (mm)", wkHot: "Cao nhất °C", readPlan: "Đọc to", readStop: "Dừng đọc", noVoice: "Thiết bị này chưa cài giọng đọc tiếng Việt nên không đọc to kế hoạch được.",
 tipOpen: "Bấm để mở khu vực này", tipReopen: "Bấm để mở lại", closeArea: "Bấm chỗ khác trên bản đồ để đóng",
 calView: "Lịch", listView: "Danh sách", calGrow: "Đang phát triển", calRest: "Nghỉ", calSalt: "Mặn (ước tính)", calNow: "Tháng này",
