@@ -66,7 +66,7 @@ The match is the average of the five, weighted by the farmer's priorities. Every
 
 ### How we know it holds up
 - **Pins sit on rice.** Each area's pin must look like rice in NASA MODIS (250 m) and NASA HLS (30 m) greenness. The 30 m check moved the Vĩnh Châu pin off shrimp ponds and the Ngã Năm pin off garden land in November 2026. The pins show 1.9–2.4 crops a year over the last 10 seasons.
-- **NASA data finds the known droughts.** Ranked by dry-season water shortfall, 4 of the 5 driest seasons since 2000 at Trần Đề are El Niño seasons, including 2015–16 and 2019–20, the worst droughts in Vietnamese reports.
+- **NASA data finds the known droughts.** Ranked by dry-season water shortfall, 4 of the 5 driest seasons since 2000 at Trần Đề are El Niño seasons, including 2019–20, one of the worst droughts in Vietnamese reports (2015–16 ranks seventh with CHIRPS rain).
 - **Two rain sources agree.** CHIRPS and NASA GPM IMERG rain correlate at 0.93–0.94 month to month at every pin; CHIRPS's yearly totals are within −6% to +1% of IMERG's at the 5 pins and its Dec–Apr totals 5–14% lower. Against the one rain gauge we could read (Cà Mau, which CHIRPS itself uses, so not independent) CHIRPS is 13% wetter for the year and IMERG 23%.
 - **Methods reproduce their references.** Water demand matches FAO-56's worked example (3.88 vs 3.9 mm/day); canal water reproduces FAO Manual 3's rice example.
 - **The ranking survives our guesses.** Moving each team-estimate constant (salt tolerance, heat reference, brackish soil loss, soil and weather weights, pest break) by ±20% never changes the best rotation at any of the 5 areas (`python pipeline/sensitivity.py`; income and water are held at their built values).
