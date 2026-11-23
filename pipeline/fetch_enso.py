@@ -1,4 +1,4 @@
-"""Download NOAA's El Niño index -> data/raw/oni.txt and NOAA's latest El Niño outlook -> data/raw/enso_outlook.json. Free, no login.
+"""Download NOAA's El Niño index (RONI) -> data/raw/roni.txt and NOAA's latest El Niño outlook -> data/raw/enso_outlook.json. Free, no login.
 Run: python pipeline/fetch_enso.py
 Only refresh NOAA's outlook (monthly, 2nd Thursday): python pipeline/fetch_enso.py enso
 """
@@ -11,7 +11,7 @@ import urllib.request
 from datetime import datetime
 
 RAW = pathlib.Path(__file__).resolve().parent.parent / "data" / "raw"
-ONI_URL = "https://www.cpc.ncep.noaa.gov/data/indices/oni.ascii.txt"  # NOAA Oceanic Niño Index, 3-month seasons
+RONI_URL = "https://www.cpc.ncep.noaa.gov/data/indices/RONI.ascii.txt"  # NOAA Relative Oceanic Niño Index, 3-month seasons
 ENSO_URL = "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml"  # NOAA CPC monthly ENSO discussion
 
 
@@ -38,7 +38,7 @@ def main():
     if sys.argv[1:] == ["enso"]:
         return
     with urllib.request.urlopen(ONI_URL, timeout=120) as r:
-        (RAW / "oni.txt").write_bytes(r.read())
+        (RAW / "roni.txt").write_bytes(r.read())
 
 
 if __name__ == "__main__":

@@ -9,7 +9,7 @@ const Score = (() => {
 const B = BUILDER, C = B.const;
 const clamp = (x, a, b) => Math.min(Math.max(x, a), b);
 const pyRound = (x, d = 0) => { const k = 10 ** d, y = x * k, f = Math.floor(y);
-if (Math.abs(y - f - 0.5) < 1e-9) return (f % 2 === 0 ? f : f + 1) / k;
+if (/^50*$/.test(Math.abs(x).toFixed(d + 40).slice(-40))) return (f % 2 === 0 ? f : f + 1) / k;  // a tie only if x is exactly one in binary, as Python's round: 2.85 is above it
 return d ? Number(x.toFixed(d)) : Math.round(x) };
 const isRice = c => c[0] === "R" || c[0] === "T";  // T = salt-tolerant rice: same water and season rules as rice
 const effRain = p => p > 75 ? 0.8 * p - 25 : Math.max(0.6 * p - 10, 0);                       // build.py effective_rain

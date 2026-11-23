@@ -58,14 +58,32 @@ def test_rain_covers_period():
         assert need <= set(months), (pid, sorted(need - set(months))[:3])
 
 
+def test_whole_period():
+    rain = {"a": {f"{y}-{m:02d}": 1 for y in range(2000, 2026) for m in range(1, 13)}}
+    weather = {"a": {"daily": {"time": ["2000-12-01", "2025-11-30"]}}}
+    assert build.whole_period(rain, weather) == (date(2000, 12, 1), date(2025, 11, 30))
+    del rain["a"]["2025-10"]   # one missing rain month drops the whole 2024-25 season
+    assert build.whole_period(rain, weather)[1] == date(2024, 11, 30)
+    rain["a"]["2025-10"] = 1
+    for bad_rain, bad_wx in (({"a": {k: v for k, v in rain["a"].items() if k != "2000-12"}}, weather),
+                             (rain, {"a": {"daily": {"time": ["2001-01-01", "2025-11-30"]}}})):
+        try:
+            build.whole_period(bad_rain, bad_wx)
+            assert False, "expected ValueError when data starts after Dec 2000"
+        except ValueError:
+            pass
+    weather["b"] = {"daily": {"time": ["2000-12-01", "2025-11-29"]}}   # one short weather file drops it too
+    assert build.whole_period(rain, weather)[1] == date(2024, 11, 30)
+
+
 def test_elnino_year():
     site = next(s for s in build.SITES if s["id"] == "tran_de")
     weather = build.read_weather("tran_de")
-    assert build.ELNINO == [2002, 2004, 2006, 2009, 2014, 2015, 2018, 2019, 2023], build.ELNINO  # from NOAA's Dec-Feb index >= 0.5
+    assert build.ELNINO == [2002, 2004, 2006, 2009, 2014, 2015, 2018, 2023], build.ELNINO  # from NOAA's Dec-Feb RONI >= 0.5; 2019-20 is 0.14, not El Niño
     assert build.in_elnino(date(2015, 12, 1)) and build.in_elnino(date(2016, 11, 30)) and not build.in_elnino(date(2016, 12, 1))
     assert build.typical_year(date(2017, 6, 1)) and not build.typical_year(date(2016, 3, 1))
-    assert not build.typical_year(date(2025, 3, 1))  # outside PERIOD
-    assert build.PERIOD[1] == date(2024, 11, 30) and build.RECENT[0] == date(2014, 12, 1)
+    assert not build.typical_year(date(2026, 3, 1))  # outside PERIOD
+    assert build.PERIOD[1] == date(2025, 11, 30) and build.RECENT[0] == date(2015, 12, 1)
     gpm = json.loads((build.RAW / "chirps.json").read_text(encoding="utf-8"))["tran_de"]
     typ, eln = (build.climate(weather, keep, gpm) for keep in (build.typical_year, build.in_elnino))
     for ym, keep in (("2022-11", build.typical_year), ("2024-11", build.in_elnino)):
@@ -359,9 +377,10 @@ def test_salinity_station_data():
     for sid, (n, lo, hi, mean) in table2.items():
         xs = [v[0] for v in st[sid]["yearly_max"].values()]
         assert (len(xs), min(xs), max(xs), round(sum(xs) / len(xs), 2)) == (n, lo, hi, mean), sid
-    # El Niño seasons were saltier at every pin's station over the SALT_SEASONS
-    assert all(salinity.station_salt(salinity.DATA, s["station"], True)[0] > salinity.station_salt(salinity.DATA, s["station"], False)[0]
-               for s in json.loads((build.HERE / "salinity.json").read_text(encoding="utf-8"))["sites"].values())
+    # El Niño seasons were saltier at 4 of 5 pins' stations over the SALT_SEASONS; Khánh Hòa (Vĩnh Châu) has only 2016 and 2019, and 2019 was mild
+    saltier = {k for k, s in json.loads((build.HERE / "salinity.json").read_text(encoding="utf-8"))["sites"].items()
+               if salinity.station_salt(salinity.DATA, s["station"], True)[0] > salinity.station_salt(salinity.DATA, s["station"], False)[0]}
+    assert saltier == {"tran_de", "my_xuyen", "long_phu", "nga_nam"}, saltier
     # the national 10-day bulletins are a second, independent record: never above the paper's yearly max, equal in 9 of 10
     bul = json.loads((build.RAW / "salinity_bulletins.json").read_text(encoding="utf-8"))["bulletins"]
     same = 0
@@ -407,8 +426,8 @@ def test_rain_cross_check():
         if orig:
             build.statistics.correlation = orig
     assert build.rain_check(dict(list(chirps.items())[:10]), imerg) is None   # too few months to compare
-    outside = {**chirps, "1990-01": 9.0, "2025-06": 9.0}   # months outside PERIOD are not compared
-    assert build.rain_check(outside, {**imerg, "1990-01": 1.0, "2025-06": 1.0}) == g
+    outside = {**chirps, "1990-01": 9.0, "2026-06": 9.0}   # months outside PERIOD are not compared
+    assert build.rain_check(outside, {**imerg, "1990-01": 1.0, "2026-06": 1.0}) == g
 
 
 def test_noaa_outlook():
@@ -499,13 +518,13 @@ def test_sites_json_contract():
     S = d["sources"]
     titles = [x["title"] for x in S]
     assert len(titles) == len(set(titles)) and all(x["title"] and "note" not in x for x in S)
-    assert S[d["outlook"]["src"][0]]["title"] == build.OUTLOOK["source"]["title"] and S[d["elnino_src"][0]]["title"] == build.ONI_SRC["title"]
+    assert S[d["outlook"]["src"][0]]["title"] == build.OUTLOOK["source"]["title"] and S[d["elnino_src"][0]]["title"] == build.RONI_SRC["title"]
     refs = [i for m in re.finditer(r'"(?:src|cal_src|chart_src|salt_src|soil_src|elnino_src)": \[([^\]]*)\]', build.OUT.read_text(encoding="utf-8")) for i in json.loads("[" + m.group(1) + "]")]
     assert refs and all(0 <= i < len(S) for i in refs) and set(refs) == set(range(len(S))), "every source cited, every citation real"
     rot_file = json.loads((build.HERE / "rotations.json").read_text(encoding="utf-8"))
     inputs = [x for r in rot_file["rotations"] for x in r["sources"] + r["calendar_sources"]] + [x for r in rot_file["rotations"] for v in r.get("local", {}).values() for x in v["sources"]] + [x for h in rot_file["soil_help"] for x in h["sources"]] \
         + [x for r in build.RESOURCES.values() for x in r["sources"]] + salinity.SOURCES + [build.PESTS["rice"]["source"]] + build.PESTS["shrimp"]["sources"] + [v["source"] for v in build.PESTS["upland"].values()] \
-        + [build.ERA5_SRC, build.CHIRPS_SRC, build.MODIS_SRC, build.HEAT_SRC, build.SOIL_SRC, build.ONI_SRC, build.OUTLOOK["source"], build.FAO29_SRC, build.FAO48_SRC]
+        + [build.ERA5_SRC, build.CHIRPS_SRC, build.MODIS_SRC, build.HEAT_SRC, build.SOIL_SRC, build.RONI_SRC, build.OUTLOOK["source"], build.FAO29_SRC, build.FAO48_SRC]
     assert {x["title"] for x in inputs} <= set(titles), {x["title"] for x in inputs} - set(titles)
     assert "url" not in json.dumps(d["sites"]) and "data_sources" not in d   # no source lists left anywhere else
     unverified |= {x["title"] for x in S if not x["verified"]}
@@ -643,9 +662,9 @@ def test_hls_rice_stats():
 
 
 def test_hls_median_precision():
-    """Two clear Landsat points on 1 March of each of 2015-2019 (raw 2952 and 3047, Fmask 0): the median is 0.29995, below
+    """Two clear Landsat points on 1 March of five years inside build.RECENT (raw 2952 and 3047, Fmask 0): the median is 0.29995, below
     ndvi.BARE (0.3), so all five years vote bare. Rounding the median to 4 decimals made it 0.3 and dropped March (gpt, #59)."""
-    rows = [(f"vinhchauP{k}", f"{y}-03-01", raw, 0, "", "") for y in range(2015, 2020) for k, raw in enumerate((2952, 3047))]
+    rows = [(f"vinhchauP{k}", f"{y}-03-01", raw, 0, "", "") for y in range(build.RECENT[0].year + 1, build.RECENT[0].year + 6) for k, raw in enumerate((2952, 3047))]
     series = hls.parse(_hls_csv(rows), ["vinh_chau"])["vinh_chau"]
     assert len(series) == 5 and all(v == 0.29995 for v in series.values()), series
     r = build.hls_check(series)
@@ -696,7 +715,7 @@ def test_hls_refresh():
 
 
 def _hls_series(per_year, month=3):
-    """per_year: {year: [values of that year's clear dates in `month`]} -> series; years are RECENT seasons 2015-2024."""
+    """per_year: {year: [values of that year's clear dates in `month`]} -> series; years are RECENT seasons 2016-2025."""
     return {f"{y}-{month:02d}-{1 + 3 * i:02d}": v for y, vs in per_year.items() for i, v in enumerate(vs)}
 
 
@@ -704,26 +723,26 @@ def test_hls_check_bare_rule():
     green, low = 0.7, 0.1
     check = lambda per_year, modis=(): build.hls_check(_hls_series(per_year), modis)
     # 4 covered years: unknown, even if all are bare; 5 covered: decided
-    r = check({y: [low] for y in range(2015, 2019)})
+    r = check({y: [low] for y in range(2016, 2020)})
     assert 3 in r["unknown_months"] and 3 not in r["bare_months"] and r["years_covered_per_month"][2] == 4
-    assert 3 in check({y: [low] for y in range(2015, 2020)})["bare_months"]
+    assert 3 in check({y: [low] for y in range(2016, 2021)})["bare_months"]
     # strict majority: 3 bare of 5 covered is bare; 3 of 6 is not; 4 of 6 is
-    five = {2015: [low], 2016: [low], 2017: [low], 2018: [green], 2019: [green]}
+    five = {2016: [low], 2017: [low], 2018: [low], 2019: [green], 2020: [green]}
     assert 3 in check(five)["bare_months"]
-    six = {**five, 2020: [green]}
+    six = {**five, 2021: [green]}
     assert 3 not in check(six)["bare_months"] and 3 not in check(six)["unknown_months"]
-    assert 3 in check({**six, 2019: [low]})["bare_months"]
+    assert 3 in check({**six, 2020: [low]})["bare_months"]
     # a year-month votes once with the MEAN of its dates: three dates (0.1, 0.1, 0.8) average 0.33, not bare; pooling dates would say bare
-    assert 3 not in check({y: [0.1, 0.1, 0.8] for y in range(2015, 2020)})["bare_months"]
+    assert 3 not in check({y: [0.1, 0.1, 0.8] for y in range(2016, 2021)})["bare_months"]
     # no value is borrowed from a neighbouring month: Feb and Apr data never make March covered
-    s = {f"{y}-{m:02d}-01": low for y in range(2015, 2021) for m in (2, 4)}
+    s = {f"{y}-{m:02d}-01": low for y in range(2016, 2021) for m in (2, 4)}
     r = build.hls_check(s, [2])
     assert r["years_covered_per_month"][2] == 0 and 3 in r["unknown_months"] and 2 in r["bare_months"] and 4 in r["bare_months"]
     assert r["modis_bare_months"] == [2]
     # clear dates per month: average over the 10 years, a year with none counts as 0; dates outside the RECENT seasons are ignored
-    r = check({y: [green, green] for y in range(2015, 2020)})
+    r = check({y: [green, green] for y in range(2016, 2021)})
     assert r["clear_dates_per_month"][2] == 1.0 and r["years_covered_per_month"][2] == 5
-    assert build.hls_check({"2013-03-01": low, "2025-03-01": low})["years_covered_per_month"] == [0] * 12
+    assert build.hls_check({"2013-03-01": low, "2026-03-01": low})["years_covered_per_month"] == [0] * 12
     assert build.hls_check({})["unknown_months"] == list(range(1, 13))
 
 
@@ -789,11 +808,11 @@ def test_weather_files_complete():
         w = build.read_weather(p["id"])
         d = w["daily"]
         assert w["source"]["title"] == "ERA5 / ERA5-Land (Copernicus Climate Change Service, ECMWF) via Open-Meteo"
-        assert d["time"][0] == "2000-12-01" and d["time"][-1] >= "2024-11-30", (p["id"], d["time"][0], d["time"][-1])
+        assert d["time"][0] == "2000-12-01" and d["time"][-1] >= build.PERIOD[1].isoformat(), (p["id"], d["time"][0], d["time"][-1])
         assert all(len(d[k]) == len(d["time"]) for k in ("tmax", "tmin", "et0", "tmax_land"))
         for k in ("tmax", "tmin", "et0", "tmax_land"):   # a sea cell has no ERA5-Land: it must fail here, not be filled from ERA5
             assert any(v is not None for v in d[k]), (p["id"], k, "series is empty")
-        period = [i for i, t in enumerate(d["time"]) if "2000-12-01" <= t <= "2024-11-30"]
+        period = [i for i, t in enumerate(d["time"]) if build.PERIOD[0].isoformat() <= t <= build.PERIOD[1].isoformat()]
         assert all(d[k][i] is not None for k in ("tmax", "tmin", "et0", "tmax_land") for i in period), p["id"]
 
 
@@ -1024,11 +1043,11 @@ def station_at(name, dlat_km=0.0):
 def test_salt_window():
     assert salinity.SALT_SEASONS == (2016, 2026)
     assert salinity.salt_elnino(2024) and not salinity.salt_elnino(2025) and not salinity.salt_elnino(2026)
-    assert salinity.salt_elnino(2016) and not salinity.salt_elnino(2017)  # straight from oni.txt, not limited to PERIOD
+    assert salinity.salt_elnino(2016) and not salinity.salt_elnino(2017)  # straight from roni.txt, not limited to PERIOD
     _, first, last, _ = salinity.station_salt(salinity.DATA, "tran_de", False)
     assert first == 2017 and last >= 2025, (first, last)
     _, first, last, n = salinity.station_salt(salinity.DATA, "tran_de", True)
-    assert (first, last, n) == (2016, 2024, 4)  # El Niño dry seasons 2016, 2019, 2020, 2024
+    assert (first, last, n) == (2016, 2024, 3)  # El Niño dry seasons 2016, 2019, 2024 (RONI: 2020 is 0.14)
     s = {x["id"]: x for x in json.loads((build.ROOT / "docs/data/sites.json").read_text(encoding="utf-8"))["sites"]}
     assert s["nga_nam"]["salinity"]["level"] == "low" and s["nga_nam"]["elnino"]["salinity"]["level"] == "low"
 
