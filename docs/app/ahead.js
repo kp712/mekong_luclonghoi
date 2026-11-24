@@ -2,7 +2,7 @@
    Ahead.salt(siteId, today) -> {en, vi, risk} for the KTTV 10-day salt forecast at a site, or null when there is none or its
    period ended more than 14 days before `today` (the forecast is then old news and is hidden, not shown as current).
    Reads SITES_JSON (load.js): salt_forecast (issue date, period, risk) and the site's salt_forecast (station, ppt), both from build.py.
-   test_build.py (test_forecast_stale) runs this file in Node. Ahead.planting(today): the official planting windows, hidden after finish_by. The outlook goes in this file too. */
+   test_build.py (test_forecast_stale) runs this file in Node. Ahead.planting(today): the official planting windows, hidden after finish_by. Ahead.outlook(siteId, today): the 3-month SEAS5 rain outlook, hidden when its months are past or its issue date is over 45 days old. */
 const Ahead = (() => {
   const STALE_DAYS = 14;
   const MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -39,5 +39,21 @@ const Ahead = (() => {
       vi: `Lịch thời vụ chính thức, ${w.season_vi} (${src}, ban hành ngày ${id}/${im}/${iy}): ${each(true)}; ${w.finish_vi} ngày ${fd}/${fm}/${fy}. ${w.note_vi}`
     };
   }
-  return { salt, planting };
+  /* 3-month rain outlook at a pin (build.py outlook3 + seasonal meta, from pipeline/fetch_seasonal.py): wetter / drier / normal per month, never mm.
+     Months already over are dropped; null when none are left, when the issue date is over 45 days old, or when the site has none (province points). */
+  const OUT_DAYS = 45, OUT_EN = { wetter: "wetter", drier: "drier", normal: "near normal" }, OUT_VI = { wetter: "mưa nhiều hơn thường lệ", drier: "mưa ít hơn thường lệ", normal: "gần mức thường lệ" };
+  function outlook(siteId, today = new Date()) {
+    const J = typeof SITES_JSON !== "undefined" && SITES_JSON, m = J && J.seasonal, s = m && J.sites.find((x) => x.id === siteId), o = s && s.outlook3;
+    if (!o) return null;
+    const t = Date.UTC(today.getFullYear(), today.getMonth(), today.getDate()), [iy, im, id] = ymd(m.issued);
+    if (t - Date.UTC(iy, im - 1, id) > OUT_DAYS * 864e5) return null;
+    const left = o.filter((x) => { const [y, mo] = ymd(x.month); return t < Date.UTC(y, mo, 1) });  // month ends before today: past
+    if (!left.length) return null;
+    const each = (vi) => left.map((x) => `${vi ? "tháng " + ymd(x.month)[1] : MON[ymd(x.month)[1] - 1]} ${(vi ? OUT_VI : OUT_EN)[x.label]}`).join("; ");
+    return {
+      en: `Rain outlook, ${each()}. ECMWF SEAS5 via Open-Meteo, not bias-corrected, issued ${id} ${MON[im - 1]} ${iy}. A forecast, not a measurement: wetter or drier means more than 20% above or below the model's own normal for that month (our choice of threshold). Sóc Trăng areas only.`,
+      vi: `Dự báo mưa: ${each(true)}. ECMWF SEAS5 qua Open-Meteo, chưa hiệu chỉnh sai lệch, bản ngày ${id}/${im}/${iy}. Đây là dự báo, không phải số đo: "nhiều hơn" hoặc "ít hơn" là lệch trên 20% so với mức thường lệ của chính mô hình cho tháng đó (ngưỡng do nhóm chọn). Chỉ có cho các vùng Sóc Trăng.`
+    };
+  }
+  return { salt, planting, outlook };
 })();

@@ -289,9 +289,9 @@ const Dash = (() => {
   const mv = () => (selM == null ? CM : selM);
   const MLONG = (m) => (lang() === "vi" ? "Tháng " + (m + 1) : ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][m]);
   /* the season ahead: the KTTV salt forecast now; the planting window and the rain outlook join it (Ahead, ahead.js). Hidden when nothing is current. */
-  const aheadParts = (f) => ({ sf: Ahead.salt(f.site), pw: Ahead.planting(siteOf(f.site).region) });
-  const aheadText = (f) => { const { sf, pw } = aheadParts(f); return (sf ? `<p class="a-mut">${esc(L(sf))}</p>${sf.risk ? `<p class="a-mut">${esc(L(sf.risk))}</p>` : ""}` : "") + (pw ? `<p class="a-mut">${esc(L(pw))}</p>` : "") };
-  const aheadSrc = (f) => { const { sf, pw } = aheadParts(f); return [sf && "KTTV", pw && "Cục Trồng trọt và BVTV"].filter(Boolean).join(" · ") };
+  const aheadParts = (f) => ({ sf: Ahead.salt(f.site), ro: Ahead.outlook(f.site), pw: Ahead.planting(siteOf(f.site).region) });
+  const aheadText = (f) => { const { sf, ro, pw } = aheadParts(f); return (sf ? `<p class="a-mut">${esc(L(sf))}</p>${sf.risk ? `<p class="a-mut">${esc(L(sf.risk))}</p>` : ""}` : "") + (ro ? `<p class="a-mut">${esc(L(ro))}</p>` : "") + (pw ? `<p class="a-mut">${esc(L(pw))}</p>` : "") };
+  const aheadSrc = (f) => { const { sf, ro, pw } = aheadParts(f); return [sf && "KTTV", ro && "ECMWF SEAS5 · Open-Meteo", pw && "Cục Trồng trọt và BVTV"].filter(Boolean).join(" · ") };
   const aheadTile = (f) => { const b = aheadText(f); return b ? tile("ahead", "a-g10", esc(T("aheadH")), b, aheadSrc(f)) : "" };
   const aheadCard = (f) => { const b = aheadText(f); return b ? `<section class="s-card s-ahead"><span class="s-k">${ic("cal", 18)}${esc(T("aheadH"))}</span>${b}<small>${esc(aheadSrc(f))}</small></section>` : "" };
   const tile = (key, cls, head, body, src) => `<section class="a-t ${cls}" data-zoom="${key}">

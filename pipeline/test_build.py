@@ -1296,6 +1296,45 @@ def test_planting_window_stale():
     assert r["now"]["vi"].startswith("L\u1ecbch th\u1eddi v\u1ee5 ch\u00ednh th\u1ee9c, \u0110\u00f4ng Xu\u00e2n 2026\u201327 (C\u1ee5c Tr\u1ed3ng tr\u1ecdt v\u00e0 BVTV, ban h\u00e0nh ng\u00e0y 19/6/2026): 10\u201330/10, ") and "10/1/2027" in r["now"]["vi"]
 
 
+def test_seasonal_outlook():
+    """The fetcher turns a saved Open-Meteo response into 3 months of anomaly % (anomaly / (mean - anomaly)) and the +-20% label."""
+    import subprocess
+    import fetch_seasonal
+    resp = json.loads((build.HERE / "fixtures" / "seasonal_vinh_chau.json").read_text(encoding="utf-8"))
+    got = fetch_seasonal.parse(resp)
+    assert got == [{"month": "2026-11", "anom_pct": -8.9, "label": "normal"}, {"month": "2026-12", "anom_pct": -35.3, "label": "drier"},
+                   {"month": "2027-01", "anom_pct": -79.1, "label": "drier"}], got  # 4 months in, 3 out; -15.1 / (154.0 + 15.1) = -8.9%
+    assert [fetch_seasonal.label(x) for x in (20, 20.1, -20, -20.1, 0)] == ["normal", "wetter", "normal", "drier", "normal"]
+    for bad in ({}, {"monthly": {"time": ["2026-11-01"], "precipitation_mean": [1], "precipitation_anomaly": [0]}},
+                {"monthly": {"time": ["2026-11-01"] * 3, "precipitation_mean": [0, 1, 1], "precipitation_anomaly": [0, 0, 0]}}):
+        try:
+            fetch_seasonal.parse(bad)
+            assert False, "expected ValueError"
+        except ValueError:
+            pass
+    build.build()
+    d = json.loads(build.OUT.read_text(encoding="utf-8"))
+    sea = json.loads((build.RAW / "seasonal.json").read_text(encoding="utf-8"))
+    assert d["seasonal"] == {"issued": sea["issued"], "model": sea["model"]} and all(s["outlook3"] == sea["points"][s["id"]] for s in d["sites"])
+    js = r"""
+    const fs = require("fs"), vm = require("vm"), root = process.argv[1];
+    const ctx = { SITES_JSON: JSON.parse(fs.readFileSync(root + "/data/sites.json", "utf8")) };
+    vm.createContext(ctx);
+    vm.runInContext(fs.readFileSync(root + "/app/ahead.js", "utf8").replace(/^const Ahead =/m, "globalThis.Ahead ="), ctx);
+    const S = ctx.SITES_JSON; S.seasonal = { issued: "2026-11-01", model: "x" };
+    S.sites.find((x) => x.id === "tran_de").outlook3 = [{ month: "2026-11", label: "normal" }, { month: "2026-12", label: "drier" }, { month: "2027-01", label: "wetter" }];
+    const at = (y, m, d, id = "tran_de") => ctx.Ahead.outlook(id, new Date(y, m - 1, d));
+    const on = at(2026, 11, 24), dec = at(2026, 12, 15), last = at(2026, 12, 16), old = at(2026, 12, 17), pt = at(2026, 11, 24, "nope");
+    S.seasonal.issued = "2026-12-20";  // a late issue, so the months run out (1 Feb) before the 45 days do (3 Feb)
+    console.log(JSON.stringify({ on, dec, last, old, pt, jan: at(2027, 1, 31), end: at(2027, 2, 1) }));
+    """
+    r = json.loads(subprocess.run(["node", "-e", js, str(build.ROOT / "docs")], capture_output=True, text=True, check=True).stdout)
+    assert r["on"] and r["dec"] and r["last"] and r["jan"] and not r["end"] and not r["old"] and not r["pt"], r  # 45 days from 1 Nov is 16 Dec: hidden from 17 Dec
+    assert r["on"]["en"].startswith("Rain outlook, Nov near normal; Dec drier; Jan wetter. ECMWF SEAS5 via Open-Meteo, not bias-corrected, issued 1 Nov 2026.") and "mm" not in r["on"]["en"].split()
+    assert r["on"]["vi"].startswith("D\u1ef1 b\u00e1o m\u01b0a: th\u00e1ng 11 g\u1ea7n m\u1ee9c th\u01b0\u1eddng l\u1ec7; th\u00e1ng 12 m\u01b0a \u00edt h\u01a1n th\u01b0\u1eddng l\u1ec7;") and "b\u1ea3n ng\u00e0y 1/11/2026" in r["on"]["vi"]
+    assert not r["dec"]["en"].startswith("Rain outlook, Nov") and r["dec"]["en"].startswith("Rain outlook, Dec")  # November is over
+
+
 def test_score_parity():
     """docs/app/score.js (Plan Lab, dashboard pests) gives every card in sites.json the same scores as build.py."""
     import subprocess

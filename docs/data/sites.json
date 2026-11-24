@@ -1,5 +1,9 @@
 {
  "generated": "2026-11-24",
+ "seasonal": {
+  "issued": "2026-11-01",
+  "model": "ECMWF SEAS5 via Open-Meteo (not bias-corrected)"
+ },
  "bounds": {
   "w": 103.0,
   "e": 107.0,
@@ -955,6 +959,23 @@
     "km": 16.0,
     "ppt": 0.2
    },
+   "outlook3": [
+    {
+     "month": "2026-11",
+     "anom_pct": -8.9,
+     "label": "normal"
+    },
+    {
+     "month": "2026-12",
+     "anom_pct": -35.3,
+     "label": "drier"
+    },
+    {
+     "month": "2027-01",
+     "anom_pct": -79.1,
+     "label": "drier"
+    }
+   ],
    "climate": {
     "rain_mm": [
      17,
@@ -4510,6 +4531,23 @@
     "km": 11.6,
     "ppt": 4.8
    },
+   "outlook3": [
+    {
+     "month": "2026-11",
+     "anom_pct": -8.9,
+     "label": "normal"
+    },
+    {
+     "month": "2026-12",
+     "anom_pct": -35.3,
+     "label": "drier"
+    },
+    {
+     "month": "2027-01",
+     "anom_pct": -79.1,
+     "label": "drier"
+    }
+   ],
    "climate": {
     "rain_mm": [
      17,
@@ -7802,6 +7840,23 @@
     "km": 5.4,
     "ppt": 0.2
    },
+   "outlook3": [
+    {
+     "month": "2026-11",
+     "anom_pct": -4.5,
+     "label": "normal"
+    },
+    {
+     "month": "2026-12",
+     "anom_pct": -28.7,
+     "label": "drier"
+    },
+    {
+     "month": "2027-01",
+     "anom_pct": -76.3,
+     "label": "drier"
+    }
+   ],
    "climate": {
     "rain_mm": [
      16,
@@ -11118,6 +11173,23 @@
     "km": 2.8,
     "ppt": 2.2
    },
+   "outlook3": [
+    {
+     "month": "2026-11",
+     "anom_pct": 10.1,
+     "label": "normal"
+    },
+    {
+     "month": "2026-12",
+     "anom_pct": -19.8,
+     "label": "normal"
+    },
+    {
+     "month": "2027-01",
+     "anom_pct": -73.6,
+     "label": "drier"
+    }
+   ],
    "climate": {
     "rain_mm": [
      16,
@@ -14445,6 +14517,23 @@
     "vi": "Khu vực Ngã Năm cũ (nội đồng)"
    },
    "salt_forecast": null,
+   "outlook3": [
+    {
+     "month": "2026-11",
+     "anom_pct": 6.8,
+     "label": "normal"
+    },
+    {
+     "month": "2026-12",
+     "anom_pct": -11.3,
+     "label": "normal"
+    },
+    {
+     "month": "2027-01",
+     "anom_pct": -70.3,
+     "label": "drier"
+    }
+   ],
    "climate": {
     "rain_mm": [
      21,

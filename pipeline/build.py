@@ -965,6 +965,7 @@ def build():
     chirps = json.loads((RAW / "chirps.json").read_text(encoding="utf-8"))
     imerg = json.loads((RAW / "gpm.json").read_text(encoding="utf-8"))  # cross-check only, never mixed into the rain series
     sites = []
+    seasonal = json.loads((RAW / "seasonal.json").read_text(encoding="utf-8")) if (RAW / "seasonal.json").exists() else None
     for s in SITES:
         rain = point_rain(chirps, s["id"])
         weather = read_weather(s["id"])
@@ -989,7 +990,7 @@ def build():
         sal, sal_e = salinity.at(s)
         cards = [card(r, clim, nd, sal, soil=soil, site=s['id']) for r in rotations]
         cards_e = [card(r, clim_e, nd, sal_e, elnino=True, soil=soil, site=s['id']) for r in rotations]
-        sites.append(dict(s, salt_forecast=salinity.forecast_at(s), climate=clim, ndvi=nd, salinity=sal, soil=soil, cards=cards, summary=summary(clim, nd, sal),
+        sites.append(dict(s, salt_forecast=salinity.forecast_at(s), outlook3=(seasonal or {}).get("points", {}).get(s["id"]), climate=clim, ndvi=nd, salinity=sal, soil=soil, cards=cards, summary=summary(clim, nd, sal),
                           seed_check=seed_check(clim, sal),
                           rain_check=rain_check(rain, imerg[s["id"]]) if s["id"] in imerg else None,
                           hls_check=hls_result,
@@ -998,7 +999,8 @@ def build():
     soil_help = [dict({k: v for k, v in h.items() if k != "sources"}, src=cite(h["sources"])) for h in rot_file["soil_help"]]
     resources = {k: dict({a: b for a, b in r.items() if a != "sources"}, src=cite(r["sources"])) for k, r in RESOURCES.items()}
     OUT.parent.mkdir(parents=True, exist_ok=True)
-    write_dated(OUT, {"bounds": area_bounds(salinity.DATA["area"]), "soil_help": soil_help,
+    write_dated(OUT, {"seasonal": {k: seasonal[k] for k in ("issued", "model")} if seasonal else None,  # per-pin 3-month rain outlook is in each site's outlook3 (pipeline/fetch_seasonal.py)
+                      "bounds": area_bounds(salinity.DATA["area"]), "soil_help": soil_help,
                       "salt_forecast": {k: v for k, v in (salinity.DATA["forecast"] or {}).items() if k != "stations"} or None,  # per-point values are in each site's salt_forecast
                       "planting": json.loads((ROOT / "pipeline" / "planting_windows.json").read_text(encoding="utf-8")),  # hand-kept official windows; Ahead.planting hides them after finish_by
                       "outlook": dict({k: OUTLOOK[k] for k in ("elnino", "pct", "text")}, src=outlook_src), "resources": resources, "pest_rule": pest_rule,
