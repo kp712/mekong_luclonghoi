@@ -289,9 +289,11 @@ const Dash = (() => {
   const mv = () => (selM == null ? CM : selM);
   const MLONG = (m) => (lang() === "vi" ? "Tháng " + (m + 1) : ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][m]);
   /* the season ahead: the KTTV salt forecast now; the planting window and the rain outlook join it (Ahead, ahead.js). Hidden when nothing is current. */
-  const aheadText = (f) => { const sf = Ahead.salt(f.site), pw = Ahead.planting(); return (sf ? `<p class="a-mut">${esc(L(sf))}</p>${sf.risk ? `<p class="a-mut">${esc(L(sf.risk))}</p>` : ""}` : "") + (pw ? `<p class="a-mut">${esc(L(pw))}</p>` : "") };
-  const aheadTile = (f) => { const b = aheadText(f); return b ? tile("ahead", "a-g10", esc(T("aheadH")), b, "KTTV") : "" };
-  const aheadCard = (f) => { const b = aheadText(f); return b ? `<section class="s-card s-ahead"><span class="s-k">${ic("cal", 18)}${esc(T("aheadH"))}</span>${b}<small>KTTV</small></section>` : "" };
+  const aheadParts = (f) => ({ sf: Ahead.salt(f.site), pw: Ahead.planting(siteOf(f.site).region) });
+  const aheadText = (f) => { const { sf, pw } = aheadParts(f); return (sf ? `<p class="a-mut">${esc(L(sf))}</p>${sf.risk ? `<p class="a-mut">${esc(L(sf.risk))}</p>` : ""}` : "") + (pw ? `<p class="a-mut">${esc(L(pw))}</p>` : "") };
+  const aheadSrc = (f) => { const { sf, pw } = aheadParts(f); return [sf && "KTTV", pw && "Cục Trồng trọt và BVTV"].filter(Boolean).join(" · ") };
+  const aheadTile = (f) => { const b = aheadText(f); return b ? tile("ahead", "a-g10", esc(T("aheadH")), b, aheadSrc(f)) : "" };
+  const aheadCard = (f) => { const b = aheadText(f); return b ? `<section class="s-card s-ahead"><span class="s-k">${ic("cal", 18)}${esc(T("aheadH"))}</span>${b}<small>${esc(aheadSrc(f))}</small></section>` : "" };
   const tile = (key, cls, head, body, src) => `<section class="a-t ${cls}" data-zoom="${key}">
     <h3 class="a-h">${head}<button type="button" class="a-exp" data-zoomb="${key}" aria-label="${esc(T("open"))}: ${esc(head.replace(/<[^>]+>/g, ""))}">${ic("expand", 14)}</button></h3>${body}${src ? `<p class="a-src">${esc(src)}</p>` : ""}</section>`;
   function gauge(g, big) {

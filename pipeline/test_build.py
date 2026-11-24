@@ -1282,15 +1282,18 @@ def test_planting_window_stale():
     const ctx = { SITES_JSON: JSON.parse(fs.readFileSync(root + "/data/sites.json", "utf8")) };
     vm.createContext(ctx);
     vm.runInContext(fs.readFileSync(root + "/app/ahead.js", "utf8").replace(/^const Ahead =/m, "globalThis.Ahead ="), ctx);
-    const at = (y, m, d) => ctx.Ahead.planting(new Date(y, m - 1, d));
-    console.log(JSON.stringify({ now: at(2026, 11, 24), last: at(2027, 1, 10), off: at(2027, 1, 11) }));
+    const at = (y, m, d, reg) => ctx.Ahead.planting(reg, new Date(y, m - 1, d));
+    const w0 = ctx.SITES_JSON.planting[0];  // a second Delta entry, finishing later: it takes over once the first has expired
+    ctx.SITES_JSON.planting.push({ ...w0, id: "next", finish_by: "2027-06-30", season_en: "next" });
+    console.log(JSON.stringify({ now: at(2026, 11, 24), last: at(2027, 1, 10), off: at(2027, 1, 11), tn: at(2026, 11, 24, "southeast"), two: at(2027, 1, 11, "mekong_delta") }));
     """
     r = json.loads(subprocess.run(["node", "-e", js, str(build.ROOT / "docs")], capture_output=True, text=True, check=True).stdout)
-    assert r["now"] and r["last"] and not r["off"], r
-    assert r["now"]["en"] == ("Official planting windows, \u0110\u00f4ng Xu\u00e2n 2026\u201327 (C\u1ee5c Tr\u1ed3ng tr\u1ecdt v\u00e0 BVTV, issued 19 Jun 2026): "
+    assert r["now"] and r["last"] and not r["tn"], r  # Tay Ninh (southeast) gets no Delta window
+    assert r["off"]["en"].find("next") > 0 and r["two"]["en"] == r["off"]["en"] and "next" not in r["last"]["en"], r  # second entry shown after the first expires
+    assert r["now"]["en"] == ("Official planting windows, \u0110\u00f4ng Xu\u00e2n (winter\u2013spring) 2026\u201327 (C\u1ee5c Tr\u1ed3ng tr\u1ecdt v\u00e0 BVTV, issued 19 Jun 2026): "
         "10\u201330 Oct, early sowing in coastal areas at risk of late-season drought; 1\u201331 Dec, wave 2 (about 200,000 ha, 16% of the plan); "
         "late areas finish sowing by 10 Jan 2027. Sources disagree on the size of the early wave (350,000 ha, 28%, in one news summary)."), r["now"]["en"]
-    assert r["now"]["vi"].startswith("L\u1ecbch th\u1eddi v\u1ee5 ch\u00ednh th\u1ee9c, \u0110\u00f4ng Xu\u00e2n 2026\u201327 (C\u1ee5c Tr\u1ed3ng tr\u1ecdt v\u00e0 BVTV, ng\u00e0y 19/6/2026): 10\u201330/10, ") and "10/1/2027" in r["now"]["vi"]
+    assert r["now"]["vi"].startswith("L\u1ecbch th\u1eddi v\u1ee5 ch\u00ednh th\u1ee9c, \u0110\u00f4ng Xu\u00e2n 2026\u201327 (C\u1ee5c Tr\u1ed3ng tr\u1ecdt v\u00e0 BVTV, ban h\u00e0nh ng\u00e0y 19/6/2026): 10\u201330/10, ") and "10/1/2027" in r["now"]["vi"]
 
 
 def test_score_parity():

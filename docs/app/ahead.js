@@ -26,16 +26,17 @@ const Ahead = (() => {
       risk: m.risk ? { en: `KTTV salt disaster-risk level: ${m.risk}.`, vi: `Cấp độ rủi ro thiên tai do xâm nhập mặn (KTTV): cấp ${m.risk}.` } : null
     };
   }
-  /* Official planting windows (pipeline/planting_windows.json, hand-kept); null once finish_by has passed. */
-  function planting(today = new Date()) {
-    const w = (typeof SITES_JSON !== "undefined" && SITES_JSON.planting || [])[0];
-    const [fy, fm, fd] = w ? ymd(w.finish_by) : [];
-    if (!w || Date.UTC(today.getFullYear(), today.getMonth(), today.getDate()) > Date.UTC(fy, fm - 1, fd)) return null;
-    const [iy, im, id] = ymd(w.issued), [sy, sn] = [w.season.slice(0, 7), w.season.slice(8)];
+  /* Official planting windows (pipeline/planting_windows.json, hand-kept): the first entry for `region` whose finish_by has not passed, else null.
+     Pins carry no region and are all in the Delta, hence the default. */
+  function planting(region = "mekong_delta", today = new Date()) {
+    const t = Date.UTC(today.getFullYear(), today.getMonth(), today.getDate());
+    const w = (typeof SITES_JSON !== "undefined" && SITES_JSON.planting || []).find((x) => x.region === region && t <= Date.UTC(...ymd(x.finish_by).map((v, i) => (i === 1 ? v - 1 : v))));
+    if (!w) return null;
+    const [iy, im, id] = ymd(w.issued), [fy, fm, fd] = ymd(w.finish_by);
     const src = w.source.title.split(":")[0], each = (vi) => w.windows.map((x) => `${span(x.from, x.to, vi)}, ${vi ? x.vi : x.en}`).join("; ");
     return {
-      en: `Official planting windows, ${sn} ${sy} (${src}, issued ${id} ${MON[im - 1]} ${iy}): ${each()}; ${w.finish_en} ${fd} ${MON[fm - 1]} ${fy}. ${w.note_en}`,
-      vi: `Lịch thời vụ chính thức, ${sn} ${sy} (${src}, ngày ${id}/${im}/${iy}): ${each(true)}; ${w.finish_vi} ngày ${fd}/${fm}/${fy}. ${w.note_vi}`
+      en: `Official planting windows, ${w.season_en} (${src}, issued ${id} ${MON[im - 1]} ${iy}): ${each()}; ${w.finish_en} ${fd} ${MON[fm - 1]} ${fy}. ${w.note_en}`,
+      vi: `Lịch thời vụ chính thức, ${w.season_vi} (${src}, ban hành ngày ${id}/${im}/${iy}): ${each(true)}; ${w.finish_vi} ngày ${fd}/${fm}/${fy}. ${w.note_vi}`
     };
   }
   return { salt, planting };
