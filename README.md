@@ -11,7 +11,7 @@
 | <img src="media/phone.jpg" alt="Ứng dụng trên điện thoại, tiếng Việt: ngày hôm nay, ruộng mẫu ở Mỹ Xuyên, kế hoạch 3 vụ lúa, vụ lúa đang ở ngày 53 trên 95, còn 42 ngày tới gặt, và thanh dưới: Hôm nay, Mùa vụ, Kế hoạch, Số liệu, Ruộng" width="300"> | <img src="media/desktop.jpg" alt="The app on a computer in English: the sample field's current rice crop with days to harvest and the next step, this month's rain (CHIRPS), crop water need (ERA5) and greenness (NASA MODIS NDVI), and this month's pest level for brown planthopper" width="500"> |
 
 **Dành cho bà con và cán bộ khuyến nông**
-- **Số liệu từ đâu.** Mưa lấy từ CHIRPS (Trung tâm Khí hậu của Đại học California Santa Barbara, ước tính từ vệ tinh và trạm đo mưa); nắng nóng và độ xanh của ruộng lấy từ vệ tinh NASA (từ tháng 12/2000 đến mùa tháng 12–11 trọn vẹn gần nhất, tự cập nhật). Độ mặn là **ước tính** từ trạm đo trên sông (bản tin của Trung tâm Dự báo KTTV quốc gia và báo cáo đã công bố), không phải đo trong ruộng. Mỗi con số trong ứng dụng đều ghi nguồn.
+- **Số liệu từ đâu.** Mưa lấy từ CHIRPS (Trung tâm Khí hậu của Đại học California Santa Barbara, ước tính từ vệ tinh và trạm đo mưa); nắng nóng lấy từ ERA5 (Copernicus, ECMWF); độ xanh của ruộng lấy từ vệ tinh NASA (từ tháng 12/2000 đến mùa tháng 12–11 trọn vẹn gần nhất). Số liệu tự cập nhật vào ngày 8 và 20 hằng tháng. Độ mặn là **ước tính** từ trạm đo trên sông (bản tin của Trung tâm Dự báo KTTV quốc gia và báo cáo đã công bố), không phải đo trong ruộng. Mỗi con số trong ứng dụng đều ghi nguồn.
 - **Mùa tới (dự báo, không phải số đo).** Dự báo mặn 10 ngày của KTTV, lịch thời vụ chính thức của Cục Trồng trọt và BVTV, dự báo mưa 3 tháng ECMWF SEAS5 (chỉ 5 điểm Sóc Trăng) và giá gạo bán buôn Bạc Liêu (FAO/VFA, gạo xay xát, không phải giá tại ruộng). Mỗi dòng ghi nguồn và ngày; quá hạn thì tự ẩn.
 - **Không có sóng vẫn dùng được.** Lần đầu mở, điện thoại tự lưu ứng dụng và số liệu (khoảng 0,8 MB). Sau đó mở được khi không có mạng. Chọn "Thêm vào Màn hình chính" để có biểu tượng như một ứng dụng.
 - **Một cách xem cho mọi người.** Lời dễ hiểu, nút lớn; chạm **Vì sao & nguồn** (và các mục gập khác) để xem mọi con số, điểm và nguồn.
@@ -156,7 +156,7 @@ Click on the PowerShell window and press **Ctrl** + **C**, then close the window
 ### Updating the data
 <details><summary>Show the commands (for the project team; not needed to use the app)</summary>
 
-You don't need this to use the app. The data in the download is already complete. Run these from the project folder in PowerShell (see Step 3, point 1 of the Windows guide), one line at a time:
+You don't need this to use the app. The data in the download is already complete, and a GitHub Action (`.github/workflows/data.yml`) refreshes it on the 8th and 20th of each month: it runs the fetchers, rebuilds, runs the tests, and merges a PR when the data changed. It needs the repository secrets `EARTHDATA_USERNAME` / `EARTHDATA_PASSWORD` (else HLS-VI and IMERG are skipped) and, under Settings → Actions → General, "Allow GitHub Actions to create and approve pull requests". Run these from the project folder in PowerShell (see Step 3, point 1 of the Windows guide), one line at a time:
 ```
 py pipeline/fetch_era5.py       # ERA5 / ERA5-Land weather via Open-Meteo -> data/raw/ (no login)
 py pipeline/fetch_enso.py       # NOAA El Niño index + forecast -> data/raw/ (no login)

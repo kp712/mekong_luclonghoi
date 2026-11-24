@@ -13,7 +13,7 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
-from datetime import date, datetime, timedelta
+from datetime import date, timedelta
 
 from sites import points
 
@@ -35,7 +35,7 @@ def get(point, model, end):
                 return json.load(r)
         except urllib.error.HTTPError as e:
             body = e.read().decode("utf-8", "replace")
-            if e.code != 429 or "Daily" in body:
+            if (e.code != 429 or "Daily" in body) and e.code < 500:  # 5xx: a passing server error, retried
                 raise SystemExit(f"{point['id']} {model}: HTTP {e.code} {body[:200]}")
             time.sleep(30 * 2 ** i)
         except OSError:
@@ -58,8 +58,8 @@ def fetch(point, end):
 
 
 def fresh(path):
-    """True if the file was saved this month."""
-    return path.exists() and datetime.fromtimestamp(path.stat().st_mtime).strftime("%Y-%m") == date.today().strftime("%Y-%m")
+    """True if the file was fetched this month (from its own "fetched" date: a git checkout resets file times)."""
+    return path.exists() and json.loads(gzip.decompress(path.read_bytes()))["source"]["fetched"][:7] == date.today().isoformat()[:7]
 
 
 def main():

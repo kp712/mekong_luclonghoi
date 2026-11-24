@@ -1,0 +1,50 @@
+# Twice a month: fetch new data, rebuild, test; if the data changed and the tests pass, open a PR and merge it.
+# Needs (repository settings): Actions > General > "Allow GitHub Actions to create and approve pull requests", and the
+# secrets EARTHDATA_USERNAME / EARTHDATA_PASSWORD for HLS-VI and IMERG (without them those two are skipped).
+# A fetcher that fails writes nothing (each one is built that way), so its data stays as it was; the PR lists it.
+name: data
+on:
+  schedule:
+    - cron: "17 1 8,20 * *"   # 08:17 Vietnam time on the 8th (SEAS5 run out) and the 20th (last month's CHIRPS out)
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+concurrency: data
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: pip install pdfplumber tifffile imagecodecs numpy rasterio
+      - name: Fetch
+        env:
+          EARTHDATA_USERNAME: ${{ secrets.EARTHDATA_USERNAME }}
+          EARTHDATA_PASSWORD: ${{ secrets.EARTHDATA_PASSWORD }}
+        run: |
+          touch failed.txt
+          run() { echo "::group::$1"; python3 "pipeline/$1.py" || echo "$1" >> failed.txt; echo "::endgroup::"; }
+          for f in fetch_chirps fetch_era5 fetch_enso fetch_salinity_vietnam fetch_seasonal fetch_prices; do run "$f"; done
+          if [ -n "$EARTHDATA_USERNAME" ]; then run fetch_hlsvi; run fetch_gpm; else echo "no Earthdata secrets: HLS-VI and IMERG skipped" >> failed.txt; fi
+      - run: python3 pipeline/build.py
+      - run: python3 pipeline/test_build.py
+      - name: PR and merge if the data changed
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git add -A data/raw docs/data docs/app/builder.js
+          if git diff --cached --quiet; then echo "no data change"; exit 0; fi
+          b="data/$(date -u +%Y-%m-%d)"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$b"
+          git commit -q -m "Data refresh $(date -u +%Y-%m-%d)"
+          git push -q origin "$b"
+          { echo "Automatic data refresh. Tests passed."; echo; git diff --stat HEAD~1 HEAD | tail -25;
+            if [ -s failed.txt ]; then echo; echo "Not refreshed this run (old data kept):"; sed 's/^/- /' failed.txt; fi; } > body.md
+          gh pr create --base main --head "$b" --title "Data refresh $(date -u +%Y-%m-%d)" --body-file body.md
+          gh pr merge "$b" --merge --delete-branch

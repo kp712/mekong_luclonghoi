@@ -12,6 +12,7 @@ A static PWA for Mekong Delta rice farmers and extension officers (started at NA
 - Phone check: `node tools/ui_check.js` (folds, cards, steps, dashboard, old saved data, English, no sideways scroll, print, `layers` (season-ahead card and tile, short price line, stale forecast hidden), field creation, Xem thử, salt text). Exits 1 on any failure or page error. Pass check names to run only those: `node tools/ui_check.js create try`.
 - Screenshots: `node tools/shot.js [page] [outdir]`. The default page is `index.html#vietnam`. It takes desktop and phone shots and exits 1 on page errors.
 - Serve by hand: `python3 -m http.server 8000 -d docs`.
+- Data refresh: `.github/workflows/data.yml` runs the fetchers on the 8th and 20th (01:17 UTC), builds, tests, and opens and merges a PR when `data/raw` or `docs/data` changed. A fetcher that fails keeps its old data and is listed in the PR. It does not run `ui_check`. Fetchers must decide what is stale from file contents, never file times (a checkout resets them).
 - Pins must be rice at 30 m (HLS peak >= 0.7, dip < 0.35, water <= 10%); `test_build.py` fails a pin that is not. `python3 pipeline/appeears.py find-hls <pin> [half]` searches a grid for rice; check candidates on Esri imagery before `--apply`.
 
 ## File map
