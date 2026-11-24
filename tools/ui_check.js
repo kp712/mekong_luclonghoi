@@ -229,6 +229,27 @@ const CHECKS = [
     assert(JSON.stringify(fs[0]) === JSON.stringify(before), 'first field changed');
     assert(fs[1].name === 'Ruộng Trần Đề 2' && fs[1].site === 'tran_de', 'new field ' + JSON.stringify(fs[1].name));
   } },
+  { name: 'layers', async run({ page, url }) {
+    // 5 Jun 2026: inside the KTTV forecast period, the planting window, the SEAS5 run and the price month. At the real date the forecast must be gone.
+    await page.clock.setFixedTime(new Date(2026, 5, 5, 9));
+    await home(page, url); await page.locator('#lEn').click();
+    await toCards(page, url);
+    const pr = await page.locator('#cards .card:visible .vs-price').first().innerText();
+    assert(/milled, wholesale/.test(pr) && /₫\/kg/.test(pr), 'short price line on a card: ' + pr);
+    await page.reload(); await page.waitForSelector('.s-ahead');
+    const has = (t, ws, what) => ws.forEach(w => assert(t.includes(w), what + ' lacks "' + w + '": ' + t));
+    has(await page.locator('.s-ahead').innerText(), ['KTTV forecast', 'Official planting windows', 'Rain outlook'], 'Today card');
+    await page.locator('[data-dvnav=data]').click(); await page.waitForSelector('[data-zoom=ahead]');
+    has(await page.locator('[data-zoom=ahead]').innerText(), ['KTTV forecast', 'Official planting windows', 'Rain outlook'], 'ahead tile');
+    const box = k => page.locator(`[data-zoom=${k}]`).boundingBox();
+    const a = await box('ahead'), n = await box('nino');
+    assert(a && n && (a.x + a.width <= n.x + 1 || n.x + n.width <= a.x + 1 || a.y + a.height <= n.y + 1 || n.y + n.height <= a.y + 1), 'ahead and nino tiles overlap: ' + JSON.stringify([a, n]));
+    await page.setViewportSize({ width: 320, height: 640 }); await page.waitForTimeout(300);
+    assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), 'sideways scroll on the data page at 320 px');
+    await page.clock.setFixedTime(new Date()); await page.reload(); await page.waitForSelector('.s-ahead');
+    const now = await page.locator('.s-ahead').innerText();
+    assert(!/KTTV forecast/.test(now), 'a past salt forecast shows as current: ' + now);
+  } },
   { name: 'folds-no-storage', async run({ page, url, errs }) {
     await page.addInitScript(() => { const boom = () => { throw new Error('blocked') }; Storage.prototype.getItem = boom; Storage.prototype.setItem = boom; });
     await home(page, url);

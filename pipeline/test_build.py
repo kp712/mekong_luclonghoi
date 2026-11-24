@@ -1375,8 +1375,8 @@ def test_rice_price():
     assert o["on"] and o["feb"] and not o["mar"] and not o["none"], o  # month 2026-11 is 3 months old on 28 Feb 2027, 4 on 1 Mar
     assert o["on"]["en"] == ("Rice price (B\u1ea1c Li\u00eau wholesale, FAO/VFA, Nov 2026): 12,000 \u20ab/kg (milled, 5% broken), 13.7% above its 2020\u201326 median (83 months). "
                              "Profit figures are fixed published medians; they do not move with this price."), o["on"]["en"]
-    assert o["sh"]["en"] == "Rice price (FAO/VFA, Nov 2026): 12,000 \u20ab/kg, +13.7% vs 2020\u201326 median", o["sh"]
-    assert o["sh"]["vi"] == "Gi\u00e1 g\u1ea1o (FAO/VFA, th\u00e1ng 11/2026): 12.000 \u20ab/kg, +13,7% so v\u1edbi trung v\u1ecb 2020\u201326", o["sh"]
+    assert o["sh"]["en"] == "Rice price (milled, wholesale, FAO/VFA, Nov 2026): 12,000 \u20ab/kg, +13.7% vs 2020\u201326 median", o["sh"]
+    assert o["sh"]["vi"] == "Gi\u00e1 g\u1ea1o (g\u1ea1o xay x\u00e1t, b\u00e1n bu\u00f4n, FAO/VFA, th\u00e1ng 11/2026): 12.000 \u20ab/kg, +13,7% so v\u1edbi trung v\u1ecb 2020\u201326", o["sh"]
     assert o["on"]["vi"].startswith("Gi\u00e1 g\u1ea1o (b\u00e1n bu\u00f4n B\u1ea1c Li\u00eau, FAO/VFA, th\u00e1ng 11/2026): 12.000 \u20ab/kg (g\u1ea1o 5% t\u1ea5m), 13,7% cao h\u01a1n trung v\u1ecb 2020\u201326 (83 th\u00e1ng).")
     assert "9,235 \u20ab/kg" in o["dn"]["en"] and "4.3% below" in o["dn"]["en"] and "9.235" in o["dn"]["vi"] and "4,3% th\u1ea5p h\u01a1n" in o["dn"]["vi"], o["dn"]
 

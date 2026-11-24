@@ -65,8 +65,8 @@ const Ahead = (() => {
     if ((today.getFullYear() - y) * 12 + today.getMonth() + 1 - m > PRICE_MONTHS) return null;
     const up = p.pct >= 0, pc = num(Math.abs(p.pct)), when = `${MON[m - 1]} ${y}`, n = p.n;
     if (short) return {  // one line for each planner card
-      en: `Rice price (FAO/VFA, ${when}): ${thou(p.vnd_kg)} ₫/kg, ${up ? "+" : "−"}${pc}% vs 2020–26 median`,
-      vi: `Giá gạo (FAO/VFA, tháng ${m}/${y}): ${thou(p.vnd_kg, true)} ₫/kg, ${up ? "+" : "−"}${num(Math.abs(p.pct), true)}% so với trung vị 2020–26`,
+      en: `Rice price (milled, wholesale, FAO/VFA, ${when}): ${thou(p.vnd_kg)} ₫/kg, ${up ? "+" : "−"}${pc}% vs 2020–26 median`,
+      vi: `Giá gạo (gạo xay xát, bán buôn, FAO/VFA, tháng ${m}/${y}): ${thou(p.vnd_kg, true)} ₫/kg, ${up ? "+" : "−"}${num(Math.abs(p.pct), true)}% so với trung vị 2020–26`,
       src: "FAO FPMA · VFA"
     };
     return {

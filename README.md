@@ -12,6 +12,7 @@
 
 **Dành cho bà con và cán bộ khuyến nông**
 - **Số liệu từ đâu.** Mưa lấy từ CHIRPS (Trung tâm Khí hậu của Đại học California Santa Barbara, ước tính từ vệ tinh và trạm đo mưa); nắng nóng và độ xanh của ruộng lấy từ vệ tinh NASA (từ tháng 12/2000 đến mùa tháng 12–11 trọn vẹn gần nhất, tự cập nhật). Độ mặn là **ước tính** từ trạm đo trên sông (bản tin của Trung tâm Dự báo KTTV quốc gia và báo cáo đã công bố), không phải đo trong ruộng. Mỗi con số trong ứng dụng đều ghi nguồn.
+- **Mùa tới (dự báo, không phải số đo).** Dự báo mặn 10 ngày của KTTV, lịch thời vụ chính thức của Cục Trồng trọt và BVTV, dự báo mưa 3 tháng ECMWF SEAS5 (chỉ 5 điểm Sóc Trăng) và giá gạo bán buôn Bạc Liêu (FAO/VFA, gạo xay xát, không phải giá tại ruộng). Mỗi dòng ghi nguồn và ngày; quá hạn thì tự ẩn.
 - **Không có sóng vẫn dùng được.** Lần đầu mở, điện thoại tự lưu ứng dụng và số liệu (khoảng 0,8 MB). Sau đó mở được khi không có mạng. Chọn "Thêm vào Màn hình chính" để có biểu tượng như một ứng dụng.
 - **Một cách xem cho mọi người.** Lời dễ hiểu, nút lớn; chạm **Vì sao & nguồn** (và các mục gập khác) để xem mọi con số, điểm và nguồn.
 - **So với cách đang làm.** Mỗi cách luân canh ghi rõ so với cách bạn đang trồng: tiền lời và tiền vốn hơn kém bao nhiêu cho diện tích ruộng của bạn, và số tháng cây bị mặn nhiều hay ít hơn (ước tính từ số liệu đã công bố).
@@ -48,6 +49,8 @@ One view for everyone: plain words and big buttons; tap **Why & sources** (and t
 | [CHIRPS v3.0](https://www.chc.ucsb.edu/data/chirps3) (Climate Hazards Center, UC Santa Barbara; not NASA) | Rain each month (satellite and rain-gauge estimate) | ~5 km, Dec 2000 – Nov 2025 (rolls: the newest whole Dec–Nov season) |
 | [ERA5 / ERA5-Land (Copernicus Climate Change Service, ECMWF) via Open-Meteo](https://open-meteo.com/en/docs/historical-weather-api) (CC BY 4.0) | ERA5: daily maximum and minimum temperature (mean temperature for pest pressure) and the FAO-56 reference evapotranspiration (ET₀) that Open-Meteo computes; ERA5-Land: days at or above 35 °C | ERA5 ~25 km, ERA5-Land ~10 km, Dec 2000 – Nov 2025 (rolls: the newest whole Dec–Nov season) |
 | [NASA MODIS MOD13Q1 v6.1 NDVI](https://lpdaac.usgs.gov/products/mod13q1v061/) via [NASA AppEEARS](https://appeears.earthdatacloud.nasa.gov/) | Field greenness, crops per year, months fields are usually bare | 250 m, 16-day, 2000–2025 |
+
+The season ahead (forecasts and a price, not measurements; each line names its source and date and hides itself when old): the KTTV 10-day salt forecast, the official planting windows (Cục Trồng trọt và BVTV), a 3-month wetter/drier rain outlook (ECMWF SEAS5, Sóc Trăng pins only) and the Bạc Liêu wholesale rice price (FAO/VFA, milled rice, not a farm-gate price).
 
 Other data, not NASA: SoilGrids 2.0 topsoil clay and organic carbon (a model, not a soil test; pH is not shown, because at 250 m it rates the acid-sulfate sites of Đồng Tháp Mười as less acid than the alluvial soils of Đồng Tháp); NOAA's El Niño index and monthly forecast; salinity from river and canal station records in published reports. **Salinity is never measured by satellite here: the app always labels it an estimate.** Every number in the app names its source, and every source is listed with a link. Full table, caveats and what we chose not to use: [SOURCES.md](SOURCES.md#where-each-number-comes-from).
 
