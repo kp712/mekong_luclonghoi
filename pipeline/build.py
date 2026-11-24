@@ -1085,7 +1085,7 @@ def build():
                  crops=s["ndvi"]["crops_per_year"] if s["ndvi"] else None) for s in sites]
     write_dated(PROV_OUT, {"regions": REGIONS, **head,
                            "sources": [v for _, v in sorted(SOURCES.values(), key=lambda x: x[0])], "provinces": provinces,
-                           "places": places, "pins": pins, "stations": salinity.stations()})
+                           "places": places, "pins": pins, "stations": salinity.stations(), "salt_km": salinity.SALT_KM})
     print("wrote", PROV_OUT, len(provinces), "provinces,", len(places), "province points")
 
 

@@ -1,6 +1,4 @@
 /* vn.css: the whole-country layer on the planner's map (vn.js, vnbtn.js). Uses style.css tokens and map.css's pin, plate and outline look. */
-/* borders between former provinces inside one province (map.css draws the provinces like the Sóc Trăng areas) */
-.sg-map path.vn-inner { fill: none; stroke: #fff; stroke-opacity: .7; stroke-width: 1.2px; stroke-dasharray: 2 4; stroke-linecap: round; pointer-events: none; }
 /* pins: the province's own point full size, former provinces smaller, the Sóc Trăng areas smallest */
 .vn-pin-former .sg-pin-btn { width: 32px; height: 32px; }
 .vn-pin-former .sg-p-core { width: 8px; height: 8px; margin: -4px 0 0 -4px; }

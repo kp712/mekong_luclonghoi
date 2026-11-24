@@ -19,7 +19,7 @@ A static PWA for Mekong Delta rice farmers and extension officers (started at NA
 - `docs/app/`:
   - `map.js`: the Sóc Trăng planner map.
   - `vn.js`: the Mekong Delta + Tây Ninh map (salt layer, station blend, year buttons). Its box is `bounds` in `sites.json`, from `build.area_bounds`.
-  - `vn_geo.js`: province outlines of `sites.PROVINCES`, written by `pipeline/make_outlines.py`.
+  - `vn_geo.js`: outlines of the new provinces in `sites.PROVINCES` only (OCHA COD-AB v02; former provinces are points, not drawn), written by `pipeline/make_outlines.py`. It caches only those provinces in `data/raw/adm1_vnm_2025.geojson.gz`: delete it after adding a province.
   - `rx.js`: the salt model, `RX.Model.profile`.
   - `dash.js`: the dashboard cards.
   - `app.js`: the planner.
