@@ -31,7 +31,7 @@ const Dash = (() => {
       wsteps: ["Chọn khu vực của bạn trên bản đồ", "Trả lời vài câu về ruộng", "Chọn cách trồng và lưu lại"], create: "Tạo ruộng",
       waterNow: "Nước trong ruộng tháng này", perCong: "triệu đồng mỗi công mỗi năm", perCongS: "tr/công", tapPlanS: "Kế hoạch 12 tháng", ninoShort: "Năm nay có thể hạn mặn (El Niño). Mặn có thể đến sớm hơn.",
       saltNowA: "Độ mặn trong ruộng, tháng này", chartH: "Mặn và mưa trong 12 tháng", chartL: "Biểu đồ độ mặn và lượng mưa theo tháng", rainM: "Mưa", safeH: "Tháng có cây trồng an toàn mặn", safeL: "tháng",
-      nums: "Số liệu khu vực", cropsY: "Vụ/năm thấy từ vệ tinh", rainY: "Mưa cả năm", needY: "Cây cần nước cả năm", kL: "hệ số sông → ruộng", rankH: "Cách trồng hợp nhất", rankSrc: "Điểm 1–5 theo câu trả lời của bạn", ninoH: "El Niño năm nay",
+      nums: "Số liệu khu vực", cropsY: "Vụ/năm thấy từ vệ tinh", rainY: "Mưa cả năm", needY: "Cây cần nước cả năm", kL: "hệ số sông → ruộng", rankH: "Cách trồng hợp nhất", rankSrc: "Điểm 1–5 theo câu trả lời của bạn", ninoH: "El Niño năm nay", aheadH: "Mùa tới",
       eyebrow: "Bờ biển Sóc Trăng · dữ liệu NASA", brand: "Ruộng của tôi", lead: "Các ruộng bạn đã lập kế hoạch. Chạm vào một ruộng để xem lại kế hoạch đã chọn.",
       add: "Thêm ruộng trên bản đồ", emptyP: "Chọn khu vực trên bản đồ, trả lời vài câu, rồi chọn cách luân canh. Kế hoạch sẽ được lưu ở đây.",
       monthOn: (m) => `Tháng ${m} trên ruộng của bạn`, nextM: (m) => `Tháng ${m}`,
@@ -86,7 +86,7 @@ const Dash = (() => {
       wsteps: ["Pick your area on the map", "Answer a few questions about the field", "Choose a plan and save it"], create: "Create a field",
       waterNow: "Water in your field this month", perCong: "million ₫ per công per year", perCongS: "M₫/công", tapPlanS: "12-month plan", ninoShort: "This may be a drought-and-salt year (El Niño). Salt may come earlier.",
       saltNowA: "Salt in the field, this month", chartH: "Salt and rain over 12 months", chartL: "Chart of salt and rain by month", rainM: "Rain", safeH: "Crop months safe from salt", safeL: "months",
-      nums: "Area numbers", cropsY: "Crops/year seen by satellite", rainY: "Rain in a year", needY: "Crop water need in a year", kL: "river → field factor", rankH: "Best-fitting plans", rankSrc: "Scores 1–5 from your answers", ninoH: "El Niño this year",
+      nums: "Area numbers", cropsY: "Crops/year seen by satellite", rainY: "Rain in a year", needY: "Crop water need in a year", kL: "river → field factor", rankH: "Best-fitting plans", rankSrc: "Scores 1–5 from your answers", ninoH: "El Niño this year", aheadH: "The season ahead",
       eyebrow: "Sóc Trăng coast · NASA data", brand: "My fields", lead: "Fields you have planned. Tap one to see the plan you chose.",
       add: "Add a field on the map", emptyP: "Pick your area on the map, answer a few questions, then choose a rotation. The plan is saved here.",
       monthOn: (m) => `Month ${m} on your field`, nextM: (m) => `Month ${m}`,
@@ -288,6 +288,10 @@ const Dash = (() => {
   let selM = null, zoomKey = null;
   const mv = () => (selM == null ? CM : selM);
   const MLONG = (m) => (lang() === "vi" ? "Tháng " + (m + 1) : ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][m]);
+  /* the season ahead: the KTTV salt forecast now; the planting window and the rain outlook join it (Ahead, ahead.js). Hidden when nothing is current. */
+  const aheadText = (f) => { const sf = Ahead.salt(f.site); return sf ? `<p class="a-mut">${esc(L(sf))}</p>${sf.risk ? `<p class="a-mut">${esc(L(sf.risk))}</p>` : ""}` : "" };
+  const aheadTile = (f) => { const b = aheadText(f); return b ? tile("ahead", "a-g10", esc(T("aheadH")), b, "KTTV") : "" };
+  const aheadCard = (f) => { const b = aheadText(f); return b ? `<section class="s-card s-ahead"><span class="s-k">${ic("cal", 18)}${esc(T("aheadH"))}</span>${b}<small>KTTV</small></section>` : "" };
   const tile = (key, cls, head, body, src) => `<section class="a-t ${cls}" data-zoom="${key}">
     <h3 class="a-h">${head}<button type="button" class="a-exp" data-zoomb="${key}" aria-label="${esc(T("open"))}: ${esc(head.replace(/<[^>]+>/g, ""))}">${ic("expand", 14)}</button></h3>${body}${src ? `<p class="a-src">${esc(src)}</p>` : ""}</section>`;
   function gauge(g, big) {
@@ -362,6 +366,7 @@ const Dash = (() => {
           <div><dt>${esc(T("rainY"))}</dt><dd>${nf(Math.round(rain), 0)}<small> mm</small><small class="a-kn">${esc(T("needY"))}: ${nf(Math.round(et0), 0)} mm</small></dd></div></dl>`, "")}
         ${tile("rank", "a-g8", esc(T("rankH")), `<ol class="a-rank">${d.r.slice(0, 5).map(({ c: y, s: sc, no }) => `<li class="${y.id === f.rot ? "cur" : ""}${no ? " no" : ""}"><span>${esc(L(y.name))}${no ? `<small class="a-no">${esc(T("notHere"))}</small>` : ""}</span><i><b style="width:${((sc - 1) / 4 * 100).toFixed(0)}%"></b></i><em>${nf(sc, 1)}</em></li>`).join("")}</ol>${best && best.c.id !== f.rot && (!cur || nf(best.s, 1) !== nf(cur.s, 1)) ? `<p class="a-mut">${esc(T("bestFor")(L(best.c.name)))}</p>` : ""}`, T("rankSrc"))}
         ${tile("rib", "a-g9", `${ic("cal", 14)}${esc(T("ribbonH"))}`, `<div class="a-rib">${ribbon(f, c, true)}</div>`, T("est"))}
+        ${aheadTile(f)}
         ${nino ? tile("nino", "a-g10 hot", esc(T("ninoH")), `${ninoPct()}<p class="a-mut">${esc(T("ninoNote"))}</p>`, "NOAA CPC") : ""}
       </div>
       ${remindCard(f)}
@@ -967,7 +972,7 @@ const Dash = (() => {
         <div class="s-row"><span class="s-drop" aria-hidden="true">${ic("drop", 46)}</span><div><b class="s-word">${esc(T("lv")[x.lv])} <small>${ppt(x.g)}</small></b>
         <span class="s-light" aria-hidden="true"><i class="ngot"></i><i class="lo"></i><i class="man"></i></span></div></div>
         <span class="s-sub">${esc(x.sl.txt)}</span><small>${esc(T("est"))}</small></div>
-      ${tiles(f, x)}${pestCard(f, x)}${remindCard(f)}${moneyCard(f, x)}</div>
+      ${tiles(f, x)}${aheadCard(f)}${pestCard(f, x)}${remindCard(f)}${moneyCard(f, x)}</div>
       <button type="button" class="s-card s-cal" data-dv="season"><span class="s-k">${ic("cal", 18)}${esc(T("ribbonH"))}</span>${ribbon(f, c)}<span class="dv-more">${esc(T("tapPlan"))} ${ic("chev", 14)}</span></button>
       <p class="sd-note s-ask">${esc(T("ask"))}</p></div>`;
   }

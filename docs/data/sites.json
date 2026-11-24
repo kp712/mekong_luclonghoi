@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-23",
+ "generated": "2026-11-24",
  "bounds": {
   "w": 103.0,
   "e": 107.0,
@@ -93,6 +93,13 @@
    ]
   }
  ],
+ "salt_forecast": {
+  "issued": "2026-05-31",
+  "from": "2026-06-01",
+  "to": "2026-06-10",
+  "risk": 1,
+  "url": "https://kttv.gov.vn/upload/thuyvan1/2026/5/31/dbqg_xman_20260531_1500.pdf"
+ },
  "outlook": {
   "elnino": true,
   "pct": 79,
@@ -909,6 +916,11 @@
    "name": {
     "en": "Former Vĩnh Châu area (rice, inland)",
     "vi": "Khu vực Vĩnh Châu cũ (lúa, nội đồng)"
+   },
+   "salt_forecast": {
+    "station": "Thạnh Phú",
+    "km": 16.0,
+    "ppt": 0.2
    },
    "climate": {
     "rain_mm": [
@@ -4460,6 +4472,11 @@
     "en": "Former Trần Đề area (river mouth)",
     "vi": "Khu vực Trần Đề cũ (cửa sông)"
    },
+   "salt_forecast": {
+    "station": "Trần Đề",
+    "km": 11.6,
+    "ppt": 4.8
+   },
    "climate": {
     "rain_mm": [
      17,
@@ -7746,6 +7763,11 @@
    "name": {
     "en": "Former Mỹ Xuyên area",
     "vi": "Khu vực Mỹ Xuyên cũ"
+   },
+   "salt_forecast": {
+    "station": "Thạnh Phú",
+    "km": 5.4,
+    "ppt": 0.2
    },
    "climate": {
     "rain_mm": [
@@ -11057,6 +11079,11 @@
    "name": {
     "en": "Former Long Phú area (Hậu River)",
     "vi": "Khu vực Long Phú cũ (sông Hậu)"
+   },
+   "salt_forecast": {
+    "station": "Long Phú",
+    "km": 2.8,
+    "ppt": 2.2
    },
    "climate": {
     "rain_mm": [
@@ -14384,6 +14411,7 @@
     "en": "Former Ngã Năm area (inland)",
     "vi": "Khu vực Ngã Năm cũ (nội đồng)"
    },
+   "salt_forecast": null,
    "climate": {
     "rain_mm": [
      21,

@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-23",
+ "generated": "2026-11-24",
  "regions": {
   "southeast": {
    "en": "Southeast",
@@ -449,7 +449,8 @@
       "vi": "Tây Ninh"
      },
      "lat": 11.31,
-     "lon": 106.0983
+     "lon": 106.0983,
+     "salt_forecast": null
     },
     {
      "id": "long_an",
@@ -458,7 +459,12 @@
       "vi": "Long An"
      },
      "lat": 10.5359,
-     "lon": 106.4137
+     "lon": 106.4137,
+     "salt_forecast": {
+      "station": "Tân An",
+      "km": 4.6,
+      "ppt": 0.5
+     }
     }
    ],
    "areas": [],
@@ -777,7 +783,8 @@
       "vi": "Đồng Tháp"
      },
      "lat": 10.4567,
-     "lon": 105.6361
+     "lon": 105.6361,
+     "salt_forecast": null
     },
     {
      "id": "tien_giang",
@@ -786,7 +793,12 @@
       "vi": "Tiền Giang"
      },
      "lat": 10.36,
-     "lon": 106.36
+     "lon": 106.36,
+     "salt_forecast": {
+      "station": "An Định",
+      "km": 2.5,
+      "ppt": 0.1
+     }
     }
    ],
    "areas": [],
@@ -3636,7 +3648,8 @@
       "vi": "An Giang"
      },
      "lat": 10.3864,
-     "lon": 105.4352
+     "lon": 105.4352,
+     "salt_forecast": null
     },
     {
      "id": "kien_giang",
@@ -3645,7 +3658,8 @@
       "vi": "Kiên Giang"
      },
      "lat": 10.0125,
-     "lon": 105.0809
+     "lon": 105.0809,
+     "salt_forecast": null
     }
    ],
    "areas": [],
@@ -6495,7 +6509,8 @@
       "vi": "Vĩnh Long"
      },
      "lat": 10.2537,
-     "lon": 105.9722
+     "lon": 105.9722,
+     "salt_forecast": null
     },
     {
      "id": "ben_tre",
@@ -6504,7 +6519,12 @@
       "vi": "Bến Tre"
      },
      "lat": 10.2434,
-     "lon": 106.3756
+     "lon": 106.3756,
+     "salt_forecast": {
+      "station": "An Định",
+      "km": 11.7,
+      "ppt": 0.1
+     }
     },
     {
      "id": "tra_vinh",
@@ -6513,7 +6533,12 @@
       "vi": "Trà Vinh"
      },
      "lat": 9.9347,
-     "lon": 106.3453
+     "lon": 106.3453,
+     "salt_forecast": {
+      "station": "Trà Vinh",
+      "km": 0.4,
+      "ppt": 2.8
+     }
     }
    ],
    "areas": [],
@@ -9366,7 +9391,8 @@
       "vi": "Cần Thơ"
      },
      "lat": 10.0452,
-     "lon": 105.7469
+     "lon": 105.7469,
+     "salt_forecast": null
     },
     {
      "id": "soc_trang",
@@ -9375,7 +9401,12 @@
       "vi": "Sóc Trăng"
      },
      "lat": 9.6025,
-     "lon": 105.9739
+     "lon": 105.9739,
+     "salt_forecast": {
+      "station": "Sóc Trăng",
+      "km": 2.0,
+      "ppt": 0.2
+     }
     },
     {
      "id": "hau_giang",
@@ -9384,7 +9415,12 @@
       "vi": "Hậu Giang"
      },
      "lat": 9.7845,
-     "lon": 105.4701
+     "lon": 105.4701,
+     "salt_forecast": {
+      "station": "Gò Quao",
+      "km": 22.1,
+      "ppt": 0.7
+     }
     }
    ],
    "areas": [
@@ -12243,7 +12279,8 @@
       "vi": "Cà Mau"
      },
      "lat": 9.1768,
-     "lon": 105.1524
+     "lon": 105.1524,
+     "salt_forecast": null
     },
     {
      "id": "bac_lieu",
@@ -12252,7 +12289,8 @@
       "vi": "Bạc Liêu"
      },
      "lat": 9.2941,
-     "lon": 105.7278
+     "lon": 105.7278,
+     "salt_forecast": null
     }
    ],
    "areas": [],

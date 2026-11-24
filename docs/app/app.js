@@ -361,7 +361,8 @@ $$("#modeSeg [data-mode]").forEach(b => b.setAttribute("aria-pressed", b.dataset
 $("#areaHead").innerHTML = `<span class="rg-badge">${t("chosenArea")}</span>`; $("#areaNasa").innerHTML = nasaBadges();   /* the area name is the drawer title */
 renderYear(site);
 $("#outlook").innerHTML = (mode === "elnino" ? `<div class="mode-note">${t("modeNote")}</div>` : mode === "latest" ? `<div class="mode-note">${t("modeNoteLt")}</div>` : "")
-+ (o.elnino ? `<div class="outlook"><b>${t("forecast")}:</b> ${esc(pick(o.text))}</div>` : "");
++ (o.elnino ? `<div class="outlook"><b>${t("forecast")}:</b> ${esc(pick(o.text))}</div>` : "")
++ ((sf) => sf ? `<div class="outlook">${esc(pick(sf))}</div>` : "")(Ahead.salt(site.id));
 /* part 8: fresh water and salt, and how the area fits what matters to you */
 const ML = t("monthsLong");
 const cells = v.rain.map((r, i) => { const c = v.salt.includes(i + 1) ? "salt" : r >= v.et0[i] ? "wet" : "dry";

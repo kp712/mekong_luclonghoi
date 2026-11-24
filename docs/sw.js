@@ -12,6 +12,7 @@ const PRECACHE = [
   "app/app.js",
   "app/builder.js",
   "app/score.js",
+  "app/ahead.js",
   "app/content.css",
   "app/cost.css",
   "app/cost.js",

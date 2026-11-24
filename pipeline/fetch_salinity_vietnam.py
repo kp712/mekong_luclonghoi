@@ -150,6 +150,55 @@ def extract_measured_table(pdf_bytes):
     return rows_out
 
 
+def parse_forecast(pages, known=()):
+    """The 10-day forecast of one bulletin from its pages [{text, tables}]: {issued, from, to, risk, stations: {name: Smax g/l}}.
+    Fails loudly (ValueError) when the layout is not the known one: a changed bulletin must never be guessed at.
+    pdfplumber can drop the row a table breaks on at a page end, so a gap in the row numbers is filled from the page text,
+    by the first station of `known` (the measured table's names) that follows the number; a gap that stays is an error.
+    Smax is the forecast maximum of the period (g/l is read as ppt, as in the measured table); a station with no value ('-') is left out."""
+    text = unicodedata.normalize("NFC", "\n".join(p["text"] or "" for p in pages))
+    m = re.search(r"Hà Nội, ngày (\d+) tháng (\d+) năm (\d{4})", text)
+    if not m:
+        raise ValueError("forecast: issue date not found")
+    issued = datetime.date(int(m[3]), int(m[2]), int(m[1]))
+    m = re.search(r"Từ ngày (\d+)(?:/(\d+))? đến ngày (\d+)/(\d+)/(\d{4})", text)
+    if not m:
+        raise ValueError("forecast: period not found")
+    to = datetime.date(int(m[5]), int(m[4]), int(m[3]))
+    fm = int(m[2] or (m[4] if int(m[1]) <= int(m[3]) else int(m[4]) - 1 or 12))
+    frm = datetime.date(to.year - (fm > to.month), fm, int(m[1]))
+    start = next((i for i, p in enumerate(pages) if re.search(r"Bảng dự báo độ mặn cao nhất", unicodedata.normalize("NFC", p["text"] or ""))), None)
+    if start is None:
+        raise ValueError("forecast: table caption not found")
+    stations, seen = {}, set()
+    for p in pages[start:]:  # the table may continue on the next page without its header
+        for table in p["tables"]:
+            for r in table:
+                if len(r) >= 6 and re.fullmatch(r"\d+", clean(r[0])) and clean(r[1]):
+                    seen.add(int(r[0]))
+                    v = parse_float(r[5]) if clean(r[5]) not in ("", "-") else None
+                    if v is not None:
+                        stations[clean(r[1])] = v
+                    elif clean(r[5]) != "-":
+                        raise ValueError(f"forecast: unreadable Smax for {clean(r[1])}: {r[5]!r}")
+    lines = [clean(x) for p in pages[start:] for x in (p["text"] or "").splitlines()]
+    for n in sorted(set(range(1, max(seen, default=0) + 1)) - seen):
+        row = next((x.split() for x in lines for k in known if x.startswith(f"{n} {k} ")), None)
+        if not row:
+            raise ValueError(f"forecast: row {n} of the table was not read")
+        stations[next(k for k in known if " ".join(row).startswith(f"{n} {k} "))] = parse_float(row[-2])
+    if len(stations) < 15:
+        raise ValueError(f"forecast: only {len(stations)} stations parsed")
+    risk = re.search(r"Cảnh báo cấp độ rủi ro.*?Cấp\s*(\d)", text, re.S)
+    return {"issued": issued.isoformat(), "from": frm.isoformat(), "to": to.isoformat(),
+            "risk": int(risk[1]) if risk else None, "stations": stations}
+
+
+def extract_forecast(pdf_bytes, known=()):
+    with pdfplumber.open(io.BytesIO(pdf_bytes)) as pdf:
+        return parse_forecast([{"text": p.extract_text(), "tables": p.extract_tables()} for p in pdf.pages], known)
+
+
 def lost_dates(old_bulletins, new_bulletins):
     """Bulletin dates on file that a new run would drop (the file must never shrink)."""
     return sorted(set(old_bulletins) - set(new_bulletins))
@@ -171,12 +220,16 @@ def main():
     old = json.loads(out_path.read_text(encoding="utf-8"))["bulletins"] if out_path.exists() else {}
     sum_path = RAW / "salinity_vietnam_summary.json"
     old_rivers = {k: v["river"] for k, v in json.loads(sum_path.read_text(encoding="utf-8")).items()} if sum_path.exists() else {}
-    bulletins, rivers = {}, {}
+    old_forecast = json.loads(out_path.read_text(encoding="utf-8")).get("forecast") if out_path.exists() else None
+    bulletins, rivers, forecast = {}, {}, old_forecast  # a newest bulletin that is not downloaded keeps the last good forecast
     for dt, url in pdfs.items():
         print(f"Downloading & parsing {dt}: {url}", flush=True)
         try:
             req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-            table = extract_measured_table(urlopen_retry(req, 45).read())
+            pdf_bytes = urlopen_retry(req, 45).read()
+            table = extract_measured_table(pdf_bytes)
+            if dt == max(pdfs):
+                forecast = dict(extract_forecast(pdf_bytes, table), url=url)
         except Exception as e:
             if keep_stored(e, dt, old):
                 print(f"  WARNING {dt}: PDF no longer online (404); keeping the readings on file", flush=True)
@@ -206,6 +259,7 @@ def main():
             "title": "NCHMF (Trung tâm Dự báo KTTV quốc gia), Tin dự báo xâm nhập mặn trên khu vực Nam Bộ",
             "url": KTTV_LIST_URL,
         },
+        "forecast": forecast,
         "bulletins": bulletins,
     }
     out_path.write_text(json.dumps(out_data, ensure_ascii=False, indent=1), encoding="utf-8")

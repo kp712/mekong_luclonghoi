@@ -1217,6 +1217,63 @@ def test_salt_lower_bound():
     assert "at least 14.0‰" in typ["note"]["en"] and "ít nhất 14,0‰" in typ["note"]["vi"] and "baocantho" not in typ["note"]["en"]
 
 
+def test_salt_forecast_parse():
+    """The 10-day forecast comes out of a saved extract of the 31 May 2026 bulletin (pages' text and tables); an odd layout fails loudly."""
+    pages = json.loads((build.HERE / "fixtures" / "kttv_forecast_20260531.json").read_text(encoding="utf-8"))
+    names = set(json.loads((build.RAW / "salinity_kttv_vietnam.json").read_text(encoding="utf-8"))["bulletins"]["2026-05-31"]["readings"])
+    f = fetch_salinity_vietnam.parse_forecast(pages, names)
+    assert (f["issued"], f["from"], f["to"], f["risk"]) == ("2026-05-31", "2026-06-01", "2026-06-10", 1)
+    assert len(f["stations"]) == 27 and "Rạch Giá" not in f["stations"]  # 28 rows, Rạch Giá has no value ("-")
+    assert f["stations"]["Trần Đề"] == 4.8 and f["stations"]["Gành Hào"] == 25.2
+    assert f["stations"]["Sông Đốc"] == 27.6  # the row pdfplumber drops at the page break, read back from the text
+    for bad in (lambda: fetch_salinity_vietnam.parse_forecast(pages),  # row 25 lost and no station names to find it by
+                lambda: fetch_salinity_vietnam.parse_forecast([{"text": "no bulletin here", "tables": []}], names)):
+        try:
+            bad()
+            assert False, "expected ValueError"
+        except ValueError:
+            pass
+    # a period across two months: 25/5 to 03/6/2026 starts in May
+    p2 = [dict(pages[0], text=pages[0]["text"].replace("(Từ ngày 01 đến ngày 10/6/2026)", "(Từ ngày 25/5 đến ngày 03/6/2026)"))] + pages[1:]
+    assert fetch_salinity_vietnam.parse_forecast(p2, names)["from"] == "2026-05-25"
+
+
+def test_salt_forecast_in_build():
+    """sites.json carries the forecast meta and, per pin and province point, the nearest station's value within 25 km (or none)."""
+    build.build()
+    d = json.loads(build.OUT.read_text(encoding="utf-8"))
+    fc = json.loads((build.RAW / "salinity_kttv_vietnam.json").read_text(encoding="utf-8"))["forecast"]
+    assert d["salt_forecast"] == {k: v for k, v in fc.items() if k != "stations"} and "stations" not in d["salt_forecast"]
+    got = {s["id"]: s["salt_forecast"] for s in d["sites"]}
+    assert got["tran_de"] == {"station": "Trần Đề", "km": got["tran_de"]["km"], "ppt": fc["stations"]["Trần Đề"]} and got["tran_de"]["km"] <= salinity.SALT_KM
+    assert got["nga_nam"] is None  # no KTTV station within 25 km
+    for s in d["sites"]:
+        assert s["salt_forecast"] == salinity.forecast_at(s)
+    far = salinity.forecast_at({"lat": 21.03, "lon": 105.85})  # Hà Nội
+    assert far is None
+    assert salinity.forecast_at({"lat": 9.6, "lon": 105.97}, dict(salinity.DATA, forecast=None)) is None
+    pv = json.loads(build.PROV_OUT.read_text(encoding="utf-8"))["provinces"]
+    assert all("salt_forecast" in f for p in pv for f in p["former"])
+
+
+def test_forecast_stale():
+    """Ahead.salt (docs/app/ahead.js) shows the forecast until 14 days after its period ends, then hides it; a missing one is hidden too."""
+    import subprocess
+    js = r"""
+    const fs = require("fs"), vm = require("vm"), root = process.argv[1];
+    const J = JSON.parse(fs.readFileSync(root + "/data/sites.json", "utf8")), ctx = { SITES_JSON: J };
+    vm.createContext(ctx);
+    vm.runInContext(fs.readFileSync(root + "/app/ahead.js", "utf8").replace(/^const Ahead =/m, "globalThis.Ahead ="), ctx);
+    const at = (id, y, m, d) => ctx.Ahead.salt(id, new Date(y, m - 1, d));
+    const r = { on: at("tran_de", 2026, 6, 24), off: at("tran_de", 2026, 6, 25), now: at("tran_de", 2026, 11, 24), before: at("tran_de", 2026, 6, 1), none: at("nga_nam", 2026, 6, 5) };
+    console.log(JSON.stringify(r));
+    """
+    r = json.loads(subprocess.run(["node", "-e", js, str(build.ROOT / "docs")], capture_output=True, text=True, check=True).stdout)
+    assert r["on"] and r["before"] and not r["off"] and not r["now"] and not r["none"], r  # period ends 10 Jun: shown to 24 Jun, hidden from 25 Jun
+    assert r["on"]["en"] == "KTTV forecast, 1\u201310 Jun: up to 4.8\u2030 at Tr\u1ea7n \u0110\u1ec1 station (issued 31 May 2026)."
+    assert r["on"]["vi"].startswith("D\u1ef1 b\u00e1o KTTV, 1\u201310/6: t\u1ed1i \u0111a 4,8\u2030") and r["on"]["vi"].endswith("(b\u1ea3n tin ng\u00e0y 31/5/2026).")
+
+
 def test_score_parity():
     """docs/app/score.js (Plan Lab, dashboard pests) gives every card in sites.json the same scores as build.py."""
     import subprocess

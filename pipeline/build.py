@@ -861,7 +861,7 @@ def province(pr, rotations, chirps, imerg):
     cards = [card(r, clim, None, sal, soil=soil, site=pr["id"]) for r in rotations] if scored else []
     cards_e = [card(r, clim_e, None, sal, elnino=True, soil=soil, site=pr["id"]) for r in rotations] if scored else []
     out = {k: pr[k] for k in ("id", "name", "lat", "lon", "region")}
-    out.update(region_name=REGIONS[pr["region"]], former=[{k: f[k] for k in ("id", "name", "lat", "lon")} for f in pr["former"]],
+    out.update(region_name=REGIONS[pr["region"]], former=[dict({k: f[k] for k in ("id", "name", "lat", "lon")}, salt_forecast=salinity.forecast_at(f)) for f in pr["former"]],
                areas=pr.get("areas", []), points={"weather": ids, "rain": rain_ids, "soil": soil_ids},
                climate=clim, soil=soil, salinity=sal, scored=scored, not_scored=None if scored else NOT_SCORED,
                cards=cards, summary=place_summary(clim, None, sal, scored),
@@ -989,7 +989,7 @@ def build():
         sal, sal_e = salinity.at(s)
         cards = [card(r, clim, nd, sal, soil=soil, site=s['id']) for r in rotations]
         cards_e = [card(r, clim_e, nd, sal_e, elnino=True, soil=soil, site=s['id']) for r in rotations]
-        sites.append(dict(s, climate=clim, ndvi=nd, salinity=sal, soil=soil, cards=cards, summary=summary(clim, nd, sal),
+        sites.append(dict(s, salt_forecast=salinity.forecast_at(s), climate=clim, ndvi=nd, salinity=sal, soil=soil, cards=cards, summary=summary(clim, nd, sal),
                           seed_check=seed_check(clim, sal),
                           rain_check=rain_check(rain, imerg[s["id"]]) if s["id"] in imerg else None,
                           hls_check=hls_result,
@@ -999,6 +999,7 @@ def build():
     resources = {k: dict({a: b for a, b in r.items() if a != "sources"}, src=cite(r["sources"])) for k, r in RESOURCES.items()}
     OUT.parent.mkdir(parents=True, exist_ok=True)
     write_dated(OUT, {"bounds": area_bounds(salinity.DATA["area"]), "soil_help": soil_help,
+                      "salt_forecast": {k: v for k, v in (salinity.DATA["forecast"] or {}).items() if k != "stations"} or None,  # per-point values are in each site's salt_forecast
                       "outlook": dict({k: OUTLOOK[k] for k in ("elnino", "pct", "text")}, src=outlook_src), "resources": resources, "pest_rule": pest_rule,
                       **area, "sources": [v for _, v in sorted(SOURCES.values(), key=lambda x: x[0])], "sites": sites})
     print("wrote", OUT, len(sites), "sites")
