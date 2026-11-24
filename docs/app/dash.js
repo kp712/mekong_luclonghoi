@@ -289,7 +289,7 @@ const Dash = (() => {
   const mv = () => (selM == null ? CM : selM);
   const MLONG = (m) => (lang() === "vi" ? "Tháng " + (m + 1) : ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][m]);
   /* the season ahead: the KTTV salt forecast now; the planting window and the rain outlook join it (Ahead, ahead.js). Hidden when nothing is current. */
-  const aheadText = (f) => { const sf = Ahead.salt(f.site); return sf ? `<p class="a-mut">${esc(L(sf))}</p>${sf.risk ? `<p class="a-mut">${esc(L(sf.risk))}</p>` : ""}` : "" };
+  const aheadText = (f) => { const sf = Ahead.salt(f.site), pw = Ahead.planting(); return (sf ? `<p class="a-mut">${esc(L(sf))}</p>${sf.risk ? `<p class="a-mut">${esc(L(sf.risk))}</p>` : ""}` : "") + (pw ? `<p class="a-mut">${esc(L(pw))}</p>` : "") };
   const aheadTile = (f) => { const b = aheadText(f); return b ? tile("ahead", "a-g10", esc(T("aheadH")), b, "KTTV") : "" };
   const aheadCard = (f) => { const b = aheadText(f); return b ? `<section class="s-card s-ahead"><span class="s-k">${ic("cal", 18)}${esc(T("aheadH"))}</span>${b}<small>KTTV</small></section>` : "" };
   const tile = (key, cls, head, body, src) => `<section class="a-t ${cls}" data-zoom="${key}">

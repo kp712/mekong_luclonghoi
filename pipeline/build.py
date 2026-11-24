@@ -1000,6 +1000,7 @@ def build():
     OUT.parent.mkdir(parents=True, exist_ok=True)
     write_dated(OUT, {"bounds": area_bounds(salinity.DATA["area"]), "soil_help": soil_help,
                       "salt_forecast": {k: v for k, v in (salinity.DATA["forecast"] or {}).items() if k != "stations"} or None,  # per-point values are in each site's salt_forecast
+                      "planting": json.loads((ROOT / "pipeline" / "planting_windows.json").read_text(encoding="utf-8")),  # hand-kept official windows; Ahead.planting hides them after finish_by
                       "outlook": dict({k: OUTLOOK[k] for k in ("elnino", "pct", "text")}, src=outlook_src), "resources": resources, "pest_rule": pest_rule,
                       **area, "sources": [v for _, v in sorted(SOURCES.values(), key=lambda x: x[0])], "sites": sites})
     print("wrote", OUT, len(sites), "sites")

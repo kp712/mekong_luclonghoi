@@ -2,7 +2,7 @@
    Ahead.salt(siteId, today) -> {en, vi, risk} for the KTTV 10-day salt forecast at a site, or null when there is none or its
    period ended more than 14 days before `today` (the forecast is then old news and is hidden, not shown as current).
    Reads SITES_JSON (load.js): salt_forecast (issue date, period, risk) and the site's salt_forecast (station, ppt), both from build.py.
-   test_build.py (test_forecast_stale) runs this file in Node. Later layers (planting window, outlook) go in this file. */
+   test_build.py (test_forecast_stale) runs this file in Node. Ahead.planting(today): the official planting windows, hidden after finish_by. The outlook goes in this file too. */
 const Ahead = (() => {
   const STALE_DAYS = 14;
   const MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -26,5 +26,17 @@ const Ahead = (() => {
       risk: m.risk ? { en: `KTTV salt disaster-risk level: ${m.risk}.`, vi: `Cấp độ rủi ro thiên tai do xâm nhập mặn (KTTV): cấp ${m.risk}.` } : null
     };
   }
-  return { salt };
+  /* Official planting windows (pipeline/planting_windows.json, hand-kept); null once finish_by has passed. */
+  function planting(today = new Date()) {
+    const w = (typeof SITES_JSON !== "undefined" && SITES_JSON.planting || [])[0];
+    const [fy, fm, fd] = w ? ymd(w.finish_by) : [];
+    if (!w || Date.UTC(today.getFullYear(), today.getMonth(), today.getDate()) > Date.UTC(fy, fm - 1, fd)) return null;
+    const [iy, im, id] = ymd(w.issued), [sy, sn] = [w.season.slice(0, 7), w.season.slice(8)];
+    const src = w.source.title.split(":")[0], each = (vi) => w.windows.map((x) => `${span(x.from, x.to, vi)}, ${vi ? x.vi : x.en}`).join("; ");
+    return {
+      en: `Official planting windows, ${sn} ${sy} (${src}, issued ${id} ${MON[im - 1]} ${iy}): ${each()}; ${w.finish_en} ${fd} ${MON[fm - 1]} ${fy}. ${w.note_en}`,
+      vi: `Lịch thời vụ chính thức, ${sn} ${sy} (${src}, ngày ${id}/${im}/${iy}): ${each(true)}; ${w.finish_vi} ngày ${fd}/${fm}/${fy}. ${w.note_vi}`
+    };
+  }
+  return { salt, planting };
 })();

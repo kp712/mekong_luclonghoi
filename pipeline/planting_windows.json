@@ -1,0 +1,32 @@
+[
+ {
+  "id": "dong_xuan_2026_27_delta",
+  "region": "mekong_delta",
+  "season": "2026–27 Đông Xuân",
+  "issued": "2026-06-19",
+  "finish_by": "2027-01-10",
+  "windows": [
+   {
+    "from": "2026-10-10",
+    "to": "2026-10-30",
+    "en": "early sowing in coastal areas at risk of late-season drought",
+    "vi": "xuống giống sớm ở vùng ven biển có nguy cơ hạn cuối vụ"
+   },
+   {
+    "from": "2026-12-01",
+    "to": "2026-12-31",
+    "en": "wave 2 (about 200,000 ha, 16% of the plan)",
+    "vi": "đợt 2 (khoảng 200.000 ha, 16% kế hoạch)"
+   }
+  ],
+  "finish_en": "late areas finish sowing by",
+  "finish_vi": "vùng xuống giống muộn hoàn thành trước",
+  "note_en": "Sources disagree on the size of the early wave (350,000 ha, 28%, in one news summary).",
+  "note_vi": "Các nguồn không thống nhất quy mô đợt xuống giống sớm (một bản tin ghi 350.000 ha, 28%).",
+  "source": {
+   "title": "Cục Trồng trọt và BVTV: chỉ đạo sản xuất trồng trọt ứng phó El Niño 2026 (Cà Mau copy)",
+   "url": "https://storage-vnportal.vnpt.vn/cmu-khdn/5342/Vanban/2026.6.19-cv-chi-dao-sx-trong-trot-ung-pho-elnino-2026_-_nqmanh_19062026180253__19062026180725_signed.pdf",
+   "date": "2026-06-19"
+  }
+ }
+]
