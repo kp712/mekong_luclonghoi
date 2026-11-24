@@ -136,6 +136,10 @@ ERA5_SRC = {"title": "ERA5 / ERA5-Land (Copernicus Climate Change Service, ECMWF
             "note": "Reanalysis model values (not station readings), CC BY 4.0. ERA5 (0.25°, ~25 km): daily maximum and minimum temperature and the FAO-56 reference evapotranspiration (ET₀) Open-Meteo computes. ERA5-Land (0.1°, ~10 km): daily maximum temperature, used only for days at or above 35 °C.", "verified": True}
 MODIS_SRC = {"title": "NASA MODIS MOD13Q1 v6.1 NDVI, 250 m", "url": "https://lpdaac.usgs.gov/products/mod13q1v061/", "verified": True}
 HLS_SRC = {"title": "NASA HLS v2.0 NDVI (Landsat 8/9 + Sentinel-2), 30 m, cloud-free dates", "url": "https://lpdaac.usgs.gov/products/hlsl30v002/", "verified": True}
+HLS_VI_FIRST = 2015  # the first Dec-Nov season HLS-VI covers at the pins (Sentinel-2 from Dec 2015)
+HLS_VI_SRC = {"title": f"NASA HLS-VI v2.0 NDVI (Landsat 8/9 + Sentinel-2), 30 m, clear dates, Dec {HLS_VI_FIRST} – Nov {PERIOD[1].year}",
+              "url": "https://lpdaac.usgs.gov/products/hlsl30_viv002/", "verified": True}
+HLS_VI_MIN_DATES = 3  # a calendar month with fewer clear dates in a view keeps a gap: never filled from MODIS
 HEAT_SRC = {"title": "Yoshida S. (1981), Fundamentals of Rice Crop Science, IRRI (heat at flowering)", "url": "http://books.irri.org/9711040522_content.pdf",
             "note": "Checked. Section 2.3.6, p. 81: 'High percentages of spikelet sterility occur if temperatures exceed 35°C at anthesis and last for more than 1 hour.' Table 2.4 (p. 72) gives 35 °C as the critical high temperature at anthesis (as a daily mean). Whereas Yoshida measures exposure at flowering (anthesis), our daily-maximum proxy counts ERA5-Land days whose daily maximum reaches or exceeds 35 °C across the months a crop is in the field.", "verified": True}
 FAO29_SRC = {"title": "Ayers & Westcot (1985), Water quality for agriculture, FAO Irrigation and Drainage Paper 29 Rev. 1, Table 4 and 5",
@@ -159,6 +163,16 @@ def in_elnino(day):
 def typical_year(day):
     """Days outside the El Niño seasons: what the app calls the typical year."""
     return in_period(day) and not in_elnino(day)
+
+
+def hlsvi_chart(series, keep):
+    """The pins' greenness chart from HLS-VI NDVI on clear dates ({"YYYY-MM-DD": ndvi}): mean, lowest and highest yearly mean per calendar month
+    over the days keep() allows. A month with fewer than HLS_VI_MIN_DATES clear dates in the view is None (too few to show a mean or a range)."""
+    n = [sum(1 for d in series if date.fromisoformat(d).month == m and keep(date.fromisoformat(d))) for m in range(1, 13)]
+    mean = ndvi.monthly_mean(series, keep)
+    lo, hi = ndvi.monthly_range(series, keep)
+    thin = lambda xs: [x if n[i] >= HLS_VI_MIN_DATES else None for i, x in enumerate(xs)]
+    return {"monthly_min": thin(lo), "monthly_max": thin(hi), "monthly": thin(mean), "hlsvi_dates": n}
 
 
 def climate(weather, keep=None, rain=None):
@@ -969,8 +983,9 @@ def build():
     rot_file = json.loads((HERE / "rotations.json").read_text(encoding="utf-8"))
     rotations = rot_file["rotations"]
     SOURCES.clear()
-    area = {"chart_src": cite(ERA5_SRC, CHIRPS_SRC, FAO_SRCS, salinity.SOURCES, MODIS_SRC), "salt_src": cite(salinity.SOURCES),
-            "soil_src": cite(SOIL_SRC)}
+    area = {"chart_src": cite(ERA5_SRC, CHIRPS_SRC, FAO_SRCS, salinity.SOURCES, HLS_VI_SRC), "salt_src": cite(salinity.SOURCES),
+            "soil_src": cite(SOIL_SRC),
+            "hlsvi": {"from": HLS_VI_FIRST, "to": PERIOD[1].year, "elnino": sum(y >= HLS_VI_FIRST for y in ELNINO)}}
     pest_rule = {"rice_points": PESTS["rice"]["points"], "break_weight": PESTS["break_weight"], "shrimp_floor": PESTS["shrimp"]["floor"],
                  "hot_c": PESTS["shrimp"]["hot_c"], "upland_pressure": 1}
     outlook_src, area["elnino_src"] = cite(OUTLOOK["source"]), cite(RONI_SRC)  # area-wide first: numbers climb down the page
@@ -987,8 +1002,11 @@ def build():
         nd = nd_e = None
         if ndvi_file.exists():
             series = json.loads(ndvi_file.read_text(encoding="utf-8"))
-            chart = lambda keep: dict(zip(("monthly_min", "monthly_max"), ndvi.monthly_range(series, keep)), monthly=ndvi.monthly_mean(series, keep))
-            # the chart follows the typical / El Niño toggle over PERIOD; crops per year and bare months describe today's calendar (RECENT)
+            # crops per year and bare months describe today's calendar (RECENT, MODIS); the chart is HLS-VI (30 m) only, never spliced with MODIS,
+            # and follows the typical / El Niño toggle over PERIOD
+            hv_file = RAW / f"hlsvi_{s['id']}.json"
+            hv = {d: r["ndvi"] for d, r in json.loads(hv_file.read_text(encoding="utf-8"))["dates"].items()}
+            chart = lambda keep: hlsvi_chart(hv, keep)
             recent = {d: v for d, v in series.items() if RECENT[0] <= date.fromisoformat(d) <= RECENT[1]}
             nd = dict(chart(typical_year), bare_months=ndvi.bare_months(recent), crops_per_year=ndvi.crops_per_year(recent))
             nd_e = chart(in_elnino)
