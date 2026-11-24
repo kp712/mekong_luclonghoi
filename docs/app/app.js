@@ -685,6 +685,8 @@ const fmt = x => Math.round(x / 10) * 10 >= 1000 ? (Math.round(x / 100) * 100).t
 const dh = f && f.size ? +f.size : parseFloat(load("mre-ha") || "");  /* draft5: the size typed above the cards counts too */
 return dh > 0 ? t("fieldHa")(num(dh), fmt(wt[0] * 10 * dh)) : t("fieldPer")(fmt(wt[0] * 10));
 }
+/* the rice price line (Ahead.price): FAO FPMA Bạc Liêu wholesale, beside the profit figures; says they do not move with it */
+function priceNote(cls = "vs-price") { const p = Ahead.price(); return p ? `<p class="${cls}"><small>${esc(pick(p))} ${esc(p.src)}</small></p>` : "" }
 /* each other card against what the farmer grows now: profit and cost for their hectares, and salt months with a crop that salt hurts */
 function vsNow(c, list) {
 const now = (list.find(x => x.c.id === cur) || {}).c;
@@ -734,7 +736,7 @@ const before = c.id === plan.id && risks.length;   // the plan card's risks and 
 return `<article data-plan="${c.id}" class="card ${i === 0 && !c.not_here ? "best" : ""} ${c.id === plan.id ? "isplan" : ""} ${c.id === cur ? "isnow" : ""} ${c.not_here ? "nothere" : ""}" data-id="${c.id}">
 <div class="c-top">${i === 0 && !c.not_here ? `<span class="ribbon">${t("best")}</span>` : ""}<span class="c-tags">${c.id === cur ? `<span class="tag now">${t("yourNow")}</span>` : ""}${c.not_here ? `<span class="tag warn">${t("notHere")}</span>` : ""}</span></div>
 <h3>${esc(pick(c.name))}</h3>
-${vsNow(c, cards)}
+${vsNow(c, cards)}${priceNote()}
 ${strip15(c.months, null)}
 ${pickCrop}
 <div class="match">${ring(sc)}<div class="match-txt"><span>${t("match")}</span></div></div>
@@ -878,7 +880,7 @@ const need = keys.map(x => `<li><b>${esc(pick(DATA.resources[x] ? DATA.resources
 let money = "";
 if (typeof Cost !== "undefined" && Cost.calc) { const r = Cost.calc(c0 || c), h = Cost.ha ? Cost.ha() : null, k = h || 1;
   if (r.cost || r.profit != null) money = `<div class="s4-money">${r.cost ? `<div class="c"><span>${esc(t("s4Cost"))}</span><b>${esc(Cost.money(r.cost * k))}</b></div>` : ""}${r.profit != null ? `<div class="p"><span>${esc(t("s4Profit"))}</span><b>${esc(Cost.money(r.profit * k))}</b></div>` : ""}
-    <p class="s4-est">${esc(t("s4Year")(h ? num(h) : null))} · ${esc(t("s4Est"))} ${esc(Cost.machNote ? Cost.machNote() : "")}</p></div>` }
+    ${priceNote("s4-est")}<p class="s4-est">${esc(t("s4Year")(h ? num(h) : null))} · ${esc(t("s4Est"))} ${esc(Cost.machNote ? Cost.machNote() : "")}</p></div>` }
 el.innerHTML = `<h3 id="s4H" class="s4-h">${esc(t("s4H"))}</h3><ol class="s4-path">${rows}</ol>`;
 /* money and "what to get ready" sit in their own block: under the path, or in the right column on a full screen (side.js) */
 let m4 = document.getElementById("s4m");

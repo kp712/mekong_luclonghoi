@@ -953,6 +953,18 @@ def write_builder(rot_file, sites, chirps):
     BUILDER_OUT.write_text(text, encoding="utf-8")
 
 
+PRICE_FROM, PRICE_TO = "2020-01", "2026-12"  # the median covers the months of this span that the series has (team choice)
+
+
+def rice_price(raw):
+    """data/raw/rice_price.json (fetch_prices.py) -> latest month, its value, the 2020-26 median and the % difference."""
+    ms = raw["months"]
+    inside = [m["vnd_kg"] for m in ms if PRICE_FROM <= m["month"] <= PRICE_TO]
+    med, last = statistics.median(inside), ms[-1]
+    return {"month": last["month"], "vnd_kg": last["vnd_kg"], "median": med, "pct": round((last["vnd_kg"] / med - 1) * 100, 1), "n": len(inside),
+            "from": PRICE_FROM, "to": PRICE_TO, "market": raw["market"], "source": raw["source"], "source_url": raw["source_url"], "uuid": raw["uuid"]}
+
+
 def build():
     rot_file = json.loads((HERE / "rotations.json").read_text(encoding="utf-8"))
     rotations = rot_file["rotations"]
@@ -966,6 +978,7 @@ def build():
     imerg = json.loads((RAW / "gpm.json").read_text(encoding="utf-8"))  # cross-check only, never mixed into the rain series
     sites = []
     seasonal = json.loads((RAW / "seasonal.json").read_text(encoding="utf-8")) if (RAW / "seasonal.json").exists() else None
+    price = rice_price(json.loads((RAW / "rice_price.json").read_text(encoding="utf-8"))) if (RAW / "rice_price.json").exists() else None
     for s in SITES:
         rain = point_rain(chirps, s["id"])
         weather = read_weather(s["id"])
@@ -999,7 +1012,8 @@ def build():
     soil_help = [dict({k: v for k, v in h.items() if k != "sources"}, src=cite(h["sources"])) for h in rot_file["soil_help"]]
     resources = {k: dict({a: b for a, b in r.items() if a != "sources"}, src=cite(r["sources"])) for k, r in RESOURCES.items()}
     OUT.parent.mkdir(parents=True, exist_ok=True)
-    write_dated(OUT, {"seasonal": {k: seasonal[k] for k in ("issued", "model")} if seasonal else None,  # per-pin 3-month rain outlook is in each site's outlook3 (pipeline/fetch_seasonal.py)
+    write_dated(OUT, {"rice_price": price,  # Ahead.price (docs/app/ahead.js) shows it beside the profit figures, which it does not move
+                      "seasonal": {k: seasonal[k] for k in ("issued", "model")} if seasonal else None,  # per-pin 3-month rain outlook is in each site's outlook3 (pipeline/fetch_seasonal.py)
                       "bounds": area_bounds(salinity.DATA["area"]), "soil_help": soil_help,
                       "salt_forecast": {k: v for k, v in (salinity.DATA["forecast"] or {}).items() if k != "stations"} or None,  # per-point values are in each site's salt_forecast
                       "planting": json.loads((ROOT / "pipeline" / "planting_windows.json").read_text(encoding="utf-8")),  # hand-kept official windows; Ahead.planting hides them after finish_by

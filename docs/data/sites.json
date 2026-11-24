@@ -1,5 +1,18 @@
 {
  "generated": "2026-11-24",
+ "rice_price": {
+  "month": "2026-11",
+  "vnd_kg": 12000.0,
+  "median": 10550.0,
+  "pct": 13.7,
+  "n": 83,
+  "from": "2020-01",
+  "to": "2026-12",
+  "market": "Bac Lieu",
+  "source": "Vietnam Food Association",
+  "source_url": "https://vietfood.org.vn/thi-truong/gia-noi-dia/",
+  "uuid": "756c8234-c859-404c-9752-20bd51745801"
+ },
  "seasonal": {
   "issued": "2026-11-01",
   "model": "ECMWF SEAS5 via Open-Meteo (not bias-corrected)"

@@ -292,6 +292,7 @@ const Dash = (() => {
   const aheadParts = (f) => ({ sf: Ahead.salt(f.site), ro: Ahead.outlook(f.site), pw: Ahead.planting(siteOf(f.site).region) });
   const aheadText = (f) => { const { sf, ro, pw } = aheadParts(f); return (sf ? `<p class="a-mut">${esc(L(sf))}</p>${sf.risk ? `<p class="a-mut">${esc(L(sf.risk))}</p>` : ""}` : "") + (ro ? `<p class="a-mut">${esc(L(ro))}</p>` : "") + (pw ? `<p class="a-mut">${esc(L(pw))}</p>` : "") };
   const aheadSrc = (f) => { const { sf, ro, pw } = aheadParts(f); return [sf && "KTTV", ro && "ECMWF SEAS5 · Open-Meteo", pw && "Cục Trồng trọt và BVTV"].filter(Boolean).join(" · ") };
+  const priceNote = () => { const p = Ahead.price(); return p ? `<p class="a-mut">${esc(L(p))}</p>` : "" };  // beside the profit figures; they do not move with it
   const aheadTile = (f) => { const b = aheadText(f); return b ? tile("ahead", "a-g10", esc(T("aheadH")), b, aheadSrc(f)) : "" };
   const aheadCard = (f) => { const b = aheadText(f); return b ? `<section class="s-card s-ahead"><span class="s-k">${ic("cal", 18)}${esc(T("aheadH"))}</span>${b}<small>${esc(aheadSrc(f))}</small></section>` : "" };
   const tile = (key, cls, head, body, src) => `<section class="a-t ${cls}" data-zoom="${key}">
@@ -360,7 +361,7 @@ const Dash = (() => {
         ${tile("salt", "a-g1", `${esc(T("saltA"))} · ${esc(MS()[m])}`, `${gauge(d.g)}<p class="a-num">${ppt(d.g, 1)}</p><p class="a-mut lv-${d.lv}">${esc(T("lv")[d.lv])} · ${esc(T("lvD")[d.lv])}</p>`, T("est"))}
         ${tile("chart", "a-g2", esc(T("chartH")), lineChart(f), lang() === "vi" ? "Mặn: trạm đo + ERA5 (ước tính) · Mưa: CHIRPS · chạm một tháng để xem" : "Salt: stations + ERA5 (estimate) · Rain: CHIRPS · tap a month to view it")}
         ${tile("safe", "a-g3", esc(T("safeH")), `${donut(d.safe, d.crop.length, T("safeL"))}<p class="a-mut">${cropM ? esc((level(fieldSalt(f.site, m, nino)) === "man" ? T("mBad") : T("mOk"))(MS()[m])) : esc(T("mRest")(MS()[m]))}</p>`, T("est"))}
-        ${tile("money", "a-g4", esc(T("moneyH")), d.mon ? `<p class="a-num big">${d.mon.per}<small> ${esc(T("perCongS"))}</small></p>${d.shown ? rangeBar(d.shown) : ""}${two ? two.map((t) => `<p class="a-mut">${esc(t)}</p>`).join("") : d.mon.tot ? `<p class="a-mut">${esc(d.mon.tot)}</p>` : ""}` : `<p class="a-mut">${esc(T("noMoney"))}</p>`, T("moneySrc"))}
+        ${tile("money", "a-g4", esc(T("moneyH")), (d.mon ? `<p class="a-num big">${d.mon.per}<small> ${esc(T("perCongS"))}</small></p>${d.shown ? rangeBar(d.shown) : ""}${two ? two.map((t) => `<p class="a-mut">${esc(t)}</p>`).join("") : d.mon.tot ? `<p class="a-mut">${esc(d.mon.tot)}</p>` : ""}` : `<p class="a-mut">${esc(T("noMoney"))}</p>`) + priceNote(), T("moneySrc"))}
         ${tile("scores", "a-g6", esc(T("scoreH")), `<div class="a-bars">${SK.map((q) => { const v = c.scores[q]; return `<div><span>${esc(T("sc")[q])}</span><i><b style="width:${v == null ? 0 : (v - 1) / 4 * 100}%"></b></i><em>${v == null ? "–" : nf(v, 1)}</em></div>` }).join("")}</div>${c.confidence ? `<p class="a-mut">${esc(T("conf"))}: ${esc(T("confL")[c.confidence] || c.confidence)}</p>` : ""}`, T("scSrc"))}
         ${tile("nums", "a-g7", `${esc(T("nums"))} · ${esc(MS()[m])}`, `<dl class="a-kpi"><div><dt>${esc(T("rainMo"))}</dt><dd>${nf(Math.round(d.rainA[m] || 0), 0)}<small> mm</small><small class="a-kn">CHIRPS</small></dd></div>
           <div><dt>${esc(T("needMo"))}</dt><dd>${nf(Math.round(d.et0A[m] || 0), 0)}<small> mm</small><small class="a-kn">ERA5</small></dd></div>
@@ -959,6 +960,7 @@ const Dash = (() => {
     const mon = shownMoney(f, x), two = mon && moneyYears(f, x);
     return `<div class="s-card s-money"><span class="s-k">${ic("coin", 18)}${esc(T("moneyH"))}</span>
       ${mon ? `<div class="s-row"><span class="s-coin" aria-hidden="true">${ic("coin", 46)}</span><div><b class="s-num">${mon.per}</b><span class="s-unit">${esc(T("perCong"))}</span></div></div>${two ? two.map((t) => `<span class="s-sub s-yr">${esc(t)}</span>`).join("") : mon.tot ? `<span class="s-sub">${esc(mon.tot)}</span>` : ""}` : `<span class="s-sub">${esc(T("noMoney"))}</span>`}
+      ${(p => p ? `<span class="s-sub">${esc(L(p))}</span>` : "")(Ahead.price())}
       <small>${esc(T("moneySrcS"))}</small></div>`;
   }
   function todayPage(f) {

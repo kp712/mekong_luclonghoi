@@ -1,0 +1,155 @@
+{
+ "listing": {
+  "count": 2,
+  "next": null,
+  "previous": null,
+  "results": [
+   {
+    "uuid": "16230771-cea4-43a2-b438-22a14026c9e2",
+    "iso3_country_code": "VNM",
+    "country_name": "Viet Nam",
+    "market": 2175,
+    "market_name": "An Giang",
+    "market_info": "",
+    "market_type": "Retail",
+    "admin_unit": "",
+    "admin_unit2": "",
+    "commodity": 3566,
+    "commodity_name": "Rice (5% broken)",
+    "commodity_info": "",
+    "commodity_image": null,
+    "commodity_code": "100640_3",
+    "commodity_start_date": 1,
+    "alternative_code": "",
+    "alternative_name": "",
+    "source": 489,
+    "source_name": "Vietnam Food Association",
+    "source_url": "https://vietfood.org.vn/thi-truong/gia-noi-dia/",
+    "price_type_id": 13,
+    "price_type": "WHOLESALE",
+    "currency": "VND",
+    "measure_unit": 3840,
+    "measure_unit_label": "Kg",
+    "conversion_factor": 1.0
+   },
+   {
+    "uuid": "756c8234-c859-404c-9752-20bd51745801",
+    "iso3_country_code": "VNM",
+    "country_name": "Viet Nam",
+    "market": 2176,
+    "market_name": "Bac Lieu",
+    "market_info": "",
+    "market_type": "Retail",
+    "admin_unit": "",
+    "admin_unit2": "",
+    "commodity": 3566,
+    "commodity_name": "Rice (5% broken)",
+    "commodity_info": "",
+    "commodity_image": null,
+    "commodity_code": "100640_3",
+    "commodity_start_date": 1,
+    "alternative_code": "",
+    "alternative_name": "",
+    "source": 489,
+    "source_name": "Vietnam Food Association",
+    "source_url": "https://vietfood.org.vn/thi-truong/gia-noi-dia/",
+    "price_type_id": 13,
+    "price_type": "WHOLESALE",
+    "currency": "VND",
+    "measure_unit": 3840,
+    "measure_unit_label": "Kg",
+    "conversion_factor": 1.0
+   }
+  ]
+ },
+ "series": {
+  "uuid": "756c8234-c859-404c-9752-20bd51745801",
+  "datapoints": [
+   {
+    "price_value": 12000.0,
+    "date": "2026-11-01",
+    "periodicity": "monthly"
+   },
+   {
+    "price_value": 10970.0,
+    "date": "2026-10-01",
+    "periodicity": "monthly"
+   },
+   {
+    "price_value": 10550.0,
+    "date": "2026-09-01",
+    "periodicity": "monthly"
+   },
+   {
+    "price_value": 11412.5,
+    "date": "2026-08-01",
+    "periodicity": "monthly"
+   },
+   {
+    "price_value": 11175.0,
+    "date": "2026-07-01",
+    "periodicity": "monthly"
+   },
+   {
+    "price_value": 10880.0,
+    "date": "2026-06-01",
+    "periodicity": "monthly"
+   },
+   {
+    "price_value": 10612.5,
+    "date": "2026-05-01",
+    "periodicity": "monthly"
+   },
+   {
+    "price_value": 9700.0,
+    "date": "2026-04-01",
+    "periodicity": "monthly"
+   },
+   {
+    "price_value": 9230.0,
+    "date": "2026-03-01",
+    "periodicity": "monthly"
+   },
+   {
+    "price_value": 9333.33,
+    "date": "2026-02-01",
+    "periodicity": "monthly"
+   },
+   {
+    "price_value": 9300.0,
+    "date": "2026-01-01",
+    "periodicity": "monthly"
+   },
+   {
+    "price_value": 9350.0,
+    "date": "2025-12-01",
+    "periodicity": "monthly"
+   },
+   {
+    "price_value": 9400.0,
+    "date": "2025-11-01",
+    "periodicity": "monthly"
+   },
+   {
+    "price_value": 9587.5,
+    "date": "2025-10-01",
+    "periodicity": "monthly"
+   },
+   {
+    "price_value": 12650.0,
+    "date": "2026-11-12",
+    "periodicity": "weekly"
+   },
+   {
+    "price_value": 11350.0,
+    "date": "2026-11-05",
+    "periodicity": "weekly"
+   },
+   {
+    "price_value": 11350.0,
+    "date": "2026-10-29",
+    "periodicity": "weekly"
+   }
+  ]
+ }
+}

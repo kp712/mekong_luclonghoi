@@ -2,7 +2,7 @@
    Ahead.salt(siteId, today) -> {en, vi, risk} for the KTTV 10-day salt forecast at a site, or null when there is none or its
    period ended more than 14 days before `today` (the forecast is then old news and is hidden, not shown as current).
    Reads SITES_JSON (load.js): salt_forecast (issue date, period, risk) and the site's salt_forecast (station, ppt), both from build.py.
-   test_build.py (test_forecast_stale) runs this file in Node. Ahead.planting(today): the official planting windows, hidden after finish_by. Ahead.outlook(siteId, today): the 3-month SEAS5 rain outlook, hidden when its months are past or its issue date is over 45 days old. */
+   test_build.py (test_forecast_stale) runs this file in Node. Ahead.planting(today): the official planting windows, hidden after finish_by. Ahead.outlook(siteId, today): the 3-month SEAS5 rain outlook, hidden when its months are past or its issue date is over 45 days old. Ahead.price(today): the rice price line, hidden when its month is over 3 months old. */
 const Ahead = (() => {
   const STALE_DAYS = 14;
   const MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -55,5 +55,20 @@ const Ahead = (() => {
       vi: `Dự báo mưa: ${each(true)}. ECMWF SEAS5 qua Open-Meteo, chưa hiệu chỉnh sai lệch, lần chạy ngày ${id}/${im}/${iy}, đầu tháng dự báo đầu tiên. Đây là dự báo, không phải số đo: "nhiều hơn" hoặc "ít hơn" là lệch trên 20% so với mức thường lệ của chính mô hình cho tháng đó (ngưỡng do nhóm chọn). Chỉ có cho các vùng Sóc Trăng.`
     };
   }
-  return { salt, planting, outlook };
+  /* Rice price (build.py rice_price, from pipeline/fetch_prices.py): FAO FPMA Bạc Liêu wholesale rice, 5% broken, VND/kg, latest month against its 2020-26 median.
+     It sits beside the profit figures but does not move them. Hidden when the latest month is over 3 months old (team choice) or missing. Not a "season ahead" item, so it has no site argument. */
+  const PRICE_MONTHS = 3, thou = (n, vi) => String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, vi ? "." : ",");
+  function price(today = new Date()) {
+    const p = typeof SITES_JSON !== "undefined" && SITES_JSON.rice_price;
+    if (!p) return null;
+    const [y, m] = ymd(p.month);
+    if ((today.getFullYear() - y) * 12 + today.getMonth() + 1 - m > PRICE_MONTHS) return null;
+    const up = p.pct >= 0, pc = num(Math.abs(p.pct)), when = `${MON[m - 1]} ${y}`, n = p.n;
+    return {
+      en: `Rice price (Bạc Liêu wholesale, FAO/VFA, ${when}): ${thou(p.vnd_kg)} ₫/kg (milled, 5% broken), ${pc}% ${up ? "above" : "below"} its 2020–26 median (${n} months). Profit figures are fixed published medians; they do not move with this price.`,
+      vi: `Giá gạo (bán buôn Bạc Liêu, FAO/VFA, tháng ${m}/${y}): ${thou(p.vnd_kg, true)} ₫/kg (gạo 5% tấm), ${num(Math.abs(p.pct), true)}% ${up ? "cao hơn" : "thấp hơn"} trung vị 2020–26 (${n} tháng). Các số liệu lợi nhuận là trung vị đã công bố, cố định; không thay đổi theo giá này.`,
+      src: "FAO FPMA · VFA"
+    };
+  }
+  return { salt, planting, outlook, price };
 })();

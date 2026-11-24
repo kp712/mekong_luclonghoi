@@ -1336,6 +1336,49 @@ def test_seasonal_outlook():
     assert not r["dec"]["en"].startswith("Rain outlook, Nov") and r["dec"]["en"].startswith("Rain outlook, Dec")  # November is over
 
 
+def test_rice_price():
+    """The fetcher finds the Bac Lieu 5% series by name in a saved FPMA listing and keeps monthly averages; build gives the 2020-26 median and %; Ahead.price hides it after 3 months."""
+    import subprocess
+    import fetch_prices
+    fx = json.loads((build.HERE / "fixtures" / "fpma_bac_lieu_rice.json").read_text(encoding="utf-8"))
+    meta = fetch_prices.find(fx["listing"])
+    assert meta["uuid"] == "756c8234-c859-404c-9752-20bd51745801" and meta["market_name"] == "Bac Lieu", meta  # the An Giang decoy is skipped
+    got = fetch_prices.parse(meta, fx["series"])
+    assert got["months"][0] == {"month": "2025-10", "vnd_kg": 9587.5} and got["months"][-1] == {"month": "2026-11", "vnd_kg": 12000.0} and len(got["months"]) == 14, got["months"]  # weekly points dropped
+    assert got["price_type"] == "WHOLESALE" and got["source"] == "Vietnam Food Association"
+    for bad in (lambda: fetch_prices.find({"results": []}), lambda: fetch_prices.find({"results": fx["listing"]["results"] * 2}),
+                lambda: fetch_prices.parse(meta, dict(fx["series"], uuid="x")), lambda: fetch_prices.parse(meta, dict(fx["series"], datapoints=fx["series"]["datapoints"][:3]))):
+        try:
+            bad()
+            assert False, "expected ValueError"
+        except ValueError:
+            pass
+    r = build.rice_price({"uuid": "u", "market": "Bac Lieu", "source": "S", "source_url": "U", "months": [{"month": m, "vnd_kg": v} for m, v in
+        [("2019-12", 1000), ("2020-01", 8000), ("2020-02", 9000), ("2020-03", 12000), ("2020-04", 20000)]]})
+    assert (r["median"], r["n"], r["pct"], r["month"]) == (10500, 4, 90.5, "2020-04"), r  # 2019 is outside the span; 20000 / 10500 - 1
+    build.build()
+    d = json.loads(build.OUT.read_text(encoding="utf-8"))
+    assert d["rice_price"] and d["rice_price"]["n"] >= 60 and d["rice_price"]["month"] >= "2026-11", d["rice_price"]
+    js = r"""
+    const fs = require("fs"), vm = require("vm"), root = process.argv[1];
+    const ctx = { SITES_JSON: JSON.parse(fs.readFileSync(root + "/data/sites.json", "utf8")) };
+    vm.createContext(ctx);
+    vm.runInContext(fs.readFileSync(root + "/app/ahead.js", "utf8").replace(/^const Ahead =/m, "globalThis.Ahead ="), ctx);
+    const S = ctx.SITES_JSON; S.rice_price = { month: "2026-11", vnd_kg: 12000, median: 10550, pct: 13.7, n: 83, uuid: "u" };
+    const at = (y, m, d) => ctx.Ahead.price(new Date(y, m - 1, d));
+    const on = at(2026, 11, 24), feb = at(2027, 2, 28), mar = at(2027, 3, 1);
+    S.rice_price.pct = -4.26; S.rice_price.vnd_kg = 9234.5; const dn = at(2026, 12, 1);
+    S.rice_price = null;
+    console.log(JSON.stringify({ on, feb, mar, dn, none: at(2026, 11, 24) }));
+    """
+    o = json.loads(subprocess.run(["node", "-e", js, str(build.ROOT / "docs")], capture_output=True, text=True, check=True).stdout)
+    assert o["on"] and o["feb"] and not o["mar"] and not o["none"], o  # month 2026-11 is 3 months old on 28 Feb 2027, 4 on 1 Mar
+    assert o["on"]["en"] == ("Rice price (B\u1ea1c Li\u00eau wholesale, FAO/VFA, Nov 2026): 12,000 \u20ab/kg (milled, 5% broken), 13.7% above its 2020\u201326 median (83 months). "
+                             "Profit figures are fixed published medians; they do not move with this price."), o["on"]["en"]
+    assert o["on"]["vi"].startswith("Gi\u00e1 g\u1ea1o (b\u00e1n bu\u00f4n B\u1ea1c Li\u00eau, FAO/VFA, th\u00e1ng 11/2026): 12.000 \u20ab/kg (g\u1ea1o 5% t\u1ea5m), 13,7% cao h\u01a1n trung v\u1ecb 2020\u201326 (83 th\u00e1ng).")
+    assert "9,235 \u20ab/kg" in o["dn"]["en"] and "4.3% below" in o["dn"]["en"] and "9.235" in o["dn"]["vi"] and "4,3% th\u1ea5p h\u01a1n" in o["dn"]["vi"], o["dn"]
+
+
 def test_score_parity():
     """docs/app/score.js (Plan Lab, dashboard pests) gives every card in sites.json the same scores as build.py."""
     import subprocess
