@@ -29,18 +29,19 @@ def find(listing):
     return hit[0]
 
 
-def parse(meta, series):
-    """FPMA series metadata + price response -> the raw file's content (monthly averages, oldest first)."""
+def parse(meta, series, today=None):
+    """FPMA series metadata + price response -> the raw file's content (monthly averages, oldest first, complete months only: the current month's average may cover part of it)."""
+    this = (today or date.today()).isoformat()[:7]
     try:
         if series["uuid"] != meta["uuid"]:
             raise ValueError("series uuid does not match the listing")
-        months = sorted({p["date"][:7]: round(float(p["price_value"]), 2) for p in series["datapoints"] if p["periodicity"] == "monthly" and p["price_value"] is not None}.items())
+        months = sorted({p["date"][:7]: round(float(p["price_value"]), 2) for p in series["datapoints"] if p["periodicity"] == "monthly" and p["price_value"] is not None and p["date"][:7] < this}.items())
     except (KeyError, TypeError) as e:
         raise ValueError(f"unexpected FPMA response: {e!r}")
     if len(months) < 12 or not all(1000 <= v <= 100000 for _, v in months):
         raise ValueError(f"{len(months)} months, or a value outside 1,000-100,000 VND/kg")
     return {"uuid": meta["uuid"], "market": meta["market_name"], "commodity": meta["commodity_name"], "price_type": meta["price_type"],  # FPMA's own label (a quirk: its market_type says "Retail")
-            "unit": "VND/kg", "source": meta["source_name"], "source_url": meta["source_url"], "fetched": date.today().isoformat(),
+            "unit": "VND/kg", "source": meta["source_name"], "source_url": meta["source_url"], "fetched": (today or date.today()).isoformat(),
             "months": [{"month": m, "vnd_kg": v} for m, v in months]}
 
 

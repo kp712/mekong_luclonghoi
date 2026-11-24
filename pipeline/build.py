@@ -861,7 +861,7 @@ def province(pr, rotations, chirps, imerg):
     cards = [card(r, clim, None, sal, soil=soil, site=pr["id"]) for r in rotations] if scored else []
     cards_e = [card(r, clim_e, None, sal, elnino=True, soil=soil, site=pr["id"]) for r in rotations] if scored else []
     out = {k: pr[k] for k in ("id", "name", "lat", "lon", "region")}
-    out.update(region_name=REGIONS[pr["region"]], former=[dict({k: f[k] for k in ("id", "name", "lat", "lon")}, salt_forecast=salinity.forecast_at(f)) for f in pr["former"]],
+    out.update(region_name=REGIONS[pr["region"]], former=[{k: f[k] for k in ("id", "name", "lat", "lon")} for f in pr["former"]],
                areas=pr.get("areas", []), points={"weather": ids, "rain": rain_ids, "soil": soil_ids},
                climate=clim, soil=soil, salinity=sal, scored=scored, not_scored=None if scored else NOT_SCORED,
                cards=cards, summary=place_summary(clim, None, sal, scored),

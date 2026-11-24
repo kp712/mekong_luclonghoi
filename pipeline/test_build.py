@@ -1253,7 +1253,7 @@ def test_salt_forecast_in_build():
     assert far is None
     assert salinity.forecast_at({"lat": 9.6, "lon": 105.97}, dict(salinity.DATA, forecast=None)) is None
     pv = json.loads(build.PROV_OUT.read_text(encoding="utf-8"))["provinces"]
-    assert all("salt_forecast" in f for p in pv for f in p["former"])
+    assert not any("salt_forecast" in f for p in pv for f in p["former"])  # nothing reads a per-former-province forecast
 
 
 def test_forecast_stale():
@@ -1285,15 +1285,17 @@ def test_planting_window_stale():
     const at = (y, m, d, reg) => ctx.Ahead.planting(reg, new Date(y, m - 1, d));
     const w0 = ctx.SITES_JSON.planting[0];  // a second Delta entry, finishing later: it takes over once the first has expired
     ctx.SITES_JSON.planting.push({ ...w0, id: "next", finish_by: "2027-06-30", season_en: "next" });
-    console.log(JSON.stringify({ now: at(2026, 11, 24), last: at(2027, 1, 10), off: at(2027, 1, 11), tn: at(2026, 11, 24, "southeast"), two: at(2027, 1, 11, "mekong_delta") }));
+    console.log(JSON.stringify({ now: at(2026, 11, 24), last: at(2027, 1, 10), off: at(2027, 1, 11), tn: at(2026, 11, 24, "southeast"), two: at(2027, 1, 11, "mekong_delta"), oct30: at(2026, 10, 30), dec31: at(2026, 12, 31), jan: at(2027, 1, 1) }));
     """
     r = json.loads(subprocess.run(["node", "-e", js, str(build.ROOT / "docs")], capture_output=True, text=True, check=True).stdout)
     assert r["now"] and r["last"] and not r["tn"], r  # Tay Ninh (southeast) gets no Delta window
     assert r["off"]["en"].find("next") > 0 and r["two"]["en"] == r["off"]["en"] and "next" not in r["last"]["en"], r  # second entry shown after the first expires
+    assert "10\u201330 Oct" not in r["now"]["en"] and "10\u201330 Oct" in r["oct30"]["en"], r  # a window is listed until its end date has passed
+    assert "1\u201331 Dec" in r["dec31"]["en"] and "1\u201331 Dec" not in r["jan"]["en"] and "late areas finish sowing by 10 Jan 2027" in r["jan"]["en"] and "10/1/2027" in r["jan"]["vi"], r  # none left: the finish-by line alone
     assert r["now"]["en"] == ("Official planting windows, \u0110\u00f4ng Xu\u00e2n (winter\u2013spring) 2026\u201327 (C\u1ee5c Tr\u1ed3ng tr\u1ecdt v\u00e0 BVTV, issued 19 Jun 2026): "
-        "10\u201330 Oct, early sowing in coastal areas at risk of late-season drought; 1\u201331 Dec, wave 2 (about 200,000 ha, 16% of the plan); "
+        "1\u201331 Dec, wave 2 (about 200,000 ha, 16% of the plan); "
         "late areas finish sowing by 10 Jan 2027. Sources disagree on the size of the early wave (350,000 ha, 28%, in one news summary)."), r["now"]["en"]
-    assert r["now"]["vi"].startswith("L\u1ecbch th\u1eddi v\u1ee5 ch\u00ednh th\u1ee9c, \u0110\u00f4ng Xu\u00e2n 2026\u201327 (C\u1ee5c Tr\u1ed3ng tr\u1ecdt v\u00e0 BVTV, ban h\u00e0nh ng\u00e0y 19/6/2026): 10\u201330/10, ") and "10/1/2027" in r["now"]["vi"]
+    assert r["now"]["vi"].startswith("L\u1ecbch th\u1eddi v\u1ee5 ch\u00ednh th\u1ee9c, \u0110\u00f4ng Xu\u00e2n 2026\u201327 (C\u1ee5c Tr\u1ed3ng tr\u1ecdt v\u00e0 BVTV, ban h\u00e0nh ng\u00e0y 19/6/2026): 1\u201331/12, ") and "10/1/2027" in r["now"]["vi"]
 
 
 def test_seasonal_outlook():
@@ -1313,6 +1315,10 @@ def test_seasonal_outlook():
             assert False, "expected ValueError"
         except ValueError:
             pass
+    from datetime import date
+    f = build.RAW / "seasonal.json"
+    before = f.read_bytes()
+    assert fetch_seasonal.main(date(2026, 12, 5)) is False and f.read_bytes() == before  # before the 6th: no request, file kept
     build.build()
     d = json.loads(build.OUT.read_text(encoding="utf-8"))
     sea = json.loads((build.RAW / "seasonal.json").read_text(encoding="utf-8"))
@@ -1339,11 +1345,13 @@ def test_seasonal_outlook():
 def test_rice_price():
     """The fetcher finds the Bac Lieu 5% series by name in a saved FPMA listing and keeps monthly averages; build gives the 2020-26 median and %; Ahead.price hides it after 3 months."""
     import subprocess
+    from datetime import date
     import fetch_prices
     fx = json.loads((build.HERE / "fixtures" / "fpma_bac_lieu_rice.json").read_text(encoding="utf-8"))
     meta = fetch_prices.find(fx["listing"])
     assert meta["uuid"] == "756c8234-c859-404c-9752-20bd51745801" and meta["market_name"] == "Bac Lieu", meta  # the An Giang decoy is skipped
-    got = fetch_prices.parse(meta, fx["series"])
+    got = fetch_prices.parse(meta, fx["series"], date(2026, 12, 1))
+    assert fetch_prices.parse(meta, fx["series"], date(2026, 11, 24))["months"][-1]["month"] == "2026-10"  # the current month is dropped
     assert got["months"][0] == {"month": "2025-10", "vnd_kg": 9587.5} and got["months"][-1] == {"month": "2026-11", "vnd_kg": 12000.0} and len(got["months"]) == 14, got["months"]  # weekly points dropped
     assert got["price_type"] == "WHOLESALE" and got["source"] == "Vietnam Food Association"
     for bad in (lambda: fetch_prices.find({"results": []}), lambda: fetch_prices.find({"results": fx["listing"]["results"] * 2}),
@@ -1358,7 +1366,7 @@ def test_rice_price():
     assert (r["median"], r["n"], r["pct"], r["month"]) == (10500, 4, 90.5, "2020-04"), r  # 2019 is outside the span; 20000 / 10500 - 1
     build.build()
     d = json.loads(build.OUT.read_text(encoding="utf-8"))
-    assert d["rice_price"] and d["rice_price"]["n"] >= 60 and d["rice_price"]["month"] >= "2026-11", d["rice_price"]
+    assert d["rice_price"] and d["rice_price"]["n"] >= 60 and d["rice_price"]["month"] >= "2026-10", d["rice_price"]
     js = r"""
     const fs = require("fs"), vm = require("vm"), root = process.argv[1];
     const ctx = { SITES_JSON: JSON.parse(fs.readFileSync(root + "/data/sites.json", "utf8")) };

@@ -29,7 +29,7 @@ async function toCards(page, url) {
   await page.waitForSelector('#v3.on');
 }
 const toStep = async (page, n) => {
-  if (await page.locator('body.dv-on').count()) { await page.locator('.nv-b', { hasText: 'Ruộng' }).click(); await page.locator('[data-dv=editmap]').first().click(); } // after a reload the dashboard shows: "edit on the map" opens the planner
+  if (await page.locator('body.dv-on').count()) { await page.locator('.nv-b', { hasText: /Ruộng|Fields/ }).click(); await page.locator('[data-dv=editmap]').first().click(); } // after a reload the dashboard shows: "edit on the map" opens the planner
   const b = page.locator(`[data-go="${n}"]:visible`);
   if (await b.count()) await b.first().click(); else await page.evaluate(n => App.go(n), n);
   await page.waitForSelector(`#v${n}.on`);
@@ -230,25 +230,40 @@ const CHECKS = [
     assert(fs[1].name === 'Ruộng Trần Đề 2' && fs[1].site === 'tran_de', 'new field ' + JSON.stringify(fs[1].name));
   } },
   { name: 'layers', async run({ page, url }) {
-    // 5 Jun 2026: inside the KTTV forecast period, the planting window, the SEAS5 run and the price month. At the real date the forecast must be gone.
+    // 5 Jun 2026: inside the KTTV forecast period, the planting window, the SEAS5 run and the price month. 15 days after the forecast period the forecast must be gone.
     await page.clock.setFixedTime(new Date(2026, 5, 5, 9));
+    const go = async n => { await page.evaluate(n => App.go(n), n); await page.waitForSelector(`#v${n}.on`) };   // the nav says "Fields" in English, which toStep does not know
+    const has = (t, ws, what) => ws.forEach(w => assert(t.includes(w), what + ' lacks "' + w + '": ' + t));
     await home(page, url); await page.locator('#lEn').click();
     await toCards(page, url);
-    const pr = await page.locator('#cards .card:visible .vs-price').first().innerText();
+    const price = () => page.locator('#cards .card:visible .vs-price').first();
+    const pr = await price().innerText();
     assert(/milled, wholesale/.test(pr) && /₫\/kg/.test(pr), 'short price line on a card: ' + pr);
+    await page.setViewportSize({ width: 320, height: 640 }); await page.waitForTimeout(300);
+    const pb = await price().boundingBox();
+    assert(pb && pb.x >= 0 && pb.x + pb.width <= 320, 'short price line off screen at 320 px: ' + JSON.stringify(pb));
+    assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), 'sideways scroll on the cards at 320 px');
+    await go(4);
+    const m4 = await page.locator('#s4m').textContent();
+    has(m4, ['Rice price (B', 'Profit figures are fixed', 'do not move with this price'], 'step 4 money block');
+    await go(1);
+    has(await page.locator('#outlook').innerText(), ['Official planting windows', 'Rain outlook'], 'step 1 #outlook');
+    await page.setViewportSize({ width: 390, height: 844 });
     await page.reload(); await page.waitForSelector('.s-ahead');
-    const has = (t, ws, what) => ws.forEach(w => assert(t.includes(w), what + ' lacks "' + w + '": ' + t));
     has(await page.locator('.s-ahead').innerText(), ['KTTV forecast', 'Official planting windows', 'Rain outlook'], 'Today card');
     await page.locator('[data-dvnav=data]').click(); await page.waitForSelector('[data-zoom=ahead]');
     has(await page.locator('[data-zoom=ahead]').innerText(), ['KTTV forecast', 'Official planting windows', 'Rain outlook'], 'ahead tile');
     const box = k => page.locator(`[data-zoom=${k}]`).boundingBox();
-    const a = await box('ahead'), n = await box('nino');
-    assert(a && n && (a.x + a.width <= n.x + 1 || n.x + n.width <= a.x + 1 || a.y + a.height <= n.y + 1 || n.y + n.height <= a.y + 1), 'ahead and nino tiles overlap: ' + JSON.stringify([a, n]));
+    const a = await box('ahead'), n = await page.locator('[data-zoom=nino]').count() ? await box('nino') : null;   // the nino tile exists only while DATA.outlook.elnino
+    assert(a && (!n || a.x + a.width <= n.x + 1 || n.x + n.width <= a.x + 1 || a.y + a.height <= n.y + 1 || n.y + n.height <= a.y + 1), 'ahead and nino tiles overlap: ' + JSON.stringify([a, n]));
     await page.setViewportSize({ width: 320, height: 640 }); await page.waitForTimeout(300);
     assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), 'sideways scroll on the data page at 320 px');
-    await page.clock.setFixedTime(new Date()); await page.reload(); await page.waitForSelector('.s-ahead');
-    const now = await page.locator('.s-ahead').innerText();
-    assert(!/KTTV forecast/.test(now), 'a past salt forecast shows as current: ' + now);
+    const to = await page.evaluate(() => SITES_JSON.salt_forecast.to), [ty, tm, td] = to.split('-').map(Number);
+    await page.clock.setFixedTime(new Date(ty, tm - 1, td + 15, 9)); await page.reload(); await page.waitForSelector('.nv-b');
+    const gone = async (where) => { const t = await page.evaluate(() => document.body.textContent); assert(!/KTTV forecast/.test(t), 'a past salt forecast shows as current on ' + where); };
+    await gone('Today');
+    await page.locator('[data-dvnav=data]').click(); await page.waitForSelector('[data-zoom=ahead]'); await gone('the data page');
+    await toStep(page, 1); await gone('step 1');
   } },
   { name: 'folds-no-storage', async run({ page, url, errs }) {
     await page.addInitScript(() => { const boom = () => { throw new Error('blocked') }; Storage.prototype.getItem = boom; Storage.prototype.setItem = boom; });

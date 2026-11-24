@@ -40,8 +40,12 @@ def parse(resp):
     return out
 
 
-def main():
-    points, today = {}, date.today().isoformat()
+def main(today=None):
+    today = today or date.today()
+    if today.day < 6:  # SEAS5 is published about the 5th: before that the API may still serve last month's run, which would be labelled as this month's
+        print("seasonal fetch skipped: before the 6th the new SEAS5 run may not be out; keeping the existing seasonal.json")
+        return False
+    points, today = {}, today.isoformat()
     for s in SITES:
         with urllib.request.urlopen(URL.format(lat=s["lat"], lon=s["lon"]), timeout=60) as r:
             points[s["id"]] = parse(json.load(r))
@@ -53,6 +57,7 @@ def main():
     RAW.mkdir(parents=True, exist_ok=True)
     (RAW / "seasonal.json").write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
     print("wrote seasonal.json, issued", out["issued"], {k: [x["label"] for x in v] for k, v in points.items()})
+    return True
 
 
 if __name__ == "__main__":

@@ -26,17 +26,17 @@ const Ahead = (() => {
       risk: m.risk ? { en: `KTTV salt disaster-risk level: ${m.risk}.`, vi: `Cấp độ rủi ro thiên tai do xâm nhập mặn (KTTV): cấp ${m.risk}.` } : null
     };
   }
-  /* Official planting windows (pipeline/planting_windows.json, hand-kept): the first entry for `region` whose finish_by has not passed, else null.
+  /* Official planting windows (pipeline/planting_windows.json, hand-kept): the first entry for `region` whose finish_by has not passed, else null; its windows whose end date (`to`) has passed are left out (finish_by line only when none is left).
      Pins carry no region and are all in the Delta, hence the default. */
   function planting(region = "mekong_delta", today = new Date()) {
     const t = Date.UTC(today.getFullYear(), today.getMonth(), today.getDate());
     const w = (typeof SITES_JSON !== "undefined" && SITES_JSON.planting || []).find((x) => x.region === region && t <= Date.UTC(...ymd(x.finish_by).map((v, i) => (i === 1 ? v - 1 : v))));
     if (!w) return null;
     const [iy, im, id] = ymd(w.issued), [fy, fm, fd] = ymd(w.finish_by);
-    const src = w.source.title.split(":")[0], each = (vi) => w.windows.map((x) => `${span(x.from, x.to, vi)}, ${vi ? x.vi : x.en}`).join("; ");
+    const src = w.source.title.split(":")[0], each = (vi) => w.windows.filter((x) => t <= Date.UTC(...ymd(x.to).map((v, i) => (i === 1 ? v - 1 : v)))).map((x) => `${span(x.from, x.to, vi)}, ${vi ? x.vi : x.en}; `).join("");  // windows already over are dropped, like past months in outlook
     return {
-      en: `Official planting windows, ${w.season_en} (${src}, issued ${id} ${MON[im - 1]} ${iy}): ${each()}; ${w.finish_en} ${fd} ${MON[fm - 1]} ${fy}. ${w.note_en}`,
-      vi: `Lịch thời vụ chính thức, ${w.season_vi} (${src}, ban hành ngày ${id}/${im}/${iy}): ${each(true)}; ${w.finish_vi} ngày ${fd}/${fm}/${fy}. ${w.note_vi}`
+      en: `Official planting windows, ${w.season_en} (${src}, issued ${id} ${MON[im - 1]} ${iy}): ${each()}${w.finish_en} ${fd} ${MON[fm - 1]} ${fy}. ${w.note_en}`,
+      vi: `Lịch thời vụ chính thức, ${w.season_vi} (${src}, ban hành ngày ${id}/${im}/${iy}): ${each(true)}${w.finish_vi} ngày ${fd}/${fm}/${fy}. ${w.note_vi}`
     };
   }
   /* 3-month rain outlook at a pin (build.py outlook3 + seasonal meta, from pipeline/fetch_seasonal.py): wetter / drier / normal per month, never mm.

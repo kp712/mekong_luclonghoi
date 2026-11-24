@@ -1,11 +1,11 @@
 {
  "generated": "2026-11-24",
  "rice_price": {
-  "month": "2026-11",
-  "vnd_kg": 12000.0,
-  "median": 10550.0,
-  "pct": 13.7,
-  "n": 83,
+  "month": "2026-10",
+  "vnd_kg": 10970.0,
+  "median": 10495.0,
+  "pct": 4.5,
+  "n": 82,
   "from": "2020-01",
   "to": "2026-12",
   "market": "Bac Lieu",
