@@ -17,6 +17,7 @@ RAW = pathlib.Path(__file__).resolve().parent.parent / "data" / "raw"
 URL = "https://seasonal-api.open-meteo.com/v1/seasonal?latitude={lat}&longitude={lon}&models=ecmwf_seas5&monthly=precipitation_mean,precipitation_anomaly&forecast_days=100"
 MONTHS = 3
 BAND = 20  # percent of the month's climatological mean
+MIN_CLIM = 10  # mm; under this a percentage of a near-zero base means nothing (team choice), so the month is left unlabelled
 
 
 def label(anom_pct):
@@ -30,10 +31,8 @@ def parse(resp):
         out = []
         for t, mean, anom in list(zip(m["time"], m["precipitation_mean"], m["precipitation_anomaly"]))[:MONTHS]:
             clim = mean - anom
-            if clim <= 0:
-                raise ValueError(f"climatological mean {clim} at {t}")
-            pct = round(anom / clim * 100, 1)
-            out.append({"month": t[:7], "anom_pct": pct, "label": label(pct)})
+            pct = round(anom / clim * 100, 1) if clim >= MIN_CLIM else None
+            out.append({"month": t[:7], "anom_pct": pct, "label": None if pct is None else label(pct)})
     except (KeyError, TypeError) as e:
         raise ValueError(f"unexpected Open-Meteo response: {e!r}")
     if len(out) < MONTHS:

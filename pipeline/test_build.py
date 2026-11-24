@@ -1305,8 +1305,9 @@ def test_seasonal_outlook():
     assert got == [{"month": "2026-11", "anom_pct": -8.9, "label": "normal"}, {"month": "2026-12", "anom_pct": -35.3, "label": "drier"},
                    {"month": "2027-01", "anom_pct": -79.1, "label": "drier"}], got  # 4 months in, 3 out; -15.1 / (154.0 + 15.1) = -8.9%
     assert [fetch_seasonal.label(x) for x in (20, 20.1, -20, -20.1, 0)] == ["normal", "wetter", "normal", "drier", "normal"]
-    for bad in ({}, {"monthly": {"time": ["2026-11-01"], "precipitation_mean": [1], "precipitation_anomaly": [0]}},
-                {"monthly": {"time": ["2026-11-01"] * 3, "precipitation_mean": [0, 1, 1], "precipitation_anomaly": [0, 0, 0]}}):
+    low = fetch_seasonal.parse({"monthly": {"time": ["2026-11-01", "2026-12-01", "2027-01-01"], "precipitation_mean": [0, 5, 100], "precipitation_anomaly": [0, 1, 30]}})
+    assert [(x["anom_pct"], x["label"]) for x in low] == [(None, None), (None, None), (42.9, "wetter")], low  # climatology 0, 4 mm (under 10): unlabelled, the run goes on
+    for bad in ({}, {"monthly": {"time": ["2026-11-01"], "precipitation_mean": [1], "precipitation_anomaly": [0]}}):
         try:
             fetch_seasonal.parse(bad)
             assert False, "expected ValueError"
@@ -1322,7 +1323,7 @@ def test_seasonal_outlook():
     vm.createContext(ctx);
     vm.runInContext(fs.readFileSync(root + "/app/ahead.js", "utf8").replace(/^const Ahead =/m, "globalThis.Ahead ="), ctx);
     const S = ctx.SITES_JSON; S.seasonal = { issued: "2026-11-01", model: "x" };
-    S.sites.find((x) => x.id === "tran_de").outlook3 = [{ month: "2026-11", label: "normal" }, { month: "2026-12", label: "drier" }, { month: "2027-01", label: "wetter" }];
+    S.sites.find((x) => x.id === "tran_de").outlook3 = [{ month: "2026-11", label: "normal" }, { month: "2026-12", label: "drier" }, { month: "2027-01", label: "wetter" }, { month: "2027-02", label: null }];  // unlabelled month is skipped
     const at = (y, m, d, id = "tran_de") => ctx.Ahead.outlook(id, new Date(y, m - 1, d));
     const on = at(2026, 11, 24), dec = at(2026, 12, 15), last = at(2026, 12, 16), old = at(2026, 12, 17), pt = at(2026, 11, 24, "nope");
     S.seasonal.issued = "2026-12-20";  // a late issue, so the months run out (1 Feb) before the 45 days do (3 Feb)
@@ -1330,8 +1331,8 @@ def test_seasonal_outlook():
     """
     r = json.loads(subprocess.run(["node", "-e", js, str(build.ROOT / "docs")], capture_output=True, text=True, check=True).stdout)
     assert r["on"] and r["dec"] and r["last"] and r["jan"] and not r["end"] and not r["old"] and not r["pt"], r  # 45 days from 1 Nov is 16 Dec: hidden from 17 Dec
-    assert r["on"]["en"].startswith("Rain outlook, Nov near normal; Dec drier; Jan wetter. ECMWF SEAS5 via Open-Meteo, not bias-corrected, issued 1 Nov 2026.") and "mm" not in r["on"]["en"].split()
-    assert r["on"]["vi"].startswith("D\u1ef1 b\u00e1o m\u01b0a: th\u00e1ng 11 g\u1ea7n m\u1ee9c th\u01b0\u1eddng l\u1ec7; th\u00e1ng 12 m\u01b0a \u00edt h\u01a1n th\u01b0\u1eddng l\u1ec7;") and "b\u1ea3n ng\u00e0y 1/11/2026" in r["on"]["vi"]
+    assert r["on"]["en"].startswith("Rain outlook, Nov near normal; Dec drier; Jan wetter. ECMWF SEAS5 via Open-Meteo, not bias-corrected, run of 1 Nov 2026, the start of the first forecast month.") and "Feb" not in r["on"]["en"].split(".")[0] and "mm" not in r["on"]["en"].split()
+    assert r["on"]["vi"].startswith("D\u1ef1 b\u00e1o m\u01b0a: th\u00e1ng 11 g\u1ea7n m\u1ee9c th\u01b0\u1eddng l\u1ec7; th\u00e1ng 12 m\u01b0a \u00edt h\u01a1n th\u01b0\u1eddng l\u1ec7;") and "l\u1ea7n ch\u1ea1y ng\u00e0y 1/11/2026" in r["on"]["vi"]
     assert not r["dec"]["en"].startswith("Rain outlook, Nov") and r["dec"]["en"].startswith("Rain outlook, Dec")  # November is over
 
 

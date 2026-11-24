@@ -40,19 +40,19 @@ const Ahead = (() => {
     };
   }
   /* 3-month rain outlook at a pin (build.py outlook3 + seasonal meta, from pipeline/fetch_seasonal.py): wetter / drier / normal per month, never mm.
-     Months already over are dropped; null when none are left, when the issue date is over 45 days old, or when the site has none (province points). */
+     Months already over or unlabelled (near-zero climatology) are dropped; null when none are left, when the issue date is over 45 days old, or when the site has none (province points). */
   const OUT_DAYS = 45, OUT_EN = { wetter: "wetter", drier: "drier", normal: "near normal" }, OUT_VI = { wetter: "mưa nhiều hơn thường lệ", drier: "mưa ít hơn thường lệ", normal: "gần mức thường lệ" };
   function outlook(siteId, today = new Date()) {
     const J = typeof SITES_JSON !== "undefined" && SITES_JSON, m = J && J.seasonal, s = m && J.sites.find((x) => x.id === siteId), o = s && s.outlook3;
     if (!o) return null;
     const t = Date.UTC(today.getFullYear(), today.getMonth(), today.getDate()), [iy, im, id] = ymd(m.issued);
     if (t - Date.UTC(iy, im - 1, id) > OUT_DAYS * 864e5) return null;
-    const left = o.filter((x) => { const [y, mo] = ymd(x.month); return t < Date.UTC(y, mo, 1) });  // month ends before today: past
+    const left = o.filter((x) => { const [y, mo] = ymd(x.month); return x.label && t < Date.UTC(y, mo, 1) });  // month ends before today: past
     if (!left.length) return null;
     const each = (vi) => left.map((x) => `${vi ? "tháng " + ymd(x.month)[1] : MON[ymd(x.month)[1] - 1]} ${(vi ? OUT_VI : OUT_EN)[x.label]}`).join("; ");
     return {
-      en: `Rain outlook, ${each()}. ECMWF SEAS5 via Open-Meteo, not bias-corrected, issued ${id} ${MON[im - 1]} ${iy}. A forecast, not a measurement: wetter or drier means more than 20% above or below the model's own normal for that month (our choice of threshold). Sóc Trăng areas only.`,
-      vi: `Dự báo mưa: ${each(true)}. ECMWF SEAS5 qua Open-Meteo, chưa hiệu chỉnh sai lệch, bản ngày ${id}/${im}/${iy}. Đây là dự báo, không phải số đo: "nhiều hơn" hoặc "ít hơn" là lệch trên 20% so với mức thường lệ của chính mô hình cho tháng đó (ngưỡng do nhóm chọn). Chỉ có cho các vùng Sóc Trăng.`
+      en: `Rain outlook, ${each()}. ECMWF SEAS5 via Open-Meteo, not bias-corrected, run of ${id} ${MON[im - 1]} ${iy}, the start of the first forecast month. A forecast, not a measurement: wetter or drier means more than 20% above or below the model's own normal for that month (our choice of threshold). Sóc Trăng areas only.`,
+      vi: `Dự báo mưa: ${each(true)}. ECMWF SEAS5 qua Open-Meteo, chưa hiệu chỉnh sai lệch, lần chạy ngày ${id}/${im}/${iy}, đầu tháng dự báo đầu tiên. Đây là dự báo, không phải số đo: "nhiều hơn" hoặc "ít hơn" là lệch trên 20% so với mức thường lệ của chính mô hình cho tháng đó (ngưỡng do nhóm chọn). Chỉ có cho các vùng Sóc Trăng.`
     };
   }
   return { salt, planting, outlook };
