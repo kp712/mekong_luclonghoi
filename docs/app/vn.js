@@ -1,7 +1,7 @@
 /* vn.js: the Mekong Delta + Tây Ninh on the planner's own map (map.js), so there is one map: zoom out from the 5 Sóc Trăng
-   areas to the provinces in sites.PROVINCES. Same look as the areas: white dashed outlines (the provinces, their former
-   provinces dotted inside), a see-through colour layer blended between the province points and clipped to the outlines (rain,
-   or rain minus crop water need), gold pins with name plates, and a province panel. The colour, pins and key show when
+   areas to the provinces in sites.PROVINCES. Same look as the areas: white dashed outlines (the 34-province outlines since
+   July 2025; the former provinces are points only), a see-through colour layer blended between the points and clipped to the
+   outlines (rain, or rain minus crop water need; salt only within D.salt_km of a station), gold pins with name plates, and a province panel. The colour, pins and key show when
    zoomed out past COUNTRY_Z (or with a province open); zoomed in, the planner looks as before.
    Data: data/provinces.json (pipeline/build.py), loaded after the app; outlines: VN_GEO (app/vn_geo.js, make_outlines.py).
    Globals used: L, VN_GEO, MapView (its Leaflet map), App, Dash, DISTRICTS. Exposes VnMap.country(). */
@@ -46,7 +46,7 @@ const VnMap = (() => {
     region: ["Region", "Vùng"],
     saltM: ["Salt", "Độ mặn"], saltH: ["Salt in the water (‰), at river stations", "Độ mặn của nước (‰), tại các trạm trên sông"],
     fresh: ["fresh", "ngọt"], shrimp: ["shrimp water", "nước nuôi tôm"],
-    saltNote: ["Colour blends between stations and is an estimate. Only former provinces with a station nearby are coloured; blank = no estimate. From station reports, not satellite.", "Màu hòa giữa các trạm và là ước tính. Chỉ tỉnh cũ có trạm đo gần mới có màu; để trống = chưa có ước tính. Từ báo cáo trạm đo, không phải vệ tinh."],
+    saltNote: ["Colour blends between stations and is an estimate. Only areas within 25 km of a station are coloured; blank = no estimate. From station reports, not satellite.", "Màu hòa giữa các trạm và là ước tính. Chỉ vùng cách trạm đo trong 25 km mới có màu; để trống = chưa có ước tính. Từ báo cáo trạm đo, không phải vệ tinh."],
     saltNino: ["El Niño year. The 5 Sóc Trăng areas show a typical year.", "Năm El Niño. 5 khu vực Sóc Trăng hiển thị năm thường."],
     lvlSalt: { low: ["Low salt", "Mặn thấp"], medium: ["Medium salt", "Mặn vừa"], high: ["High salt", "Mặn cao"] },
     rainNote: ["One scale all year. Colour between data points is an estimate, not a measurement.", "Một thang màu cả năm. Màu giữa các điểm số liệu là ước tính, không phải số đo."],
@@ -134,7 +134,7 @@ const VnMap = (() => {
      latitude a plain lat/lon image drifts ~20 km off the outlines (unnoticeable over Sóc Trăng's small box in map.js). */
   const merc = (lat) => Math.log(Math.tan(Math.PI / 4 + lat * Math.PI / 360)), unmerc = (y) => (Math.atan(Math.exp(y)) - Math.PI / 4) * 360 / Math.PI;
   /* a see-through colour image over box B: colour(lat, lon) -> [r, g, b] sampled on a gw-wide grid, smoothed, clipped to rings */
-  function clipImage(B, rings, gw, alpha, colour, base = 700) {
+  function clipImage(B, rings, gw, alpha, colour, base = 700, circles = null) {
     const yN = merc(B.n), yS = merc(B.s), xr = (B.e - B.w) * Math.PI / 180;
     const W = Math.round(base * Math.min(2, window.devicePixelRatio || 1)), H = Math.round(W * (yN - yS) / xr);
     const gh = Math.max(2, Math.round(gw * H / W));
@@ -150,26 +150,31 @@ const VnMap = (() => {
     bx.beginPath();
     rings.forEach((r) => r.forEach(([lon, lat], q) => { const x = (lon - B.w) / (B.e - B.w) * W, y = (yN - merc(lat)) / (yN - yS) * H; q ? bx.lineTo(x, y) : bx.moveTo(x, y); }));
     bx.clip("evenodd");
+    if (circles) {  // and inside at least one circle ({lat, lon, km}): a second clip keeps only the overlap
+      bx.beginPath();
+      circles.forEach((c) => { const x = (c.lon - B.w) / (B.e - B.w) * W, y = (yN - merc(c.lat)) / (yN - yS) * H, r = c.km / (111.32 * Math.cos(c.lat * Math.PI / 180)) / (B.e - B.w) * W; bx.moveTo(x + r, y); bx.arc(x, y, r, 0, 2 * Math.PI); });
+      bx.clip("nonzero");
+    }
     bx.imageSmoothingEnabled = true; bx.imageSmoothingQuality = "high";
     bx.drawImage(small, 0, 0, W, H);
     return big.toDataURL("image/png");
   }
   const idw = (pts, lat, lon) => { let w = 0, v = 0; for (const p of pts) { const d2 = (p.lat - lat) ** 2 + ((p.lon - lon) * 0.96) ** 2; if (d2 < 1e-10) return p.v; const q = 1 / (d2 * d2); w += q; v += q * p.v; } return v / w; };
   let range = [0, 1];
-  /* salt: the KTTV stations of this year view, blended between them and clipped to the former provinces whose point has an
-     estimate (map.js draws the 5 Sóc Trăng areas on top).
+  /* salt: the KTTV stations of this year view, blended between them and clipped to the outlines and to D.salt_km around each
+     station (the same rule as the points' estimates: beyond it there is none; map.js draws the 5 Sóc Trăng areas on top).
      rain / rain minus need: every province and the 5 areas, one colour scale for the year. */
   function paint() {
     if (!map || !G || !D) return;  // the month slider can fire before drawMap has made the panes
     const gp = map.getPane("grad"); if (gp) gp.style.display = mode === "salt" ? "" : "none";
     document.body.classList.toggle("vn-rainlayer", mode !== "salt");
-    let pts, stops, lo = 0, span = 1, ids = null;
+    let pts, stops, lo = 0, span = 1, circles = null;
     if (mode === "salt") {
       pts = (D.stations || []).filter((s) => s[yr]).map((s) => ({ lat: s.lat, lon: s.lon, v: monPpt(s[yr], mon) }));
-      ids = new Set(D.places.filter((x) => salMon(x, mon) != null).map((x) => x.id)); stops = SALT; lo = 0.5; span = 14.5;
+      circles = pts.map((p) => ({ lat: p.lat, lon: p.lon, km: D.salt_km })); stops = SALT; lo = 0.5; span = 14.5;
     } else { pts = points().map((p) => ({ lat: p.lat, lon: p.lon, v: pv(p, mon) })); range = yearRange(); stops = mode === "rain" ? BLUE : DIV; lo = range[0]; span = Math.max(1e-6, range[1] - range[0]); }
-    const rings = Object.entries(ids ? G.former : G.province).filter(([id]) => !ids || ids.has(id)).flatMap(([, rs]) => rs.map(ringPts));
-    const url = pts.length ? clipImage(MAIN, rings, 110, 150, (lat, lon) => ramp(stops, (idw(pts, lat, lon) - lo) / span)) : "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
+    const rings = Object.values(G.province).flatMap((rs) => rs.map(ringPts));
+    const url = pts.length ? clipImage(MAIN, rings, 110, 150, (lat, lon) => ramp(stops, (idw(pts, lat, lon) - lo) / span), 700, circles) : "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
     if (gradLayer) gradLayer.setUrl(url); else gradLayer = L.imageOverlay(url, [[MAIN.s, MAIN.w], [MAIN.n, MAIN.e]], { pane: "vn-grad", interactive: false }).addTo(map);
   }
   /* the month slider's salt line in the country view: the points on screen, not the 5 Sóc Trăng areas (null zoomed in) */
@@ -417,12 +422,9 @@ ${green}${heat}
   function drawMap() {
     // under the planner's own panes (grad 404, cells 410, labels 610): its Sóc Trăng areas stay on top and keep their taps
     map.createPane("vn-grad").style.zIndex = 401; map.getPane("vn-grad").style.pointerEvents = "none";
-    map.createPane("vn-inner").style.zIndex = 402; map.getPane("vn-inner").style.pointerEvents = "none";
     map.createPane("vn-cells").style.zIndex = 403;
     map.createPane("vn-labels").style.zIndex = 605;
-    const R = L.svg({ pane: "vn-cells", padding: 0.6 }), RI = L.svg({ pane: "vn-inner", padding: 0.6 });
-    // borders between former provinces inside one new province: thin dotted lines
-    G.inner.forEach((i) => L.polyline(G.arcs[i].map(ll), { pane: "vn-inner", renderer: RI, interactive: false, className: "vn-inner", smoothFactor: 0, noClip: true }).addTo(map));
+    const R = L.svg({ pane: "vn-cells", padding: 0.6 });
     D.provinces.forEach((p) => {
       const poly = L.polygon(G.province[p.id].map((r) => ringPts(r).map(ll)), { pane: "vn-cells", renderer: R, className: "vn-prov", smoothFactor: 0, noClip: true, bubblingMouseEvents: false, weight: 1.5 }).addTo(map);
       poly.on("mouseover", (e) => { hover(p.id); card2(p, null, e.originalEvent); });
@@ -652,7 +654,7 @@ ${(p.areas || []).length ? `<button type="button" class="vn-golink" data-home>${
       D = d;
       d.provinces.forEach((p) => { P[p.id] = p; });
       d.places.forEach((x) => { PL[x.id] = x; });
-      map.attributionControl.addAttribution('<a href="https://www.geoboundaries.org" target="_blank" rel="noopener">Outlines: geoBoundaries / OCHA, CC BY 3.0 IGO</a>');
+      map.attributionControl.addAttribution('<a href="https://data.humdata.org/dataset/cod-ab-vnm" target="_blank" rel="noopener">Provinces: OCHA COD-AB v02, CC BY-IGO</a> · <a href="https://www.geoboundaries.org" target="_blank" rel="noopener">Sóc Trăng districts: geoBoundaries, CC BY 3.0 IGO</a>');
       drawMap();
       paint();
       drawKey();

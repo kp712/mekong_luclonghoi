@@ -93,8 +93,8 @@
    "verified": true
   },
   {
-   "title": "geoBoundaries VNM ADM1 (gbHumanitarian, simplified): OCHA ROAP + Government of Viet Nam 2020, CC BY 3.0 IGO",
-   "url": "https://www.geoboundaries.org/countryDownloads.html"
+   "title": "OCHA COD-AB Viet Nam v02 (HDX): 34 provinces valid from 1 July 2025, OCHA ROAP + Government of Viet Nam, CC BY-IGO",
+   "url": "https://data.humdata.org/dataset/cod-ab-vnm"
   },
   {
    "title": "Yoshida S. (1981), Fundamentals of Rice Crop Science, IRRI (heat at flowering)",
@@ -55596,5 +55596,6 @@
     ]
    }
   }
- ]
+ ],
+ "salt_km": 25
 }

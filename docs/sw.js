@@ -5,7 +5,7 @@
    - Map tiles (the saved Sóc Trăng tiles and the online imagery) are kept as the farmer views them, up to TILE_MAX.
    - Anything else (place search, live weather) goes to the network as before.
    pipeline/test_build.py checks that PRECACHE lists every local file index.html loads, and that each one exists. */
-const CACHE = "mre-app-15", TILES = "mre-tiles-1", TILE_MAX = 1500;
+const CACHE = "mre-app-16", TILES = "mre-tiles-1", TILE_MAX = 1500;
 const LEAFLET = "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js";
 const PRECACHE = [
   "./",

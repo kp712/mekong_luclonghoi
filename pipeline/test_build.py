@@ -986,23 +986,22 @@ def test_no_orphans():
 
 
 def test_outlines():
-    """docs/app/vn_geo.js: the former and joined provinces of sites.PROVINCES, and every pin inside its own outline."""
+    """docs/app/vn_geo.js: only the new provinces of sites.PROVINCES (COD-AB v02, no former outlines), every point inside its own
+    province, and the salt clip's radius in provinces.json equal to the estimate rule."""
     import make_outlines as mo
     import sites
     text = (build.ROOT / "docs" / "app" / "vn_geo.js").read_text(encoding="utf-8")
     g = json.loads(text[text.index("{"):text.rindex("}") + 1])
     rings = lambda rs: [mo.ring_pts(g["arcs"], r) for r in rs]
-    assert set(g["province"]) == {p["id"] for p in sites.PROVINCES}
-    assert set(g["former"]) == {f["id"] for p in sites.PROVINCES for f in p["former"]}
+    assert set(g) == {"src", "arcs", "province"} and set(g["province"]) == {p["id"] for p in sites.PROVINCES}
+    assert "COD-AB" in g["src"]["title"]
     for p in sites.PROVINCES:
         for f in p["former"]:
-            assert mo.inside(f["lon"], f["lat"], rings(g["former"][f["id"]])), f["id"]
             assert mo.inside(f["lon"], f["lat"], rings(g["province"][p["id"]])), (p["id"], f["id"])
     for s in sites.SITES:
-        assert mo.inside(s["lon"], s["lat"], rings(g["former"]["soc_trang"])), s["id"]
-    # a border inside a joined province is never part of its outline
-    used = {i if i >= 0 else ~i for rs in g["province"].values() for r in rs for i in r}
-    assert g["inner"] and not used & set(g["inner"])
+        assert mo.inside(s["lon"], s["lat"], rings(g["province"]["can_tho"])), s["id"]
+    prov = json.loads((build.OUT.parent / "provinces.json").read_text(encoding="utf-8"))
+    assert prov["salt_km"] == salinity.SALT_KM == 25  # vn.js clips the salt colour with it; its key text says "25 km"
     assert mo.dp([(0, 0), (1, 0.0001), (2, 0)], 0.01) == [(0, 0), (2, 0)] and len(mo.dp([(0, 0), (1, 1), (2, 0)], 0.01)) == 3
 
 
