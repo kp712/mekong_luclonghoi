@@ -1,5 +1,22 @@
 {
- "generated": "2026-11-23",
+ "generated": "2026-11-24",
+ "rice_price": {
+  "month": "2026-10",
+  "vnd_kg": 10970.0,
+  "median": 10495.0,
+  "pct": 4.5,
+  "n": 82,
+  "from": "2020-01",
+  "to": "2026-12",
+  "market": "Bac Lieu",
+  "source": "Vietnam Food Association",
+  "source_url": "https://vietfood.org.vn/thi-truong/gia-noi-dia/",
+  "uuid": "756c8234-c859-404c-9752-20bd51745801"
+ },
+ "seasonal": {
+  "issued": "2026-11-01",
+  "model": "ECMWF SEAS5 via Open-Meteo (not bias-corrected)"
+ },
  "bounds": {
   "w": 103.0,
   "e": 107.0,
@@ -91,6 +108,46 @@
    "src": [
     37
    ]
+  }
+ ],
+ "salt_forecast": {
+  "issued": "2026-05-31",
+  "from": "2026-06-01",
+  "to": "2026-06-10",
+  "risk": 1,
+  "url": "https://kttv.gov.vn/upload/thuyvan1/2026/5/31/dbqg_xman_20260531_1500.pdf"
+ },
+ "planting": [
+  {
+   "id": "dong_xuan_2026_27_delta",
+   "region": "mekong_delta",
+   "issued": "2026-06-19",
+   "finish_by": "2027-01-10",
+   "windows": [
+    {
+     "from": "2026-10-10",
+     "to": "2026-10-30",
+     "en": "early sowing in coastal areas at risk of late-season drought",
+     "vi": "xuống giống sớm ở vùng ven biển có nguy cơ hạn cuối vụ"
+    },
+    {
+     "from": "2026-12-01",
+     "to": "2026-12-31",
+     "en": "wave 2 (about 200,000 ha, 16% of the plan)",
+     "vi": "đợt 2 (khoảng 200.000 ha, 16% kế hoạch)"
+    }
+   ],
+   "finish_en": "late areas finish sowing by",
+   "finish_vi": "vùng xuống giống muộn hoàn thành trước",
+   "note_en": "Sources disagree on the size of the early wave (350,000 ha, 28%, in one news summary).",
+   "note_vi": "Các nguồn không thống nhất quy mô đợt xuống giống sớm (một bản tin ghi 350.000 ha, 28%).",
+   "source": {
+    "title": "Cục Trồng trọt và BVTV: chỉ đạo sản xuất trồng trọt ứng phó El Niño 2026 (Cà Mau copy)",
+    "url": "https://storage-vnportal.vnpt.vn/cmu-khdn/5342/Vanban/2026.6.19-cv-chi-dao-sx-trong-trot-ung-pho-elnino-2026_-_nqmanh_19062026180253__19062026180725_signed.pdf",
+    "date": "2026-06-19"
+   },
+   "season_en": "Đông Xuân (winter–spring) 2026–27",
+   "season_vi": "Đông Xuân 2026–27"
   }
  ],
  "outlook": {
@@ -910,6 +967,28 @@
     "en": "Former Vĩnh Châu area (rice, inland)",
     "vi": "Khu vực Vĩnh Châu cũ (lúa, nội đồng)"
    },
+   "salt_forecast": {
+    "station": "Thạnh Phú",
+    "km": 16.0,
+    "ppt": 0.2
+   },
+   "outlook3": [
+    {
+     "month": "2026-11",
+     "anom_pct": -8.9,
+     "label": "normal"
+    },
+    {
+     "month": "2026-12",
+     "anom_pct": -35.3,
+     "label": "drier"
+    },
+    {
+     "month": "2027-01",
+     "anom_pct": -79.1,
+     "label": "drier"
+    }
+   ],
    "climate": {
     "rain_mm": [
      17,
@@ -4460,6 +4539,28 @@
     "en": "Former Trần Đề area (river mouth)",
     "vi": "Khu vực Trần Đề cũ (cửa sông)"
    },
+   "salt_forecast": {
+    "station": "Trần Đề",
+    "km": 11.6,
+    "ppt": 4.8
+   },
+   "outlook3": [
+    {
+     "month": "2026-11",
+     "anom_pct": -8.9,
+     "label": "normal"
+    },
+    {
+     "month": "2026-12",
+     "anom_pct": -35.3,
+     "label": "drier"
+    },
+    {
+     "month": "2027-01",
+     "anom_pct": -79.1,
+     "label": "drier"
+    }
+   ],
    "climate": {
     "rain_mm": [
      17,
@@ -7747,6 +7848,28 @@
     "en": "Former Mỹ Xuyên area",
     "vi": "Khu vực Mỹ Xuyên cũ"
    },
+   "salt_forecast": {
+    "station": "Thạnh Phú",
+    "km": 5.4,
+    "ppt": 0.2
+   },
+   "outlook3": [
+    {
+     "month": "2026-11",
+     "anom_pct": -4.5,
+     "label": "normal"
+    },
+    {
+     "month": "2026-12",
+     "anom_pct": -28.7,
+     "label": "drier"
+    },
+    {
+     "month": "2027-01",
+     "anom_pct": -76.3,
+     "label": "drier"
+    }
+   ],
    "climate": {
     "rain_mm": [
      16,
@@ -11058,6 +11181,28 @@
     "en": "Former Long Phú area (Hậu River)",
     "vi": "Khu vực Long Phú cũ (sông Hậu)"
    },
+   "salt_forecast": {
+    "station": "Long Phú",
+    "km": 2.8,
+    "ppt": 2.2
+   },
+   "outlook3": [
+    {
+     "month": "2026-11",
+     "anom_pct": 10.1,
+     "label": "normal"
+    },
+    {
+     "month": "2026-12",
+     "anom_pct": -19.8,
+     "label": "normal"
+    },
+    {
+     "month": "2027-01",
+     "anom_pct": -73.6,
+     "label": "drier"
+    }
+   ],
    "climate": {
     "rain_mm": [
      16,
@@ -14384,6 +14529,24 @@
     "en": "Former Ngã Năm area (inland)",
     "vi": "Khu vực Ngã Năm cũ (nội đồng)"
    },
+   "salt_forecast": null,
+   "outlook3": [
+    {
+     "month": "2026-11",
+     "anom_pct": 6.8,
+     "label": "normal"
+    },
+    {
+     "month": "2026-12",
+     "anom_pct": -11.3,
+     "label": "normal"
+    },
+    {
+     "month": "2027-01",
+     "anom_pct": -70.3,
+     "label": "drier"
+    }
+   ],
    "climate": {
     "rain_mm": [
      21,

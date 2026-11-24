@@ -37,7 +37,8 @@ def load():
     the names linking the table to the bulletins, and the app's area (province outlines from make_outlines.py)."""
     text = make_outlines.OUT.read_text(encoding="utf-8")
     g = json.loads(text[text.index("{"):text.rindex("}") + 1])
-    return {"bulletins": json.loads((RAW / "salinity_kttv_vietnam.json").read_text(encoding="utf-8"))["bulletins"],
+    kttv = json.loads((RAW / "salinity_kttv_vietnam.json").read_text(encoding="utf-8"))
+    return {"bulletins": kttv["bulletins"], "forecast": kttv.get("forecast"),
             "stations": json.loads((RAW / "kttv_stations.json").read_text(encoding="utf-8"))["stations"],
             "open": json.loads((RAW / "salinity_open_series.json").read_text(encoding="utf-8"))["stations"],
             "table": json.loads((RAW / "salinity_stations.json").read_text(encoding="utf-8"))["stations"],
@@ -57,6 +58,18 @@ def at(point, db=DATA):
     if pin:
         return site_salinity(db, pin)
     return kttv_salinity(db, point["lat"], point["lon"]) or (no_estimate(db, point["lat"], point["lon"]),) * 2
+
+
+def forecast_at(point, db=DATA):
+    """The newest KTTV 10-day forecast at a point {lat, lon}: {station, km, ppt} of its nearest station within SALT_KM, else None
+    (no forecast on file, the nearest station too far, or no forecast value for it)."""
+    fc = db.get("forecast")
+    if not fc:
+        return None
+    name, km = nearest_station(db, point["lat"], point["lon"])
+    if km > SALT_KM or name not in fc["stations"]:
+        return None
+    return {"station": name, "km": round(km, 1), "ppt": fc["stations"][name]}
 
 
 def stations(db=DATA):

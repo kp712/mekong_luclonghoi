@@ -1217,6 +1217,178 @@ def test_salt_lower_bound():
     assert "at least 14.0‰" in typ["note"]["en"] and "ít nhất 14,0‰" in typ["note"]["vi"] and "baocantho" not in typ["note"]["en"]
 
 
+def test_salt_forecast_parse():
+    """The 10-day forecast comes out of a saved extract of the 31 May 2026 bulletin (pages' text and tables); an odd layout fails loudly."""
+    pages = json.loads((build.HERE / "fixtures" / "kttv_forecast_20260531.json").read_text(encoding="utf-8"))
+    names = set(json.loads((build.RAW / "salinity_kttv_vietnam.json").read_text(encoding="utf-8"))["bulletins"]["2026-05-31"]["readings"])
+    f = fetch_salinity_vietnam.parse_forecast(pages, names)
+    assert (f["issued"], f["from"], f["to"], f["risk"]) == ("2026-05-31", "2026-06-01", "2026-06-10", 1)
+    assert len(f["stations"]) == 27 and "Rạch Giá" not in f["stations"]  # 28 rows, Rạch Giá has no value ("-")
+    assert f["stations"]["Trần Đề"] == 4.8 and f["stations"]["Gành Hào"] == 25.2
+    assert f["stations"]["Sông Đốc"] == 27.6  # the row pdfplumber drops at the page break, read back from the text
+    for bad in (lambda: fetch_salinity_vietnam.parse_forecast(pages),  # row 25 lost and no station names to find it by
+                lambda: fetch_salinity_vietnam.parse_forecast([{"text": "no bulletin here", "tables": []}], names)):
+        try:
+            bad()
+            assert False, "expected ValueError"
+        except ValueError:
+            pass
+    # a period across two months: 25/5 to 03/6/2026 starts in May
+    p2 = [dict(pages[0], text=pages[0]["text"].replace("(Từ ngày 01 đến ngày 10/6/2026)", "(Từ ngày 25/5 đến ngày 03/6/2026)"))] + pages[1:]
+    assert fetch_salinity_vietnam.parse_forecast(p2, names)["from"] == "2026-05-25"
+
+
+def test_salt_forecast_in_build():
+    """sites.json carries the forecast meta and, per pin and province point, the nearest station's value within 25 km (or none)."""
+    build.build()
+    d = json.loads(build.OUT.read_text(encoding="utf-8"))
+    fc = json.loads((build.RAW / "salinity_kttv_vietnam.json").read_text(encoding="utf-8"))["forecast"]
+    assert d["salt_forecast"] == {k: v for k, v in fc.items() if k != "stations"} and "stations" not in d["salt_forecast"]
+    got = {s["id"]: s["salt_forecast"] for s in d["sites"]}
+    assert got["tran_de"] == {"station": "Trần Đề", "km": got["tran_de"]["km"], "ppt": fc["stations"]["Trần Đề"]} and got["tran_de"]["km"] <= salinity.SALT_KM
+    assert got["nga_nam"] is None  # no KTTV station within 25 km
+    for s in d["sites"]:
+        assert s["salt_forecast"] == salinity.forecast_at(s)
+    far = salinity.forecast_at({"lat": 21.03, "lon": 105.85})  # Hà Nội
+    assert far is None
+    assert salinity.forecast_at({"lat": 9.6, "lon": 105.97}, dict(salinity.DATA, forecast=None)) is None
+    pv = json.loads(build.PROV_OUT.read_text(encoding="utf-8"))["provinces"]
+    assert not any("salt_forecast" in f for p in pv for f in p["former"])  # nothing reads a per-former-province forecast
+
+
+def test_forecast_stale():
+    """Ahead.salt (docs/app/ahead.js) shows the forecast until 14 days after its period ends, then hides it; a missing one is hidden too."""
+    import subprocess
+    js = r"""
+    const fs = require("fs"), vm = require("vm"), root = process.argv[1];
+    const J = JSON.parse(fs.readFileSync(root + "/data/sites.json", "utf8")), ctx = { SITES_JSON: J };
+    vm.createContext(ctx);
+    vm.runInContext(fs.readFileSync(root + "/app/ahead.js", "utf8").replace(/^const Ahead =/m, "globalThis.Ahead ="), ctx);
+    const at = (id, y, m, d) => ctx.Ahead.salt(id, new Date(y, m - 1, d));
+    const r = { on: at("tran_de", 2026, 6, 24), off: at("tran_de", 2026, 6, 25), now: at("tran_de", 2026, 11, 24), before: at("tran_de", 2026, 6, 1), none: at("nga_nam", 2026, 6, 5) };
+    console.log(JSON.stringify(r));
+    """
+    r = json.loads(subprocess.run(["node", "-e", js, str(build.ROOT / "docs")], capture_output=True, text=True, check=True).stdout)
+    assert r["on"] and r["before"] and not r["off"] and not r["now"] and not r["none"], r  # period ends 10 Jun: shown to 24 Jun, hidden from 25 Jun
+    assert r["on"]["en"] == "KTTV forecast, 1\u201310 Jun: up to 4.8\u2030 at Tr\u1ea7n \u0110\u1ec1 station (issued 31 May 2026)."
+    assert r["on"]["vi"].startswith("D\u1ef1 b\u00e1o KTTV, 1\u201310/6: t\u1ed1i \u0111a 4,8\u2030") and r["on"]["vi"].endswith("(b\u1ea3n tin ng\u00e0y 31/5/2026).")
+
+
+def test_planting_window_stale():
+    """Ahead.planting shows the official planting windows until finish_by (10 Jan 2027) and hides them the day after."""
+    import subprocess
+    js = r"""
+    const fs = require("fs"), vm = require("vm"), root = process.argv[1];
+    const ctx = { SITES_JSON: JSON.parse(fs.readFileSync(root + "/data/sites.json", "utf8")) };
+    vm.createContext(ctx);
+    vm.runInContext(fs.readFileSync(root + "/app/ahead.js", "utf8").replace(/^const Ahead =/m, "globalThis.Ahead ="), ctx);
+    const at = (y, m, d, reg) => ctx.Ahead.planting(reg, new Date(y, m - 1, d));
+    const w0 = ctx.SITES_JSON.planting[0];  // a second Delta entry, finishing later: it takes over once the first has expired
+    ctx.SITES_JSON.planting.push({ ...w0, id: "next", finish_by: "2027-06-30", season_en: "next" });
+    console.log(JSON.stringify({ now: at(2026, 11, 24), last: at(2027, 1, 10), off: at(2027, 1, 11), tn: at(2026, 11, 24, "southeast"), two: at(2027, 1, 11, "mekong_delta"), oct30: at(2026, 10, 30), dec31: at(2026, 12, 31), jan: at(2027, 1, 1) }));
+    """
+    r = json.loads(subprocess.run(["node", "-e", js, str(build.ROOT / "docs")], capture_output=True, text=True, check=True).stdout)
+    assert r["now"] and r["last"] and not r["tn"], r  # Tay Ninh (southeast) gets no Delta window
+    assert r["off"]["en"].find("next") > 0 and r["two"]["en"] == r["off"]["en"] and "next" not in r["last"]["en"], r  # second entry shown after the first expires
+    assert "10\u201330 Oct" not in r["now"]["en"] and "10\u201330 Oct" in r["oct30"]["en"], r  # a window is listed until its end date has passed
+    assert "1\u201331 Dec" in r["dec31"]["en"] and "1\u201331 Dec" not in r["jan"]["en"] and "late areas finish sowing by 10 Jan 2027" in r["jan"]["en"] and "10/1/2027" in r["jan"]["vi"], r  # none left: the finish-by line alone
+    assert r["now"]["en"] == ("Official planting windows, \u0110\u00f4ng Xu\u00e2n (winter\u2013spring) 2026\u201327 (C\u1ee5c Tr\u1ed3ng tr\u1ecdt v\u00e0 BVTV, issued 19 Jun 2026): "
+        "1\u201331 Dec, wave 2 (about 200,000 ha, 16% of the plan); "
+        "late areas finish sowing by 10 Jan 2027. Sources disagree on the size of the early wave (350,000 ha, 28%, in one news summary)."), r["now"]["en"]
+    assert r["now"]["vi"].startswith("L\u1ecbch th\u1eddi v\u1ee5 ch\u00ednh th\u1ee9c, \u0110\u00f4ng Xu\u00e2n 2026\u201327 (C\u1ee5c Tr\u1ed3ng tr\u1ecdt v\u00e0 BVTV, ban h\u00e0nh ng\u00e0y 19/6/2026): 1\u201331/12, ") and "10/1/2027" in r["now"]["vi"]
+
+
+def test_seasonal_outlook():
+    """The fetcher turns a saved Open-Meteo response into 3 months of anomaly % (anomaly / (mean - anomaly)) and the +-20% label."""
+    import subprocess
+    import fetch_seasonal
+    resp = json.loads((build.HERE / "fixtures" / "seasonal_vinh_chau.json").read_text(encoding="utf-8"))
+    got = fetch_seasonal.parse(resp)
+    assert got == [{"month": "2026-11", "anom_pct": -8.9, "label": "normal"}, {"month": "2026-12", "anom_pct": -35.3, "label": "drier"},
+                   {"month": "2027-01", "anom_pct": -79.1, "label": "drier"}], got  # 4 months in, 3 out; -15.1 / (154.0 + 15.1) = -8.9%
+    assert [fetch_seasonal.label(x) for x in (20, 20.1, -20, -20.1, 0)] == ["normal", "wetter", "normal", "drier", "normal"]
+    low = fetch_seasonal.parse({"monthly": {"time": ["2026-11-01", "2026-12-01", "2027-01-01"], "precipitation_mean": [0, 5, 100], "precipitation_anomaly": [0, 1, 30]}})
+    assert [(x["anom_pct"], x["label"]) for x in low] == [(None, None), (None, None), (42.9, "wetter")], low  # climatology 0, 4 mm (under 10): unlabelled, the run goes on
+    for bad in ({}, {"monthly": {"time": ["2026-11-01"], "precipitation_mean": [1], "precipitation_anomaly": [0]}}):
+        try:
+            fetch_seasonal.parse(bad)
+            assert False, "expected ValueError"
+        except ValueError:
+            pass
+    from datetime import date
+    f = build.RAW / "seasonal.json"
+    before = f.read_bytes()
+    assert fetch_seasonal.main(date(2026, 12, 5)) is False and f.read_bytes() == before  # before the 6th: no request, file kept
+    build.build()
+    d = json.loads(build.OUT.read_text(encoding="utf-8"))
+    sea = json.loads((build.RAW / "seasonal.json").read_text(encoding="utf-8"))
+    assert d["seasonal"] == {"issued": sea["issued"], "model": sea["model"]} and all(s["outlook3"] == sea["points"][s["id"]] for s in d["sites"])
+    js = r"""
+    const fs = require("fs"), vm = require("vm"), root = process.argv[1];
+    const ctx = { SITES_JSON: JSON.parse(fs.readFileSync(root + "/data/sites.json", "utf8")) };
+    vm.createContext(ctx);
+    vm.runInContext(fs.readFileSync(root + "/app/ahead.js", "utf8").replace(/^const Ahead =/m, "globalThis.Ahead ="), ctx);
+    const S = ctx.SITES_JSON; S.seasonal = { issued: "2026-11-01", model: "x" };
+    S.sites.find((x) => x.id === "tran_de").outlook3 = [{ month: "2026-11", label: "normal" }, { month: "2026-12", label: "drier" }, { month: "2027-01", label: "wetter" }, { month: "2027-02", label: null }];  // unlabelled month is skipped
+    const at = (y, m, d, id = "tran_de") => ctx.Ahead.outlook(id, new Date(y, m - 1, d));
+    const on = at(2026, 11, 24), dec = at(2026, 12, 15), last = at(2026, 12, 16), old = at(2026, 12, 17), pt = at(2026, 11, 24, "nope");
+    S.seasonal.issued = "2026-12-20";  // a late issue, so the months run out (1 Feb) before the 45 days do (3 Feb)
+    console.log(JSON.stringify({ on, dec, last, old, pt, jan: at(2027, 1, 31), end: at(2027, 2, 1) }));
+    """
+    r = json.loads(subprocess.run(["node", "-e", js, str(build.ROOT / "docs")], capture_output=True, text=True, check=True).stdout)
+    assert r["on"] and r["dec"] and r["last"] and r["jan"] and not r["end"] and not r["old"] and not r["pt"], r  # 45 days from 1 Nov is 16 Dec: hidden from 17 Dec
+    assert r["on"]["en"].startswith("Rain outlook, Nov near normal; Dec drier; Jan wetter. ECMWF SEAS5 via Open-Meteo, not bias-corrected, run of 1 Nov 2026, the start of the first forecast month.") and "Feb" not in r["on"]["en"].split(".")[0] and "mm" not in r["on"]["en"].split()
+    assert r["on"]["vi"].startswith("D\u1ef1 b\u00e1o m\u01b0a: th\u00e1ng 11 g\u1ea7n m\u1ee9c th\u01b0\u1eddng l\u1ec7; th\u00e1ng 12 m\u01b0a \u00edt h\u01a1n th\u01b0\u1eddng l\u1ec7;") and "l\u1ea7n ch\u1ea1y ng\u00e0y 1/11/2026" in r["on"]["vi"]
+    assert not r["dec"]["en"].startswith("Rain outlook, Nov") and r["dec"]["en"].startswith("Rain outlook, Dec")  # November is over
+
+
+def test_rice_price():
+    """The fetcher finds the Bac Lieu 5% series by name in a saved FPMA listing and keeps monthly averages; build gives the 2020-26 median and %; Ahead.price hides it after 3 months."""
+    import subprocess
+    from datetime import date
+    import fetch_prices
+    fx = json.loads((build.HERE / "fixtures" / "fpma_bac_lieu_rice.json").read_text(encoding="utf-8"))
+    meta = fetch_prices.find(fx["listing"])
+    assert meta["uuid"] == "756c8234-c859-404c-9752-20bd51745801" and meta["market_name"] == "Bac Lieu", meta  # the An Giang decoy is skipped
+    got = fetch_prices.parse(meta, fx["series"], date(2026, 12, 1))
+    assert fetch_prices.parse(meta, fx["series"], date(2026, 11, 24))["months"][-1]["month"] == "2026-10"  # the current month is dropped
+    assert got["months"][0] == {"month": "2025-10", "vnd_kg": 9587.5} and got["months"][-1] == {"month": "2026-11", "vnd_kg": 12000.0} and len(got["months"]) == 14, got["months"]  # weekly points dropped
+    assert got["price_type"] == "WHOLESALE" and got["source"] == "Vietnam Food Association"
+    for bad in (lambda: fetch_prices.find({"results": []}), lambda: fetch_prices.find({"results": fx["listing"]["results"] * 2}),
+                lambda: fetch_prices.parse(meta, dict(fx["series"], uuid="x")), lambda: fetch_prices.parse(meta, dict(fx["series"], datapoints=fx["series"]["datapoints"][:3]))):
+        try:
+            bad()
+            assert False, "expected ValueError"
+        except ValueError:
+            pass
+    r = build.rice_price({"uuid": "u", "market": "Bac Lieu", "source": "S", "source_url": "U", "months": [{"month": m, "vnd_kg": v} for m, v in
+        [("2019-12", 1000), ("2020-01", 8000), ("2020-02", 9000), ("2020-03", 12000), ("2020-04", 20000)]]})
+    assert (r["median"], r["n"], r["pct"], r["month"]) == (10500, 4, 90.5, "2020-04"), r  # 2019 is outside the span; 20000 / 10500 - 1
+    build.build()
+    d = json.loads(build.OUT.read_text(encoding="utf-8"))
+    assert d["rice_price"] and d["rice_price"]["n"] >= 60 and d["rice_price"]["month"] >= "2026-10", d["rice_price"]
+    js = r"""
+    const fs = require("fs"), vm = require("vm"), root = process.argv[1];
+    const ctx = { SITES_JSON: JSON.parse(fs.readFileSync(root + "/data/sites.json", "utf8")) };
+    vm.createContext(ctx);
+    vm.runInContext(fs.readFileSync(root + "/app/ahead.js", "utf8").replace(/^const Ahead =/m, "globalThis.Ahead ="), ctx);
+    const S = ctx.SITES_JSON; S.rice_price = { month: "2026-11", vnd_kg: 12000, median: 10550, pct: 13.7, n: 83, uuid: "u" };
+    const at = (y, m, d) => ctx.Ahead.price(new Date(y, m - 1, d));
+    const sh = ctx.Ahead.price(new Date(2026, 10, 24), true), on = at(2026, 11, 24), feb = at(2027, 2, 28), mar = at(2027, 3, 1);
+    S.rice_price.pct = -4.26; S.rice_price.vnd_kg = 9234.5; const dn = at(2026, 12, 1);
+    S.rice_price = null;
+    console.log(JSON.stringify({ sh, on, feb, mar, dn, none: at(2026, 11, 24) }));
+    """
+    o = json.loads(subprocess.run(["node", "-e", js, str(build.ROOT / "docs")], capture_output=True, text=True, check=True).stdout)
+    assert o["on"] and o["feb"] and not o["mar"] and not o["none"], o  # month 2026-11 is 3 months old on 28 Feb 2027, 4 on 1 Mar
+    assert o["on"]["en"] == ("Rice price (B\u1ea1c Li\u00eau wholesale, FAO/VFA, Nov 2026): 12,000 \u20ab/kg (milled, 5% broken), 13.7% above its 2020\u201326 median (83 months). "
+                             "Profit figures are fixed published medians; they do not move with this price."), o["on"]["en"]
+    assert o["sh"]["en"] == "Rice price (milled, wholesale, FAO/VFA, Nov 2026): 12,000 \u20ab/kg, +13.7% vs 2020\u201326 median", o["sh"]
+    assert o["sh"]["vi"] == "Gi\u00e1 g\u1ea1o (g\u1ea1o xay x\u00e1t, b\u00e1n bu\u00f4n, FAO/VFA, th\u00e1ng 11/2026): 12.000 \u20ab/kg, +13,7% so v\u1edbi trung v\u1ecb 2020\u201326", o["sh"]
+    assert o["on"]["vi"].startswith("Gi\u00e1 g\u1ea1o (b\u00e1n bu\u00f4n B\u1ea1c Li\u00eau, FAO/VFA, th\u00e1ng 11/2026): 12.000 \u20ab/kg (g\u1ea1o 5% t\u1ea5m), 13,7% cao h\u01a1n trung v\u1ecb 2020\u201326 (83 th\u00e1ng).")
+    assert "9,235 \u20ab/kg" in o["dn"]["en"] and "4.3% below" in o["dn"]["en"] and "9.235" in o["dn"]["vi"] and "4,3% th\u1ea5p h\u01a1n" in o["dn"]["vi"], o["dn"]
+
+
 def test_score_parity():
     """docs/app/score.js (Plan Lab, dashboard pests) gives every card in sites.json the same scores as build.py."""
     import subprocess

@@ -3,6 +3,42 @@
   "title": "NCHMF (Trung tâm Dự báo KTTV quốc gia), Tin dự báo xâm nhập mặn trên khu vực Nam Bộ",
   "url": "https://kttv.gov.vn/kttv/vi-VN/1/xam-nhap-man-20-18.html"
  },
+ "forecast": {
+  "issued": "2026-05-31",
+  "from": "2026-06-01",
+  "to": "2026-06-10",
+  "risk": 1,
+  "stations": {
+   "Cát Lái": 0.9,
+   "Bến Lức": 1.1,
+   "Xuân Khánh": 0.2,
+   "Tân An": 0.5,
+   "Tuyên Nhơn": 0.1,
+   "Vàm Kênh": 11.1,
+   "Hòa Bình": 1.5,
+   "An Định": 0.1,
+   "Bình Đại": 18.2,
+   "Lộc Thuận": 5.5,
+   "An Thuận": 16.4,
+   "Sơn Đốc": 5.9,
+   "Bến Trại": 6.2,
+   "Hương Mỹ": 1.3,
+   "Hưng Mỹ": 4.5,
+   "Cầu Quan": 0.2,
+   "Trà Vinh": 2.8,
+   "Trà Kha": 3.6,
+   "Long Phú": 2.2,
+   "Đại Ngãi": 0.2,
+   "Trần Đề": 4.8,
+   "Thạnh Phú": 0.2,
+   "Sóc Trăng": 0.2,
+   "Gành Hào": 25.2,
+   "Gò Quao": 0.7,
+   "An Ninh": 0.5,
+   "Sông Đốc": 27.6
+  },
+  "url": "https://kttv.gov.vn/upload/thuyvan1/2026/5/31/dbqg_xman_20260531_1500.pdf"
+ },
  "bulletins": {
   "2024-03-20": {
    "url": "https://kttv.gov.vn/upload/thuyvan2/2024/3/20/dbqg_xman_20240320_1500.pdf",

@@ -1,0 +1,92 @@
+{
+ "issued": "2026-11-01",
+ "fetched": "2026-11-24",
+ "model": "ECMWF SEAS5 via Open-Meteo (not bias-corrected)",
+ "points": {
+  "vinh_chau": [
+   {
+    "month": "2026-11",
+    "anom_pct": -8.9,
+    "label": "normal"
+   },
+   {
+    "month": "2026-12",
+    "anom_pct": -35.3,
+    "label": "drier"
+   },
+   {
+    "month": "2027-01",
+    "anom_pct": -79.1,
+    "label": "drier"
+   }
+  ],
+  "tran_de": [
+   {
+    "month": "2026-11",
+    "anom_pct": -8.9,
+    "label": "normal"
+   },
+   {
+    "month": "2026-12",
+    "anom_pct": -35.3,
+    "label": "drier"
+   },
+   {
+    "month": "2027-01",
+    "anom_pct": -79.1,
+    "label": "drier"
+   }
+  ],
+  "my_xuyen": [
+   {
+    "month": "2026-11",
+    "anom_pct": -4.5,
+    "label": "normal"
+   },
+   {
+    "month": "2026-12",
+    "anom_pct": -28.7,
+    "label": "drier"
+   },
+   {
+    "month": "2027-01",
+    "anom_pct": -76.3,
+    "label": "drier"
+   }
+  ],
+  "long_phu": [
+   {
+    "month": "2026-11",
+    "anom_pct": 10.1,
+    "label": "normal"
+   },
+   {
+    "month": "2026-12",
+    "anom_pct": -19.8,
+    "label": "normal"
+   },
+   {
+    "month": "2027-01",
+    "anom_pct": -73.6,
+    "label": "drier"
+   }
+  ],
+  "nga_nam": [
+   {
+    "month": "2026-11",
+    "anom_pct": 6.8,
+    "label": "normal"
+   },
+   {
+    "month": "2026-12",
+    "anom_pct": -11.3,
+    "label": "normal"
+   },
+   {
+    "month": "2027-01",
+    "anom_pct": -70.3,
+    "label": "drier"
+   }
+  ]
+ }
+}
