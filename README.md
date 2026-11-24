@@ -48,7 +48,8 @@ One view for everyone: plain words and big buttons; tap **Why & sources** (and t
 | [NASA GPM IMERG Final monthly v07](https://disc.gsfc.nasa.gov/datasets/GPM_3IMERGM_07/summary) | Only a cross-check of the rain below | ~10 km, Dec 2000 – Sep 2025 |
 | [CHIRPS v3.0](https://www.chc.ucsb.edu/data/chirps3) (Climate Hazards Center, UC Santa Barbara; not NASA) | Rain each month (satellite and rain-gauge estimate) | ~5 km, Dec 2000 – Nov 2025 (rolls: the newest whole Dec–Nov season) |
 | [ERA5 / ERA5-Land (Copernicus Climate Change Service, ECMWF) via Open-Meteo](https://open-meteo.com/en/docs/historical-weather-api) (CC BY 4.0) | ERA5: daily maximum and minimum temperature (mean temperature for pest pressure) and the FAO-56 reference evapotranspiration (ET₀) that Open-Meteo computes; ERA5-Land: days at or above 35 °C | ERA5 ~25 km, ERA5-Land ~10 km, Dec 2000 – Nov 2025 (rolls: the newest whole Dec–Nov season) |
-| [NASA MODIS MOD13Q1 v6.1 NDVI](https://lpdaac.usgs.gov/products/mod13q1v061/) via [NASA AppEEARS](https://appeears.earthdatacloud.nasa.gov/) | Field greenness, crops per year, months fields are usually bare | 250 m, 16-day, 2000–2025 |
+| [NASA MODIS MOD13Q1 v6.1 NDVI](https://lpdaac.usgs.gov/products/mod13q1v061/) via [NASA AppEEARS](https://appeears.earthdatacloud.nasa.gov/) | Crops per year, months fields are usually bare, and the greenness line at the province points | 250 m, 16-day, 2000–2025 |
+| [NASA HLS-VI v2.0](https://lpdaac.usgs.gov/products/hlsl30_viv002/) (Sentinel-2 + Landsat 8/9) | The greenness line at the 5 Sóc Trăng pins, and whether a bare month is dry or flooded (Xiao et al. 2005 rule) | 30 m, clear dates, Dec 2015 – Nov 2025 |
 
 The season ahead (forecasts and a price, not measurements; each line names its source and date and hides itself when old): the KTTV 10-day salt forecast, the official planting windows (Cục Trồng trọt và BVTV), a 3-month wetter/drier rain outlook (ECMWF SEAS5, Sóc Trăng pins only) and the Bạc Liêu wholesale rice price (FAO/VFA, milled rice, not a farm-gate price).
 
@@ -160,6 +161,7 @@ You don't need this to use the app. The data in the download is already complete
 py pipeline/fetch_era5.py       # ERA5 / ERA5-Land weather via Open-Meteo -> data/raw/ (no login)
 py pipeline/fetch_enso.py       # NOAA El Niño index + forecast -> data/raw/ (no login)
 py pipeline/appeears.py ndvi    # NASA MODIS greenness via AppEEARS (needs Earthdata login, see below; can take hours)
+py pipeline/fetch_hlsvi.py      # NASA HLS-VI 30 m greenness at the 5 pins (needs the Earthdata login below and rasterio; about 64 min from scratch, a rerun skips saved dates)
 py pipeline/fetch_soil.py       # SoilGrids topsoil (slow website: if it stops, run it again to continue)
 py pipeline/fetch_chirps.py     # CHIRPS v3.0 rain, the rain the app shows (no login; needs tifffile and imagecodecs)
 py pipeline/fetch_gpm.py        # NASA GPM IMERG rain, only the cross-check of CHIRPS (needs Earthdata login, see below)

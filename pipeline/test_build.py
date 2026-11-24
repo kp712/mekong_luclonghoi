@@ -1555,6 +1555,25 @@ def test_pin_chart_hlsvi():
         assert d["chart_src"] and s["ndvi"]["crops_per_year"] > 0  # the crop count stays MODIS
 
 
+def test_bare_kind():
+    """A MODIS bare month is "flooded" when most HLS-VI bare dates (ndvi < BARE) meet Xiao 2005 (ndmi + 0.05 >= evi), else "dry"; under 3 bare dates: no label."""
+    rec = lambda ndvi, ndmi, evi: {"ndvi": ndvi, "ndmi": ndmi, "evi": evi}
+    wet, dry, green = rec(0.2, 0.1, 0.1), rec(0.2, -0.2, 0.1), rec(0.8, 0.3, 0.6)
+    day = lambda y, m, d: f"{y}-{m:02d}-{d:02d}"
+    dates = {day(2017, 10, 1): wet, day(2018, 10, 1): wet, day(2019, 10, 1): dry,  # Oct: 2 of 3 flooded
+             day(2017, 2, 1): dry, day(2018, 2, 1): dry, day(2019, 2, 1): wet,  # Feb: dry
+             day(2017, 3, 1): wet, day(2018, 3, 1): wet,  # Mar: only 2 bare dates
+             day(2017, 4, 1): green, day(2018, 4, 1): green, day(2019, 4, 1): green,  # Apr: HLS is green, no label
+             day(2014, 5, 1): wet, day(2015, 5, 1): wet, day(2016, 5, 1): wet}  # May: 2014 and 2015 are before HLS-VI (Dec 2015): one date left
+    assert build.bare_kind(dates, [2, 3, 4, 10, 5]) == {2: "dry", 10: "flooded"}, build.bare_kind(dates, [2, 3, 4, 10, 5])
+    assert build.bare_kind(dates, [1, 12]) == {}  # no dates at all
+    d = json.loads((build.OUT.parent / "sites.json").read_text(encoding="utf-8"))
+    for s in d["sites"]:
+        if s["ndvi"]:
+            assert set(s["ndvi"]["bare_kind"]) <= {str(m) for m in s["ndvi"]["bare_months"]}, s["id"]  # JSON keys are month numbers as strings
+            assert set(s["ndvi"]["bare_kind"].values()) <= {"dry", "flooded"}
+
+
 if __name__ == "__main__":
     import sys
     # Windows uses cp1252 when output is redirected; Vietnamese text would crash print().

@@ -37,7 +37,7 @@
     "vi": "Đậu xanh là cây họ đậu. Vi khuẩn trong nốt sần ở rễ lấy đạm từ không khí, nên vụ lúa sau có thể cần ít phân hơn. Trong một thí nghiệm trong nhà kính ở Malaysia, lúa trồng sau cây họ đậu sử dụng đạm tốt hơn; tác dụng của đậu xanh nhỏ hơn các loại đậu khác."
    },
    "src": [
-    72
+    73
    ]
   },
   {
@@ -53,7 +53,7 @@
     "vi": "Cây che phủ được trồng trong thời gian đất nghỉ để giữ cho đất không bị trống, không phải để bán. Theo FAO, cây che phủ bảo vệ đất trống, bổ sung chất hữu cơ giúp cải thiện cấu trúc đất, giúp hạn chế cỏ dại và sâu bệnh, và giữ lại dinh dưỡng cho vụ sau."
    },
    "src": [
-    81
+    82
    ]
   },
   {
@@ -69,8 +69,8 @@
     "vi": "Trồng lúa ngập nước nhiều năm có thể làm đất bị nén chặt bên dưới tầng cày. Trong một thí nghiệm 10 năm ở Đồng bằng sông Cửu Long, luân canh lúa với bắp hoặc đậu xanh làm đất tơi xốp hơn ở độ sâu 10–30 cm và rễ lúa ăn sâu hơn. Một thí nghiệm sau đó, cũng ở Đồng bằng sông Cửu Long (2017–2020, đậu nành và mè) không thấy năng suất lúa tăng chỉ nhờ luân canh."
    },
    "src": [
-    82,
-    83
+    83,
+    84
    ]
   },
   {
@@ -87,7 +87,7 @@
    },
    "src": [
     3,
-    84
+    85
    ]
   },
   {
@@ -199,11 +199,11 @@
     }
    ],
    "src": [
-    85,
     86,
     87,
     88,
-    89
+    89,
+    90
    ]
   },
   "rice_st": {
@@ -236,9 +236,9 @@
     }
    ],
    "src": [
-    90,
     91,
-    92
+    92,
+    93
    ]
   },
   "mungbean": {
@@ -279,9 +279,9 @@
     "vi": "Hướng dẫn chung cả nước, không riêng cho Đồng bằng sông Cửu Long: hãy hỏi cán bộ khuyến nông."
    },
    "src": [
-    93,
     94,
-    95
+    95,
+    96
    ]
   },
   "watermelon": {
@@ -315,8 +315,8 @@
     }
    ],
    "src": [
-    96,
-    69
+    97,
+    70
    ]
   },
   "maize": {
@@ -357,9 +357,9 @@
     "vi": "Hướng dẫn chung cả nước, không riêng cho Đồng bằng sông Cửu Long: hãy hỏi cán bộ khuyến nông."
    },
    "src": [
-    93,
-    97,
-    98
+    94,
+    98,
+    99
    ]
   },
   "shrimp": {
@@ -395,10 +395,10 @@
     }
    ],
    "src": [
-    90,
-    99,
     91,
-    92
+    100,
+    92,
+    93
    ]
   }
  },
@@ -788,6 +788,11 @@
    "verified": true
   },
   {
+   "title": "Xiao et al. 2005, Mapping paddy rice agriculture in southern China using multi-temporal MODIS images, Remote Sensing of Environment 95:480–492",
+   "url": "https://doi.org/10.1016/j.rse.2004.12.009",
+   "verified": true
+  },
+  {
    "title": "NASA HLS v2.0 NDVI (Landsat 8/9 + Sentinel-2), 30 m, cloud-free dates",
    "url": "https://lpdaac.usgs.gov/products/hlsl30v002/",
    "verified": true
@@ -1164,6 +1169,13 @@
      10
     ],
     "crops_per_year": 2.0,
+    "bare_kind": {
+     "3": "dry",
+     "4": "dry",
+     "5": "dry",
+     "6": "flooded",
+     "10": "flooded"
+    },
     "hls_bare_months": [
      11
     ]
@@ -1842,8 +1854,8 @@
           11,
           12,
           13,
-          65,
-          66
+          66,
+          67
          ]
         },
         {
@@ -1975,25 +1987,27 @@
           29,
           30,
           31,
-          67,
           68,
           69,
           70,
-          71
+          71,
+          72
          ]
         },
         {
-         "en": "NASA MODIS NDVI: fields are usually bare in Mar–Jun, Oct, a window that fits this option.",
-         "vi": "NASA MODIS NDVI: ruộng thường để trống vào T3–T6, T10, phù hợp với phương án này.",
+         "en": "NASA MODIS NDVI: fields are usually bare in Mar–May (dry), Jun, Oct (flooded), a window that fits this option.",
+         "vi": "NASA MODIS NDVI: ruộng thường để trống vào T3–T5 (khô), T6, T10 (ngập nước), phù hợp với phương án này.",
          "src": [
-          63
+          63,
+          14,
+          64
          ]
         },
         {
          "en": "NASA HLS NDVI (30 m): fields are usually bare in Nov.",
          "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T11.",
          "src": [
-          64
+          65
          ]
         }
        ],
@@ -2038,7 +2052,7 @@
        "src": [
         2,
         3,
-        72,
+        73,
         37
        ],
        "offered": true
@@ -2089,8 +2103,8 @@
           11,
           12,
           13,
-          65,
-          66
+          66,
+          67
          ]
         },
         {
@@ -2101,7 +2115,7 @@
          "en": "Maize here faces fall armyworm in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
          "vi": "Bắp ở đây bị sâu keo mùa thu gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
          "src": [
-          73
+          74
          ]
         },
         {
@@ -2222,21 +2236,23 @@
           29,
           30,
           31,
-          67
+          68
          ]
         },
         {
-         "en": "NASA MODIS NDVI: fields are usually bare in Mar–Jun, Oct, a window that fits this option.",
-         "vi": "NASA MODIS NDVI: ruộng thường để trống vào T3–T6, T10, phù hợp với phương án này.",
+         "en": "NASA MODIS NDVI: fields are usually bare in Mar–May (dry), Jun, Oct (flooded), a window that fits this option.",
+         "vi": "NASA MODIS NDVI: ruộng thường để trống vào T3–T5 (khô), T6, T10 (ngập nước), phù hợp với phương án này.",
          "src": [
-          63
+          63,
+          14,
+          64
          ]
         },
         {
          "en": "NASA HLS NDVI (30 m): fields are usually bare in Nov.",
          "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T11.",
          "src": [
-          64
+          65
          ]
         }
        ],
@@ -2281,7 +2297,7 @@
        "src": [
         2,
         3,
-        72,
+        73,
         37
        ],
        "offered": true
@@ -2336,8 +2352,8 @@
           11,
           12,
           13,
-          65,
-          66
+          66,
+          67
          ]
         },
         {
@@ -2348,7 +2364,7 @@
          "en": "Mung bean here faces whitefly and pod borer in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
          "vi": "Đậu xanh ở đây bị bọ phấn trắng và sâu đục quả gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
          "src": [
-          74
+          75
          ]
         },
         {
@@ -2453,17 +2469,19 @@
          ]
         },
         {
-         "en": "NASA MODIS NDVI: fields are usually bare in Mar–Jun, Oct, a window that fits this option.",
-         "vi": "NASA MODIS NDVI: ruộng thường để trống vào T3–T6, T10, phù hợp với phương án này.",
+         "en": "NASA MODIS NDVI: fields are usually bare in Mar–May (dry), Jun, Oct (flooded), a window that fits this option.",
+         "vi": "NASA MODIS NDVI: ruộng thường để trống vào T3–T5 (khô), T6, T10 (ngập nước), phù hợp với phương án này.",
          "src": [
-          63
+          63,
+          14,
+          64
          ]
         },
         {
          "en": "NASA HLS NDVI (30 m): fields are usually bare in Nov.",
          "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T11.",
          "src": [
-          64
+          65
          ]
         }
        ],
@@ -2508,7 +2526,7 @@
        "src": [
         2,
         3,
-        72,
+        73,
         37
        ],
        "offered": true
@@ -2653,24 +2671,26 @@
        "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 94,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 5 số liệu đã công bố, 2020–2026).",
        "src": [
         20,
-        75,
+        76,
         21,
         22,
-        76
+        77
        ]
       },
       {
-       "en": "NASA MODIS NDVI: fields are usually bare in Mar–Jun, Oct, a window that fits this option.",
-       "vi": "NASA MODIS NDVI: ruộng thường để trống vào T3–T6, T10, phù hợp với phương án này.",
+       "en": "NASA MODIS NDVI: fields are usually bare in Mar–May (dry), Jun, Oct (flooded), a window that fits this option.",
+       "vi": "NASA MODIS NDVI: ruộng thường để trống vào T3–T5 (khô), T6, T10 (ngập nước), phù hợp với phương án này.",
        "src": [
-        63
+        63,
+        14,
+        64
        ]
       },
       {
        "en": "NASA HLS NDVI (30 m): fields are usually bare in Nov.",
        "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T11.",
        "src": [
-        64
+        65
        ]
       }
      ],
@@ -2704,7 +2724,7 @@
       33
      ],
      "src": [
-      77,
+      78,
       37
      ]
     }
@@ -2746,14 +2766,16 @@
      }
     },
     {
-     "en": "Satellite sees ≈ 2.0 crops a year and bare fields in Mar–Jun, Oct (NASA MODIS).",
-     "vi": "Vệ tinh ghi nhận ≈ 2,0 vụ/năm và ruộng trống vào T3–T6, T10 (NASA MODIS).",
+     "en": "Satellite sees ≈ 2.0 crops a year and bare fields in Mar–May (dry), Jun, Oct (flooded) (NASA MODIS; dry or flooded from NASA HLS-VI 30 m).",
+     "vi": "Vệ tinh ghi nhận ≈ 2,0 vụ/năm và ruộng trống vào T3–T5 (khô), T6, T10 (ngập nước) (NASA MODIS; khô hay ngập nước theo NASA HLS-VI 30 m).",
      "src": [
-      63
+      63,
+      14,
+      64
      ],
      "plain": {
-      "en": "Satellite sees ≈ 2.0 crops a year and bare fields in Mar–Jun, Oct.",
-      "vi": "Vệ tinh ghi nhận ≈ 2,0 vụ/năm và ruộng trống vào T3–T6, T10."
+      "en": "Satellite sees ≈ 2.0 crops a year and bare fields in Mar–May (dry), Jun, Oct (flooded).",
+      "vi": "Vệ tinh ghi nhận ≈ 2,0 vụ/năm và ruộng trống vào T3–T5 (khô), T6, T10 (ngập nước)."
      }
     }
    ],
@@ -3639,8 +3661,8 @@
            11,
            12,
            13,
-           65,
-           66
+           66,
+           67
           ]
          },
          {
@@ -3772,25 +3794,27 @@
            29,
            30,
            31,
-           67,
            68,
            69,
            70,
-           71
+           71,
+           72
           ]
          },
          {
-          "en": "NASA MODIS NDVI: fields are usually bare in Mar–Jun, Oct, a window that fits this option.",
-          "vi": "NASA MODIS NDVI: ruộng thường để trống vào T3–T6, T10, phù hợp với phương án này.",
+          "en": "NASA MODIS NDVI: fields are usually bare in Mar–May (dry), Jun, Oct (flooded), a window that fits this option.",
+          "vi": "NASA MODIS NDVI: ruộng thường để trống vào T3–T5 (khô), T6, T10 (ngập nước), phù hợp với phương án này.",
           "src": [
-           63
+           63,
+           14,
+           64
           ]
          },
          {
           "en": "NASA HLS NDVI (30 m): fields are usually bare in Nov.",
           "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T11.",
           "src": [
-           64
+           65
           ]
          }
         ],
@@ -3835,7 +3859,7 @@
         "src": [
          2,
          3,
-         72,
+         73,
          37
         ],
         "offered": true
@@ -3886,8 +3910,8 @@
            11,
            12,
            13,
-           65,
-           66
+           66,
+           67
           ]
          },
          {
@@ -3898,7 +3922,7 @@
           "en": "Maize here faces fall armyworm in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
           "vi": "Bắp ở đây bị sâu keo mùa thu gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
           "src": [
-           73
+           74
           ]
          },
          {
@@ -4019,21 +4043,23 @@
            29,
            30,
            31,
-           67
+           68
           ]
          },
          {
-          "en": "NASA MODIS NDVI: fields are usually bare in Mar–Jun, Oct, a window that fits this option.",
-          "vi": "NASA MODIS NDVI: ruộng thường để trống vào T3–T6, T10, phù hợp với phương án này.",
+          "en": "NASA MODIS NDVI: fields are usually bare in Mar–May (dry), Jun, Oct (flooded), a window that fits this option.",
+          "vi": "NASA MODIS NDVI: ruộng thường để trống vào T3–T5 (khô), T6, T10 (ngập nước), phù hợp với phương án này.",
           "src": [
-           63
+           63,
+           14,
+           64
           ]
          },
          {
           "en": "NASA HLS NDVI (30 m): fields are usually bare in Nov.",
           "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T11.",
           "src": [
-           64
+           65
           ]
          }
         ],
@@ -4078,7 +4104,7 @@
         "src": [
          2,
          3,
-         72,
+         73,
          37
         ],
         "offered": true
@@ -4133,8 +4159,8 @@
            11,
            12,
            13,
-           65,
-           66
+           66,
+           67
           ]
          },
          {
@@ -4145,7 +4171,7 @@
           "en": "Mung bean here faces whitefly and pod borer in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
           "vi": "Đậu xanh ở đây bị bọ phấn trắng và sâu đục quả gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
           "src": [
-           74
+           75
           ]
          },
          {
@@ -4250,17 +4276,19 @@
           ]
          },
          {
-          "en": "NASA MODIS NDVI: fields are usually bare in Mar–Jun, Oct, a window that fits this option.",
-          "vi": "NASA MODIS NDVI: ruộng thường để trống vào T3–T6, T10, phù hợp với phương án này.",
+          "en": "NASA MODIS NDVI: fields are usually bare in Mar–May (dry), Jun, Oct (flooded), a window that fits this option.",
+          "vi": "NASA MODIS NDVI: ruộng thường để trống vào T3–T5 (khô), T6, T10 (ngập nước), phù hợp với phương án này.",
           "src": [
-           63
+           63,
+           14,
+           64
           ]
          },
          {
           "en": "NASA HLS NDVI (30 m): fields are usually bare in Nov.",
           "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T11.",
           "src": [
-           64
+           65
           ]
          }
         ],
@@ -4305,7 +4333,7 @@
         "src": [
          2,
          3,
-         72,
+         73,
          37
         ],
         "offered": true
@@ -4450,24 +4478,26 @@
         "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 89,8 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 5 số liệu đã công bố, 2020–2026).",
         "src": [
          20,
-         75,
+         76,
          21,
          22,
-         76
+         77
         ]
        },
        {
-        "en": "NASA MODIS NDVI: fields are usually bare in Mar–Jun, Oct, a window that fits this option.",
-        "vi": "NASA MODIS NDVI: ruộng thường để trống vào T3–T6, T10, phù hợp với phương án này.",
+        "en": "NASA MODIS NDVI: fields are usually bare in Mar–May (dry), Jun, Oct (flooded), a window that fits this option.",
+        "vi": "NASA MODIS NDVI: ruộng thường để trống vào T3–T5 (khô), T6, T10 (ngập nước), phù hợp với phương án này.",
         "src": [
-         63
+         63,
+         14,
+         64
         ]
        },
        {
         "en": "NASA HLS NDVI (30 m): fields are usually bare in Nov.",
         "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T11.",
         "src": [
-         64
+         65
         ]
        }
       ],
@@ -4501,7 +4531,7 @@
        33
       ],
       "src": [
-       77,
+       78,
        37
       ]
      }
@@ -4543,14 +4573,16 @@
       }
      },
      {
-      "en": "Satellite sees ≈ 2.0 crops a year and bare fields in Mar–Jun, Oct (NASA MODIS).",
-      "vi": "Vệ tinh ghi nhận ≈ 2,0 vụ/năm và ruộng trống vào T3–T6, T10 (NASA MODIS).",
+      "en": "Satellite sees ≈ 2.0 crops a year and bare fields in Mar–May (dry), Jun, Oct (flooded) (NASA MODIS; dry or flooded from NASA HLS-VI 30 m).",
+      "vi": "Vệ tinh ghi nhận ≈ 2,0 vụ/năm và ruộng trống vào T3–T5 (khô), T6, T10 (ngập nước) (NASA MODIS; khô hay ngập nước theo NASA HLS-VI 30 m).",
       "src": [
-       63
+       63,
+       14,
+       64
       ],
       "plain": {
-       "en": "Satellite sees ≈ 2.0 crops a year and bare fields in Mar–Jun, Oct.",
-       "vi": "Vệ tinh ghi nhận ≈ 2,0 vụ/năm và ruộng trống vào T3–T6, T10."
+       "en": "Satellite sees ≈ 2.0 crops a year and bare fields in Mar–May (dry), Jun, Oct (flooded).",
+       "vi": "Vệ tinh ghi nhận ≈ 2,0 vụ/năm và ruộng trống vào T3–T5 (khô), T6, T10 (ngập nước)."
       }
      }
     ],
@@ -4763,6 +4795,12 @@
      10
     ],
     "crops_per_year": 2.0,
+    "bare_kind": {
+     "3": "dry",
+     "4": "dry",
+     "5": "dry",
+     "10": "flooded"
+    },
     "hls_bare_months": []
    },
    "salinity": {
@@ -5392,8 +5430,8 @@
           11,
           12,
           13,
-          65,
-          66
+          66,
+          67
          ]
         },
         {
@@ -5454,8 +5492,8 @@
          "en": "Farmers in the former Trần Đề area grow watermelon and maize on rice land in the dry season.",
          "vi": "Nông dân khu vực Trần Đề cũ trồng dưa hấu và bắp dưới chân ruộng lúa vào mùa khô.",
          "src": [
-          78,
-          79
+          79,
+          80
          ]
         },
         {
@@ -5510,18 +5548,20 @@
           29,
           30,
           31,
-          67,
           68,
           69,
           70,
-          71
+          71,
+          72
          ]
         },
         {
-         "en": "NASA MODIS NDVI: fields are usually bare in Mar–May, Oct, a window that fits this option.",
-         "vi": "NASA MODIS NDVI: ruộng thường để trống vào T3–T5, T10, phù hợp với phương án này.",
+         "en": "NASA MODIS NDVI: fields are usually bare in Mar–May (dry), Oct (flooded), a window that fits this option.",
+         "vi": "NASA MODIS NDVI: ruộng thường để trống vào T3–T5 (khô), T10 (ngập nước), phù hợp với phương án này.",
          "src": [
-          63
+          63,
+          14,
+          64
          ]
         }
        ],
@@ -5566,7 +5606,7 @@
        "src": [
         2,
         3,
-        72,
+        73,
         37
        ],
        "offered": true
@@ -5617,8 +5657,8 @@
           11,
           12,
           13,
-          65,
-          66
+          66,
+          67
          ]
         },
         {
@@ -5629,7 +5669,7 @@
          "en": "Maize here faces fall armyworm in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
          "vi": "Bắp ở đây bị sâu keo mùa thu gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
          "src": [
-          73
+          74
          ]
         },
         {
@@ -5679,8 +5719,8 @@
          "en": "Farmers in the former Trần Đề area grow watermelon and maize on rice land in the dry season.",
          "vi": "Nông dân khu vực Trần Đề cũ trồng dưa hấu và bắp dưới chân ruộng lúa vào mùa khô.",
          "src": [
-          78,
-          79
+          79,
+          80
          ]
         },
         {
@@ -5735,14 +5775,16 @@
           29,
           30,
           31,
-          67
+          68
          ]
         },
         {
-         "en": "NASA MODIS NDVI: fields are usually bare in Mar–May, Oct, a window that fits this option.",
-         "vi": "NASA MODIS NDVI: ruộng thường để trống vào T3–T5, T10, phù hợp với phương án này.",
+         "en": "NASA MODIS NDVI: fields are usually bare in Mar–May (dry), Oct (flooded), a window that fits this option.",
+         "vi": "NASA MODIS NDVI: ruộng thường để trống vào T3–T5 (khô), T10 (ngập nước), phù hợp với phương án này.",
          "src": [
-          63
+          63,
+          14,
+          64
          ]
         }
        ],
@@ -5787,7 +5829,7 @@
        "src": [
         2,
         3,
-        72,
+        73,
         37
        ],
        "offered": true
@@ -5842,8 +5884,8 @@
           11,
           12,
           13,
-          65,
-          66
+          66,
+          67
          ]
         },
         {
@@ -5854,7 +5896,7 @@
          "en": "Mung bean here faces whitefly and pod borer in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
          "vi": "Đậu xanh ở đây bị bọ phấn trắng và sâu đục quả gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
          "src": [
-          74
+          75
          ]
         },
         {
@@ -5898,8 +5940,8 @@
          "en": "Farmers in the former Trần Đề area grow watermelon and maize on rice land in the dry season.",
          "vi": "Nông dân khu vực Trần Đề cũ trồng dưa hấu và bắp dưới chân ruộng lúa vào mùa khô.",
          "src": [
-          78,
-          79
+          79,
+          80
          ]
         },
         {
@@ -5944,10 +5986,12 @@
          ]
         },
         {
-         "en": "NASA MODIS NDVI: fields are usually bare in Mar–May, Oct, a window that fits this option.",
-         "vi": "NASA MODIS NDVI: ruộng thường để trống vào T3–T5, T10, phù hợp với phương án này.",
+         "en": "NASA MODIS NDVI: fields are usually bare in Mar–May (dry), Oct (flooded), a window that fits this option.",
+         "vi": "NASA MODIS NDVI: ruộng thường để trống vào T3–T5 (khô), T10 (ngập nước), phù hợp với phương án này.",
          "src": [
-          63
+          63,
+          14,
+          64
          ]
         }
        ],
@@ -5992,7 +6036,7 @@
        "src": [
         2,
         3,
-        72,
+        73,
         37
        ],
        "offered": true
@@ -6121,17 +6165,19 @@
        "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 94,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 5 số liệu đã công bố, 2020–2026).",
        "src": [
         20,
-        75,
+        76,
         21,
         22,
-        76
+        77
        ]
       },
       {
-       "en": "NASA MODIS NDVI: fields are usually bare in Mar–May, Oct, a window that fits this option.",
-       "vi": "NASA MODIS NDVI: ruộng thường để trống vào T3–T5, T10, phù hợp với phương án này.",
+       "en": "NASA MODIS NDVI: fields are usually bare in Mar–May (dry), Oct (flooded), a window that fits this option.",
+       "vi": "NASA MODIS NDVI: ruộng thường để trống vào T3–T5 (khô), T10 (ngập nước), phù hợp với phương án này.",
        "src": [
-        63
+        63,
+        14,
+        64
        ]
       }
      ],
@@ -6165,7 +6211,7 @@
       33
      ],
      "src": [
-      77,
+      78,
       37
      ]
     }
@@ -6207,14 +6253,16 @@
      }
     },
     {
-     "en": "Satellite sees ≈ 2.0 crops a year and bare fields in Mar–May, Oct (NASA MODIS).",
-     "vi": "Vệ tinh ghi nhận ≈ 2,0 vụ/năm và ruộng trống vào T3–T5, T10 (NASA MODIS).",
+     "en": "Satellite sees ≈ 2.0 crops a year and bare fields in Mar–May (dry), Oct (flooded) (NASA MODIS; dry or flooded from NASA HLS-VI 30 m).",
+     "vi": "Vệ tinh ghi nhận ≈ 2,0 vụ/năm và ruộng trống vào T3–T5 (khô), T10 (ngập nước) (NASA MODIS; khô hay ngập nước theo NASA HLS-VI 30 m).",
      "src": [
-      63
+      63,
+      14,
+      64
      ],
      "plain": {
-      "en": "Satellite sees ≈ 2.0 crops a year and bare fields in Mar–May, Oct.",
-      "vi": "Vệ tinh ghi nhận ≈ 2,0 vụ/năm và ruộng trống vào T3–T5, T10."
+      "en": "Satellite sees ≈ 2.0 crops a year and bare fields in Mar–May (dry), Oct (flooded).",
+      "vi": "Vệ tinh ghi nhận ≈ 2,0 vụ/năm và ruộng trống vào T3–T5 (khô), T10 (ngập nước)."
      }
     }
    ],
@@ -7065,8 +7113,8 @@
            11,
            12,
            13,
-           65,
-           66
+           66,
+           67
           ]
          },
          {
@@ -7127,8 +7175,8 @@
           "en": "Farmers in the former Trần Đề area grow watermelon and maize on rice land in the dry season.",
           "vi": "Nông dân khu vực Trần Đề cũ trồng dưa hấu và bắp dưới chân ruộng lúa vào mùa khô.",
           "src": [
-           78,
-           79
+           79,
+           80
           ]
          },
          {
@@ -7183,18 +7231,20 @@
            29,
            30,
            31,
-           67,
            68,
            69,
            70,
-           71
+           71,
+           72
           ]
          },
          {
-          "en": "NASA MODIS NDVI: fields are usually bare in Mar–May, Oct, a window that fits this option.",
-          "vi": "NASA MODIS NDVI: ruộng thường để trống vào T3–T5, T10, phù hợp với phương án này.",
+          "en": "NASA MODIS NDVI: fields are usually bare in Mar–May (dry), Oct (flooded), a window that fits this option.",
+          "vi": "NASA MODIS NDVI: ruộng thường để trống vào T3–T5 (khô), T10 (ngập nước), phù hợp với phương án này.",
           "src": [
-           63
+           63,
+           14,
+           64
           ]
          }
         ],
@@ -7239,7 +7289,7 @@
         "src": [
          2,
          3,
-         72,
+         73,
          37
         ],
         "offered": true
@@ -7290,8 +7340,8 @@
            11,
            12,
            13,
-           65,
-           66
+           66,
+           67
           ]
          },
          {
@@ -7302,7 +7352,7 @@
           "en": "Maize here faces fall armyworm in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
           "vi": "Bắp ở đây bị sâu keo mùa thu gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
           "src": [
-           73
+           74
           ]
          },
          {
@@ -7352,8 +7402,8 @@
           "en": "Farmers in the former Trần Đề area grow watermelon and maize on rice land in the dry season.",
           "vi": "Nông dân khu vực Trần Đề cũ trồng dưa hấu và bắp dưới chân ruộng lúa vào mùa khô.",
           "src": [
-           78,
-           79
+           79,
+           80
           ]
          },
          {
@@ -7408,14 +7458,16 @@
            29,
            30,
            31,
-           67
+           68
           ]
          },
          {
-          "en": "NASA MODIS NDVI: fields are usually bare in Mar–May, Oct, a window that fits this option.",
-          "vi": "NASA MODIS NDVI: ruộng thường để trống vào T3–T5, T10, phù hợp với phương án này.",
+          "en": "NASA MODIS NDVI: fields are usually bare in Mar–May (dry), Oct (flooded), a window that fits this option.",
+          "vi": "NASA MODIS NDVI: ruộng thường để trống vào T3–T5 (khô), T10 (ngập nước), phù hợp với phương án này.",
           "src": [
-           63
+           63,
+           14,
+           64
           ]
          }
         ],
@@ -7460,7 +7512,7 @@
         "src": [
          2,
          3,
-         72,
+         73,
          37
         ],
         "offered": true
@@ -7515,8 +7567,8 @@
            11,
            12,
            13,
-           65,
-           66
+           66,
+           67
           ]
          },
          {
@@ -7527,7 +7579,7 @@
           "en": "Mung bean here faces whitefly and pod borer in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
           "vi": "Đậu xanh ở đây bị bọ phấn trắng và sâu đục quả gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
           "src": [
-           74
+           75
           ]
          },
          {
@@ -7571,8 +7623,8 @@
           "en": "Farmers in the former Trần Đề area grow watermelon and maize on rice land in the dry season.",
           "vi": "Nông dân khu vực Trần Đề cũ trồng dưa hấu và bắp dưới chân ruộng lúa vào mùa khô.",
           "src": [
-           78,
-           79
+           79,
+           80
           ]
          },
          {
@@ -7617,10 +7669,12 @@
           ]
          },
          {
-          "en": "NASA MODIS NDVI: fields are usually bare in Mar–May, Oct, a window that fits this option.",
-          "vi": "NASA MODIS NDVI: ruộng thường để trống vào T3–T5, T10, phù hợp với phương án này.",
+          "en": "NASA MODIS NDVI: fields are usually bare in Mar–May (dry), Oct (flooded), a window that fits this option.",
+          "vi": "NASA MODIS NDVI: ruộng thường để trống vào T3–T5 (khô), T10 (ngập nước), phù hợp với phương án này.",
           "src": [
-           63
+           63,
+           14,
+           64
           ]
          }
         ],
@@ -7665,7 +7719,7 @@
         "src": [
          2,
          3,
-         72,
+         73,
          37
         ],
         "offered": true
@@ -7794,17 +7848,19 @@
         "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 89,8 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 5 số liệu đã công bố, 2020–2026).",
         "src": [
          20,
-         75,
+         76,
          21,
          22,
-         76
+         77
         ]
        },
        {
-        "en": "NASA MODIS NDVI: fields are usually bare in Mar–May, Oct, a window that fits this option.",
-        "vi": "NASA MODIS NDVI: ruộng thường để trống vào T3–T5, T10, phù hợp với phương án này.",
+        "en": "NASA MODIS NDVI: fields are usually bare in Mar–May (dry), Oct (flooded), a window that fits this option.",
+        "vi": "NASA MODIS NDVI: ruộng thường để trống vào T3–T5 (khô), T10 (ngập nước), phù hợp với phương án này.",
         "src": [
-         63
+         63,
+         14,
+         64
         ]
        }
       ],
@@ -7838,7 +7894,7 @@
        33
       ],
       "src": [
-       77,
+       78,
        37
       ]
      }
@@ -7880,14 +7936,16 @@
       }
      },
      {
-      "en": "Satellite sees ≈ 2.0 crops a year and bare fields in Mar–May, Oct (NASA MODIS).",
-      "vi": "Vệ tinh ghi nhận ≈ 2,0 vụ/năm và ruộng trống vào T3–T5, T10 (NASA MODIS).",
+      "en": "Satellite sees ≈ 2.0 crops a year and bare fields in Mar–May (dry), Oct (flooded) (NASA MODIS; dry or flooded from NASA HLS-VI 30 m).",
+      "vi": "Vệ tinh ghi nhận ≈ 2,0 vụ/năm và ruộng trống vào T3–T5 (khô), T10 (ngập nước) (NASA MODIS; khô hay ngập nước theo NASA HLS-VI 30 m).",
       "src": [
-       63
+       63,
+       14,
+       64
       ],
       "plain": {
-       "en": "Satellite sees ≈ 2.0 crops a year and bare fields in Mar–May, Oct.",
-       "vi": "Vệ tinh ghi nhận ≈ 2,0 vụ/năm và ruộng trống vào T3–T5, T10."
+       "en": "Satellite sees ≈ 2.0 crops a year and bare fields in Mar–May (dry), Oct (flooded).",
+       "vi": "Vệ tinh ghi nhận ≈ 2,0 vụ/năm và ruộng trống vào T3–T5 (khô), T10 (ngập nước)."
       }
      }
     ],
@@ -8098,6 +8156,10 @@
      6
     ],
     "crops_per_year": 2.0,
+    "bare_kind": {
+     "4": "dry",
+     "6": "flooded"
+    },
     "hls_bare_months": [
      3,
      5,
@@ -8713,8 +8775,8 @@
           11,
           12,
           13,
-          65,
-          66
+          66,
+          67
          ]
         },
         {
@@ -8775,7 +8837,7 @@
          "en": "Farmers in the former Mỹ Xuyên area grow upland crops on rice land, mostly watermelon.",
          "vi": "Nông dân khu vực Mỹ Xuyên cũ trồng màu dưới chân ruộng lúa, nhiều nhất là dưa hấu.",
          "src": [
-          80,
+          81,
           61
          ]
         },
@@ -8831,25 +8893,27 @@
           29,
           30,
           31,
-          67,
           68,
           69,
           70,
-          71
+          71,
+          72
          ]
         },
         {
-         "en": "NASA MODIS NDVI: fields are usually bare in Apr, Jun, a window that fits this option.",
-         "vi": "NASA MODIS NDVI: ruộng thường để trống vào T4, T6, phù hợp với phương án này.",
+         "en": "NASA MODIS NDVI: fields are usually bare in Apr (dry), Jun (flooded), a window that fits this option.",
+         "vi": "NASA MODIS NDVI: ruộng thường để trống vào T4 (khô), T6 (ngập nước), phù hợp với phương án này.",
          "src": [
-          63
+          63,
+          14,
+          64
          ]
         },
         {
          "en": "NASA HLS NDVI (30 m): fields are usually bare in Mar, May, Oct.",
          "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T3, T5, T10.",
          "src": [
-          64
+          65
          ]
         }
        ],
@@ -8894,7 +8958,7 @@
        "src": [
         2,
         3,
-        72,
+        73,
         37
        ],
        "offered": true
@@ -8945,8 +9009,8 @@
           11,
           12,
           13,
-          65,
-          66
+          66,
+          67
          ]
         },
         {
@@ -8957,7 +9021,7 @@
          "en": "Maize here faces fall armyworm in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
          "vi": "Bắp ở đây bị sâu keo mùa thu gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
          "src": [
-          73
+          74
          ]
         },
         {
@@ -9007,7 +9071,7 @@
          "en": "Farmers in the former Mỹ Xuyên area grow upland crops on rice land, mostly watermelon.",
          "vi": "Nông dân khu vực Mỹ Xuyên cũ trồng màu dưới chân ruộng lúa, nhiều nhất là dưa hấu.",
          "src": [
-          80,
+          81,
           61
          ]
         },
@@ -9063,21 +9127,23 @@
           29,
           30,
           31,
-          67
+          68
          ]
         },
         {
-         "en": "NASA MODIS NDVI: fields are usually bare in Apr, Jun, a window that fits this option.",
-         "vi": "NASA MODIS NDVI: ruộng thường để trống vào T4, T6, phù hợp với phương án này.",
+         "en": "NASA MODIS NDVI: fields are usually bare in Apr (dry), Jun (flooded), a window that fits this option.",
+         "vi": "NASA MODIS NDVI: ruộng thường để trống vào T4 (khô), T6 (ngập nước), phù hợp với phương án này.",
          "src": [
-          63
+          63,
+          14,
+          64
          ]
         },
         {
          "en": "NASA HLS NDVI (30 m): fields are usually bare in Mar, May, Oct.",
          "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T3, T5, T10.",
          "src": [
-          64
+          65
          ]
         }
        ],
@@ -9122,7 +9188,7 @@
        "src": [
         2,
         3,
-        72,
+        73,
         37
        ],
        "offered": true
@@ -9177,8 +9243,8 @@
           11,
           12,
           13,
-          65,
-          66
+          66,
+          67
          ]
         },
         {
@@ -9189,7 +9255,7 @@
          "en": "Mung bean here faces whitefly and pod borer in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
          "vi": "Đậu xanh ở đây bị bọ phấn trắng và sâu đục quả gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
          "src": [
-          74
+          75
          ]
         },
         {
@@ -9233,7 +9299,7 @@
          "en": "Farmers in the former Mỹ Xuyên area grow upland crops on rice land, mostly watermelon.",
          "vi": "Nông dân khu vực Mỹ Xuyên cũ trồng màu dưới chân ruộng lúa, nhiều nhất là dưa hấu.",
          "src": [
-          80,
+          81,
           61
          ]
         },
@@ -9279,17 +9345,19 @@
          ]
         },
         {
-         "en": "NASA MODIS NDVI: fields are usually bare in Apr, Jun, a window that fits this option.",
-         "vi": "NASA MODIS NDVI: ruộng thường để trống vào T4, T6, phù hợp với phương án này.",
+         "en": "NASA MODIS NDVI: fields are usually bare in Apr (dry), Jun (flooded), a window that fits this option.",
+         "vi": "NASA MODIS NDVI: ruộng thường để trống vào T4 (khô), T6 (ngập nước), phù hợp với phương án này.",
          "src": [
-          63
+          63,
+          14,
+          64
          ]
         },
         {
          "en": "NASA HLS NDVI (30 m): fields are usually bare in Mar, May, Oct.",
          "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T3, T5, T10.",
          "src": [
-          64
+          65
          ]
         }
        ],
@@ -9334,7 +9402,7 @@
        "src": [
         2,
         3,
-        72,
+        73,
         37
        ],
        "offered": true
@@ -9463,24 +9531,26 @@
        "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 94,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 5 số liệu đã công bố, 2020–2026).",
        "src": [
         20,
-        75,
+        76,
         21,
         22,
-        76
+        77
        ]
       },
       {
-       "en": "NASA MODIS NDVI: fields are usually bare in Apr, Jun, a window that fits this option.",
-       "vi": "NASA MODIS NDVI: ruộng thường để trống vào T4, T6, phù hợp với phương án này.",
+       "en": "NASA MODIS NDVI: fields are usually bare in Apr (dry), Jun (flooded), a window that fits this option.",
+       "vi": "NASA MODIS NDVI: ruộng thường để trống vào T4 (khô), T6 (ngập nước), phù hợp với phương án này.",
        "src": [
-        63
+        63,
+        14,
+        64
        ]
       },
       {
        "en": "NASA HLS NDVI (30 m): fields are usually bare in Mar, May, Oct.",
        "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T3, T5, T10.",
        "src": [
-        64
+        65
        ]
       }
      ],
@@ -9514,7 +9584,7 @@
       33
      ],
      "src": [
-      77,
+      78,
       37
      ]
     }
@@ -9556,14 +9626,16 @@
      }
     },
     {
-     "en": "Satellite sees ≈ 2.0 crops a year and bare fields in Apr, Jun (NASA MODIS).",
-     "vi": "Vệ tinh ghi nhận ≈ 2,0 vụ/năm và ruộng trống vào T4, T6 (NASA MODIS).",
+     "en": "Satellite sees ≈ 2.0 crops a year and bare fields in Apr (dry), Jun (flooded) (NASA MODIS; dry or flooded from NASA HLS-VI 30 m).",
+     "vi": "Vệ tinh ghi nhận ≈ 2,0 vụ/năm và ruộng trống vào T4 (khô), T6 (ngập nước) (NASA MODIS; khô hay ngập nước theo NASA HLS-VI 30 m).",
      "src": [
-      63
+      63,
+      14,
+      64
      ],
      "plain": {
-      "en": "Satellite sees ≈ 2.0 crops a year and bare fields in Apr, Jun.",
-      "vi": "Vệ tinh ghi nhận ≈ 2,0 vụ/năm và ruộng trống vào T4, T6."
+      "en": "Satellite sees ≈ 2.0 crops a year and bare fields in Apr (dry), Jun (flooded).",
+      "vi": "Vệ tinh ghi nhận ≈ 2,0 vụ/năm và ruộng trống vào T4 (khô), T6 (ngập nước)."
      }
     }
    ],
@@ -10398,8 +10470,8 @@
            11,
            12,
            13,
-           65,
-           66
+           66,
+           67
           ]
          },
          {
@@ -10460,7 +10532,7 @@
           "en": "Farmers in the former Mỹ Xuyên area grow upland crops on rice land, mostly watermelon.",
           "vi": "Nông dân khu vực Mỹ Xuyên cũ trồng màu dưới chân ruộng lúa, nhiều nhất là dưa hấu.",
           "src": [
-           80,
+           81,
            61
           ]
          },
@@ -10516,25 +10588,27 @@
            29,
            30,
            31,
-           67,
            68,
            69,
            70,
-           71
+           71,
+           72
           ]
          },
          {
-          "en": "NASA MODIS NDVI: fields are usually bare in Apr, Jun, a window that fits this option.",
-          "vi": "NASA MODIS NDVI: ruộng thường để trống vào T4, T6, phù hợp với phương án này.",
+          "en": "NASA MODIS NDVI: fields are usually bare in Apr (dry), Jun (flooded), a window that fits this option.",
+          "vi": "NASA MODIS NDVI: ruộng thường để trống vào T4 (khô), T6 (ngập nước), phù hợp với phương án này.",
           "src": [
-           63
+           63,
+           14,
+           64
           ]
          },
          {
           "en": "NASA HLS NDVI (30 m): fields are usually bare in Mar, May, Oct.",
           "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T3, T5, T10.",
           "src": [
-           64
+           65
           ]
          }
         ],
@@ -10579,7 +10653,7 @@
         "src": [
          2,
          3,
-         72,
+         73,
          37
         ],
         "offered": true
@@ -10630,8 +10704,8 @@
            11,
            12,
            13,
-           65,
-           66
+           66,
+           67
           ]
          },
          {
@@ -10642,7 +10716,7 @@
           "en": "Maize here faces fall armyworm in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
           "vi": "Bắp ở đây bị sâu keo mùa thu gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
           "src": [
-           73
+           74
           ]
          },
          {
@@ -10692,7 +10766,7 @@
           "en": "Farmers in the former Mỹ Xuyên area grow upland crops on rice land, mostly watermelon.",
           "vi": "Nông dân khu vực Mỹ Xuyên cũ trồng màu dưới chân ruộng lúa, nhiều nhất là dưa hấu.",
           "src": [
-           80,
+           81,
            61
           ]
          },
@@ -10748,21 +10822,23 @@
            29,
            30,
            31,
-           67
+           68
           ]
          },
          {
-          "en": "NASA MODIS NDVI: fields are usually bare in Apr, Jun, a window that fits this option.",
-          "vi": "NASA MODIS NDVI: ruộng thường để trống vào T4, T6, phù hợp với phương án này.",
+          "en": "NASA MODIS NDVI: fields are usually bare in Apr (dry), Jun (flooded), a window that fits this option.",
+          "vi": "NASA MODIS NDVI: ruộng thường để trống vào T4 (khô), T6 (ngập nước), phù hợp với phương án này.",
           "src": [
-           63
+           63,
+           14,
+           64
           ]
          },
          {
           "en": "NASA HLS NDVI (30 m): fields are usually bare in Mar, May, Oct.",
           "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T3, T5, T10.",
           "src": [
-           64
+           65
           ]
          }
         ],
@@ -10807,7 +10883,7 @@
         "src": [
          2,
          3,
-         72,
+         73,
          37
         ],
         "offered": true
@@ -10862,8 +10938,8 @@
            11,
            12,
            13,
-           65,
-           66
+           66,
+           67
           ]
          },
          {
@@ -10874,7 +10950,7 @@
           "en": "Mung bean here faces whitefly and pod borer in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
           "vi": "Đậu xanh ở đây bị bọ phấn trắng và sâu đục quả gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
           "src": [
-           74
+           75
           ]
          },
          {
@@ -10918,7 +10994,7 @@
           "en": "Farmers in the former Mỹ Xuyên area grow upland crops on rice land, mostly watermelon.",
           "vi": "Nông dân khu vực Mỹ Xuyên cũ trồng màu dưới chân ruộng lúa, nhiều nhất là dưa hấu.",
           "src": [
-           80,
+           81,
            61
           ]
          },
@@ -10964,17 +11040,19 @@
           ]
          },
          {
-          "en": "NASA MODIS NDVI: fields are usually bare in Apr, Jun, a window that fits this option.",
-          "vi": "NASA MODIS NDVI: ruộng thường để trống vào T4, T6, phù hợp với phương án này.",
+          "en": "NASA MODIS NDVI: fields are usually bare in Apr (dry), Jun (flooded), a window that fits this option.",
+          "vi": "NASA MODIS NDVI: ruộng thường để trống vào T4 (khô), T6 (ngập nước), phù hợp với phương án này.",
           "src": [
-           63
+           63,
+           14,
+           64
           ]
          },
          {
           "en": "NASA HLS NDVI (30 m): fields are usually bare in Mar, May, Oct.",
           "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T3, T5, T10.",
           "src": [
-           64
+           65
           ]
          }
         ],
@@ -11019,7 +11097,7 @@
         "src": [
          2,
          3,
-         72,
+         73,
          37
         ],
         "offered": true
@@ -11148,24 +11226,26 @@
         "vi": "Thu nhập 3,1: lợi nhuận ước tính ≈ 92,0 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 5 số liệu đã công bố, 2020–2026).",
         "src": [
          20,
-         75,
+         76,
          21,
          22,
-         76
+         77
         ]
        },
        {
-        "en": "NASA MODIS NDVI: fields are usually bare in Apr, Jun, a window that fits this option.",
-        "vi": "NASA MODIS NDVI: ruộng thường để trống vào T4, T6, phù hợp với phương án này.",
+        "en": "NASA MODIS NDVI: fields are usually bare in Apr (dry), Jun (flooded), a window that fits this option.",
+        "vi": "NASA MODIS NDVI: ruộng thường để trống vào T4 (khô), T6 (ngập nước), phù hợp với phương án này.",
         "src": [
-         63
+         63,
+         14,
+         64
         ]
        },
        {
         "en": "NASA HLS NDVI (30 m): fields are usually bare in Mar, May, Oct.",
         "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T3, T5, T10.",
         "src": [
-         64
+         65
         ]
        }
       ],
@@ -11199,7 +11279,7 @@
        33
       ],
       "src": [
-       77,
+       78,
        37
       ]
      }
@@ -11241,14 +11321,16 @@
       }
      },
      {
-      "en": "Satellite sees ≈ 2.0 crops a year and bare fields in Apr, Jun (NASA MODIS).",
-      "vi": "Vệ tinh ghi nhận ≈ 2,0 vụ/năm và ruộng trống vào T4, T6 (NASA MODIS).",
+      "en": "Satellite sees ≈ 2.0 crops a year and bare fields in Apr (dry), Jun (flooded) (NASA MODIS; dry or flooded from NASA HLS-VI 30 m).",
+      "vi": "Vệ tinh ghi nhận ≈ 2,0 vụ/năm và ruộng trống vào T4 (khô), T6 (ngập nước) (NASA MODIS; khô hay ngập nước theo NASA HLS-VI 30 m).",
       "src": [
-       63
+       63,
+       14,
+       64
       ],
       "plain": {
-       "en": "Satellite sees ≈ 2.0 crops a year and bare fields in Apr, Jun.",
-       "vi": "Vệ tinh ghi nhận ≈ 2,0 vụ/năm và ruộng trống vào T4, T6."
+       "en": "Satellite sees ≈ 2.0 crops a year and bare fields in Apr (dry), Jun (flooded).",
+       "vi": "Vệ tinh ghi nhận ≈ 2,0 vụ/năm và ruộng trống vào T4 (khô), T6 (ngập nước)."
       }
      }
     ],
@@ -11458,6 +11540,9 @@
      5
     ],
     "crops_per_year": 2.4,
+    "bare_kind": {
+     "5": "dry"
+    },
     "hls_bare_months": [
      9
     ]
@@ -12086,8 +12171,8 @@
           11,
           12,
           13,
-          65,
-          66
+          66,
+          67
          ]
         },
         {
@@ -12203,25 +12288,27 @@
           29,
           30,
           31,
-          67,
           68,
           69,
           70,
-          71
+          71,
+          72
          ]
         },
         {
-         "en": "NASA MODIS NDVI: fields are usually bare in May, a window that fits this option.",
-         "vi": "NASA MODIS NDVI: ruộng thường để trống vào T5, phù hợp với phương án này.",
+         "en": "NASA MODIS NDVI: fields are usually bare in May (dry), a window that fits this option.",
+         "vi": "NASA MODIS NDVI: ruộng thường để trống vào T5 (khô), phù hợp với phương án này.",
          "src": [
-          63
+          63,
+          14,
+          64
          ]
         },
         {
          "en": "NASA HLS NDVI (30 m): fields are usually bare in Sep.",
          "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T9.",
          "src": [
-          64
+          65
          ]
         }
        ],
@@ -12266,7 +12353,7 @@
        "src": [
         2,
         3,
-        72,
+        73,
         37
        ],
        "offered": true
@@ -12317,8 +12404,8 @@
           11,
           12,
           13,
-          65,
-          66
+          66,
+          67
          ]
         },
         {
@@ -12329,7 +12416,7 @@
          "en": "Maize here faces fall armyworm in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
          "vi": "Bắp ở đây bị sâu keo mùa thu gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
          "src": [
-          73
+          74
          ]
         },
         {
@@ -12434,21 +12521,23 @@
           29,
           30,
           31,
-          67
+          68
          ]
         },
         {
-         "en": "NASA MODIS NDVI: fields are usually bare in May, a window that fits this option.",
-         "vi": "NASA MODIS NDVI: ruộng thường để trống vào T5, phù hợp với phương án này.",
+         "en": "NASA MODIS NDVI: fields are usually bare in May (dry), a window that fits this option.",
+         "vi": "NASA MODIS NDVI: ruộng thường để trống vào T5 (khô), phù hợp với phương án này.",
          "src": [
-          63
+          63,
+          14,
+          64
          ]
         },
         {
          "en": "NASA HLS NDVI (30 m): fields are usually bare in Sep.",
          "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T9.",
          "src": [
-          64
+          65
          ]
         }
        ],
@@ -12493,7 +12582,7 @@
        "src": [
         2,
         3,
-        72,
+        73,
         37
        ],
        "offered": true
@@ -12548,8 +12637,8 @@
           11,
           12,
           13,
-          65,
-          66
+          66,
+          67
          ]
         },
         {
@@ -12560,7 +12649,7 @@
          "en": "Mung bean here faces whitefly and pod borer in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
          "vi": "Đậu xanh ở đây bị bọ phấn trắng và sâu đục quả gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
          "src": [
-          74
+          75
          ]
         },
         {
@@ -12649,17 +12738,19 @@
          ]
         },
         {
-         "en": "NASA MODIS NDVI: fields are usually bare in May, a window that fits this option.",
-         "vi": "NASA MODIS NDVI: ruộng thường để trống vào T5, phù hợp với phương án này.",
+         "en": "NASA MODIS NDVI: fields are usually bare in May (dry), a window that fits this option.",
+         "vi": "NASA MODIS NDVI: ruộng thường để trống vào T5 (khô), phù hợp với phương án này.",
          "src": [
-          63
+          63,
+          14,
+          64
          ]
         },
         {
          "en": "NASA HLS NDVI (30 m): fields are usually bare in Sep.",
          "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T9.",
          "src": [
-          64
+          65
          ]
         }
        ],
@@ -12704,7 +12795,7 @@
        "src": [
         2,
         3,
-        72,
+        73,
         37
        ],
        "offered": true
@@ -12833,24 +12924,26 @@
        "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 94,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 5 số liệu đã công bố, 2020–2026).",
        "src": [
         20,
-        75,
+        76,
         21,
         22,
-        76
+        77
        ]
       },
       {
-       "en": "NASA MODIS NDVI: fields are usually bare in May, a window that fits this option.",
-       "vi": "NASA MODIS NDVI: ruộng thường để trống vào T5, phù hợp với phương án này.",
+       "en": "NASA MODIS NDVI: fields are usually bare in May (dry), a window that fits this option.",
+       "vi": "NASA MODIS NDVI: ruộng thường để trống vào T5 (khô), phù hợp với phương án này.",
        "src": [
-        63
+        63,
+        14,
+        64
        ]
       },
       {
        "en": "NASA HLS NDVI (30 m): fields are usually bare in Sep.",
        "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T9.",
        "src": [
-        64
+        65
        ]
       }
      ],
@@ -12884,7 +12977,7 @@
       33
      ],
      "src": [
-      77,
+      78,
       37
      ]
     }
@@ -12926,14 +13019,16 @@
      }
     },
     {
-     "en": "Satellite sees ≈ 2.4 crops a year and bare fields in May (NASA MODIS).",
-     "vi": "Vệ tinh ghi nhận ≈ 2,4 vụ/năm và ruộng trống vào T5 (NASA MODIS).",
+     "en": "Satellite sees ≈ 2.4 crops a year and bare fields in May (dry) (NASA MODIS; dry or flooded from NASA HLS-VI 30 m).",
+     "vi": "Vệ tinh ghi nhận ≈ 2,4 vụ/năm và ruộng trống vào T5 (khô) (NASA MODIS; khô hay ngập nước theo NASA HLS-VI 30 m).",
      "src": [
-      63
+      63,
+      14,
+      64
      ],
      "plain": {
-      "en": "Satellite sees ≈ 2.4 crops a year and bare fields in May.",
-      "vi": "Vệ tinh ghi nhận ≈ 2,4 vụ/năm và ruộng trống vào T5."
+      "en": "Satellite sees ≈ 2.4 crops a year and bare fields in May (dry).",
+      "vi": "Vệ tinh ghi nhận ≈ 2,4 vụ/năm và ruộng trống vào T5 (khô)."
      }
     }
    ],
@@ -13777,8 +13872,8 @@
            11,
            12,
            13,
-           65,
-           66
+           66,
+           67
           ]
          },
          {
@@ -13894,25 +13989,27 @@
            29,
            30,
            31,
-           67,
            68,
            69,
            70,
-           71
+           71,
+           72
           ]
          },
          {
-          "en": "NASA MODIS NDVI: fields are usually bare in May, a window that fits this option.",
-          "vi": "NASA MODIS NDVI: ruộng thường để trống vào T5, phù hợp với phương án này.",
+          "en": "NASA MODIS NDVI: fields are usually bare in May (dry), a window that fits this option.",
+          "vi": "NASA MODIS NDVI: ruộng thường để trống vào T5 (khô), phù hợp với phương án này.",
           "src": [
-           63
+           63,
+           14,
+           64
           ]
          },
          {
           "en": "NASA HLS NDVI (30 m): fields are usually bare in Sep.",
           "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T9.",
           "src": [
-           64
+           65
           ]
          }
         ],
@@ -13957,7 +14054,7 @@
         "src": [
          2,
          3,
-         72,
+         73,
          37
         ],
         "offered": true
@@ -14008,8 +14105,8 @@
            11,
            12,
            13,
-           65,
-           66
+           66,
+           67
           ]
          },
          {
@@ -14020,7 +14117,7 @@
           "en": "Maize here faces fall armyworm in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
           "vi": "Bắp ở đây bị sâu keo mùa thu gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
           "src": [
-           73
+           74
           ]
          },
          {
@@ -14125,21 +14222,23 @@
            29,
            30,
            31,
-           67
+           68
           ]
          },
          {
-          "en": "NASA MODIS NDVI: fields are usually bare in May, a window that fits this option.",
-          "vi": "NASA MODIS NDVI: ruộng thường để trống vào T5, phù hợp với phương án này.",
+          "en": "NASA MODIS NDVI: fields are usually bare in May (dry), a window that fits this option.",
+          "vi": "NASA MODIS NDVI: ruộng thường để trống vào T5 (khô), phù hợp với phương án này.",
           "src": [
-           63
+           63,
+           14,
+           64
           ]
          },
          {
           "en": "NASA HLS NDVI (30 m): fields are usually bare in Sep.",
           "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T9.",
           "src": [
-           64
+           65
           ]
          }
         ],
@@ -14184,7 +14283,7 @@
         "src": [
          2,
          3,
-         72,
+         73,
          37
         ],
         "offered": true
@@ -14239,8 +14338,8 @@
            11,
            12,
            13,
-           65,
-           66
+           66,
+           67
           ]
          },
          {
@@ -14251,7 +14350,7 @@
           "en": "Mung bean here faces whitefly and pod borer in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
           "vi": "Đậu xanh ở đây bị bọ phấn trắng và sâu đục quả gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
           "src": [
-           74
+           75
           ]
          },
          {
@@ -14340,17 +14439,19 @@
           ]
          },
          {
-          "en": "NASA MODIS NDVI: fields are usually bare in May, a window that fits this option.",
-          "vi": "NASA MODIS NDVI: ruộng thường để trống vào T5, phù hợp với phương án này.",
+          "en": "NASA MODIS NDVI: fields are usually bare in May (dry), a window that fits this option.",
+          "vi": "NASA MODIS NDVI: ruộng thường để trống vào T5 (khô), phù hợp với phương án này.",
           "src": [
-           63
+           63,
+           14,
+           64
           ]
          },
          {
           "en": "NASA HLS NDVI (30 m): fields are usually bare in Sep.",
           "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T9.",
           "src": [
-           64
+           65
           ]
          }
         ],
@@ -14395,7 +14496,7 @@
         "src": [
          2,
          3,
-         72,
+         73,
          37
         ],
         "offered": true
@@ -14524,24 +14625,26 @@
         "vi": "Thu nhập 3,2: lợi nhuận ước tính ≈ 94,5 so với 88,9 triệu đồng/ha/năm của 3 vụ lúa (1,1×; trung vị của 5 số liệu đã công bố, 2020–2026).",
         "src": [
          20,
-         75,
+         76,
          21,
          22,
-         76
+         77
         ]
        },
        {
-        "en": "NASA MODIS NDVI: fields are usually bare in May, a window that fits this option.",
-        "vi": "NASA MODIS NDVI: ruộng thường để trống vào T5, phù hợp với phương án này.",
+        "en": "NASA MODIS NDVI: fields are usually bare in May (dry), a window that fits this option.",
+        "vi": "NASA MODIS NDVI: ruộng thường để trống vào T5 (khô), phù hợp với phương án này.",
         "src": [
-         63
+         63,
+         14,
+         64
         ]
        },
        {
         "en": "NASA HLS NDVI (30 m): fields are usually bare in Sep.",
         "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T9.",
         "src": [
-         64
+         65
         ]
        }
       ],
@@ -14575,7 +14678,7 @@
        33
       ],
       "src": [
-       77,
+       78,
        37
       ]
      }
@@ -14617,14 +14720,16 @@
       }
      },
      {
-      "en": "Satellite sees ≈ 2.4 crops a year and bare fields in May (NASA MODIS).",
-      "vi": "Vệ tinh ghi nhận ≈ 2,4 vụ/năm và ruộng trống vào T5 (NASA MODIS).",
+      "en": "Satellite sees ≈ 2.4 crops a year and bare fields in May (dry) (NASA MODIS; dry or flooded from NASA HLS-VI 30 m).",
+      "vi": "Vệ tinh ghi nhận ≈ 2,4 vụ/năm và ruộng trống vào T5 (khô) (NASA MODIS; khô hay ngập nước theo NASA HLS-VI 30 m).",
       "src": [
-       63
+       63,
+       14,
+       64
       ],
       "plain": {
-       "en": "Satellite sees ≈ 2.4 crops a year and bare fields in May.",
-       "vi": "Vệ tinh ghi nhận ≈ 2,4 vụ/năm và ruộng trống vào T5."
+       "en": "Satellite sees ≈ 2.4 crops a year and bare fields in May (dry).",
+       "vi": "Vệ tinh ghi nhận ≈ 2,4 vụ/năm và ruộng trống vào T5 (khô)."
       }
      }
     ],
@@ -14832,6 +14937,11 @@
      11
     ],
     "crops_per_year": 2.1,
+    "bare_kind": {
+     "9": "flooded",
+     "10": "flooded",
+     "11": "flooded"
+    },
     "hls_bare_months": [
      4
     ]
@@ -15541,25 +15651,27 @@
           29,
           30,
           31,
-          67,
           68,
           69,
           70,
-          71
+          71,
+          72
          ]
         },
         {
-         "en": "NASA MODIS NDVI: fields are usually bare in Sep–Nov, a window that fits this option.",
-         "vi": "NASA MODIS NDVI: ruộng thường để trống vào T9–T11, phù hợp với phương án này.",
+         "en": "NASA MODIS NDVI: fields are usually bare in Sep–Nov (flooded), a window that fits this option.",
+         "vi": "NASA MODIS NDVI: ruộng thường để trống vào T9–T11 (ngập nước), phù hợp với phương án này.",
          "src": [
-          63
+          63,
+          14,
+          64
          ]
         },
         {
          "en": "NASA HLS NDVI (30 m): fields are usually bare in Apr.",
          "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T4.",
          "src": [
-          64
+          65
          ]
         }
        ],
@@ -15604,7 +15716,7 @@
        "src": [
         2,
         3,
-        72,
+        73,
         37
        ],
        "offered": true
@@ -15653,7 +15765,7 @@
          "en": "Maize here faces fall armyworm in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
          "vi": "Bắp ở đây bị sâu keo mùa thu gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
          "src": [
-          73
+          74
          ]
         },
         {
@@ -15758,21 +15870,23 @@
           29,
           30,
           31,
-          67
+          68
          ]
         },
         {
-         "en": "NASA MODIS NDVI: fields are usually bare in Sep–Nov, a window that fits this option.",
-         "vi": "NASA MODIS NDVI: ruộng thường để trống vào T9–T11, phù hợp với phương án này.",
+         "en": "NASA MODIS NDVI: fields are usually bare in Sep–Nov (flooded), a window that fits this option.",
+         "vi": "NASA MODIS NDVI: ruộng thường để trống vào T9–T11 (ngập nước), phù hợp với phương án này.",
          "src": [
-          63
+          63,
+          14,
+          64
          ]
         },
         {
          "en": "NASA HLS NDVI (30 m): fields are usually bare in Apr.",
          "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T4.",
          "src": [
-          64
+          65
          ]
         }
        ],
@@ -15817,7 +15931,7 @@
        "src": [
         2,
         3,
-        72,
+        73,
         37
        ],
        "offered": true
@@ -15870,7 +15984,7 @@
          "en": "Mung bean here faces whitefly and pod borer in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
          "vi": "Đậu xanh ở đây bị bọ phấn trắng và sâu đục quả gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
          "src": [
-          74
+          75
          ]
         },
         {
@@ -15959,17 +16073,19 @@
          ]
         },
         {
-         "en": "NASA MODIS NDVI: fields are usually bare in Sep–Nov, a window that fits this option.",
-         "vi": "NASA MODIS NDVI: ruộng thường để trống vào T9–T11, phù hợp với phương án này.",
+         "en": "NASA MODIS NDVI: fields are usually bare in Sep–Nov (flooded), a window that fits this option.",
+         "vi": "NASA MODIS NDVI: ruộng thường để trống vào T9–T11 (ngập nước), phù hợp với phương án này.",
          "src": [
-          63
+          63,
+          14,
+          64
          ]
         },
         {
          "en": "NASA HLS NDVI (30 m): fields are usually bare in Apr.",
          "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T4.",
          "src": [
-          64
+          65
          ]
         }
        ],
@@ -16014,7 +16130,7 @@
        "src": [
         2,
         3,
-        72,
+        73,
         37
        ],
        "offered": true
@@ -16143,24 +16259,26 @@
        "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 94,5 so với 95,4 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 5 số liệu đã công bố, 2020–2026).",
        "src": [
         20,
-        75,
+        76,
         21,
         22,
-        76
+        77
        ]
       },
       {
-       "en": "NASA MODIS NDVI: fields are usually bare in Sep–Nov, a window that fits this option.",
-       "vi": "NASA MODIS NDVI: ruộng thường để trống vào T9–T11, phù hợp với phương án này.",
+       "en": "NASA MODIS NDVI: fields are usually bare in Sep–Nov (flooded), a window that fits this option.",
+       "vi": "NASA MODIS NDVI: ruộng thường để trống vào T9–T11 (ngập nước), phù hợp với phương án này.",
        "src": [
-        63
+        63,
+        14,
+        64
        ]
       },
       {
        "en": "NASA HLS NDVI (30 m): fields are usually bare in Apr.",
        "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T4.",
        "src": [
-        64
+        65
        ]
       }
      ],
@@ -16194,7 +16312,7 @@
       33
      ],
      "src": [
-      77,
+      78,
       37
      ]
     }
@@ -16236,14 +16354,16 @@
      }
     },
     {
-     "en": "Satellite sees ≈ 2.1 crops a year and bare fields in Sep–Nov (NASA MODIS).",
-     "vi": "Vệ tinh ghi nhận ≈ 2,1 vụ/năm và ruộng trống vào T9–T11 (NASA MODIS).",
+     "en": "Satellite sees ≈ 2.1 crops a year and bare fields in Sep–Nov (flooded) (NASA MODIS; dry or flooded from NASA HLS-VI 30 m).",
+     "vi": "Vệ tinh ghi nhận ≈ 2,1 vụ/năm và ruộng trống vào T9–T11 (ngập nước) (NASA MODIS; khô hay ngập nước theo NASA HLS-VI 30 m).",
      "src": [
-      63
+      63,
+      14,
+      64
      ],
      "plain": {
-      "en": "Satellite sees ≈ 2.1 crops a year and bare fields in Sep–Nov.",
-      "vi": "Vệ tinh ghi nhận ≈ 2,1 vụ/năm và ruộng trống vào T9–T11."
+      "en": "Satellite sees ≈ 2.1 crops a year and bare fields in Sep–Nov (flooded).",
+      "vi": "Vệ tinh ghi nhận ≈ 2,1 vụ/năm và ruộng trống vào T9–T11 (ngập nước)."
      }
     }
    ],
@@ -17172,25 +17292,27 @@
            29,
            30,
            31,
-           67,
            68,
            69,
            70,
-           71
+           71,
+           72
           ]
          },
          {
-          "en": "NASA MODIS NDVI: fields are usually bare in Sep–Nov, a window that fits this option.",
-          "vi": "NASA MODIS NDVI: ruộng thường để trống vào T9–T11, phù hợp với phương án này.",
+          "en": "NASA MODIS NDVI: fields are usually bare in Sep–Nov (flooded), a window that fits this option.",
+          "vi": "NASA MODIS NDVI: ruộng thường để trống vào T9–T11 (ngập nước), phù hợp với phương án này.",
           "src": [
-           63
+           63,
+           14,
+           64
           ]
          },
          {
           "en": "NASA HLS NDVI (30 m): fields are usually bare in Apr.",
           "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T4.",
           "src": [
-           64
+           65
           ]
          }
         ],
@@ -17235,7 +17357,7 @@
         "src": [
          2,
          3,
-         72,
+         73,
          37
         ],
         "offered": true
@@ -17284,7 +17406,7 @@
           "en": "Maize here faces fall armyworm in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
           "vi": "Bắp ở đây bị sâu keo mùa thu gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
           "src": [
-           73
+           74
           ]
          },
          {
@@ -17389,21 +17511,23 @@
            29,
            30,
            31,
-           67
+           68
           ]
          },
          {
-          "en": "NASA MODIS NDVI: fields are usually bare in Sep–Nov, a window that fits this option.",
-          "vi": "NASA MODIS NDVI: ruộng thường để trống vào T9–T11, phù hợp với phương án này.",
+          "en": "NASA MODIS NDVI: fields are usually bare in Sep–Nov (flooded), a window that fits this option.",
+          "vi": "NASA MODIS NDVI: ruộng thường để trống vào T9–T11 (ngập nước), phù hợp với phương án này.",
           "src": [
-           63
+           63,
+           14,
+           64
           ]
          },
          {
           "en": "NASA HLS NDVI (30 m): fields are usually bare in Apr.",
           "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T4.",
           "src": [
-           64
+           65
           ]
          }
         ],
@@ -17448,7 +17572,7 @@
         "src": [
          2,
          3,
-         72,
+         73,
          37
         ],
         "offered": true
@@ -17501,7 +17625,7 @@
           "en": "Mung bean here faces whitefly and pod borer in every month it is in the field: no Mekong Delta source gives its timing, so each of those months counts fully in the Pests score.",
           "vi": "Đậu xanh ở đây bị bọ phấn trắng và sâu đục quả gây hại trong mọi tháng cây đang trên ruộng: chưa có nguồn nào ở Đồng bằng sông Cửu Long cho biết thời điểm, nên mỗi tháng đó được tính đầy đủ trong điểm Sâu bệnh.",
           "src": [
-           74
+           75
           ]
          },
          {
@@ -17590,17 +17714,19 @@
           ]
          },
          {
-          "en": "NASA MODIS NDVI: fields are usually bare in Sep–Nov, a window that fits this option.",
-          "vi": "NASA MODIS NDVI: ruộng thường để trống vào T9–T11, phù hợp với phương án này.",
+          "en": "NASA MODIS NDVI: fields are usually bare in Sep–Nov (flooded), a window that fits this option.",
+          "vi": "NASA MODIS NDVI: ruộng thường để trống vào T9–T11 (ngập nước), phù hợp với phương án này.",
           "src": [
-           63
+           63,
+           14,
+           64
           ]
          },
          {
           "en": "NASA HLS NDVI (30 m): fields are usually bare in Apr.",
           "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T4.",
           "src": [
-           64
+           65
           ]
          }
         ],
@@ -17645,7 +17771,7 @@
         "src": [
          2,
          3,
-         72,
+         73,
          37
         ],
         "offered": true
@@ -17774,24 +17900,26 @@
         "vi": "Thu nhập 3,0: lợi nhuận ước tính ≈ 92,0 so với 92,9 triệu đồng/ha/năm của 3 vụ lúa (1,0×; trung vị của 5 số liệu đã công bố, 2020–2026).",
         "src": [
          20,
-         75,
+         76,
          21,
          22,
-         76
+         77
         ]
        },
        {
-        "en": "NASA MODIS NDVI: fields are usually bare in Sep–Nov, a window that fits this option.",
-        "vi": "NASA MODIS NDVI: ruộng thường để trống vào T9–T11, phù hợp với phương án này.",
+        "en": "NASA MODIS NDVI: fields are usually bare in Sep–Nov (flooded), a window that fits this option.",
+        "vi": "NASA MODIS NDVI: ruộng thường để trống vào T9–T11 (ngập nước), phù hợp với phương án này.",
         "src": [
-         63
+         63,
+         14,
+         64
         ]
        },
        {
         "en": "NASA HLS NDVI (30 m): fields are usually bare in Apr.",
         "vi": "NASA HLS NDVI (30 m): ruộng thường để trống vào T4.",
         "src": [
-         64
+         65
         ]
        }
       ],
@@ -17825,7 +17953,7 @@
        33
       ],
       "src": [
-       77,
+       78,
        37
       ]
      }
@@ -17867,14 +17995,16 @@
       }
      },
      {
-      "en": "Satellite sees ≈ 2.1 crops a year and bare fields in Sep–Nov (NASA MODIS).",
-      "vi": "Vệ tinh ghi nhận ≈ 2,1 vụ/năm và ruộng trống vào T9–T11 (NASA MODIS).",
+      "en": "Satellite sees ≈ 2.1 crops a year and bare fields in Sep–Nov (flooded) (NASA MODIS; dry or flooded from NASA HLS-VI 30 m).",
+      "vi": "Vệ tinh ghi nhận ≈ 2,1 vụ/năm và ruộng trống vào T9–T11 (ngập nước) (NASA MODIS; khô hay ngập nước theo NASA HLS-VI 30 m).",
       "src": [
-       63
+       63,
+       14,
+       64
       ],
       "plain": {
-       "en": "Satellite sees ≈ 2.1 crops a year and bare fields in Sep–Nov.",
-       "vi": "Vệ tinh ghi nhận ≈ 2,1 vụ/năm và ruộng trống vào T9–T11."
+       "en": "Satellite sees ≈ 2.1 crops a year and bare fields in Sep–Nov (flooded).",
+       "vi": "Vệ tinh ghi nhận ≈ 2,1 vụ/năm và ruộng trống vào T9–T11 (ngập nước)."
       }
      }
     ],
