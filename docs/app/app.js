@@ -518,7 +518,7 @@ return `<button type="button" data-month="${i}" aria-pressed="${i === month}" ar
 <ul class="s-facts"><li>${t(wet ? "sWetP" : "sDryP")}</li>${salt ? `<li>${t("sSaltNote")}</li>` : ""}</ul>
 <p class="scale3">${esc(t("scale3s"))}</p>
 <details class="fold"${Folds.attrs("month")}><summary>${t("foldMonth")}</summary><ul class="s-facts"><li>${t("sRain")(r, e)}</li>${g != null ? `<li>${t("sGreen")(num(g))}</li>` : ""}</ul>
-${v.ndvi ? `<div class="green" aria-hidden="true">${v.ndvi.map((x, i) => `<i style="opacity:${Math.max(.15, Math.min(1, (x - .2) / .5)).toFixed(2)}" title="NDVI ${x}"></i>`).join("")}</div><div class="glab">${t("green")}${cite(DATA.chart_src)}</div>` : ""}
+${v.ndvi ? `<div class="green" aria-hidden="true">${v.ndvi.map((x, i) => `<i style="opacity:${x == null ? ".05" : Math.max(.15, Math.min(1, (x - .2) / .5)).toFixed(2)}" title="NDVI ${x == null ? "–" : x}"></i>`).join("")}</div><div class="glab">${t("green")(DATA.hlsvi, mode === "elnino")}${cite(DATA.chart_src)}</div>` : ""}
 <p class="s-src">${t(mode === "elnino" ? "modeElnino" : "modeTypical")} · ${t("srcWord")}${cite(DATA.chart_src)}${salt ? cite(DATA.salt_src) : ""}</p>
 <div class="wk" id="wk"></div></details>
 ${fieldId ? "" : `<button type="button" class="ghost-btn" id="saveArea">${ico("plus")}<span>${t("saveArea")}</span></button>`}`;
@@ -558,7 +558,7 @@ return `<div class="hc-ey">${esc(mode === "latest" && EXTRA.latest[s.id] ? t("mo
 <b class="hc-name">${esc(pick(s.name))}</b>
 <div class="hc-bars" role="img" aria-label="${esc(v.rain.map((r, i) => `${ML[i]} ${r} mm`).join(", "))}">${bars}</div>
 <div class="hc-m" aria-hidden="true">${t("months").map(m => `<span>${m}</span>`).join("")}</div>
-${v.ndvi ? `<div class="hc-green" aria-hidden="true">${v.ndvi.map(g => `<i style="opacity:${Math.max(.15, Math.min(1, (g - .2) / .5)).toFixed(2)}"></i>`).join("")}</div><div class="hc-gl">${t("green")}</div>` : ""}
+${v.ndvi ? `<div class="hc-green" aria-hidden="true">${v.ndvi.map(g => `<i style="opacity:${g == null ? ".05" : Math.max(.15, Math.min(1, (g - .2) / .5)).toFixed(2)}"></i>`).join("")}</div><div class="hc-gl">${t("green")(DATA.hlsvi, mode === "elnino")}</div>` : ""}
 <p class="hc-salt"><span class="k-salt"></span>${t("salt")}: <b>${esc(salt)}</b></p>
 <p class="hc-key"><span><i class="k-wet"></i>${t("wet")}</span><span><i class="k-dry"></i>${t("dry")}</span><span><i class="k-e"></i>ET₀ ERA5</span></p>
 <small class="hc-tip">${t(site && site.id === s.id ? "tipReopen" : "tipOpen")}</small>`;

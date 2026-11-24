@@ -19,7 +19,7 @@ const SiteData = (() => {
     return {
       sites: J.sites.map((s) => Object.assign({ id: s.id, lat: s.lat, lon: s.lon, name: s.name }, view(s), s.elnino ? { el: view(s.elnino, s) } : {})),
       resources: map(J.resources, (r) => pick(r, ["name", "seed", "fertiliser", "steps"])),
-      sources: J.sources, outlook: J.outlook, chart_src: J.chart_src, salt_src: J.salt_src, elnino_src: J.elnino_src
+      sources: J.sources, outlook: J.outlook, chart_src: J.chart_src, hlsvi: J.hlsvi, salt_src: J.salt_src, elnino_src: J.elnino_src
     };
   }
 

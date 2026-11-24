@@ -12,6 +12,7 @@ import appeears
 import build
 import fetch_chirps
 import fetch_gpm
+import fetch_hlsvi
 import fetch_enso
 import fetch_era5
 import fetch_salinity_vietnam
@@ -1513,6 +1514,64 @@ def test_one_mode():
     hits = [(p.name, n) for p in [*root.glob("app/*.js"), *root.glob("app/*.css"), root / "index.html"]
             for n, line in enumerate(p.read_text(encoding="utf-8").splitlines(), 1) if bad.search(line)]
     assert not hits, hits
+
+
+def test_hlsvi_parse():
+    """fetch_hlsvi on a saved fixture (real CMR-STAC ids, 3x3 windows): one tile per date and sensor, S30 first, the Fmask bits 1-3 rule, scaling, fill."""
+    fx = json.loads((build.HERE / "fixtures" / "hlsvi_stac.json").read_text(encoding="utf-8"))
+    picked = fetch_hlsvi.pick(fx["features"])
+    assert [(d, s) for d, s, _ in picked] == [("2025-01-14", "S30"), ("2025-01-19", "S30"), ("2025-01-11", "L30"), ("2025-01-19", "L30")], picked
+    assert all(".T48PWR." in f["id"] for _, _, f in picked)  # of the two overlapping tiles the first by id
+    w = fx["windows"]
+    rec = fetch_hlsvi.make_record("S30", w["clear"])  # water (bit 5) and the median of 9 values: 0.8
+    assert rec == {"ndvi": 0.8, "ndwi": -0.4, "ndmi": 0.15, "evi": 0.5, "sensor": "S30"}, rec
+    assert fetch_hlsvi.make_record("L30", w["cloud_edge"]) is None  # bit 2
+    assert fetch_hlsvi.make_record("L30", w["outside_tile"]) is None  # 255
+    assert fetch_hlsvi.make_record("L30", w["fill_ndvi"]) is None
+
+
+def test_pin_chart_hlsvi():
+    """The pins' greenness chart uses HLS-VI dates only; a calendar month with fewer than 3 clear dates in the view is a gap (None), in both views."""
+    day = lambda y, m, d: f"{y}-{m:02d}-{d:02d}"
+    series = {day(2017, 1, 5): 0.8, day(2018, 1, 9): 0.7, day(2019, 1, 20): 0.9,  # Jan: 3 dates, 3 years
+              day(2017, 7, 5): 0.2, day(2018, 7, 9): 0.9}  # Jul: 2 dates: a gap, never a mean of 0.55
+    ch = build.hlsvi_chart(series, lambda d: True)
+    assert ch["monthly"][0] == 0.8 and ch["monthly_min"][0] == 0.7 and ch["monthly_max"][0] == 0.9, ch
+    assert ch["monthly"][6] is None and ch["monthly_min"][6] is None and ch["monthly_max"][6] is None
+    assert ch["monthly"][1] is None and ch["hlsvi_dates"][0] == 3 and ch["hlsvi_dates"][6] == 2
+    assert build.hlsvi_chart(series, lambda d: d.year < 2019)["monthly"][0] is None  # the view counts its own dates
+    d = json.loads((build.OUT.parent / "sites.json").read_text(encoding="utf-8"))
+    assert d["hlsvi"] == {"from": 2015, "to": build.PERIOD[1].year, "elnino": sum(y >= 2015 for y in build.ELNINO)}
+    assert build.cite(build.HLS_VI_SRC)  # the chart's source is in the list
+    for s in d["sites"]:
+        raw = json.loads((build.RAW / f"hlsvi_{s['id']}.json").read_text(encoding="utf-8"))["dates"]
+        assert min(raw) >= "2015-12-01" and all(r["sensor"] in ("S30", "L30") for r in raw.values()), s["id"]
+        for view, keep in ((s["ndvi"], build.typical_year), (s["elnino"]["ndvi"], build.in_elnino)):
+            exp = build.hlsvi_chart({k: r["ndvi"] for k, r in raw.items()}, keep)
+            for k in ("monthly", "monthly_min", "monthly_max"):
+                assert view[k] == exp[k], (s["id"], k)
+            for i, n in enumerate(view["hlsvi_dates"]):
+                assert (view["monthly"][i] is None) == (n < 3), (s["id"], i, n)
+        assert d["chart_src"] and s["ndvi"]["crops_per_year"] > 0  # the crop count stays MODIS
+
+
+def test_bare_kind():
+    """A MODIS bare month is "flooded" when most HLS-VI bare dates (ndvi < BARE) meet Xiao 2005 (ndmi + 0.05 >= evi), else "dry"; under 3 bare dates: no label."""
+    rec = lambda ndvi, ndmi, evi: {"ndvi": ndvi, "ndmi": ndmi, "evi": evi}
+    wet, dry, green = rec(0.2, 0.1, 0.1), rec(0.2, -0.2, 0.1), rec(0.8, 0.3, 0.6)
+    day = lambda y, m, d: f"{y}-{m:02d}-{d:02d}"
+    dates = {day(2017, 10, 1): wet, day(2018, 10, 1): wet, day(2019, 10, 1): dry,  # Oct: 2 of 3 flooded
+             day(2017, 2, 1): dry, day(2018, 2, 1): dry, day(2019, 2, 1): wet,  # Feb: dry
+             day(2017, 3, 1): wet, day(2018, 3, 1): wet,  # Mar: only 2 bare dates
+             day(2017, 4, 1): green, day(2018, 4, 1): green, day(2019, 4, 1): green,  # Apr: HLS is green, no label
+             day(2014, 5, 1): wet, day(2015, 5, 1): wet, day(2016, 5, 1): wet}  # May: 2014 and 2015 are before HLS-VI (Dec 2015): one date left
+    assert build.bare_kind(dates, [2, 3, 4, 10, 5]) == {2: "dry", 10: "flooded"}, build.bare_kind(dates, [2, 3, 4, 10, 5])
+    assert build.bare_kind(dates, [1, 12]) == {}  # no dates at all
+    d = json.loads((build.OUT.parent / "sites.json").read_text(encoding="utf-8"))
+    for s in d["sites"]:
+        if s["ndvi"]:
+            assert set(s["ndvi"]["bare_kind"]) <= {str(m) for m in s["ndvi"]["bare_months"]}, s["id"]  # JSON keys are month numbers as strings
+            assert set(s["ndvi"]["bare_kind"].values()) <= {"dry", "flooded"}
 
 
 if __name__ == "__main__":

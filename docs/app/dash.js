@@ -21,7 +21,7 @@ const Dash = (() => {
       saltA: "Độ mặn trong ruộng", rainMo: "Mưa tháng này", needMo: "Cây cần nước", cropH: "Trồng", needH: "Cây cần nước",
       mOk: (m) => `${m}: cây trồng an toàn`, mBad: (m) => `${m}: cây gặp nước mặn`, mRest: (m) => `${m}: không trồng lúa hay cây màu`,
       rangeK: "thấp nhất · giữa · cao nhất (triệu/công)", figs: "số liệu", cmpH: "So với các cách trồng khác", safeWhy: "Các tháng có lúa hoặc cây màu, tháng nào nước trong ruộng không mặn (dưới 2‰) là an toàn.",
-      zOk: "An toàn", zBad: "Gặp mặn", whyScores: "Vì sao có điểm này", rainNeed: "Mưa và nước cây cần, từng tháng", ndviH: "Độ xanh của ruộng (NDVI, NASA MODIS)",
+      zOk: "An toàn", zBad: "Gặp mặn", whyScores: "Vì sao có điểm này", rainNeed: "Mưa và nước cây cần, từng tháng", ndviH: "Độ xanh của ruộng (NDVI, NASA HLS-VI, 30 m)",
       kWhy: (n) => `(hiệu chỉnh bằng NASA MODIS: vệ tinh thấy ${n} vụ/năm, nên các vụ đó không mất mùa vì mặn năm thường).`,
       peakH: "Mặn cao nhất ở trạm", saltMs: "Tháng mặn", rainCmp: "Mưa từng tháng: năm thường và năm El Niño",
       delThis: "Xoá ruộng này", delH: (n) => `Xoá "${n}"?`, delP: "Kế hoạch của ruộng này sẽ bị xoá khỏi máy. Không lấy lại được.", delYes: "Xoá ruộng", cancel: "Không xoá", deleted: "Đã xoá ruộng",
@@ -76,7 +76,7 @@ const Dash = (() => {
       saltA: "Salt in the field", rainMo: "Rain this month", needMo: "Crop water need", cropH: "Growing", needH: "Crop water need",
       mOk: (m) => `${m}: crops are safe`, mBad: (m) => `${m}: crops meet salty water`, mRest: (m) => `${m}: no rice or upland crop`,
       rangeK: "lowest · middle · highest (M₫/công)", figs: "figures", cmpH: "Compared with other plans", safeWhy: "Months with rice or an upland crop; a month is safe when the field water is not salty (under 2‰).",
-      zOk: "Safe", zBad: "Salty", whyScores: "Why these scores", rainNeed: "Rain and crop water need, month by month", ndviH: "Field greenness (NDVI, NASA MODIS)",
+      zOk: "Safe", zBad: "Salty", whyScores: "Why these scores", rainNeed: "Rain and crop water need, month by month", ndviH: "Field greenness (NDVI, NASA HLS-VI, 30 m)",
       kWhy: (n) => `(NASA MODIS calibration: the satellite sees ${n} crops a year, so those crops lose nothing to salt in a typical year).`,
       peakH: "Highest salt at the station", saltMs: "Salty months", rainCmp: "Rain by month: typical and El Niño years",
       delThis: "Delete this field", delH: (n) => `Delete "${n}"?`, delP: "This field's plan will be removed from this device. It cannot be undone.", delYes: "Delete field", cancel: "Keep it", deleted: "Field deleted",
@@ -459,7 +459,7 @@ const Dash = (() => {
       case "nums": { const nd = (nino && s.el && s.el.ndvi) || s.ndvi || [], mr = Math.max(1, ...d.rainA, ...d.et0A);
         return `<h5 class="z-h">${esc(T("rainNeed"))}</h5><div class="z-rn">${[...Array(12)].map((_, i) => `<button type="button" class="${i === m ? "on" : ""}" data-dvsel="${i}" aria-label="${esc(MLONG(i))}"><i class="r" style="height:${(d.rainA[i] / mr * 100).toFixed(0)}%"></i><i class="n" style="bottom:${(d.et0A[i] / mr * 100).toFixed(0)}%"></i><span>${MS()[i]}</span></button>`).join("")}</div>
         <p class="a-key"><span><i class="k rn"></i>${esc(T("rainM"))} (CHIRPS)</span><span><i class="k lf"></i>${esc(T("needH"))} (ERA5)</span></p>
-        ${nd.length ? `<h5 class="z-h">${esc(T("ndviH"))}</h5><div class="z-nd">${nd.map((v, i) => `<i class="${i === m ? "on" : ""}" style="height:${(Math.max(0, v) * 100).toFixed(0)}%" title="${MS()[i]}: ${nf(v, 2)}"></i>`).join("")}</div><p class="a-mut">${esc(T("seen")(nf(s.crops, 1)))}</p>` : ""}`; }
+        ${nd.length ? `<h5 class="z-h">${esc(T("ndviH"))}</h5><div class="z-nd">${nd.map((v, i) => `<i class="${i === m ? "on" : ""}" style="height:${(Math.max(0, v) * 100).toFixed(0)}%" title="${MS()[i]}: ${v == null ? "–" : nf(v, 2)}"></i>`).join("")}</div><p class="a-mut">${esc(T("seen")(nf(s.crops, 1)))}</p>` : ""}`; }
       case "rank": return `<div class="dv-opts-list">${d.r.map(({ c: y, s: sc, no }) => `<div class="dv-optc${y.id === f.rot ? " cur" : ""}${no ? " no" : ""}"><div class="dv-optt"><b>${esc(L(y.name))}</b>${no ? `<small class="a-no">${esc(T("notHere"))}</small>` : ""}<small>${esc(L(y.calendar))}</small><span class="sd-chip">${esc(T("fit"))} ${nf(sc, 1)}/5</span>${whyFit(y, f)}</div>
         ${y.id === f.rot ? `<span class="sd-chip lv-low">${esc(T("current"))}</span>` : `<button type="button" class="btn gold" data-use="${y.id}">${esc(T("use"))}</button>`}</div>`).join("")}</div><p class="a-src">${esc(T("rankSrc"))}</p>`;
       case "rib": return `${ribbon(f, c)}<p class="sd-note">${esc(T("tapMonth"))}</p>${planTable(f, c)}<p class="a-src">${esc(T("est"))}</p>`;
@@ -928,7 +928,7 @@ const Dash = (() => {
     return `<section class="t-card t-tiles" aria-labelledby="tTlH"><h3 class="t-k" id="tTlH">${ic("drop", 18)}<span>${esc(T("tilesH"))} · ${esc(MLONG(m))}</span></h3>
       <div class="t-grid">${r != null ? tl("drop", T("tRain"), big(r), "mm", short > 0 ? T("tShort")(short) : T("tOk"), "CHIRPS", short > 0 ? "tc-dry" : "tc-wet", meter(e ? r / e : 1, "m-rain")) : ""}
         ${e != null ? tl("sun", T("tNeed"), big(e), "mm", "ET₀", "ERA5", "tc-need", meter(1, "m-sun")) : ""}
-        ${g != null ? tl("rice", T("tGreen"), nf(g, 2), "", T("tNd"), "NASA MODIS NDVI", "tc-green", meter(g, "m-green")) : ""}</div>
+        ${g != null ? tl("rice", T("tGreen"), nf(g, 2), "", T("tNd"), "NASA HLS-VI NDVI", "tc-green", meter(g, "m-green")) : ""}</div>
       <p class="t-note">${esc(T("tAvg")(nino))}</p></section>`;
   }
   /* pests: Score.monthPest (score.js, checked against build.py), on the plan window, plus the numbers its text names */
