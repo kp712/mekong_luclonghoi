@@ -45,7 +45,7 @@ def parse(meta, series):
 
 
 def get(url):
-    with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "curl/8"}), timeout=60) as r:  # FPMA answers 403 to Python's default agent
+    with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "mekong-rotation-explorer/1.0"}), timeout=60) as r:  # FPMA answers 403 to Python's default agent
         return json.load(r)
 
 

@@ -686,7 +686,7 @@ const dh = f && f.size ? +f.size : parseFloat(load("mre-ha") || "");  /* draft5:
 return dh > 0 ? t("fieldHa")(num(dh), fmt(wt[0] * 10 * dh)) : t("fieldPer")(fmt(wt[0] * 10));
 }
 /* the rice price line (Ahead.price): FAO FPMA Bạc Liêu wholesale, beside the profit figures; says they do not move with it */
-function priceNote(cls = "vs-price") { const p = Ahead.price(); return p ? `<p class="${cls}"><small>${esc(pick(p))} ${esc(p.src)}</small></p>` : "" }
+function priceNote(cls = "vs-price", short = false) { const p = Ahead.price(new Date(), short); return p ? `<p class="${cls}"><small>${esc(pick(p))} ${esc(p.src)}</small></p>` : "" }
 /* each other card against what the farmer grows now: profit and cost for their hectares, and salt months with a crop that salt hurts */
 function vsNow(c, list) {
 const now = (list.find(x => x.c.id === cur) || {}).c;
@@ -736,7 +736,7 @@ const before = c.id === plan.id && risks.length;   // the plan card's risks and 
 return `<article data-plan="${c.id}" class="card ${i === 0 && !c.not_here ? "best" : ""} ${c.id === plan.id ? "isplan" : ""} ${c.id === cur ? "isnow" : ""} ${c.not_here ? "nothere" : ""}" data-id="${c.id}">
 <div class="c-top">${i === 0 && !c.not_here ? `<span class="ribbon">${t("best")}</span>` : ""}<span class="c-tags">${c.id === cur ? `<span class="tag now">${t("yourNow")}</span>` : ""}${c.not_here ? `<span class="tag warn">${t("notHere")}</span>` : ""}</span></div>
 <h3>${esc(pick(c.name))}</h3>
-${vsNow(c, cards)}${priceNote()}
+${vsNow(c, cards)}${priceNote("vs-price", true)}
 ${strip15(c.months, null)}
 ${pickCrop}
 <div class="match">${ring(sc)}<div class="match-txt"><span>${t("match")}</span></div></div>

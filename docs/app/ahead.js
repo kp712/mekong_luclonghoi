@@ -58,12 +58,17 @@ const Ahead = (() => {
   /* Rice price (build.py rice_price, from pipeline/fetch_prices.py): FAO FPMA Bạc Liêu wholesale rice, 5% broken, VND/kg, latest month against its 2020-26 median.
      It sits beside the profit figures but does not move them. Hidden when the latest month is over 3 months old (team choice) or missing. Not a "season ahead" item, so it has no site argument. */
   const PRICE_MONTHS = 3, thou = (n, vi) => String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, vi ? "." : ",");
-  function price(today = new Date()) {
+  function price(today = new Date(), short = false) {
     const p = typeof SITES_JSON !== "undefined" && SITES_JSON.rice_price;
     if (!p) return null;
     const [y, m] = ymd(p.month);
     if ((today.getFullYear() - y) * 12 + today.getMonth() + 1 - m > PRICE_MONTHS) return null;
     const up = p.pct >= 0, pc = num(Math.abs(p.pct)), when = `${MON[m - 1]} ${y}`, n = p.n;
+    if (short) return {  // one line for each planner card
+      en: `Rice price (FAO/VFA, ${when}): ${thou(p.vnd_kg)} ₫/kg, ${up ? "+" : "−"}${pc}% vs 2020–26 median`,
+      vi: `Giá gạo (FAO/VFA, tháng ${m}/${y}): ${thou(p.vnd_kg, true)} ₫/kg, ${up ? "+" : "−"}${num(Math.abs(p.pct), true)}% so với trung vị 2020–26`,
+      src: "FAO FPMA · VFA"
+    };
     return {
       en: `Rice price (Bạc Liêu wholesale, FAO/VFA, ${when}): ${thou(p.vnd_kg)} ₫/kg (milled, 5% broken), ${pc}% ${up ? "above" : "below"} its 2020–26 median (${n} months). Profit figures are fixed published medians; they do not move with this price.`,
       vi: `Giá gạo (bán buôn Bạc Liêu, FAO/VFA, tháng ${m}/${y}): ${thou(p.vnd_kg, true)} ₫/kg (gạo 5% tấm), ${num(Math.abs(p.pct), true)}% ${up ? "cao hơn" : "thấp hơn"} trung vị 2020–26 (${n} tháng). Các số liệu lợi nhuận là trung vị đã công bố, cố định; không thay đổi theo giá này.`,
